@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PictureQr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="PictureQr.Properties.NullText" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="PictureQr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 240</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PictureQr.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PictureQr.Name" xml:space="preserve">
+    <value>PictureQr</value>
+  </data>
+  <data name="&gt;&gt;PictureQr.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PictureQr.Parent" xml:space="preserve">
+    <value>PanelQr</value>
+  </data>
+  <data name="&gt;&gt;PictureQr.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LblScanHint.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="LblScanHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LblScanHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 270</value>
+  </data>
+  <data name="LblScanHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <data name="LblScanHint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="LblScanHint.Text" xml:space="preserve">
+    <value>Open WhatsApp on your phone and scan the QR code</value>
+  </data>
+  <data name="&gt;&gt;LblScanHint.Name" xml:space="preserve">
+    <value>LblScanHint</value>
+  </data>
+  <data name="&gt;&gt;LblScanHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LblScanHint.Parent" xml:space="preserve">
+    <value>PanelQr</value>
+  </data>
+  <data name="&gt;&gt;LblScanHint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PanelQr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 158</value>
+  </data>
+  <data name="PanelQr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 325</value>
+  </data>
+  <data name="PanelQr.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PanelQr.Name" xml:space="preserve">
+    <value>PanelQr</value>
+  </data>
+  <data name="&gt;&gt;PanelQr.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelQr.Parent" xml:space="preserve">
+    <value>TabConnection</value>
+  </data>
+  <data name="&gt;&gt;PanelQr.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LblConnected.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt, style=Bold</value>
+  </data>
+  <data name="LblConnected.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LblConnected.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 31</value>
+  </data>
+  <data name="LblConnected.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 60</value>
+  </data>
+  <data name="LblConnected.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LblConnected.Text" xml:space="preserve">
+    <value>Connected successfully ✓</value>
+  </data>
+  <data name="&gt;&gt;LblConnected.Name" xml:space="preserve">
+    <value>LblConnected</value>
+  </data>
+  <data name="&gt;&gt;LblConnected.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LblConnected.Parent" xml:space="preserve">
+    <value>PanelSuccess</value>
+  </data>
+  <data name="&gt;&gt;LblConnected.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelSuccess.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 43</value>
+  </data>
+  <data name="PanelSuccess.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 110</value>
+  </data>
+  <data name="PanelSuccess.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="PanelSuccess.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;PanelSuccess.Name" xml:space="preserve">
+    <value>PanelSuccess</value>
+  </data>
+  <data name="&gt;&gt;PanelSuccess.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelSuccess.Parent" xml:space="preserve">
+    <value>TabConnection</value>
+  </data>
+  <data name="&gt;&gt;PanelSuccess.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="BtnStartConnection.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BtnStartConnection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 505</value>
+  </data>
+  <data name="BtnStartConnection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 36</value>
+  </data>
+  <data name="BtnStartConnection.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BtnStartConnection.Text" xml:space="preserve">
+    <value>Start Connection / Show QR</value>
+  </data>
+  <data name="&gt;&gt;BtnStartConnection.Name" xml:space="preserve">
+    <value>BtnStartConnection</value>
+  </data>
+  <data name="&gt;&gt;BtnStartConnection.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnStartConnection.Parent" xml:space="preserve">
+    <value>TabConnection</value>
+  </data>
+  <data name="&gt;&gt;BtnStartConnection.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="BtnDisconnect.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BtnDisconnect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>146, 505</value>
+  </data>
+  <data name="BtnDisconnect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 36</value>
+  </data>
+  <data name="BtnDisconnect.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="BtnDisconnect.Text" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="&gt;&gt;BtnDisconnect.Name" xml:space="preserve">
+    <value>BtnDisconnect</value>
+  </data>
+  <data name="&gt;&gt;BtnDisconnect.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnDisconnect.Parent" xml:space="preserve">
+    <value>TabConnection</value>
+  </data>
+  <data name="&gt;&gt;BtnDisconnect.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LblStatus.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LblStatus.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LblStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 12</value>
+  </data>
+  <data name="LblStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 25</value>
+  </data>
+  <data name="LblStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;LblStatus.Name" xml:space="preserve">
+    <value>LblStatus</value>
+  </data>
+  <data name="&gt;&gt;LblStatus.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LblStatus.Parent" xml:space="preserve">
+    <value>TabConnection</value>
+  </data>
+  <data name="&gt;&gt;LblStatus.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TabControl.AppearancePage.Header.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnRefresh.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnRefresh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 505</value>
+  </data>
+  <data name="btnRefresh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 36</value>
+  </data>
+  <data name="btnRefresh.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnRefresh.Text" xml:space="preserve">
+    <value>Refresh Connection</value>
+  </data>
+  <data name="&gt;&gt;btnRefresh.Name" xml:space="preserve">
+    <value>btnRefresh</value>
+  </data>
+  <data name="&gt;&gt;btnRefresh.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnRefresh.Parent" xml:space="preserve">
+    <value>TabConnection</value>
+  </data>
+  <data name="&gt;&gt;btnRefresh.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabConnection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>739, 561</value>
+  </data>
+  <data name="TabConnection.Text" xml:space="preserve">
+    <value>Connection / QR</value>
+  </data>
+  <data name="&gt;&gt;TabConnection.Name" xml:space="preserve">
+    <value>TabConnection</value>
+  </data>
+  <data name="&gt;&gt;TabConnection.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TabConnection.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabConnection.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>744, 589</value>
+  </data>
+  <data name="TabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="GridQueue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="GridQueue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ViewQueue.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ViewQueue.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="GridQueue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>739, 561</value>
+  </data>
+  <data name="GridQueue.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;GridQueue.Name" xml:space="preserve">
+    <value>GridQueue</value>
+  </data>
+  <data name="&gt;&gt;GridQueue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridQueue.Parent" xml:space="preserve">
+    <value>TabQueue</value>
+  </data>
+  <data name="&gt;&gt;GridQueue.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BtnRefreshQueue.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="BtnRefreshQueue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 390</value>
+  </data>
+  <data name="BtnRefreshQueue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 28</value>
+  </data>
+  <data name="BtnRefreshQueue.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="BtnRefreshQueue.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="&gt;&gt;BtnRefreshQueue.Name" xml:space="preserve">
+    <value>BtnRefreshQueue</value>
+  </data>
+  <data name="&gt;&gt;BtnRefreshQueue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnRefreshQueue.Parent" xml:space="preserve">
+    <value>TabQueue</value>
+  </data>
+  <data name="&gt;&gt;BtnRefreshQueue.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtnDeleteFromQueue.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="BtnDeleteFromQueue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 390</value>
+  </data>
+  <data name="BtnDeleteFromQueue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 28</value>
+  </data>
+  <data name="BtnDeleteFromQueue.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BtnDeleteFromQueue.Text" xml:space="preserve">
+    <value>Delete Selected</value>
+  </data>
+  <data name="&gt;&gt;BtnDeleteFromQueue.Name" xml:space="preserve">
+    <value>BtnDeleteFromQueue</value>
+  </data>
+  <data name="&gt;&gt;BtnDeleteFromQueue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnDeleteFromQueue.Parent" xml:space="preserve">
+    <value>TabQueue</value>
+  </data>
+  <data name="&gt;&gt;BtnDeleteFromQueue.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TabQueue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>739, 561</value>
+  </data>
+  <data name="TabQueue.Text" xml:space="preserve">
+    <value>Queue</value>
+  </data>
+  <data name="&gt;&gt;TabQueue.Name" xml:space="preserve">
+    <value>TabQueue</value>
+  </data>
+  <data name="&gt;&gt;TabQueue.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TabQueue.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabQueue.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GridFailed.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="GridFailed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ViewFailed.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ViewFailed.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="GridFailed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>739, 561</value>
+  </data>
+  <data name="GridFailed.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;GridFailed.Name" xml:space="preserve">
+    <value>GridFailed</value>
+  </data>
+  <data name="&gt;&gt;GridFailed.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridFailed.Parent" xml:space="preserve">
+    <value>TabFailed</value>
+  </data>
+  <data name="&gt;&gt;GridFailed.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BtnRefreshFailed.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="BtnRefreshFailed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 390</value>
+  </data>
+  <data name="BtnRefreshFailed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 28</value>
+  </data>
+  <data name="BtnRefreshFailed.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="BtnRefreshFailed.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="&gt;&gt;BtnRefreshFailed.Name" xml:space="preserve">
+    <value>BtnRefreshFailed</value>
+  </data>
+  <data name="&gt;&gt;BtnRefreshFailed.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnRefreshFailed.Parent" xml:space="preserve">
+    <value>TabFailed</value>
+  </data>
+  <data name="&gt;&gt;BtnRefreshFailed.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtnRetryFailed.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="BtnRetryFailed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 390</value>
+  </data>
+  <data name="BtnRetryFailed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 28</value>
+  </data>
+  <data name="BtnRetryFailed.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BtnRetryFailed.Text" xml:space="preserve">
+    <value>Retry All</value>
+  </data>
+  <data name="&gt;&gt;BtnRetryFailed.Name" xml:space="preserve">
+    <value>BtnRetryFailed</value>
+  </data>
+  <data name="&gt;&gt;BtnRetryFailed.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnRetryFailed.Parent" xml:space="preserve">
+    <value>TabFailed</value>
+  </data>
+  <data name="&gt;&gt;BtnRetryFailed.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TabFailed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>739, 561</value>
+  </data>
+  <data name="TabFailed.Text" xml:space="preserve">
+    <value>Failed Messages</value>
+  </data>
+  <data name="&gt;&gt;TabFailed.Name" xml:space="preserve">
+    <value>TabFailed</value>
+  </data>
+  <data name="&gt;&gt;TabFailed.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TabFailed.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabFailed.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LblSendNumber.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LblSendNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 134</value>
+  </data>
+  <data name="LblSendNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 15</value>
+  </data>
+  <data name="LblSendNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LblSendNumber.Text" xml:space="preserve">
+    <value>Mobile number:</value>
+  </data>
+  <data name="&gt;&gt;LblSendNumber.Name" xml:space="preserve">
+    <value>LblSendNumber</value>
+  </data>
+  <data name="&gt;&gt;LblSendNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LblSendNumber.Parent" xml:space="preserve">
+    <value>TabSend</value>
+  </data>
+  <data name="&gt;&gt;LblSendNumber.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TxtSendNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 155</value>
+  </data>
+  <data name="TxtSendNumber.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TxtSendNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 22</value>
+  </data>
+  <data name="TxtSendNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;TxtSendNumber.Name" xml:space="preserve">
+    <value>TxtSendNumber</value>
+  </data>
+  <data name="&gt;&gt;TxtSendNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TxtSendNumber.Parent" xml:space="preserve">
+    <value>TabSend</value>
+  </data>
+  <data name="&gt;&gt;TxtSendNumber.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LblSendMessage.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LblSendMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 188</value>
+  </data>
+  <data name="LblSendMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="LblSendMessage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="LblSendMessage.Text" xml:space="preserve">
+    <value>Message:</value>
+  </data>
+  <data name="&gt;&gt;LblSendMessage.Name" xml:space="preserve">
+    <value>LblSendMessage</value>
+  </data>
+  <data name="&gt;&gt;LblSendMessage.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LblSendMessage.Parent" xml:space="preserve">
+    <value>TabSend</value>
+  </data>
+  <data name="&gt;&gt;LblSendMessage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TxtSendMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 209</value>
+  </data>
+  <data name="TxtSendMessage.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TxtSendMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 120</value>
+  </data>
+  <data name="TxtSendMessage.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;TxtSendMessage.Name" xml:space="preserve">
+    <value>TxtSendMessage</value>
+  </data>
+  <data name="&gt;&gt;TxtSendMessage.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TxtSendMessage.Parent" xml:space="preserve">
+    <value>TabSend</value>
+  </data>
+  <data name="&gt;&gt;TxtSendMessage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LblSendFile.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LblSendFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 340</value>
+  </data>
+  <data name="LblSendFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 15</value>
+  </data>
+  <data name="LblSendFile.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="LblSendFile.Text" xml:space="preserve">
+    <value>Attachment (optional):</value>
+  </data>
+  <data name="&gt;&gt;LblSendFile.Name" xml:space="preserve">
+    <value>LblSendFile</value>
+  </data>
+  <data name="&gt;&gt;LblSendFile.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LblSendFile.Parent" xml:space="preserve">
+    <value>TabSend</value>
+  </data>
+  <data name="&gt;&gt;LblSendFile.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="TxtSendFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 361</value>
+  </data>
+  <data name="TxtSendFile.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TxtSendFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 22</value>
+  </data>
+  <data name="TxtSendFile.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;TxtSendFile.Name" xml:space="preserve">
+    <value>TxtSendFile</value>
+  </data>
+  <data name="&gt;&gt;TxtSendFile.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ButtonEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TxtSendFile.Parent" xml:space="preserve">
+    <value>TabSend</value>
+  </data>
+  <data name="&gt;&gt;TxtSendFile.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="BtnSendMessage.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BtnSendMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 398</value>
+  </data>
+  <data name="BtnSendMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 28</value>
+  </data>
+  <data name="BtnSendMessage.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="BtnSendMessage.Text" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="&gt;&gt;BtnSendMessage.Name" xml:space="preserve">
+    <value>BtnSendMessage</value>
+  </data>
+  <data name="&gt;&gt;BtnSendMessage.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnSendMessage.Parent" xml:space="preserve">
+    <value>TabSend</value>
+  </data>
+  <data name="&gt;&gt;BtnSendMessage.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="TabSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>739, 561</value>
+  </data>
+  <data name="TabSend.Text" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="&gt;&gt;TabSend.Name" xml:space="preserve">
+    <value>TabSend</value>
+  </data>
+  <data name="&gt;&gt;TabSend.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TabSend.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabSend.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Name" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>744, 589</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>WhatsApp - Device Connection</value>
+  </data>
+  <data name="&gt;&gt;ViewQueue.Name" xml:space="preserve">
+    <value>ViewQueue</value>
+  </data>
+  <data name="&gt;&gt;ViewQueue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ViewFailed.Name" xml:space="preserve">
+    <value>ViewFailed</value>
+  </data>
+  <data name="&gt;&gt;ViewFailed.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>WhatsAppForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

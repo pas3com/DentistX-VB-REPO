@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Splitter1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Splitter1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 153</value>
+  </data>
+  <data name="DGV.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="DGV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="dgView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="dgView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="colRowNum.Caption" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="colRowNum.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRowNum.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colLabName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colLabName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colAdres.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colAdres.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colPhone.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPhone.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colMobile.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colMobile.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="colWhatsPrefix.Caption" xml:space="preserve">
+    <value>WhatsApp Prefix</value>
+  </data>
+  <data name="colWhatsPrefix.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colWhatsPrefix.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colWhatsApp.Caption" xml:space="preserve">
+    <value>WhatsApp</value>
+  </data>
+  <data name="colWhatsApp.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colWhatsApp.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="bbiPrintPreview.Caption" xml:space="preserve">
+    <value>Print Preview</value>
+  </data>
+  <data name="bbiPrintPreview.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bAdd.Caption" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="bAdd.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bEdit.Caption" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="bEdit.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bDelete.Caption" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="bDelete.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bRefresh.Caption" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="bRefresh.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bCancel.Caption" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="bCancel.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="ribbonControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ribbonControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 153</value>
+  </data>
+  <data name="ribbonStatusBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 739</value>
+  </data>
+  <data name="ribbonStatusBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 25</value>
+  </data>
+  <data name="&gt;&gt;ribbonStatusBar.Name" xml:space="preserve">
+    <value>ribbonStatusBar</value>
+  </data>
+  <data name="&gt;&gt;ribbonStatusBar.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonStatusBar, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ribbonStatusBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ribbonStatusBar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ribbonControl.Name" xml:space="preserve">
+    <value>ribbonControl</value>
+  </data>
+  <data name="&gt;&gt;ribbonControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonControl, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ribbonControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ribbonControl.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="DGV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 293</value>
+  </data>
+  <data name="DGV.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DGV.Name" xml:space="preserve">
+    <value>DGV</value>
+  </data>
+  <data name="&gt;&gt;DGV.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DGV.Parent" xml:space="preserve">
+    <value>Splitter1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;DGV.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Name" xml:space="preserve">
+    <value>Splitter1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Parent" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblLabWhats.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="lblLabWhats.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblLabWhats.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblLabWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>789, 90</value>
+  </data>
+  <data name="lblLabWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 22</value>
+  </data>
+  <data name="lblLabWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="&gt;&gt;lblLabWhats.Name" xml:space="preserve">
+    <value>lblLabWhats</value>
+  </data>
+  <data name="&gt;&gt;lblLabWhats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblLabWhats.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;lblLabWhats.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labWhatsTextEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labWhatsTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 90</value>
+  </data>
+  <data name="labWhatsTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="labWhatsTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="labWhatsTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="&gt;&gt;labWhatsTextEdit.Name" xml:space="preserve">
+    <value>labWhatsTextEdit</value>
+  </data>
+  <data name="&gt;&gt;labWhatsTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labWhatsTextEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;labWhatsTextEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labWhatsLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="labWhatsLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="labWhatsLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labWhatsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 90</value>
+  </data>
+  <data name="labWhatsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="labWhatsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="labWhatsLabel.Text" xml:space="preserve">
+    <value>WhatsApp #</value>
+  </data>
+  <data name="&gt;&gt;labWhatsLabel.Name" xml:space="preserve">
+    <value>labWhatsLabel</value>
+  </data>
+  <data name="&gt;&gt;labWhatsLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labWhatsLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;labWhatsLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labWhatsPrefixCombo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labWhatsPrefixCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 90</value>
+  </data>
+  <data name="labWhatsPrefixCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="labWhatsPrefixCombo.Properties.AppearanceDropDown.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="labWhatsPrefixCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="labWhatsPrefixCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="labWhatsPrefixCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="&gt;&gt;labWhatsPrefixCombo.Name" xml:space="preserve">
+    <value>labWhatsPrefixCombo</value>
+  </data>
+  <data name="&gt;&gt;labWhatsPrefixCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labWhatsPrefixCombo.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;labWhatsPrefixCombo.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labWhatsPrefixLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="labWhatsPrefixLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="labWhatsPrefixLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labWhatsPrefixLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 90</value>
+  </data>
+  <data name="labWhatsPrefixLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="labWhatsPrefixLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="labWhatsPrefixLabel.Text" xml:space="preserve">
+    <value>WhatsApp prefix</value>
+  </data>
+  <data name="&gt;&gt;labWhatsPrefixLabel.Name" xml:space="preserve">
+    <value>labWhatsPrefixLabel</value>
+  </data>
+  <data name="&gt;&gt;labWhatsPrefixLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labWhatsPrefixLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;labWhatsPrefixLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="LabIDLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabIDLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabIDLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="LabIDLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 12</value>
+  </data>
+  <data name="LabIDLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="LabIDLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabIDLabel.Text" xml:space="preserve">
+    <value>LabID</value>
+  </data>
+  <data name="&gt;&gt;LabIDLabel.Name" xml:space="preserve">
+    <value>LabIDLabel</value>
+  </data>
+  <data name="&gt;&gt;LabIDLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabIDLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;LabIDLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LabIDSpinEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="LabIDSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabIDSpinEdit.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="LabIDSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 12</value>
+  </data>
+  <data name="LabIDSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabIDSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="LabIDSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LabIDSpinEdit.Name" xml:space="preserve">
+    <value>LabIDSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;LabIDSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabIDSpinEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;LabIDSpinEdit.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="LabNameLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabNameLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabNameLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="LabNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 12</value>
+  </data>
+  <data name="LabNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="LabNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabNameLabel.Text" xml:space="preserve">
+    <value>LabName</value>
+  </data>
+  <data name="&gt;&gt;LabNameLabel.Name" xml:space="preserve">
+    <value>LabNameLabel</value>
+  </data>
+  <data name="&gt;&gt;LabNameLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabNameLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;LabNameLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LabNameTextEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="LabNameTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 12</value>
+  </data>
+  <data name="LabNameTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabNameTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="LabNameTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LabNameTextEdit.Name" xml:space="preserve">
+    <value>LabNameTextEdit</value>
+  </data>
+  <data name="&gt;&gt;LabNameTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabNameTextEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;LabNameTextEdit.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="AdresLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="AdresLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="AdresLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="AdresLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 38</value>
+  </data>
+  <data name="AdresLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="AdresLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="AdresLabel.Text" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="&gt;&gt;AdresLabel.Name" xml:space="preserve">
+    <value>AdresLabel</value>
+  </data>
+  <data name="&gt;&gt;AdresLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AdresLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;AdresLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="AdresTextEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="AdresTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 38</value>
+  </data>
+  <data name="AdresTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="AdresTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>439, 22</value>
+  </data>
+  <data name="AdresTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;AdresTextEdit.Name" xml:space="preserve">
+    <value>AdresTextEdit</value>
+  </data>
+  <data name="&gt;&gt;AdresTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AdresTextEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;AdresTextEdit.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="PhoneLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="PhoneLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="PhoneLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 64</value>
+  </data>
+  <data name="PhoneLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 21</value>
+  </data>
+  <data name="PhoneLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="PhoneLabel.Text" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="&gt;&gt;PhoneLabel.Name" xml:space="preserve">
+    <value>PhoneLabel</value>
+  </data>
+  <data name="&gt;&gt;PhoneLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PhoneLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;PhoneLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="PhoneTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 64</value>
+  </data>
+  <data name="PhoneTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="PhoneTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="PhoneTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;PhoneTextEdit.Name" xml:space="preserve">
+    <value>PhoneTextEdit</value>
+  </data>
+  <data name="&gt;&gt;PhoneTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PhoneTextEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;PhoneTextEdit.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="MobileLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="MobileLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="MobileLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 64</value>
+  </data>
+  <data name="MobileLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 21</value>
+  </data>
+  <data name="MobileLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="MobileLabel.Text" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="&gt;&gt;MobileLabel.Name" xml:space="preserve">
+    <value>MobileLabel</value>
+  </data>
+  <data name="&gt;&gt;MobileLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MobileLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;MobileLabel.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="MobileTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 64</value>
+  </data>
+  <data name="MobileTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="MobileTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="MobileTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;MobileTextEdit.Name" xml:space="preserve">
+    <value>MobileTextEdit</value>
+  </data>
+  <data name="&gt;&gt;MobileTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MobileTextEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;MobileTextEdit.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="butApply.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="butApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>283, 67</value>
+  </data>
+  <data name="butApply.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="butApply.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="butApply.Text" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="&gt;&gt;butApply.Name" xml:space="preserve">
+    <value>butApply</value>
+  </data>
+  <data name="&gt;&gt;butApply.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;butApply.Parent" xml:space="preserve">
+    <value>TLPBut</value>
+  </data>
+  <data name="&gt;&gt;butApply.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="butCancel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="butCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>445, 67</value>
+  </data>
+  <data name="butCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="butCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="butCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Name" xml:space="preserve">
+    <value>butCancel</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Parent" xml:space="preserve">
+    <value>TLPBut</value>
+  </data>
+  <data name="&gt;&gt;butCancel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="butClose.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="butClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 67</value>
+  </data>
+  <data name="butClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="butClose.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="butClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="&gt;&gt;butClose.Name" xml:space="preserve">
+    <value>butClose</value>
+  </data>
+  <data name="&gt;&gt;butClose.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;butClose.Parent" xml:space="preserve">
+    <value>TLPBut</value>
+  </data>
+  <data name="&gt;&gt;butClose.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TLPBut.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TLPBut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 116</value>
+  </data>
+  <data name="TLPBut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>966, 158</value>
+  </data>
+  <data name="TLPBut.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;TLPBut.Name" xml:space="preserve">
+    <value>TLPBut</value>
+  </data>
+  <data name="&gt;&gt;TLPBut.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TLPBut.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;TLPBut.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="TableData.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TableData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="TableData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 287</value>
+  </data>
+  <data name="TableData.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TableData.Name" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;TableData.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TableData.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;TableData.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Name" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Parent" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Splitter1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 586</value>
+  </data>
+  <data name="Splitter1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Name" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>992, 764</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Laboratories</value>
+  </data>
+  <data name="&gt;&gt;dgView.Name" xml:space="preserve">
+    <value>dgView</value>
+  </data>
+  <data name="&gt;&gt;dgView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Name" xml:space="preserve">
+    <value>colRowNum</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colLabID.Name" xml:space="preserve">
+    <value>colLabID</value>
+  </data>
+  <data name="&gt;&gt;colLabID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colLabName.Name" xml:space="preserve">
+    <value>colLabName</value>
+  </data>
+  <data name="&gt;&gt;colLabName.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colAdres.Name" xml:space="preserve">
+    <value>colAdres</value>
+  </data>
+  <data name="&gt;&gt;colAdres.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPhone.Name" xml:space="preserve">
+    <value>colPhone</value>
+  </data>
+  <data name="&gt;&gt;colPhone.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colMobile.Name" xml:space="preserve">
+    <value>colMobile</value>
+  </data>
+  <data name="&gt;&gt;colMobile.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bbiPrintPreview.Name" xml:space="preserve">
+    <value>bbiPrintPreview</value>
+  </data>
+  <data name="&gt;&gt;bbiPrintPreview.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bsiRecordsCount.Name" xml:space="preserve">
+    <value>bsiRecordsCount</value>
+  </data>
+  <data name="&gt;&gt;bsiRecordsCount.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarStaticItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bAdd.Name" xml:space="preserve">
+    <value>bAdd</value>
+  </data>
+  <data name="&gt;&gt;bAdd.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bEdit.Name" xml:space="preserve">
+    <value>bEdit</value>
+  </data>
+  <data name="&gt;&gt;bEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bDelete.Name" xml:space="preserve">
+    <value>bDelete</value>
+  </data>
+  <data name="&gt;&gt;bDelete.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bRefresh.Name" xml:space="preserve">
+    <value>bRefresh</value>
+  </data>
+  <data name="&gt;&gt;bRefresh.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bCancel.Name" xml:space="preserve">
+    <value>bCancel</value>
+  </data>
+  <data name="&gt;&gt;bCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ribbonPage1.Name" xml:space="preserve">
+    <value>ribbonPage1</value>
+  </data>
+  <data name="&gt;&gt;ribbonPage1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ribbonPageGroup1.Name" xml:space="preserve">
+    <value>ribbonPageGroup1</value>
+  </data>
+  <data name="&gt;&gt;ribbonPageGroup1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ribbonPageGroup2.Name" xml:space="preserve">
+    <value>ribbonPageGroup2</value>
+  </data>
+  <data name="&gt;&gt;ribbonPageGroup2.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colWhatsApp.Name" xml:space="preserve">
+    <value>colWhatsApp</value>
+  </data>
+  <data name="&gt;&gt;colWhatsApp.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colWhatsPrefix.Name" xml:space="preserve">
+    <value>colWhatsPrefix</value>
+  </data>
+  <data name="&gt;&gt;colWhatsPrefix.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmLab</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonForm, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1057, 12</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 32</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>إنشاء فاتورة</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>649, 36</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>732, 38</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 17</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>الضريبة</value>
+  </data>
+  <data name="lblPatientID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>71, 38</value>
+  </data>
+  <data name="lblPatientID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 17</value>
+  </data>
+  <data name="lblPatientID.Text" xml:space="preserve">
+    <value>رقم المريض</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 39</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 15</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>المريض</value>
+  </data>
+  <data name="cbPatients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 35</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>المريض</value>
+  </data>
+  <data name="colSelect.Caption" xml:space="preserve">
+    <value>تحديد</value>
+  </data>
+  <data name="colTrtID.Caption" xml:space="preserve">
+    <value>رقم العلاج</value>
+  </data>
+  <data name="colDate.Caption" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="colDetail.Caption" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="colValue.Caption" xml:space="preserve">
+    <value>القيمة</value>
+  </data>
+  <data name="colDiscount.Caption" xml:space="preserve">
+    <value>الخصم</value>
+  </data>
+  <data name="colInvoiced.Caption" xml:space="preserve">
+    <value>أضيفت للفاتورة ؟؟</value>
+  </data>
+  <data name="TreatPage.Text" xml:space="preserve">
+    <value>إختيار العلاجات</value>
+  </data>
+  <data name="colSelectp.Caption" xml:space="preserve">
+    <value>تحديد</value>
+  </data>
+  <data name="colPayType.Caption" xml:space="preserve">
+    <value>نوع الدفعة</value>
+  </data>
+  <data name="colPayDatep.Caption" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="colNotesp.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="colPayValuep.Caption" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="colInvoicedp.Caption" xml:space="preserve">
+    <value>أضيفت للفاتورة ؟؟</value>
+  </data>
+  <data name="PaymentPage.Text" xml:space="preserve">
+    <value>إختيار الدفعات</value>
+  </data>
+  <data name="btnSelectNone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>571, 108</value>
+  </data>
+  <data name="btnSelectNone.Text" xml:space="preserve">
+    <value>إلغاء التحديد</value>
+  </data>
+  <data name="btnSelectAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>681, 108</value>
+  </data>
+  <data name="btnSelectAll.Text" xml:space="preserve">
+    <value>تحديد الكل</value>
+  </data>
+  <data name="lblSelectedPayCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>599, 71</value>
+  </data>
+  <data name="lblSelectedPayCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 17</value>
+  </data>
+  <data name="lblSelectedPayCount.Text" xml:space="preserve">
+    <value>0 دفعة / ات تم إختيارها</value>
+  </data>
+  <data name="lblSelectedTrtCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>605, 31</value>
+  </data>
+  <data name="lblSelectedTrtCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 17</value>
+  </data>
+  <data name="lblSelectedTrtCount.Text" xml:space="preserve">
+    <value>0 علاج / ات تم إختيارها</value>
+  </data>
+  <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>377, 77</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>قم باختيار العلاجات و الدفعات التي سيتم إضافتها للفاتورة</value>
+  </data>
+  <data name="Label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 160</value>
+  </data>
+  <data name="Label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 17</value>
+  </data>
+  <data name="Label10.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="dtpDueDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 125</value>
+  </data>
+  <data name="Label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 125</value>
+  </data>
+  <data name="Label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 17</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value>تاريخ الاستحقاق</value>
+  </data>
+  <data name="dtpInvoiceDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 90</value>
+  </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 90</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 17</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>تاريخ الفاتورة</value>
+  </data>
+  <data name="lblInvoiceNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>208, 51</value>
+  </data>
+  <data name="lblInvoiceNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 17</value>
+  </data>
+  <data name="lblInvoiceNumber.Text" xml:space="preserve">
+    <value>سوف ينشأ عند التخزين</value>
+  </data>
+  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>276, 31</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 17</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>رقم الفاتورة</value>
+  </data>
+  <data name="GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 77</value>
+  </data>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>تفاصيل الفاتورة</value>
+  </data>
+  <data name="chkTax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 98</value>
+  </data>
+  <data name="chkTax.Properties.Caption" xml:space="preserve">
+    <value>شامل الضريبة</value>
+  </data>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>228, 174</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 21</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>المجموع النهائي :</value>
+  </data>
+  <data name="lblTaxAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 19</value>
+  </data>
+  <data name="LabelTax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>228, 99</value>
+  </data>
+  <data name="LabelTax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 17</value>
+  </data>
+  <data name="lblTotalPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 19</value>
+  </data>
+  <data name="lblDiscount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 19</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>227, 142</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 17</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>مجموع الدفعات :</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>228, 60</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 17</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>الخصم :</value>
+  </data>
+  <data name="lblSubTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 19</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>228, 30</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 17</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>المجموع :</value>
+  </data>
+  <data name="GroupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 356</value>
+  </data>
+  <data name="GroupBox4.Text" xml:space="preserve">
+    <value>ملخص الفاتورة</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>إنشاء فاتورة</value>
+  </data>
+</root>

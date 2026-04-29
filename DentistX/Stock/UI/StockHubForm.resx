@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnBuy.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnProducts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 127</value>
+  </data>
+  <data name="btnBuy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="btnBuy.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnPayments.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnProducts.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;btnDashboard.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBuy.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnDashboard.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnProducts.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="&gt;&gt;btnSupplierAccountStatement.Name" xml:space="preserve">
+    <value>btnSupplierAccountStatement</value>
+  </data>
+  <data name="&gt;&gt;btnPayments.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;btnTracking.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnExpenses.Text" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="btnSupplierAccountStatement.Text" xml:space="preserve">
+    <value>Supplier Account Statement</value>
+  </data>
+  <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnTracking.Text" xml:space="preserve">
+    <value>Stock Tracking</value>
+  </data>
+  <data name="btnExpenses.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnDashboard.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;btnBuy.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="btnSuppliers.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="btnProducts.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;btnProducts.Name" xml:space="preserve">
+    <value>btnProducts</value>
+  </data>
+  <data name="&gt;&gt;btnPayments.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnSuppliers.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="panel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnProducts.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnInvoices.Name" xml:space="preserve">
+    <value>btnInvoices</value>
+  </data>
+  <data name="btnDashboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="&gt;&gt;btnProducts.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnExpenses.Name" xml:space="preserve">
+    <value>btnExpenses</value>
+  </data>
+  <data name="btnTracking.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnSuppliers.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnExpenses.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;btnInvoices.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnInvoices.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnInvoices.Text" xml:space="preserve">
+    <value>Invoices</value>
+  </data>
+  <data name="&gt;&gt;btnInvoices.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;btnSuppliers.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnBuy.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnTracking.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnInvoices.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnSuppliers.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnPayments.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnSupplierAccountStatement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnPayments.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnTracking.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="btnDashboard.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnInvoices.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnBuy.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnBuy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 185</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Stock Management</value>
+  </data>
+  <data name="btnProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="&gt;&gt;btnSupplierAccountStatement.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btnExpenses.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btnBuy.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnExpenses.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnSuppliers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="btnPayments.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnProducts.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnTracking.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnPayments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 290</value>
+  </data>
+  <data name="&gt;&gt;panel.Name" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;btnProducts.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;btnPayments.Name" xml:space="preserve">
+    <value>btnPayments</value>
+  </data>
+  <data name="btnPayments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="&gt;&gt;btnSuppliers.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>490, 528</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>490, 528</value>
+  </data>
+  <data name="btnDashboard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 12</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnBuy.Text" xml:space="preserve">
+    <value>Buy Invoice</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>StockHubForm</value>
+  </data>
+  <data name="btnSupplierAccountStatement.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnPayments.Text" xml:space="preserve">
+    <value>Supplier Payments</value>
+  </data>
+  <data name="btnExpenses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 405</value>
+  </data>
+  <data name="btnSuppliers.Text" xml:space="preserve">
+    <value>Suppliers</value>
+  </data>
+  <data name="&gt;&gt;btnDashboard.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="btnInvoices.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btnTracking.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="btnInvoices.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnExpenses.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="btnSupplierAccountStatement.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="btnDashboard.Text" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="&gt;&gt;panel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnExpenses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="btnSuppliers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 70</value>
+  </data>
+  <data name="&gt;&gt;btnSuppliers.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;btnTracking.Name" xml:space="preserve">
+    <value>btnTracking</value>
+  </data>
+  <data name="&gt;&gt;btnSupplierAccountStatement.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnDashboard.Name" xml:space="preserve">
+    <value>btnDashboard</value>
+  </data>
+  <data name="btnSupplierAccountStatement.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="panel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnTracking.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnSuppliers.Name" xml:space="preserve">
+    <value>btnSuppliers</value>
+  </data>
+  <data name="btnDashboard.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnInvoices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 238</value>
+  </data>
+  <data name="&gt;&gt;btnSupplierAccountStatement.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="btnExpenses.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnPayments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;btnExpenses.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnDashboard.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnTracking.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 348</value>
+  </data>
+  <data name="btnInvoices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 46</value>
+  </data>
+  <data name="&gt;&gt;btnBuy.Name" xml:space="preserve">
+    <value>btnBuy</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="btnTracking.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnSupplierAccountStatement.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 457</value>
+  </data>
+  <data name="&gt;&gt;panel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnSupplierAccountStatement.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnProducts.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

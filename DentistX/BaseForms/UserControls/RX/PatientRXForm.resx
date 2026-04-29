@@ -1,0 +1,896 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1208, 622</value>
+  </data>
+  <data name="&gt;&gt;btnEditRxDetail.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="grpList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 5</value>
+  </data>
+  <data name="&gt;&gt;grpShape.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ToolStripTextBox1.Name" xml:space="preserve">
+    <value>ToolStripTextBox1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ToolStripButton5.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnPrintRX.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;MedicineGroupsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btSaveRX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>509, 532</value>
+  </data>
+  <data name="btSaveRX.Text" xml:space="preserve">
+    <value>Save RX</value>
+  </data>
+  <data name="ToolStripButton6.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;grpItems.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="grpItems.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 215</value>
+  </data>
+  <data name="&gt;&gt;grpItems.Name" xml:space="preserve">
+    <value>grpItems</value>
+  </data>
+  <data name="ToolStripLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 15</value>
+  </data>
+  <data name="btPrintFullRX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>611, 503</value>
+  </data>
+  <data name="&gt;&gt;RxFlyBindingSource.Name" xml:space="preserve">
+    <value>RxFlyBindingSource</value>
+  </data>
+  <data name="RxDel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABa0lEQVQ4T7WQTSjDYRzH/1flrZSLC0o5
+        IJOYkEyG5CUyjci8JQcOi4RcdnAg5UIOuEgOJCXlRLLTvM1ra0p/aVppF/zj8nzEEJ61pvhcv9/vp+f5
+        KcpfgOsYuqvBscPPLCRYmUd0liMsRthaDyrh5gqWZr53WFuAXhOi1YhoL4W5iYCS1xcKSzHYeuScE4df
+        UpuJMOeCteFbSQx1IEzZMDkij7/C4jSiLPlNxHAHuE9hrN8vHesPPv6AKxc0Fvi/VJ2BqNNDX1No4w/Y
+        20WY9IiKVKjS/XLsUcGcB1kxaLpo7nWRUJMZmgTPNZhyID8OX1sFnB++HdebEgnLs8El3Hmh2cBDYTzu
+        olR89u3PAaNWnEkRaMf7gSU8P8FgGxgSOEqJxbexKhVvS9JQWyrRbq6lTGF3Ey07FmdiGGpXPWiPcklR
+        lJ2kKDSnQ86YsqEmh+M2poN6KRfe0Ua64exAzrlwwvgAHNjl8D95AYojAxxWObZsAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;btSaveRX.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Ultra.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpScience.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="PatientrxBindingNavigator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>498, 568</value>
+  </data>
+  <data name="btPrintFullRX.Text" xml:space="preserve">
+    <value>Print Full RX</value>
+  </data>
+  <data name="grpItems.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnAddToRX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 34</value>
+  </data>
+  <data name="grpItems.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEditRxDetail.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ToolStripButton5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripTextBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="btnEditRxDetail.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ToolStripButton5.Name" xml:space="preserve">
+    <value>ToolStripButton5</value>
+  </data>
+  <data name="ToolStripTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 23</value>
+  </data>
+  <data name="btNewRX.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ToolStripLabel1.ToolTipText" xml:space="preserve">
+    <value>Total number of items</value>
+  </data>
+  <data name="&gt;&gt;grpDoze.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="TV.TabIndex" type="System.Int32, mscorlib">
+    <value>151</value>
+  </data>
+  <data name="TV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 275</value>
+  </data>
+  <data name="btnPrintRX.Text" xml:space="preserve">
+    <value>Print RX</value>
+  </data>
+  <data name="btnAddToRX.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnEditRxDetail.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="grpFamily.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnPrintRX.Name" xml:space="preserve">
+    <value>btnPrintRX</value>
+  </data>
+  <data name="&gt;&gt;PatientrxBindingNavigator.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="grpItems.Location" type="System.Drawing.Point, System.Drawing">
+    <value>608, 5</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>PatientRXForm</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">
+    <value>ToolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;grpShape.Name" xml:space="preserve">
+    <value>grpShape</value>
+  </data>
+  <data name="grpShape.Location" type="System.Drawing.Point, System.Drawing">
+    <value>776, 5</value>
+  </data>
+  <data name="btnAddToRX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>484, 317</value>
+  </data>
+  <data name="&gt;&gt;btNewRX.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;RxSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btNewRX.Text" xml:space="preserve">
+    <value>New RX</value>
+  </data>
+  <data name="&gt;&gt;btnAddToRX.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="RxSave.Text" xml:space="preserve">
+    <value>Save Data</value>
+  </data>
+  <data name="&gt;&gt;grpList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="TV.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11pt, style=Bold</value>
+  </data>
+  <data name="ToolStripButton5.Text" xml:space="preserve">
+    <value>Move next</value>
+  </data>
+  <data name="Ultra.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btSaveRX.Name" xml:space="preserve">
+    <value>btSaveRX</value>
+  </data>
+  <data name="ToolStripButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="&gt;&gt;RxBodyBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MedicineShapeBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEditRxDetail.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ToolStripButton6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="Ultra.Location" type="System.Drawing.Point, System.Drawing">
+    <value>887, 226</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>854, 43</value>
+  </data>
+  <data name="&gt;&gt;btnPrintRX.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Ultra.Name" xml:space="preserve">
+    <value>Ultra</value>
+  </data>
+  <data name="btPrintFullRX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 23</value>
+  </data>
+  <data name="&gt;&gt;RxDel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToolStripTextBox1.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnPrintRX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>611, 475</value>
+  </data>
+  <data name="&gt;&gt;grpFamily.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpList.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="grpDoze.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 215</value>
+  </data>
+  <data name="&gt;&gt;MedicineItemsBindingSource.Name" xml:space="preserve">
+    <value>MedicineItemsBindingSource</value>
+  </data>
+  <data name="btNewRX.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEditRxDetail.Text" xml:space="preserve">
+    <value>Edit Rx Detail</value>
+  </data>
+  <data name="ToolStripButton3.Text" xml:space="preserve">
+    <value>Move first</value>
+  </data>
+  <data name="&gt;&gt;PatientRXVIEWBindingSource.Name" xml:space="preserve">
+    <value>PatientRXVIEWBindingSource</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
+    <value>ToolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;grpItems.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton6.Name" xml:space="preserve">
+    <value>ToolStripButton6</value>
+  </data>
+  <data name="btnEditRxDetail.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>PatientRX</value>
+  </data>
+  <data name="grpList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 215</value>
+  </data>
+  <data name="&gt;&gt;btnAddToRX.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnEditRxDetail.Name" xml:space="preserve">
+    <value>btnEditRxDetail</value>
+  </data>
+  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;ToolStripLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PatientrxBindingNavigator.TabIndex" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="PatientrxBindingNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;grpList.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton4.Name" xml:space="preserve">
+    <value>ToolStripButton4</value>
+  </data>
+  <data name="&gt;&gt;grpDoze.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btNewRX.Name" xml:space="preserve">
+    <value>btNewRX</value>
+  </data>
+  <data name="&gt;&gt;RxSave.Name" xml:space="preserve">
+    <value>RxSave</value>
+  </data>
+  <data name="&gt;&gt;RxDel.Name" xml:space="preserve">
+    <value>RxDel</value>
+  </data>
+  <data name="&gt;&gt;grpScience.Name" xml:space="preserve">
+    <value>grpScience</value>
+  </data>
+  <data name="&gt;&gt;PatientrxBindingNavigator.Name" xml:space="preserve">
+    <value>PatientrxBindingNavigator</value>
+  </data>
+  <data name="&gt;&gt;RxBodyBindingSource.Name" xml:space="preserve">
+    <value>RxBodyBindingSource</value>
+  </data>
+  <data name="&gt;&gt;Patient_RXBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnEditRxDetail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>611, 532</value>
+  </data>
+  <data name="PatientrxBindingNavigator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 28</value>
+  </data>
+  <data name="&gt;&gt;btnAddToRX.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btSaveRX.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RxDel.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnPrintRX.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MedicineShapeBindingSource.Name" xml:space="preserve">
+    <value>MedicineShapeBindingSource</value>
+  </data>
+  <data name="&gt;&gt;ToolStripLabel1.Name" xml:space="preserve">
+    <value>ToolStripLabel1</value>
+  </data>
+  <data name="btNewRX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btSaveRX.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;btPrintFullRX.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="grpShape.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 215</value>
+  </data>
+  <data name="RxDel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="grpFamily.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 215</value>
+  </data>
+  <data name="btSaveRX.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PatientrxBindingNavigator.Text" xml:space="preserve">
+    <value>PatientrxBindingNavigator</value>
+  </data>
+  <data name="&gt;&gt;RxFlyBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TV.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PatientrxBindingNavigator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingNavigator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TV.Name" xml:space="preserve">
+    <value>TV</value>
+  </data>
+  <data name="&gt;&gt;MedicineItemsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>269, 329</value>
+  </data>
+  <data name="&gt;&gt;MedScienceFamilyBindingSource.Name" xml:space="preserve">
+    <value>MedScienceFamilyBindingSource</value>
+  </data>
+  <data name="RxSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="&gt;&gt;grpDoze.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ToolStripButton5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="Ultra.Size" type="System.Drawing.Size, System.Drawing">
+    <value>309, 382</value>
+  </data>
+  <data name="&gt;&gt;btPrintFullRX.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="grpDoze.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Ultra.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;grpDoze.Name" xml:space="preserve">
+    <value>grpDoze</value>
+  </data>
+  <data name="&gt;&gt;MedicineGroupsBindingSource.Name" xml:space="preserve">
+    <value>MedicineGroupsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;PatientRXVIEWBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btNewRX.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpFamily.Name" xml:space="preserve">
+    <value>grpFamily</value>
+  </data>
+  <data name="grpFamily.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PatientrxBindingNavigator.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="btNewRX.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;MedScienceFamilyBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Ultra.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="btPrintFullRX.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnPrintRX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 23</value>
+  </data>
+  <data name="ToolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="&gt;&gt;grpScience.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpFamily.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btSaveRX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;grpShape.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnPrintRX.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="grpShape.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnAddToRX.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ToolStripButton4.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton3.Name" xml:space="preserve">
+    <value>ToolStripButton3</value>
+  </data>
+  <data name="&gt;&gt;TV.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpShape.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grpShape.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ToolStripLabel1.Text" xml:space="preserve">
+    <value>of {0}</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 226</value>
+  </data>
+  <data name="RxSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;TV.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MedicineDozeBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grpList.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="grpScience.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;grpScience.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="ToolStripButton6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="&gt;&gt;PatientrxBindingNavigator.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="grpFamily.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 5</value>
+  </data>
+  <data name="btnPrintRX.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="grpDoze.Location" type="System.Drawing.Point, System.Drawing">
+    <value>944, 5</value>
+  </data>
+  <data name="&gt;&gt;ToolStripTextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MedicineDozeBindingSource.Name" xml:space="preserve">
+    <value>MedicineDozeBindingSource</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToolStripTextBox1.AccessibleName" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="&gt;&gt;btPrintFullRX.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="grpScience.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btSaveRX.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;btNewRX.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAddToRX.Name" xml:space="preserve">
+    <value>btnAddToRX</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;grpList.Name" xml:space="preserve">
+    <value>grpList</value>
+  </data>
+  <data name="&gt;&gt;MedicineFamilyBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btSaveRX.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpItems.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ToolStripTextBox1.ToolTipText" xml:space="preserve">
+    <value>Current position</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator3.Name" xml:space="preserve">
+    <value>ToolStripSeparator3</value>
+  </data>
+  <data name="btPrintFullRX.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;MedicineFamilyBindingSource.Name" xml:space="preserve">
+    <value>MedicineFamilyBindingSource</value>
+  </data>
+  <data name="grpScience.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 215</value>
+  </data>
+  <data name="ToolStripButton6.Text" xml:space="preserve">
+    <value>Move last</value>
+  </data>
+  <data name="grpList.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="ToolStripButton4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton3.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripTextBox1.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnAddToRX.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnPrintRX.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="grpScience.Location" type="System.Drawing.Point, System.Drawing">
+    <value>440, 5</value>
+  </data>
+  <data name="RxDel.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="btPrintFullRX.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;Ultra.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpFamily.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="LabelControl1.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;Patient_RXBindingSource.Name" xml:space="preserve">
+    <value>Patient_RXBindingSource</value>
+  </data>
+  <data name="btnEditRxDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 23</value>
+  </data>
+  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="&gt;&gt;btPrintFullRX.Name" xml:space="preserve">
+    <value>btPrintFullRX</value>
+  </data>
+  <data name="btNewRX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>509, 503</value>
+  </data>
+  <data name="grpDoze.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="ToolStripButton4.Text" xml:space="preserve">
+    <value>Move previous</value>
+  </data>
+  <metadata name="PatientrxBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>387, 56</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>149</value>
+  </metadata>
+  <metadata name="MedScienceFamilyBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>452, 17</value>
+  </metadata>
+  <metadata name="MedicineDozeBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1107, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RxFlyBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>229, 56</value>
+  </metadata>
+  <metadata name="MedicineShapeBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>893, 17</value>
+  </metadata>
+  <metadata name="MedicineItemsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>683, 17</value>
+  </metadata>
+  <metadata name="MedicineFamilyBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>237, 17</value>
+  </metadata>
+  <metadata name="Patient_RXBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1315, 17</value>
+  </metadata>
+  <metadata name="MedicineGroupsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="PatientRXVIEWBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="RxBodyBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>582, 56</value>
+  </metadata>
+</root>

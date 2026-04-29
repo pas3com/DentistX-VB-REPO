@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ToolStripButton33.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABV0lEQVQ4T83PS0sCYRQGYHeRZGgJRUQh
+        IVQkZvU7LCIqsOwill2QkCQNS8NCSKNQpJtUi9q0qE2L2gRFEAYRBeGMl2nsd3zf94azaOEsZDbRC2d1
+        OA/vUan+bQpnVcieVOMzpcb7gQbl+4rJpNQg3xsgxRDSCa1y4G1f8ws8xPTKgee4DqS4DiKu4jbSUBn4
+        OKzBa7IW6bgOT7t1uI/qQcQVUMGD61AzLgMtuPAbcOptw5HHKAdfElqQYhBEXAMR/SDCMojgBi3MgeYd
+        oDk7GD8Kxg8hvtghBx536qW69MsLIiyBFhZA807Q3CRY1gbGD4Nxg2AZK7ZnTHLgLtKIm3ATrqS6rTj3
+        GUCzY2D8CJLuduzNdyLqMiHiNCM8ZZED5Tn2GKW6jBtAzNVV+aA8pT8Z1w/GWbHlMCsHorMm6d/SBO09
+        yoHN6W6EJiwIjPfCb+tTDvxZfgAkI9ieXBWb0QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton34.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABa0lEQVQ4T7WQTSjDYRzH/1flrZSLC0o5
+        IJOYkEyG5CUyjci8JQcOi4RcdnAg5UIOuEgOJCXlRLLTvM1ra0p/aVppF/zj8nzEEJ61pvhcv9/vp+f5
+        KcpfgOsYuqvBscPPLCRYmUd0liMsRthaDyrh5gqWZr53WFuAXhOi1YhoL4W5iYCS1xcKSzHYeuScE4df
+        UpuJMOeCteFbSQx1IEzZMDkij7/C4jSiLPlNxHAHuE9hrN8vHesPPv6AKxc0Fvi/VJ2BqNNDX1No4w/Y
+        20WY9IiKVKjS/XLsUcGcB1kxaLpo7nWRUJMZmgTPNZhyID8OX1sFnB++HdebEgnLs8El3Hmh2cBDYTzu
+        olR89u3PAaNWnEkRaMf7gSU8P8FgGxgSOEqJxbexKhVvS9JQWyrRbq6lTGF3Ey07FmdiGGpXPWiPcklR
+        lJ2kKDSnQ86YsqEmh+M2poN6KRfe0Ua64exAzrlwwvgAHNjl8D95AYojAxxWObZsAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ToolStripButton35.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton36.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton37.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton38.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="NotesSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="NotesNavigator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 25</value>
+  </data>
+  <data name="btAddNotes.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnDel.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btEditNotes.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="NotesGrid.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="NotesGrid.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="NotesGrid.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="NotesGrid.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="NotesGrid.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="NotesGrid.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="NotesGrid.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="NotesGrid.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="NotesGrid.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="NotesGrid.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="NotesGrid.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="NotesGrid.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="NotesGrid.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ColNoteID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ColPatientID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ColNoteDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ColNote.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+</root>

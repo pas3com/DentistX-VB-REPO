@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsMainRx" targetNamespace="http://tempuri.org/DsMainRx.xsd" xmlns:mstns="http://tempuri.org/DsMainRx.xsd" xmlns="http://tempuri.org/DsMainRx.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DentistXConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="DentistXConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DentistX.Settings.GlobalReference.Default.DentistXConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DentistXConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DentistXConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DentistX.My.MySettings.GlobalReference.Default.DentistXConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DentistXConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DentistXConnectionString2 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DentistX.My.MySettings.GlobalReference.Default.DentistXConnectionString2" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Rx_BdyVWTableAdapter" GeneratorDataComponentClassName="Rx_BdyVWTableAdapter" Name="Rx_BdyVW" UserDataComponentName="Rx_BdyVWTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DentistXConnectionString (MySettings)" DbObjectName="DentistX.dbo.Rx_BdyVW" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RxBdyID, PatientID, PatientName, Sex, BirthY, RxID, RXDate, RX, EnHdrName, EnHdrAdres, Logo, Detail, ArHdrName, ArHdrAdres, EnFtr, ArFtr, DrName, WtrImg, WtrText, UseWtrImg, UseWtrText FROM dbo.Rx_BdyVW</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RxBdyID" DataSetColumn="RxBdyID" />
+              <Mapping SourceColumn="PatientID" DataSetColumn="PatientID" />
+              <Mapping SourceColumn="PatientName" DataSetColumn="PatientName" />
+              <Mapping SourceColumn="Sex" DataSetColumn="Sex" />
+              <Mapping SourceColumn="BirthY" DataSetColumn="BirthY" />
+              <Mapping SourceColumn="RxID" DataSetColumn="RxID" />
+              <Mapping SourceColumn="RXDate" DataSetColumn="RXDate" />
+              <Mapping SourceColumn="RX" DataSetColumn="RX" />
+              <Mapping SourceColumn="EnHdrName" DataSetColumn="EnHdrName" />
+              <Mapping SourceColumn="EnHdrAdres" DataSetColumn="EnHdrAdres" />
+              <Mapping SourceColumn="Logo" DataSetColumn="Logo" />
+              <Mapping SourceColumn="Detail" DataSetColumn="Detail" />
+              <Mapping SourceColumn="ArHdrName" DataSetColumn="ArHdrName" />
+              <Mapping SourceColumn="ArHdrAdres" DataSetColumn="ArHdrAdres" />
+              <Mapping SourceColumn="EnFtr" DataSetColumn="EnFtr" />
+              <Mapping SourceColumn="ArFtr" DataSetColumn="ArFtr" />
+              <Mapping SourceColumn="DrName" DataSetColumn="DrName" />
+              <Mapping SourceColumn="WtrImg" DataSetColumn="WtrImg" />
+              <Mapping SourceColumn="WtrText" DataSetColumn="WtrText" />
+              <Mapping SourceColumn="UseWtrImg" DataSetColumn="UseWtrImg" />
+              <Mapping SourceColumn="UseWtrText" DataSetColumn="UseWtrText" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DentistXConnectionString (MySettings)" DbObjectName="DentistX.dbo.RxBody" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBody" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBody" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBody">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RxBdyID, EnHdrName, EnHdrAdres, Logo, Detail, ArHdrName, ArHdrAdres, EnFtr, ArFtr, DrName, WtrImg, WtrText, UseWtrImg, UseWtrText
+FROM            RxBody</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DentistXConnectionString (MySettings)" DbObjectName="DentistX.dbo.Rx_BdyVW" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT RxBdyID, PatientID, PatientName, Sex, BirthY, RxID, RXDate, RX, EnHdrName, EnHdrAdres, Logo, Detail, ArHdrName, ArHdrAdres, EnFtr, ArFtr, DrName, WtrImg, WtrText, UseWtrImg, UseWtrText FROM dbo.Rx_BdyVW 
+WHERE        (PatientID = @PatientID) AND (RxID = @RxID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="PatientID" ColumnName="PatientID" DataSourceName="DentistX.dbo.Rx_BdyVW" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@PatientID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="PatientID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="RxID" ColumnName="RxID" DataSourceName="DentistX.dbo.Rx_BdyVW" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@RxID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RxID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RxFly_BdyVWTableAdapter" GeneratorDataComponentClassName="RxFly_BdyVWTableAdapter" Name="RxFly_BdyVW" UserDataComponentName="RxFly_BdyVWTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DentistXConnectionString2 (MySettings)" DbObjectName="DentistX.dbo.RxFly_BdyVW" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RxID, PatientName, PatientAge, PatientSex, RxDate, RX, RxBdyID, ArHdrName, ArHdrAdres, EnHdrName, EnHdrAdres, Logo, Detail, ArFtr, EnFtr, WtrImg, WtrText, UseWtrImg, UseWtrText, DrName FROM dbo.RxFly_BdyVW</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RxID" DataSetColumn="RxID" />
+              <Mapping SourceColumn="PatientName" DataSetColumn="PatientName" />
+              <Mapping SourceColumn="PatientAge" DataSetColumn="PatientAge" />
+              <Mapping SourceColumn="PatientSex" DataSetColumn="PatientSex" />
+              <Mapping SourceColumn="RxDate" DataSetColumn="RxDate" />
+              <Mapping SourceColumn="RX" DataSetColumn="RX" />
+              <Mapping SourceColumn="RxBdyID" DataSetColumn="RxBdyID" />
+              <Mapping SourceColumn="ArHdrName" DataSetColumn="ArHdrName" />
+              <Mapping SourceColumn="ArHdrAdres" DataSetColumn="ArHdrAdres" />
+              <Mapping SourceColumn="EnHdrName" DataSetColumn="EnHdrName" />
+              <Mapping SourceColumn="EnHdrAdres" DataSetColumn="EnHdrAdres" />
+              <Mapping SourceColumn="Logo" DataSetColumn="Logo" />
+              <Mapping SourceColumn="Detail" DataSetColumn="Detail" />
+              <Mapping SourceColumn="ArFtr" DataSetColumn="ArFtr" />
+              <Mapping SourceColumn="EnFtr" DataSetColumn="EnFtr" />
+              <Mapping SourceColumn="WtrImg" DataSetColumn="WtrImg" />
+              <Mapping SourceColumn="WtrText" DataSetColumn="WtrText" />
+              <Mapping SourceColumn="UseWtrImg" DataSetColumn="UseWtrImg" />
+              <Mapping SourceColumn="UseWtrText" DataSetColumn="UseWtrText" />
+              <Mapping SourceColumn="DrName" DataSetColumn="DrName" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DentistXConnectionString2 (MySettings)" DbObjectName="DentistX.dbo.RxBody" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBody" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBody" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBody">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RxBdyID, EnHdrName, EnHdrAdres, Logo, Detail, ArHdrName, ArHdrAdres, EnFtr, ArFtr, DrName, WtrImg, WtrText, UseWtrImg, UseWtrText
+FROM            RxBody</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DentistXConnectionString2 (MySettings)" DbObjectName="DentistX.dbo.RxFly_BdyVW" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT RxID, PatientName, PatientAge, PatientSex, RxDate, RX, RxBdyID, ArHdrName, ArHdrAdres, EnHdrName, EnHdrAdres, Logo, Detail, ArFtr, EnFtr, WtrImg, WtrText, UseWtrImg, UseWtrText, DrName FROM dbo.RxFly_BdyVW 
+WHERE        (RxID = @RxID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="RxID" ColumnName="RxID" DataSourceName="DentistX.dbo.RxFly_BdyVW" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@RxID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RxID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsMainRx" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DsMainRx" msprop:Generator_DataSetName="DsMainRx">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rx_BdyVW" msprop:Generator_RowClassName="Rx_BdyVWRow" msprop:Generator_RowEvHandlerName="Rx_BdyVWRowChangeEventHandler" msprop:Generator_RowDeletedName="Rx_BdyVWRowDeleted" msprop:Generator_RowDeletingName="Rx_BdyVWRowDeleting" msprop:Generator_RowEvArgName="Rx_BdyVWRowChangeEvent" msprop:Generator_TablePropName="Rx_BdyVW" msprop:Generator_RowChangedName="Rx_BdyVWRowChanged" msprop:Generator_RowChangingName="Rx_BdyVWRowChanging" msprop:Generator_TableClassName="Rx_BdyVWDataTable" msprop:Generator_UserTableName="Rx_BdyVW" msprop:Generator_TableVarName="tableRx_BdyVW">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RxBdyID" msprop:Generator_ColumnPropNameInRow="RxBdyID" msprop:Generator_ColumnPropNameInTable="RxBdyIDColumn" msprop:Generator_ColumnVarNameInTable="columnRxBdyID" msprop:Generator_UserColumnName="RxBdyID" type="xs:int" />
+              <xs:element name="PatientID" msprop:Generator_ColumnPropNameInRow="PatientID" msprop:Generator_ColumnPropNameInTable="PatientIDColumn" msprop:Generator_ColumnVarNameInTable="columnPatientID" msprop:Generator_UserColumnName="PatientID" type="xs:int" />
+              <xs:element name="PatientName" msprop:Generator_ColumnPropNameInRow="PatientName" msprop:Generator_ColumnPropNameInTable="PatientNameColumn" msprop:Generator_ColumnVarNameInTable="columnPatientName" msprop:Generator_UserColumnName="PatientName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnPropNameInTable="SexColumn" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_UserColumnName="Sex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BirthY" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="BirthY" msprop:Generator_ColumnPropNameInTable="BirthYColumn" msprop:Generator_ColumnVarNameInTable="columnBirthY" msprop:Generator_UserColumnName="BirthY" type="xs:int" minOccurs="0" />
+              <xs:element name="RxID" msprop:Generator_ColumnPropNameInRow="RxID" msprop:Generator_ColumnPropNameInTable="RxIDColumn" msprop:Generator_ColumnVarNameInTable="columnRxID" msprop:Generator_UserColumnName="RxID" type="xs:int" />
+              <xs:element name="RXDate" msprop:Generator_ColumnPropNameInRow="RXDate" msprop:Generator_ColumnPropNameInTable="RXDateColumn" msprop:Generator_ColumnVarNameInTable="columnRXDate" msprop:Generator_UserColumnName="RXDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RX" msprop:Generator_ColumnPropNameInRow="RX" msprop:Generator_ColumnPropNameInTable="RXColumn" msprop:Generator_ColumnVarNameInTable="columnRX" msprop:Generator_UserColumnName="RX" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EnHdrName" msprop:Generator_ColumnPropNameInRow="EnHdrName" msprop:Generator_ColumnPropNameInTable="EnHdrNameColumn" msprop:Generator_ColumnVarNameInTable="columnEnHdrName" msprop:Generator_UserColumnName="EnHdrName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EnHdrAdres" msprop:Generator_ColumnPropNameInRow="EnHdrAdres" msprop:Generator_ColumnPropNameInTable="EnHdrAdresColumn" msprop:Generator_ColumnVarNameInTable="columnEnHdrAdres" msprop:Generator_UserColumnName="EnHdrAdres" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Logo" msprop:Generator_ColumnPropNameInRow="Logo" msprop:Generator_ColumnPropNameInTable="LogoColumn" msprop:Generator_ColumnVarNameInTable="columnLogo" msprop:Generator_UserColumnName="Logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Detail" msprop:Generator_ColumnPropNameInRow="Detail" msprop:Generator_ColumnPropNameInTable="DetailColumn" msprop:Generator_ColumnVarNameInTable="columnDetail" msprop:Generator_UserColumnName="Detail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ArHdrName" msprop:Generator_ColumnPropNameInRow="ArHdrName" msprop:Generator_ColumnPropNameInTable="ArHdrNameColumn" msprop:Generator_ColumnVarNameInTable="columnArHdrName" msprop:Generator_UserColumnName="ArHdrName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ArHdrAdres" msprop:Generator_ColumnPropNameInRow="ArHdrAdres" msprop:Generator_ColumnPropNameInTable="ArHdrAdresColumn" msprop:Generator_ColumnVarNameInTable="columnArHdrAdres" msprop:Generator_UserColumnName="ArHdrAdres" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EnFtr" msprop:Generator_ColumnPropNameInRow="EnFtr" msprop:Generator_ColumnPropNameInTable="EnFtrColumn" msprop:Generator_ColumnVarNameInTable="columnEnFtr" msprop:Generator_UserColumnName="EnFtr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ArFtr" msprop:Generator_ColumnPropNameInRow="ArFtr" msprop:Generator_ColumnPropNameInTable="ArFtrColumn" msprop:Generator_ColumnVarNameInTable="columnArFtr" msprop:Generator_UserColumnName="ArFtr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrName" msprop:Generator_ColumnPropNameInRow="DrName" msprop:Generator_ColumnPropNameInTable="DrNameColumn" msprop:Generator_ColumnVarNameInTable="columnDrName" msprop:Generator_UserColumnName="DrName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WtrImg" msprop:Generator_ColumnPropNameInRow="WtrImg" msprop:Generator_ColumnPropNameInTable="WtrImgColumn" msprop:Generator_ColumnVarNameInTable="columnWtrImg" msprop:Generator_UserColumnName="WtrImg" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="WtrText" msprop:Generator_ColumnPropNameInRow="WtrText" msprop:Generator_ColumnPropNameInTable="WtrTextColumn" msprop:Generator_ColumnVarNameInTable="columnWtrText" msprop:Generator_UserColumnName="WtrText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UseWtrImg" msprop:Generator_ColumnPropNameInRow="UseWtrImg" msprop:Generator_ColumnPropNameInTable="UseWtrImgColumn" msprop:Generator_ColumnVarNameInTable="columnUseWtrImg" msprop:Generator_UserColumnName="UseWtrImg" type="xs:boolean" minOccurs="0" />
+              <xs:element name="UseWtrText" msprop:Generator_ColumnPropNameInRow="UseWtrText" msprop:Generator_ColumnPropNameInTable="UseWtrTextColumn" msprop:Generator_ColumnVarNameInTable="columnUseWtrText" msprop:Generator_UserColumnName="UseWtrText" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RxFly_BdyVW" msprop:Generator_RowEvHandlerName="RxFly_BdyVWRowChangeEventHandler" msprop:Generator_RowDeletedName="RxFly_BdyVWRowDeleted" msprop:Generator_RowDeletingName="RxFly_BdyVWRowDeleting" msprop:Generator_RowEvArgName="RxFly_BdyVWRowChangeEvent" msprop:Generator_TablePropName="RxFly_BdyVW" msprop:Generator_RowChangedName="RxFly_BdyVWRowChanged" msprop:Generator_RowChangingName="RxFly_BdyVWRowChanging" msprop:Generator_TableClassName="RxFly_BdyVWDataTable" msprop:Generator_RowClassName="RxFly_BdyVWRow" msprop:Generator_TableVarName="tableRxFly_BdyVW" msprop:Generator_UserTableName="RxFly_BdyVW">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RxID" msprop:Generator_ColumnPropNameInRow="RxID" msprop:Generator_ColumnPropNameInTable="RxIDColumn" msprop:Generator_ColumnVarNameInTable="columnRxID" msprop:Generator_UserColumnName="RxID" type="xs:int" />
+              <xs:element name="PatientName" msprop:Generator_ColumnPropNameInRow="PatientName" msprop:Generator_ColumnPropNameInTable="PatientNameColumn" msprop:Generator_ColumnVarNameInTable="columnPatientName" msprop:Generator_UserColumnName="PatientName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PatientAge" msprop:Generator_ColumnPropNameInRow="PatientAge" msprop:Generator_ColumnPropNameInTable="PatientAgeColumn" msprop:Generator_ColumnVarNameInTable="columnPatientAge" msprop:Generator_UserColumnName="PatientAge" type="xs:int" minOccurs="0" />
+              <xs:element name="PatientSex" msprop:Generator_ColumnPropNameInRow="PatientSex" msprop:Generator_ColumnPropNameInTable="PatientSexColumn" msprop:Generator_ColumnVarNameInTable="columnPatientSex" msprop:Generator_UserColumnName="PatientSex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RxDate" msprop:Generator_ColumnPropNameInRow="RxDate" msprop:Generator_ColumnPropNameInTable="RxDateColumn" msprop:Generator_ColumnVarNameInTable="columnRxDate" msprop:Generator_UserColumnName="RxDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RX" msprop:Generator_ColumnPropNameInRow="RX" msprop:Generator_ColumnPropNameInTable="RXColumn" msprop:Generator_ColumnVarNameInTable="columnRX" msprop:Generator_UserColumnName="RX" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RxBdyID" msprop:Generator_ColumnPropNameInRow="RxBdyID" msprop:Generator_ColumnPropNameInTable="RxBdyIDColumn" msprop:Generator_ColumnVarNameInTable="columnRxBdyID" msprop:Generator_UserColumnName="RxBdyID" type="xs:int" />
+              <xs:element name="ArHdrName" msprop:Generator_ColumnPropNameInRow="ArHdrName" msprop:Generator_ColumnPropNameInTable="ArHdrNameColumn" msprop:Generator_ColumnVarNameInTable="columnArHdrName" msprop:Generator_UserColumnName="ArHdrName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ArHdrAdres" msprop:Generator_ColumnPropNameInRow="ArHdrAdres" msprop:Generator_ColumnPropNameInTable="ArHdrAdresColumn" msprop:Generator_ColumnVarNameInTable="columnArHdrAdres" msprop:Generator_UserColumnName="ArHdrAdres" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="400" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EnHdrName" msprop:Generator_ColumnPropNameInRow="EnHdrName" msprop:Generator_ColumnPropNameInTable="EnHdrNameColumn" msprop:Generator_ColumnVarNameInTable="columnEnHdrName" msprop:Generator_UserColumnName="EnHdrName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EnHdrAdres" msprop:Generator_ColumnPropNameInRow="EnHdrAdres" msprop:Generator_ColumnPropNameInTable="EnHdrAdresColumn" msprop:Generator_ColumnVarNameInTable="columnEnHdrAdres" msprop:Generator_UserColumnName="EnHdrAdres" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="400" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Logo" msprop:Generator_ColumnPropNameInRow="Logo" msprop:Generator_ColumnPropNameInTable="LogoColumn" msprop:Generator_ColumnVarNameInTable="columnLogo" msprop:Generator_UserColumnName="Logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Detail" msprop:Generator_ColumnPropNameInRow="Detail" msprop:Generator_ColumnPropNameInTable="DetailColumn" msprop:Generator_ColumnVarNameInTable="columnDetail" msprop:Generator_UserColumnName="Detail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="350" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ArFtr" msprop:Generator_ColumnPropNameInRow="ArFtr" msprop:Generator_ColumnPropNameInTable="ArFtrColumn" msprop:Generator_ColumnVarNameInTable="columnArFtr" msprop:Generator_UserColumnName="ArFtr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EnFtr" msprop:Generator_ColumnPropNameInRow="EnFtr" msprop:Generator_ColumnPropNameInTable="EnFtrColumn" msprop:Generator_ColumnVarNameInTable="columnEnFtr" msprop:Generator_UserColumnName="EnFtr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WtrImg" msprop:Generator_ColumnPropNameInRow="WtrImg" msprop:Generator_ColumnPropNameInTable="WtrImgColumn" msprop:Generator_ColumnVarNameInTable="columnWtrImg" msprop:Generator_UserColumnName="WtrImg" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="WtrText" msprop:Generator_ColumnPropNameInRow="WtrText" msprop:Generator_ColumnPropNameInTable="WtrTextColumn" msprop:Generator_ColumnVarNameInTable="columnWtrText" msprop:Generator_UserColumnName="WtrText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UseWtrImg" msprop:Generator_ColumnPropNameInRow="UseWtrImg" msprop:Generator_ColumnPropNameInTable="UseWtrImgColumn" msprop:Generator_ColumnVarNameInTable="columnUseWtrImg" msprop:Generator_UserColumnName="UseWtrImg" type="xs:boolean" minOccurs="0" />
+              <xs:element name="UseWtrText" msprop:Generator_ColumnPropNameInRow="UseWtrText" msprop:Generator_ColumnPropNameInTable="UseWtrTextColumn" msprop:Generator_ColumnVarNameInTable="columnUseWtrText" msprop:Generator_UserColumnName="UseWtrText" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DrName" msprop:Generator_ColumnPropNameInRow="DrName" msprop:Generator_ColumnPropNameInTable="DrNameColumn" msprop:Generator_ColumnVarNameInTable="columnDrName" msprop:Generator_UserColumnName="DrName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Rx_BdyVW" />
+      <xs:field xpath="mstns:RxBdyID" />
+      <xs:field xpath="mstns:PatientID" />
+      <xs:field xpath="mstns:RxID" />
+    </xs:unique>
+    <xs:unique name="RxFly_BdyVW_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RxFly_BdyVW" />
+      <xs:field xpath="mstns:RxID" />
+      <xs:field xpath="mstns:RxBdyID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

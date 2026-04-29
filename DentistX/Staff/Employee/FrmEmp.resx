@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Splitter1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Splitter1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="DGV.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="DGV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="dgView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="dgView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="colRowNum.Caption" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="colRowNum.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRowNum.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colEmpID.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colEmpID.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colEmpName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colEmpName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colEmpPhone.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colEmpPhone.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colEmpAddress.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colEmpAddress.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="colWhatsAppPrefix.Caption" xml:space="preserve">
+    <value>WhatsApp prefix</value>
+  </data>
+  <data name="colWhatsAppPrefix.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colWhatsAppPrefix.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colWhatsApp.Caption" xml:space="preserve">
+    <value>WhatsApp</value>
+  </data>
+  <data name="colWhatsApp.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colWhatsApp.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DGV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>844, 326</value>
+  </data>
+  <data name="DGV.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DGV.Name" xml:space="preserve">
+    <value>DGV</value>
+  </data>
+  <data name="&gt;&gt;DGV.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DGV.Parent" xml:space="preserve">
+    <value>Splitter1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;DGV.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Name" xml:space="preserve">
+    <value>Splitter1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Parent" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="butCancel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="butCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>515, 215</value>
+  </data>
+  <data name="butCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="butCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="butCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Name" xml:space="preserve">
+    <value>butCancel</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;butCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="EmpImgImageEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 114</value>
+  </data>
+  <data name="EmpImgImageEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 96</value>
+  </data>
+  <data name="EmpImgImageEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;EmpImgImageEdit.Name" xml:space="preserve">
+    <value>EmpImgImageEdit</value>
+  </data>
+  <data name="&gt;&gt;EmpImgImageEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpImgImageEdit.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpImgImageEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnBrowse.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>374, 149</value>
+  </data>
+  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
+    <value>btnBrowse</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnAdd.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 215</value>
+  </data>
+  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Name" xml:space="preserve">
+    <value>btnAdd</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnEdit.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>332, 215</value>
+  </data>
+  <data name="btnEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnEdit.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
+    <value>btnEdit</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnDel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnDel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>429, 215</value>
+  </data>
+  <data name="btnDel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnDel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnDel.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;btnDel.Name" xml:space="preserve">
+    <value>btnDel</value>
+  </data>
+  <data name="&gt;&gt;btnDel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnDel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;btnDel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="butClose.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="butClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>627, 215</value>
+  </data>
+  <data name="butClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 23</value>
+  </data>
+  <data name="butClose.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="butClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="&gt;&gt;butClose.Name" xml:space="preserve">
+    <value>butClose</value>
+  </data>
+  <data name="&gt;&gt;butClose.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;butClose.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;butClose.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="EmpIDLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpIDLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 21</value>
+  </data>
+  <data name="EmpIDLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 15</value>
+  </data>
+  <data name="EmpIDLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="EmpIDLabel.Text" xml:space="preserve">
+    <value>EmpID</value>
+  </data>
+  <data name="&gt;&gt;EmpIDLabel.Name" xml:space="preserve">
+    <value>EmpIDLabel</value>
+  </data>
+  <data name="&gt;&gt;EmpIDLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpIDLabel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpIDLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="EmpIDSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="EmpIDSpinEdit.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="EmpIDSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 17</value>
+  </data>
+  <data name="EmpIDSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpIDSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="EmpIDSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;EmpIDSpinEdit.Name" xml:space="preserve">
+    <value>EmpIDSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;EmpIDSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpIDSpinEdit.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpIDSpinEdit.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="EmpNameLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>393, 21</value>
+  </data>
+  <data name="EmpNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="EmpNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="EmpNameLabel.Text" xml:space="preserve">
+    <value>EmpName</value>
+  </data>
+  <data name="&gt;&gt;EmpNameLabel.Name" xml:space="preserve">
+    <value>EmpNameLabel</value>
+  </data>
+  <data name="&gt;&gt;EmpNameLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpNameLabel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpNameLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="EmpNameTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>467, 17</value>
+  </data>
+  <data name="EmpNameTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpNameTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="EmpNameTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;EmpNameTextEdit.Name" xml:space="preserve">
+    <value>EmpNameTextEdit</value>
+  </data>
+  <data name="&gt;&gt;EmpNameTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpNameTextEdit.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpNameTextEdit.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="EmpImgLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpImgLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 153</value>
+  </data>
+  <data name="EmpImgLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="EmpImgLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="EmpImgLabel.Text" xml:space="preserve">
+    <value>EmpImg</value>
+  </data>
+  <data name="&gt;&gt;EmpImgLabel.Name" xml:space="preserve">
+    <value>EmpImgLabel</value>
+  </data>
+  <data name="&gt;&gt;EmpImgLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpImgLabel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpImgLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="EmpPhoneLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpPhoneLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 51</value>
+  </data>
+  <data name="EmpPhoneLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
+  <data name="EmpPhoneLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="EmpPhoneLabel.Text" xml:space="preserve">
+    <value>EmpPhone</value>
+  </data>
+  <data name="&gt;&gt;EmpPhoneLabel.Name" xml:space="preserve">
+    <value>EmpPhoneLabel</value>
+  </data>
+  <data name="&gt;&gt;EmpPhoneLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpPhoneLabel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpPhoneLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="EmpAddressTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>467, 47</value>
+  </data>
+  <data name="EmpAddressTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpAddressTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="EmpAddressTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;EmpAddressTextEdit.Name" xml:space="preserve">
+    <value>EmpAddressTextEdit</value>
+  </data>
+  <data name="&gt;&gt;EmpAddressTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpAddressTextEdit.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpAddressTextEdit.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="EmpPhoneTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 47</value>
+  </data>
+  <data name="EmpPhoneTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpPhoneTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="EmpPhoneTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;EmpPhoneTextEdit.Name" xml:space="preserve">
+    <value>EmpPhoneTextEdit</value>
+  </data>
+  <data name="&gt;&gt;EmpPhoneTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpPhoneTextEdit.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpPhoneTextEdit.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="EmpAddressLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpAddressLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>393, 51</value>
+  </data>
+  <data name="EmpAddressLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 15</value>
+  </data>
+  <data name="EmpAddressLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="EmpAddressLabel.Text" xml:space="preserve">
+    <value>EmpAddress</value>
+  </data>
+  <data name="&gt;&gt;EmpAddressLabel.Name" xml:space="preserve">
+    <value>EmpAddressLabel</value>
+  </data>
+  <data name="&gt;&gt;EmpAddressLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpAddressLabel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpAddressLabel.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="EmpWhatsPrefixLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="EmpWhatsPrefixLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="EmpWhatsPrefixLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 75</value>
+  </data>
+  <data name="EmpWhatsPrefixLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 22</value>
+  </data>
+  <data name="EmpWhatsPrefixLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="EmpWhatsPrefixLabel.Text" xml:space="preserve">
+    <value>WhatsApp prefix</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsPrefixLabel.Name" xml:space="preserve">
+    <value>EmpWhatsPrefixLabel</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsPrefixLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsPrefixLabel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsPrefixLabel.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="EmpWhatsPrefixCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 75</value>
+  </data>
+  <data name="EmpWhatsPrefixCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpWhatsPrefixCombo.Properties.AppearanceDropDown.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="EmpWhatsPrefixCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="EmpWhatsPrefixCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 22</value>
+  </data>
+  <data name="EmpWhatsPrefixCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsPrefixCombo.Name" xml:space="preserve">
+    <value>EmpWhatsPrefixCombo</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsPrefixCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsPrefixCombo.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsPrefixCombo.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="EmpWhatsLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpWhatsLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="EmpWhatsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 75</value>
+  </data>
+  <data name="EmpWhatsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 22</value>
+  </data>
+  <data name="EmpWhatsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="EmpWhatsLabel.Text" xml:space="preserve">
+    <value>WhatsApp #</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsLabel.Name" xml:space="preserve">
+    <value>EmpWhatsLabel</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsLabel.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsLabel.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="EmpWhatsTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>582, 76</value>
+  </data>
+  <data name="EmpWhatsTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="EmpWhatsTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 22</value>
+  </data>
+  <data name="EmpWhatsTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsTextEdit.Name" xml:space="preserve">
+    <value>EmpWhatsTextEdit</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsTextEdit.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;EmpWhatsTextEdit.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="lblEmpWhats.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="lblEmpWhats.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblEmpWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>705, 75</value>
+  </data>
+  <data name="lblEmpWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 22</value>
+  </data>
+  <data name="lblEmpWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="&gt;&gt;lblEmpWhats.Name" xml:space="preserve">
+    <value>lblEmpWhats</value>
+  </data>
+  <data name="&gt;&gt;lblEmpWhats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblEmpWhats.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;lblEmpWhats.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Name" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Parent" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Splitter1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>844, 618</value>
+  </data>
+  <data name="Splitter1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Name" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>844, 618</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="&gt;&gt;dgView.Name" xml:space="preserve">
+    <value>dgView</value>
+  </data>
+  <data name="&gt;&gt;dgView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Name" xml:space="preserve">
+    <value>colRowNum</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colEmpID.Name" xml:space="preserve">
+    <value>colEmpID</value>
+  </data>
+  <data name="&gt;&gt;colEmpID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colEmpName.Name" xml:space="preserve">
+    <value>colEmpName</value>
+  </data>
+  <data name="&gt;&gt;colEmpName.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colEmpPhone.Name" xml:space="preserve">
+    <value>colEmpPhone</value>
+  </data>
+  <data name="&gt;&gt;colEmpPhone.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colEmpAddress.Name" xml:space="preserve">
+    <value>colEmpAddress</value>
+  </data>
+  <data name="&gt;&gt;colEmpAddress.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colWhatsAppPrefix.Name" xml:space="preserve">
+    <value>colWhatsAppPrefix</value>
+  </data>
+  <data name="&gt;&gt;colWhatsAppPrefix.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colWhatsApp.Name" xml:space="preserve">
+    <value>colWhatsApp</value>
+  </data>
+  <data name="&gt;&gt;colWhatsApp.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmEmp</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

@@ -1,0 +1,1596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="colJobEnabled.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnRemoveRecipient.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colRecPk.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblJobNotes.Name" xml:space="preserve">
+    <value>lblJobNotes</value>
+  </data>
+  <data name="colRecPrefix.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;lblCaption.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="viewLog.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnNewJob.Name" xml:space="preserve">
+    <value>btnNewJob</value>
+  </data>
+  <data name="lblCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 15</value>
+  </data>
+  <data name="&gt;&gt;chkJobEnabled.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;timeSend.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="flowJobButtons.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;chkJobEnabled.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="&gt;&gt;colStarted.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridJobs.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;gridJobs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabHistory.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;colErr.Name" xml:space="preserve">
+    <value>colErr</value>
+  </data>
+  <data name="chkJobEnabled.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;colRecName.Name" xml:space="preserve">
+    <value>colRecName</value>
+  </data>
+  <data name="lblSourceType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 13</value>
+  </data>
+  <data name="cboSourceType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 10</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel2.Parent" xml:space="preserve">
+    <value>splitMain</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="btnNewJob.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 28</value>
+  </data>
+  <data name="&gt;&gt;viewRecipients.Name" xml:space="preserve">
+    <value>viewRecipients</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel1.Parent" xml:space="preserve">
+    <value>splitMain</value>
+  </data>
+  <data name="colRecPk.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colStatus.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="memoCaption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;colJobEnabled.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colRecActive.Caption" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="&gt;&gt;colCompleted.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tabRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;gridRecipients.Name" xml:space="preserve">
+    <value>gridRecipients</value>
+  </data>
+  <data name="colCompleted.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;colRunDate.Name" xml:space="preserve">
+    <value>colRunDate</value>
+  </data>
+  <data name="colStatus.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnAddRecipient.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cboSourceType.Name" xml:space="preserve">
+    <value>cboSourceType</value>
+  </data>
+  <data name="colJobEnabled.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblSendTime.Text" xml:space="preserve">
+    <value>Send time</value>
+  </data>
+  <data name="&gt;&gt;lblSendTime.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="btnRefreshLog.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 128</value>
+  </data>
+  <data name="colJobRecipCount.Caption" xml:space="preserve">
+    <value>#Recip.</value>
+  </data>
+  <data name="&gt;&gt;colJobId.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="flowDays.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="chkJobEnabled.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblCaption.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;colRecId.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblSendTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="splitMain.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnRemoveRecipient.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;colMedia.Name" xml:space="preserve">
+    <value>colMedia</value>
+  </data>
+  <data name="&gt;&gt;lblJobNotes.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="timeSend.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblSourceType.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colStatus.Caption" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="&gt;&gt;btnNewJob.Parent" xml:space="preserve">
+    <value>flowJobButtons</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="timeSend.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnSaveJob.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDays.Name" xml:space="preserve">
+    <value>lblDays</value>
+  </data>
+  <data name="splitMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblSourceType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 15</value>
+  </data>
+  <data name="lblSourceType.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnRefreshJobs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 28</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel1.Name" xml:space="preserve">
+    <value>splitMain.Panel1</value>
+  </data>
+  <data name="&gt;&gt;flowJobButtons.Name" xml:space="preserve">
+    <value>flowJobButtons</value>
+  </data>
+  <data name="btnRefreshLog.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;colLogRecip.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnClose.Name" xml:space="preserve">
+    <value>btnClose</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lookUpSource.Properties.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridLog.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="&gt;&gt;tabSetup.Parent" xml:space="preserve">
+    <value>tabRight</value>
+  </data>
+  <data name="colRecLocal.Caption" xml:space="preserve">
+    <value>WA local</value>
+  </data>
+  <data name="chkJobEnabled.Properties.Caption" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="&gt;&gt;colStarted.Name" xml:space="preserve">
+    <value>colStarted</value>
+  </data>
+  <data name="memoCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 126</value>
+  </data>
+  <data name="&gt;&gt;colCompleted.Name" xml:space="preserve">
+    <value>colCompleted</value>
+  </data>
+  <data name="colRecPk.Caption" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="colRunDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;colRecPrefix.Name" xml:space="preserve">
+    <value>colRecPrefix</value>
+  </data>
+  <data name="lookUpSource.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblSourceType.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colJobEnabled.Caption" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="&gt;&gt;lblJobNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRecName.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;panelAddRecipient.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="flowDays.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colRecActive.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblPick.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnAddRecipient.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="colRecActive.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colJobId.Width" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="&gt;&gt;colStatus.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colRecId.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnTestSend.Text" xml:space="preserve">
+    <value>Test send now</value>
+  </data>
+  <data name="lblSendTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 29</value>
+  </data>
+  <data name="colJobCaption.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnRemoveRecipient.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="btnRefreshJobs.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabHistory.Text" xml:space="preserve">
+    <value>Send history</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1184, 661</value>
+  </data>
+  <data name="flowDays.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colErr.Caption" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="colErr.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRecActive.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colJobDays.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnRefreshLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblJobNotes.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtJobNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="gridJobs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1184, 178</value>
+  </data>
+  <data name="&gt;&gt;lookUpSource.Name" xml:space="preserve">
+    <value>lookUpSource</value>
+  </data>
+  <data name="gridRecipients.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblDays.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lookUpSource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>507, 22</value>
+  </data>
+  <data name="&gt;&gt;lblSourceType.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btnTestSend.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="colJobId.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lookUpSource.Parent" xml:space="preserve">
+    <value>panelAddRecipient</value>
+  </data>
+  <data name="lblDays.Text" xml:space="preserve">
+    <value>Days of week</value>
+  </data>
+  <data name="&gt;&gt;timeSend.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="btnClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="btnSaveJob.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabRight.AppearancePage.Header.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colMedia.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lblCaption.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="colCompleted.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnTestSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 30</value>
+  </data>
+  <data name="&gt;&gt;lblPick.Parent" xml:space="preserve">
+    <value>panelAddRecipient</value>
+  </data>
+  <data name="colJobRecipCount.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnClose.Parent" xml:space="preserve">
+    <value>splitMain.Panel2</value>
+  </data>
+  <data name="&gt;&gt;btnRefreshLog.Name" xml:space="preserve">
+    <value>btnRefreshLog</value>
+  </data>
+  <data name="&gt;&gt;tabSetup.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteJob.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnRemoveRecipient.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRecPk.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gridRecipients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 204</value>
+  </data>
+  <data name="lblSendTime.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colCompleted.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitMain.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colStarted.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panelJobFields.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panelJobFields.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;colMedia.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblSendTime.Name" xml:space="preserve">
+    <value>lblSendTime</value>
+  </data>
+  <data name="btnDeleteJob.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtJobNotes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="lblDays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 15</value>
+  </data>
+  <data name="&gt;&gt;tabHistory.Name" xml:space="preserve">
+    <value>tabHistory</value>
+  </data>
+  <data name="&gt;&gt;lblCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnAddRecipient.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkJobEnabled.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 19</value>
+  </data>
+  <data name="btnAddRecipient.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="panelJobFields.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;colJobDays.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colMedia.Caption" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveRecipient.Name" xml:space="preserve">
+    <value>btnRemoveRecipient</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnDeleteJob.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 28</value>
+  </data>
+  <data name="lookUpSource.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="colJobDays.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;colRecActive.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colLogRecip.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveRecipient.Parent" xml:space="preserve">
+    <value>panelAddRecipient</value>
+  </data>
+  <data name="tabHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1179, 371</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridLog.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="btnRemoveRecipient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1045, 8</value>
+  </data>
+  <data name="panelAddRecipient.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnSaveJob.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="colRecName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="flowDays.WrapContents" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblSourceType.Name" xml:space="preserve">
+    <value>lblSourceType</value>
+  </data>
+  <data name="&gt;&gt;viewJobs.Name" xml:space="preserve">
+    <value>viewJobs</value>
+  </data>
+  <data name="tabRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;panelJobFields.Name" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="&gt;&gt;colJobRecipCount.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cboSourceType.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;memoCaption.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabSetup.Text" xml:space="preserve">
+    <value>Job / recipients</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteJob.Parent" xml:space="preserve">
+    <value>flowJobButtons</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;colErr.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;timeSend.Name" xml:space="preserve">
+    <value>timeSend</value>
+  </data>
+  <data name="&gt;&gt;btnNewJob.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnSaveJob.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1045, 12</value>
+  </data>
+  <data name="&gt;&gt;gridLog.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colErr.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnSaveJob.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 30</value>
+  </data>
+  <data name="colJobTime.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;colJobDays.Name" xml:space="preserve">
+    <value>colJobDays</value>
+  </data>
+  <data name="colRunDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;tabRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cboSourceType.Parent" xml:space="preserve">
+    <value>panelAddRecipient</value>
+  </data>
+  <data name="viewRecipients.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="panelAddRecipient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1179, 44</value>
+  </data>
+  <data name="chkJobEnabled.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 4</value>
+  </data>
+  <data name="btnRefreshLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1179, 32</value>
+  </data>
+  <data name="&gt;&gt;lookUpSource.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LookUpEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colJobId.Name" xml:space="preserve">
+    <value>colJobId</value>
+  </data>
+  <data name="&gt;&gt;txtJobNotes.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="colStatus.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;colLogRecip.Name" xml:space="preserve">
+    <value>colLogRecip</value>
+  </data>
+  <data name="btnAddRecipient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>915, 8</value>
+  </data>
+  <data name="cboSourceType.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;colRecActive.Name" xml:space="preserve">
+    <value>colRecActive</value>
+  </data>
+  <data name="colCompleted.Caption" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="btnRefreshLog.Text" xml:space="preserve">
+    <value>Refresh log</value>
+  </data>
+  <data name="colJobDays.Caption" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="&gt;&gt;viewLog.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;viewLog.Name" xml:space="preserve">
+    <value>viewLog</value>
+  </data>
+  <data name="colJobRecipCount.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnAddRecipient.Text" xml:space="preserve">
+    <value>Add recipient</value>
+  </data>
+  <data name="btnTestSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>915, 12</value>
+  </data>
+  <data name="lookUpSource.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;txtJobNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridJobs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="colRecName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnClose.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridRecipients.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="btnNewJob.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkJobEnabled.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnRefreshJobs.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnSaveJob.Name" xml:space="preserve">
+    <value>btnSaveJob</value>
+  </data>
+  <data name="timeSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="flowJobButtons.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="&gt;&gt;colLogId.Name" xml:space="preserve">
+    <value>colLogId</value>
+  </data>
+  <data name="colJobTime.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="flowJobButtons.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRecName.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnNewJob.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colRecName.Caption" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="btnAddRecipient.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnNewJob.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="btnRefreshJobs.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colRecSource.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblSourceType.Text" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="btnNewJob.Text" xml:space="preserve">
+    <value>New job</value>
+  </data>
+  <data name="&gt;&gt;colJobTime.Name" xml:space="preserve">
+    <value>colJobTime</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colStarted.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnTestSend.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="viewJobs.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblDays.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnSaveJob.Text" xml:space="preserve">
+    <value>Save job</value>
+  </data>
+  <data name="btnTestSend.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblPick.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colRecSource.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;colJobCaption.Name" xml:space="preserve">
+    <value>colJobCaption</value>
+  </data>
+  <data name="colJobDays.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnDeleteJob.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colLogRecip.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;gridJobs.Name" xml:space="preserve">
+    <value>gridJobs</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colStatus.Name" xml:space="preserve">
+    <value>colStatus</value>
+  </data>
+  <data name="memoCaption.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridJobs.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="splitMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblPick.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;panelJobFields.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tabRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1184, 399</value>
+  </data>
+  <data name="&gt;&gt;tabRight.Name" xml:space="preserve">
+    <value>tabRight</value>
+  </data>
+  <data name="btnDeleteJob.Text" xml:space="preserve">
+    <value>Delete job</value>
+  </data>
+  <data name="lblPick.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 13</value>
+  </data>
+  <data name="&gt;&gt;colJobRecipCount.Name" xml:space="preserve">
+    <value>colJobRecipCount</value>
+  </data>
+  <data name="&gt;&gt;chkJobEnabled.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteJob.Name" xml:space="preserve">
+    <value>btnDeleteJob</value>
+  </data>
+  <data name="&gt;&gt;tabRight.Parent" xml:space="preserve">
+    <value>splitMain.Panel2</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridLog.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;btnTestSend.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="colRecPrefix.Caption" xml:space="preserve">
+    <value>WA prefix</value>
+  </data>
+  <data name="&gt;&gt;flowJobButtons.Parent" xml:space="preserve">
+    <value>splitMain.Panel1</value>
+  </data>
+  <data name="timeSend.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="timeSend.EditValue" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="lblJobNotes.Text" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="colRecLocal.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;viewRecipients.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblCaption.Name" xml:space="preserve">
+    <value>lblCaption</value>
+  </data>
+  <data name="txtJobNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 168</value>
+  </data>
+  <data name="&gt;&gt;btnNewJob.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblSendTime.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="viewLog.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridRecipients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1179, 159</value>
+  </data>
+  <data name="&gt;&gt;panelJobFields.Parent" xml:space="preserve">
+    <value>tabSetup</value>
+  </data>
+  <data name="splitMain.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="btnRefreshJobs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 7</value>
+  </data>
+  <data name="txtJobNotes.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;flowDays.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnSaveJob.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;flowDays.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="colStarted.Caption" xml:space="preserve">
+    <value>Started</value>
+  </data>
+  <data name="colRunDate.Caption" xml:space="preserve">
+    <value>Run date</value>
+  </data>
+  <data name="colJobEnabled.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtJobNotes.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="viewRecipients.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colJobEnabled.Name" xml:space="preserve">
+    <value>colJobEnabled</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SnapShotSender</value>
+  </data>
+  <data name="chkJobEnabled.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRecLocal.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnAddRecipient.Name" xml:space="preserve">
+    <value>btnAddRecipient</value>
+  </data>
+  <data name="btnRemoveRecipient.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colRecSource.Caption" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="&gt;&gt;gridJobs.Parent" xml:space="preserve">
+    <value>splitMain.Panel1</value>
+  </data>
+  <data name="&gt;&gt;gridLog.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lookUpSource.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnRefreshJobs.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;viewJobs.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="btnRefreshJobs.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="colJobCaption.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;splitMain.Name" xml:space="preserve">
+    <value>splitMain</value>
+  </data>
+  <data name="panelJobFields.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="cboSourceType.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colMedia.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colJobTime.Caption" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="&gt;&gt;colRunDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;memoCaption.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="&gt;&gt;btnTestSend.Name" xml:space="preserve">
+    <value>btnTestSend</value>
+  </data>
+  <data name="btnDeleteJob.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 7</value>
+  </data>
+  <data name="btnRemoveRecipient.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="colRecPrefix.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDays.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnAddRecipient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 28</value>
+  </data>
+  <data name="memoCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>907, 36</value>
+  </data>
+  <data name="&gt;&gt;colLogId.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridLog.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="btnTestSend.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="lblJobNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 58</value>
+  </data>
+  <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1184, 36</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;btnRefreshJobs.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnSaveJob.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;btnSaveJob.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelAddRecipient.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnDeleteJob.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblPick.Text" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="&gt;&gt;gridRecipients.Parent" xml:space="preserve">
+    <value>tabSetup</value>
+  </data>
+  <data name="&gt;&gt;btnRefreshLog.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="colRecLocal.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="flowDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 52</value>
+  </data>
+  <data name="&gt;&gt;colRecPk.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel2.Name" xml:space="preserve">
+    <value>splitMain.Panel2</value>
+  </data>
+  <data name="btnRefreshLog.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 399</value>
+  </data>
+  <data name="&gt;&gt;panelAddRecipient.Parent" xml:space="preserve">
+    <value>tabSetup</value>
+  </data>
+  <data name="colJobCaption.Caption" xml:space="preserve">
+    <value>Caption</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveRecipient.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnRefreshJobs.Parent" xml:space="preserve">
+    <value>flowJobButtons</value>
+  </data>
+  <data name="panelAddRecipient.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="chkJobEnabled.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colStarted.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnClose.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;gridLog.Name" xml:space="preserve">
+    <value>gridLog</value>
+  </data>
+  <data name="lblSendTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 15</value>
+  </data>
+  <data name="cboSourceType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="btnNewJob.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;flowJobButtons.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblJobNotes.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="lblJobNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 15</value>
+  </data>
+  <data name="&gt;&gt;btnSaveJob.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="colJobId.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkJobEnabled.Name" xml:space="preserve">
+    <value>chkJobEnabled</value>
+  </data>
+  <data name="panelAddRecipient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 363</value>
+  </data>
+  <data name="&gt;&gt;colRecId.Name" xml:space="preserve">
+    <value>colRecId</value>
+  </data>
+  <data name="&gt;&gt;tabRight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;memoCaption.Name" xml:space="preserve">
+    <value>memoCaption</value>
+  </data>
+  <data name="lookUpSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 10</value>
+  </data>
+  <data name="colJobRecipCount.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;colJobCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tabSetup.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cboSourceType.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colLogRecip.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnRefreshLog.Parent" xml:space="preserve">
+    <value>tabHistory</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Snapshot auto-send</value>
+  </data>
+  <data name="&gt;&gt;gridRecipients.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;splitMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;colRecPk.Name" xml:space="preserve">
+    <value>colRecPk</value>
+  </data>
+  <data name="colJobTime.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblPick.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 15</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnClose.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colRecPrefix.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="timeSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 26</value>
+  </data>
+  <data name="gridJobs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="flowDays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>729, 38</value>
+  </data>
+  <data name="&gt;&gt;panelAddRecipient.Name" xml:space="preserve">
+    <value>panelAddRecipient</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tabSetup.Name" xml:space="preserve">
+    <value>tabSetup</value>
+  </data>
+  <data name="gridJobs.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnClose.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 32</value>
+  </data>
+  <data name="flowJobButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1184, 42</value>
+  </data>
+  <data name="lblCaption.Text" xml:space="preserve">
+    <value>Message caption</value>
+  </data>
+  <data name="flowJobButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnClose.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;colRecLocal.Name" xml:space="preserve">
+    <value>colRecLocal</value>
+  </data>
+  <data name="colRecSource.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;flowDays.Name" xml:space="preserve">
+    <value>flowDays</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnTestSend.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;colRecLocal.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tabHistory.Parent" xml:space="preserve">
+    <value>tabRight</value>
+  </data>
+  <data name="btnRemoveRecipient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 28</value>
+  </data>
+  <data name="&gt;&gt;btnRefreshLog.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="splitMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;btnAddRecipient.Parent" xml:space="preserve">
+    <value>panelAddRecipient</value>
+  </data>
+  <data name="&gt;&gt;timeSend.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="colRunDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;flowDays.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flowJobButtons.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblDays.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;gridRecipients.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="colJobId.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;gridLog.Parent" xml:space="preserve">
+    <value>tabHistory</value>
+  </data>
+  <data name="colErr.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteJob.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tabSetup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1179, 371</value>
+  </data>
+  <data name="memoCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btnClose.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tabRight.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gridLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1179, 339</value>
+  </data>
+  <data name="&gt;&gt;lookUpSource.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tabHistory.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnAddRecipient.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnRefreshJobs.Name" xml:space="preserve">
+    <value>btnRefreshJobs</value>
+  </data>
+  <data name="chkJobEnabled.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="viewJobs.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colLogId.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colLogRecip.Caption" xml:space="preserve">
+    <value>Recip.#</value>
+  </data>
+  <data name="btnRefreshLog.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="panelJobFields.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1179, 204</value>
+  </data>
+  <data name="&gt;&gt;lblPick.Name" xml:space="preserve">
+    <value>lblPick</value>
+  </data>
+  <data name="&gt;&gt;colRecPrefix.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colJobId.Caption" xml:space="preserve">
+    <value>Job #</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="splitMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1184, 661</value>
+  </data>
+  <data name="flowJobButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 178</value>
+  </data>
+  <data name="txtJobNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>907, 22</value>
+  </data>
+  <data name="&gt;&gt;btnTestSend.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;memoCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblSourceType.Parent" xml:space="preserve">
+    <value>panelAddRecipient</value>
+  </data>
+  <data name="lblCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtJobNotes.Name" xml:space="preserve">
+    <value>txtJobNotes</value>
+  </data>
+  <data name="&gt;&gt;colRecSource.Name" xml:space="preserve">
+    <value>colRecSource</value>
+  </data>
+  <data name="colJobCaption.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lblSendTime.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;cboSourceType.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lblPick.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;colJobTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDays.Parent" xml:space="preserve">
+    <value>panelJobFields</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;colRecSource.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridJobs.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;splitMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblJobNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 171</value>
+  </data>
+  <data name="colMedia.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

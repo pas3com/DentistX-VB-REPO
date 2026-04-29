@@ -1,0 +1,6 @@
+﻿		Programmer/support only — license recovery form: Ctrl+Shift+Alt+F12, then secret.
+		Remove or leave disabled in production. Uses same 3‑month window as normal trial (see CursorLicManager TrialMonths).
+		<!--
+		<add key="LicenseDevResetEnabled" value="true" />
+		<add key="LicenseDevResetSecret" value="change-me-long-random" />
+		-->

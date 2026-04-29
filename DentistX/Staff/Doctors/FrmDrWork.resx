@@ -1,0 +1,1617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="butCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ribbonPageGroup1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PatientIDLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="colWrkDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DrIDSpinEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;ImpLabel.Name" xml:space="preserve">
+    <value>ImpLabel</value>
+  </data>
+  <data name="&gt;&gt;WorkIDSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="bCancel.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="bAdd.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colPatientName.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRowNum.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;colNotes.Name" xml:space="preserve">
+    <value>colNotes</value>
+  </data>
+  <data name="&gt;&gt;PatientIDSpinEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="butClose.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;PayValLabel.Name" xml:space="preserve">
+    <value>PayValLabel</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="PayValLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="NotesLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="WrkValLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="colPatientName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;bCancel.Name" xml:space="preserve">
+    <value>bCancel</value>
+  </data>
+  <data name="ImpCheckEdit.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;Splitter1.Name" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;PatientIDSpinEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="bCancel.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bbiPrintPreview.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ribbonStatusBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;butClose.Parent" xml:space="preserve">
+    <value>TLPBut</value>
+  </data>
+  <data name="WrkValLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="butClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 41</value>
+  </data>
+  <data name="&gt;&gt;WrkDetailLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="colOrth.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImpLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="&gt;&gt;ribbonControl.Name" xml:space="preserve">
+    <value>ribbonControl</value>
+  </data>
+  <data name="SurgCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="colWrkDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="ribbonControl.ExpandCollapseItem.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;SurgLabel.Name" xml:space="preserve">
+    <value>SurgLabel</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="OrthCheckEdit.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;NotesTextEdit.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="SurgCheckEdit.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PatientIDLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;SurgCheckEdit.Name" xml:space="preserve">
+    <value>SurgCheckEdit</value>
+  </data>
+  <data name="WrkDetailTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;PayValLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;butClose.Name" xml:space="preserve">
+    <value>butClose</value>
+  </data>
+  <data name="&gt;&gt;WrkValSpinEdit.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;PatientIDSpinEdit.Name" xml:space="preserve">
+    <value>PatientIDSpinEdit</value>
+  </data>
+  <data name="PatientIDSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Parent" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;butClose.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;OrthLabel.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="OrthLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="NotesTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="bAdd.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ribbonPage1.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colSurg.VisibleIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="SurgCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 116</value>
+  </data>
+  <data name="colPayVal.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PatientIDLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="DGV.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="butApply.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="&gt;&gt;colDrName.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="WrkDetailLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="WrkValSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 64</value>
+  </data>
+  <data name="ImpLabel.Text" xml:space="preserve">
+    <value>Imp</value>
+  </data>
+  <data name="WrkDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="DrIDLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="PatientIDSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;ImpCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="OrthLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;colDrName.Name" xml:space="preserve">
+    <value>colDrName</value>
+  </data>
+  <data name="&gt;&gt;bEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="WrkValSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;WrkDateLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DGV.Name" xml:space="preserve">
+    <value>DGV</value>
+  </data>
+  <data name="&gt;&gt;butClose.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="PayValSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 90</value>
+  </data>
+  <data name="WorkIDLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;NotesTextEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="WrkDateDateEdit.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;NotesLabel.Name" xml:space="preserve">
+    <value>NotesLabel</value>
+  </data>
+  <data name="bAdd.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;butApply.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Splitter1.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;DrIDLabel.Name" xml:space="preserve">
+    <value>DrIDLabel</value>
+  </data>
+  <data name="NotesTextEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;colWrkDate.Name" xml:space="preserve">
+    <value>colWrkDate</value>
+  </data>
+  <data name="PayValSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="bsiRecordsCount.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WrkDateDateEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="WrkDateLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="PatientIDLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="bEdit.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;WrkDetailTextEdit.Name" xml:space="preserve">
+    <value>WrkDetailTextEdit</value>
+  </data>
+  <data name="WrkDetailTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="DGV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="OrthCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="colRowNum.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRowNum.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;butApply.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>992, 764</value>
+  </data>
+  <data name="ribbonControl.ExpandCollapseItem.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PatientIDSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 38</value>
+  </data>
+  <data name="ImpLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 90</value>
+  </data>
+  <data name="&gt;&gt;TLPBut.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="bAdd.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="SurgLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;PayValSpinEdit.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="butApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>283, 41</value>
+  </data>
+  <data name="colPatientName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OrthCheckEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="bRefresh.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.Buttons.Edit.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;DGV.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="WorkIDLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="colOrth.VisibleIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Splitter1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 153</value>
+  </data>
+  <data name="bDelete.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="OrthCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 116</value>
+  </data>
+  <data name="NotesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="colWorkID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colImp.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Splitter1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 586</value>
+  </data>
+  <data name="&gt;&gt;colSurg.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="bCancel.Caption" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;WrkDateDateEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;PayValLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="bbiPrintPreview.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;bbiPrintPreview.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="OrthCheckEdit.Properties.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colWrkDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;colSurg.Name" xml:space="preserve">
+    <value>colSurg</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;butCancel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;colPatientName.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ribbonPageGroup2.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colNotes.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;WrkValLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="colDrName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;bsiRecordsCount.Name" xml:space="preserve">
+    <value>bsiRecordsCount</value>
+  </data>
+  <data name="&gt;&gt;PatientIDLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="WrkDateDateEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="WrkDetailTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 64</value>
+  </data>
+  <data name="colDrID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OrthCheckEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="WrkDateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 38</value>
+  </data>
+  <data name="bEdit.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="bRefresh.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;DrIDSpinEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;TLPBut.Name" xml:space="preserve">
+    <value>TLPBut</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.Buttons.Append.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImpCheckEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="colPayVal.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Name" xml:space="preserve">
+    <value>Splitter1.Panel1</value>
+  </data>
+  <data name="SurgLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="WrkValLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;NotesLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="PayValLabel.Text" xml:space="preserve">
+    <value>PayVal</value>
+  </data>
+  <data name="NotesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 142</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.Buttons.CancelEdit.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SurgCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="WrkDateLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="bAdd.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bbiPrintPreview.Caption" xml:space="preserve">
+    <value>Print Preview</value>
+  </data>
+  <data name="ImpLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="butApply.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WorkIDSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 12</value>
+  </data>
+  <data name="&gt;&gt;TableData.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ImpCheckEdit.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="ImpCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 90</value>
+  </data>
+  <data name="colDrName.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WorkIDLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPatientName.Name" xml:space="preserve">
+    <value>colPatientName</value>
+  </data>
+  <data name="TableData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 287</value>
+  </data>
+  <data name="WrkDateDateEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colOrth.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ribbonControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="SurgLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;bsiRecordsCount.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarStaticItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="bEdit.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="NotesLabel.Text" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="NotesTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PayValSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bbiPrintPreview.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;ribbonStatusBar.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonStatusBar, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;NotesTextEdit.Name" xml:space="preserve">
+    <value>NotesTextEdit</value>
+  </data>
+  <data name="butCancel.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WorkIDSpinEdit.Name" xml:space="preserve">
+    <value>WorkIDSpinEdit</value>
+  </data>
+  <data name="DrIDSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 12</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.Buttons.Remove.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;colOrth.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayVal.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PayValLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;SurgCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="OrthLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="PayValLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;WorkIDLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;bEdit.Name" xml:space="preserve">
+    <value>bEdit</value>
+  </data>
+  <data name="WrkValLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;OrthLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="PatientIDLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="PatientIDSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;bbiPrintPreview.Name" xml:space="preserve">
+    <value>bbiPrintPreview</value>
+  </data>
+  <data name="ribbonControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 153</value>
+  </data>
+  <data name="WorkIDSpinEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="butClose.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;colImp.Name" xml:space="preserve">
+    <value>colImp</value>
+  </data>
+  <data name="WrkDetailLabel.Text" xml:space="preserve">
+    <value>WrkDetail</value>
+  </data>
+  <data name="bRefresh.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DGV.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="DrIDLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 12</value>
+  </data>
+  <data name="OrthCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="DrIDLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bAdd.Caption" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;PatientIDLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="WorkIDSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ribbonStatusBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 25</value>
+  </data>
+  <data name="&gt;&gt;WrkValSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="WrkDetailLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="DGV.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="WrkValSpinEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmDrWork</value>
+  </data>
+  <data name="WorkIDLabel.Text" xml:space="preserve">
+    <value>WorkID</value>
+  </data>
+  <data name="DrIDLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;WrkDateLabel.Name" xml:space="preserve">
+    <value>WrkDateLabel</value>
+  </data>
+  <data name="WorkIDLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;SurgCheckEdit.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;NotesTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;butApply.Parent" xml:space="preserve">
+    <value>TLPBut</value>
+  </data>
+  <data name="&gt;&gt;WorkIDLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="WorkIDSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="DrIDSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="DGV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 293</value>
+  </data>
+  <data name="ribbonStatusBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 739</value>
+  </data>
+  <data name="OrthLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;ribbonStatusBar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="colRowNum.Caption" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="&gt;&gt;WrkDateDateEdit.Name" xml:space="preserve">
+    <value>WrkDateDateEdit</value>
+  </data>
+  <data name="&gt;&gt;ribbonControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonControl, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPatientID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="WorkIDLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;colPatientID.Name" xml:space="preserve">
+    <value>colPatientID</value>
+  </data>
+  <data name="bsiRecordsCount.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;colImp.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;WrkDateLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="WrkDetailTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;ImpCheckEdit.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="DrIDSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="PatientIDLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 38</value>
+  </data>
+  <data name="TLPBut.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;NotesLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="colSurg.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PayValSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;OrthCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DGV.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ImpLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="TLPBut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 168</value>
+  </data>
+  <data name="WrkDateLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;WrkValSpinEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="ribbonPageGroup1.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="bbiPrintPreview.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;ribbonStatusBar.Name" xml:space="preserve">
+    <value>ribbonStatusBar</value>
+  </data>
+  <data name="DrIDLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.Buttons.EndEdit.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WrkValLabel.Name" xml:space="preserve">
+    <value>WrkValLabel</value>
+  </data>
+  <data name="colPatientID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ImpCheckEdit.Name" xml:space="preserve">
+    <value>ImpCheckEdit</value>
+  </data>
+  <data name="DrIDLabel.Text" xml:space="preserve">
+    <value>DrID</value>
+  </data>
+  <data name="&gt;&gt;ImpLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="ImpCheckEdit.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WrkDateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;colNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colDrID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;WrkDetailTextEdit.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;dgView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="OrthLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 116</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Parent" xml:space="preserve">
+    <value>TLPBut</value>
+  </data>
+  <data name="&gt;&gt;ribbonPage1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="WrkDateDateEdit.EditValue" type="System.DateTime, mscorlib">
+    <value>2026-01-23</value>
+  </data>
+  <data name="&gt;&gt;colWorkID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ribbonPageGroup2.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;WrkDetailLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="PatientIDSpinEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;SurgLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;bDelete.Name" xml:space="preserve">
+    <value>bDelete</value>
+  </data>
+  <data name="TableData.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="bRefresh.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;OrthLabel.Name" xml:space="preserve">
+    <value>OrthLabel</value>
+  </data>
+  <data name="PayValLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="WrkValSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="butApply.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="bsiRecordsCount.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="bbiPrintPreview.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WorkIDSpinEdit.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;bAdd.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DrIDSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;WrkDetailTextEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="&gt;&gt;WrkDetailTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dgView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;WrkDateLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="WorkIDSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="butClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="&gt;&gt;colOrth.Name" xml:space="preserve">
+    <value>colOrth</value>
+  </data>
+  <data name="&gt;&gt;DrIDLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bAdd.Name" xml:space="preserve">
+    <value>bAdd</value>
+  </data>
+  <data name="&gt;&gt;PatientIDSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Name" xml:space="preserve">
+    <value>colRowNum</value>
+  </data>
+  <data name="colNotes.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colImp.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="butCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>445, 41</value>
+  </data>
+  <data name="WrkValSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="WrkDateLabel.Text" xml:space="preserve">
+    <value>WrkDate</value>
+  </data>
+  <data name="&gt;&gt;WorkIDSpinEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="bEdit.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;WrkDetailLabel.Name" xml:space="preserve">
+    <value>WrkDetailLabel</value>
+  </data>
+  <data name="&gt;&gt;ImpCheckEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="WrkDetailTextEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="colWrkDetail.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="bDelete.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="SurgCheckEdit.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;PatientIDLabel.Name" xml:space="preserve">
+    <value>PatientIDLabel</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.Name" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="TableData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;colWrkVal.Name" xml:space="preserve">
+    <value>colWrkVal</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DrIDSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="WrkDetailLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 64</value>
+  </data>
+  <data name="SurgLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 116</value>
+  </data>
+  <data name="bEdit.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="DrIDSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="ImpCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="TLPBut.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="bDelete.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WrkDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 38</value>
+  </data>
+  <data name="ImpCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="NotesTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 142</value>
+  </data>
+  <data name="DGV.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ImpCheckEdit.Properties.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DrIDLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgView.Name" xml:space="preserve">
+    <value>dgView</value>
+  </data>
+  <data name="SurgCheckEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="WrkValLabel.Text" xml:space="preserve">
+    <value>WrkVal</value>
+  </data>
+  <data name="butClose.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="butCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="NotesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;OrthCheckEdit.Name" xml:space="preserve">
+    <value>OrthCheckEdit</value>
+  </data>
+  <data name="NotesTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bDelete.Caption" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ImpLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="WorkIDSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;butCancel.Name" xml:space="preserve">
+    <value>butCancel</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dgView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bsiRecordsCount.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="WorkIDLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="SurgLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="SurgCheckEdit.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WrkDateDateEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ImpLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;Splitter1.Panel1.Parent" xml:space="preserve">
+    <value>Splitter1</value>
+  </data>
+  <data name="&gt;&gt;colWrkDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;NotesLabel.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="butApply.Text" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="&gt;&gt;TableData.Name" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="bRefresh.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="bbiPrintPreview.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;WrkDateDateEdit.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="PatientIDSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="WrkValLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="bDelete.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="bRefresh.Caption" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="&gt;&gt;DGV.Parent" xml:space="preserve">
+    <value>Splitter1.Panel1</value>
+  </data>
+  <data name="colDrName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;SurgLabel.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;ribbonPageGroup1.Name" xml:space="preserve">
+    <value>ribbonPageGroup1</value>
+  </data>
+  <data name="bEdit.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="bCancel.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;bCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SurgCheckEdit.Properties.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;PayValSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="OrthCheckEdit.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colImp.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;bRefresh.Name" xml:space="preserve">
+    <value>bRefresh</value>
+  </data>
+  <data name="ribbonControl.ExpandCollapseItem.SearchTags" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;TLPBut.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="WrkDetailLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="colWrkVal.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ImpLabel.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;colWrkVal.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Doctor Work</value>
+  </data>
+  <data name="bCancel.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ribbonControl.ExpandCollapseItem.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SurgLabel.Text" xml:space="preserve">
+    <value>Surg</value>
+  </data>
+  <data name="PayValLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 90</value>
+  </data>
+  <data name="&gt;&gt;TLPBut.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ribbonPage1.Name" xml:space="preserve">
+    <value>ribbonPage1</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;bDelete.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DrIDSpinEdit.Name" xml:space="preserve">
+    <value>DrIDSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;ribbonPageGroup2.Name" xml:space="preserve">
+    <value>ribbonPageGroup2</value>
+  </data>
+  <data name="butApply.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;OrthCheckEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="NotesLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="WrkValLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 64</value>
+  </data>
+  <data name="&gt;&gt;DrIDLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="colPayVal.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="OrthCheckEdit.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WrkValLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;colWrkDetail.Name" xml:space="preserve">
+    <value>colWrkDetail</value>
+  </data>
+  <data name="&gt;&gt;TableData.Parent" xml:space="preserve">
+    <value>Splitter1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;PayValSpinEdit.Name" xml:space="preserve">
+    <value>PayValSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;DrIDSpinEdit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TableData.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PayValLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="NotesLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WrkValSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="&gt;&gt;colDrID.Name" xml:space="preserve">
+    <value>colDrID</value>
+  </data>
+  <data name="WrkDateDateEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="butClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="WorkIDLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 12</value>
+  </data>
+  <data name="PatientIDLabel.Text" xml:space="preserve">
+    <value>PatientID</value>
+  </data>
+  <data name="&gt;&gt;SurgCheckEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="PayValSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="&gt;&gt;colPayVal.Name" xml:space="preserve">
+    <value>colPayVal</value>
+  </data>
+  <data name="&gt;&gt;OrthCheckEdit.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;WorkIDLabel.Name" xml:space="preserve">
+    <value>WorkIDLabel</value>
+  </data>
+  <data name="colWrkVal.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="ImpCheckEdit.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;OrthLabel.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="SurgCheckEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="colWrkDetail.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ImpLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="bsiRecordsCount.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="bEdit.Caption" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;butApply.Name" xml:space="preserve">
+    <value>butApply</value>
+  </data>
+  <data name="OrthLabel.Text" xml:space="preserve">
+    <value>Orth</value>
+  </data>
+  <data name="WrkDetailLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;colWrkDetail.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SurgLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DrIDLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.RibbonForm, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ribbonControl.ExpandCollapseItem.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="TLPBut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>966, 106</value>
+  </data>
+  <data name="&gt;&gt;bRefresh.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="bAdd.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="DGV.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="PayValSpinEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="SurgLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="bDelete.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WrkDetailLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="butCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ImpCheckEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="WrkDetailLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="ribbonControl.ExpandCollapseItem.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="Splitter1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="colWrkDetail.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;TableData.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PatientIDLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="colSurg.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ribbonControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PayValSpinEdit.Parent" xml:space="preserve">
+    <value>TableData</value>
+  </data>
+  <data name="colDrName.Caption" xml:space="preserve">
+    <value>Doctor Name</value>
+  </data>
+  <data name="OrthLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;WrkValSpinEdit.Name" xml:space="preserve">
+    <value>WrkValSpinEdit</value>
+  </data>
+  <data name="bRefresh.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Splitter1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;WrkValLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colWrkVal.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;ribbonControl.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="bDelete.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="OrthCheckEdit.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="butCancel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="PayValLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;colWorkID.Name" xml:space="preserve">
+    <value>colWorkID</value>
+  </data>
+  <data name="SurgCheckEdit.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colNotes.VisibleIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="colPatientName.Caption" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="bCancel.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WorkIDSpinEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

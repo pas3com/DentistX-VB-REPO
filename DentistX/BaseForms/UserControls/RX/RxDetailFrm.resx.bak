@@ -1,0 +1,1002 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="RxBdyIDLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="RxBdyIDLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="RxBdyIDLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 41</value>
+  </data>
+  <data name="RxBdyIDLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 15</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="RxBdyIDLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="RxBdyIDLabel.Text" xml:space="preserve">
+    <value>Rx Bdy ID:</value>
+  </data>
+  <data name="&gt;&gt;RxBdyIDLabel.Name" xml:space="preserve">
+    <value>RxBdyIDLabel</value>
+  </data>
+  <data name="&gt;&gt;RxBdyIDLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;RxBdyIDLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RxBdyIDLabel.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <metadata name="ArHdrNameLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="ArHdrNameLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ArHdrNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 67</value>
+  </data>
+  <data name="ArHdrNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 15</value>
+  </data>
+  <data name="ArHdrNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ArHdrNameLabel.Text" xml:space="preserve">
+    <value>Arabic Header Name:</value>
+  </data>
+  <data name="&gt;&gt;ArHdrNameLabel.Name" xml:space="preserve">
+    <value>ArHdrNameLabel</value>
+  </data>
+  <data name="&gt;&gt;ArHdrNameLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ArHdrNameLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ArHdrNameLabel.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <metadata name="ArHdrAdresLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="ArHdrAdresLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ArHdrAdresLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 93</value>
+  </data>
+  <data name="ArHdrAdresLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 15</value>
+  </data>
+  <data name="ArHdrAdresLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ArHdrAdresLabel.Text" xml:space="preserve">
+    <value>Arabic Header Address:</value>
+  </data>
+  <data name="&gt;&gt;ArHdrAdresLabel.Name" xml:space="preserve">
+    <value>ArHdrAdresLabel</value>
+  </data>
+  <data name="&gt;&gt;ArHdrAdresLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ArHdrAdresLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ArHdrAdresLabel.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <metadata name="EnHdrNameLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="EnHdrNameLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="EnHdrNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 119</value>
+  </data>
+  <data name="EnHdrNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 15</value>
+  </data>
+  <data name="EnHdrNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="EnHdrNameLabel.Text" xml:space="preserve">
+    <value>English Header Name:</value>
+  </data>
+  <data name="&gt;&gt;EnHdrNameLabel.Name" xml:space="preserve">
+    <value>EnHdrNameLabel</value>
+  </data>
+  <data name="&gt;&gt;EnHdrNameLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EnHdrNameLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EnHdrNameLabel.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <metadata name="EnHdrAdresLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="EnHdrAdresLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="EnHdrAdresLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 145</value>
+  </data>
+  <data name="EnHdrAdresLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 15</value>
+  </data>
+  <data name="EnHdrAdresLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="EnHdrAdresLabel.Text" xml:space="preserve">
+    <value>English Header Address:</value>
+  </data>
+  <data name="&gt;&gt;EnHdrAdresLabel.Name" xml:space="preserve">
+    <value>EnHdrAdresLabel</value>
+  </data>
+  <data name="&gt;&gt;EnHdrAdresLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EnHdrAdresLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EnHdrAdresLabel.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <metadata name="LogoLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="LogoLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LogoLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 191</value>
+  </data>
+  <data name="LogoLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 15</value>
+  </data>
+  <data name="LogoLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="LogoLabel.Text" xml:space="preserve">
+    <value>Logo:</value>
+  </data>
+  <data name="&gt;&gt;LogoLabel.Name" xml:space="preserve">
+    <value>LogoLabel</value>
+  </data>
+  <data name="&gt;&gt;LogoLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LogoLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LogoLabel.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <metadata name="DetailLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="DetailLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DetailLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 273</value>
+  </data>
+  <data name="DetailLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 15</value>
+  </data>
+  <data name="DetailLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="DetailLabel.Text" xml:space="preserve">
+    <value>Detail:</value>
+  </data>
+  <data name="&gt;&gt;DetailLabel.Name" xml:space="preserve">
+    <value>DetailLabel</value>
+  </data>
+  <data name="&gt;&gt;DetailLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DetailLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DetailLabel.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <metadata name="ArFtrLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="ArFtrLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ArFtrLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 325</value>
+  </data>
+  <data name="ArFtrLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 15</value>
+  </data>
+  <data name="ArFtrLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="ArFtrLabel.Text" xml:space="preserve">
+    <value>Arabic Footer:</value>
+  </data>
+  <data name="&gt;&gt;ArFtrLabel.Name" xml:space="preserve">
+    <value>ArFtrLabel</value>
+  </data>
+  <data name="&gt;&gt;ArFtrLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ArFtrLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ArFtrLabel.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <metadata name="EnFtrLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="EnFtrLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="EnFtrLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 351</value>
+  </data>
+  <data name="EnFtrLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 15</value>
+  </data>
+  <data name="EnFtrLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="EnFtrLabel.Text" xml:space="preserve">
+    <value>English Footer:</value>
+  </data>
+  <data name="&gt;&gt;EnFtrLabel.Name" xml:space="preserve">
+    <value>EnFtrLabel</value>
+  </data>
+  <data name="&gt;&gt;EnFtrLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EnFtrLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EnFtrLabel.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <metadata name="WtrImgLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="WtrImgLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="WtrImgLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 394</value>
+  </data>
+  <data name="WtrImgLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 15</value>
+  </data>
+  <data name="WtrImgLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="WtrImgLabel.Text" xml:space="preserve">
+    <value>Water Image:</value>
+  </data>
+  <data name="&gt;&gt;WtrImgLabel.Name" xml:space="preserve">
+    <value>WtrImgLabel</value>
+  </data>
+  <data name="&gt;&gt;WtrImgLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;WtrImgLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;WtrImgLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <metadata name="WtrTextLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="WtrTextLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="WtrTextLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 474</value>
+  </data>
+  <data name="WtrTextLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 15</value>
+  </data>
+  <data name="WtrTextLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="WtrTextLabel.Text" xml:space="preserve">
+    <value>Water Text:</value>
+  </data>
+  <data name="&gt;&gt;WtrTextLabel.Name" xml:space="preserve">
+    <value>WtrTextLabel</value>
+  </data>
+  <data name="&gt;&gt;WtrTextLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;WtrTextLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;WtrTextLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="UseWtrImgLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="UseWtrImgLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="UseWtrImgLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>278, 414</value>
+  </data>
+  <data name="UseWtrImgLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 15</value>
+  </data>
+  <data name="UseWtrImgLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="UseWtrImgLabel.Text" xml:space="preserve">
+    <value>Use Water Image ?</value>
+  </data>
+  <data name="&gt;&gt;UseWtrImgLabel.Name" xml:space="preserve">
+    <value>UseWtrImgLabel</value>
+  </data>
+  <data name="&gt;&gt;UseWtrImgLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;UseWtrImgLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;UseWtrImgLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <metadata name="UseWtrTextLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="UseWtrTextLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="UseWtrTextLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 500</value>
+  </data>
+  <data name="UseWtrTextLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 15</value>
+  </data>
+  <data name="UseWtrTextLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="UseWtrTextLabel.Text" xml:space="preserve">
+    <value>Use Water Text ?</value>
+  </data>
+  <data name="&gt;&gt;UseWtrTextLabel.Name" xml:space="preserve">
+    <value>UseWtrTextLabel</value>
+  </data>
+  <data name="&gt;&gt;UseWtrTextLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;UseWtrTextLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;UseWtrTextLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="Label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 299</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Dr Name:</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <metadata name="RxBodyBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="RxBdyIDTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 38</value>
+  </data>
+  <data name="RxBdyIDTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="RxBdyIDTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;RxBdyIDTextBox.Name" xml:space="preserve">
+    <value>RxBdyIDTextBox</value>
+  </data>
+  <data name="&gt;&gt;RxBdyIDTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;RxBdyIDTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RxBdyIDTextBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="ArHdrNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 64</value>
+  </data>
+  <data name="ArHdrNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 22</value>
+  </data>
+  <data name="ArHdrNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;ArHdrNameTextBox.Name" xml:space="preserve">
+    <value>ArHdrNameTextBox</value>
+  </data>
+  <data name="&gt;&gt;ArHdrNameTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ArHdrNameTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ArHdrNameTextBox.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="ArHdrAdresTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 90</value>
+  </data>
+  <data name="ArHdrAdresTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 22</value>
+  </data>
+  <data name="ArHdrAdresTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;ArHdrAdresTextBox.Name" xml:space="preserve">
+    <value>ArHdrAdresTextBox</value>
+  </data>
+  <data name="&gt;&gt;ArHdrAdresTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ArHdrAdresTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ArHdrAdresTextBox.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="EnHdrNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 116</value>
+  </data>
+  <data name="EnHdrNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 22</value>
+  </data>
+  <data name="EnHdrNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;EnHdrNameTextBox.Name" xml:space="preserve">
+    <value>EnHdrNameTextBox</value>
+  </data>
+  <data name="&gt;&gt;EnHdrNameTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EnHdrNameTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EnHdrNameTextBox.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="EnHdrAdresTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 142</value>
+  </data>
+  <data name="EnHdrAdresTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 22</value>
+  </data>
+  <data name="EnHdrAdresTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;EnHdrAdresTextBox.Name" xml:space="preserve">
+    <value>EnHdrAdresTextBox</value>
+  </data>
+  <data name="&gt;&gt;EnHdrAdresTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EnHdrAdresTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EnHdrAdresTextBox.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="DetailTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 270</value>
+  </data>
+  <data name="DetailTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 22</value>
+  </data>
+  <data name="DetailTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;DetailTextBox.Name" xml:space="preserve">
+    <value>DetailTextBox</value>
+  </data>
+  <data name="&gt;&gt;DetailTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DetailTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DetailTextBox.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="ArFtrTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 322</value>
+  </data>
+  <data name="ArFtrTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 22</value>
+  </data>
+  <data name="ArFtrTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;ArFtrTextBox.Name" xml:space="preserve">
+    <value>ArFtrTextBox</value>
+  </data>
+  <data name="&gt;&gt;ArFtrTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ArFtrTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ArFtrTextBox.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="EnFtrTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 348</value>
+  </data>
+  <data name="EnFtrTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 22</value>
+  </data>
+  <data name="EnFtrTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;EnFtrTextBox.Name" xml:space="preserve">
+    <value>EnFtrTextBox</value>
+  </data>
+  <data name="&gt;&gt;EnFtrTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;EnFtrTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EnFtrTextBox.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="btnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 207</value>
+  </data>
+  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
+    <value>btnBrowse</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 525</value>
+  </data>
+  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 23</value>
+  </data>
+  <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Add / Update</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Name" xml:space="preserve">
+    <value>btnAdd</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <metadata name="OFD.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>188, 17</value>
+  </metadata>
+  <data name="OFD.Filter" xml:space="preserve">
+    <value>All files (*.*)|*.*|Bitmap Files(*.bmp)|*.bmp|JPeg Files(*.jpg)|*.jpg|PNG Files(*.png)|*.png</value>
+  </data>
+  <data name="BtnBrowsWtr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtnBrowsWtr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 410</value>
+  </data>
+  <data name="BtnBrowsWtr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="BtnBrowsWtr.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="BtnBrowsWtr.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="&gt;&gt;BtnBrowsWtr.Name" xml:space="preserve">
+    <value>BtnBrowsWtr</value>
+  </data>
+  <data name="&gt;&gt;BtnBrowsWtr.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnBrowsWtr.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnBrowsWtr.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="WtrTextTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 471</value>
+  </data>
+  <data name="WtrTextTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 22</value>
+  </data>
+  <data name="WtrTextTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;WtrTextTextBox.Name" xml:space="preserve">
+    <value>WtrTextTextBox</value>
+  </data>
+  <data name="&gt;&gt;WtrTextTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;WtrTextTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;WtrTextTextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="UseWtrImg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="UseWtrImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>383, 410</value>
+  </data>
+  <data name="UseWtrImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 19</value>
+  </data>
+  <data name="UseWtrImg.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;UseWtrImg.Name" xml:space="preserve">
+    <value>UseWtrImg</value>
+  </data>
+  <data name="&gt;&gt;UseWtrImg.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;UseWtrImg.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;UseWtrImg.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="UseWtrText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="UseWtrText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>383, 495</value>
+  </data>
+  <data name="UseWtrText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 19</value>
+  </data>
+  <data name="UseWtrText.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;UseWtrText.Name" xml:space="preserve">
+    <value>UseWtrText</value>
+  </data>
+  <data name="&gt;&gt;UseWtrText.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;UseWtrText.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;UseWtrText.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnPreview.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPreview.Location" type="System.Drawing.Point, System.Drawing">
+    <value>451, 525</value>
+  </data>
+  <data name="btnPreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnPreview.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="btnPreview.Text" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="&gt;&gt;btnPreview.Name" xml:space="preserve">
+    <value>btnPreview</value>
+  </data>
+  <data name="&gt;&gt;btnPreview.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnPreview.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnPreview.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DrNameText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 296</value>
+  </data>
+  <data name="DrNameText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="DrNameText.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;DrNameText.Name" xml:space="preserve">
+    <value>DrNameText</value>
+  </data>
+  <data name="&gt;&gt;DrNameText.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DrNameText.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DrNameText.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Wtr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Wtr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 374</value>
+  </data>
+  <data name="Wtr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 91</value>
+  </data>
+  <data name="Wtr.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="Wtr.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;Wtr.Name" xml:space="preserve">
+    <value>Wtr</value>
+  </data>
+  <data name="&gt;&gt;Wtr.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Wtr.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Wtr.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 165</value>
+  </data>
+  <data name="Logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 96</value>
+  </data>
+  <data name="Logo.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;Logo.Name" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="&gt;&gt;Logo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Logo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Logo.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>91</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>702, 581</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Rx Details</value>
+  </data>
+  <data name="&gt;&gt;RxBodyBindingSource.Name" xml:space="preserve">
+    <value>RxBodyBindingSource</value>
+  </data>
+  <data name="&gt;&gt;RxBodyBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OFD.Name" xml:space="preserve">
+    <value>OFD</value>
+  </data>
+  <data name="&gt;&gt;OFD.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>RxDetailFrm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

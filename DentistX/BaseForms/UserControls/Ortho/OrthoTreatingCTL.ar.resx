@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtKhota.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 225</value>
+  </data>
+  <data name="txtKhota.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 108</value>
+  </data>
+  <data name="OverLoadTeethTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 200</value>
+  </data>
+  <data name="BurriedTeethTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 176</value>
+  </data>
+  <data name="txtPrevIll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 200</value>
+  </data>
+  <data name="TeethLossTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 151</value>
+  </data>
+  <data name="IllnesPeriodTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 176</value>
+  </data>
+  <data name="MilkTeethChngTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 125</value>
+  </data>
+  <data name="MalfunctionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 151</value>
+  </data>
+  <data name="MilkTeethAppearTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 100</value>
+  </data>
+  <data name="BadHabitsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 125</value>
+  </data>
+  <data name="FeedTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 76</value>
+  </data>
+  <data name="txtPervOrth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 100</value>
+  </data>
+  <data name="BirthTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 51</value>
+  </data>
+  <data name="CousinsHFactorTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 76</value>
+  </data>
+  <data name="CompliantsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 26</value>
+  </data>
+  <data name="ThroatCutTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 51</value>
+  </data>
+  <data name="TextPatientID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 246</value>
+  </data>
+  <data name="TextOrthoInfID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 272</value>
+  </data>
+  <data name="LipsCutTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 26</value>
+  </data>
+  <data name="LabelControl18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>153, 203</value>
+  </data>
+  <data name="LabelControl18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelControl18.Text" xml:space="preserve">
+    <value>أسنان زائدة</value>
+  </data>
+  <data name="LabelControl17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 179</value>
+  </data>
+  <data name="LabelControl17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 15</value>
+  </data>
+  <data name="LabelControl17.Text" xml:space="preserve">
+    <value>أسنان مطمورة</value>
+  </data>
+  <data name="LabelControl12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>439, 181</value>
+  </data>
+  <data name="LabelControl12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelControl12.Text" xml:space="preserve">
+    <value>فترة المرض</value>
+  </data>
+  <data name="LabelControl11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>439, 156</value>
+  </data>
+  <data name="LabelControl11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelControl11.Text" xml:space="preserve">
+    <value>خلل وظيفي</value>
+  </data>
+  <data name="LabelControl16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>397, 81</value>
+  </data>
+  <data name="LabelControl16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 15</value>
+  </data>
+  <data name="LabelControl16.Text" xml:space="preserve">
+    <value>عامل وراثي عند الأهل</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>141, 154</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 15</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>أسنان مفقودة</value>
+  </data>
+  <data name="LabelControl15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>438, 105</value>
+  </data>
+  <data name="LabelControl15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="LabelControl15.Text" xml:space="preserve">
+    <value>تقويم سابق</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 128</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 15</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>تبديل الأسنان اللبنية</value>
+  </data>
+  <data name="LabelControl9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>435, 130</value>
+  </data>
+  <data name="LabelControl9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 15</value>
+  </data>
+  <data name="LabelControl9.Text" xml:space="preserve">
+    <value>عادات سيئة</value>
+  </data>
+  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>442, 56</value>
+  </data>
+  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="LabelControl14.Text" xml:space="preserve">
+    <value>شق الحلق</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 79</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 15</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>الرضاعة</value>
+  </data>
+  <data name="LabelControl8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>375, 253</value>
+  </data>
+  <data name="LabelControl8.Text" xml:space="preserve">
+    <value>فترة وخطة العلاج المقترحة</value>
+  </data>
+  <data name="LabelControl13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>442, 31</value>
+  </data>
+  <data name="LabelControl13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="LabelControl13.Text" xml:space="preserve">
+    <value>شق الشفة</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 103</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 15</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>بزوغ الأسنان اللبنية</value>
+  </data>
+  <data name="LabelControl7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>422, 205</value>
+  </data>
+  <data name="LabelControl7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 15</value>
+  </data>
+  <data name="LabelControl7.Text" xml:space="preserve">
+    <value>الأمراض الحالية</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>174, 54</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 15</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>الولادة</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 29</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 15</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>الشكاوى</value>
+  </data>
+  <data name="GrpOrthCrd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 8</value>
+  </data>
+  <data name="GrpOrthCrd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>497, 356</value>
+  </data>
+  <data name="GrpOrthCrd.Text" xml:space="preserve">
+    <value>البيانات الأولية للتقويم-معلومات عامة</value>
+  </data>
+  <data name="btnDelOrtho.Location" type="System.Drawing.Point, System.Drawing">
+    <value>859, 525</value>
+  </data>
+  <data name="btnDelOrtho.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 28</value>
+  </data>
+  <data name="btnDelOrtho.Text" xml:space="preserve">
+    <value>إحذف هذا التقويم</value>
+  </data>
+  <data name="LabelControl20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>453, 29</value>
+  </data>
+  <data name="LabelControl20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
+  </data>
+  <data name="LabelControl20.Text" xml:space="preserve">
+    <value>الاطباق</value>
+  </data>
+  <data name="BiteTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 83</value>
+  </data>
+  <data name="BiteTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 22</value>
+  </data>
+  <data name="ClassTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 54</value>
+  </data>
+  <data name="ClassTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 22</value>
+  </data>
+  <data name="DiagnoseTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>227, 26</value>
+  </data>
+  <data name="DiagnoseTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 22</value>
+  </data>
+  <data name="LabelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>459, 86</value>
+  </data>
+  <data name="LabelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 17</value>
+  </data>
+  <data name="LabelControl10.Text" xml:space="preserve">
+    <value>العضة</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>455, 58</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 17</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>الصنف</value>
+  </data>
+  <data name="GrpDiag.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 402</value>
+  </data>
+  <data name="GrpDiag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>497, 117</value>
+  </data>
+  <data name="GrpDiag.Text" xml:space="preserve">
+    <value>تشخيص الحالة</value>
+  </data>
+  <data name="ToolStripButton9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnDelTrtStep.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABa0lEQVQ4T7WQTSjDYRzH/1flrZSLC0o5
+        IJOYkEyG5CUyjci8JQcOi4RcdnAg5UIOuEgOJCXlRLLTvM1ra0p/aVppF/zj8nzEEJ61pvhcv9/vp+f5
+        KcpfgOsYuqvBscPPLCRYmUd0liMsRthaDyrh5gqWZr53WFuAXhOi1YhoL4W5iYCS1xcKSzHYeuScE4df
+        UpuJMOeCteFbSQx1IEzZMDkij7/C4jSiLPlNxHAHuE9hrN8vHesPPv6AKxc0Fvi/VJ2BqNNDX1No4w/Y
+        20WY9IiKVKjS/XLsUcGcB1kxaLpo7nWRUJMZmgTPNZhyID8OX1sFnB++HdebEgnLs8El3Hmh2cBDYTzu
+        olR89u3PAaNWnEkRaMf7gSU8P8FgGxgSOEqJxbexKhVvS9JQWyrRbq6lTGF3Ey07FmdiGGpXPWiPcklR
+        lJ2kKDSnQ86YsqEmh+M2poN6KRfe0Ua64exAzrlwwvgAHNjl8D95AYojAxxWObZsAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="OrthoTrtDetSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="TrtDetNavigator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 90</value>
+  </data>
+  <data name="wireTypeCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>451, 74</value>
+  </data>
+  <data name="wireMeasCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>451, 46</value>
+  </data>
+  <data name="btAddtrtStep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 89</value>
+  </data>
+  <data name="btAddtrtStep.Text" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="LabelControl37.Location" type="System.Drawing.Point, System.Drawing">
+    <value>398, 50</value>
+  </data>
+  <data name="LabelControl37.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 15</value>
+  </data>
+  <data name="LabelControl37.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="WireImgTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 46</value>
+  </data>
+  <data name="LabelControl34.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="LabelControl34.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 15</value>
+  </data>
+  <data name="LabelControl34.Text" xml:space="preserve">
+    <value>الرمز</value>
+  </data>
+  <data name="LabelControl36.Location" type="System.Drawing.Point, System.Drawing">
+    <value>577, 81</value>
+  </data>
+  <data name="LabelControl36.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 15</value>
+  </data>
+  <data name="LabelControl36.Text" xml:space="preserve">
+    <value>نوع السلك</value>
+  </data>
+  <data name="LabelControl35.Location" type="System.Drawing.Point, System.Drawing">
+    <value>577, 50</value>
+  </data>
+  <data name="LabelControl35.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 15</value>
+  </data>
+  <data name="LabelControl35.Text" xml:space="preserve">
+    <value>مقاس السلك</value>
+  </data>
+  <data name="LabelControl33.Location" type="System.Drawing.Point, System.Drawing">
+    <value>577, 24</value>
+  </data>
+  <data name="LabelControl33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 15</value>
+  </data>
+  <data name="LabelControl33.Text" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="WorkDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>451, 21</value>
+  </data>
+  <data name="txtWireNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 31</value>
+  </data>
+  <data name="GrpTrtSteps.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 170</value>
+  </data>
+  <data name="GrpTrtSteps.Size" type="System.Drawing.Size, System.Drawing">
+    <value>691, 119</value>
+  </data>
+  <data name="GrpTrtSteps.Text" xml:space="preserve">
+    <value>خطوات العلاج</value>
+  </data>
+  <data name="OrthoTrtDetGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 295</value>
+  </data>
+  <data name="ColRowNum.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colWorkDate.Caption" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="colWireMeasure.Caption" xml:space="preserve">
+    <value>مقاس السلك</value>
+  </data>
+  <data name="colWireType.Caption" xml:space="preserve">
+    <value>نوع السلك</value>
+  </data>
+  <data name="colWireImg.Caption" xml:space="preserve">
+    <value>الرمز</value>
+  </data>
+  <data name="colWireNotes.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="OrthoTrtDetGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>691, 302</value>
+  </data>
+  <data name="TreatTabCtl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 8</value>
+  </data>
+  <data name="LabelControl39.Location" type="System.Drawing.Point, System.Drawing">
+    <value>126, 54</value>
+  </data>
+  <data name="LabelControl39.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 15</value>
+  </data>
+  <data name="LabelControl39.Text" xml:space="preserve">
+    <value>نوع المثبت</value>
+  </data>
+  <data name="LabelControl38.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 31</value>
+  </data>
+  <data name="LabelControl38.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
+  <data name="LabelControl38.Text" xml:space="preserve">
+    <value>تاريخ المثبت</value>
+  </data>
+  <data name="LabelControl23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 7</value>
+  </data>
+  <data name="LabelControl23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
+  <data name="LabelControl23.Text" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="FixerTypeTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 49</value>
+  </data>
+  <data name="txtFixerDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 25</value>
+  </data>
+  <data name="txtFinishDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 2</value>
+  </data>
+  <data name="finishPnl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 50</value>
+  </data>
+  <data name="fixerCombo2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>339, 50</value>
+  </data>
+  <data name="fixerDate2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>339, 26</value>
+  </data>
+  <data name="ToolStripButton20.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton21.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton22.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton27.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnDelOrthTreat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABa0lEQVQ4T7WQTSjDYRzH/1flrZSLC0o5
+        IJOYkEyG5CUyjci8JQcOi4RcdnAg5UIOuEgOJCXlRLLTvM1ra0p/aVppF/zj8nzEEJ61pvhcv9/vp+f5
+        KcpfgOsYuqvBscPPLCRYmUd0liMsRthaDyrh5gqWZr53WFuAXhOi1YhoL4W5iYCS1xcKSzHYeuScE4df
+        UpuJMOeCteFbSQx1IEzZMDkij7/C4jSiLPlNxHAHuE9hrN8vHesPPv6AKxc0Fvi/VJ2BqNNDX1No4w/Y
+        20WY9IiKVKjS/XLsUcGcB1kxaLpo7nWRUJMZmgTPNZhyID8OX1sFnB++HdebEgnLs8El3Hmh2cBDYTzu
+        olR89u3PAaNWnEkRaMf7gSU8P8FgGxgSOEqJxbexKhVvS9JQWyrRbq6lTGF3Ey07FmdiGGpXPWiPcklR
+        lJ2kKDSnQ86YsqEmh+M2poN6KRfe0Ua64exAzrlwwvgAHNjl8D95AYojAxxWObZsAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="OrthoTrtSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="TreatNavigator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>388, 98</value>
+  </data>
+  <data name="finishDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 24</value>
+  </data>
+  <data name="btnFinish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 23</value>
+  </data>
+  <data name="btnFinish.Text" xml:space="preserve">
+    <value>تعديل تاريخ الانهاء</value>
+  </data>
+  <data name="LabelControl28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>251, 57</value>
+  </data>
+  <data name="LabelControl28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="LabelControl28.Text" xml:space="preserve">
+    <value>قلع أسنان</value>
+  </data>
+  <data name="LabelControl25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>445, 53</value>
+  </data>
+  <data name="LabelControl25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 15</value>
+  </data>
+  <data name="LabelControl25.Text" xml:space="preserve">
+    <value>نوع المثبت</value>
+  </data>
+  <data name="LabelControl22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 75</value>
+  </data>
+  <data name="LabelControl22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 15</value>
+  </data>
+  <data name="LabelControl22.Text" xml:space="preserve">
+    <value>نوع القوس</value>
+  </data>
+  <data name="LabelControl24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>445, 29</value>
+  </data>
+  <data name="LabelControl24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
+  <data name="LabelControl24.Text" xml:space="preserve">
+    <value>تاريخ المثبت</value>
+  </data>
+  <data name="LabelControl21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 51</value>
+  </data>
+  <data name="LabelControl21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="LabelControl21.Text" xml:space="preserve">
+    <value>نوع التقويم</value>
+  </data>
+  <data name="LabelControl19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 28</value>
+  </data>
+  <data name="LabelControl19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 15</value>
+  </data>
+  <data name="LabelControl19.Text" xml:space="preserve">
+    <value>تاريخ البداية</value>
+  </data>
+  <data name="ExtraLLTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>282, 100</value>
+  </data>
+  <data name="ExtraLRTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 100</value>
+  </data>
+  <data name="ExtraURTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 78</value>
+  </data>
+  <data name="ExtraULTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>282, 78</value>
+  </data>
+  <data name="BraketTypeTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>514, 71</value>
+  </data>
+  <data name="txtOrthoType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>514, 47</value>
+  </data>
+  <data name="txtBeginDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>514, 24</value>
+  </data>
+  <data name="GrpTrtMainINf.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 6</value>
+  </data>
+  <data name="GrpTrtMainINf.Size" type="System.Drawing.Size, System.Drawing">
+    <value>691, 134</value>
+  </data>
+  <data name="GrpTrtMainINf.Text" xml:space="preserve">
+    <value>المعلومات الأساسية لخطوات العلاج</value>
+  </data>
+  <data name="TreatmentStepsTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>686, 135</value>
+  </data>
+  <data name="TreatmentStepsTab.Text" xml:space="preserve">
+    <value>المعلومات الأساسية لخطوات العلاج</value>
+  </data>
+  <data name="TreatTabCtl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>691, 163</value>
+  </data>
+  <data name="bracetCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 63</value>
+  </data>
+  <data name="btAddTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>288, 97</value>
+  </data>
+  <data name="btAddTreat.Text" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="LabelControl32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 38</value>
+  </data>
+  <data name="LabelControl32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="LabelControl32.Text" xml:space="preserve">
+    <value>قلع أسنان</value>
+  </data>
+  <data name="LabelControl31.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 65</value>
+  </data>
+  <data name="LabelControl31.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 15</value>
+  </data>
+  <data name="LabelControl31.Text" xml:space="preserve">
+    <value>نوع القوس</value>
+  </data>
+  <data name="orthoTypeCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 28</value>
+  </data>
+  <data name="LabelControl30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 34</value>
+  </data>
+  <data name="LabelControl30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="LabelControl30.Text" xml:space="preserve">
+    <value>نوع التقويم</value>
+  </data>
+  <data name="fixerCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>471, 60</value>
+  </data>
+  <data name="LabelControl29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>576, 63</value>
+  </data>
+  <data name="LabelControl29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 15</value>
+  </data>
+  <data name="LabelControl29.Text" xml:space="preserve">
+    <value>نوع المثبت</value>
+  </data>
+  <data name="LabelControl27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>577, 91</value>
+  </data>
+  <data name="LabelControl27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
+  <data name="LabelControl27.Text" xml:space="preserve">
+    <value>تاريخ المثبت</value>
+  </data>
+  <data name="LabelControl26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>577, 35</value>
+  </data>
+  <data name="LabelControl26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 15</value>
+  </data>
+  <data name="LabelControl26.Text" xml:space="preserve">
+    <value>تاريخ البداية</value>
+  </data>
+  <data name="fixerDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>471, 88</value>
+  </data>
+  <data name="beginDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>471, 32</value>
+  </data>
+  <data name="llCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 84</value>
+  </data>
+  <data name="lrCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 84</value>
+  </data>
+  <data name="urCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 62</value>
+  </data>
+  <data name="ulCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 62</value>
+  </data>
+  <data name="GrpBeginNewTrt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 6</value>
+  </data>
+  <data name="GrpBeginNewTrt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>676, 134</value>
+  </data>
+  <data name="GrpBeginNewTrt.Text" xml:space="preserve">
+    <value>خطوات العلاج - بدء علاج جديد</value>
+  </data>
+  <data name="BeginNewTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>686, 135</value>
+  </data>
+  <data name="BeginNewTab.Text" xml:space="preserve">
+    <value>خطوات العلاج - بدء علاج جديد</value>
+  </data>
+  <data name="btnEditOrtho.Location" type="System.Drawing.Point, System.Drawing">
+    <value>987, 525</value>
+  </data>
+  <data name="btnEditOrtho.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 28</value>
+  </data>
+  <data name="btnEditOrtho.Text" xml:space="preserve">
+    <value>تعديل التقويم</value>
+  </data>
+  <data name="btnShowImages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>704, 525</value>
+  </data>
+  <data name="btnShowImages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 28</value>
+  </data>
+  <data name="btnShowImages.Text" xml:space="preserve">
+    <value>عارض الصور قبل / بعد</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+</root>

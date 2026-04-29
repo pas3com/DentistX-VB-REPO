@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="colToothName.Caption" xml:space="preserve">
+    <value>السن</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="colToothName.Width" type="System.Int32, mscorlib">
+    <value>165</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtDiagNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 222</value>
+  </data>
+  <data name="txtDiagNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>337, 60</value>
+  </data>
+  <data name="txtDiagDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>641, 222</value>
+  </data>
+  <data name="txtDiagDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>337, 60</value>
+  </data>
+  <data name="LabelControl20.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>984, 244</value>
+  </data>
+  <data name="LabelControl20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 17</value>
+  </data>
+  <data name="LabelControl20.Text" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>984, 118</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 17</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>خطة العلاج</value>
+  </data>
+  <data name="LabelControl10.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>559, 244</value>
+  </data>
+  <data name="LabelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 17</value>
+  </data>
+  <data name="LabelControl10.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="txtTrtPlan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 96</value>
+  </data>
+  <data name="txtTrtPlan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 60</value>
+  </data>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>984, 181</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>اتفاقية العلاج</value>
+  </data>
+  <data name="txtDiagAgree.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 159</value>
+  </data>
+  <data name="txtDiagAgree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 60</value>
+  </data>
+  <data name="txtPayValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 138</value>
+  </data>
+  <data name="txtTrtValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 105</value>
+  </data>
+  <data name="LabelControl23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 137</value>
+  </data>
+  <data name="LabelControl23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 19</value>
+  </data>
+  <data name="LabelControl23.Text" xml:space="preserve">
+    <value>دفعة مقدما</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 104</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 19</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>المبلغ الكلي</value>
+  </data>
+  <data name="dtTrtToStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 166</value>
+  </data>
+  <data name="LabelControl14.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 169</value>
+  </data>
+  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 17</value>
+  </data>
+  <data name="LabelControl14.Text" xml:space="preserve">
+    <value>التاريخ للبدء</value>
+  </data>
+  <data name="dtDiagDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>844, 69</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>984, 71</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 17</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>تاريخ التشخيص</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>451, 289</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="btnSaveTrt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>574, 289</value>
+  </data>
+  <data name="btnSaveTrt.Text" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="colSelect.Caption" xml:space="preserve">
+    <value>تحديد</value>
+  </data>
+  <data name="colSelect.Width" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="colRowNum.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colRowNum.Width" type="System.Int32, mscorlib">
+    <value>69</value>
+  </data>
+  <data name="colDetail.Caption" xml:space="preserve">
+    <value>التشخيص</value>
+  </data>
+  <data name="colDetail.Width" type="System.Int32, mscorlib">
+    <value>376</value>
+  </data>
+  <data name="colTrtDate.Caption" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="colTrtDate.Width" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="colToothNum.Caption" xml:space="preserve">
+    <value>رقم السن</value>
+  </data>
+  <data name="colToothNum.Width" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="colStatus.Caption" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="colStatus.Width" type="System.Int32, mscorlib">
+    <value>184</value>
+  </data>
+  <data name="Patient_DiagsGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1096, 245</value>
+  </data>
+  <data name="GroupGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1100, 269</value>
+  </data>
+  <data name="GroupGrid.Text" xml:space="preserve">
+    <value>إضافة تفاصيل التشخيص للمريض</value>
+  </data>
+  <data name="slctCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 41</value>
+  </data>
+  <data name="slctCheck.Properties.Caption" xml:space="preserve">
+    <value>تحديد التشخيصات الجديدة فقط</value>
+  </data>
+  <data name="slctCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>382, 21</value>
+  </data>
+  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>991, 43</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 17</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>نوع التحديد</value>
+  </data>
+  <data name="chkAddToVisits.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 203</value>
+  </data>
+  <data name="chkAddToVisits.Properties.Caption" xml:space="preserve">
+    <value>إضافة إلى الزيارات</value>
+  </data>
+  <data name="chkAddToVisits.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 21</value>
+  </data>
+  <data name="btnSelectNone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>813, 39</value>
+  </data>
+  <data name="btnSelectNone.Text" xml:space="preserve">
+    <value>إلغاء التحديد</value>
+  </data>
+  <data name="btnSelectAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>903, 39</value>
+  </data>
+  <data name="btnSelectAll.Text" xml:space="preserve">
+    <value>تحديد الكل</value>
+  </data>
+  <data name="grpControls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 269</value>
+  </data>
+  <data name="grpControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1100, 374</value>
+  </data>
+  <data name="grpControls.Text" xml:space="preserve">
+    <value>تفاصيل الاتفاقية</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+</root>

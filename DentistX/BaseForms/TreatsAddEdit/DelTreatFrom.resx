@@ -1,0 +1,1515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;LabelControl6.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelControl19.Text" xml:space="preserve">
+    <value>Extrenal Clinic</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtPatientName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>533, 38</value>
+  </data>
+  <data name="&gt;&gt;txtTreat.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="grpChks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>380, 414</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="btnDelTrt.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="pnl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>376, 387</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>Treat ID</value>
+  </data>
+  <data name="LabelControl27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 372</value>
+  </data>
+  <data name="ceFinish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 19</value>
+  </data>
+  <data name="lblExternal.Text" xml:space="preserve">
+    <value>This Is An Extrenal Treatment</value>
+  </data>
+  <data name="BindingNavigator1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 540</value>
+  </data>
+  <data name="lblExternal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 15</value>
+  </data>
+  <data name="BindingNavigatorAddNewItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.Name" xml:space="preserve">
+    <value>LabelControl19</value>
+  </data>
+  <data name="txtTrtNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 329</value>
+  </data>
+  <data name="BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtToothNum.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnSaveTrt.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Name" xml:space="preserve">
+    <value>LabelControl7</value>
+  </data>
+  <data name="btnDelTrt.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;LabelControl27.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPlan.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="cboTrtType.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ceFinish.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BindingNavigatorDeleteItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="LabelControl7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 14</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>619, 74</value>
+  </data>
+  <data name="LabelControl27.Text" xml:space="preserve">
+    <value>IS Finished</value>
+  </data>
+  <data name="&gt;&gt;ImplantSpecsLbl.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="cboTrtType.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="BindingNavigatorCountItem.Text" xml:space="preserve">
+    <value>of {0}</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GroupHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="&gt;&gt;txtTrtID.Name" xml:space="preserve">
+    <value>txtTrtID</value>
+  </data>
+  <data name="&gt;&gt;LabelControl20.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl27.Name" xml:space="preserve">
+    <value>LabelControl27</value>
+  </data>
+  <data name="btnDelTrt.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtTrtDetails.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="txtToothNum.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 14</value>
+  </data>
+  <data name="txtTrtPlan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 29</value>
+  </data>
+  <data name="BindingNavigatorDeleteItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAWtJREFUOE+1kE0ow2Ecx/9X5a2UiwtKOSCTmJBMhuQlMo3IvCUHDouEXHZwIOVC
+        DrhIDiQl5USy07zNa2tKf2laaRf84/J8xBCetab4XL/f76fn+SnKX4DrGLqrwbHDzywkWJlHdJYjLEbY
+        Wg8q4eYKlma+d1hbgF4TotWIaC+FuYmAktcXCksx2HrknBOHX1KbiTDngrXhW0kMdSBM2TA5Io+/wuI0
+        oiz5TcRwB7hPYazfLx3rDz7+gCsXNBb4v1SdgajTQ19TaOMP2NtFmPSIilSo0v1y7FHBnAdZMWi6aO51
+        kVCTGZoEzzWYciA/Dl9bBZwfvh3XmxIJy7PBJdx5odnAQ2E87qJUfPbtzwGjVpxJEWjH+4ElPD/BYBsY
+        EjhKicW3sSoVb0vSUFsq0W6upUxhdxMtOxZnYhhqVz1oj3JJUZSdpCg0p0POmLKhJofjNqaDeikX3tFG
+        uuHsQM65cML4ABzY5fA/eQGKIwMcVjm2bAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="&gt;&gt;GroupMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 25</value>
+  </data>
+  <data name="&gt;&gt;btnDelTrt.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="txtPatientID.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="LabelControl7.Text" xml:space="preserve">
+    <value>Treat Date</value>
+  </data>
+  <data name="txtToothNum.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtPatientID.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl9.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="BindingNavigatorMoveLastItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAStJREFUOE9jYBhUoHDW8//oYjAAkmta8Px/5sTHONUw5M589j+h+x5WBSC5VUfe
+        /w9vf4BVHgwypjz9P2//7/8JXXcwFIHkFu778D+44RqGHBwk9Dz5P3vfr/+dW//+dyu9jKIQJDdty/v/
+        /tUXcBsQ2fXo/5Rtv/6XLP37P2H63/82uWfhikFyvas//PcqPYHbgMDmh/9b174HazYu+fJfOvraf+PI
+        ZWANILm6+e/+u+QfwG2AR9X9/yVz38E1K7r0wBWD5PKnvflvn7EdtwH2pXf/B7Y8w9AMk8ue/Pq/RcJ6
+        3AZY5N35b1NwBUMzTC61/zXcS1iBYdZtrJpBACQX1vLyv27wPKzyYKCTdgOnJEjOr/rhfw3faTjV4AVO
+        uVf+q3hMAGN0uYEFAL7Rv7NmXVYYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="grpChks.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11pt, style=Bold</value>
+  </data>
+  <data name="BindingNavigatorMovePreviousItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="&gt;&gt;btnSaveTrt.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;chkIsExternal.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="BindingNavigatorMoveLastItem.Text" xml:space="preserve">
+    <value>Move last</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Name" xml:space="preserve">
+    <value>LabelControl9</value>
+  </data>
+  <data name="&gt;&gt;grpChks.Name" xml:space="preserve">
+    <value>grpChks</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorSeparator.Name" xml:space="preserve">
+    <value>BindingNavigatorSeparator</value>
+  </data>
+  <data name="txtPatientName.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dtTrtDate.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="txtToothNum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>533, 70</value>
+  </data>
+  <data name="&gt;&gt;lblExternal.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="txtPatientName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 22</value>
+  </data>
+  <data name="BindingNavigatorMoveLastItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="GroupHeader.Text" xml:space="preserve">
+    <value>Patient &amp;&amp; Tooth Details</value>
+  </data>
+  <data name="GroupHeader.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 14</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorMovePreviousItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtTrtEnd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl9.Text" xml:space="preserve">
+    <value>Treatment</value>
+  </data>
+  <data name="cboTrtType.Properties.Items" xml:space="preserve">
+    <value>One Stage</value>
+  </data>
+  <data name="btnDelTrt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>414, 479</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>Tooth Name</value>
+  </data>
+  <data name="&gt;&gt;ceFinish.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="txtTrtPlan.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSaveTrt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="txtTrtDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 29</value>
+  </data>
+  <data name="BindingNavigatorAddNewItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAVdJREFUOE/Nz0tLAmEUBmB3kWRoCUVEISFUJGb1OywiKrDsIpZdkJAkDUvDQkij
+        UKSbVIvatKhNi9oERRAGEQXhjJdp7Hd83/eGs2jhLGQ20QtndTgP71Gp/m0KZ1XInlTjM6XG+4EG5fuK
+        yaTUIN8bIMUQ0gmtcuBtX/MLPMT0yoHnuA6kuA4iruI20lAZ+DiswWuyFum4Dk+7dbiP6kHEFVDBg+tQ
+        My4DLbjwG3DqbcORxygHXxJakGIQRFwDEf0gwjKI4AYtzIHmHaA5Oxg/CsYPIb7YIQced+qluvTLCyIs
+        gRYWQPNO0NwkWNYGxg+DcYNgGSu2Z0xy4C7SiJtwE66kuq049xlAs2Ng/AiS7nbszXci6jIh4jQjPGWR
+        A+U59hiluowbQMzVVfmgPKU/GdcPxlmx5TArB6KzJunf0gTtPcqBzeluhCYsCIz3wm/rUw78WX4AJCPY
+        nlwVm9EAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="txtTrtID.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="ImplantSpecsLbl.Text" xml:space="preserve">
+    <value>Implant Specs</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>266, 42</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorSeparator1.Name" xml:space="preserve">
+    <value>BindingNavigatorSeparator1</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1006, 567</value>
+  </data>
+  <data name="LabelControl12.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorAddNewItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupHeader.Name" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;LabelControl27.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtTrtDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;txtToothName.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPlan.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="ImplantSpecsLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 230</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorMoveLastItem.Name" xml:space="preserve">
+    <value>BindingNavigatorMoveLastItem</value>
+  </data>
+  <data name="&gt;&gt;ceFinish.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;dtTrtEnd.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="txtPatientName.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl20.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="dtTrtDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 14</value>
+  </data>
+  <data name="BindingNavigatorPositionItem.AccessibleName" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="&gt;&gt;txtExtClinic.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnl1.Parent" xml:space="preserve">
+    <value>grpChks</value>
+  </data>
+  <data name="BindingNavigatorSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="ceFinish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 370</value>
+  </data>
+  <data name="LabelControl5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="LabelControl7.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnDelTrt.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="LabelControl19.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 14</value>
+  </data>
+  <data name="&gt;&gt;dtTrtDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="txtTrtID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 22</value>
+  </data>
+  <data name="LabelControl7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 171</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Name" xml:space="preserve">
+    <value>LabelControl2</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="BindingNavigatorMoveFirstItem.Text" xml:space="preserve">
+    <value>Move first</value>
+  </data>
+  <data name="dtTrtDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 20</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cboTrtType.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;txtExtClinic.Name" xml:space="preserve">
+    <value>txtExtClinic</value>
+  </data>
+  <data name="&gt;&gt;GroupHeader.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;txtToothName.Name" xml:space="preserve">
+    <value>txtToothName</value>
+  </data>
+  <data name="txtToothName.EditValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnSaveTrt.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtTrtNotes.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorMoveLastItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorMoveFirstItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LabelControl20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 299</value>
+  </data>
+  <data name="ImpPopup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 22</value>
+  </data>
+  <data name="&gt;&gt;GroupMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnSaveTrt.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;btnDelTrt.Name" xml:space="preserve">
+    <value>btnDelTrt</value>
+  </data>
+  <data name="txtTrtPlan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 254</value>
+  </data>
+  <data name="LabelControl19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 427</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPlan.Name" xml:space="preserve">
+    <value>txtTrtPlan</value>
+  </data>
+  <data name="&gt;&gt;txtPatientID.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;cboTrtType.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtTrtDetails.Name" xml:space="preserve">
+    <value>txtTrtDetails</value>
+  </data>
+  <data name="grpChks.Text" xml:space="preserve">
+    <value>Selected Treats</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorMovePreviousItem.Name" xml:space="preserve">
+    <value>BindingNavigatorMovePreviousItem</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 14</value>
+  </data>
+  <data name="BindingNavigator1.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtToothName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 22</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtTrtNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnDelTrt.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtTrtDetails.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;LabelControl27.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="ImpPopup.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="GroupMain.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtTrtID.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;GroupMain.Name" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="dtTrtEnd.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Name" xml:space="preserve">
+    <value>LabelControl6</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtExtClinic.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="BindingNavigatorMovePreviousItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAALtJREFUOE9jYBgyILz9wX90MaJBfPeD/8EN18gzIL7n4f+l+///96++QLoBEe33
+        wZozZ/3/71V6gjQDQlvvgTW3rvv/37/z73+X/APEGxDccvf/or3//3es+/8/Y87P/3Z1P//bZ2wn3gAQ
+        sCu+/T99zu///l3f/usUvvtvkbCeNANAQD/l/H+Tohf/VbI+/TeOXEa6ASBgkHTiv2za1/+6wfPIMwAE
+        9FMv/9fwnUa+ASCg4jGBMgMGLwAA0BRgmCws/7cAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;dtTrtDate.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="LabelControl14.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="LabelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnCancel.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtToothNum.EditValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl14.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="LabelControl12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 14</value>
+  </data>
+  <data name="LabelControl14.Text" xml:space="preserve">
+    <value>Finish Date</value>
+  </data>
+  <data name="ImpPopup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 226</value>
+  </data>
+  <data name="dtTrtEnd.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="LabelControl10.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;grpChks.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="BindingNavigatorAddNewItem.Text" xml:space="preserve">
+    <value>Add new</value>
+  </data>
+  <data name="&gt;&gt;txtTrtDetails.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSaveTrt.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>517, 479</value>
+  </data>
+  <data name="btnSaveTrt.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="ImplantSpecsLbl.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="LabelControl27.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="ImpPopup.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="dtTrtDate.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorCountItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorDeleteItem.Name" xml:space="preserve">
+    <value>BindingNavigatorDeleteItem</value>
+  </data>
+  <data name="&gt;&gt;btnSaveTrt.Name" xml:space="preserve">
+    <value>btnSaveTrt</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="grpChks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblExternal.Name" xml:space="preserve">
+    <value>lblExternal</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Name" xml:space="preserve">
+    <value>LabelControl14</value>
+  </data>
+  <data name="&gt;&gt;txtToothName.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="LabelControl6.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="txtPatientID.EditValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ImplantSpecsLbl.Name" xml:space="preserve">
+    <value>ImplantSpecsLbl</value>
+  </data>
+  <data name="GroupMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="GroupHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 26</value>
+  </data>
+  <data name="LabelControl12.Text" xml:space="preserve">
+    <value>Treatment Type</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="LabelControl27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 14</value>
+  </data>
+  <data name="&gt;&gt;ceFinish.Name" xml:space="preserve">
+    <value>ceFinish</value>
+  </data>
+  <data name="&gt;&gt;chkIsExternal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl6.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="BindingNavigatorMoveFirstItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAATFJREFUOE9jYBg0oHDW8/9NC57/z5z4+D+6HAyEtz/AKceQO/PZ/1VH3v/HpSi+
+        +8H/4IZrWOXAIGPK0/8L933Aqii+5+H/pfv///evvoAhBwcJPU/+T9vyHkNRRPt9sObMWf//e5WewG1A
+        ZNej/72rP6AoCm29B9bcuu7/f//Ov/9d8g/gNiCw+eH/uvnv4IqCW+7+X7T3//+Odf//Z8z5+d+u7ud/
+        +4ztuA3wqLr/P3/aGxRFdsW3/6fP+f3fv+vbf53Cd/8tEtbjNsC+9O7/7MmvMRTpp5z/b1L04r9K1qf/
+        xpHLcBtgkXfnf2r/a6yKDJJO/JdN+/pfN3gehhwcGGbd/h/W8hKnIv3Uy/81fKdhlQMDnbQb//2qH+JV
+        pOIxAaccg1Pulf8gBXgVDUoAAPB2wKtYlLYeAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="LabelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 14</value>
+  </data>
+  <data name="&gt;&gt;txtTrtNotes.Name" xml:space="preserve">
+    <value>txtTrtNotes</value>
+  </data>
+  <data name="chkIsExternal.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
+  </data>
+  <data name="pnl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="&gt;&gt;lblExternal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="cboTrtType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 22</value>
+  </data>
+  <data name="txtToothName.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;dtTrtEnd.Name" xml:space="preserve">
+    <value>dtTrtEnd</value>
+  </data>
+  <data name="&gt;&gt;pnl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtTreat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 20</value>
+  </data>
+  <data name="&gt;&gt;ImpPopup.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;pnl1.Name" xml:space="preserve">
+    <value>pnl1</value>
+  </data>
+  <data name="&gt;&gt;GroupHeader.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="ceFinish.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>449, 42</value>
+  </data>
+  <data name="&gt;&gt;dtTrtDate.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl20.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="BindingNavigator1.Text" xml:space="preserve">
+    <value>BindingNavigator1</value>
+  </data>
+  <data name="&gt;&gt;pnl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chkIsExternal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 19</value>
+  </data>
+  <data name="LabelControl27.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;ImpPopup.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PopupContainerEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl7.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnDelTrt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;BS.Name" xml:space="preserve">
+    <value>BS</value>
+  </data>
+  <data name="&gt;&gt;cboTrtType.Name" xml:space="preserve">
+    <value>cboTrtType</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>446, 74</value>
+  </data>
+  <data name="dtTrtDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="BindingNavigatorMovePreviousItem.Text" xml:space="preserve">
+    <value>Move previous</value>
+  </data>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="BindingNavigatorMoveFirstItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="BindingNavigatorDeleteItem.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;txtToothNum.Name" xml:space="preserve">
+    <value>txtToothNum</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 261</value>
+  </data>
+  <data name="txtToothNum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 22</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="&gt;&gt;lblExternal.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LabelControl20.Text" xml:space="preserve">
+    <value>Treat Details</value>
+  </data>
+  <data name="&gt;&gt;ImplantSpecsLbl.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ImplantSpecsLbl.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="chkIsExternal.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="GroupMain.Text" xml:space="preserve">
+    <value>Delete Existing Treat </value>
+  </data>
+  <data name="GroupHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1002, 100</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="BindingNavigatorSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="txtTrtID.EditValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ImpPopup.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="txtPatientName.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorCountItem.Name" xml:space="preserve">
+    <value>BindingNavigatorCountItem</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>Treat Plan</value>
+  </data>
+  <data name="txtPatientID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 38</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DelTreatFrom</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="LabelControl14.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorAddNewItem.Name" xml:space="preserve">
+    <value>BindingNavigatorAddNewItem</value>
+  </data>
+  <data name="BindingNavigatorMoveNextItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="&gt;&gt;grpChks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorMoveNextItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorMoveNextItem.Name" xml:space="preserve">
+    <value>BindingNavigatorMoveNextItem</value>
+  </data>
+  <data name="chkIsExternal.Properties.Caption" xml:space="preserve">
+    <value>Is External</value>
+  </data>
+  <data name="chkIsExternal.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BindingNavigatorPositionItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 23</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigator1.Name" xml:space="preserve">
+    <value>BindingNavigator1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Name" xml:space="preserve">
+    <value>LabelControl5</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>Patient ID</value>
+  </data>
+  <data name="LabelControl9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 200</value>
+  </data>
+  <data name="&gt;&gt;txtPatientID.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="BindingNavigatorPositionItem.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtPatientID.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtTreat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorPositionItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtTreat.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="ceFinish.Properties.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnSaveTrt.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPlan.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="lblExternal.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="txtTrtID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>674, 70</value>
+  </data>
+  <data name="&gt;&gt;dtTrtDate.Name" xml:space="preserve">
+    <value>dtTrtDate</value>
+  </data>
+  <data name="lblExternal.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="cboTrtType.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="pnl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="BindingNavigatorCountItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 22</value>
+  </data>
+  <data name="txtExtClinic.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="ceFinish.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="BindingNavigatorMoveNextItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAKRJREFUOE9jYBh0oHDW8//oYiSB3JnP/id03yPfkIwpT//P2//7f0LXHfIMSeh5
+        8n/2vl//O7f+/e9Wepl0QyK7Hv2fsu3X/5Klf/8nTP/73yb3LGmGBDY//N+69j1Ys3HJl//S0df+G0cu
+        I94Qj6r7/0vmvoNrVnTpIV4zCNiX3v0f2PKMPM0gYJF3579NwRXyNIOAYdZt8jWDgE7aDfI1D00AAKB+
+        X6Bjq5qXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;txtToothNum.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ImplantSpecsLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 14</value>
+  </data>
+  <data name="cboTrtType.Properties.Items1" xml:space="preserve">
+    <value>Multiple Stage</value>
+  </data>
+  <data name="&gt;&gt;txtToothName.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;BS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorSeparator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>Tooth Number</value>
+  </data>
+  <data name="&gt;&gt;btnDelTrt.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl12.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtTreat.Name" xml:space="preserve">
+    <value>txtTreat</value>
+  </data>
+  <data name="cboTrtType.EditValue" xml:space="preserve">
+    <value>One Stage</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="btnCancel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="dtTrtDate.EditValue" type="System.DateTime, mscorlib">
+    <value>12/14/2024 19:16:21</value>
+  </data>
+  <data name="&gt;&gt;dtTrtEnd.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;txtToothNum.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="&gt;&gt;chkIsExternal.Name" xml:space="preserve">
+    <value>chkIsExternal</value>
+  </data>
+  <data name="dtTrtEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 20</value>
+  </data>
+  <data name="txtExtClinic.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 424</value>
+  </data>
+  <data name="dtTrtDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 168</value>
+  </data>
+  <data name="LabelControl12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 140</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cboTrtType.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingNavigator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblExternal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 406</value>
+  </data>
+  <data name="btnSaveTrt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 509</value>
+  </data>
+  <data name="GroupMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="GroupMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;GroupHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>DelTreatFrom</value>
+  </data>
+  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorMoveFirstItem.Name" xml:space="preserve">
+    <value>BindingNavigatorMoveFirstItem</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>266, 74</value>
+  </data>
+  <data name="dtTrtEnd.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigator1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtTrtNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 29</value>
+  </data>
+  <data name="txtPatientID.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl20.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtTrtDetails.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BindingNavigatorPositionItem.ToolTipText" xml:space="preserve">
+    <value>Current position</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 14</value>
+  </data>
+  <data name="LabelControl10.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Name" xml:space="preserve">
+    <value>LabelControl4</value>
+  </data>
+  <data name="ImplantSpecsLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="txtTreat.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="dtTrtEnd.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="txtTrtID.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;ImpPopup.Name" xml:space="preserve">
+    <value>ImpPopup</value>
+  </data>
+  <data name="&gt;&gt;grpChks.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="txtPatientID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 22</value>
+  </data>
+  <data name="GroupMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1006, 567</value>
+  </data>
+  <data name="txtTrtNotes.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;ceFinish.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="GroupHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpChks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>624, 126</value>
+  </data>
+  <data name="LabelControl19.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="ceFinish.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="txtTrtDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 292</value>
+  </data>
+  <data name="btnSaveTrt.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BindingNavigator1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Name" xml:space="preserve">
+    <value>LabelControl12</value>
+  </data>
+  <data name="LabelControl19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 15</value>
+  </data>
+  <data name="txtExtClinic.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorSeparator2.Name" xml:space="preserve">
+    <value>BindingNavigatorSeparator2</value>
+  </data>
+  <data name="&gt;&gt;txtTrtID.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="BindingNavigatorMoveNextItem.Text" xml:space="preserve">
+    <value>Move next</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="grpChks.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;GroupMain.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkIsExternal.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 336</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.Name" xml:space="preserve">
+    <value>LabelControl10</value>
+  </data>
+  <data name="&gt;&gt;chkIsExternal.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="chkIsExternal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 404</value>
+  </data>
+  <data name="dtTrtEnd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 366</value>
+  </data>
+  <data name="BindingNavigatorPositionItem.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtToothName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 70</value>
+  </data>
+  <data name="cboTrtType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 136</value>
+  </data>
+  <data name="BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="BindingNavigatorPositionItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="ceFinish.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl20.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="txtToothName.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="chkIsExternal.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl9.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="BindingNavigator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1002, 25</value>
+  </data>
+  <data name="&gt;&gt;txtTrtID.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Name" xml:space="preserve">
+    <value>txtPatientName</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtTrtID.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtTrtPlan.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;LabelControl20.Name" xml:space="preserve">
+    <value>LabelControl20</value>
+  </data>
+  <data name="&gt;&gt;ImpPopup.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="LabelControl10.Text" xml:space="preserve">
+    <value>Treat Notes</value>
+  </data>
+  <data name="LabelControl9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 14</value>
+  </data>
+  <data name="&gt;&gt;txtTrtNotes.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="dtTrtEnd.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="chkIsExternal.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigator1.Parent" xml:space="preserve">
+    <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;txtExtClinic.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtToothNum.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 196</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 370</value>
+  </data>
+  <data name="BindingNavigatorCountItem.ToolTipText" xml:space="preserve">
+    <value>Total number of items</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorPositionItem.Name" xml:space="preserve">
+    <value>BindingNavigatorPositionItem</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorDeleteItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 14</value>
+  </data>
+  <data name="BindingNavigatorSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="txtTrtNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="ceFinish.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl4.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
+  <data name="txtTreat.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtPatientID.Name" xml:space="preserve">
+    <value>txtPatientID</value>
+  </data>
+  <data name="txtPatientName.EditValue" xml:space="preserve">
+    <value />
+  </data>
+  <metadata name="BS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="BindingNavigator1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>82, 17</value>
+  </metadata>
+</root>

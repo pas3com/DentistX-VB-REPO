@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SplitterCtl.Panel1.Text" xml:space="preserve">
+    <value>لوحة 1</value>
+  </data>
+  <data name="SplitterCtl.Panel2.Text" xml:space="preserve">
+    <value>لوحة 2</value>
+  </data>
+  <data name="colTrtValue.Caption" xml:space="preserve">
+    <value>قيمة العلاج</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>653, 78</value>
+  </data>
+  <data name="btnWhatsSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>816, 71</value>
+  </data>
+  <data name="btnWhatsSend.Text" xml:space="preserve">
+    <value>واتساب</value>
+  </data>
+  <data name="btnWhatsSend.ToolTip" xml:space="preserve">
+    <value>أرسل الحساب الى رقم واتساب</value>
+  </data>
+  <data name="btnAddTrt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1021, 213</value>
+  </data>
+  <data name="btnAddTrt.Text" xml:space="preserve">
+    <value>إضافة علاج </value>
+  </data>
+  <data name="chkAddTrt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>943, 162</value>
+  </data>
+  <data name="chkAddTrt.Properties.Caption" xml:space="preserve">
+    <value>إضافة علاج يدويا</value>
+  </data>
+  <data name="chkAddTrt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 21</value>
+  </data>
+  <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>764, 180</value>
+  </data>
+  <data name="btnPrint.Text" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="btnInvoiceGen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>653, 180</value>
+  </data>
+  <data name="btnInvoiceGen.Text" xml:space="preserve">
+    <value>فاتورة</value>
+  </data>
+  <data name="btnEditGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>653, 140</value>
+  </data>
+  <data name="btnEditGrid.Text" xml:space="preserve">
+    <value>تعديل العلاج</value>
+  </data>
+  <data name="colRowNum.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colToothTrtID.Caption" xml:space="preserve">
+    <value>معرّف علاج السن</value>
+  </data>
+  <data name="colOrthoID.Caption" xml:space="preserve">
+    <value>معرّف التقويم</value>
+  </data>
+  <data name="colOtherTrtID.Caption" xml:space="preserve">
+    <value>معرّف العلاج الآخر</value>
+  </data>
+  <data name="colDetail.Caption" xml:space="preserve">
+    <value>تفاصيل العلاج</value>
+  </data>
+  <data name="colTrtDate.Caption" xml:space="preserve">
+    <value>تاريخ العلاج</value>
+  </data>
+  <data name="colIsMultiTooth.Caption" xml:space="preserve">
+    <value>سن متعدد</value>
+  </data>
+  <data name="colDiscount.Caption" xml:space="preserve">
+    <value>خصم</value>
+  </data>
+  <data name="colDiscountType.Caption" xml:space="preserve">
+    <value>نوع الخصم</value>
+  </data>
+  <data name="ToolStripButton23.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton23.Text" xml:space="preserve">
+    <value>الانتقال للأول</value>
+  </data>
+  <data name="ToolStripButton24.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton24.Text" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="ToolStripButton25.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton25.Text" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="ToolStripButton26.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton26.Text" xml:space="preserve">
+    <value>الانتقال للأخير</value>
+  </data>
+  <data name="TrtSavNav.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="TrtSavNav.Text" xml:space="preserve">
+    <value>حفظ البيانات</value>
+  </data>
+  <data name="btnTrtDel.Text" xml:space="preserve">
+    <value>حذف علاج</value>
+  </data>
+  <data name="TrtNavigator.Text" xml:space="preserve">
+    <value>مربط البيانات</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SidePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="SidePanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 30</value>
+  </data>
+  <data name="txtTrtDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>883, 185</value>
+  </data>
+  <data name="DetailText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>883, 60</value>
+  </data>
+  <data name="showAsChildChck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>653, 115</value>
+  </data>
+  <data name="showAsChildChck.Properties.Caption" xml:space="preserve">
+    <value>إظهار جميع الدفعات</value>
+  </data>
+  <data name="showAsChildChck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 19</value>
+  </data>
+  <data name="btnModifyValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>764, 140</value>
+  </data>
+  <data name="btnModifyValue.Text" xml:space="preserve">
+    <value>حفظ التعديل</value>
+  </data>
+  <data name="btnResetPatientAccount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>653, 213</value>
+  </data>
+  <data name="btnResetPatientAccount.Text" xml:space="preserve">
+    <value>تصفير حساب المريض</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1129, 91</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 15</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>تاريخ العلاج</value>
+  </data>
+  <data name="LabelControl23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1158, 139</value>
+  </data>
+  <data name="LabelControl23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 15</value>
+  </data>
+  <data name="LabelControl23.Text" xml:space="preserve">
+    <value>خصم</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1133, 116</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>قيمة العلاج</value>
+  </data>
+  <data name="lblTrtDet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1143, 189</value>
+  </data>
+  <data name="lblTrtDet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 15</value>
+  </data>
+  <data name="lblTrtDet.Text" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="lblTrtID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>957, 70</value>
+  </data>
+  <data name="lblTrtID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 15</value>
+  </data>
+  <data name="lblTrtID.Text" xml:space="preserve">
+    <value>معرّف العلاج</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1143, 65</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 15</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="TrtDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1007, 87</value>
+  </data>
+  <data name="TrtValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1007, 112</value>
+  </data>
+  <data name="TrtDiscount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1008, 135</value>
+  </data>
+  <data name="RadioFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>769, 32</value>
+  </data>
+  <data name="RadioFilter.Properties.Items1" xml:space="preserve">
+    <value>جميع العلاجات</value>
+  </data>
+  <data name="RadioFilter.Properties.Items5" xml:space="preserve">
+    <value>علاجات سنية</value>
+  </data>
+  <data name="RadioFilter.Properties.Items7" xml:space="preserve">
+    <value>علاجات اخرى</value>
+  </data>
+  <data name="RadioFilter.Properties.Items9" xml:space="preserve">
+    <value>علاجات التقويم</value>
+  </data>
+  <data name="grpTrtDet.Text" xml:space="preserve">
+    <value>تفاصيل العلاجات</value>
+  </data>
+  <data name="lblBal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 36</value>
+  </data>
+  <data name="lblBal.Text" xml:space="preserve">
+    <value>الرصيد النهائي للمريض:</value>
+  </data>
+  <data name="LabelFinalBalance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 38</value>
+  </data>
+  <data name="LabelFinalBalance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 19</value>
+  </data>
+  <data name="LabelFinalBalance.Text" xml:space="preserve">
+    <value>الرصيد النهائي للمريض:</value>
+  </data>
+  <data name="lblTotalPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 36</value>
+  </data>
+  <data name="lblTotalPays.Text" xml:space="preserve">
+    <value>مجموع الدفعات:</value>
+  </data>
+  <data name="lblTotalDisc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>619, 36</value>
+  </data>
+  <data name="lblTotalDisc.Text" xml:space="preserve">
+    <value>مجموع الخصومات:</value>
+  </data>
+  <data name="lblTotalTrts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>907, 36</value>
+  </data>
+  <data name="lblTotalTrts.Text" xml:space="preserve">
+    <value>مجموع العلاجات:</value>
+  </data>
+  <data name="LabeTotalPayments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 38</value>
+  </data>
+  <data name="LabeTotalPayments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 19</value>
+  </data>
+  <data name="LabeTotalPayments.Text" xml:space="preserve">
+    <value>مجموع الدفعات:</value>
+  </data>
+  <data name="LabelTotalDiscounts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>755, 40</value>
+  </data>
+  <data name="LabelTotalDiscounts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 15</value>
+  </data>
+  <data name="LabelTotalDiscounts.Text" xml:space="preserve">
+    <value>مجموع الخصومات:</value>
+  </data>
+  <data name="LabelTotalTreatments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1042, 38</value>
+  </data>
+  <data name="LabelTotalTreatments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 19</value>
+  </data>
+  <data name="LabelTotalTreatments.Text" xml:space="preserve">
+    <value>مجموع العلاجات:</value>
+  </data>
+  <data name="BalanceGroup.Text" xml:space="preserve">
+    <value>تفاصيل الرصيد</value>
+  </data>
+  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>إستعراض</value>
+  </data>
+  <data name="btnResetChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 94</value>
+  </data>
+  <data name="btnResetChqs.Text" xml:space="preserve">
+    <value>إعادة تعيين</value>
+  </data>
+  <data name="btnScanAndPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 69</value>
+  </data>
+  <data name="btnScanAndPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnScanAndPay.Text" xml:space="preserve">
+    <value>مسح ودفع</value>
+  </data>
+  <data name="btnScan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 96</value>
+  </data>
+  <data name="btnScan.Text" xml:space="preserve">
+    <value>مسح ضوئي</value>
+  </data>
+  <data name="txtChqOwner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 9</value>
+  </data>
+  <data name="txtChqOwner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
+  </data>
+  <data name="chkIsCashed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 62</value>
+  </data>
+  <data name="chkIsCashed.Properties.Caption" xml:space="preserve">
+    <value>هل صرف؟؟</value>
+  </data>
+  <data name="chkIsCashed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 21</value>
+  </data>
+  <data name="dtChqDueDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 9</value>
+  </data>
+  <data name="txtChqBank.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 93</value>
+  </data>
+  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>499, 41</value>
+  </data>
+  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 15</value>
+  </data>
+  <data name="LabelControl14.Text" xml:space="preserve">
+    <value>رقم الحساب</value>
+  </data>
+  <data name="txtChqNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 65</value>
+  </data>
+  <data name="LabelControl15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 69</value>
+  </data>
+  <data name="LabelControl15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="LabelControl15.Text" xml:space="preserve">
+    <value>رقم الشيك</value>
+  </data>
+  <data name="txtAccountNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 38</value>
+  </data>
+  <data name="LabelControl18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 13</value>
+  </data>
+  <data name="LabelControl18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="LabelControl18.Text" xml:space="preserve">
+    <value>تاريخ الحق</value>
+  </data>
+  <data name="LabelControl17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>511, 97</value>
+  </data>
+  <data name="LabelControl17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="LabelControl17.Text" xml:space="preserve">
+    <value>اسم البنك</value>
+  </data>
+  <data name="LabelControl16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>491, 13</value>
+  </data>
+  <data name="LabelControl16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 15</value>
+  </data>
+  <data name="LabelControl16.Text" xml:space="preserve">
+    <value>صاحب الشيك</value>
+  </data>
+  <data name="LabelControl19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 41</value>
+  </data>
+  <data name="LabelControl19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="LabelControl19.Text" xml:space="preserve">
+    <value>قيمة الشيك</value>
+  </data>
+  <data name="ChqValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 38</value>
+  </data>
+  <data name="ChqPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>564, 132</value>
+  </data>
+  <data name="ChqPage.Text" xml:space="preserve">
+    <value>الشيكات</value>
+  </data>
+  <data name="chqInsurTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>569, 160</value>
+  </data>
+  <data name="txtInureComp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 12</value>
+  </data>
+  <data name="LabelControl21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>489, 62</value>
+  </data>
+  <data name="LabelControl21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 15</value>
+  </data>
+  <data name="LabelControl21.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="LabelControl20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 16</value>
+  </data>
+  <data name="LabelControl20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 15</value>
+  </data>
+  <data name="LabelControl20.Text" xml:space="preserve">
+    <value>شركة التامين</value>
+  </data>
+  <data name="InsurePage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>564, 132</value>
+  </data>
+  <data name="InsurePage.Text" xml:space="preserve">
+    <value>التامينات</value>
+  </data>
+  <data name="cboPayType.EditValue" xml:space="preserve">
+    <value>نقدا</value>
+  </data>
+  <data name="cboPayType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 78</value>
+  </data>
+  <data name="cboPayType.Properties.Items" xml:space="preserve">
+    <value>نقدا</value>
+  </data>
+  <data name="cboPayType.Properties.Items1" xml:space="preserve">
+    <value>شيك</value>
+  </data>
+  <data name="cboPayType.Properties.Items2" xml:space="preserve">
+    <value>تامين</value>
+  </data>
+  <data name="cboPayType.Properties.Items3" xml:space="preserve">
+    <value>بطاقة اعتماد</value>
+  </data>
+  <data name="cboPayType.Properties.Items4" xml:space="preserve">
+    <value>تحويل</value>
+  </data>
+  <data name="btnAddPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 73</value>
+  </data>
+  <data name="btnAddPay.Text" xml:space="preserve">
+    <value>إضافة دفعة</value>
+  </data>
+  <data name="LabelControl7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>498, 55</value>
+  </data>
+  <data name="LabelControl7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="LabelControl7.Text" xml:space="preserve">
+    <value>تاريخ الدفعة</value>
+  </data>
+  <data name="LabelControl13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 82</value>
+  </data>
+  <data name="LabelControl13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="LabelControl13.Text" xml:space="preserve">
+    <value>نوع الدفعة</value>
+  </data>
+  <data name="LabelControl8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 82</value>
+  </data>
+  <data name="LabelControl8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 15</value>
+  </data>
+  <data name="LabelControl8.Text" xml:space="preserve">
+    <value>قيمة الدفعة</value>
+  </data>
+  <data name="lblTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="LabelControl24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 13</value>
+  </data>
+  <data name="LabelControl24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 15</value>
+  </data>
+  <data name="LabelControl24.Text" xml:space="preserve">
+    <value>للعلاج:</value>
+  </data>
+  <data name="LabelControl9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>513, 13</value>
+  </data>
+  <data name="LabelControl9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 15</value>
+  </data>
+  <data name="LabelControl9.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="PayDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>388, 51</value>
+  </data>
+  <data name="NotesText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>263, 4</value>
+  </data>
+  <data name="PayValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>388, 78</value>
+  </data>
+  <data name="PayMainDetPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>569, 137</value>
+  </data>
+  <data name="payDetailsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="payDetailsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>628, 30</value>
+  </data>
+  <data name="payDetailsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>570, 297</value>
+  </data>
+  <data name="payDetailsPanel.Text" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="colRowNum1.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colPayValue.Caption" xml:space="preserve">
+    <value>قيمة الدفعة</value>
+  </data>
+  <data name="colPayDate.Caption" xml:space="preserve">
+    <value>تاريخ الدفعة</value>
+  </data>
+  <data name="colNotes.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="CashGridPage.Text" xml:space="preserve">
+    <value>الدفعات النقدية</value>
+  </data>
+  <data name="colRowNum2.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colChqsPayValue.Caption" xml:space="preserve">
+    <value>الدفعة</value>
+  </data>
+  <data name="colChqsPayDate.Caption" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="colChqsPayNotes.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="colChqNumber.Caption" xml:space="preserve">
+    <value>رقم الشيك</value>
+  </data>
+  <data name="colChqAccount.Caption" xml:space="preserve">
+    <value>رقم الحساب</value>
+  </data>
+  <data name="colChqDueDate.Caption" xml:space="preserve">
+    <value>تاريخ الحق</value>
+  </data>
+  <data name="colChqBank.Caption" xml:space="preserve">
+    <value>البنك</value>
+  </data>
+  <data name="colChqOwner.Caption" xml:space="preserve">
+    <value>صاحب الشيك</value>
+  </data>
+  <data name="ChqGridPage.Text" xml:space="preserve">
+    <value>دفعات الشيكات</value>
+  </data>
+  <data name="ScannedPage.Text" xml:space="preserve">
+    <value>ملفات الماسح</value>
+  </data>
+  <data name="AttachedPage.Text" xml:space="preserve">
+    <value>الملفات المرفقة</value>
+  </data>
+  <data name="ToolStripButton15.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton17.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton18.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="PaySavNav.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="payGridsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="payGridsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 30</value>
+  </data>
+  <data name="payGridsPanel.Text" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="grpPayDet.Text" xml:space="preserve">
+    <value>تفاصيل الدفعات</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+</root>

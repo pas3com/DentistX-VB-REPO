@@ -1,0 +1,2675 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitFinTreat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="splitFinTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblTitleTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="lblTitleTreat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 15</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblTitleTreat.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblTitleTreat.Text" xml:space="preserve">
+    <value>Treatment income — by treatment / service</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTreat.Name" xml:space="preserve">
+    <value>lblTitleTreat</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTreat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTreat.Parent" xml:space="preserve">
+    <value>pnlTreatHeader</value>
+  </data>
+  <data name="&gt;&gt;lblTitleTreat.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBackTreat.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBackTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="btnBackTreat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 25</value>
+  </data>
+  <data name="btnBackTreat.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnBackTreat.Text" xml:space="preserve">
+    <value>← Back to overview</value>
+  </data>
+  <data name="&gt;&gt;btnBackTreat.Name" xml:space="preserve">
+    <value>btnBackTreat</value>
+  </data>
+  <data name="&gt;&gt;btnBackTreat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBackTreat.Parent" xml:space="preserve">
+    <value>pnlTreatHeader</value>
+  </data>
+  <data name="&gt;&gt;btnBackTreat.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlTreatHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlTreatHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlTreatHeader.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 8</value>
+  </data>
+  <data name="pnlTreatHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 52</value>
+  </data>
+  <data name="pnlTreatHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlTreatHeader.Name" xml:space="preserve">
+    <value>pnlTreatHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlTreatHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlTreatHeader.Parent" xml:space="preserve">
+    <value>splitFinTreat.Panel1</value>
+  </data>
+  <data name="&gt;&gt;pnlTreatHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinTreat.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Panel1.Name" xml:space="preserve">
+    <value>splitFinTreat.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Panel1.Parent" xml:space="preserve">
+    <value>splitFinTreat</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridFinTreatments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridFinTreatments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridFinTreatments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 522</value>
+  </data>
+  <data name="gridFinTreatments.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridFinTreatments.Name" xml:space="preserve">
+    <value>gridFinTreatments</value>
+  </data>
+  <data name="&gt;&gt;gridFinTreatments.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridFinTreatments.Parent" xml:space="preserve">
+    <value>splitFinTreat.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridFinTreatments.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinTreat.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Panel2.Name" xml:space="preserve">
+    <value>splitFinTreat.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Panel2.Parent" xml:space="preserve">
+    <value>splitFinTreat</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFinTreat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="splitFinTreat.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="splitFinTreat.Text" xml:space="preserve">
+    <value>splitFinTreat</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Name" xml:space="preserve">
+    <value>splitFinTreat</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.Parent" xml:space="preserve">
+    <value>pageFinTreatments</value>
+  </data>
+  <data name="&gt;&gt;splitFinTreat.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinExp.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitFinExp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblTitleExp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="lblTitleExp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 15</value>
+  </data>
+  <data name="lblTitleExp.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblTitleExp.Text" xml:space="preserve">
+    <value>Operating expenses</value>
+  </data>
+  <data name="&gt;&gt;lblTitleExp.Name" xml:space="preserve">
+    <value>lblTitleExp</value>
+  </data>
+  <data name="&gt;&gt;lblTitleExp.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTitleExp.Parent" xml:space="preserve">
+    <value>pnlExpHeader</value>
+  </data>
+  <data name="&gt;&gt;lblTitleExp.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBackExp.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBackExp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="btnBackExp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 25</value>
+  </data>
+  <data name="btnBackExp.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnBackExp.Text" xml:space="preserve">
+    <value>← Back to overview</value>
+  </data>
+  <data name="&gt;&gt;btnBackExp.Name" xml:space="preserve">
+    <value>btnBackExp</value>
+  </data>
+  <data name="&gt;&gt;btnBackExp.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBackExp.Parent" xml:space="preserve">
+    <value>pnlExpHeader</value>
+  </data>
+  <data name="&gt;&gt;btnBackExp.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlExpHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlExpHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlExpHeader.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 8</value>
+  </data>
+  <data name="pnlExpHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 52</value>
+  </data>
+  <data name="pnlExpHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlExpHeader.Name" xml:space="preserve">
+    <value>pnlExpHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlExpHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlExpHeader.Parent" xml:space="preserve">
+    <value>splitFinExp.Panel1</value>
+  </data>
+  <data name="&gt;&gt;pnlExpHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinExp.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Panel1.Name" xml:space="preserve">
+    <value>splitFinExp.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Panel1.Parent" xml:space="preserve">
+    <value>splitFinExp</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridFinExpenses.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridFinExpenses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridFinExpenses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 522</value>
+  </data>
+  <data name="gridFinExpenses.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridFinExpenses.Name" xml:space="preserve">
+    <value>gridFinExpenses</value>
+  </data>
+  <data name="&gt;&gt;gridFinExpenses.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridFinExpenses.Parent" xml:space="preserve">
+    <value>splitFinExp.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridFinExpenses.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinExp.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Panel2.Name" xml:space="preserve">
+    <value>splitFinExp.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Panel2.Parent" xml:space="preserve">
+    <value>splitFinExp</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFinExp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="splitFinExp.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="splitFinExp.Text" xml:space="preserve">
+    <value>splitFinExp</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Name" xml:space="preserve">
+    <value>splitFinExp</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.Parent" xml:space="preserve">
+    <value>pageFinExpenses</value>
+  </data>
+  <data name="&gt;&gt;splitFinExp.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinPurch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitFinPurch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblTitlePurch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="lblTitlePurch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 15</value>
+  </data>
+  <data name="lblTitlePurch.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblTitlePurch.Text" xml:space="preserve">
+    <value>Supplier invoices (purchases)</value>
+  </data>
+  <data name="&gt;&gt;lblTitlePurch.Name" xml:space="preserve">
+    <value>lblTitlePurch</value>
+  </data>
+  <data name="&gt;&gt;lblTitlePurch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTitlePurch.Parent" xml:space="preserve">
+    <value>pnlPurchHeader</value>
+  </data>
+  <data name="&gt;&gt;lblTitlePurch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBackPurch.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBackPurch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="btnBackPurch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 25</value>
+  </data>
+  <data name="btnBackPurch.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnBackPurch.Text" xml:space="preserve">
+    <value>← Back to overview</value>
+  </data>
+  <data name="&gt;&gt;btnBackPurch.Name" xml:space="preserve">
+    <value>btnBackPurch</value>
+  </data>
+  <data name="&gt;&gt;btnBackPurch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBackPurch.Parent" xml:space="preserve">
+    <value>pnlPurchHeader</value>
+  </data>
+  <data name="&gt;&gt;btnBackPurch.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlPurchHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlPurchHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlPurchHeader.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 8</value>
+  </data>
+  <data name="pnlPurchHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 52</value>
+  </data>
+  <data name="pnlPurchHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlPurchHeader.Name" xml:space="preserve">
+    <value>pnlPurchHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlPurchHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlPurchHeader.Parent" xml:space="preserve">
+    <value>splitFinPurch.Panel1</value>
+  </data>
+  <data name="&gt;&gt;pnlPurchHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinPurch.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Panel1.Name" xml:space="preserve">
+    <value>splitFinPurch.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Panel1.Parent" xml:space="preserve">
+    <value>splitFinPurch</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridFinPurchases.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridFinPurchases.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridFinPurchases.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 522</value>
+  </data>
+  <data name="gridFinPurchases.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridFinPurchases.Name" xml:space="preserve">
+    <value>gridFinPurchases</value>
+  </data>
+  <data name="&gt;&gt;gridFinPurchases.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridFinPurchases.Parent" xml:space="preserve">
+    <value>splitFinPurch.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridFinPurchases.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinPurch.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Panel2.Name" xml:space="preserve">
+    <value>splitFinPurch.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Panel2.Parent" xml:space="preserve">
+    <value>splitFinPurch</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFinPurch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="splitFinPurch.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="splitFinPurch.Text" xml:space="preserve">
+    <value>splitFinPurch</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Name" xml:space="preserve">
+    <value>splitFinPurch</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.Parent" xml:space="preserve">
+    <value>pageFinPurchases</value>
+  </data>
+  <data name="&gt;&gt;splitFinPurch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinLab.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitFinLab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblTitleLab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="lblTitleLab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 15</value>
+  </data>
+  <data name="lblTitleLab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblTitleLab.Text" xml:space="preserve">
+    <value>Laboratory payments</value>
+  </data>
+  <data name="&gt;&gt;lblTitleLab.Name" xml:space="preserve">
+    <value>lblTitleLab</value>
+  </data>
+  <data name="&gt;&gt;lblTitleLab.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTitleLab.Parent" xml:space="preserve">
+    <value>pnlLabHeader</value>
+  </data>
+  <data name="&gt;&gt;lblTitleLab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBackLab.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBackLab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="btnBackLab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 25</value>
+  </data>
+  <data name="btnBackLab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnBackLab.Text" xml:space="preserve">
+    <value>← Back to overview</value>
+  </data>
+  <data name="&gt;&gt;btnBackLab.Name" xml:space="preserve">
+    <value>btnBackLab</value>
+  </data>
+  <data name="&gt;&gt;btnBackLab.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBackLab.Parent" xml:space="preserve">
+    <value>pnlLabHeader</value>
+  </data>
+  <data name="&gt;&gt;btnBackLab.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlLabHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlLabHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlLabHeader.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 8</value>
+  </data>
+  <data name="pnlLabHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 52</value>
+  </data>
+  <data name="pnlLabHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlLabHeader.Name" xml:space="preserve">
+    <value>pnlLabHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlLabHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlLabHeader.Parent" xml:space="preserve">
+    <value>splitFinLab.Panel1</value>
+  </data>
+  <data name="&gt;&gt;pnlLabHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinLab.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Panel1.Name" xml:space="preserve">
+    <value>splitFinLab.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Panel1.Parent" xml:space="preserve">
+    <value>splitFinLab</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridFinLab.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridFinLab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridFinLab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 522</value>
+  </data>
+  <data name="gridFinLab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridFinLab.Name" xml:space="preserve">
+    <value>gridFinLab</value>
+  </data>
+  <data name="&gt;&gt;gridFinLab.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridFinLab.Parent" xml:space="preserve">
+    <value>splitFinLab.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridFinLab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinLab.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Panel2.Name" xml:space="preserve">
+    <value>splitFinLab.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Panel2.Parent" xml:space="preserve">
+    <value>splitFinLab</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFinLab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="splitFinLab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="splitFinLab.Text" xml:space="preserve">
+    <value>splitFinLab</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Name" xml:space="preserve">
+    <value>splitFinLab</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.Parent" xml:space="preserve">
+    <value>pageFinLab</value>
+  </data>
+  <data name="&gt;&gt;splitFinLab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinStaff.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitFinStaff.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblTitleStaff.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 13</value>
+  </data>
+  <data name="lblTitleStaff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 15</value>
+  </data>
+  <data name="lblTitleStaff.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblTitleStaff.Text" xml:space="preserve">
+    <value>Staff payroll</value>
+  </data>
+  <data name="&gt;&gt;lblTitleStaff.Name" xml:space="preserve">
+    <value>lblTitleStaff</value>
+  </data>
+  <data name="&gt;&gt;lblTitleStaff.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTitleStaff.Parent" xml:space="preserve">
+    <value>pnlStaffHeader</value>
+  </data>
+  <data name="&gt;&gt;lblTitleStaff.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBackStaff.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBackStaff.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="btnBackStaff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 25</value>
+  </data>
+  <data name="btnBackStaff.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnBackStaff.Text" xml:space="preserve">
+    <value>← Back to overview</value>
+  </data>
+  <data name="&gt;&gt;btnBackStaff.Name" xml:space="preserve">
+    <value>btnBackStaff</value>
+  </data>
+  <data name="&gt;&gt;btnBackStaff.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBackStaff.Parent" xml:space="preserve">
+    <value>pnlStaffHeader</value>
+  </data>
+  <data name="&gt;&gt;btnBackStaff.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlStaffHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlStaffHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlStaffHeader.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 8</value>
+  </data>
+  <data name="pnlStaffHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 52</value>
+  </data>
+  <data name="pnlStaffHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlStaffHeader.Name" xml:space="preserve">
+    <value>pnlStaffHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlStaffHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlStaffHeader.Parent" xml:space="preserve">
+    <value>splitFinStaff.Panel1</value>
+  </data>
+  <data name="&gt;&gt;pnlStaffHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinStaff.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Panel1.Name" xml:space="preserve">
+    <value>splitFinStaff.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Panel1.Parent" xml:space="preserve">
+    <value>splitFinStaff</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridFinStaff.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridFinStaff.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridFinStaff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 522</value>
+  </data>
+  <data name="gridFinStaff.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridFinStaff.Name" xml:space="preserve">
+    <value>gridFinStaff</value>
+  </data>
+  <data name="&gt;&gt;gridFinStaff.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridFinStaff.Parent" xml:space="preserve">
+    <value>splitFinStaff.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridFinStaff.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinStaff.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Panel2.Name" xml:space="preserve">
+    <value>splitFinStaff.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Panel2.Parent" xml:space="preserve">
+    <value>splitFinStaff</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFinStaff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="splitFinStaff.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="splitFinStaff.Text" xml:space="preserve">
+    <value>splitFinStaff</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Name" xml:space="preserve">
+    <value>splitFinStaff</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.Parent" xml:space="preserve">
+    <value>pageFinStaff</value>
+  </data>
+  <data name="&gt;&gt;splitFinStaff.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinPatientPays.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitFinPatientPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="lblTitlePatPay.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblTitlePatPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 10</value>
+  </data>
+  <data name="lblTitlePatPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>880, 22</value>
+  </data>
+  <data name="lblTitlePatPay.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblTitlePatPay.Name" xml:space="preserve">
+    <value>lblTitlePatPay</value>
+  </data>
+  <data name="&gt;&gt;lblTitlePatPay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTitlePatPay.Parent" xml:space="preserve">
+    <value>pnlPatPayHeader</value>
+  </data>
+  <data name="&gt;&gt;lblTitlePatPay.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBackPatPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBackPatPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="btnBackPatPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 25</value>
+  </data>
+  <data name="btnBackPatPay.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnBackPatPay.Text" xml:space="preserve">
+    <value>← Back to overview</value>
+  </data>
+  <data name="&gt;&gt;btnBackPatPay.Name" xml:space="preserve">
+    <value>btnBackPatPay</value>
+  </data>
+  <data name="&gt;&gt;btnBackPatPay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBackPatPay.Parent" xml:space="preserve">
+    <value>pnlPatPayHeader</value>
+  </data>
+  <data name="&gt;&gt;btnBackPatPay.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlPatPayHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlPatPayHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlPatPayHeader.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 8</value>
+  </data>
+  <data name="pnlPatPayHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 52</value>
+  </data>
+  <data name="pnlPatPayHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlPatPayHeader.Name" xml:space="preserve">
+    <value>pnlPatPayHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlPatPayHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlPatPayHeader.Parent" xml:space="preserve">
+    <value>splitFinPatientPays.Panel1</value>
+  </data>
+  <data name="&gt;&gt;pnlPatPayHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Panel1.Name" xml:space="preserve">
+    <value>splitFinPatientPays.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Panel1.Parent" xml:space="preserve">
+    <value>splitFinPatientPays</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridFinPatientPays.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridFinPatientPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridFinPatientPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 522</value>
+  </data>
+  <data name="gridFinPatientPays.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridFinPatientPays.Name" xml:space="preserve">
+    <value>gridFinPatientPays</value>
+  </data>
+  <data name="&gt;&gt;gridFinPatientPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridFinPatientPays.Parent" xml:space="preserve">
+    <value>splitFinPatientPays.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridFinPatientPays.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Panel2.Name" xml:space="preserve">
+    <value>splitFinPatientPays.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Panel2.Parent" xml:space="preserve">
+    <value>splitFinPatientPays</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFinPatientPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="splitFinPatientPays.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Name" xml:space="preserve">
+    <value>splitFinPatientPays</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.Parent" xml:space="preserve">
+    <value>pageFinPatientPays</value>
+  </data>
+  <data name="&gt;&gt;splitFinPatientPays.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFinSupplierPays.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitFinSupplierPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblTitleSupPay.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblTitleSupPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 10</value>
+  </data>
+  <data name="lblTitleSupPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>880, 22</value>
+  </data>
+  <data name="lblTitleSupPay.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblTitleSupPay.Name" xml:space="preserve">
+    <value>lblTitleSupPay</value>
+  </data>
+  <data name="&gt;&gt;lblTitleSupPay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTitleSupPay.Parent" xml:space="preserve">
+    <value>pnlSupPayHeader</value>
+  </data>
+  <data name="&gt;&gt;lblTitleSupPay.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBackSupPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBackSupPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="btnBackSupPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 25</value>
+  </data>
+  <data name="btnBackSupPay.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnBackSupPay.Text" xml:space="preserve">
+    <value>← Back to overview</value>
+  </data>
+  <data name="&gt;&gt;btnBackSupPay.Name" xml:space="preserve">
+    <value>btnBackSupPay</value>
+  </data>
+  <data name="&gt;&gt;btnBackSupPay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBackSupPay.Parent" xml:space="preserve">
+    <value>pnlSupPayHeader</value>
+  </data>
+  <data name="&gt;&gt;btnBackSupPay.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlSupPayHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlSupPayHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlSupPayHeader.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 0, 8</value>
+  </data>
+  <data name="pnlSupPayHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 52</value>
+  </data>
+  <data name="pnlSupPayHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlSupPayHeader.Name" xml:space="preserve">
+    <value>pnlSupPayHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlSupPayHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlSupPayHeader.Parent" xml:space="preserve">
+    <value>splitFinSupplierPays.Panel1</value>
+  </data>
+  <data name="&gt;&gt;pnlSupPayHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Panel1.Name" xml:space="preserve">
+    <value>splitFinSupplierPays.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Panel1.Parent" xml:space="preserve">
+    <value>splitFinSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridFinSupplierPays.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridFinSupplierPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridFinSupplierPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 522</value>
+  </data>
+  <data name="gridFinSupplierPays.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridFinSupplierPays.Name" xml:space="preserve">
+    <value>gridFinSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;gridFinSupplierPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridFinSupplierPays.Parent" xml:space="preserve">
+    <value>splitFinSupplierPays.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridFinSupplierPays.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Panel2.Name" xml:space="preserve">
+    <value>splitFinSupplierPays.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Panel2.Parent" xml:space="preserve">
+    <value>splitFinSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFinSupplierPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="splitFinSupplierPays.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Name" xml:space="preserve">
+    <value>splitFinSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.Parent" xml:space="preserve">
+    <value>pageFinSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;splitFinSupplierPays.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pageFinOverview.Caption" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="lblKpiTreatGo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiTreatGo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 92</value>
+  </data>
+  <data name="lblKpiTreatGo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="lblKpiTreatGo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblKpiTreatGo.Text" xml:space="preserve">
+    <value>Open detail →</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatGo.Name" xml:space="preserve">
+    <value>lblKpiTreatGo</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatGo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatGo.Parent" xml:space="preserve">
+    <value>pnlKpiTreat</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatGo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblKpiTreatHint.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiTreatHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblKpiTreatHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 52</value>
+  </data>
+  <data name="lblKpiTreatHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 30</value>
+  </data>
+  <data name="lblKpiTreatHint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblKpiTreatHint.Text" xml:space="preserve">
+    <value>All completed treatments &amp; chair-side services</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatHint.Name" xml:space="preserve">
+    <value>lblKpiTreatHint</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatHint.Parent" xml:space="preserve">
+    <value>pnlKpiTreat</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatHint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKpiTreatTitle.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiTreatTitle.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiTreatTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 14</value>
+  </data>
+  <data name="lblKpiTreatTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 32</value>
+  </data>
+  <data name="lblKpiTreatTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblKpiTreatTitle.Text" xml:space="preserve">
+    <value>Treatment income</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatTitle.Name" xml:space="preserve">
+    <value>lblKpiTreatTitle</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatTitle.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatTitle.Parent" xml:space="preserve">
+    <value>pnlKpiTreat</value>
+  </data>
+  <data name="&gt;&gt;lblKpiTreatTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlKpiTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlKpiTreat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 16, 16</value>
+  </data>
+  <data name="pnlKpiTreat.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>14, 12, 14, 12</value>
+  </data>
+  <data name="pnlKpiTreat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 118</value>
+  </data>
+  <data name="pnlKpiTreat.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiTreat.Name" xml:space="preserve">
+    <value>pnlKpiTreat</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiTreat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiTreat.Parent" xml:space="preserve">
+    <value>flowKpi</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiTreat.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblKpiPatientPaysGo.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiPatientPaysGo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 104</value>
+  </data>
+  <data name="lblKpiPatientPaysGo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 15</value>
+  </data>
+  <data name="lblKpiPatientPaysGo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysGo.Name" xml:space="preserve">
+    <value>lblKpiPatientPaysGo</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysGo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysGo.Parent" xml:space="preserve">
+    <value>pnlKpiPatientPays</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysGo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblKpiPatientPaysHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblKpiPatientPaysHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 64</value>
+  </data>
+  <data name="lblKpiPatientPaysHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 0</value>
+  </data>
+  <data name="lblKpiPatientPaysHint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysHint.Name" xml:space="preserve">
+    <value>lblKpiPatientPaysHint</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysHint.Parent" xml:space="preserve">
+    <value>pnlKpiPatientPays</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysHint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKpiPatientPaysTitle.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiPatientPaysTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 10</value>
+  </data>
+  <data name="lblKpiPatientPaysTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 32</value>
+  </data>
+  <data name="lblKpiPatientPaysTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysTitle.Name" xml:space="preserve">
+    <value>lblKpiPatientPaysTitle</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysTitle.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysTitle.Parent" xml:space="preserve">
+    <value>pnlKpiPatientPays</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPatientPaysTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlKpiPatientPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 0</value>
+  </data>
+  <data name="pnlKpiPatientPays.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 16, 16</value>
+  </data>
+  <data name="pnlKpiPatientPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 118</value>
+  </data>
+  <data name="pnlKpiPatientPays.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiPatientPays.Name" xml:space="preserve">
+    <value>pnlKpiPatientPays</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiPatientPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiPatientPays.Parent" xml:space="preserve">
+    <value>flowKpi</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiPatientPays.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKpiExpGo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiExpGo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 92</value>
+  </data>
+  <data name="lblKpiExpGo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="lblKpiExpGo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblKpiExpGo.Text" xml:space="preserve">
+    <value>Open detail →</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpGo.Name" xml:space="preserve">
+    <value>lblKpiExpGo</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpGo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpGo.Parent" xml:space="preserve">
+    <value>pnlKpiExp</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpGo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblKpiExpHint.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiExpHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblKpiExpHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 52</value>
+  </data>
+  <data name="lblKpiExpHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 15</value>
+  </data>
+  <data name="lblKpiExpHint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblKpiExpHint.Text" xml:space="preserve">
+    <value>Rent, utilities, supplies, misc.</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpHint.Name" xml:space="preserve">
+    <value>lblKpiExpHint</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpHint.Parent" xml:space="preserve">
+    <value>pnlKpiExp</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpHint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKpiExpTitle.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiExpTitle.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiExpTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 14</value>
+  </data>
+  <data name="lblKpiExpTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 32</value>
+  </data>
+  <data name="lblKpiExpTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblKpiExpTitle.Text" xml:space="preserve">
+    <value>Operating expenses</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpTitle.Name" xml:space="preserve">
+    <value>lblKpiExpTitle</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpTitle.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpTitle.Parent" xml:space="preserve">
+    <value>pnlKpiExp</value>
+  </data>
+  <data name="&gt;&gt;lblKpiExpTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlKpiExp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>568, 0</value>
+  </data>
+  <data name="pnlKpiExp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 16, 16</value>
+  </data>
+  <data name="pnlKpiExp.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>14, 12, 14, 12</value>
+  </data>
+  <data name="pnlKpiExp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 118</value>
+  </data>
+  <data name="pnlKpiExp.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiExp.Name" xml:space="preserve">
+    <value>pnlKpiExp</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiExp.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiExp.Parent" xml:space="preserve">
+    <value>flowKpi</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiExp.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblKpiPurchGo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiPurchGo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 92</value>
+  </data>
+  <data name="lblKpiPurchGo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="lblKpiPurchGo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblKpiPurchGo.Text" xml:space="preserve">
+    <value>Open detail →</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchGo.Name" xml:space="preserve">
+    <value>lblKpiPurchGo</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchGo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchGo.Parent" xml:space="preserve">
+    <value>pnlKpiPurch</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchGo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblKpiPurchHint.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiPurchHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblKpiPurchHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 52</value>
+  </data>
+  <data name="lblKpiPurchHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 15</value>
+  </data>
+  <data name="lblKpiPurchHint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblKpiPurchHint.Text" xml:space="preserve">
+    <value>Stock &amp; supplier bills</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchHint.Name" xml:space="preserve">
+    <value>lblKpiPurchHint</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchHint.Parent" xml:space="preserve">
+    <value>pnlKpiPurch</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchHint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKpiPurchTitle.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiPurchTitle.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiPurchTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 14</value>
+  </data>
+  <data name="lblKpiPurchTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 32</value>
+  </data>
+  <data name="lblKpiPurchTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblKpiPurchTitle.Text" xml:space="preserve">
+    <value>Purchase invoices</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchTitle.Name" xml:space="preserve">
+    <value>lblKpiPurchTitle</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchTitle.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchTitle.Parent" xml:space="preserve">
+    <value>pnlKpiPurch</value>
+  </data>
+  <data name="&gt;&gt;lblKpiPurchTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlKpiPurch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 134</value>
+  </data>
+  <data name="pnlKpiPurch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 16, 16</value>
+  </data>
+  <data name="pnlKpiPurch.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>14, 12, 14, 12</value>
+  </data>
+  <data name="pnlKpiPurch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 118</value>
+  </data>
+  <data name="pnlKpiPurch.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiPurch.Name" xml:space="preserve">
+    <value>pnlKpiPurch</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiPurch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiPurch.Parent" xml:space="preserve">
+    <value>flowKpi</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiPurch.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblKpiSupplierPaysGo.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiSupplierPaysGo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 104</value>
+  </data>
+  <data name="lblKpiSupplierPaysGo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 15</value>
+  </data>
+  <data name="lblKpiSupplierPaysGo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysGo.Name" xml:space="preserve">
+    <value>lblKpiSupplierPaysGo</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysGo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysGo.Parent" xml:space="preserve">
+    <value>pnlKpiSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysGo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblKpiSupplierPaysHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblKpiSupplierPaysHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 64</value>
+  </data>
+  <data name="lblKpiSupplierPaysHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 0</value>
+  </data>
+  <data name="lblKpiSupplierPaysHint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysHint.Name" xml:space="preserve">
+    <value>lblKpiSupplierPaysHint</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysHint.Parent" xml:space="preserve">
+    <value>pnlKpiSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysHint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKpiSupplierPaysTitle.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiSupplierPaysTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 10</value>
+  </data>
+  <data name="lblKpiSupplierPaysTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 32</value>
+  </data>
+  <data name="lblKpiSupplierPaysTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysTitle.Name" xml:space="preserve">
+    <value>lblKpiSupplierPaysTitle</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysTitle.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysTitle.Parent" xml:space="preserve">
+    <value>pnlKpiSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;lblKpiSupplierPaysTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlKpiSupplierPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 134</value>
+  </data>
+  <data name="pnlKpiSupplierPays.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 16, 16</value>
+  </data>
+  <data name="pnlKpiSupplierPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 118</value>
+  </data>
+  <data name="pnlKpiSupplierPays.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiSupplierPays.Name" xml:space="preserve">
+    <value>pnlKpiSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiSupplierPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiSupplierPays.Parent" xml:space="preserve">
+    <value>flowKpi</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiSupplierPays.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblKpiLabGo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiLabGo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 92</value>
+  </data>
+  <data name="lblKpiLabGo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="lblKpiLabGo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblKpiLabGo.Text" xml:space="preserve">
+    <value>Open detail →</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabGo.Name" xml:space="preserve">
+    <value>lblKpiLabGo</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabGo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabGo.Parent" xml:space="preserve">
+    <value>pnlKpiLab</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabGo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblKpiLabHint.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiLabHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblKpiLabHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 52</value>
+  </data>
+  <data name="lblKpiLabHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 15</value>
+  </data>
+  <data name="lblKpiLabHint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblKpiLabHint.Text" xml:space="preserve">
+    <value>Outsourced lab work</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabHint.Name" xml:space="preserve">
+    <value>lblKpiLabHint</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabHint.Parent" xml:space="preserve">
+    <value>pnlKpiLab</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabHint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKpiLabTitle.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiLabTitle.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiLabTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 14</value>
+  </data>
+  <data name="lblKpiLabTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 32</value>
+  </data>
+  <data name="lblKpiLabTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblKpiLabTitle.Text" xml:space="preserve">
+    <value>Laboratory payments</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabTitle.Name" xml:space="preserve">
+    <value>lblKpiLabTitle</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabTitle.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabTitle.Parent" xml:space="preserve">
+    <value>pnlKpiLab</value>
+  </data>
+  <data name="&gt;&gt;lblKpiLabTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlKpiLab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>568, 134</value>
+  </data>
+  <data name="pnlKpiLab.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 16, 16</value>
+  </data>
+  <data name="pnlKpiLab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>14, 12, 14, 12</value>
+  </data>
+  <data name="pnlKpiLab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 118</value>
+  </data>
+  <data name="pnlKpiLab.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiLab.Name" xml:space="preserve">
+    <value>pnlKpiLab</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiLab.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiLab.Parent" xml:space="preserve">
+    <value>flowKpi</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiLab.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblKpiStaffGo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiStaffGo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 92</value>
+  </data>
+  <data name="lblKpiStaffGo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="lblKpiStaffGo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblKpiStaffGo.Text" xml:space="preserve">
+    <value>Open detail →</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffGo.Name" xml:space="preserve">
+    <value>lblKpiStaffGo</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffGo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffGo.Parent" xml:space="preserve">
+    <value>pnlKpiStaff</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffGo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblKpiStaffHint.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiStaffHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblKpiStaffHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 52</value>
+  </data>
+  <data name="lblKpiStaffHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 15</value>
+  </data>
+  <data name="lblKpiStaffHint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblKpiStaffHint.Text" xml:space="preserve">
+    <value>Salaries &amp; wages</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffHint.Name" xml:space="preserve">
+    <value>lblKpiStaffHint</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffHint.Parent" xml:space="preserve">
+    <value>pnlKpiStaff</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffHint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblKpiStaffTitle.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblKpiStaffTitle.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblKpiStaffTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 14</value>
+  </data>
+  <data name="lblKpiStaffTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 32</value>
+  </data>
+  <data name="lblKpiStaffTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblKpiStaffTitle.Text" xml:space="preserve">
+    <value>Staff payroll</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffTitle.Name" xml:space="preserve">
+    <value>lblKpiStaffTitle</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffTitle.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffTitle.Parent" xml:space="preserve">
+    <value>pnlKpiStaff</value>
+  </data>
+  <data name="&gt;&gt;lblKpiStaffTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlKpiStaff.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 268</value>
+  </data>
+  <data name="pnlKpiStaff.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 16, 16</value>
+  </data>
+  <data name="pnlKpiStaff.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>14, 12, 14, 12</value>
+  </data>
+  <data name="pnlKpiStaff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 118</value>
+  </data>
+  <data name="pnlKpiStaff.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiStaff.Name" xml:space="preserve">
+    <value>pnlKpiStaff</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiStaff.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiStaff.Parent" xml:space="preserve">
+    <value>flowKpi</value>
+  </data>
+  <data name="&gt;&gt;pnlKpiStaff.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="flowKpi.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="flowKpi.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 43</value>
+  </data>
+  <data name="flowKpi.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 517</value>
+  </data>
+  <data name="flowKpi.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;flowKpi.Name" xml:space="preserve">
+    <value>flowKpi</value>
+  </data>
+  <data name="&gt;&gt;flowKpi.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flowKpi.Parent" xml:space="preserve">
+    <value>pnlOverview</value>
+  </data>
+  <data name="&gt;&gt;flowKpi.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblOverviewIntro.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblOverviewIntro.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblOverviewIntro.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="lblOverviewIntro.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 8</value>
+  </data>
+  <data name="lblOverviewIntro.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 23</value>
+  </data>
+  <data name="lblOverviewIntro.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblOverviewIntro.Text" xml:space="preserve">
+    <value>Overview — select a card to open line-level detail. Amounts in the header update when you click Refresh (connect your queries in RefreshHeaderTotals).</value>
+  </data>
+  <data name="&gt;&gt;lblOverviewIntro.Name" xml:space="preserve">
+    <value>lblOverviewIntro</value>
+  </data>
+  <data name="&gt;&gt;lblOverviewIntro.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblOverviewIntro.Parent" xml:space="preserve">
+    <value>pnlOverview</value>
+  </data>
+  <data name="&gt;&gt;lblOverviewIntro.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlOverview.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlOverview.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlOverview.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
+  <data name="pnlOverview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="pnlOverview.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlOverview.Name" xml:space="preserve">
+    <value>pnlOverview</value>
+  </data>
+  <data name="&gt;&gt;pnlOverview.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlOverview.Parent" xml:space="preserve">
+    <value>pageFinOverview</value>
+  </data>
+  <data name="&gt;&gt;pnlOverview.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pageFinOverview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="&gt;&gt;pageFinOverview.Name" xml:space="preserve">
+    <value>pageFinOverview</value>
+  </data>
+  <data name="&gt;&gt;pageFinOverview.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinOverview.Parent" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;pageFinOverview.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pageFinTreatments.Caption" xml:space="preserve">
+    <value>pageFinTreatments</value>
+  </data>
+  <data name="pageFinTreatments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="&gt;&gt;pageFinTreatments.Name" xml:space="preserve">
+    <value>pageFinTreatments</value>
+  </data>
+  <data name="&gt;&gt;pageFinTreatments.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinTreatments.Parent" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;pageFinTreatments.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pageFinPatientPays.Caption" xml:space="preserve">
+    <value>pageFinPatientPays</value>
+  </data>
+  <data name="pageFinPatientPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="&gt;&gt;pageFinPatientPays.Name" xml:space="preserve">
+    <value>pageFinPatientPays</value>
+  </data>
+  <data name="&gt;&gt;pageFinPatientPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinPatientPays.Parent" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;pageFinPatientPays.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pageFinExpenses.Caption" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="pageFinExpenses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="&gt;&gt;pageFinExpenses.Name" xml:space="preserve">
+    <value>pageFinExpenses</value>
+  </data>
+  <data name="&gt;&gt;pageFinExpenses.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinExpenses.Parent" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;pageFinExpenses.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pageFinPurchases.Caption" xml:space="preserve">
+    <value>Purchases</value>
+  </data>
+  <data name="pageFinPurchases.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="&gt;&gt;pageFinPurchases.Name" xml:space="preserve">
+    <value>pageFinPurchases</value>
+  </data>
+  <data name="&gt;&gt;pageFinPurchases.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinPurchases.Parent" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;pageFinPurchases.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pageFinSupplierPays.Caption" xml:space="preserve">
+    <value>pageFinSupplierPays</value>
+  </data>
+  <data name="pageFinSupplierPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="&gt;&gt;pageFinSupplierPays.Name" xml:space="preserve">
+    <value>pageFinSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;pageFinSupplierPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinSupplierPays.Parent" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;pageFinSupplierPays.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pageFinLab.Caption" xml:space="preserve">
+    <value>pageFinLab</value>
+  </data>
+  <data name="pageFinLab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="&gt;&gt;pageFinLab.Name" xml:space="preserve">
+    <value>pageFinLab</value>
+  </data>
+  <data name="&gt;&gt;pageFinLab.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinLab.Parent" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;pageFinLab.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pageFinStaff.Caption" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="pageFinStaff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="&gt;&gt;pageFinStaff.Name" xml:space="preserve">
+    <value>pageFinStaff</value>
+  </data>
+  <data name="&gt;&gt;pageFinStaff.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinStaff.Parent" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;pageFinStaff.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="navFinance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="navFinance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 88</value>
+  </data>
+  <data name="navFinance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 580</value>
+  </data>
+  <data name="navFinance.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="navFinance.Text" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="&gt;&gt;navFinance.Name" xml:space="preserve">
+    <value>navFinance</value>
+  </data>
+  <data name="&gt;&gt;navFinance.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationFrame, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navFinance.Parent" xml:space="preserve">
+    <value>pnlRoot</value>
+  </data>
+  <data name="&gt;&gt;navFinance.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblHeaderNet.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblHeaderNet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>880, 59</value>
+  </data>
+  <data name="lblHeaderNet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>12, 15</value>
+  </data>
+  <data name="lblHeaderNet.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lblHeaderNet.Text" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderNet.Name" xml:space="preserve">
+    <value>lblHeaderNet</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderNet.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderNet.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderNet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblNetCaption.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblNetCaption.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblNetCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>880, 8</value>
+  </data>
+  <data name="lblNetCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 40</value>
+  </data>
+  <data name="lblNetCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblNetCaption.Text" xml:space="preserve">
+    <value>Net (income − outflows; green if positive)</value>
+  </data>
+  <data name="&gt;&gt;lblNetCaption.Name" xml:space="preserve">
+    <value>lblNetCaption</value>
+  </data>
+  <data name="&gt;&gt;lblNetCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblNetCaption.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;lblNetCaption.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblHeaderOutflows.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblHeaderOutflows.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 59</value>
+  </data>
+  <data name="lblHeaderOutflows.Size" type="System.Drawing.Size, System.Drawing">
+    <value>12, 15</value>
+  </data>
+  <data name="lblHeaderOutflows.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblHeaderOutflows.Text" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderOutflows.Name" xml:space="preserve">
+    <value>lblHeaderOutflows</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderOutflows.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderOutflows.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderOutflows.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblOutflowsCaption.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblOutflowsCaption.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblOutflowsCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 8</value>
+  </data>
+  <data name="lblOutflowsCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 40</value>
+  </data>
+  <data name="lblOutflowsCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblOutflowsCaption.Text" xml:space="preserve">
+    <value>Total outflows (expenses + purchases + lab + payroll)</value>
+  </data>
+  <data name="&gt;&gt;lblOutflowsCaption.Name" xml:space="preserve">
+    <value>lblOutflowsCaption</value>
+  </data>
+  <data name="&gt;&gt;lblOutflowsCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblOutflowsCaption.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;lblOutflowsCaption.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblHeaderIncome.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblHeaderIncome.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 59</value>
+  </data>
+  <data name="lblHeaderIncome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>12, 15</value>
+  </data>
+  <data name="lblHeaderIncome.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblHeaderIncome.Text" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderIncome.Name" xml:space="preserve">
+    <value>lblHeaderIncome</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderIncome.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderIncome.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderIncome.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblIncomeCaption.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblIncomeCaption.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblIncomeCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 8</value>
+  </data>
+  <data name="lblIncomeCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 40</value>
+  </data>
+  <data name="lblIncomeCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lblIncomeCaption.Text" xml:space="preserve">
+    <value>Treatment / service income (totals for dates above)</value>
+  </data>
+  <data name="&gt;&gt;lblIncomeCaption.Name" xml:space="preserve">
+    <value>lblIncomeCaption</value>
+  </data>
+  <data name="&gt;&gt;lblIncomeCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblIncomeCaption.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;lblIncomeCaption.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnFinanceRefresh.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFinanceRefresh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>290, 26</value>
+  </data>
+  <data name="btnFinanceRefresh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 23</value>
+  </data>
+  <data name="btnFinanceRefresh.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnFinanceRefresh.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="&gt;&gt;btnFinanceRefresh.Name" xml:space="preserve">
+    <value>btnFinanceRefresh</value>
+  </data>
+  <data name="&gt;&gt;btnFinanceRefresh.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFinanceRefresh.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;btnFinanceRefresh.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="dateFinanceTo.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dateFinanceTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 28</value>
+  </data>
+  <data name="dateFinanceTo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="dateFinanceTo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dateFinanceTo.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dateFinanceTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="dateFinanceTo.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dateFinanceTo.Name" xml:space="preserve">
+    <value>dateFinanceTo</value>
+  </data>
+  <data name="&gt;&gt;dateFinanceTo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dateFinanceTo.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;dateFinanceTo.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="dateFinanceFrom.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dateFinanceFrom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 28</value>
+  </data>
+  <data name="dateFinanceFrom.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="dateFinanceFrom.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dateFinanceFrom.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dateFinanceFrom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="dateFinanceFrom.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;dateFinanceFrom.Name" xml:space="preserve">
+    <value>dateFinanceFrom</value>
+  </data>
+  <data name="&gt;&gt;dateFinanceFrom.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dateFinanceFrom.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;dateFinanceFrom.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblDateToCaption.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblDateToCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 8</value>
+  </data>
+  <data name="lblDateToCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 15</value>
+  </data>
+  <data name="lblDateToCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblDateToCaption.Text" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="&gt;&gt;lblDateToCaption.Name" xml:space="preserve">
+    <value>lblDateToCaption</value>
+  </data>
+  <data name="&gt;&gt;lblDateToCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDateToCaption.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;lblDateToCaption.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblDateFromCaption.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblDateFromCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 8</value>
+  </data>
+  <data name="lblDateFromCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 15</value>
+  </data>
+  <data name="lblDateFromCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblDateFromCaption.Text" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="&gt;&gt;lblDateFromCaption.Name" xml:space="preserve">
+    <value>lblDateFromCaption</value>
+  </data>
+  <data name="&gt;&gt;lblDateFromCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDateFromCaption.Parent" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;lblDateFromCaption.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="pnlFinanceToolbar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="pnlFinanceToolbar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlFinanceToolbar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>16, 12, 16, 12</value>
+  </data>
+  <data name="pnlFinanceToolbar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 88</value>
+  </data>
+  <data name="pnlFinanceToolbar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlFinanceToolbar.Name" xml:space="preserve">
+    <value>pnlFinanceToolbar</value>
+  </data>
+  <data name="&gt;&gt;pnlFinanceToolbar.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlFinanceToolbar.Parent" xml:space="preserve">
+    <value>pnlRoot</value>
+  </data>
+  <data name="&gt;&gt;pnlFinanceToolbar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlRoot.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlRoot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlRoot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 668</value>
+  </data>
+  <data name="pnlRoot.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlRoot.Name" xml:space="preserve">
+    <value>pnlRoot</value>
+  </data>
+  <data name="&gt;&gt;pnlRoot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlRoot.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlRoot.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1094, 668</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>960, 600</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>Manual</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Finance — overview &amp; detail</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinTreatments.Name" xml:space="preserve">
+    <value>gridViewFinTreatments</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinTreatments.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinExpenses.Name" xml:space="preserve">
+    <value>gridViewFinExpenses</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinExpenses.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinPurchases.Name" xml:space="preserve">
+    <value>gridViewFinPurchases</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinPurchases.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinLab.Name" xml:space="preserve">
+    <value>gridViewFinLab</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinLab.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinStaff.Name" xml:space="preserve">
+    <value>gridViewFinStaff</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinStaff.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinPatientPays.Name" xml:space="preserve">
+    <value>gridViewFinPatientPays</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinPatientPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinSupplierPays.Name" xml:space="preserve">
+    <value>gridViewFinSupplierPays</value>
+  </data>
+  <data name="&gt;&gt;gridViewFinSupplierPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmFinance</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

@@ -1,0 +1,1288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkBounce.Location" type="System.Drawing.Point, System.Drawing">
+    <value>716, 20</value>
+  </data>
+  <data name="chkBounce.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkBounce.Properties.Caption" xml:space="preserve">
+    <value>Bounce</value>
+  </data>
+  <data name="chkBounce.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 19</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chkBounce.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;chkBounce.Name" xml:space="preserve">
+    <value>chkBounce</value>
+  </data>
+  <data name="&gt;&gt;chkBounce.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkBounce.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;chkBounce.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="speedTrack.EditValue" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="speedTrack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>486, 12</value>
+  </data>
+  <data name="speedTrack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 45</value>
+  </data>
+  <data name="speedTrack.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;speedTrack.Name" xml:space="preserve">
+    <value>speedTrack</value>
+  </data>
+  <data name="&gt;&gt;speedTrack.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;speedTrack.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;speedTrack.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblSpeed.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblSpeed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>448, 25</value>
+  </data>
+  <data name="lblSpeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 15</value>
+  </data>
+  <data name="lblSpeed.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblSpeed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="&gt;&gt;lblSpeed.Name" xml:space="preserve">
+    <value>lblSpeed</value>
+  </data>
+  <data name="&gt;&gt;lblSpeed.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblSpeed.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;lblSpeed.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnPlay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnPlay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 21</value>
+  </data>
+  <data name="btnPlay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnPlay.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnPlay.Text" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="&gt;&gt;btnPlay.Name" xml:space="preserve">
+    <value>btnPlay</value>
+  </data>
+  <data name="&gt;&gt;btnPlay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnPlay.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;btnPlay.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnNext.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>276, 21</value>
+  </data>
+  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnNext.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnNext.Text" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Name" xml:space="preserve">
+    <value>btnNext</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnPrev.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnPrev.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 21</value>
+  </data>
+  <data name="btnPrev.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnPrev.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnPrev.Text" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="&gt;&gt;btnPrev.Name" xml:space="preserve">
+    <value>btnPrev</value>
+  </data>
+  <data name="&gt;&gt;btnPrev.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnPrev.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;btnPrev.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnOpenFolder.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnOpenFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 21</value>
+  </data>
+  <data name="btnOpenFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnOpenFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnOpenFolder.Text" xml:space="preserve">
+    <value>Open Folder</value>
+  </data>
+  <data name="&gt;&gt;btnOpenFolder.Name" xml:space="preserve">
+    <value>btnOpenFolder</value>
+  </data>
+  <data name="&gt;&gt;btnOpenFolder.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnOpenFolder.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;btnOpenFolder.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnOpenFile.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnOpenFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 21</value>
+  </data>
+  <data name="btnOpenFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnOpenFile.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnOpenFile.Text" xml:space="preserve">
+    <value>Open File</value>
+  </data>
+  <data name="&gt;&gt;btnOpenFile.Name" xml:space="preserve">
+    <value>btnOpenFile</value>
+  </data>
+  <data name="&gt;&gt;btnOpenFile.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnOpenFile.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;btnOpenFile.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panelTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 63</value>
+  </data>
+  <data name="panelTop.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="panelTop.Text" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;panelTop.Name" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;panelTop.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;panelTop.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelTop.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lstFiles.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lstFiles.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lstFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lstFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 675</value>
+  </data>
+  <data name="lstFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lstFiles.Name" xml:space="preserve">
+    <value>lstFiles</value>
+  </data>
+  <data name="&gt;&gt;lstFiles.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lstFiles.Parent" xml:space="preserve">
+    <value>lstFilesPanel</value>
+  </data>
+  <data name="&gt;&gt;lstFiles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lstFilesPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lstFilesPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 63</value>
+  </data>
+  <data name="lstFilesPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 675</value>
+  </data>
+  <data name="lstFilesPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lstFilesPanel.Text" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;lstFilesPanel.Name" xml:space="preserve">
+    <value>lstFilesPanel</value>
+  </data>
+  <data name="&gt;&gt;lstFilesPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lstFilesPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lstFilesPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="memoMeta.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 423</value>
+  </data>
+  <data name="memoMeta.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="memoMeta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 159</value>
+  </data>
+  <data name="memoMeta.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;memoMeta.Name" xml:space="preserve">
+    <value>memoMeta</value>
+  </data>
+  <data name="&gt;&gt;memoMeta.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;memoMeta.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;memoMeta.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lstSeries.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lstSeries.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 281</value>
+  </data>
+  <data name="lstSeries.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 115</value>
+  </data>
+  <data name="lstSeries.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lstSeries.Name" xml:space="preserve">
+    <value>lstSeries</value>
+  </data>
+  <data name="&gt;&gt;lstSeries.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lstSeries.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;lstSeries.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblBurnedIn.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblBurnedIn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 609</value>
+  </data>
+  <data name="lblBurnedIn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 15</value>
+  </data>
+  <data name="lblBurnedIn.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblBurnedIn.Text" xml:space="preserve">
+    <value>Burned-in: Unknown</value>
+  </data>
+  <data name="&gt;&gt;lblBurnedIn.Name" xml:space="preserve">
+    <value>lblBurnedIn</value>
+  </data>
+  <data name="&gt;&gt;lblBurnedIn.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblBurnedIn.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;lblBurnedIn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblOverlay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblOverlay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 588</value>
+  </data>
+  <data name="lblOverlay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 15</value>
+  </data>
+  <data name="lblOverlay.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblOverlay.Text" xml:space="preserve">
+    <value>Overlay: Unknown</value>
+  </data>
+  <data name="&gt;&gt;lblOverlay.Name" xml:space="preserve">
+    <value>lblOverlay</value>
+  </data>
+  <data name="&gt;&gt;lblOverlay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblOverlay.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;lblOverlay.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblMeta.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblMeta.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 402</value>
+  </data>
+  <data name="lblMeta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="lblMeta.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblMeta.Text" xml:space="preserve">
+    <value>Meta Data</value>
+  </data>
+  <data name="&gt;&gt;lblMeta.Name" xml:space="preserve">
+    <value>lblMeta</value>
+  </data>
+  <data name="&gt;&gt;lblMeta.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblMeta.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;lblMeta.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblSeries.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblSeries.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 250</value>
+  </data>
+  <data name="lblSeries.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 15</value>
+  </data>
+  <data name="lblSeries.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblSeries.Text" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="&gt;&gt;lblSeries.Name" xml:space="preserve">
+    <value>lblSeries</value>
+  </data>
+  <data name="&gt;&gt;lblSeries.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblSeries.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;lblSeries.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblLevel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblLevel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 148</value>
+  </data>
+  <data name="lblLevel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 15</value>
+  </data>
+  <data name="lblLevel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblLevel.Text" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="&gt;&gt;lblLevel.Name" xml:space="preserve">
+    <value>lblLevel</value>
+  </data>
+  <data name="&gt;&gt;lblLevel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblLevel.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;lblLevel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblWindow.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblWindow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 78</value>
+  </data>
+  <data name="lblWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 15</value>
+  </data>
+  <data name="lblWindow.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblWindow.Text" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="&gt;&gt;lblWindow.Name" xml:space="preserve">
+    <value>lblWindow</value>
+  </data>
+  <data name="&gt;&gt;lblWindow.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblWindow.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;lblWindow.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnExportSeries.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnExportSeries.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 629</value>
+  </data>
+  <data name="btnExportSeries.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 23</value>
+  </data>
+  <data name="btnExportSeries.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnExportSeries.Text" xml:space="preserve">
+    <value>Export Series</value>
+  </data>
+  <data name="&gt;&gt;btnExportSeries.Name" xml:space="preserve">
+    <value>btnExportSeries</value>
+  </data>
+  <data name="&gt;&gt;btnExportSeries.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnExportSeries.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;btnExportSeries.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnExportFrame.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnExportFrame.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 629</value>
+  </data>
+  <data name="btnExportFrame.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 23</value>
+  </data>
+  <data name="btnExportFrame.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnExportFrame.Text" xml:space="preserve">
+    <value>Export Frame</value>
+  </data>
+  <data name="&gt;&gt;btnExportFrame.Name" xml:space="preserve">
+    <value>btnExportFrame</value>
+  </data>
+  <data name="&gt;&gt;btnExportFrame.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnExportFrame.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;btnExportFrame.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnWlReset.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnWlReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 221</value>
+  </data>
+  <data name="btnWlReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnWlReset.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnWlReset.Text" xml:space="preserve">
+    <value>Reset W/l</value>
+  </data>
+  <data name="&gt;&gt;btnWlReset.Name" xml:space="preserve">
+    <value>btnWlReset</value>
+  </data>
+  <data name="&gt;&gt;btnWlReset.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnWlReset.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;btnWlReset.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnFramePlay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFramePlay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>184, 27</value>
+  </data>
+  <data name="btnFramePlay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnFramePlay.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnFramePlay.Text" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="&gt;&gt;btnFramePlay.Name" xml:space="preserve">
+    <value>btnFramePlay</value>
+  </data>
+  <data name="&gt;&gt;btnFramePlay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFramePlay.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;btnFramePlay.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="levelTrack.EditValue" type="System.Int32, mscorlib">
+    <value>1024</value>
+  </data>
+  <data name="levelTrack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 169</value>
+  </data>
+  <data name="levelTrack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 45</value>
+  </data>
+  <data name="levelTrack.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;levelTrack.Name" xml:space="preserve">
+    <value>levelTrack</value>
+  </data>
+  <data name="&gt;&gt;levelTrack.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;levelTrack.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;levelTrack.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="windowTrack.EditValue" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="windowTrack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 98</value>
+  </data>
+  <data name="windowTrack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 45</value>
+  </data>
+  <data name="windowTrack.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;windowTrack.Name" xml:space="preserve">
+    <value>windowTrack</value>
+  </data>
+  <data name="&gt;&gt;windowTrack.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;windowTrack.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;windowTrack.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="frameTrack.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="frameTrack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 27</value>
+  </data>
+  <data name="frameTrack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 45</value>
+  </data>
+  <data name="frameTrack.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;frameTrack.Name" xml:space="preserve">
+    <value>frameTrack</value>
+  </data>
+  <data name="&gt;&gt;frameTrack.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;frameTrack.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;frameTrack.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="lblFrame.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblFrame.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="lblFrame.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 15</value>
+  </data>
+  <data name="lblFrame.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblFrame.Text" xml:space="preserve">
+    <value>Frame: 1/1</value>
+  </data>
+  <data name="&gt;&gt;lblFrame.Name" xml:space="preserve">
+    <value>lblFrame</value>
+  </data>
+  <data name="&gt;&gt;lblFrame.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblFrame.Parent" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;lblFrame.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="panelRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="panelRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1089, 63</value>
+  </data>
+  <data name="panelRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 675</value>
+  </data>
+  <data name="panelRight.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="panelRight.Text" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;panelRight.Name" xml:space="preserve">
+    <value>panelRight</value>
+  </data>
+  <data name="&gt;&gt;panelRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;panelRight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelRight.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblStatus.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblStatus.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1</value>
+  </data>
+  <data name="lblStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 15</value>
+  </data>
+  <data name="lblStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblStatus.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="&gt;&gt;lblStatus.Name" xml:space="preserve">
+    <value>lblStatus</value>
+  </data>
+  <data name="&gt;&gt;lblStatus.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblStatus.Parent" xml:space="preserve">
+    <value>PanelBottom</value>
+  </data>
+  <data name="&gt;&gt;lblStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="PanelBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 715</value>
+  </data>
+  <data name="PanelBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 23</value>
+  </data>
+  <data name="PanelBottom.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="PanelBottom.Text" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;PanelBottom.Name" xml:space="preserve">
+    <value>PanelBottom</value>
+  </data>
+  <data name="&gt;&gt;PanelBottom.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelBottom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PanelBottom.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="picView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="picView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="picView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 652</value>
+  </data>
+  <data name="picView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;picView.Name" xml:space="preserve">
+    <value>picView</value>
+  </data>
+  <data name="&gt;&gt;picView.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;picView.Parent" xml:space="preserve">
+    <value>picPanel</value>
+  </data>
+  <data name="&gt;&gt;picView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="picPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="picPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 63</value>
+  </data>
+  <data name="picPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 652</value>
+  </data>
+  <data name="picPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="picPanel.Text" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;picPanel.Name" xml:space="preserve">
+    <value>picPanel</value>
+  </data>
+  <data name="&gt;&gt;picPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;picPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;picPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="ofd.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="sfdExport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>89, 17</value>
+  </metadata>
+  <metadata name="fbdExport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>192, 17</value>
+  </metadata>
+  <data name="fbdExport.SelectedPath" xml:space="preserve">
+    <value>XtraFolderBrowserDialog1</value>
+  </data>
+  <metadata name="fbd.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>297, 17</value>
+  </metadata>
+  <data name="fbd.SelectedPath" xml:space="preserve">
+    <value>XtraFolderBrowserDialog1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 738</value>
+  </data>
+  <data name="DicomViewerFrm.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAMAMDAAAAEAIACoJQAANgAAACAgAAABACAAqBAAAN4lAAAQEAAAAQAgAGgEAACGNgAAKAAAADAA
+        AABgAAAAAQAgAAAAAACAJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAABAAAAAwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAQAAAA4AAAArAAAAPQAAACkFBQIKAAAAAAAAAAAAAAAAAAAAAAAAAAABAQADAAAAFQAA
+        AC4AAAAwAAAAGQICAQUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAACAAAAGgECAFtZXDa4q61n4H6BTMAFBQJDCgsFCAAAAAAAAAAAAAAAAAEB
+        AAUAAAApHB4QfYGETcuFiFDOJigWjAAAADMDBAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAaBQcDapqdWuDq64j+4+SB/97ffP9ydj29AgIBIQcI
+        BAEAAAAAAQIAAwAAACUyNBmWy81w+eDifv/h4n//1NZ3/Dw+H6cAAAAxAwMBBAAAAAAAAAAAAAAAAAAA
+        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
+        AADHHAAAxAwAAMAAAADgAAAA4AAAAPmBAAA=
+</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>DicomFrm</value>
+  </data>
+  <data name="&gt;&gt;ofd.Name" xml:space="preserve">
+    <value>ofd</value>
+  </data>
+  <data name="&gt;&gt;ofd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraOpenFileDialog, DevExpress.XtraDialogs.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;sfdExport.Name" xml:space="preserve">
+    <value>sfdExport</value>
+  </data>
+  <data name="&gt;&gt;sfdExport.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraSaveFileDialog, DevExpress.XtraDialogs.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;fbdExport.Name" xml:space="preserve">
+    <value>fbdExport</value>
+  </data>
+  <data name="&gt;&gt;fbdExport.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraFolderBrowserDialog, DevExpress.XtraDialogs.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;fbd.Name" xml:space="preserve">
+    <value>fbd</value>
+  </data>
+  <data name="&gt;&gt;fbd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraFolderBrowserDialog, DevExpress.XtraDialogs.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DicomViewerFrm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

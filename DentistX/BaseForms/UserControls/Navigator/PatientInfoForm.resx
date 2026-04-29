@@ -1,0 +1,1262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="PatientNameLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PatientNameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PatientNameLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PatientNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 37</value>
+  </data>
+  <data name="PatientNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="PatientNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="PatientNameLabel.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="&gt;&gt;PatientNameLabel.Name" xml:space="preserve">
+    <value>PatientNameLabel</value>
+  </data>
+  <data name="&gt;&gt;PatientNameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PatientNameLabel.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;PatientNameLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <metadata name="SexLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="SexLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SexLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SexLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 67</value>
+  </data>
+  <data name="SexLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 15</value>
+  </data>
+  <data name="SexLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="SexLabel.Text" xml:space="preserve">
+    <value>Sex:</value>
+  </data>
+  <data name="&gt;&gt;SexLabel.Name" xml:space="preserve">
+    <value>SexLabel</value>
+  </data>
+  <data name="&gt;&gt;SexLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SexLabel.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;SexLabel.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <metadata name="AgeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="AgeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AgeLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="AgeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AgeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>471, 93</value>
+  </data>
+  <data name="AgeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 15</value>
+  </data>
+  <data name="AgeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="AgeLabel.Text" xml:space="preserve">
+    <value>Age:</value>
+  </data>
+  <data name="&gt;&gt;AgeLabel.Name" xml:space="preserve">
+    <value>AgeLabel</value>
+  </data>
+  <data name="&gt;&gt;AgeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AgeLabel.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;AgeLabel.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <metadata name="PhoneLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="PhoneLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PhoneLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="PhoneLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PhoneLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 104</value>
+  </data>
+  <data name="PhoneLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 15</value>
+  </data>
+  <data name="PhoneLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="PhoneLabel.Text" xml:space="preserve">
+    <value>Phone:</value>
+  </data>
+  <data name="&gt;&gt;PhoneLabel.Name" xml:space="preserve">
+    <value>PhoneLabel</value>
+  </data>
+  <data name="&gt;&gt;PhoneLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PhoneLabel.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;PhoneLabel.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <metadata name="AddressLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="AddressLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AddressLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AddressLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 161</value>
+  </data>
+  <data name="AddressLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 15</value>
+  </data>
+  <data name="AddressLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="AddressLabel.Text" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="&gt;&gt;AddressLabel.Name" xml:space="preserve">
+    <value>AddressLabel</value>
+  </data>
+  <data name="&gt;&gt;AddressLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AddressLabel.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;AddressLabel.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <metadata name="HealthLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="HealthLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="HealthLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="HealthLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 221</value>
+  </data>
+  <data name="HealthLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="HealthLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="HealthLabel.Text" xml:space="preserve">
+    <value>Health:</value>
+  </data>
+  <data name="&gt;&gt;HealthLabel.Name" xml:space="preserve">
+    <value>HealthLabel</value>
+  </data>
+  <data name="&gt;&gt;HealthLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HealthLabel.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;HealthLabel.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <metadata name="NotesLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="NotesLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="NotesLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="NotesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 256</value>
+  </data>
+  <data name="NotesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="NotesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="NotesLabel.Text" xml:space="preserve">
+    <value>Notes:</value>
+  </data>
+  <data name="&gt;&gt;NotesLabel.Name" xml:space="preserve">
+    <value>NotesLabel</value>
+  </data>
+  <data name="&gt;&gt;NotesLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotesLabel.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;NotesLabel.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <metadata name="BirthYLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="BirthYLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="BirthYLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BirthYLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BirthYLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 120</value>
+  </data>
+  <data name="BirthYLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="BirthYLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="BirthYLabel.Text" xml:space="preserve">
+    <value>Birth Y:</value>
+  </data>
+  <data name="&gt;&gt;BirthYLabel.Name" xml:space="preserve">
+    <value>BirthYLabel</value>
+  </data>
+  <data name="&gt;&gt;BirthYLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BirthYLabel.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;BirthYLabel.ZOrder" xml:space="preserve">
+    <value>34</value>
+  </data>
+  <metadata name="Label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>204, 104</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 15</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>WhatsApp :</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="PatientBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="grpPatientInfo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="grpPatientInfo.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="WhatsAppTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 101</value>
+  </data>
+  <data name="WhatsAppTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="WhatsAppTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="WhatsAppTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="&gt;&gt;WhatsAppTextEdit.Name" xml:space="preserve">
+    <value>WhatsAppTextEdit</value>
+  </data>
+  <data name="&gt;&gt;WhatsAppTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;WhatsAppTextEdit.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;WhatsAppTextEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DiagCheck.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DiagCheck.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="DiagCheck.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DiagCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>241, 283</value>
+  </data>
+  <data name="DiagCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 19</value>
+  </data>
+  <data name="DiagCheck.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="DiagCheck.Text" xml:space="preserve">
+    <value>Diagnose:</value>
+  </data>
+  <data name="&gt;&gt;DiagCheck.Name" xml:space="preserve">
+    <value>DiagCheck</value>
+  </data>
+  <data name="&gt;&gt;DiagCheck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DiagCheck.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;DiagCheck.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="RadioFemale.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioFemale.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioFemale.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioFemale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 65</value>
+  </data>
+  <data name="RadioFemale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 19</value>
+  </data>
+  <data name="RadioFemale.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="RadioFemale.Text" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="&gt;&gt;RadioFemale.Name" xml:space="preserve">
+    <value>RadioFemale</value>
+  </data>
+  <data name="&gt;&gt;RadioFemale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioFemale.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;RadioFemale.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="RadioMale.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioMale.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioMale.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioMale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 65</value>
+  </data>
+  <data name="RadioMale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 19</value>
+  </data>
+  <data name="RadioMale.TabIndex" type="System.Int32, mscorlib">
+    <value>66</value>
+  </data>
+  <data name="RadioMale.Text" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="&gt;&gt;RadioMale.Name" xml:space="preserve">
+    <value>RadioMale</value>
+  </data>
+  <data name="&gt;&gt;RadioMale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioMale.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;RadioMale.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="CboCity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 132</value>
+  </data>
+  <data name="CboCity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
+  <data name="CboCity.TabIndex" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="&gt;&gt;CboCity.Name" xml:space="preserve">
+    <value>CboCity</value>
+  </data>
+  <data name="&gt;&gt;CboCity.Type" xml:space="preserve">
+    <value>DentistX.CityCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;CboCity.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;CboCity.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="CboHealth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 192</value>
+  </data>
+  <data name="CboHealth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
+  <data name="CboHealth.TabIndex" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
+  <data name="&gt;&gt;CboHealth.Name" xml:space="preserve">
+    <value>CboHealth</value>
+  </data>
+  <data name="&gt;&gt;CboHealth.Type" xml:space="preserve">
+    <value>DentistX.HlthCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;CboHealth.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;CboHealth.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="LabelAge.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="LabelAge.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabelAge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>453, 248</value>
+  </data>
+  <data name="LabelAge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 23</value>
+  </data>
+  <data name="LabelAge.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="LabelAge.Text" xml:space="preserve">
+    <value>0.00</value>
+  </data>
+  <data name="&gt;&gt;LabelAge.Name" xml:space="preserve">
+    <value>LabelAge</value>
+  </data>
+  <data name="&gt;&gt;LabelAge.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelAge.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;LabelAge.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LabelBal.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="LabelBal.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabelBal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 154</value>
+  </data>
+  <data name="LabelBal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 23</value>
+  </data>
+  <data name="LabelBal.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="LabelBal.Text" xml:space="preserve">
+    <value>0.00</value>
+  </data>
+  <data name="&gt;&gt;LabelBal.Name" xml:space="preserve">
+    <value>LabelBal</value>
+  </data>
+  <data name="&gt;&gt;LabelBal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelBal.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;LabelBal.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnDelete.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>326, 332</value>
+  </data>
+  <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 28</value>
+  </data>
+  <data name="btnDelete.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
+    <value>btnDelete</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnEditPat.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEditPat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 332</value>
+  </data>
+  <data name="btnEditPat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 28</value>
+  </data>
+  <data name="btnEditPat.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="btnEditPat.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;btnEditPat.Name" xml:space="preserve">
+    <value>btnEditPat</value>
+  </data>
+  <data name="&gt;&gt;btnEditPat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnEditPat.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;btnEditPat.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="PatientNameTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 32</value>
+  </data>
+  <data name="PatientNameTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="PatientNameTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 22</value>
+  </data>
+  <data name="PatientNameTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PatientNameTextEdit.Name" xml:space="preserve">
+    <value>PatientNameTextEdit</value>
+  </data>
+  <data name="&gt;&gt;PatientNameTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PatientNameTextEdit.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;PatientNameTextEdit.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="PatientIDEdit.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="PatientIDEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>528, 30</value>
+  </data>
+  <data name="PatientIDEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="PatientIDEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 22</value>
+  </data>
+  <data name="PatientIDEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;PatientIDEdit.Name" xml:space="preserve">
+    <value>PatientIDEdit</value>
+  </data>
+  <data name="&gt;&gt;PatientIDEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PatientIDEdit.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;PatientIDEdit.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="PicBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PicBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>384, 150</value>
+  </data>
+  <data name="PicBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 88</value>
+  </data>
+  <data name="PicBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="PicBox.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;PicBox.Name" xml:space="preserve">
+    <value>PicBox</value>
+  </data>
+  <data name="&gt;&gt;PicBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PicBox.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;PicBox.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="SexTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 64</value>
+  </data>
+  <data name="SexTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="SexTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="SexTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;SexTextBox.Name" xml:space="preserve">
+    <value>SexTextBox</value>
+  </data>
+  <data name="&gt;&gt;SexTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SexTextBox.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;SexTextBox.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="AgeSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="AgeSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>528, 90</value>
+  </data>
+  <data name="AgeSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="AgeSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="AgeSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 22</value>
+  </data>
+  <data name="AgeSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;AgeSpinEdit.Name" xml:space="preserve">
+    <value>AgeSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;AgeSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AgeSpinEdit.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;AgeSpinEdit.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="PhoneTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 101</value>
+  </data>
+  <data name="PhoneTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="PhoneTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="PhoneTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;PhoneTextEdit.Name" xml:space="preserve">
+    <value>PhoneTextEdit</value>
+  </data>
+  <data name="&gt;&gt;PhoneTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PhoneTextEdit.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;PhoneTextEdit.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="lblPNum.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblPNum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>528, 65</value>
+  </data>
+  <data name="lblPNum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="lblPNum.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblPNum.Text" xml:space="preserve">
+    <value>Patient ID:</value>
+  </data>
+  <data name="&gt;&gt;lblPNum.Name" xml:space="preserve">
+    <value>lblPNum</value>
+  </data>
+  <data name="&gt;&gt;lblPNum.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPNum.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;lblPNum.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>433, 34</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>Patient ID:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="AddressTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 157</value>
+  </data>
+  <data name="AddressTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="AddressTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 22</value>
+  </data>
+  <data name="AddressTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;AddressTextEdit.Name" xml:space="preserve">
+    <value>AddressTextEdit</value>
+  </data>
+  <data name="&gt;&gt;AddressTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AddressTextEdit.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;AddressTextEdit.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="HealthTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 216</value>
+  </data>
+  <data name="HealthTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="HealthTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 22</value>
+  </data>
+  <data name="HealthTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;HealthTextBox.Name" xml:space="preserve">
+    <value>HealthTextBox</value>
+  </data>
+  <data name="&gt;&gt;HealthTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;HealthTextBox.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;HealthTextBox.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="TreatCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TreatCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TreatCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="TreatCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 283</value>
+  </data>
+  <data name="TreatCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 19</value>
+  </data>
+  <data name="TreatCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="TreatCheckBox.Text" xml:space="preserve">
+    <value>Treat:</value>
+  </data>
+  <data name="&gt;&gt;TreatCheckBox.Name" xml:space="preserve">
+    <value>TreatCheckBox</value>
+  </data>
+  <data name="&gt;&gt;TreatCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TreatCheckBox.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;TreatCheckBox.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="ImplantCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ImplantCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ImplantCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ImplantCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>513, 283</value>
+  </data>
+  <data name="ImplantCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 19</value>
+  </data>
+  <data name="ImplantCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="ImplantCheckBox.Text" xml:space="preserve">
+    <value>Implant:</value>
+  </data>
+  <data name="ImplantCheckBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;ImplantCheckBox.Name" xml:space="preserve">
+    <value>ImplantCheckBox</value>
+  </data>
+  <data name="&gt;&gt;ImplantCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ImplantCheckBox.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;ImplantCheckBox.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="MobileCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="MobileCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="MobileCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="MobileCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>346, 283</value>
+  </data>
+  <data name="MobileCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 19</value>
+  </data>
+  <data name="MobileCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="MobileCheckBox.Text" xml:space="preserve">
+    <value>Mobile:</value>
+  </data>
+  <data name="MobileCheckBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;MobileCheckBox.Name" xml:space="preserve">
+    <value>MobileCheckBox</value>
+  </data>
+  <data name="&gt;&gt;MobileCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MobileCheckBox.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;MobileCheckBox.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="OrthoCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OrthoCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="OrthoCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OrthoCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 283</value>
+  </data>
+  <data name="OrthoCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 19</value>
+  </data>
+  <data name="OrthoCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="OrthoCheckBox.Text" xml:space="preserve">
+    <value>Ortho:</value>
+  </data>
+  <data name="&gt;&gt;OrthoCheckBox.Name" xml:space="preserve">
+    <value>OrthoCheckBox</value>
+  </data>
+  <data name="&gt;&gt;OrthoCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OrthoCheckBox.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;OrthoCheckBox.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="StrucCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StrucCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="StrucCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="StrucCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>437, 283</value>
+  </data>
+  <data name="StrucCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 19</value>
+  </data>
+  <data name="StrucCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="StrucCheckBox.Text" xml:space="preserve">
+    <value>Struc:</value>
+  </data>
+  <data name="StrucCheckBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;StrucCheckBox.Name" xml:space="preserve">
+    <value>StrucCheckBox</value>
+  </data>
+  <data name="&gt;&gt;StrucCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StrucCheckBox.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;StrucCheckBox.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="NotesTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 251</value>
+  </data>
+  <data name="NotesTextEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="NotesTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 22</value>
+  </data>
+  <data name="NotesTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;NotesTextEdit.Name" xml:space="preserve">
+    <value>NotesTextEdit</value>
+  </data>
+  <data name="&gt;&gt;NotesTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;NotesTextEdit.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;NotesTextEdit.ZOrder" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="BirthYSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="BirthYSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>528, 117</value>
+  </data>
+  <data name="BirthYSpinEdit.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BirthYSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="BirthYSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 22</value>
+  </data>
+  <data name="BirthYSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;BirthYSpinEdit.Name" xml:space="preserve">
+    <value>BirthYSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;BirthYSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BirthYSpinEdit.Parent" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;BirthYSpinEdit.ZOrder" xml:space="preserve">
+    <value>35</value>
+  </data>
+  <data name="grpPatientInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="grpPatientInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="grpPatientInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>617, 376</value>
+  </data>
+  <data name="grpPatientInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="grpPatientInfo.Text" xml:space="preserve">
+    <value>Patient Info</value>
+  </data>
+  <data name="&gt;&gt;grpPatientInfo.Name" xml:space="preserve">
+    <value>grpPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;grpPatientInfo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpPatientInfo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpPatientInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>617, 376</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>PatientInfoForm</value>
+  </data>
+  <data name="&gt;&gt;PatientBindingSource.Name" xml:space="preserve">
+    <value>PatientBindingSource</value>
+  </data>
+  <data name="&gt;&gt;PatientBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>PatientInfoForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

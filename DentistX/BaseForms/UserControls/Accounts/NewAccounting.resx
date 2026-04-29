@@ -1,0 +1,3533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainSplit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="MainSplit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainSplit.Panel1.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TrtSplit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TrtSplit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 20</value>
+  </data>
+  <data name="TrtSplit.Panel1.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkFullDetail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 157</value>
+  </data>
+  <data name="chkFullDetail.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkFullDetail.Properties.Caption" xml:space="preserve">
+    <value>Include Treats In Message</value>
+  </data>
+  <data name="chkFullDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 19</value>
+  </data>
+  <data name="chkFullDetail.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;chkFullDetail.Name" xml:space="preserve">
+    <value>chkFullDetail</value>
+  </data>
+  <data name="&gt;&gt;chkFullDetail.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkFullDetail.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;chkFullDetail.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 182</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 15</value>
+  </data>
+  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Send Whats In</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="RadioLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 178</value>
+  </data>
+  <data name="RadioLang.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioLang.Properties.Items" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="RadioLang.Properties.Items1" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="RadioLang.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioLang.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RadioLang.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="RadioLang.Properties.Items5" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="RadioLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 24</value>
+  </data>
+  <data name="RadioLang.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Name" xml:space="preserve">
+    <value>RadioLang</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 129</value>
+  </data>
+  <data name="txtWhats.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 22</value>
+  </data>
+  <data name="txtWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txtWhats.Name" xml:space="preserve">
+    <value>txtWhats</value>
+  </data>
+  <data name="&gt;&gt;txtWhats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtWhats.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;txtWhats.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnPrint.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnPrint.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 55</value>
+  </data>
+  <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnPrint.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnPrint.Text" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="&gt;&gt;btnPrint.Name" xml:space="preserve">
+    <value>btnPrint</value>
+  </data>
+  <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;btnPrint.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnInvoiceGen.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnInvoiceGen.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnInvoiceGen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 55</value>
+  </data>
+  <data name="btnInvoiceGen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnInvoiceGen.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnInvoiceGen.Text" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="&gt;&gt;btnInvoiceGen.Name" xml:space="preserve">
+    <value>btnInvoiceGen</value>
+  </data>
+  <data name="&gt;&gt;btnInvoiceGen.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnInvoiceGen.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;btnInvoiceGen.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnAddTreat.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnAddTreat.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnAddTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 18</value>
+  </data>
+  <data name="btnAddTreat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnAddTreat.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnAddTreat.Text" xml:space="preserve">
+    <value>Add Treat</value>
+  </data>
+  <data name="&gt;&gt;btnAddTreat.Name" xml:space="preserve">
+    <value>btnAddTreat</value>
+  </data>
+  <data name="&gt;&gt;btnAddTreat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAddTreat.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;btnAddTreat.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnEditTrt.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEditTrt.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnEditTrt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 18</value>
+  </data>
+  <data name="btnEditTrt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnEditTrt.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnEditTrt.Text" xml:space="preserve">
+    <value>Modify Treat</value>
+  </data>
+  <data name="&gt;&gt;btnEditTrt.Name" xml:space="preserve">
+    <value>btnEditTrt</value>
+  </data>
+  <data name="&gt;&gt;btnEditTrt.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnEditTrt.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;btnEditTrt.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnResetPatientAccount.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnResetPatientAccount.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnResetPatientAccount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 92</value>
+  </data>
+  <data name="btnResetPatientAccount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 27</value>
+  </data>
+  <data name="btnResetPatientAccount.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnResetPatientAccount.Text" xml:space="preserve">
+    <value>Reset Patient Account</value>
+  </data>
+  <data name="&gt;&gt;btnResetPatientAccount.Name" xml:space="preserve">
+    <value>btnResetPatientAccount</value>
+  </data>
+  <data name="&gt;&gt;btnResetPatientAccount.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnResetPatientAccount.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;btnResetPatientAccount.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblWhats.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 157</value>
+  </data>
+  <data name="lblWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 15</value>
+  </data>
+  <data name="lblWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblWhats.Text" xml:space="preserve">
+    <value>Whats Number</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.Name" xml:space="preserve">
+    <value>lblWhats</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="cboPrefix.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 129</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="cboPrefix.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="cboPrefix.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 22</value>
+  </data>
+  <data name="cboPrefix.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;cboPrefix.Name" xml:space="preserve">
+    <value>cboPrefix</value>
+  </data>
+  <data name="&gt;&gt;cboPrefix.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cboPrefix.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;cboPrefix.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnWhatsSend.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnWhatsSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 122</value>
+  </data>
+  <data name="btnWhatsSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="btnWhatsSend.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsSend.Name" xml:space="preserve">
+    <value>btnWhatsSend</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsSend.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsSend.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsSend.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="showAsChildChck.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="showAsChildChck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 215</value>
+  </data>
+  <data name="showAsChildChck.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="showAsChildChck.Properties.Caption" xml:space="preserve">
+    <value>Show Related Payments</value>
+  </data>
+  <data name="showAsChildChck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 19</value>
+  </data>
+  <data name="showAsChildChck.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;showAsChildChck.Name" xml:space="preserve">
+    <value>showAsChildChck</value>
+  </data>
+  <data name="&gt;&gt;showAsChildChck.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;showAsChildChck.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;showAsChildChck.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="PanelControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="PanelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>409, 255</value>
+  </data>
+  <data name="PanelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PanelControl1.Name" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;PanelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelControl1.Parent" xml:space="preserve">
+    <value>TrtSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;PanelControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RadioFilter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="RadioFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="RadioFilter.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioFilter.Properties.Items" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="RadioFilter.Properties.Items1" xml:space="preserve">
+    <value>All Treats</value>
+  </data>
+  <data name="RadioFilter.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioFilter.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RadioFilter.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="RadioFilter.Properties.Items5" xml:space="preserve">
+    <value>Tooth Treats</value>
+  </data>
+  <data name="RadioFilter.Properties.Items6" type="System.Int16, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="RadioFilter.Properties.Items7" xml:space="preserve">
+    <value>Other Treats</value>
+  </data>
+  <data name="RadioFilter.Properties.Items8" type="System.Int16, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="RadioFilter.Properties.Items9" xml:space="preserve">
+    <value>Ortho Treats</value>
+  </data>
+  <data name="RadioFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>409, 24</value>
+  </data>
+  <data name="RadioFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;RadioFilter.Name" xml:space="preserve">
+    <value>RadioFilter</value>
+  </data>
+  <data name="&gt;&gt;RadioFilter.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;RadioFilter.Parent" xml:space="preserve">
+    <value>TrtSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;RadioFilter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TrtSplit.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Panel1.Name" xml:space="preserve">
+    <value>TrtSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Panel1.Parent" xml:space="preserve">
+    <value>TrtSplit</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TrtSplit.Panel2.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <metadata name="Patient_TrtsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="Patient_TrtsGridControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>True</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.Append.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.CancelEdit.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.Edit.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.EndEdit.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.Remove.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>Application</value>
+  </data>
+  <data name="Patient_TrtsGridControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="GridViewTrts.Appearance.FooterPanel.FontStyleDelta" type="System.Drawing.FontStyle, System.Drawing">
+    <value>Bold</value>
+  </data>
+  <data name="GridViewTrts.Appearance.GroupFooter.FontStyleDelta" type="System.Drawing.FontStyle, System.Drawing">
+    <value>Bold</value>
+  </data>
+  <data name="GridViewTrts.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="GridViewTrts.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colRowNum.Caption" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="colRowNum.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colRowNum.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRowNum.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colRowNum.Width" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="colTrtID.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colPatientID.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colToothTrtID.Caption" xml:space="preserve">
+    <value>ToothTrtID</value>
+  </data>
+  <data name="colToothTrtID.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colOrthoID.Caption" xml:space="preserve">
+    <value>OrthoID</value>
+  </data>
+  <data name="colOrthoID.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colOtherTrtID.Caption" xml:space="preserve">
+    <value>OtherTrtID</value>
+  </data>
+  <data name="colOtherTrtID.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colDetail.Caption" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="colDetail.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colDetail.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colDetail.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colDetail.Width" type="System.Int32, mscorlib">
+    <value>320</value>
+  </data>
+  <data name="colTrtDate.Caption" xml:space="preserve">
+    <value>Treat Date</value>
+  </data>
+  <data name="colTrtDate.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colTrtDate.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Count</value>
+  </data>
+  <data name="colTrtDate.Summary1" xml:space="preserve">
+    <value>TrtDate</value>
+  </data>
+  <data name="colTrtDate.Summary2" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="colTrtDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colTrtDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colTrtDate.Width" type="System.Int32, mscorlib">
+    <value>154</value>
+  </data>
+  <data name="colTrtValue.Caption" xml:space="preserve">
+    <value>Treat Value</value>
+  </data>
+  <data name="colTrtValue.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colTrtValue.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Sum</value>
+  </data>
+  <data name="colTrtValue.Summary1" xml:space="preserve">
+    <value>TrtValue</value>
+  </data>
+  <data name="colTrtValue.Summary2" xml:space="preserve">
+    <value>{0:f0}</value>
+  </data>
+  <data name="colTrtValue.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colTrtValue.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colTrtValue.Width" type="System.Int32, mscorlib">
+    <value>158</value>
+  </data>
+  <data name="colIsMultiTooth.Caption" xml:space="preserve">
+    <value>IsMultiTooth</value>
+  </data>
+  <data name="colIsMultiTooth.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colDiscount.Caption" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="colDiscount.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colDiscount.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Sum</value>
+  </data>
+  <data name="colDiscount.Summary1" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="colDiscount.Summary2" xml:space="preserve">
+    <value>{0:n0}</value>
+  </data>
+  <data name="colDiscount.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colDiscount.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="colDiscount2.Caption" xml:space="preserve">
+    <value>Discount2</value>
+  </data>
+  <data name="colDiscount2.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Sum</value>
+  </data>
+  <data name="colDiscount2.Summary1" xml:space="preserve">
+    <value>Discount2</value>
+  </data>
+  <data name="colDiscount2.Summary2" xml:space="preserve">
+    <value>{0:n0}</value>
+  </data>
+  <data name="colDiscount2.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colDiscount2.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colDiscountType.Caption" xml:space="preserve">
+    <value>Discount Type</value>
+  </data>
+  <data name="colDiscountType.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="resource.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="resource.Font1" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Patient_TrtsGridControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>785, 258</value>
+  </data>
+  <data name="Patient_TrtsGridControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Patient_TrtsGridControl.Name" xml:space="preserve">
+    <value>Patient_TrtsGridControl</value>
+  </data>
+  <data name="&gt;&gt;Patient_TrtsGridControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Patient_TrtsGridControl.Parent" xml:space="preserve">
+    <value>TrtSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;Patient_TrtsGridControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="TrtNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1133, 17</value>
+  </metadata>
+  <data name="TrtNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStripLabel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 15</value>
+  </data>
+  <data name="ToolStripLabel5.Text" xml:space="preserve">
+    <value>of {0}</value>
+  </data>
+  <data name="ToolStripLabel5.ToolTipText" xml:space="preserve">
+    <value>Total number of items</value>
+  </data>
+  <data name="TrtNavigator.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="ToolStripButton23.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton23.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripButton23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripButton23.Text" xml:space="preserve">
+    <value>Move first</value>
+  </data>
+  <data name="ToolStripButton24.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton24.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripButton24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripButton24.Text" xml:space="preserve">
+    <value>Move previous</value>
+  </data>
+  <data name="ToolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="ToolStripTextBox5.AccessibleName" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="ToolStripTextBox5.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStripTextBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 23</value>
+  </data>
+  <data name="ToolStripTextBox5.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ToolStripTextBox5.ToolTipText" xml:space="preserve">
+    <value>Current position</value>
+  </data>
+  <data name="ToolStripSeparator12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="ToolStripButton25.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton25.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripButton25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripButton25.Text" xml:space="preserve">
+    <value>Move next</value>
+  </data>
+  <data name="ToolStripButton26.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton26.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripButton26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripButton26.Text" xml:space="preserve">
+    <value>Move last</value>
+  </data>
+  <data name="TrtSavNav.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="TrtSavNav.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="TrtSavNav.Text" xml:space="preserve">
+    <value>Save Data</value>
+  </data>
+  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="btnTrtDel.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="btnTrtDel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 4</value>
+  </data>
+  <data name="btnTrtDel.Text" xml:space="preserve">
+    <value>TrtDel</value>
+  </data>
+  <data name="TrtNavigator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 258</value>
+  </data>
+  <data name="TrtNavigator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>785, 21</value>
+  </data>
+  <data name="TrtNavigator.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TrtNavigator.Text" xml:space="preserve">
+    <value>BindingNavigator1</value>
+  </data>
+  <data name="&gt;&gt;TrtNavigator.Name" xml:space="preserve">
+    <value>TrtNavigator</value>
+  </data>
+  <data name="&gt;&gt;TrtNavigator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingNavigator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TrtNavigator.Parent" xml:space="preserve">
+    <value>TrtSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;TrtNavigator.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TrtSplit.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Panel2.Name" xml:space="preserve">
+    <value>TrtSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Panel2.Parent" xml:space="preserve">
+    <value>TrtSplit</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TrtSplit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 279</value>
+  </data>
+  <data name="TrtSplit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Name" xml:space="preserve">
+    <value>TrtSplit</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.Parent" xml:space="preserve">
+    <value>MainSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;TrtSplit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblTreatsDetails.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="lblTreatsDetails.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblTreatsDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblTreatsDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblTreatsDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 20</value>
+  </data>
+  <data name="lblTreatsDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblTreatsDetails.Text" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="&gt;&gt;lblTreatsDetails.Name" xml:space="preserve">
+    <value>lblTreatsDetails</value>
+  </data>
+  <data name="&gt;&gt;lblTreatsDetails.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTreatsDetails.Parent" xml:space="preserve">
+    <value>MainSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;lblTreatsDetails.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MainSplit.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel1.Name" xml:space="preserve">
+    <value>MainSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel1.Parent" xml:space="preserve">
+    <value>MainSplit</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="MainSplit.Panel2.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PaysSplit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PaysSplit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 20</value>
+  </data>
+  <data name="PaysSplit.Panel1.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SidePanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="SidePanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 235</value>
+  </data>
+  <data name="SidePanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>409, 15</value>
+  </data>
+  <data name="SidePanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="SidePanel2.Text" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="&gt;&gt;SidePanel2.Name" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="&gt;&gt;SidePanel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SidePanel2.Parent" xml:space="preserve">
+    <value>PaysSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;SidePanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBrowse.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnBrowse.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>271, 144</value>
+  </data>
+  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="btnBrowse.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
+    <value>btnBrowse</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnEditPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEditPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 144</value>
+  </data>
+  <data name="btnEditPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnEditPay.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnEditPay.Text" xml:space="preserve">
+    <value>Edit Pay</value>
+  </data>
+  <data name="&gt;&gt;btnEditPay.Name" xml:space="preserve">
+    <value>btnEditPay</value>
+  </data>
+  <data name="&gt;&gt;btnEditPay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnEditPay.Parent" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;btnEditPay.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnScanScan2Pages.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnScanScan2Pages.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnScanScan2Pages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 144</value>
+  </data>
+  <data name="btnScanScan2Pages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnScanScan2Pages.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnScanScan2Pages.Text" xml:space="preserve">
+    <value>Scan 2 Pages</value>
+  </data>
+  <data name="btnScanScan2Pages.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnScanScan2Pages.Name" xml:space="preserve">
+    <value>btnScanScan2Pages</value>
+  </data>
+  <data name="&gt;&gt;btnScanScan2Pages.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnScanScan2Pages.Parent" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;btnScanScan2Pages.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cboPayType.EditValue" xml:space="preserve">
+    <value>All Payments</value>
+  </data>
+  <data name="cboPayType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 21</value>
+  </data>
+  <data name="cboPayType.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="cboPayType.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="cboPayType.Properties.Items" xml:space="preserve">
+    <value>All Payments</value>
+  </data>
+  <data name="cboPayType.Properties.Items1" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="cboPayType.Properties.Items2" xml:space="preserve">
+    <value>Cheque</value>
+  </data>
+  <data name="cboPayType.Properties.Items3" xml:space="preserve">
+    <value>Insurance</value>
+  </data>
+  <data name="cboPayType.Properties.Items4" xml:space="preserve">
+    <value>Credit Card</value>
+  </data>
+  <data name="cboPayType.Properties.Items5" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="cboPayType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="cboPayType.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cboPayType.Name" xml:space="preserve">
+    <value>cboPayType</value>
+  </data>
+  <data name="&gt;&gt;cboPayType.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cboPayType.Parent" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;cboPayType.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnScan.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnScan.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnScan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 100</value>
+  </data>
+  <data name="btnScan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnScan.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnScan.Text" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="btnScan.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnScan.Name" xml:space="preserve">
+    <value>btnScan</value>
+  </data>
+  <data name="&gt;&gt;btnScan.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnScan.Parent" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;btnScan.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnAddPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnAddPay.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnAddPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 100</value>
+  </data>
+  <data name="btnAddPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
+  </data>
+  <data name="btnAddPay.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnAddPay.Text" xml:space="preserve">
+    <value>Add Pay</value>
+  </data>
+  <data name="&gt;&gt;btnAddPay.Name" xml:space="preserve">
+    <value>btnAddPay</value>
+  </data>
+  <data name="&gt;&gt;btnAddPay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAddPay.Parent" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;btnAddPay.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LabelControl13.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 25</value>
+  </data>
+  <data name="LabelControl13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="LabelControl13.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabelControl13.Text" xml:space="preserve">
+    <value>Pay Type:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Name" xml:space="preserve">
+    <value>LabelControl13</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Parent" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="SidePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="SidePanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="SidePanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>409, 235</value>
+  </data>
+  <data name="SidePanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="SidePanel1.Text" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;SidePanel1.Name" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="&gt;&gt;SidePanel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SidePanel1.Parent" xml:space="preserve">
+    <value>PaysSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;SidePanel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PaysSplit.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Panel1.Name" xml:space="preserve">
+    <value>PaysSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Panel1.Parent" xml:space="preserve">
+    <value>PaysSplit</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PaysSplit.Panel2.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridTabControl.AppearancePage.Header.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="GridTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="GridTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <metadata name="Patient_PaysBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>329, 17</value>
+  </metadata>
+  <data name="AllPaysGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>True</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.Buttons.Append.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>Application</value>
+  </data>
+  <data name="AllPaysGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="AllPaysView.Appearance.FooterPanel.FontStyleDelta" type="System.Drawing.FontStyle, System.Drawing">
+    <value>Bold</value>
+  </data>
+  <data name="AllPaysView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="AllPaysView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colRowNum3.Caption" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="colRowNum3.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colRowNum3.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRowNum3.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colRowNum3.Width" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="GridColumn2.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn3.Caption" xml:space="preserve">
+    <value>Pay Type</value>
+  </data>
+  <data name="GridColumn3.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn3.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="GridColumn3.Width" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="GridColumn4.Caption" xml:space="preserve">
+    <value>PatientID</value>
+  </data>
+  <data name="GridColumn4.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn5.Caption" xml:space="preserve">
+    <value>Pay Value</value>
+  </data>
+  <data name="GridColumn5.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn5.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Sum</value>
+  </data>
+  <data name="GridColumn5.Summary1" xml:space="preserve">
+    <value>PayValue</value>
+  </data>
+  <data name="GridColumn5.Summary2" xml:space="preserve">
+    <value>{0:f0}</value>
+  </data>
+  <data name="GridColumn5.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn5.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="GridColumn5.Width" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="GridColumn6.Caption" xml:space="preserve">
+    <value>Pay Date</value>
+  </data>
+  <data name="GridColumn6.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn6.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Count</value>
+  </data>
+  <data name="GridColumn6.Summary1" xml:space="preserve">
+    <value>PayDate</value>
+  </data>
+  <data name="GridColumn6.Summary2" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="GridColumn6.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn6.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="GridColumn6.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="GridColumn13.Caption" xml:space="preserve">
+    <value>ReceivedBy</value>
+  </data>
+  <data name="GridColumn13.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn13.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="GridColumn13.Width" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="GridColumn7.Caption" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="GridColumn7.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn7.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn7.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="GridColumn7.Width" type="System.Int32, mscorlib">
+    <value>177</value>
+  </data>
+  <data name="GridColumn8.Caption" xml:space="preserve">
+    <value>Chq Number</value>
+  </data>
+  <data name="GridColumn8.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn8.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn8.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="GridColumn8.Width" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="GridColumn9.Caption" xml:space="preserve">
+    <value>Chq Account</value>
+  </data>
+  <data name="GridColumn9.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn9.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn9.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="GridColumn9.Width" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="GridColumn10.Caption" xml:space="preserve">
+    <value>ChqDueDate</value>
+  </data>
+  <data name="GridColumn10.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn10.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn10.VisibleIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="GridColumn10.Width" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="GridColumn11.Caption" xml:space="preserve">
+    <value>Chq Bank</value>
+  </data>
+  <data name="GridColumn11.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn11.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn11.VisibleIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="GridColumn11.Width" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="GridColumn12.Caption" xml:space="preserve">
+    <value>Chq Owner</value>
+  </data>
+  <data name="GridColumn12.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridColumn12.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn12.VisibleIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="GridColumn12.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="AllPaysGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="AllPaysGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;AllPaysGrid.Name" xml:space="preserve">
+    <value>AllPaysGrid</value>
+  </data>
+  <data name="&gt;&gt;AllPaysGrid.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AllPaysGrid.Parent" xml:space="preserve">
+    <value>AllPaysPage</value>
+  </data>
+  <data name="&gt;&gt;AllPaysGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="AllPaysPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="AllPaysPage.Text" xml:space="preserve">
+    <value>All Payments</value>
+  </data>
+  <data name="&gt;&gt;AllPaysPage.Name" xml:space="preserve">
+    <value>AllPaysPage</value>
+  </data>
+  <data name="&gt;&gt;AllPaysPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AllPaysPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;AllPaysPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="GridTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>785, 229</value>
+  </data>
+  <data name="GridTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Patient_PaysGridControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>True</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.Buttons.Append.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>Application</value>
+  </data>
+  <data name="Patient_PaysGridControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="GridViewPays.Appearance.FooterPanel.FontStyleDelta" type="System.Drawing.FontStyle, System.Drawing">
+    <value>Bold</value>
+  </data>
+  <data name="GridViewPays.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="GridViewPays.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colRowNum1.Caption" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="colRowNum1.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colRowNum1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRowNum1.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colRowNum1.Width" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="colPayID.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colTrtID1.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colPayType.Caption" xml:space="preserve">
+    <value>Pay Type</value>
+  </data>
+  <data name="colPayType.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPayType.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colPayType.Width" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="colPatientID1.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colPayValue.Caption" xml:space="preserve">
+    <value>Pay Value</value>
+  </data>
+  <data name="colPayValue.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colPayValue.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Sum</value>
+  </data>
+  <data name="colPayValue.Summary1" xml:space="preserve">
+    <value>PayValue</value>
+  </data>
+  <data name="colPayValue.Summary2" xml:space="preserve">
+    <value>{0:f0}</value>
+  </data>
+  <data name="colPayValue.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPayValue.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colPayValue.Width" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="colPayDate.Caption" xml:space="preserve">
+    <value>Pay Date</value>
+  </data>
+  <data name="colPayDate.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colPayDate.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Count</value>
+  </data>
+  <data name="colPayDate.Summary1" xml:space="preserve">
+    <value>PayDate</value>
+  </data>
+  <data name="colPayDate.Summary2" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="colPayDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPayDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="colNotes.Caption" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="colNotes.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colNotes.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colNotes.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colNotes.Width" type="System.Int32, mscorlib">
+    <value>288</value>
+  </data>
+  <data name="GridColumn1.Caption" xml:space="preserve">
+    <value>Received By</value>
+  </data>
+  <data name="GridColumn1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn1.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="GridColumn1.Width" type="System.Int32, mscorlib">
+    <value>182</value>
+  </data>
+  <data name="Patient_PaysGridControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="Patient_PaysGridControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Patient_PaysGridControl.Name" xml:space="preserve">
+    <value>Patient_PaysGridControl</value>
+  </data>
+  <data name="&gt;&gt;Patient_PaysGridControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Patient_PaysGridControl.Parent" xml:space="preserve">
+    <value>CashGridPage</value>
+  </data>
+  <data name="&gt;&gt;Patient_PaysGridControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CashGridPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="CashGridPage.Text" xml:space="preserve">
+    <value>Cash Payments</value>
+  </data>
+  <data name="&gt;&gt;CashGridPage.Name" xml:space="preserve">
+    <value>CashGridPage</value>
+  </data>
+  <data name="&gt;&gt;CashGridPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;CashGridPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;CashGridPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ChqsPayGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>True</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.Buttons.Append.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>Application</value>
+  </data>
+  <data name="ChqsPayGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ChqsGridView.Appearance.FooterPanel.FontStyleDelta" type="System.Drawing.FontStyle, System.Drawing">
+    <value>Bold</value>
+  </data>
+  <data name="ChqsGridView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ChqsGridView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colRowNum2.Caption" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="colRowNum2.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colRowNum2.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRowNum2.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colRowNum2.Width" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="colChqsPayID.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colPayTypeChq.Caption" xml:space="preserve">
+    <value>Pay Type</value>
+  </data>
+  <data name="colPayTypeChq.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPayTypeChq.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colPayTypeChq.Width" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="colChqPatientID.Caption" xml:space="preserve">
+    <value>PatientID</value>
+  </data>
+  <data name="colChqPatientID.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqsPayValue.Caption" xml:space="preserve">
+    <value>Pay Value</value>
+  </data>
+  <data name="colChqsPayValue.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqsPayValue.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Sum</value>
+  </data>
+  <data name="colChqsPayValue.Summary1" xml:space="preserve">
+    <value>PayValue</value>
+  </data>
+  <data name="colChqsPayValue.Summary2" xml:space="preserve">
+    <value>{0:f0}</value>
+  </data>
+  <data name="colChqsPayValue.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqsPayValue.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colChqsPayValue.Width" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="colChqsPayDate.Caption" xml:space="preserve">
+    <value>Pay Date</value>
+  </data>
+  <data name="colChqsPayDate.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqsPayDate.Summary" type="DevExpress.Data.SummaryItemType, DevExpress.Data.v25.1">
+    <value>Count</value>
+  </data>
+  <data name="colChqsPayDate.Summary1" xml:space="preserve">
+    <value>PayDate</value>
+  </data>
+  <data name="colChqsPayDate.Summary2" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="colChqsPayDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqsPayDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colChqsPayDate.Width" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="colChqsPayNotes.Caption" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="colChqsPayNotes.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqsPayNotes.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqsPayNotes.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colChqsPayNotes.Width" type="System.Int32, mscorlib">
+    <value>163</value>
+  </data>
+  <data name="GridColumn14.Caption" xml:space="preserve">
+    <value>Received By</value>
+  </data>
+  <data name="GridColumn14.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GridColumn14.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="GridColumn14.Width" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="colChqNumber.Caption" xml:space="preserve">
+    <value>Chq Number</value>
+  </data>
+  <data name="colChqNumber.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqNumber.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqNumber.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="colChqNumber.Width" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="colChqAccount.Caption" xml:space="preserve">
+    <value>Chq Account</value>
+  </data>
+  <data name="colChqAccount.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqAccount.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqAccount.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="colChqAccount.Width" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="colChqDueDate.Caption" xml:space="preserve">
+    <value>ChqDueDate</value>
+  </data>
+  <data name="colChqDueDate.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqDueDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqDueDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="colChqDueDate.Width" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="colChqBank.Caption" xml:space="preserve">
+    <value>Chq Bank</value>
+  </data>
+  <data name="colChqBank.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqBank.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqBank.VisibleIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="colChqBank.Width" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="colChqOwner.Caption" xml:space="preserve">
+    <value>Chq Owner</value>
+  </data>
+  <data name="colChqOwner.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="colChqOwner.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqOwner.VisibleIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="colChqOwner.Width" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="ChqsPayGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="ChqsPayGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ChqsPayGrid.Name" xml:space="preserve">
+    <value>ChqsPayGrid</value>
+  </data>
+  <data name="&gt;&gt;ChqsPayGrid.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ChqsPayGrid.Parent" xml:space="preserve">
+    <value>ChqGridPage</value>
+  </data>
+  <data name="&gt;&gt;ChqsPayGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ChqGridPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="ChqGridPage.Text" xml:space="preserve">
+    <value>Cheques Payment</value>
+  </data>
+  <data name="&gt;&gt;ChqGridPage.Name" xml:space="preserve">
+    <value>ChqGridPage</value>
+  </data>
+  <data name="&gt;&gt;ChqGridPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ChqGridPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;ChqGridPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="SplitterCtlScan.CaptionImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="SplitterCtlScan.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="SplitterCtlScan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="scannedFilesList.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="scannedFilesList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="scannedFilesList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="scannedFilesList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 201</value>
+  </data>
+  <data name="scannedFilesList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;scannedFilesList.Name" xml:space="preserve">
+    <value>scannedFilesList</value>
+  </data>
+  <data name="&gt;&gt;scannedFilesList.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;scannedFilesList.Parent" xml:space="preserve">
+    <value>SplitterCtlScan.Panel1</value>
+  </data>
+  <data name="&gt;&gt;scannedFilesList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SplitterCtlScan.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Panel1.Name" xml:space="preserve">
+    <value>SplitterCtlScan.Panel1</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Panel1.Parent" xml:space="preserve">
+    <value>SplitterCtlScan</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="scanPreview.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="scanPreview.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="scanPreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>511, 201</value>
+  </data>
+  <data name="scanPreview.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;scanPreview.Name" xml:space="preserve">
+    <value>scanPreview</value>
+  </data>
+  <data name="&gt;&gt;scanPreview.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;scanPreview.Parent" xml:space="preserve">
+    <value>SplitterCtlScan.Panel2</value>
+  </data>
+  <data name="&gt;&gt;scanPreview.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SplitterCtlScan.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Panel2.Name" xml:space="preserve">
+    <value>SplitterCtlScan.Panel2</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Panel2.Parent" xml:space="preserve">
+    <value>SplitterCtlScan</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SplitterCtlScan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="SplitterCtlScan.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Name" xml:space="preserve">
+    <value>SplitterCtlScan</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.Parent" xml:space="preserve">
+    <value>ScannedPage</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlScan.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ScannedPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="ScannedPage.Text" xml:space="preserve">
+    <value>Scanned Files</value>
+  </data>
+  <data name="&gt;&gt;ScannedPage.Name" xml:space="preserve">
+    <value>ScannedPage</value>
+  </data>
+  <data name="&gt;&gt;ScannedPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ScannedPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;ScannedPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="SplitterCtlAttach.CaptionImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="SplitterCtlAttach.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="SplitterCtlAttach.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="attachedFilesList.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="attachedFilesList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="attachedFilesList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="attachedFilesList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 201</value>
+  </data>
+  <data name="attachedFilesList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;attachedFilesList.Name" xml:space="preserve">
+    <value>attachedFilesList</value>
+  </data>
+  <data name="&gt;&gt;attachedFilesList.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attachedFilesList.Parent" xml:space="preserve">
+    <value>SplitterCtlAttach.Panel1</value>
+  </data>
+  <data name="&gt;&gt;attachedFilesList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SplitterCtlAttach.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Panel1.Name" xml:space="preserve">
+    <value>SplitterCtlAttach.Panel1</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Panel1.Parent" xml:space="preserve">
+    <value>SplitterCtlAttach</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="attachPreview.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="attachPreview.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="attachPreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>511, 201</value>
+  </data>
+  <data name="attachPreview.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;attachPreview.Name" xml:space="preserve">
+    <value>attachPreview</value>
+  </data>
+  <data name="&gt;&gt;attachPreview.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attachPreview.Parent" xml:space="preserve">
+    <value>SplitterCtlAttach.Panel2</value>
+  </data>
+  <data name="&gt;&gt;attachPreview.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SplitterCtlAttach.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Panel2.Name" xml:space="preserve">
+    <value>SplitterCtlAttach.Panel2</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Panel2.Parent" xml:space="preserve">
+    <value>SplitterCtlAttach</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SplitterCtlAttach.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="SplitterCtlAttach.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Name" xml:space="preserve">
+    <value>SplitterCtlAttach</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.Parent" xml:space="preserve">
+    <value>AttachedPage</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtlAttach.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="AttachedPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="AttachedPage.Text" xml:space="preserve">
+    <value>Attached Files</value>
+  </data>
+  <data name="&gt;&gt;AttachedPage.Name" xml:space="preserve">
+    <value>AttachedPage</value>
+  </data>
+  <data name="&gt;&gt;AttachedPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AttachedPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;AttachedPage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="GridAttached.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>True</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>Application</value>
+  </data>
+  <data name="GridAttached.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="GridAttached.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="GridAttached.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;GridAttached.Name" xml:space="preserve">
+    <value>GridAttached</value>
+  </data>
+  <data name="&gt;&gt;GridAttached.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridAttached.Parent" xml:space="preserve">
+    <value>FileInfoPage</value>
+  </data>
+  <data name="&gt;&gt;GridAttached.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="FileInfoPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 201</value>
+  </data>
+  <data name="FileInfoPage.Text" xml:space="preserve">
+    <value>File Info</value>
+  </data>
+  <data name="&gt;&gt;FileInfoPage.Name" xml:space="preserve">
+    <value>FileInfoPage</value>
+  </data>
+  <data name="&gt;&gt;FileInfoPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;FileInfoPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;FileInfoPage.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;GridTabControl.Name" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;GridTabControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridTabControl.Parent" xml:space="preserve">
+    <value>PaysSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;GridTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="PayNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1258, 17</value>
+  </metadata>
+  <data name="PayNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStripLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 15</value>
+  </data>
+  <data name="ToolStripLabel3.Text" xml:space="preserve">
+    <value>of {0}</value>
+  </data>
+  <data name="ToolStripLabel3.ToolTipText" xml:space="preserve">
+    <value>Total number of items</value>
+  </data>
+  <data name="PayNavigator.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="ToolStripButton15.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton15.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripButton15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripButton15.Text" xml:space="preserve">
+    <value>Move first</value>
+  </data>
+  <data name="ToolStripButton16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton16.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripButton16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripButton16.Text" xml:space="preserve">
+    <value>Move previous</value>
+  </data>
+  <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="ToolStripTextBox3.AccessibleName" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="ToolStripTextBox3.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStripTextBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 23</value>
+  </data>
+  <data name="ToolStripTextBox3.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ToolStripTextBox3.ToolTipText" xml:space="preserve">
+    <value>Current position</value>
+  </data>
+  <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="ToolStripButton17.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton17.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripButton17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripButton17.Text" xml:space="preserve">
+    <value>Move next</value>
+  </data>
+  <data name="ToolStripButton18.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton18.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ToolStripButton18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="ToolStripButton18.Text" xml:space="preserve">
+    <value>Move last</value>
+  </data>
+  <data name="PaySavNav.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="PaySavNav.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="PaySavNav.Text" xml:space="preserve">
+    <value>Save Data</value>
+  </data>
+  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="btnPayDel.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="btnPayDel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 4</value>
+  </data>
+  <data name="btnPayDel.Text" xml:space="preserve">
+    <value>Pay Del</value>
+  </data>
+  <data name="PayNavigator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 229</value>
+  </data>
+  <data name="PayNavigator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>785, 21</value>
+  </data>
+  <data name="PayNavigator.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="PayNavigator.Text" xml:space="preserve">
+    <value>BindingNavigator1</value>
+  </data>
+  <data name="&gt;&gt;PayNavigator.Name" xml:space="preserve">
+    <value>PayNavigator</value>
+  </data>
+  <data name="&gt;&gt;PayNavigator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingNavigator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PayNavigator.Parent" xml:space="preserve">
+    <value>PaysSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;PayNavigator.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PaysSplit.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Panel2.Name" xml:space="preserve">
+    <value>PaysSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Panel2.Parent" xml:space="preserve">
+    <value>PaysSplit</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PaysSplit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 250</value>
+  </data>
+  <data name="PaysSplit.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Name" xml:space="preserve">
+    <value>PaysSplit</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.Parent" xml:space="preserve">
+    <value>MainSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;PaysSplit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblPaysDetails.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="lblPaysDetails.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblPaysDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblPaysDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblPaysDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 20</value>
+  </data>
+  <data name="lblPaysDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblPaysDetails.Text" xml:space="preserve">
+    <value>LabelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblPaysDetails.Name" xml:space="preserve">
+    <value>lblPaysDetails</value>
+  </data>
+  <data name="&gt;&gt;lblPaysDetails.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPaysDetails.Parent" xml:space="preserve">
+    <value>MainSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;lblPaysDetails.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MainSplit.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel2.Name" xml:space="preserve">
+    <value>MainSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel2.Parent" xml:space="preserve">
+    <value>MainSplit</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MainSplit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 575</value>
+  </data>
+  <data name="MainSplit.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Name" xml:space="preserve">
+    <value>MainSplit</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Parent" xml:space="preserve">
+    <value>MainScroll</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BalanceGroup.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="LabelTotalDiscounts.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelTotalDiscounts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>348, 39</value>
+  </data>
+  <data name="LabelTotalDiscounts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 15</value>
+  </data>
+  <data name="LabelTotalDiscounts.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="LabelTotalDiscounts.Text" xml:space="preserve">
+    <value>Total Discounts  Value:</value>
+  </data>
+  <data name="&gt;&gt;LabelTotalDiscounts.Name" xml:space="preserve">
+    <value>LabelTotalDiscounts</value>
+  </data>
+  <data name="&gt;&gt;LabelTotalDiscounts.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelTotalDiscounts.Parent" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;LabelTotalDiscounts.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblBal.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="lblBal.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblBal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1057, 35</value>
+  </data>
+  <data name="lblBal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 23</value>
+  </data>
+  <data name="lblBal.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblBal.Text" xml:space="preserve">
+    <value>Final Balance For Patient :</value>
+  </data>
+  <data name="&gt;&gt;lblBal.Name" xml:space="preserve">
+    <value>lblBal</value>
+  </data>
+  <data name="&gt;&gt;lblBal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblBal.Parent" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;lblBal.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LabelControl12.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>911, 39</value>
+  </data>
+  <data name="LabelControl12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 15</value>
+  </data>
+  <data name="LabelControl12.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="LabelControl12.Text" xml:space="preserve">
+    <value>Final Balance For Patient :</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Name" xml:space="preserve">
+    <value>LabelControl12</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Parent" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblTotalPays.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="lblTotalPays.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblTotalPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>764, 35</value>
+  </data>
+  <data name="lblTotalPays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 23</value>
+  </data>
+  <data name="lblTotalPays.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblTotalPays.Text" xml:space="preserve">
+    <value>Total Payments Value:</value>
+  </data>
+  <data name="&gt;&gt;lblTotalPays.Name" xml:space="preserve">
+    <value>lblTotalPays</value>
+  </data>
+  <data name="&gt;&gt;lblTotalPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTotalPays.Parent" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;lblTotalPays.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblTotalDisc.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="lblTotalDisc.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblTotalDisc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 35</value>
+  </data>
+  <data name="lblTotalDisc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 23</value>
+  </data>
+  <data name="lblTotalDisc.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblTotalDisc.Text" xml:space="preserve">
+    <value>Total Treatments  Value:</value>
+  </data>
+  <data name="&gt;&gt;lblTotalDisc.Name" xml:space="preserve">
+    <value>lblTotalDisc</value>
+  </data>
+  <data name="&gt;&gt;lblTotalDisc.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTotalDisc.Parent" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;lblTotalDisc.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblTotalTrts.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="lblTotalTrts.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblTotalTrts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 35</value>
+  </data>
+  <data name="lblTotalTrts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 23</value>
+  </data>
+  <data name="lblTotalTrts.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblTotalTrts.Text" xml:space="preserve">
+    <value>Total Treatments  Value:</value>
+  </data>
+  <data name="&gt;&gt;lblTotalTrts.Name" xml:space="preserve">
+    <value>lblTotalTrts</value>
+  </data>
+  <data name="&gt;&gt;lblTotalTrts.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTotalTrts.Parent" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;lblTotalTrts.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LabelControl11.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>635, 39</value>
+  </data>
+  <data name="LabelControl11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 15</value>
+  </data>
+  <data name="LabelControl11.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LabelControl11.Text" xml:space="preserve">
+    <value>Total Payments Value:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Name" xml:space="preserve">
+    <value>LabelControl11</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Parent" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="LabelControl10.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 39</value>
+  </data>
+  <data name="LabelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 15</value>
+  </data>
+  <data name="LabelControl10.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="LabelControl10.Text" xml:space="preserve">
+    <value>Total Treatments  Value:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.Name" xml:space="preserve">
+    <value>LabelControl10</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.Parent" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="BalanceGroup.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="BalanceGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 575</value>
+  </data>
+  <data name="BalanceGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 73</value>
+  </data>
+  <data name="BalanceGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="BalanceGroup.Text" xml:space="preserve">
+    <value>Balance Details</value>
+  </data>
+  <data name="&gt;&gt;BalanceGroup.Name" xml:space="preserve">
+    <value>BalanceGroup</value>
+  </data>
+  <data name="&gt;&gt;BalanceGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BalanceGroup.Parent" xml:space="preserve">
+    <value>MainScroll</value>
+  </data>
+  <data name="&gt;&gt;BalanceGroup.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="PatientBalanceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>732, 17</value>
+  </metadata>
+  <metadata name="PatientTrtPaysBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>526, 17</value>
+  </metadata>
+  <metadata name="TrtsPaysListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>941, 17</value>
+  </metadata>
+  <data name="MainScroll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="MainScroll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="MainScroll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 648</value>
+  </data>
+  <data name="MainScroll.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="&gt;&gt;MainScroll.Name" xml:space="preserve">
+    <value>MainScroll</value>
+  </data>
+  <data name="&gt;&gt;MainScroll.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraScrollableControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainScroll.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainScroll.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 648</value>
+  </data>
+  <data name="&gt;&gt;Patient_TrtsBindingSource.Name" xml:space="preserve">
+    <value>Patient_TrtsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;Patient_TrtsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GridViewTrts.Name" xml:space="preserve">
+    <value>GridViewTrts</value>
+  </data>
+  <data name="&gt;&gt;GridViewTrts.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Name" xml:space="preserve">
+    <value>colRowNum</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colTrtID.Name" xml:space="preserve">
+    <value>colTrtID</value>
+  </data>
+  <data name="&gt;&gt;colTrtID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPatientID.Name" xml:space="preserve">
+    <value>colPatientID</value>
+  </data>
+  <data name="&gt;&gt;colPatientID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colToothTrtID.Name" xml:space="preserve">
+    <value>colToothTrtID</value>
+  </data>
+  <data name="&gt;&gt;colToothTrtID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colOrthoID.Name" xml:space="preserve">
+    <value>colOrthoID</value>
+  </data>
+  <data name="&gt;&gt;colOrthoID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colOtherTrtID.Name" xml:space="preserve">
+    <value>colOtherTrtID</value>
+  </data>
+  <data name="&gt;&gt;colOtherTrtID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colDetail.Name" xml:space="preserve">
+    <value>colDetail</value>
+  </data>
+  <data name="&gt;&gt;colDetail.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colTrtDate.Name" xml:space="preserve">
+    <value>colTrtDate</value>
+  </data>
+  <data name="&gt;&gt;colTrtDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colTrtValue.Name" xml:space="preserve">
+    <value>colTrtValue</value>
+  </data>
+  <data name="&gt;&gt;colTrtValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colIsMultiTooth.Name" xml:space="preserve">
+    <value>colIsMultiTooth</value>
+  </data>
+  <data name="&gt;&gt;colIsMultiTooth.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colDiscount.Name" xml:space="preserve">
+    <value>colDiscount</value>
+  </data>
+  <data name="&gt;&gt;colDiscount.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colDiscount2.Name" xml:space="preserve">
+    <value>colDiscount2</value>
+  </data>
+  <data name="&gt;&gt;colDiscount2.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colDiscountType.Name" xml:space="preserve">
+    <value>colDiscountType</value>
+  </data>
+  <data name="&gt;&gt;colDiscountType.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ToolStripLabel5.Name" xml:space="preserve">
+    <value>ToolStripLabel5</value>
+  </data>
+  <data name="&gt;&gt;ToolStripLabel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton23.Name" xml:space="preserve">
+    <value>ToolStripButton23</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton23.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton24.Name" xml:space="preserve">
+    <value>ToolStripButton24</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator11.Name" xml:space="preserve">
+    <value>ToolStripSeparator11</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripTextBox5.Name" xml:space="preserve">
+    <value>ToolStripTextBox5</value>
+  </data>
+  <data name="&gt;&gt;ToolStripTextBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator12.Name" xml:space="preserve">
+    <value>ToolStripSeparator12</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton25.Name" xml:space="preserve">
+    <value>ToolStripButton25</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton26.Name" xml:space="preserve">
+    <value>ToolStripButton26</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TrtSavNav.Name" xml:space="preserve">
+    <value>TrtSavNav</value>
+  </data>
+  <data name="&gt;&gt;TrtSavNav.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
+    <value>ToolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnTrtDel.Name" xml:space="preserve">
+    <value>btnTrtDel</value>
+  </data>
+  <data name="&gt;&gt;btnTrtDel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patient_PaysBindingSource.Name" xml:space="preserve">
+    <value>Patient_PaysBindingSource</value>
+  </data>
+  <data name="&gt;&gt;Patient_PaysBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AllPaysView.Name" xml:space="preserve">
+    <value>AllPaysView</value>
+  </data>
+  <data name="&gt;&gt;AllPaysView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRowNum3.Name" xml:space="preserve">
+    <value>colRowNum3</value>
+  </data>
+  <data name="&gt;&gt;colRowNum3.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn2.Name" xml:space="preserve">
+    <value>GridColumn2</value>
+  </data>
+  <data name="&gt;&gt;GridColumn2.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn3.Name" xml:space="preserve">
+    <value>GridColumn3</value>
+  </data>
+  <data name="&gt;&gt;GridColumn3.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn4.Name" xml:space="preserve">
+    <value>GridColumn4</value>
+  </data>
+  <data name="&gt;&gt;GridColumn4.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn5.Name" xml:space="preserve">
+    <value>GridColumn5</value>
+  </data>
+  <data name="&gt;&gt;GridColumn5.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn6.Name" xml:space="preserve">
+    <value>GridColumn6</value>
+  </data>
+  <data name="&gt;&gt;GridColumn6.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn13.Name" xml:space="preserve">
+    <value>GridColumn13</value>
+  </data>
+  <data name="&gt;&gt;GridColumn13.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn7.Name" xml:space="preserve">
+    <value>GridColumn7</value>
+  </data>
+  <data name="&gt;&gt;GridColumn7.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn8.Name" xml:space="preserve">
+    <value>GridColumn8</value>
+  </data>
+  <data name="&gt;&gt;GridColumn8.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn9.Name" xml:space="preserve">
+    <value>GridColumn9</value>
+  </data>
+  <data name="&gt;&gt;GridColumn9.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn10.Name" xml:space="preserve">
+    <value>GridColumn10</value>
+  </data>
+  <data name="&gt;&gt;GridColumn10.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn11.Name" xml:space="preserve">
+    <value>GridColumn11</value>
+  </data>
+  <data name="&gt;&gt;GridColumn11.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn12.Name" xml:space="preserve">
+    <value>GridColumn12</value>
+  </data>
+  <data name="&gt;&gt;GridColumn12.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridViewPays.Name" xml:space="preserve">
+    <value>GridViewPays</value>
+  </data>
+  <data name="&gt;&gt;GridViewPays.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRowNum1.Name" xml:space="preserve">
+    <value>colRowNum1</value>
+  </data>
+  <data name="&gt;&gt;colRowNum1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayID.Name" xml:space="preserve">
+    <value>colPayID</value>
+  </data>
+  <data name="&gt;&gt;colPayID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colTrtID1.Name" xml:space="preserve">
+    <value>colTrtID1</value>
+  </data>
+  <data name="&gt;&gt;colTrtID1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayType.Name" xml:space="preserve">
+    <value>colPayType</value>
+  </data>
+  <data name="&gt;&gt;colPayType.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPatientID1.Name" xml:space="preserve">
+    <value>colPatientID1</value>
+  </data>
+  <data name="&gt;&gt;colPatientID1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayValue.Name" xml:space="preserve">
+    <value>colPayValue</value>
+  </data>
+  <data name="&gt;&gt;colPayValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayDate.Name" xml:space="preserve">
+    <value>colPayDate</value>
+  </data>
+  <data name="&gt;&gt;colPayDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colNotes.Name" xml:space="preserve">
+    <value>colNotes</value>
+  </data>
+  <data name="&gt;&gt;colNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn1.Name" xml:space="preserve">
+    <value>GridColumn1</value>
+  </data>
+  <data name="&gt;&gt;GridColumn1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ChqsGridView.Name" xml:space="preserve">
+    <value>ChqsGridView</value>
+  </data>
+  <data name="&gt;&gt;ChqsGridView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRowNum2.Name" xml:space="preserve">
+    <value>colRowNum2</value>
+  </data>
+  <data name="&gt;&gt;colRowNum2.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqsPayID.Name" xml:space="preserve">
+    <value>colChqsPayID</value>
+  </data>
+  <data name="&gt;&gt;colChqsPayID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayTypeChq.Name" xml:space="preserve">
+    <value>colPayTypeChq</value>
+  </data>
+  <data name="&gt;&gt;colPayTypeChq.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqPatientID.Name" xml:space="preserve">
+    <value>colChqPatientID</value>
+  </data>
+  <data name="&gt;&gt;colChqPatientID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqsPayValue.Name" xml:space="preserve">
+    <value>colChqsPayValue</value>
+  </data>
+  <data name="&gt;&gt;colChqsPayValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqsPayDate.Name" xml:space="preserve">
+    <value>colChqsPayDate</value>
+  </data>
+  <data name="&gt;&gt;colChqsPayDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqsPayNotes.Name" xml:space="preserve">
+    <value>colChqsPayNotes</value>
+  </data>
+  <data name="&gt;&gt;colChqsPayNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GridColumn14.Name" xml:space="preserve">
+    <value>GridColumn14</value>
+  </data>
+  <data name="&gt;&gt;GridColumn14.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqNumber.Name" xml:space="preserve">
+    <value>colChqNumber</value>
+  </data>
+  <data name="&gt;&gt;colChqNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqAccount.Name" xml:space="preserve">
+    <value>colChqAccount</value>
+  </data>
+  <data name="&gt;&gt;colChqAccount.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqDueDate.Name" xml:space="preserve">
+    <value>colChqDueDate</value>
+  </data>
+  <data name="&gt;&gt;colChqDueDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqBank.Name" xml:space="preserve">
+    <value>colChqBank</value>
+  </data>
+  <data name="&gt;&gt;colChqBank.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqOwner.Name" xml:space="preserve">
+    <value>colChqOwner</value>
+  </data>
+  <data name="&gt;&gt;colChqOwner.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ViewAttached.Name" xml:space="preserve">
+    <value>ViewAttached</value>
+  </data>
+  <data name="&gt;&gt;ViewAttached.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ToolStripLabel3.Name" xml:space="preserve">
+    <value>ToolStripLabel3</value>
+  </data>
+  <data name="&gt;&gt;ToolStripLabel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton15.Name" xml:space="preserve">
+    <value>ToolStripButton15</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton16.Name" xml:space="preserve">
+    <value>ToolStripButton16</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator6.Name" xml:space="preserve">
+    <value>ToolStripSeparator6</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripTextBox3.Name" xml:space="preserve">
+    <value>ToolStripTextBox3</value>
+  </data>
+  <data name="&gt;&gt;ToolStripTextBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator7.Name" xml:space="preserve">
+    <value>ToolStripSeparator7</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton17.Name" xml:space="preserve">
+    <value>ToolStripButton17</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton18.Name" xml:space="preserve">
+    <value>ToolStripButton18</value>
+  </data>
+  <data name="&gt;&gt;ToolStripButton18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PaySavNav.Name" xml:space="preserve">
+    <value>PaySavNav</value>
+  </data>
+  <data name="&gt;&gt;PaySavNav.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">
+    <value>ToolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPayDel.Name" xml:space="preserve">
+    <value>btnPayDel</value>
+  </data>
+  <data name="&gt;&gt;btnPayDel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PatientBalanceBindingSource.Name" xml:space="preserve">
+    <value>PatientBalanceBindingSource</value>
+  </data>
+  <data name="&gt;&gt;PatientBalanceBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PatientTrtPaysBindingSource.Name" xml:space="preserve">
+    <value>PatientTrtPaysBindingSource</value>
+  </data>
+  <data name="&gt;&gt;PatientTrtPaysBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TrtsPaysListBindingSource.Name" xml:space="preserve">
+    <value>TrtsPaysListBindingSource</value>
+  </data>
+  <data name="&gt;&gt;TrtsPaysListBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>NewAccounting</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraUserControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

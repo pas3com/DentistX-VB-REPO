@@ -1,0 +1,1599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;txtNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkWhats.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtPatientName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 34</value>
+  </data>
+  <data name="LabelControl8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 15</value>
+  </data>
+  <data name="&gt;&gt;apptDate.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpWhats.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;PanelControl2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblWhatsApp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 35</value>
+  </data>
+  <data name="&gt;&gt;gridResults.Name" xml:space="preserve">
+    <value>gridResults</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridResults.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblWhatsApp.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="colFromTo.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtNotes.Name" xml:space="preserve">
+    <value>txtNotes</value>
+  </data>
+  <data name="&gt;&gt;cboPrefix.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl9.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="chkAllAppts.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Name" xml:space="preserve">
+    <value>LabelControl7</value>
+  </data>
+  <data name="chkIncludeNotes.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblWhats.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkIncludeReason.Location" type="System.Drawing.Point, System.Drawing">
+    <value>503, 92</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.Name" xml:space="preserve">
+    <value>lblWhats</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1150, 600</value>
+  </data>
+  <data name="chk24H.Location" type="System.Drawing.Point, System.Drawing">
+    <value>285, 112</value>
+  </data>
+  <data name="&gt;&gt;colPaient.Name" xml:space="preserve">
+    <value>colPaient</value>
+  </data>
+  <data name="chkWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="lblWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 15</value>
+  </data>
+  <data name="colStatus.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;chkIncludeNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 15</value>
+  </data>
+  <data name="grpWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>449, 137</value>
+  </data>
+  <data name="&gt;&gt;cboStatus.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="colPaient.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkWhats.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridResults.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="colFromTo.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl10.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelControl2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblWhatsApp.Text" xml:space="preserve">
+    <value>WhatsApp :</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="chkIncludeNotes.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="txtNotes.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="dtpEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="chk2H.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="PanelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="chk24H.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 19</value>
+  </data>
+  <data name="LabelControl7.Text" xml:space="preserve">
+    <value>Appointment Date</value>
+  </data>
+  <data name="colStatus.Caption" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="&gt;&gt;chkIncludeReason.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dtpEnd.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dtpStart.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnDelete.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="lblWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="dgView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11pt, style=Bold</value>
+  </data>
+  <data name="chkIncludeNotes.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl9.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Name" xml:space="preserve">
+    <value>LabelControl9</value>
+  </data>
+  <data name="LabelControl11.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtWhats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelControl1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;apptDate.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="colFromTo.Width" type="System.Int32, mscorlib">
+    <value>157</value>
+  </data>
+  <data name="txtPatientName.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;colAppID.Name" xml:space="preserve">
+    <value>colAppID</value>
+  </data>
+  <data name="cboStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="chk24H.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtPatientName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 22</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 15</value>
+  </data>
+  <data name="chk24H.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chk2H.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colDoctor.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtReason.Name" xml:space="preserve">
+    <value>txtReason</value>
+  </data>
+  <data name="&gt;&gt;grpWhats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnSave.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl11.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 65</value>
+  </data>
+  <data name="PanelControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="chkWhats.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>Start  Time</value>
+  </data>
+  <data name="grpWhats.Text" xml:space="preserve">
+    <value>WhatsApp</value>
+  </data>
+  <data name="&gt;&gt;colDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 22</value>
+  </data>
+  <data name="colRowNum.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colRowNum.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabelControl12.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl8.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;PanelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 119</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;colStatus.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="chkIncludeNotes.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;colAppID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Name" xml:space="preserve">
+    <value>LabelControl4</value>
+  </data>
+  <data name="txtPatientName.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl13.Text" xml:space="preserve">
+    <value>Postponed</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkWhats.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="LabelControl9.Text" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="colRowNum.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dtpStart.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="chkIncludeReason.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkIncludeNotes.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;slctdDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="chkAllAppts.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>382, 342</value>
+  </data>
+  <data name="chkIncludeReason.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 15</value>
+  </data>
+  <data name="LabelControl5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="chk2H.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;slctdDate.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;colPaient.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;DoctorsCombo1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 15</value>
+  </data>
+  <data name="colDetail.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="txtDrId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 62</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl10.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="chk2H.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 19</value>
+  </data>
+  <data name="LabelControl7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 13</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="txtDrId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Name" xml:space="preserve">
+    <value>LabelControl2</value>
+  </data>
+  <data name="cboPrefix.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="slctdDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>386, 379</value>
+  </data>
+  <data name="cboStatus.EditValue" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="txtNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="chkWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 89</value>
+  </data>
+  <data name="&gt;&gt;txtDrId.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="PanelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1150, 383</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
+    <value>btnDelete</value>
+  </data>
+  <data name="LabelControl13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <data name="dtpStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 175</value>
+  </data>
+  <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>472, 342</value>
+  </data>
+  <data name="RadioLang.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="slctdDate.CalendarAppearance.WeekDay.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="chkAllAppts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 346</value>
+  </data>
+  <data name="txtWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="colDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtDrId.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="chkIncludeReason.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="chk2H.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="chkIncludeNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="&gt;&gt;gridResults.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="apptDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 179</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DoctorsCombo1.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;apptDate.Name" xml:space="preserve">
+    <value>apptDate</value>
+  </data>
+  <data name="cboStatus.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtReason.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;chk24H.Name" xml:space="preserve">
+    <value>chk24H</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnDelete.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl9.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabelControl13.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="chkIncludeNotes.Properties.Caption" xml:space="preserve">
+    <value>Include Notes in Whatsapp Message</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="colStatus.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl8.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;cboPrefix.Name" xml:space="preserve">
+    <value>cboPrefix</value>
+  </data>
+  <data name="colPaient.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl8.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="chkAllAppts.Properties.Caption" xml:space="preserve">
+    <value>Show all appointments.</value>
+  </data>
+  <data name="chkIncludeReason.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Name" xml:space="preserve">
+    <value>LabelControl6</value>
+  </data>
+  <data name="colRowNum.Caption" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="colDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colDetail.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;dtpEnd.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;chkWhats.Name" xml:space="preserve">
+    <value>chkWhats</value>
+  </data>
+  <data name="LabelControl14.TabIndex" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
+  <data name="LabelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="DoctorsCombo1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="colDoctor.Caption" xml:space="preserve">
+    <value>Doctor Name</value>
+  </data>
+  <data name="chk2H.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;dtpEnd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtWhats.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="LabelControl12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <data name="LabelControl14.Text" xml:space="preserve">
+    <value>Send Whats In</value>
+  </data>
+  <data name="DoctorsCombo1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 62</value>
+  </data>
+  <data name="&gt;&gt;chk24H.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="LabelControl10.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="lblWhatsApp.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="&gt;&gt;txtReason.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="PanelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1150, 217</value>
+  </data>
+  <data name="chk2H.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RadioLang.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="slctdDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>762, 2</value>
+  </data>
+  <data name="chkIncludeReason.TabIndex" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
+  <data name="&gt;&gt;chkIncludeReason.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="apptDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 6</value>
+  </data>
+  <data name="colPaient.Caption" xml:space="preserve">
+    <value>PatientName</value>
+  </data>
+  <data name="&gt;&gt;grpWhats.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Name" xml:space="preserve">
+    <value>RadioLang</value>
+  </data>
+  <data name="colDate.Caption" xml:space="preserve">
+    <value>Appointment Date</value>
+  </data>
+  <data name="DoctorsCombo1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="dtpStart.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="RadioLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 59</value>
+  </data>
+  <data name="lblWhatsApp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 63</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Name" xml:space="preserve">
+    <value>LabelControl14</value>
+  </data>
+  <data name="dtpEnd.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="LabelControl6.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="dtpStart.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtpEnd.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtReason.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="LabelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>651, 238</value>
+  </data>
+  <data name="lblWhats.Text" xml:space="preserve">
+    <value>Whats Number</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkAllAppts.Name" xml:space="preserve">
+    <value>chkAllAppts</value>
+  </data>
+  <data name="chk2H.Properties.Caption" xml:space="preserve">
+    <value>Send reminder before start (hours from Settings)</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="cboStatus.Properties.Items1" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="cboStatus.Properties.Items3" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="cboStatus.Properties.Items2" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="&gt;&gt;cboPrefix.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="cboStatus.Properties.Items4" xml:space="preserve">
+    <value>Postponed</value>
+  </data>
+  <data name="LabelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LabelControl12.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="dtpEnd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 175</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.Name" xml:space="preserve">
+    <value>LabelControl10</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="&gt;&gt;cboStatus.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="chkIncludeReason.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 19</value>
+  </data>
+  <data name="chk24H.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="colPaient.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;dtpStart.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="LabelControl9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <data name="&gt;&gt;cboStatus.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="LabelControl12.Text" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="&gt;&gt;chkIncludeReason.Name" xml:space="preserve">
+    <value>chkIncludeReason</value>
+  </data>
+  <data name="&gt;&gt;chkWhats.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 94</value>
+  </data>
+  <data name="&gt;&gt;DoctorsCombo1.Type" xml:space="preserve">
+    <value>DentistX.DoctorsCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;gridResults.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelControl2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;dtpEnd.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl13.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;colStatus.Name" xml:space="preserve">
+    <value>colStatus</value>
+  </data>
+  <data name="btnDelete.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 150</value>
+  </data>
+  <data name="lblWhatsApp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 15</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="txtReason.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 91</value>
+  </data>
+  <data name="chk2H.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;grpWhats.Name" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="colAppID.Caption" xml:space="preserve">
+    <value>AppID</value>
+  </data>
+  <data name="&gt;&gt;chk2H.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="LabelControl7.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="dtpStart.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="LabelControl7.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl8.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtNotes.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;dgView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="apptDate.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;chkWhats.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
+  </data>
+  <data name="txtReason.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSave.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 122</value>
+  </data>
+  <data name="chk24H.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Reason  / Treat</value>
+  </data>
+  <data name="&gt;&gt;lblWhatsApp.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="DoctorsCombo1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 25</value>
+  </data>
+  <data name="colStatus.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="colFromTo.Caption" xml:space="preserve">
+    <value>From : To</value>
+  </data>
+  <data name="chkIncludeNotes.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1146, 213</value>
+  </data>
+  <data name="dgView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkIncludeNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>503, 121</value>
+  </data>
+  <data name="&gt;&gt;slctdDate.Name" xml:space="preserve">
+    <value>slctdDate</value>
+  </data>
+  <data name="cboPrefix.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;txtWhats.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="colDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtPatientName.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;txtWhats.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="chkAllAppts.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RadioLang.Properties.Items1" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="apptDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 22</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="RadioLang.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioLang.Properties.Items5" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="RadioLang.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="chkIncludeReason.Properties.Caption" xml:space="preserve">
+    <value>Include Reason in Whatsapp Message</value>
+  </data>
+  <data name="&gt;&gt;chk2H.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>PatientVisitsCtl</value>
+  </data>
+  <data name="LabelControl11.Text" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="&gt;&gt;chkAllAppts.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="LabelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraUserControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="colDetail.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="grpWhats.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chk2H.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 112</value>
+  </data>
+  <data name="apptDate.EditValue" type="System.Int32, mscorlib">
+    <value>2025</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="chkIncludeReason.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="apptDate.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;colDoctor.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="PanelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;gridResults.Parent" xml:space="preserve">
+    <value>PanelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chk24H.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="&gt;&gt;LabelControl8.Name" xml:space="preserve">
+    <value>LabelControl8</value>
+  </data>
+  <data name="colDoctor.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;apptDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="grpWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="dtpEnd.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="&gt;&gt;dgView.Name" xml:space="preserve">
+    <value>dgView</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="chkAllAppts.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="txtNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 22</value>
+  </data>
+  <data name="&gt;&gt;colRowNum.Name" xml:space="preserve">
+    <value>colRowNum</value>
+  </data>
+  <data name="&gt;&gt;PanelControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;chkIncludeNotes.Name" xml:space="preserve">
+    <value>chkIncludeNotes</value>
+  </data>
+  <data name="gridResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtPatientName.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;PanelControl2.Name" xml:space="preserve">
+    <value>PanelControl2</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtDrId.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblWhatsApp.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelControl13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>651, 304</value>
+  </data>
+  <data name="LabelControl11.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="txtWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>219, 31</value>
+  </data>
+  <data name="btnDelete.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>Notes </value>
+  </data>
+  <data name="LabelControl12.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="slctdDate.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;cboPrefix.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;chkAllAppts.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="chk24H.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;dtpStart.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="chkWhats.Properties.Caption" xml:space="preserve">
+    <value>Send Whatsapp Message</value>
+  </data>
+  <data name="colDetail.Width" type="System.Int32, mscorlib">
+    <value>244</value>
+  </data>
+  <data name="&gt;&gt;colDoctor.Name" xml:space="preserve">
+    <value>colDoctor</value>
+  </data>
+  <data name="chkAllAppts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 19</value>
+  </data>
+  <data name="&gt;&gt;txtWhats.Name" xml:space="preserve">
+    <value>txtWhats</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="LabelControl12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>651, 282</value>
+  </data>
+  <data name="&gt;&gt;dtpStart.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 35</value>
+  </data>
+  <data name="chkWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 19</value>
+  </data>
+  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="gridResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;chkIncludeNotes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblWhatsApp.Name" xml:space="preserve">
+    <value>lblWhatsApp</value>
+  </data>
+  <data name="dtpStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;colDetail.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkAllAppts.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Name" xml:space="preserve">
+    <value>LabelControl12</value>
+  </data>
+  <data name="LabelControl11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <data name="LabelControl8.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="PanelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cboPrefix.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chk24H.Properties.Caption" xml:space="preserve">
+    <value>Send 24 Hours Reminder</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Name" xml:space="preserve">
+    <value>LabelControl13</value>
+  </data>
+  <data name="&gt;&gt;colDate.Name" xml:space="preserve">
+    <value>colDate</value>
+  </data>
+  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 15</value>
+  </data>
+  <data name="&gt;&gt;chk24H.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtDrId.Name" xml:space="preserve">
+    <value>txtDrId</value>
+  </data>
+  <data name="LabelControl6.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="chkAllAppts.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;slctdDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Controls.CalendarControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 15</value>
+  </data>
+  <data name="&gt;&gt;chk2H.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtReason.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 22</value>
+  </data>
+  <data name="LabelControl10.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="cboStatus.Properties.Items" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="&gt;&gt;txtNotes.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Name" xml:space="preserve">
+    <value>LabelControl5</value>
+  </data>
+  <data name="chkIncludeNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 19</value>
+  </data>
+  <data name="LabelControl9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>651, 216</value>
+  </data>
+  <data name="cboPrefix.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 31</value>
+  </data>
+  <data name="txtReason.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="dtpEnd.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="colAppID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;DoctorsCombo1.Name" xml:space="preserve">
+    <value>DoctorsCombo1</value>
+  </data>
+  <data name="cboStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="chkWhats.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colDate.Width" type="System.Int32, mscorlib">
+    <value>142</value>
+  </data>
+  <data name="&gt;&gt;dtpEnd.Name" xml:space="preserve">
+    <value>dtpEnd</value>
+  </data>
+  <data name="apptDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Name" xml:space="preserve">
+    <value>LabelControl11</value>
+  </data>
+  <data name="&gt;&gt;colDetail.Name" xml:space="preserve">
+    <value>colDetail</value>
+  </data>
+  <data name="lblWhatsApp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtDrId.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="colPaient.Width" type="System.Int32, mscorlib">
+    <value>180</value>
+  </data>
+  <data name="RadioLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 24</value>
+  </data>
+  <data name="&gt;&gt;cboStatus.Name" xml:space="preserve">
+    <value>cboStatus</value>
+  </data>
+  <data name="colRowNum.Width" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="grpWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 203</value>
+  </data>
+  <data name="PanelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 383</value>
+  </data>
+  <data name="colStatus.Width" type="System.Int32, mscorlib">
+    <value>148</value>
+  </data>
+  <data name="RadioLang.Properties.Items" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;colFromTo.Name" xml:space="preserve">
+    <value>colFromTo</value>
+  </data>
+  <data name="chkIncludeReason.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;PanelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>651, 260</value>
+  </data>
+  <data name="gridResults.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabelControl14.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkIncludeNotes.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl8.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtDrId.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;dtpStart.Name" xml:space="preserve">
+    <value>dtpStart</value>
+  </data>
+  <data name="colDoctor.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Name" xml:space="preserve">
+    <value>txtPatientName</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="colFromTo.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblWhatsApp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cboStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 146</value>
+  </data>
+  <data name="chk24H.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl13.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="slctdDate.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;chkIncludeReason.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="LabelControl10.Text" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Parent" xml:space="preserve">
+    <value>grpWhats</value>
+  </data>
+  <data name="&gt;&gt;chk24H.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkAllAppts.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="slctdDate.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;colFromTo.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl10.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;chkWhats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>Doctor Name</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="cboStatus.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;chk2H.Name" xml:space="preserve">
+    <value>chk2H</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>411, 179</value>
+  </data>
+  <data name="colDetail.Caption" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 37</value>
+  </data>
+  <data name="colDoctor.Width" type="System.Int32, mscorlib">
+    <value>159</value>
+  </data>
+  <data name="RadioLang.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 15</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="gridResults.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;PanelControl1.Name" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lblWhatsApp.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+</root>

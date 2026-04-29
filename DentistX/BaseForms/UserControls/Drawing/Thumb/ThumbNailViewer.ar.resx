@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnShowImages.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnShowImages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>422, 1</value>
+  </data>
+  <data name="btnShowImages.Text" xml:space="preserve">
+    <value>عارض الصور قبل / بعد</value>
+  </data>
+  <data name="RadioBefor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11pt, style=Bold</value>
+  </data>
+  <data name="RadioBefor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 6</value>
+  </data>
+  <data name="RadioBefor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 22</value>
+  </data>
+  <data name="RadioBefor.Text" xml:space="preserve">
+    <value>قبل</value>
+  </data>
+  <data name="RadioDur.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11pt, style=Bold</value>
+  </data>
+  <data name="RadioDur.Location" type="System.Drawing.Point, System.Drawing">
+    <value>206, 6</value>
+  </data>
+  <data name="RadioDur.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 22</value>
+  </data>
+  <data name="RadioDur.Text" xml:space="preserve">
+    <value>أثناء</value>
+  </data>
+  <data name="RadioAfter.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11pt, style=Bold</value>
+  </data>
+  <data name="RadioAfter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>72, 6</value>
+  </data>
+  <data name="RadioAfter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 22</value>
+  </data>
+  <data name="RadioAfter.Text" xml:space="preserve">
+    <value>بعد</value>
+  </data>
+  <data name="cmdStart.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmdStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>868, 8</value>
+  </data>
+  <data name="cmdStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 28</value>
+  </data>
+  <data name="cmdStart.Text" xml:space="preserve">
+    <value>فتح Power Point</value>
+  </data>
+  <data name="btnEdit.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnEdit.Text" xml:space="preserve">
+    <value>تحرير</value>
+  </data>
+  <data name="btnSaveImage.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSaveImage.Text" xml:space="preserve">
+    <value>حفظ الصورة</value>
+  </data>
+  <data name="btLoadPics.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btLoadPics.Text" xml:space="preserve">
+    <value>تحميل صور</value>
+  </data>
+  <data name="btAddPics.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btAddPics.Text" xml:space="preserve">
+    <value>إضاقة صور قبل</value>
+  </data>
+  <data name="BtnDel.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnDel.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="btnImgInPpt.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnImgInPpt.Text" xml:space="preserve">
+    <value>فتح الصورة في Power Point</value>
+  </data>
+  <data name="btnBrowse.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>إستعراض وفتح في Power Point</value>
+  </data>
+  <data name="LabelFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>530, 18</value>
+  </data>
+  <data name="LabelFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="LabelFilePath.Text" xml:space="preserve">
+    <value>مسار الملف</value>
+  </data>
+  <data name="TextFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 14</value>
+  </data>
+  <data name="ChkDrive.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChkDrive.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChkDrive.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="ChkDrive.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="btnOpenEditor.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnOpenEditor.Text" xml:space="preserve">
+    <value>فتح المحرر</value>
+  </data>
+  <data name="btnDicomViewer.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnDicomViewer.Text" xml:space="preserve">
+    <value>صور الاشعة</value>
+  </data>
+  <data name="btnCrop.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnCrop.Text" xml:space="preserve">
+    <value>قص</value>
+  </data>
+  <data name="LabelPatname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 11</value>
+  </data>
+  <data name="LabelPatientName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>380, 11</value>
+  </data>
+  <data name="LabelPatientName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 15</value>
+  </data>
+  <data name="LabelPatientName.Text" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ThumbsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="ThumbsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 0</value>
+  </data>
+  <data name="CanvasPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+</root>

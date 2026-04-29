@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="RadioArab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 26</value>
+  </data>
+  <data name="RadioArab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 17</value>
+  </data>
+  <data name="RadioArab.Text" xml:space="preserve">
+    <value>النسخة العربية</value>
+  </data>
+  <data name="RadioEng.Location" type="System.Drawing.Point, System.Drawing">
+    <value>241, 28</value>
+  </data>
+  <data name="RadioEng.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 17</value>
+  </data>
+  <data name="RadioEng.Text" xml:space="preserve">
+    <value>النسخة الانجليزية</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 28</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>ابدا البرنامج بــ</value>
+  </data>
+  <data name="GrpLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 131</value>
+  </data>
+  <data name="GrpLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 60</value>
+  </data>
+  <data name="GrpLang.Text" xml:space="preserve">
+    <value>تفضيلات اللغة</value>
+  </data>
+  <data name="txtSrvrPass.Location" type="System.Drawing.Point, System.Drawing">
+    <value>52, 81</value>
+  </data>
+  <data name="txtHostName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>247, 81</value>
+  </data>
+  <data name="RadioOther.Location" type="System.Drawing.Point, System.Drawing">
+    <value>203, 56</value>
+  </data>
+  <data name="RadioOther.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 17</value>
+  </data>
+  <data name="RadioOther.Text" xml:space="preserve">
+    <value>قاعدة بيانات على الشبكة</value>
+  </data>
+  <data name="RadioLocal2012.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 56</value>
+  </data>
+  <data name="RadioLocal2012.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 17</value>
+  </data>
+  <data name="RadioLocal2012.Text" xml:space="preserve">
+    <value>قاعدة بيانات محلية 2012</value>
+  </data>
+  <data name="RadioLocal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 27</value>
+  </data>
+  <data name="RadioLocal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 17</value>
+  </data>
+  <data name="RadioLocal.Text" xml:space="preserve">
+    <value>قاعدة بيانات محلية</value>
+  </data>
+  <data name="Label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 84</value>
+  </data>
+  <data name="Label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="RadioSql.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 25</value>
+  </data>
+  <data name="RadioSql.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 17</value>
+  </data>
+  <data name="RadioSql.Text" xml:space="preserve">
+    <value>قاعدة بيانات من الخادم</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>362, 84</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>اسم خادم الشبكة</value>
+  </data>
+  <data name="GrpDbase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 379</value>
+  </data>
+  <data name="GrpDbase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 121</value>
+  </data>
+  <data name="GrpDbase.Text" xml:space="preserve">
+    <value>تفضيلات قاعدة البيانات</value>
+  </data>
+  <data name="BtnDefault.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 519</value>
+  </data>
+  <data name="BtnDefault.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 23</value>
+  </data>
+  <data name="BtnDefault.Text" xml:space="preserve">
+    <value>الافتراضيات</value>
+  </data>
+  <data name="BtnSaveExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 519</value>
+  </data>
+  <data name="BtnSaveExit.Text" xml:space="preserve">
+    <value>حفظ وخروج</value>
+  </data>
+  <data name="BtnExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>344, 519</value>
+  </data>
+  <data name="BtnExit.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="LabelSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 85</value>
+  </data>
+  <data name="LabelSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="LabelSize.Text" xml:space="preserve">
+    <value>عادي</value>
+  </data>
+  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 85</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 13</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>حجم الشاشة هو </value>
+  </data>
+  <data name="LabelDb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>264, 58</value>
+  </data>
+  <data name="LabelDb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 13</value>
+  </data>
+  <data name="LabelDb.Text" xml:space="preserve">
+    <value>قاعدة بيانات من الخادم</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 58</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 13</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>قاعدة البيانات هي</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LabelStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 28</value>
+  </data>
+  <data name="LabelStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 13</value>
+  </data>
+  <data name="LabelStart.Text" xml:space="preserve">
+    <value>Lang Is</value>
+  </data>
+  <data name="Labelang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 28</value>
+  </data>
+  <data name="Label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 28</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 13</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>نموذج البداية هو</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>442, 28</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>اللغة هي</value>
+  </data>
+  <data name="UltraGroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="UltraGroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 113</value>
+  </data>
+  <data name="UltraGroupBox1.Text" xml:space="preserve">
+    <value>الإعدادات الحالية</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>376, 34</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 13</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>ابدأ DentistX 4 في وضع</value>
+  </data>
+  <data name="RadioNormal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>305, 28</value>
+  </data>
+  <data name="RadioNormal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 17</value>
+  </data>
+  <data name="RadioNormal.Text" xml:space="preserve">
+    <value>عادي</value>
+  </data>
+  <data name="RadioLarge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 30</value>
+  </data>
+  <data name="RadioLarge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 17</value>
+  </data>
+  <data name="RadioLarge.Text" xml:space="preserve">
+    <value>كبير</value>
+  </data>
+  <data name="UltraGroupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 197</value>
+  </data>
+  <data name="UltraGroupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 60</value>
+  </data>
+  <data name="UltraGroupBox2.Text" xml:space="preserve">
+    <value>تفضيلات حجم الشاشة</value>
+  </data>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>325, 53</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 13</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>ابدأ DentistX 4 في نموذج</value>
+  </data>
+  <data name="RadioStar3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 51</value>
+  </data>
+  <data name="RadioStar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 51</value>
+  </data>
+  <data name="UltraGroupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 272</value>
+  </data>
+  <data name="UltraGroupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 101</value>
+  </data>
+  <data name="UltraGroupBox3.Text" xml:space="preserve">
+    <value>تفضيلات نموذج البداية</value>
+  </data>
+  <data name="btnCreateSVG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 552</value>
+  </data>
+  <data name="btnCreateSVGKids.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 552</value>
+  </data>
+  <data name="btnLoadSvgs.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnLoadSvgs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 552</value>
+  </data>
+  <data name="btnCreatApp.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnCreatApp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>219, 552</value>
+  </data>
+  <data name="btnExtractSVG.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnExtractSVG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>337, 552</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>548, 582</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>إعدادات البرنامج</value>
+  </data>
+</root>

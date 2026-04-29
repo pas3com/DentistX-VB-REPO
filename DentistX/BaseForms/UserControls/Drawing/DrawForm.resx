@@ -1,0 +1,2302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;tcboFillColor.Name" xml:space="preserve">
+    <value>tcboFillColor</value>
+  </data>
+  <data name="mnuLayoutNone.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuEdit.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mnuFileSaveImage.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="barDockControlBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 710</value>
+  </data>
+  <data name="mnuEditDelete.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFileOpenDicomFile.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnCrop.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuEditDelete.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="popThickness.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="mnuFormatOrder.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuEdit.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnRotRight.Hint" xml:space="preserve">
+    <value>Rotate To Right</value>
+  </data>
+  <data name="&gt;&gt;pnlCanvasHost.Name" xml:space="preserve">
+    <value>pnlCanvasHost</value>
+  </data>
+  <data name="tcboThickness.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuLayoutNone.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;bar3.Name" xml:space="preserve">
+    <value>bar3</value>
+  </data>
+  <data name="&gt;&gt;mnuFileOpenDicomFolder.Name" xml:space="preserve">
+    <value>mnuFileOpenDicomFolder</value>
+  </data>
+  <data name="&gt;&gt;popForeColor.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="mnuFile.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tcboFillColor.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="RepositoryItemTextEdit1.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="mnuResetTransform.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lstForeColor.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="tcboThickness.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileOpenDicomFile.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnStar.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;popFillColor.Name" xml:space="preserve">
+    <value>popFillColor</value>
+  </data>
+  <data name="tbtnPointer.Caption" xml:space="preserve">
+    <value>Pointer</value>
+  </data>
+  <data name="txtInside.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lstFillColor.Name" xml:space="preserve">
+    <value>lstFillColor</value>
+  </data>
+  <data name="btnArrowProps.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnEllipse.Caption" xml:space="preserve">
+    <value>Ellipse</value>
+  </data>
+  <data name="mnuFormat.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnStarCorners.Hint" xml:space="preserve">
+    <value>Star Corners count</value>
+  </data>
+  <data name="btnCrop.Caption" xml:space="preserve">
+    <value>Crop</value>
+  </data>
+  <data name="lstFillColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnBringToFront.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFileOpen.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mnuFormatOrderBringToFront.Name" xml:space="preserve">
+    <value>mnuFormatOrderBringToFront</value>
+  </data>
+  <data name="&gt;&gt;tbtnRectangle.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFileSave.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;btnSendToBack.Name" xml:space="preserve">
+    <value>btnSendToBack</value>
+  </data>
+  <data name="mnuResetTransform.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnZoom.Caption" xml:space="preserve">
+    <value>zoom</value>
+  </data>
+  <data name="tbtnImage.Hint" xml:space="preserve">
+    <value>Insert Image</value>
+  </data>
+  <data name="mnuBackgroundLayout.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileExit.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuLoadBackground.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="picCanvas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mnuFilePrint.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="lstStarCorners.Items3" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lstFillColor.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="tbtnText.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ofdImage.Name" xml:space="preserve">
+    <value>ofdImage</value>
+  </data>
+  <data name="btnZoom.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuFormatOrderSendToBack.Name" xml:space="preserve">
+    <value>mnuFormatOrderSendToBack</value>
+  </data>
+  <data name="&gt;&gt;mnuOptSet.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;barDockControlLeft.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFormatOrder.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tbtnArrow.Name" xml:space="preserve">
+    <value>tbtnArrow</value>
+  </data>
+  <data name="lstStarCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tcboThickness.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Name" xml:space="preserve">
+    <value>barDockControlBottom</value>
+  </data>
+  <data name="&gt;&gt;mnuFormatOrderBringToFront.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuLayoutZoom.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFileOpen.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFile.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtText.EditWidth" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="mnuLayoutZoom.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lstForeColor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;barDockControlLeft.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="mnuLayoutStrech.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlCanvasHost.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lstThickness.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnDelete.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="barDockControlLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 655</value>
+  </data>
+  <data name="mnuClearBackground.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuEdit.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuFilePrint.Name" xml:space="preserve">
+    <value>mnuFilePrint</value>
+  </data>
+  <data name="btnStarCorners.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuLayoutCenter.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;dlgOpenPicture.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tbtnLine.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;tbtnText.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnArrow.Hint" xml:space="preserve">
+    <value>Arrow</value>
+  </data>
+  <data name="tbtnRectangle.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuTransformation.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuResetTransform.Caption" xml:space="preserve">
+    <value>Reset Transformation</value>
+  </data>
+  <data name="btnRotLeft.Caption" xml:space="preserve">
+    <value>Rotate To Left</value>
+  </data>
+  <data name="ppdPrint.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>400, 300</value>
+  </data>
+  <data name="Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tcboLineColor.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tbtnEllipse.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mnuFileNew.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnArrow.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="ImageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v25.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYyNS4xLCBWZXJzaW9uPTI1LjEu
+        My4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAAChE
+        ZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0cmVhbWVyAAAAAAIAAAAL
+</value>
+  </data>
+  <data name="tbtnStar.Hint" xml:space="preserve">
+    <value>Star</value>
+  </data>
+  <data name="btnRotLeft.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="pnlCanvasHost.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mnuFileNew.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;lstThickness.Name" xml:space="preserve">
+    <value>lstThickness</value>
+  </data>
+  <data name="txtInside.Caption" xml:space="preserve">
+    <value>Text Inside</value>
+  </data>
+  <data name="btnRotRight.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnSendToBack.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="bar2.Text" xml:space="preserve">
+    <value>Main menu</value>
+  </data>
+  <data name="&gt;&gt;RepositoryItemTextEdit1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemTextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tcboThickness.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnBringToFront.Caption" xml:space="preserve">
+    <value>Bring To Front</value>
+  </data>
+  <data name="tbtnImage.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;mnuLayoutZoom.Name" xml:space="preserve">
+    <value>mnuLayoutZoom</value>
+  </data>
+  <data name="mnuFileOpenDicomFolder.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFilePrintPreview.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;lstFillColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnZoom.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnArrow.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;popThickness.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnSaveClose.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFileOpenDicomFile.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lstStarCorners.Items4" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="barDockControlRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 655</value>
+  </data>
+  <data name="tbtnStar.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tmrAutoSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;barDockControlRight.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnCrop.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuLoadBackground.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnDelete.Caption" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 736</value>
+  </data>
+  <data name="mnuFilePrint.Caption" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="&gt;&gt;lstForeColor.Name" xml:space="preserve">
+    <value>lstForeColor</value>
+  </data>
+  <data name="mnuOptSetBackColor.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuBackgroundLayout.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnStar.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileNew.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutNone.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;popForeColor.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="mnuFileSaveImage.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnRotRight.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
+    <value>btnDelete</value>
+  </data>
+  <data name="tbtnLine.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="tbtnText.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 26</value>
+  </data>
+  <data name="&gt;&gt;RepositoryItemTextEdit1.Name" xml:space="preserve">
+    <value>RepositoryItemTextEdit1</value>
+  </data>
+  <data name="mnuFormatOrder.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuEdit.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="barDockControlLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="&gt;&gt;txtInside.Name" xml:space="preserve">
+    <value>txtInside</value>
+  </data>
+  <data name="&gt;&gt;mnuLayoutTile.Name" xml:space="preserve">
+    <value>mnuLayoutTile</value>
+  </data>
+  <data name="txtText.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;ppdPrint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuBackgroundLayout.Name" xml:space="preserve">
+    <value>mnuBackgroundLayout</value>
+  </data>
+  <data name="&gt;&gt;dlgBackColor.Name" xml:space="preserve">
+    <value>dlgBackColor</value>
+  </data>
+  <data name="mnuFileSaveImage.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="popStarCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 196</value>
+  </data>
+  <data name="&gt;&gt;btnStarCorners.Name" xml:space="preserve">
+    <value>btnStarCorners</value>
+  </data>
+  <data name="&gt;&gt;mnuClearBackground.Name" xml:space="preserve">
+    <value>mnuClearBackground</value>
+  </data>
+  <data name="btnStarCorners.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnEllipse.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="tbtnArrow.Caption" xml:space="preserve">
+    <value>Arrow</value>
+  </data>
+  <data name="&gt;&gt;popStarCorners.Name" xml:space="preserve">
+    <value>popStarCorners</value>
+  </data>
+  <data name="&gt;&gt;lstThickness.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="popThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 130</value>
+  </data>
+  <data name="popForeColor.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;mnuLayoutNone.Name" xml:space="preserve">
+    <value>mnuLayoutNone</value>
+  </data>
+  <data name="mnuEditDelete.Caption" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="popThickness.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 225</value>
+  </data>
+  <data name="&gt;&gt;tbtnPointer.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dlgSavePicture.Name" xml:space="preserve">
+    <value>dlgSavePicture</value>
+  </data>
+  <data name="&gt;&gt;mnuFlipHorizontal.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnStarCorners.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 55</value>
+  </data>
+  <data name="mnuFile.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="pnlCanvasHost.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 655</value>
+  </data>
+  <data name="&gt;&gt;dlgSavePicture.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnStarCorners.Caption" xml:space="preserve">
+    <value>Star Corners</value>
+  </data>
+  <data name="&gt;&gt;bar1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Bar, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="FontSelector.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="mnuFormatOrderBringToFront.Caption" xml:space="preserve">
+    <value>Bring To Front</value>
+  </data>
+  <data name="mnuFont.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnPointer.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;barDockControlTop.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFileOpenDicomFile.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tcboFillColor.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFileSave.Caption" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tbtnEllipse.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lstStarCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="mnuLayoutStrech.Caption" xml:space="preserve">
+    <value>Strech</value>
+  </data>
+  <data name="&gt;&gt;btnArrowProps.Name" xml:space="preserve">
+    <value>btnArrowProps</value>
+  </data>
+  <data name="mnuFormat.Caption" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="mnuFileOpen.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutTile.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnSaveClose.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="tbtnFreehand.Caption" xml:space="preserve">
+    <value>Free Hand</value>
+  </data>
+  <data name="&gt;&gt;tbtnText.Name" xml:space="preserve">
+    <value>tbtnText</value>
+  </data>
+  <data name="&gt;&gt;popThickness.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="mnuFormatOrderBringToFront.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tcboLineColor.Name" xml:space="preserve">
+    <value>tcboLineColor</value>
+  </data>
+  <data name="mnuFilePrintPreview.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuBackground.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;barDockControlTop.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;popStarCorners.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="mnuFlipHorizontal.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFont.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuLayoutStrech.Name" xml:space="preserve">
+    <value>mnuLayoutStrech</value>
+  </data>
+  <data name="lstForeColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 196</value>
+  </data>
+  <data name="tbtnImage.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="barDockControlLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 55</value>
+  </data>
+  <data name="&gt;&gt;mnuBackgroundLayout.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 655</value>
+  </data>
+  <data name="mnuFileOpenDicomFolder.Caption" xml:space="preserve">
+    <value>Open DICOM Folder</value>
+  </data>
+  <data name="&gt;&gt;lstFillColor.Parent" xml:space="preserve">
+    <value>popFillColor</value>
+  </data>
+  <data name="&gt;&gt;barManager1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuLayoutCenter.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFileOpenDicomFolder.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuClearBackground.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuBackground.Caption" xml:space="preserve">
+    <value>Background Image</value>
+  </data>
+  <data name="mnuClearBackground.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuLayoutTile.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFileSaveImage.Name" xml:space="preserve">
+    <value>mnuFileSaveImage</value>
+  </data>
+  <data name="tbtnImage.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFileSave.Name" xml:space="preserve">
+    <value>mnuFileSave</value>
+  </data>
+  <data name="mnuFormatOrder.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuClearBackground.Caption" xml:space="preserve">
+    <value>Clear Image</value>
+  </data>
+  <data name="tbtnPointer.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnLine.Hint" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="&gt;&gt;btnBringToFront.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnStarCorners.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutCenter.Caption" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;barDockControlTop.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="mnuLayoutCenter.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="picCanvas.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="mnuFilePrint.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;tbtnImage.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mnuFormat.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnEllipse.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;popStarCorners.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.PopupControlContainer, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFormatOrderSendToBack.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="popFillColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>600, 234</value>
+  </data>
+  <data name="&gt;&gt;tbtnRectangle.Name" xml:space="preserve">
+    <value>tbtnRectangle</value>
+  </data>
+  <data name="&gt;&gt;txtTextEdit.Name" xml:space="preserve">
+    <value>txtTextEdit</value>
+  </data>
+  <data name="mnuFormatOrderBringToFront.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuFileExit.Name" xml:space="preserve">
+    <value>mnuFileExit</value>
+  </data>
+  <data name="btnSaveClose.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFont.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFlipHorizontal.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuLayoutCenter.Name" xml:space="preserve">
+    <value>mnuLayoutCenter</value>
+  </data>
+  <data name="tbtnStar.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="mnuFlipVertical.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="lstStarCorners.Items6" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="mnuFormat.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFilePrintPreview.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFilePrintPreview.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;popFillColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.PopupControlContainer, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lstStarCorners.Items" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnZoom.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuLoadBackground.Name" xml:space="preserve">
+    <value>mnuLoadBackground</value>
+  </data>
+  <data name="&gt;&gt;tcboThickness.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnArrowProps.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="picCanvas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 655</value>
+  </data>
+  <data name="&gt;&gt;mnuFilePrint.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dlgBackColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFlipVertical.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFlipHorizontal.Name" xml:space="preserve">
+    <value>mnuFlipHorizontal</value>
+  </data>
+  <data name="&gt;&gt;dlgOpenPicture.Name" xml:space="preserve">
+    <value>dlgOpenPicture</value>
+  </data>
+  <data name="mnuFlipVertical.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtText.Hint" xml:space="preserve">
+    <value>Text Inside Closed Shapes</value>
+  </data>
+  <data name="mnuFlipVertical.Caption" xml:space="preserve">
+    <value>Flip Vertical</value>
+  </data>
+  <data name="&gt;&gt;txtText.Name" xml:space="preserve">
+    <value>txtText</value>
+  </data>
+  <data name="&gt;&gt;txtInside.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarStaticItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnImage.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuBackgroundLayout.Caption" xml:space="preserve">
+    <value>Image Layout</value>
+  </data>
+  <data name="mnuOptSet.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;lstStarCorners.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuOptSet.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="barDockControlTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;mnuLayoutStrech.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tmrAutoSave.Name" xml:space="preserve">
+    <value>tmrAutoSave</value>
+  </data>
+  <data name="pnlCanvasHost.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="picCanvas.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;popForeColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.PopupControlContainer, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuOptSetBackColor.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lstStarCorners.Items1" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lstStarCorners.Items2" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;mnuFileNew.Name" xml:space="preserve">
+    <value>mnuFileNew</value>
+  </data>
+  <data name="dlgSavePicture.Filter" xml:space="preserve">
+    <value>Picture Files (*.pic)|*.pic|All FIles (*.*)|*.*</value>
+  </data>
+  <data name="lstStarCorners.Items5" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lstStarCorners.Parent" xml:space="preserve">
+    <value>popStarCorners</value>
+  </data>
+  <data name="lstStarCorners.Items7" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="txtInside.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutZoom.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="popStarCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>775, 234</value>
+  </data>
+  <data name="mnuBackgroundLayout.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnRotLeft.Hint" xml:space="preserve">
+    <value>Rotate To Left</value>
+  </data>
+  <data name="&gt;&gt;picCanvas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileOpenDicomFile.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuFile.Name" xml:space="preserve">
+    <value>mnuFile</value>
+  </data>
+  <data name="mnuFlipHorizontal.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutZoom.Caption" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="ppdPrint.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tbtnFreehand.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnText.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutZoom.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tcboThickness.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="popFillColor.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="mnuLayoutTile.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="tbtnEllipse.Hint" xml:space="preserve">
+    <value>Ellipse</value>
+  </data>
+  <data name="barDockControlRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1360, 55</value>
+  </data>
+  <data name="tbtnRectangle.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tcboThickness.Name" xml:space="preserve">
+    <value>tcboThickness</value>
+  </data>
+  <data name="mnuLayoutCenter.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileNew.Caption" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="tbtnEllipse.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;sfdImage.Name" xml:space="preserve">
+    <value>sfdImage</value>
+  </data>
+  <data name="mnuFile.Caption" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="&gt;&gt;mnuTransformation.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dlgOpenPicture.Filter" xml:space="preserve">
+    <value>Picture Files (*.pic)|*.pic|All FIles (*.*)|*.*</value>
+  </data>
+  <data name="mnuEditDelete.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;bar3.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Bar, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuLayoutStrech.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;barDockControlLeft.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tcboLineColor.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnImage.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="mnuFileOpenDicomFolder.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileOpen.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuLayoutNone.Caption" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;lstStarCorners.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;RepositoryItemZoomTrackBar1.Name" xml:space="preserve">
+    <value>RepositoryItemZoomTrackBar1</value>
+  </data>
+  <data name="btnSaveClose.Hint" xml:space="preserve">
+    <value>Save &amp;&amp; Close</value>
+  </data>
+  <data name="btnSendToBack.Hint" xml:space="preserve">
+    <value>Send To Back</value>
+  </data>
+  <data name="btnRotRight.Caption" xml:space="preserve">
+    <value>btnRotRight</value>
+  </data>
+  <data name="txtText.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuBackground.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFormatOrderSendToBack.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuLayoutTile.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuOptSetBackColor.Caption" xml:space="preserve">
+    <value>Set Background Color</value>
+  </data>
+  <data name="tcboFillColor.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pdPrint.Name" xml:space="preserve">
+    <value>pdPrint</value>
+  </data>
+  <data name="txtInside.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuResetTransform.Name" xml:space="preserve">
+    <value>mnuResetTransform</value>
+  </data>
+  <data name="tbtnStar.Caption" xml:space="preserve">
+    <value>Star</value>
+  </data>
+  <data name="btnArrowProps.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lstStarCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 196</value>
+  </data>
+  <data name="&gt;&gt;mnuResetTransform.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mnuFilePrintPreview.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtText.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarEditItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnStarCorners.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 55</value>
+  </data>
+  <data name="btnArrowProps.Caption" xml:space="preserve">
+    <value>Arrow Properties</value>
+  </data>
+  <data name="&gt;&gt;barDockControlRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFileOpen.Caption" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="&gt;&gt;picCanvas.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mnuBackground.Name" xml:space="preserve">
+    <value>mnuBackground</value>
+  </data>
+  <data name="&gt;&gt;tbtnImage.Name" xml:space="preserve">
+    <value>tbtnImage</value>
+  </data>
+  <data name="&gt;&gt;tbtnFreehand.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuBackgroundLayout.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;btnSendToBack.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnCrop.Hint" xml:space="preserve">
+    <value>Crop</value>
+  </data>
+  <data name="mnuFilePrintPreview.Caption" xml:space="preserve">
+    <value>Print Preview</value>
+  </data>
+  <data name="&gt;&gt;btnSaveClose.Name" xml:space="preserve">
+    <value>btnSaveClose</value>
+  </data>
+  <data name="&gt;&gt;ppdPrint.Name" xml:space="preserve">
+    <value>ppdPrint</value>
+  </data>
+  <data name="tbtnLine.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileOpenDicomFolder.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnCrop.Name" xml:space="preserve">
+    <value>btnCrop</value>
+  </data>
+  <data name="txtTextEdit.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tbtnFreehand.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFileOpen.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;tbtnLine.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnText.Hint" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="&gt;&gt;lstForeColor.Parent" xml:space="preserve">
+    <value>popForeColor</value>
+  </data>
+  <data name="tbtnText.Caption" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="&gt;&gt;pnlCanvasHost.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnFreehand.Name" xml:space="preserve">
+    <value>tbtnFreehand</value>
+  </data>
+  <data name="&gt;&gt;mnuFileOpenDicomFile.Name" xml:space="preserve">
+    <value>mnuFileOpenDicomFile</value>
+  </data>
+  <data name="mnuFileSave.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="popForeColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 196</value>
+  </data>
+  <data name="mnuFileOpenDicomFile.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuOptSetBackColor.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemTextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFile.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnDelete.Hint" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="mnuLayoutTile.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSendToBack.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tcboThickness.Hint" xml:space="preserve">
+    <value>Line Thickness</value>
+  </data>
+  <data name="mnuResetTransform.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnRotLeft.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnRotLeft.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnRotLeft.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ImageCollection1.Type" xml:space="preserve">
+    <value>DevExpress.Utils.ImageCollection, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnArrowProps.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFormatOrderBringToFront.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFlipVertical.Name" xml:space="preserve">
+    <value>mnuFlipVertical</value>
+  </data>
+  <data name="btnRotLeft.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tcboFillColor.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuLayoutNone.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtText.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFormatOrderBringToFront.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;btnRotRight.Name" xml:space="preserve">
+    <value>btnRotRight</value>
+  </data>
+  <data name="lstStarCorners.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DrawForm</value>
+  </data>
+  <data name="ppdPrint.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="mnuFileSaveImage.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;FontSelector.Name" xml:space="preserve">
+    <value>FontSelector</value>
+  </data>
+  <data name="mnuFlipVertical.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="barDockControlRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="tcboFillColor.Caption" xml:space="preserve">
+    <value>Fill Color</value>
+  </data>
+  <data name="Panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;RepositoryItemZoomTrackBar1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnCrop.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuLayoutTile.Caption" xml:space="preserve">
+    <value>Tile</value>
+  </data>
+  <data name="&gt;&gt;tbtnArrow.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnLine.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnZoom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="popStarCorners.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnStarCorners.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="popThickness.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="mnuFlipHorizontal.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFormatOrderSendToBack.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutCenter.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnStar.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFileSave.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnPointer.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnBringToFront.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFileExit.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pdPrint.Type" xml:space="preserve">
+    <value>System.Drawing.Printing.PrintDocument, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tbtnEllipse.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuLayoutTile.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lstFillColor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;mnuFont.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFont.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="popForeColor.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tbtnImage.Caption" xml:space="preserve">
+    <value>Insert Image</value>
+  </data>
+  <data name="&gt;&gt;mnuFormatOrder.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuEditDelete.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;lstForeColor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="mnuFormat.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileSave.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnRectangle.Hint" xml:space="preserve">
+    <value>Rectangle</value>
+  </data>
+  <data name="tbtnRectangle.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;sfdImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;popFillColor.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="mnuFileExit.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutNone.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuClearBackground.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFile.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;lstForeColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bar2.Name" xml:space="preserve">
+    <value>bar2</value>
+  </data>
+  <data name="&gt;&gt;picCanvas.Name" xml:space="preserve">
+    <value>picCanvas</value>
+  </data>
+  <data name="mnuOptSetBackColor.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuClearBackground.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;btnZoom.Name" xml:space="preserve">
+    <value>btnZoom</value>
+  </data>
+  <data name="&gt;&gt;mnuFormat.Name" xml:space="preserve">
+    <value>mnuFormat</value>
+  </data>
+  <data name="tcboThickness.Caption" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="mnuFormat.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="tbtnArrow.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnPointer.Hint" xml:space="preserve">
+    <value>Pointer</value>
+  </data>
+  <data name="mnuFont.Caption" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="popFillColor.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnBringToFront.Hint" xml:space="preserve">
+    <value>Bring To Front</value>
+  </data>
+  <data name="mnuEdit.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="tbtnFreehand.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;barDockControlRight.Name" xml:space="preserve">
+    <value>barDockControlRight</value>
+  </data>
+  <data name="mnuResetTransform.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnRectangle.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;lstThickness.Parent" xml:space="preserve">
+    <value>popThickness</value>
+  </data>
+  <data name="btnRotRight.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="sfdImage.Filter" xml:space="preserve">
+    <value>Graphics Files|*.bmp;*.gif;*.jpg;*.jpeg;*.png;*.tif;*.tiff|All Files|*.*</value>
+  </data>
+  <data name="&gt;&gt;mnuFileOpenDicomFolder.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFlipHorizontal.Caption" xml:space="preserve">
+    <value>Flip Horizontal</value>
+  </data>
+  <data name="&gt;&gt;mnuFilePrintPreview.Name" xml:space="preserve">
+    <value>mnuFilePrintPreview</value>
+  </data>
+  <data name="tcboLineColor.Hint" xml:space="preserve">
+    <value>Line Color</value>
+  </data>
+  <data name="mnuFormatOrderSendToBack.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="tcboLineColor.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="FontSelector.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;popStarCorners.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="mnuLoadBackground.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnSaveClose.Caption" xml:space="preserve">
+    <value>Save &amp;&amp; Close</value>
+  </data>
+  <data name="&gt;&gt;mnuFileSaveImage.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lstThickness.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;btnBringToFront.Name" xml:space="preserve">
+    <value>btnBringToFront</value>
+  </data>
+  <data name="&gt;&gt;btnRotRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tbtnEllipse.Name" xml:space="preserve">
+    <value>tbtnEllipse</value>
+  </data>
+  <data name="&gt;&gt;mnuLoadBackground.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnZoom.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuEditDelete.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lstThickness.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="mnuFileOpenDicomFile.Caption" xml:space="preserve">
+    <value>Open DICOM File</value>
+  </data>
+  <data name="btnSaveClose.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFilePrint.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuTransformation.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pnlCanvasHost.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;popThickness.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.PopupControlContainer, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mnuFormatOrder.Name" xml:space="preserve">
+    <value>mnuFormatOrder</value>
+  </data>
+  <data name="btnZoom.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tcboFillColor.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnDelete.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuOptSet.Name" xml:space="preserve">
+    <value>mnuOptSet</value>
+  </data>
+  <data name="mnuTransformation.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnText.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFilePrint.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuLoadBackground.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnArrow.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFileExit.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnFreehand.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;ofdImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuClearBackground.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="mnuFileNew.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnZoom.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarEditItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFileNew.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;FontSelector.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemFontEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuEditDelete.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuBackground.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlCanvasHost.Parent" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="btnSendToBack.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuLayoutZoom.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnFreehand.Hint" xml:space="preserve">
+    <value>Free Hand</value>
+  </data>
+  <data name="ofdImage.Filter" xml:space="preserve">
+    <value>Graphics Files|*.bmp;*.gif;*.jpg;*.jpeg;*.png;*.tif;*.tiff|All Files|*.*</value>
+  </data>
+  <data name="mnuFormatOrderSendToBack.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tcboFillColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuLoadBackground.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;barDockControlLeft.Name" xml:space="preserve">
+    <value>barDockControlLeft</value>
+  </data>
+  <data name="mnuFileSaveImage.Caption" xml:space="preserve">
+    <value>Save Image</value>
+  </data>
+  <data name="btnSaveClose.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFlipVertical.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuTransformation.Caption" xml:space="preserve">
+    <value>Transformation</value>
+  </data>
+  <data name="&gt;&gt;tbtnPointer.Name" xml:space="preserve">
+    <value>tbtnPointer</value>
+  </data>
+  <data name="tcboLineColor.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFile.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuEdit.Caption" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuOptSet.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnRectangle.Caption" xml:space="preserve">
+    <value>Rectangle</value>
+  </data>
+  <data name="popFillColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 196</value>
+  </data>
+  <data name="btnDelete.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnCrop.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileNew.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFormat.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Name" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="btnBringToFront.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;bar2.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Bar, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuOptSet.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSaveClose.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuLayoutCenter.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mnuFormatOrderSendToBack.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuTransformation.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;bar1.Name" xml:space="preserve">
+    <value>bar1</value>
+  </data>
+  <data name="mnuLayoutStrech.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFileExit.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuLayoutZoom.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFlipVertical.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="barDockControlBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;tbtnLine.Name" xml:space="preserve">
+    <value>tbtnLine</value>
+  </data>
+  <data name="mnuFileOpen.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;tcboLineColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuLayoutNone.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnBringToFront.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnArrow.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnDelete.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="lstForeColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnRotRight.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuOptSetBackColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;barManager1.Name" xml:space="preserve">
+    <value>barManager1</value>
+  </data>
+  <data name="btnSendToBack.Caption" xml:space="preserve">
+    <value>Send To Back</value>
+  </data>
+  <data name="mnuFileOpenDicomFolder.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuOptSetBackColor.Name" xml:space="preserve">
+    <value>mnuOptSetBackColor</value>
+  </data>
+  <data name="tbtnPointer.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="tcboLineColor.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;popThickness.Name" xml:space="preserve">
+    <value>popThickness</value>
+  </data>
+  <data name="ppdPrint.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="&gt;&gt;lstFillColor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="popForeColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 198</value>
+  </data>
+  <data name="mnuBackground.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileExit.Caption" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="lstThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 130</value>
+  </data>
+  <data name="&gt;&gt;barDockControlRight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnRotLeft.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnSendToBack.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="mnuFont.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuOptSet.Caption" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="bar3.Text" xml:space="preserve">
+    <value>Status bar</value>
+  </data>
+  <data name="bsiHints.Caption" xml:space="preserve">
+    <value>Hints: Ctrl+Click or Shift+Click to add/remove selection. Shift+Wheel to zoom.</value>
+  </data>
+  <data name="bsiHintsTextSelected.Caption" xml:space="preserve">
+    <value>Text selected: double-click or F2 to edit. While typing: Ctrl+Plus/Minus or Ctrl+Wheel for font size. Enter to finish, Esc to cancel.</value>
+  </data>
+  <data name="bsiHintsShapeInside.Caption" xml:space="preserve">
+    <value>Inside label: use the toolbar text field next to "Text inside…" and the font/color menus.</value>
+  </data>
+  <data name="mnuFormatOrder.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFormatOrderSendToBack.Caption" xml:space="preserve">
+    <value>Send To Back</value>
+  </data>
+  <data name="bar1.Text" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="btnRotRight.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tbtnLine.Caption" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="btnDelete.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuTransformation.Name" xml:space="preserve">
+    <value>mnuTransformation</value>
+  </data>
+  <data name="mnuLayoutStrech.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtInside.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;mnuFileExit.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuFilePrint.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tbtnText.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuResetTransform.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="txtText.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnCrop.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;barDockControlTop.Name" xml:space="preserve">
+    <value>barDockControlTop</value>
+  </data>
+  <data name="tbtnRectangle.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuFilePrintPreview.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnSendToBack.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbtnPointer.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;ImageCollection1.Name" xml:space="preserve">
+    <value>ImageCollection1</value>
+  </data>
+  <data name="&gt;&gt;picCanvas.Parent" xml:space="preserve">
+    <value>pnlCanvasHost</value>
+  </data>
+  <data name="tbtnLine.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;popFillColor.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnSaveClose.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtText.Caption" xml:space="preserve">
+    <value>Text Inside Closed Shapes</value>
+  </data>
+  <data name="mnuBackground.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuFileSave.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuFont.Name" xml:space="preserve">
+    <value>mnuFont</value>
+  </data>
+  <data name="&gt;&gt;mnuEdit.Name" xml:space="preserve">
+    <value>mnuEdit</value>
+  </data>
+  <data name="btnCrop.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="lstFillColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 196</value>
+  </data>
+  <data name="&gt;&gt;lstStarCorners.Name" xml:space="preserve">
+    <value>lstStarCorners</value>
+  </data>
+  <data name="txtText.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="popStarCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;mnuFileOpen.Name" xml:space="preserve">
+    <value>mnuFileOpen</value>
+  </data>
+  <data name="mnuFormatOrder.Caption" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="ppdPrint.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAYAICAQAAAAAADoAgAAZgAAABAQEAAAAAAAKAEAAE4DAAAgIAAAAQAIAKgIAAB2BAAAEBAAAAEA
+        CABoBQAAHg0AACAgAAABACAAqBAAAIYSAAAQEAAAAQAgAGgEAAAuIwAAKAAAACAAAABAAAAAAQAEAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAgACAAAAAgACAAICAAACAgIAAwMDAAAAA
+        /wAA/wAAAP//AP8AAAD/AP8A//8AAP///wAiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIoiI
+        iIiIiIiIiIiIiIiIiIiCIigiIiIozMzMzMzMyCIogiIoIiIiKM7m5ubm5sgiKIIiKCIiIijObm5ubm7I
+        IiiCIigiIiIozubm5ubmyCIogiIoIiIiKM5ubm5ubsgiKIIiKCIiIijO5ubm5ubIIiiIiIiIiIiIzm5u
+        bm5uyCIogRERERERGM7u7u7u7sgiKIHZWVlZWRjMzMzMzMzIIiiB1ZWVlZUYiIiIiIiIiIiIgdlZWVlZ
+        GDMzMzMzMzMzOIHVlZWVlRg/uLi4uLi4uDiB2VlZWVkYP7uLi4uLi4s4gdWVlZWVGD+4uLi4uLi4OIHZ
+        WVlZWRg/u4uLi4uLiziB1ZWVlZUYP7i4uLi4uLg4gdlZWVlZGD+7i4uLi4uLOIHVlZWVlRg/uLi4uLi4
+        uDiB3d3d3d0YP7uLi4uLi4s4gRERERERGD+4uLi4uLi4OIiIiIiIiIg/u4uLi4uLiziCIiIiIiIoP7i4
+        uLi4uLg4giIiIiIiKD+7i4uLi4uLOIIiIiIiIig/uLi4uLi4uDiCIiIiIiIoP7u7u7u7u7s4giIiIiIi
+        KD//////////OIIiIiIiIigzMzMzMzMzMziIiIiIiIiIiIiIiIiIiIiIIiIiIiIiIiIiIiIiIiIiIv//
+        ////////AAAAAHv4AA57+AAOe/gADnv4AA57+AAOe/gADgAAAA4AAAAOAAAADgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/4AAB/+AAAf/gAAH/4AAB/+AAAf/gAAAAA
+        AAD/////KAAAABAAAAAgAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACA
+        gACAAAAAgACAAICAAACAgIAAwMDAAAAA/wAA/wAAAP//AP8AAAD/AP8A//8AAP///wAiIiIiIiIiIoiI
+        iIiIiIiIgigijMzMyCiCKCKM5mbIKIiIiIzu7sgogRERjMzMyCiB2ZGIiIiIiIHZkYMzMzM4gdmRg/u7
+        uziB3dGD+7u7OIEREYP7u7s4iIiIg/u7uziCIiKD+7u7OIIiIoP///84giIigzMzMziIiIiIiIiIiP//
+        KCIAACjObALm5mwCIigAAoiIAAKIzgAAbm4AACIoAAAREQAAGM4AAO7uAAAiKHwAWVl8ABjMfADMzAAA
+        IigoAAAAIAAAAEAAAAABAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAA
+        AACAAIAAgIAAAICAgADA3MAA8MqmAKo/KgD/PyoAAF8qAFVfKgCqXyoA/18qAAB/KgBVfyoAqn8qAP9/
+        KgAAnyoAVZ8qAKqfKgD/nyoAAL8qAFW/KgCqvyoA/78qAADfKgBV3yoAqt8qAP/fKgAA/yoAVf8qAKr/
+        KgD//yoAAABVAFUAVQCqAFUA/wBVAAAfVQBVH1UAqh9VAP8fVQAAP1UAVT9VAKo/VQD/P1UAAF9VAFVf
+        VQCqX1UA/19VAAB/VQBVf1UAqn9VAP9/VQAAn1UAVZ9VAKqfVQD/n1UAAL9VAFW/VQCqv1UA/79VAADf
+        VQBV31UAqt9VAP/fVQAA/1UAVf9VAKr/VQD//1UAAAB/AFUAfwCqAH8A/wB/AAAffwBVH38Aqh9/AP8f
+        fwAAP38AVT9/AKo/fwD/P38AAF9/AFVffwCqX38A/19/AAB/fwBVf38Aqn9/AP9/fwAAn38AVZ9/AKqf
+        fwD/n38AAL9/AFW/fwCqv38A/79/AADffwBV338Aqt9/AP/ffwAA/38AVf9/AKr/fwD//38AAACqAFUA
+        qgCqAKoA/wCqAAAfqgBVH6oAqh+qAP8fqgAAP6oAVT+qAKo/qgD/P6oAAF+qAFVfqgCqX6oA/1+qAAB/
+        qgBVf6oAqn+qAP9/qgAAn6oAVZ+qAKqfqgD/n6oAAL+qAFW/qgCqv6oA/7+qAADfqgBV36oAqt+qAP/f
+        qgAA/6oAVf+qAKr/qgD//6oAAADUAFUA1ACqANQA/wDUAAAf1ABVH9QAqh/UAP8f1AAAP9QAVT/UAKo/
+        1AD/P9QAAF/UAFVf1ACqX9QA/1/UAAB/1ABVf9QAqn/UAP9/1AAAn9QAVZ/UAKqf1AD/n9QAAL/UAFW/
+        1ACqv9QA/7/UAADf1ABV39QAqt/UAP/f1AAA/9QAVf/UAKr/1AD//9QAVQD/AKoA/wAAH/8AVR//AKof
+        /wD/H/8AAD//AFU//wCqP/8A/z//AABf/wBVX/8Aql//AP9f/wAAf/8AVX//AKp//wD/f/8AAJ//AFWf
+        /wCqn/8A/5//AAC//wBVv/8Aqr//AP+//wAA3/8AVd//AKrf/wD/3/8AVf//AKr//wD/zMwA/8z/AP//
+        MwD//2YA//+ZAP//zAAAfwAAVX8AAKp/AAD/fwAAAJ8AAFWfAACqnwAA/58AAAC/AABVvwAAqr8AAP+/
+        AAAA3wAAVd8AAKrfAAD/3wAAVf8AAKr/AAAAACoAVQAqAKoAKgD/ACoAAB8qAFUfKgCqHyoA/x8qAAA/
+        KgBVPyoA8Pv/AKSgoACAgIAAAAD/AAD/AAAA//8A/wAAAAAAAAD//wAA////AP39/f39/f39/f39/f39
+        /f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39
+        /f39/f39/f39/f39/f39/f39/f39/f39qoYIqoYIhqoIqgiqCaoIqgiqhqqGhoYIhoYIqv39/f0I/f39
+        /ar9/f39/YY2Ng4yDg4ODgoOCgoKCgqG/f39/Yb9/f39CP39/f39qjY7Ozs3Nzc3NjMSMjIOCqr9/f39
+        qv39/f2G/f39/f0IN19fOzs3Nzc3NjcODg4KCP39/f0I/f39/ar9/f39/ao6X19fXzs7Ozc3NzY3NgqG
+        /f39/Yb9/f39CP39/f39hl9jY19jX187Ozs7Nzc3Dqr9/f39qv39/f2G/f39/f0IOodjh19jX19fXztf
+        OzcOCP39/f0ICAmqCAiqCKoICapfCYdjh2ODY19fXzs7Ow6q/f39/QhITEwoSCUoKSQoqmMJCYcJCWNj
+        Y2NfY19fNgj9/f39qkyZmZmYmJRwlCmqX19fXl9fX186WzY3Njc2gv39/f0JcJ2dmZmZlJmUJAmqCaoJ
+        hggIqggICKoIqggI/f39/YZwnp2dnZmZmJVMqnx8fHx8fFR8VHhUVFRUVKr9/f39CHChoZ2dnZ2ZmUwJ
+        fKSkxqSkxqSkpKSkpKBUCP39/f2qcKLDoqGdnZ2ZTKp8ysakxqSkxqSkxqSkpFSq/f39/QiUpqbDoqHE
+        nZ1Mq3ykqMakyqSkxqSkpKSkVAj9/f39hpTIyKbHoqGhoXAIfMrLpMqkxqSkxqTGpKRUqv39/f0IlMym
+        yKbIpcShcAh8y6jKpMqkxsqkpKSkxlQI/f39/aqUzMzMyKbIpqJwqnzLy8qpxsqkpMakxqSkeAj9/f39
+        CJSUlJSUlJSUlJQJgMupy8qpysqkyqSkxqRUqv39/f2GCKoIqgiqCKoIhgigrcvPqcuoy8qkxsqkxnyG
+        /f39/ar9/f39/f39/f39qnzPz6nLy8uoyqnKpKTKVAj9/f39CP39/f39/f39/f0IfNDPz8+py8upyqjG
+        yqR8hv39/f2G/f39/f39/f39/Qik0K7P0M+ty8vLy6jKpXyq/f39/ar9/f39/f39/f39CHzQ09Ctz8/P
+        qcupy6jKeAj9/f39CP39/f39/f39/f2qoNPQ0NPQ0M/Qz8vLy6l8CP39/f2G/f39/f39/f39/QmkfKR8
+        oHx8fHx8fHx8fHyG/f39/aoIqgiqCKoIqgiqCKoIqgiqCKoIqgiqCKoIqgj9/f39/f39/f39/f39/f39
+        /f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f3/////////////
+        ///AAAAD3vgAA974AAPe+AAD3vgAA974AAPe+AADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AA
+        AAPAAAADwAAAA8AAAAPAAAADwAAAA9/4AAPf+AAD3/gAA9/4AAPf+AAD3/gAA8AAAAP//////////ygA
+        AAAQAAAAIAAAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACAAAAAgIAAgAAAAIAA
+        gACAgAAAgICAAMDcwADwyqYAqj8qAP8/KgAAXyoAVV8qAKpfKgD/XyoAAH8qAFV/KgCqfyoA/38qAACf
+        KgBVnyoAqp8qAP+fKgAAvyoAVb8qAKq/KgD/vyoAAN8qAFXfKgCq3yoA/98qAAD/KgBV/yoAqv8qAP//
+        KgAAAFUAVQBVAKoAVQD/AFUAAB9VAFUfVQCqH1UA/x9VAAA/VQBVP1UAqj9VAP8/VQAAX1UAVV9VAKpf
+        VQD/X1UAAH9VAFV/VQCqf1UA/39VAACfVQBVn1UAqp9VAP+fVQAAv1UAVb9VAKq/VQD/v1UAAN9VAFXf
+        VQCq31UA/99VAAD/VQBV/1UAqv9VAP//VQAAAH8AVQB/AKoAfwD/AH8AAB9/AFUffwCqH38A/x9/AAA/
+        fwBVP38Aqj9/AP8/fwAAX38AVV9/AKpffwD/X38AAH9/AFV/fwCqf38A/39/AACffwBVn38Aqp9/AP+f
+        fwAAv38AVb9/AKq/fwD/v38AAN9/AFXffwCq338A/99/AAD/fwBV/38Aqv9/AP//fwAAAKoAVQCqAKoA
+        qgD/AKoAAB+qAFUfqgCqH6oA/x+qAAA/qgBVP6oAqj+qAP8/qgAAX6oAVV+qAKpfqgD/X6oAAH+qAFV/
+        qgCqf6oA/3+qAACfqgBVn6oAqp+qAP+fqgAAv6oAVb+qAKq/qgD/v6oAAN+qAFXfqgCq36oA/9+qAAD/
+        qgBV/6oAqv+qAP//qgAAANQAVQDUAKoA1AD/ANQAAB/UAFUf1ACqH9QA/x/UAAA/1ABVP9QAqj/UAP8/
+        1AAAX9QAVV/UAKpf1AD/X9QAAH/UAFV/1ACqf9QA/3/UAACf1ABVn9QAqp/UAP+f1AAAv9QAVb/UAKq/
+        1AD/v9QAAN/UAFXf1ACq39QA/9/UAAD/1ABV/9QAqv/UAP//1ABVAP8AqgD/AAAf/wBVH/8Aqh//AP8f
+        /wAAP/8AVT//AKo//wD/P/8AAF//AFVf/wCqX/8A/1//AAB//wBVf/8Aqn//AP9//wAAn/8AVZ//AKqf
+        /wD/n/8AAL//AFW//wCqv/8A/7//AADf/wBV3/8Aqt//AP/f/wBV//8Aqv//AP/MzAD/zP8A//8zAP//
+        ZgD//5kA///MAAB/AABVfwAAqn8AAP9/AAAAnwAAVZ8AAKqfAAD/nwAAAL8AAFW/AACqvwAA/78AAADf
+        AABV3wAAqt8AAP/fAABV/wAAqv8AAAAAKgBVACoAqgAqAP8AKgAAHyoAVR8qAKofKgD/HyoAAD8qAFU/
+        KgDw+/8ApKCgAICAgAAAAP8AAP8AAAD//wD/AAAAAAAAAP//AAD///8A/f39/f39/f39/f39/f39/f0I
+        hgiqCKoICKoICKaGCP39qv39hv2GNg4ODjII/ar9/Yb9/ar9qjdjXzsOCP2G/f0IhquGCAleCWNfNob9
+        qv39qkxMTEgIX19fX18I/Qj9/QhwnZlMqoYIqggIqgiG/f2qcKadcAl8fFQDVFQDqv39CHDMpnCqfMvL
+        ysrKVAj9/QiUlHBwCYDPy8/LylSG/f2GqoYIqgig0M/Py8t8qv39CP39/f2GpNDQ0M/PfAn9/ar9/f39
+        qqT20NDQ0Hyq/f2G/f39/QmkpKSloKR8CP39CKoIhgiqCIYIqgiGCKr9/f39/f39/f39/f39/f39/f//
+        hv2AAf0ItAX9/bQFX2OABWNfgAU7O4ABNzeAAf39gAGq/YAB/YaAAf39vAE6h7wBX2O8AV9fgAE7N///
+        /f0oAAAAIAAAAEAAAAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADCv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/
+        wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/
+        wf/Cv8H/AAAAAAAAAAAAAAAAAAAAAMK/wf8AAAAAAAAAAAAAAAAAAAAAwr/B/wAAAAAAAAAAAAAAAAAA
+        AAAAAAAAwr/B/7Z3Sf+zckT/rm0//6toO/+nYjb/pF4y/6BZLv+dVCr/mlEn/5dNI/+VSiH/kkce/5FE
+        HP+RRBz/kUUb/8K/wf8AAAAAAAAAAAAAAAAAAAAAwr/B/wAAAAAAAAAAAAAAAAAAAADCv8H/AAAAAAAA
+        AAAAAAAAAAAAAAAAAADCv8H/v4JS//+aZv//lWD/+5Bc//WLV//uh1P/54FO/997S//Wdkb/zXBD/8Vr
+        QP+9Zj3/tGI5/65dN/+RRRz/wr/B/wAAAAAAAAAAAAAAAAAAAADCv8H/AAAAAAAAAAAAAAAAAAAAAMK/
+        wf8AAAAAAAAAAAAAAAAAAAAAAAAAAMK/wf/GjFv//6Rz//+fbf//m2f//5Zh//yRXf/3jVj/8IhV/+mD
+        UP/hfUz/2HhI/9ByRP/HbED/v2c9/5VJIf/Cv8H/AAAAAAAAAAAAAAAAAAAAAMK/wf8AAAAAAAAAAAAA
+        AAAAAAAAwr/B/wAAAAAAAAAAAAAAAAAAAAAAAAAAwr/B/86WZP//r4L//6p7//+mdf//oW7//5xo//+X
+        Yv/9kl7/+I5a//KJVf/rhFH/4n5N/9t4SP/Sc0X/mlEm/8K/wf8AAAAAAAAAAAAAAAAAAAAAwr/B/wAA
+        AAAAAAAAAAAAAAAAAADCv8H/AAAAAAAAAAAAAAAAAAAAAAAAAADCv8H/1J9s//+4kf//tIv//6+E//+r
+        ff//p3f//6Jw//+eav//mWT//pRf//qQWv/0i1b/7IVS/+V/Tv+gWC7/wr/B/wAAAAAAAAAAAAAAAAAA
+        AADCv8H/AAAAAAAAAAAAAAAAAAAAAMK/wf8AAAAAAAAAAAAAAAAAAAAAAAAAAMK/wf/apnP//7+d//+7
+        mP//uJL//7WM//+whv//rH///6d4//+jcf//n2v//5ll//+VYP/6kVv/9YxY/6diN//Cv8H/AAAAAAAA
+        AAAAAAAAAAAAAMK/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/96t
+        eP//wqL//8Gi//+/nv//vJn//7mT//+2jv//sYj//66A//+pev//pHP//6Bt//+bZ///l2L/r20//8K/
+        wf8AAAAAAAAAAAAAAAAAAAAAwr/B/xYXev8XF3b/GBVx/xkUbf8ZFGr/GhNm/xoSY/8bEV//HBFd/xwQ
+        W//Cv8H/4K96///Cov//wqL//8Ki///Cov//wJ///72b//+6lf//t4///7KJ//+ugv//qnv//6V0//+h
+        bv+3d0n/wr/B/wAAAAAAAAAAAAAAAAAAAADCv8H/FRqE/0dN1v8/RNL/Nz3Q/y40zv8nLcz/ISfK/xwh
+        yf8WHMf/GxJh/8K/wf/gr3r/4K96/+Cvev/gr3r/3614/9yqdf/apnL/16Nw/9Sea//Rmmj/zZZk/8qR
+        X//GjFz/w4dW/7+CUv/Cv8H/AAAAAAAAAAAAAAAAAAAAAMK/wf8SHZD/WF3a/05U1/9FS9X/PUPS/zU7
+        0P8uM83/JyzL/yAmyf8aFGn/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/
+        wf/Cv8H/wr/B/8K/wf/Cv8H/wr/B/8K/wf8AAAAAAAAAAAAAAAAAAAAAwr/B/xAfnP9obt7/YGTc/1Zb
+        2f9NU9f/RUrU/ztB0v80OdD/LDHO/xgWcv/Cv8H/Dn+n/w18pP8MeqH/DHie/wt1m/8Kc5j/CXGV/wlv
+        k/8JbJD/CGqN/wdpi/8HZ4j/BmWH/wZkhf8GYoP/wr/B/wAAAAAAAAAAAAAAAAAAAADCv8H/DiKp/3l+
+        4/9vdeH/Zmze/11i2/9UWtn/S1HW/0NI1P86P9H/Fhh9/8K/wf8Ogar/Barp/wGo6P8Apef/AKPm/wCi
+        5P8An+L/AJ7h/wCd3/8AnN7/AJnc/wCY2/8AmNn/AJbX/wZjhP/Cv8H/AAAAAAAAAAAAAAAAAAAAAMK/
+        wf8MJbX/iI7n/4CF5v93fOP/bnPg/2Vr3f9bYdv/UljY/0lP1v8UGoj/wr/B/w+Erf8Lrur/Bqvq/wOo
+        6f8Apuf/AKTm/wCi5f8AoOT/AJ/i/wCd4f8AnN//AJrd/wCZ2/8AmNr/BmWH/8K/wf8AAAAAAAAAAAAA
+        AAAAAAAAwr/B/wkowP+WnOz/jpTq/4aL6P9+hOX/dXri/2xx4P9jaN3/WV/b/xEek//Cv8H/EIaw/xay
+        7P8Or+z/Cavr/wWq6v8Bp+j/AKbn/wCj5f8AoeT/AJ/j/wCe4f8AnOD/AJve/wCa3f8HZ4n/wr/B/wAA
+        AAAAAAAAAAAAAAAAAADCv8H/CCrK/6Ko7/+coe7/lZrr/42T6f+Fiub/fIHl/3N54v9rcN//ECGg/8K/
+        wf8QiLP/I7nu/xq07f8Ssez/C63r/war6v8Cqen/AKbo/wCk5v8AouX/AKHk/wCf4f8AneH/AJzf/who
+        i//Cv8H/AAAAAAAAAAAAAAAAAAAAAMK/wf8GLNP/q7Hy/6as8P+hpu//mp/u/5OY6/+LkOj/g4nm/3qA
+        5P8NI6z/wr/B/xCKtv8xvvD/J7rv/x627f8Vsuz/Dq/s/wmr6/8Equn/Aafo/wCl5/8Ao+X/AKHk/wCf
+        4v8AnuH/CGqO/8K/wf8AAAAAAAAAAAAAAAAAAAAAwr/B/wUu2/+vtPP/r7Tz/6qv8v+mq/D/oKXv/5me
+        7f+Sl+v/io/p/wsmt//Cv8H/Eo24/0HF8f82wfD/LLzv/yK47v8atO3/EbHs/wut6/8Gq+r/A6np/wCm
+        6P8Apeb/AKLl/wCh5P8IbJD/wr/B/wAAAAAAAAAAAAAAAAAAAADCv8H/BC/h/wQv3/8FL9z/BS3Z/wYt
+        1v8GLNL/ByvP/wgqy/8IKcb/CSnC/8K/wf8Sjrv/Uszy/0fH8f87w/H/Mb7v/ye67/8et+7/FbPt/w6v
+        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
+</value>
+  </data>
+  <data name="&gt;&gt;tbtnStar.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mnuBackgroundLayout.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;popForeColor.Name" xml:space="preserve">
+    <value>popForeColor</value>
+  </data>
+  <data name="mnuFormatOrderBringToFront.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tcboLineColor.Caption" xml:space="preserve">
+    <value>Line Color</value>
+  </data>
+  <data name="barDockControlTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mnuFlipHorizontal.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuLoadBackground.Caption" xml:space="preserve">
+    <value>Load Image</value>
+  </data>
+  <data name="&gt;&gt;lstThickness.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtInside.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="tbtnFreehand.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuBackground.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="mnuLayoutStrech.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;mnuEditDelete.Name" xml:space="preserve">
+    <value>mnuEditDelete</value>
+  </data>
+  <data name="btnArrowProps.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnuOptSet.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="&gt;&gt;tbtnStar.Name" xml:space="preserve">
+    <value>tbtnStar</value>
+  </data>
+  <data name="mnuFileSave.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnRotLeft.Name" xml:space="preserve">
+    <value>btnRotLeft</value>
+  </data>
+  <data name="btnBringToFront.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="mnuTransformation.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ppdPrint.Enabled" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="mnuOptSetBackColor.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="tcboFillColor.Hint" xml:space="preserve">
+    <value>Fill Color</value>
+  </data>
+  <data name="btnArrowProps.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="mnuFileSaveImage.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <metadata name="ofdImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>603, 17</value>
+  </metadata>
+  <metadata name="tmrAutoSave.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1078, 17</value>
+  </metadata>
+  <metadata name="dlgBackColor.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>289, 17</value>
+  </metadata>
+  <metadata name="ImageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>142, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dlgSavePicture.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>946, 17</value>
+  </metadata>
+  <metadata name="ppdPrint.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>504, 17</value>
+  </metadata>
+  <metadata name="sfdImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>707, 17</value>
+  </metadata>
+  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="pdPrint.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>413, 17</value>
+  </metadata>
+  <metadata name="dlgOpenPicture.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>809, 17</value>
+  </metadata>
+</root>

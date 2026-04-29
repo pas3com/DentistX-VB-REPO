@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ApptCardCtl simulation</title>
+  <style>
+    /* Mirrors ApptCardCtl + default ApptCardAppearance (ApptViewMode.vb) */
+    :root {
+      --accent: #4682b4; /* SteelBlue */
+      /* BlendCardBackFromAccent(SteelBlue) — close visual match to WinForms blend */
+      --card-bg: #e3eaf3;
+      --border: rgb(205, 210, 220);
+      --time-start: #ff0000;
+      --time-end-fg: rgb(30, 70, 140);
+      --time-end-bg: rgba(236, 244, 255, 0.11); /* A=28 on near-white */
+      --patient: rgb(33, 37, 41);
+      --doctor: rgb(40, 48, 58);
+      --reason: rgb(0, 118, 128);
+      --notes: rgb(93, 64, 140);
+      --status-bg: rgb(103, 114, 229);
+      --status-fg: #fff;
+      --status-border: rgb(95, 105, 211);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Calibri, "Segoe UI", sans-serif;
+      background: #c8d0dc;
+      padding: 24px;
+    }
+
+    .demo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    /* === ApptCardCtl root === */
+    .appt-card {
+      --field-gap: 1px; /* FieldSpacing default */
+      width: 280px;
+      min-height: 120px;
+      display: flex;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    }
+
+    .appt-card.indicator {
+      outline: 3px solid #e53935; /* e.g. drag/resize feedback */
+      outline-offset: -3px;
+    }
+
+    /* 6px accent — _accentPanel Dock Left */
+    .appt-card__accent {
+      flex: 0 0 6px;
+      background: var(--accent);
+      align-self: stretch;
+    }
+
+    .appt-card__main {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+    }
+
+    .appt-card__body {
+      flex: 1 1 auto;
+      min-width: 90px;
+      padding: 0 4px 0 4px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--field-gap);
+    }
+
+    /* Time row — LayoutTimeRow, timeGap 4px */
+    .appt-card__times {
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+      align-items: stretch;
+      margin-top: 0;
+    }
+
+    .appt-card__time {
+      padding: 1px 5px;
+      font-size: 9.5pt;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1px;
+    }
+
+    .appt-card__time--start {
+      color: var(--time-start);
+    }
+
+    .appt-card__time--end {
+      color: var(--time-end-fg);
+      background: var(--time-end-bg);
+      box-shadow: inset 0 0 0 1px rgba(200, 220, 240, 0.35);
+    }
+
+    .appt-card__field {
+      font-weight: 700;
+      line-height: 1.25;
+      word-wrap: break-word;
+    }
+
+    .appt-card__field--patient { font-size: 10.5pt; color: var(--patient); }
+    .appt-card__field--doctor { font-size: 9.25pt; color: var(--doctor); padding: 2px 5px; }
+    .appt-card__field--reason { font-size: 9pt; color: var(--reason); }
+    .appt-card__field--notes { font-size: 8.75pt; color: var(--notes); }
+
+    /* Status — dock right, full card height; English: bottom-to-top (matches ApptCardStatusLabel -90°) */
+    .appt-card__status {
+      flex: 0 0 auto;
+      width: 36px;
+      align-self: stretch;
+      background: linear-gradient(180deg, var(--status-bg), var(--status-border));
+      color: var(--status-fg);
+      font-size: 8.75pt;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-left: 1px solid var(--status-border);
+      border-radius: 0 4px 4px 0;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      letter-spacing: 0.02em;
+      user-select: none;
+    }
+
+    /* Arabic-style card: status reads top-to-bottom; RTL body */
+    .appt-card--rtl {
+      direction: rtl;
+    }
+
+    .appt-card--rtl .appt-card__body {
+      padding: 0 4px 0 4px;
+    }
+
+    /* Arabic: top-to-bottom (+90°), strip on trailing edge after RTL mirror */
+    .appt-card--rtl .appt-card__status {
+      transform: none;
+      writing-mode: vertical-rl;
+      border-left: none;
+      border-right: 1px solid var(--status-border);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: #333;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <p class="hint">
+    Static HTML/CSS approximation of <strong>HtmlCard</strong> / <strong>ApptCardCtl</strong> layout: 6px accent strip,
+    simple border, HTML body (times + fields), vertical status strip <strong>docked right</strong> full height
+    (English bottom-to-top, Arabic top-to-bottom). Colors follow default <code>ApptCardAppearance</code> in
+    <code>ApptViewMode.vb</code>.
+  </p>
+
+  <div class="demo-grid">
+    <article class="appt-card" aria-label="Appointment card">
+      <div class="appt-card__accent" aria-hidden="true"></div>
+      <div class="appt-card__main">
+        <div class="appt-card__body">
+          <div class="appt-card__times">
+            <span class="appt-card__time appt-card__time--start">9:00 AM</span>
+            <span class="appt-card__time appt-card__time--end">10:30 AM</span>
+          </div>
+          <div class="appt-card__field appt-card__field--patient">Jane Patient</div>
+          <div class="appt-card__field appt-card__field--doctor">Dr. Smith</div>
+          <div class="appt-card__field appt-card__field--reason">Cleaning + exam</div>
+          <div class="appt-card__field appt-card__field--notes">Prefers morning slots</div>
+        </div>
+        <div class="appt-card__status" title="Status">Confirmed</div>
+      </div>
+    </article>
+
+    <article class="appt-card indicator" aria-label="With indicator border">
+      <div class="appt-card__accent" style="--accent:#2e8b57;"></div>
+      <div class="appt-card__main">
+        <div class="appt-card__body" style="--card-bg:#e8f2eb;">
+          <div class="appt-card__times">
+            <span class="appt-card__time appt-card__time--start">14:00</span>
+            <span class="appt-card__time appt-card__time--end">15:15</span>
+          </div>
+          <div class="appt-card__field appt-card__field--patient">Omar Hassan</div>
+          <div class="appt-card__field appt-card__field--doctor">Dr. Malek</div>
+          <div class="appt-card__field appt-card__field--reason">Implant follow-up</div>
+          <div class="appt-card__field appt-card__field--notes"></div>
+        </div>
+        <div class="appt-card__status" style="--status-bg:#c62828;--status-border:#8e0000;">Cancelled</div>
+      </div>
+    </article>
+
+    <article class="appt-card appt-card--rtl" lang="ar" dir="rtl" aria-label="RTL card">
+      <div class="appt-card__accent" aria-hidden="true"></div>
+      <div class="appt-card__main">
+        <div class="appt-card__body">
+          <div class="appt-card__times">
+            <span class="appt-card__time appt-card__time--start">١٠:٠٠ ص</span>
+            <span class="appt-card__time appt-card__time--end">١١:٠٠ ص</span>
+          </div>
+          <div class="appt-card__field appt-card__field--patient">مريض تجريبي</div>
+          <div class="appt-card__field appt-card__field--doctor">د. مالك</div>
+          <div class="appt-card__field appt-card__field--reason">فحص دوري</div>
+          <div class="appt-card__field appt-card__field--notes">—</div>
+        </div>
+        <div class="appt-card__status">مجدول</div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

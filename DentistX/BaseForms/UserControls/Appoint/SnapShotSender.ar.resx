@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="colJobId.Caption" xml:space="preserve">
+    <value>رقم</value>
+  </data>
+  <data name="colJobEnabled.Caption" xml:space="preserve">
+    <value>تشغيل</value>
+  </data>
+  <data name="colJobTime.Caption" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="colJobDays.Caption" xml:space="preserve">
+    <value>أيام</value>
+  </data>
+  <data name="colJobRecipCount.Caption" xml:space="preserve">
+    <value>عدد</value>
+  </data>
+  <data name="colJobCaption.Caption" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnNewJob.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1063, 7</value>
+  </data>
+  <data name="btnNewJob.Text" xml:space="preserve">
+    <value>مهمة جديدة</value>
+  </data>
+  <data name="btnDeleteJob.Location" type="System.Drawing.Point, System.Drawing">
+    <value>947, 7</value>
+  </data>
+  <data name="btnDeleteJob.Text" xml:space="preserve">
+    <value>حذف المهمة</value>
+  </data>
+  <data name="btnRefreshJobs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>831, 7</value>
+  </data>
+  <data name="btnRefreshJobs.Text" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="colRecSource.Caption" xml:space="preserve">
+    <value>المصدر</value>
+  </data>
+  <data name="colRecPk.Caption" xml:space="preserve">
+    <value>المعرّف</value>
+  </data>
+  <data name="colRecName.Caption" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="colRecPrefix.Caption" xml:space="preserve">
+    <value>بادئة</value>
+  </data>
+  <data name="colRecLocal.Caption" xml:space="preserve">
+    <value>محلي</value>
+  </data>
+  <data name="colRecActive.Caption" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="btnRemoveRecipient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 8</value>
+  </data>
+  <data name="btnRemoveRecipient.Text" xml:space="preserve">
+    <value>إزالة</value>
+  </data>
+  <data name="btnAddRecipient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 8</value>
+  </data>
+  <data name="btnAddRecipient.Text" xml:space="preserve">
+    <value>إضافة مستلم</value>
+  </data>
+  <data name="lookUpSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>351, 11</value>
+  </data>
+  <data name="lblPick.Location" type="System.Drawing.Point, System.Drawing">
+    <value>864, 15</value>
+  </data>
+  <data name="lblPick.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 15</value>
+  </data>
+  <data name="lblPick.Text" xml:space="preserve">
+    <value>الشخص</value>
+  </data>
+  <data name="cboSourceType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>912, 11</value>
+  </data>
+  <data name="lblSourceType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1110, 15</value>
+  </data>
+  <data name="lblSourceType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 15</value>
+  </data>
+  <data name="lblSourceType.Text" xml:space="preserve">
+    <value>المصدر</value>
+  </data>
+  <data name="btnTestSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 13</value>
+  </data>
+  <data name="btnTestSend.Text" xml:space="preserve">
+    <value>إرسال تجريبي الآن</value>
+  </data>
+  <data name="btnSaveJob.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 13</value>
+  </data>
+  <data name="btnSaveJob.Text" xml:space="preserve">
+    <value>حفظ المهمة</value>
+  </data>
+  <data name="lblCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1033, 107</value>
+  </data>
+  <data name="lblCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="lblCaption.Text" xml:space="preserve">
+    <value>عنوان الرسالة</value>
+  </data>
+  <data name="lblJobNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1062, 141</value>
+  </data>
+  <data name="lblJobNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 15</value>
+  </data>
+  <data name="lblJobNotes.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="flowDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 52</value>
+  </data>
+  <data name="lblDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1033, 64</value>
+  </data>
+  <data name="lblDays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="lblDays.Text" xml:space="preserve">
+    <value>أيام الأسبوع</value>
+  </data>
+  <data name="timeSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>915, 25</value>
+  </data>
+  <data name="lblSendTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1033, 29</value>
+  </data>
+  <data name="lblSendTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 15</value>
+  </data>
+  <data name="lblSendTime.Text" xml:space="preserve">
+    <value>وقت الإرسال (محلي)</value>
+  </data>
+  <data name="chkJobEnabled.Location" type="System.Drawing.Point, System.Drawing">
+    <value>793, 26</value>
+  </data>
+  <data name="chkJobEnabled.Properties.Caption" xml:space="preserve">
+    <value>مفعّل</value>
+  </data>
+  <data name="tabSetup.Text" xml:space="preserve">
+    <value>المهمة والمستلمون</value>
+  </data>
+  <data name="colRunDate.Caption" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
+  <data name="colStatus.Caption" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="colStarted.Caption" xml:space="preserve">
+    <value>البداية</value>
+  </data>
+  <data name="colCompleted.Caption" xml:space="preserve">
+    <value>النهاية</value>
+  </data>
+  <data name="colLogRecip.Caption" xml:space="preserve">
+    <value>مستلم</value>
+  </data>
+  <data name="colErr.Caption" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="colMedia.Caption" xml:space="preserve">
+    <value>ملف</value>
+  </data>
+  <data name="btnRefreshLog.Text" xml:space="preserve">
+    <value>تحديث السجل</value>
+  </data>
+  <data name="tabHistory.Text" xml:space="preserve">
+    <value>سجل الإرسال</value>
+  </data>
+  <data name="btnClose.Text" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>إرسال لقطة الجدول المجدول</value>
+  </data>
+</root>

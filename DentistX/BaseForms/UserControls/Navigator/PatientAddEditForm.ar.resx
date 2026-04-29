@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PatientNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 15</value>
+  </data>
+  <data name="PatientNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 15</value>
+  </data>
+  <data name="PatientNameLabel.Text" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="SexLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 41</value>
+  </data>
+  <data name="SexLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 15</value>
+  </data>
+  <data name="SexLabel.Text" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="AgeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 66</value>
+  </data>
+  <data name="AgeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 15</value>
+  </data>
+  <data name="AgeLabel.Text" xml:space="preserve">
+    <value>العمر</value>
+  </data>
+  <data name="PhoneLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 92</value>
+  </data>
+  <data name="PhoneLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 15</value>
+  </data>
+  <data name="PhoneLabel.Text" xml:space="preserve">
+    <value>هاتف</value>
+  </data>
+  <data name="AddressLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 123</value>
+  </data>
+  <data name="AddressLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 15</value>
+  </data>
+  <data name="AddressLabel.Text" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="HealthLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 149</value>
+  </data>
+  <data name="HealthLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 15</value>
+  </data>
+  <data name="HealthLabel.Text" xml:space="preserve">
+    <value>الحالة الصحية</value>
+  </data>
+  <data name="NotesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 180</value>
+  </data>
+  <data name="NotesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 15</value>
+  </data>
+  <data name="NotesLabel.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="BirthYLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>214, 66</value>
+  </data>
+  <data name="BirthYLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="BirthYLabel.Text" xml:space="preserve">
+    <value>سنة الميلاد</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>214, 92</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 15</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>واتسآب</value>
+  </data>
+  <data name="TxtName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 11</value>
+  </data>
+  <data name="TxtName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 22</value>
+  </data>
+  <data name="PatientIDEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 11</value>
+  </data>
+  <data name="PicBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>423, 86</value>
+  </data>
+  <data name="SpinAge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 62</value>
+  </data>
+  <data name="TxtPhone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 88</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>356, 15</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>رقم المريض</value>
+  </data>
+  <data name="TreatCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 209</value>
+  </data>
+  <data name="TreatCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 19</value>
+  </data>
+  <data name="TreatCheck.Text" xml:space="preserve">
+    <value>علاج سني</value>
+  </data>
+  <data name="ImplntCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 209</value>
+  </data>
+  <data name="ImplntCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
+  <data name="ImplntCheck.Text" xml:space="preserve">
+    <value>زراعة</value>
+  </data>
+  <data name="MobileCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>329, 209</value>
+  </data>
+  <data name="MobileCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 19</value>
+  </data>
+  <data name="MobileCheck.Text" xml:space="preserve">
+    <value>تـ. متحركة</value>
+  </data>
+  <data name="OrthoCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 209</value>
+  </data>
+  <data name="OrthoCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="OrthoCheck.Text" xml:space="preserve">
+    <value>تقويم</value>
+  </data>
+  <data name="StrucCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 209</value>
+  </data>
+  <data name="StrucCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 19</value>
+  </data>
+  <data name="StrucCheck.Text" xml:space="preserve">
+    <value>تـ. ثابتة</value>
+  </data>
+  <data name="TxtNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 176</value>
+  </data>
+  <data name="TxtNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 22</value>
+  </data>
+  <data name="SpinYear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>276, 62</value>
+  </data>
+  <data name="SpinYear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 22</value>
+  </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>اضافة</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="RadioFemale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 39</value>
+  </data>
+  <data name="RadioFemale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 19</value>
+  </data>
+  <data name="RadioFemale.Text" xml:space="preserve">
+    <value>انثى</value>
+  </data>
+  <data name="RadioMale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 39</value>
+  </data>
+  <data name="RadioMale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 19</value>
+  </data>
+  <data name="RadioMale.Text" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="TxtSex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 38</value>
+  </data>
+  <data name="TxtHealth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>257, 145</value>
+  </data>
+  <data name="TxtAdrs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>257, 119</value>
+  </data>
+  <data name="TxtAge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 62</value>
+  </data>
+  <data name="CboCity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 119</value>
+  </data>
+  <data name="CboHealth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 147</value>
+  </data>
+  <data name="DiagCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>234, 209</value>
+  </data>
+  <data name="DiagCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 19</value>
+  </data>
+  <data name="DiagCheck.Text" xml:space="preserve">
+    <value>تشخيص</value>
+  </data>
+  <data name="WhatsAppTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>262, 90</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>اضافة مريض جديد</value>
+  </data>
+</root>

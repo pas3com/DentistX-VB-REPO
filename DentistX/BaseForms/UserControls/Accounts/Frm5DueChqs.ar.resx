@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MainSplit.Panel1.Text" xml:space="preserve">
+    <value>الجدول</value>
+  </data>
+  <data name="MainSplit.Panel2.Text" xml:space="preserve">
+    <value>معاينة</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnListChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>521, 85</value>
+  </data>
+  <data name="btnListChqs.Text" xml:space="preserve">
+    <value>إعرض الشيكات</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>671, 88</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 15</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>عدد أيام العمل بعد التاريخ المستحق</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>472, 8</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 23</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>قم بتعديل الشيكات في القائمة اذا صرفت</value>
+  </data>
+  <data name="txtWorkDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>625, 86</value>
+  </data>
+  <data name="lblDueChqListHint.Text" xml:space="preserve">
+    <value>تُعرض الشيكات التي يكون فيها «تاريخ الاستحقاق المعدّل» مساوياً لتاريخ اليوم: أي تاريخ استحقاق الشيك + N أيام عمل (الأحد–الخميس؛ الجمعة والسبت لا تُحسب). هذا ليس «المستحق خلال N يوماً». غيّر الرقم أعلاه ثم اضغط «إعرض الشيكات».</value>
+  </data>
+  <data name="btnUpdateAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>780, 17</value>
+  </data>
+  <data name="btnUpdateAll.Text" xml:space="preserve">
+    <value>تحديث القائمة</value>
+  </data>
+  <data name="btnEditDueCheque.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 17</value>
+  </data>
+  <data name="btnEditDueCheque.Text" xml:space="preserve">
+    <value>تعديل الدفعة…</value>
+  </data>
+  <data name="btnUpdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 17</value>
+  </data>
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>تحديث الحالي</value>
+  </data>
+  <data name="colPayID.Caption" xml:space="preserve">
+    <value>رقم الدفعة</value>
+  </data>
+  <data name="colPatientID.Caption" xml:space="preserve">
+    <value>معرّف المريض</value>
+  </data>
+  <data name="colPatientName.Caption" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <data name="colChqOwner.Caption" xml:space="preserve">
+    <value>صاحب الشيك</value>
+  </data>
+  <data name="colAccountNumber.Caption" xml:space="preserve">
+    <value>رقم الحساب</value>
+  </data>
+  <data name="colChqNumber.Caption" xml:space="preserve">
+    <value>رقم الشيك</value>
+  </data>
+  <data name="colChqBank.Caption" xml:space="preserve">
+    <value>اسم البنك</value>
+  </data>
+  <data name="colChqDueDate.Caption" xml:space="preserve">
+    <value>تاريخ الاستحقاق</value>
+  </data>
+  <data name="colAdjustedDueDate.Caption" xml:space="preserve">
+    <value>تاريخ الاستحقاق المعدل</value>
+  </data>
+  <data name="colPayValue.Caption" xml:space="preserve">
+    <value>مبلغ الشيك</value>
+  </data>
+  <data name="colPayDate.Caption" xml:space="preserve">
+    <value>تاريخ الدفعة</value>
+  </data>
+  <data name="colNotes.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="colPayType.Caption" xml:space="preserve">
+    <value>نوع الدفعة</value>
+  </data>
+  <data name="colIsCashed.Caption" xml:space="preserve">
+    <value>هل صرف؟</value>
+  </data>
+  <data name="colIsForward.Caption" xml:space="preserve">
+    <value>مُحال إلى</value>
+  </data>
+  <data name="colIsReturnedDue.Caption" xml:space="preserve">
+    <value>مرتجع؟</value>
+  </data>
+  <data name="dtpFromPayDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>607, 26</value>
+  </data>
+  <data name="dtpToPayDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 26</value>
+  </data>
+  <data name="btnListAllChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>206, 25</value>
+  </data>
+  <data name="btnListAllChqs.Text" xml:space="preserve">
+    <value>عرض الكل</value>
+  </data>
+  <data name="btnEditAllChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 25</value>
+  </data>
+  <data name="btnEditAllChqs.Text" xml:space="preserve">
+    <value>تعديل الدفعة…</value>
+  </data>
+  <data name="btnSrchAllChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>311, 25</value>
+  </data>
+  <data name="btnSrchAllChqs.Text" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="txtChqNumSrch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>769, 26</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1207, 30</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>اسم المريض:</value>
+  </data>
+  <data name="txtPatientSrch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1013, 26</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>570, 30</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>إلى:</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>713, 30</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 15</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>من:</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>915, 30</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>رقم الشيك:</value>
+  </data>
+  <data name="AllChequesTab.Text" xml:space="preserve">
+    <value>كل الشيكات</value>
+  </data>
+  <data name="DueChequesTab.Text" xml:space="preserve">
+    <value>الشيكات المستحقة</value>
+  </data>
+  <data name="lblPatientNameVal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 52</value>
+  </data>
+  <data name="lblPatientIDVal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>481, 28</value>
+  </data>
+  <data name="lblPatientNameCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>523, 52</value>
+  </data>
+  <data name="lblPatientNameCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 15</value>
+  </data>
+  <data name="lblPatientNameCap.Text" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <data name="lblPatientIDCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>515, 28</value>
+  </data>
+  <data name="lblPatientIDCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 15</value>
+  </data>
+  <data name="lblPatientIDCap.Text" xml:space="preserve">
+    <value>معرف المريض</value>
+  </data>
+  <data name="grpPatient.Text" xml:space="preserve">
+    <value>المريض</value>
+  </data>
+  <data name="lblChqDetailsVal.Text" xml:space="preserve">
+    <value>اختر صفاً من الجدول أعلاه لعرض التفاصيل.</value>
+  </data>
+  <data name="lblChqDetailsCap.Text" xml:space="preserve">
+    <value>رقم الدفعة، رقم الشيك، رقم الحساب، البنك، صاحب الشيك، تاريخ الاستحقاق، المبلغ، تاريخ الدفع، ملاحظات، تم الصرف؟</value>
+  </data>
+  <data name="grpChqDetails.Text" xml:space="preserve">
+    <value>تفاصيل الشيك</value>
+  </data>
+  <data name="colReturnedPayID.Caption" xml:space="preserve">
+    <value>رقم الدفعة</value>
+  </data>
+  <data name="colReturnedPatientID.Caption" xml:space="preserve">
+    <value>معرّف المريض</value>
+  </data>
+  <data name="colReturnedPatientName.Caption" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <data name="colReturnedChqOwner.Caption" xml:space="preserve">
+    <value>صاحب الشيك</value>
+  </data>
+  <data name="colReturnedAccountNumber.Caption" xml:space="preserve">
+    <value>رقم الحساب</value>
+  </data>
+  <data name="colReturnedChqNumber.Caption" xml:space="preserve">
+    <value>رقم الشيك</value>
+  </data>
+  <data name="colReturnedChqBank.Caption" xml:space="preserve">
+    <value>اسم البنك</value>
+  </data>
+  <data name="colReturnedChqDueDate.Caption" xml:space="preserve">
+    <value>تاريخ الاستحقاق</value>
+  </data>
+  <data name="colReturnedPayValue.Caption" xml:space="preserve">
+    <value>قيمة الدفعة</value>
+  </data>
+  <data name="colReturnedPayDate.Caption" xml:space="preserve">
+    <value>تاريخ الدفعة</value>
+  </data>
+  <data name="colReturnedNotes.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="colReturnedIsCashed.Caption" xml:space="preserve">
+    <value>هل صرف؟</value>
+  </data>
+  <data name="colIsReturned.Caption" xml:space="preserve">
+    <value>مرتجع؟</value>
+  </data>
+  <data name="btnListAllReturned.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 11</value>
+  </data>
+  <data name="btnListAllReturned.Text" xml:space="preserve">
+    <value>عرض الكل</value>
+  </data>
+  <data name="btnSearchReturned.Location" type="System.Drawing.Point, System.Drawing">
+    <value>519, 11</value>
+  </data>
+  <data name="btnSearchReturned.Text" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="btnEditReturnedCheque.Location" type="System.Drawing.Point, System.Drawing">
+    <value>261, 11</value>
+  </data>
+  <data name="btnEditReturnedCheque.Text" xml:space="preserve">
+    <value>تعديل الدفعة…</value>
+  </data>
+  <data name="txtSearchAccountNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>634, 12</value>
+  </data>
+  <data name="lblAccountNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>794, 16</value>
+  </data>
+  <data name="lblAccountNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 15</value>
+  </data>
+  <data name="lblAccountNumber.Text" xml:space="preserve">
+    <value>رقم الحساب</value>
+  </data>
+  <data name="txtSearchChqNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>898, 12</value>
+  </data>
+  <data name="lblChqNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1047, 16</value>
+  </data>
+  <data name="lblChqNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="lblChqNumber.Text" xml:space="preserve">
+    <value>رقم الشيك</value>
+  </data>
+  <data name="ChequeReturnedTab.Text" xml:space="preserve">
+    <value>الشيكات المعادة</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>الشيكات</value>
+  </data>
+</root>

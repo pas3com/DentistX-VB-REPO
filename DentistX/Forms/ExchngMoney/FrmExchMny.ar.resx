@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>326, 28</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 17</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>جهة الإتصال</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 60</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 17</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>نوع الحركة</value>
+  </data>
+  <data name="cboTransType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 57</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 90</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 17</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="txtAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>208, 87</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 118</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>تاريخ الحركة</value>
+  </data>
+  <data name="dtTransDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>208, 116</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 173</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 17</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="txtDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 144</value>
+  </data>
+  <data name="btnAddTrans.Location" type="System.Drawing.Point, System.Drawing">
+    <value>75, 231</value>
+  </data>
+  <data name="btnAddTrans.Text" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="ContactsCombo1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 24</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="colContactID.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="colContactID.VisibleIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="colName.Caption" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="colName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colLoanBorrow.Caption" xml:space="preserve">
+    <value>إجمالي القروض أو الاقتراض</value>
+  </data>
+  <data name="colLoanBorrow.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colRepaid.Caption" xml:space="preserve">
+    <value>إجمالي الدفعات</value>
+  </data>
+  <data name="colBal.Caption" xml:space="preserve">
+    <value>الرصيد</value>
+  </data>
+  <data name="colBal.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colStatus.Caption" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="colStatus.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="colCName2.Caption" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="colOriginalAmount.Caption" xml:space="preserve">
+    <value>المبلغ الأصلي</value>
+  </data>
+  <data name="colTotalRepaid.Caption" xml:space="preserve">
+    <value>إجمالي الدفعات</value>
+  </data>
+  <data name="colRemainingBalance.Caption" xml:space="preserve">
+    <value>الرصيد المتبقي</value>
+  </data>
+  <data name="colDirection.Caption" xml:space="preserve">
+    <value>إقراض /إقتراض</value>
+  </data>
+  <data name="colLoanDate.Caption" xml:space="preserve">
+    <value>تاريخ القرض</value>
+  </data>
+  <data name="colDescription.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>282, 31</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>رقم القرض</value>
+  </data>
+  <data name="lblLoanID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 31</value>
+  </data>
+  <data name="LabelControl8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>282, 69</value>
+  </data>
+  <data name="LabelControl8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 15</value>
+  </data>
+  <data name="LabelControl8.Text" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="txtRepayValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 66</value>
+  </data>
+  <data name="LabelControl9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>283, 97</value>
+  </data>
+  <data name="LabelControl9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 15</value>
+  </data>
+  <data name="LabelControl9.Text" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="LabelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>283, 125</value>
+  </data>
+  <data name="LabelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="LabelControl10.Text" xml:space="preserve">
+    <value>تاريخ الدفع</value>
+  </data>
+  <data name="txtNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 94</value>
+  </data>
+  <data name="dtRepayDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 122</value>
+  </data>
+  <data name="btnAddPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>57, 164</value>
+  </data>
+  <data name="btnAddPay.Text" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="colRepaymentID.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colLoanIDPay.Caption" xml:space="preserve">
+    <value>رقم القرض</value>
+  </data>
+  <data name="colAmountPay.Caption" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="colRepaymentDate.Caption" xml:space="preserve">
+    <value>تاريخ الدفع</value>
+  </data>
+  <data name="colNotesPay.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="btnEditLoan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 230</value>
+  </data>
+  <data name="btnEditLoan.Text" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="btnEditPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 164</value>
+  </data>
+  <data name="btnEditPay.Text" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="btnDelLoan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 230</value>
+  </data>
+  <data name="btnDelLoan.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="btnDelPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 164</value>
+  </data>
+  <data name="btnDelPay.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="GroupControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>411, 263</value>
+  </data>
+  <data name="GroupControl1.Text" xml:space="preserve">
+    <value>تفاصيل القرض</value>
+  </data>
+  <data name="GroupControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 299</value>
+  </data>
+  <data name="GroupControl2.Text" xml:space="preserve">
+    <value>تفاصيل الدفع</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>تحويل / تبادل أموال</value>
+  </data>
+</root>

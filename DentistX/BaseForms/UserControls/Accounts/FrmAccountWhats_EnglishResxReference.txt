@@ -1,0 +1,21 @@
+# FrmAccountWhats – English resx translations reference
+# Use these in FrmAccountWhats.resx (default) and FrmAccountWhats.en.resx. Do not change FrmAccountWhats.ar.resx.
+
+BtnSendAll.Text = Send All
+LblPayType.Text = Pay type:
+LblDateFrom.Text = From date:
+ChkBalanceOnly.Properties.Caption = Only those with balance (positive or negative)
+LblPatient.Text = Patient:
+LblFilterHelp.Text = All filters are applied together (AND): date range + patient + pay type + treatment and payment amounts + balance only. Leave blank what you don't want to use.
+$this.Text = Patient accounts - WhatsApp send
+BtnSchedule.Text = Schedule automatic reminders
+TxtPatient.Properties.NullText = Search by name...
+LblPayAmount.Text = Total payment:
+SpnTrtMin.Properties.NullText = From
+LblSummary.Text = Summary: 0 patients | Total treatments: 0.00 | Total payments: 0.00 | Total balance: 0.00
+SpnPayMin.Properties.NullText = From
+SpnTrtMax.Properties.NullText = To
+SpnPayMax.Properties.NullText = To
+LblDateTo.Text = To date:
+LblTrtAmount.Text = Total treatment:
+BtnRefresh.Text = Refresh

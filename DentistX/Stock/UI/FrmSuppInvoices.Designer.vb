@@ -1,0 +1,408 @@
+Imports DevExpress.XtraEditors
+Imports DevExpress.XtraGrid
+Imports DevExpress.XtraGrid.Views.Grid
+Imports DevExpress.XtraTab
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Public Class FrmSuppInvoices
+    Inherits DevExpress.XtraEditors.XtraForm
+
+    Private components As System.ComponentModel.IContainer
+
+    Friend WithEvents panelFilters As PanelControl
+    Friend WithEvents lblSupplier As LabelControl
+    Friend WithEvents cmbSupplier As LookUpEdit
+    Friend WithEvents chkAllSuppliers As CheckEdit
+    Friend WithEvents lblSearch As LabelControl
+    Friend WithEvents txtSearch As TextEdit
+    Friend WithEvents lblDateFrom As LabelControl
+    Friend WithEvents dtFrom As DateEdit
+    Friend WithEvents lblDateTo As LabelControl
+    Friend WithEvents dtTo As DateEdit
+    Friend WithEvents btnApplyFilters As SimpleButton
+    Friend WithEvents btnClearFilters As SimpleButton
+
+    Friend WithEvents tabMain As XtraTabControl
+    Friend WithEvents tabInvoices As XtraTabPage
+    Friend WithEvents tabSummary As XtraTabPage
+
+    Friend WithEvents pnlHeaders As PanelControl
+    Friend WithEvents lblHdrListTitle As LabelControl
+    Friend WithEvents grdHeaders As GridControl
+    Friend WithEvents viewHeaders As GridView
+
+    Friend WithEvents grdDetails As GridControl
+    Friend WithEvents viewDetails As GridView
+
+    Friend WithEvents panelHeader As PanelControl
+    Friend WithEvents lblHdrInvoice As LabelControl
+    Friend WithEvents lblHdrSupplier As LabelControl
+    Friend WithEvents lblHdrDate As LabelControl
+    Friend WithEvents lblHdrTotal As LabelControl
+
+    Friend WithEvents grdSummary As GridControl
+    Friend WithEvents viewSummary As GridView
+
+    <System.Diagnostics.DebuggerNonUserCode()>
+    Protected Overrides Sub Dispose(disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    <System.Diagnostics.DebuggerStepThrough()>
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSuppInvoices))
+        Me.panelFilters = New DevExpress.XtraEditors.PanelControl()
+        Me.lblSupplier = New DevExpress.XtraEditors.LabelControl()
+        Me.cmbSupplier = New DevExpress.XtraEditors.LookUpEdit()
+        Me.chkAllSuppliers = New DevExpress.XtraEditors.CheckEdit()
+        Me.lblSearch = New DevExpress.XtraEditors.LabelControl()
+        Me.txtSearch = New DevExpress.XtraEditors.TextEdit()
+        Me.lblDateFrom = New DevExpress.XtraEditors.LabelControl()
+        Me.dtFrom = New DevExpress.XtraEditors.DateEdit()
+        Me.lblDateTo = New DevExpress.XtraEditors.LabelControl()
+        Me.dtTo = New DevExpress.XtraEditors.DateEdit()
+        Me.btnApplyFilters = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnReport2 = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnReport = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnClearFilters = New DevExpress.XtraEditors.SimpleButton()
+        Me.tabMain = New DevExpress.XtraTab.XtraTabControl()
+        Me.tabInvoices = New DevExpress.XtraTab.XtraTabPage()
+        Me.grdDetails = New DevExpress.XtraGrid.GridControl()
+        Me.viewDetails = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.panelHeader = New DevExpress.XtraEditors.PanelControl()
+        Me.lblHdrInvoice = New DevExpress.XtraEditors.LabelControl()
+        Me.lblHdrSupplier = New DevExpress.XtraEditors.LabelControl()
+        Me.lblHdrDate = New DevExpress.XtraEditors.LabelControl()
+        Me.lblHdrTotal = New DevExpress.XtraEditors.LabelControl()
+        Me.grdHeaders = New DevExpress.XtraGrid.GridControl()
+        Me.viewHeaders = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.pnlHeaders = New DevExpress.XtraEditors.PanelControl()
+        Me.lblHdrListTitle = New DevExpress.XtraEditors.LabelControl()
+        Me.tabSummary = New DevExpress.XtraTab.XtraTabPage()
+        Me.grdSummary = New DevExpress.XtraGrid.GridControl()
+        Me.viewSummary = New DevExpress.XtraGrid.Views.Grid.GridView()
+        CType(Me.panelFilters, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelFilters.SuspendLayout()
+        CType(Me.cmbSupplier.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkAllSuppliers.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtFrom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtFrom.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tabMain, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabMain.SuspendLayout()
+        Me.tabInvoices.SuspendLayout()
+        CType(Me.grdDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.viewDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.panelHeader, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelHeader.SuspendLayout()
+        CType(Me.grdHeaders, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.viewHeaders, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pnlHeaders, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlHeaders.SuspendLayout()
+        Me.tabSummary.SuspendLayout()
+        CType(Me.grdSummary, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.viewSummary, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'panelFilters
+        '
+        Me.panelFilters.Controls.Add(Me.lblSupplier)
+        Me.panelFilters.Controls.Add(Me.cmbSupplier)
+        Me.panelFilters.Controls.Add(Me.chkAllSuppliers)
+        Me.panelFilters.Controls.Add(Me.lblSearch)
+        Me.panelFilters.Controls.Add(Me.txtSearch)
+        Me.panelFilters.Controls.Add(Me.lblDateFrom)
+        Me.panelFilters.Controls.Add(Me.dtFrom)
+        Me.panelFilters.Controls.Add(Me.lblDateTo)
+        Me.panelFilters.Controls.Add(Me.dtTo)
+        Me.panelFilters.Controls.Add(Me.btnApplyFilters)
+        Me.panelFilters.Controls.Add(Me.btnReport2)
+        Me.panelFilters.Controls.Add(Me.btnReport)
+        Me.panelFilters.Controls.Add(Me.btnClearFilters)
+        resources.ApplyResources(Me.panelFilters, "panelFilters")
+        Me.panelFilters.Name = "panelFilters"
+        '
+        'lblSupplier
+        '
+        Me.lblSupplier.Appearance.Font = CType(resources.GetObject("lblSupplier.Appearance.Font"), System.Drawing.Font)
+        Me.lblSupplier.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblSupplier, "lblSupplier")
+        Me.lblSupplier.Name = "lblSupplier"
+        '
+        'cmbSupplier
+        '
+        resources.ApplyResources(Me.cmbSupplier, "cmbSupplier")
+        Me.cmbSupplier.Name = "cmbSupplier"
+        Me.cmbSupplier.Properties.Appearance.Font = CType(resources.GetObject("cmbSupplier.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.cmbSupplier.Properties.Appearance.Options.UseFont = True
+        Me.cmbSupplier.Properties.NullText = resources.GetString("cmbSupplier.Properties.NullText")
+        Me.cmbSupplier.Properties.PopupWidth = 350
+        '
+        'chkAllSuppliers
+        '
+        resources.ApplyResources(Me.chkAllSuppliers, "chkAllSuppliers")
+        Me.chkAllSuppliers.Name = "chkAllSuppliers"
+        Me.chkAllSuppliers.Properties.Appearance.Font = CType(resources.GetObject("chkAllSuppliers.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.chkAllSuppliers.Properties.Appearance.Options.UseFont = True
+        Me.chkAllSuppliers.Properties.Caption = resources.GetString("chkAllSuppliers.Properties.Caption")
+        '
+        'lblSearch
+        '
+        Me.lblSearch.Appearance.Font = CType(resources.GetObject("lblSearch.Appearance.Font"), System.Drawing.Font)
+        Me.lblSearch.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblSearch, "lblSearch")
+        Me.lblSearch.Name = "lblSearch"
+        '
+        'txtSearch
+        '
+        resources.ApplyResources(Me.txtSearch, "txtSearch")
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Properties.Appearance.Font = CType(resources.GetObject("txtSearch.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.txtSearch.Properties.Appearance.Options.UseFont = True
+        '
+        'lblDateFrom
+        '
+        Me.lblDateFrom.Appearance.Font = CType(resources.GetObject("lblDateFrom.Appearance.Font"), System.Drawing.Font)
+        Me.lblDateFrom.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblDateFrom, "lblDateFrom")
+        Me.lblDateFrom.Name = "lblDateFrom"
+        '
+        'dtFrom
+        '
+        resources.ApplyResources(Me.dtFrom, "dtFrom")
+        Me.dtFrom.Name = "dtFrom"
+        Me.dtFrom.Properties.Appearance.Font = CType(resources.GetObject("dtFrom.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.dtFrom.Properties.Appearance.Options.UseFont = True
+        Me.dtFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("dtFrom.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
+        Me.dtFrom.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("dtFrom.Properties.CalendarTimeProperties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
+        '
+        'lblDateTo
+        '
+        Me.lblDateTo.Appearance.Font = CType(resources.GetObject("lblDateTo.Appearance.Font"), System.Drawing.Font)
+        Me.lblDateTo.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblDateTo, "lblDateTo")
+        Me.lblDateTo.Name = "lblDateTo"
+        '
+        'dtTo
+        '
+        resources.ApplyResources(Me.dtTo, "dtTo")
+        Me.dtTo.Name = "dtTo"
+        Me.dtTo.Properties.Appearance.Font = CType(resources.GetObject("dtTo.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.dtTo.Properties.Appearance.Options.UseFont = True
+        Me.dtTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("dtTo.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
+        Me.dtTo.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("dtTo.Properties.CalendarTimeProperties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
+        '
+        'btnApplyFilters
+        '
+        Me.btnApplyFilters.Appearance.Font = CType(resources.GetObject("btnApplyFilters.Appearance.Font"), System.Drawing.Font)
+        Me.btnApplyFilters.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.btnApplyFilters, "btnApplyFilters")
+        Me.btnApplyFilters.Name = "btnApplyFilters"
+        '
+        'btnReport2
+        '
+        Me.btnReport2.Appearance.Font = CType(resources.GetObject("btnReport2.Appearance.Font"), System.Drawing.Font)
+        Me.btnReport2.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.btnReport2, "btnReport2")
+        Me.btnReport2.Name = "btnReport2"
+        '
+        'btnReport
+        '
+        Me.btnReport.Appearance.Font = CType(resources.GetObject("btnReport.Appearance.Font"), System.Drawing.Font)
+        Me.btnReport.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.btnReport, "btnReport")
+        Me.btnReport.Name = "btnReport"
+        '
+        'btnClearFilters
+        '
+        Me.btnClearFilters.Appearance.Font = CType(resources.GetObject("btnClearFilters.Appearance.Font"), System.Drawing.Font)
+        Me.btnClearFilters.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.btnClearFilters, "btnClearFilters")
+        Me.btnClearFilters.Name = "btnClearFilters"
+        '
+        'tabMain
+        '
+        resources.ApplyResources(Me.tabMain, "tabMain")
+        Me.tabMain.Name = "tabMain"
+        Me.tabMain.SelectedTabPage = Me.tabInvoices
+        Me.tabMain.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabInvoices, Me.tabSummary})
+        '
+        'tabInvoices
+        '
+        Me.tabInvoices.Controls.Add(Me.grdDetails)
+        Me.tabInvoices.Controls.Add(Me.panelHeader)
+        Me.tabInvoices.Controls.Add(Me.grdHeaders)
+        Me.tabInvoices.Controls.Add(Me.pnlHeaders)
+        Me.tabInvoices.Name = "tabInvoices"
+        resources.ApplyResources(Me.tabInvoices, "tabInvoices")
+        '
+        'grdDetails
+        '
+        resources.ApplyResources(Me.grdDetails, "grdDetails")
+        Me.grdDetails.MainView = Me.viewDetails
+        Me.grdDetails.Name = "grdDetails"
+        Me.grdDetails.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.viewDetails})
+        '
+        'viewDetails
+        '
+        Me.viewDetails.Appearance.HeaderPanel.Font = CType(resources.GetObject("viewDetails.Appearance.HeaderPanel.Font"), System.Drawing.Font)
+        Me.viewDetails.Appearance.HeaderPanel.Options.UseFont = True
+        Me.viewDetails.Appearance.Row.Font = CType(resources.GetObject("viewDetails.Appearance.Row.Font"), System.Drawing.Font)
+        Me.viewDetails.Appearance.Row.Options.UseFont = True
+        Me.viewDetails.GridControl = Me.grdDetails
+        Me.viewDetails.Name = "viewDetails"
+        Me.viewDetails.OptionsBehavior.Editable = False
+        Me.viewDetails.OptionsView.ColumnAutoWidth = False
+        Me.viewDetails.OptionsView.EnableAppearanceEvenRow = True
+        Me.viewDetails.OptionsView.EnableAppearanceOddRow = True
+        Me.viewDetails.OptionsView.ShowFooter = True
+        Me.viewDetails.OptionsView.ShowGroupPanel = False
+        '
+        'panelHeader
+        '
+        Me.panelHeader.Controls.Add(Me.lblHdrInvoice)
+        Me.panelHeader.Controls.Add(Me.lblHdrSupplier)
+        Me.panelHeader.Controls.Add(Me.lblHdrDate)
+        Me.panelHeader.Controls.Add(Me.lblHdrTotal)
+        resources.ApplyResources(Me.panelHeader, "panelHeader")
+        Me.panelHeader.Name = "panelHeader"
+        '
+        'lblHdrInvoice
+        '
+        Me.lblHdrInvoice.Appearance.Font = CType(resources.GetObject("lblHdrInvoice.Appearance.Font"), System.Drawing.Font)
+        Me.lblHdrInvoice.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblHdrInvoice, "lblHdrInvoice")
+        Me.lblHdrInvoice.Name = "lblHdrInvoice"
+        '
+        'lblHdrSupplier
+        '
+        Me.lblHdrSupplier.Appearance.Font = CType(resources.GetObject("lblHdrSupplier.Appearance.Font"), System.Drawing.Font)
+        Me.lblHdrSupplier.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblHdrSupplier, "lblHdrSupplier")
+        Me.lblHdrSupplier.Name = "lblHdrSupplier"
+        '
+        'lblHdrDate
+        '
+        Me.lblHdrDate.Appearance.Font = CType(resources.GetObject("lblHdrDate.Appearance.Font"), System.Drawing.Font)
+        Me.lblHdrDate.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblHdrDate, "lblHdrDate")
+        Me.lblHdrDate.Name = "lblHdrDate"
+        '
+        'lblHdrTotal
+        '
+        Me.lblHdrTotal.Appearance.Font = CType(resources.GetObject("lblHdrTotal.Appearance.Font"), System.Drawing.Font)
+        Me.lblHdrTotal.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblHdrTotal, "lblHdrTotal")
+        Me.lblHdrTotal.Name = "lblHdrTotal"
+        '
+        'grdHeaders
+        '
+        resources.ApplyResources(Me.grdHeaders, "grdHeaders")
+        Me.grdHeaders.MainView = Me.viewHeaders
+        Me.grdHeaders.Name = "grdHeaders"
+        Me.grdHeaders.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.viewHeaders})
+        '
+        'viewHeaders
+        '
+        Me.viewHeaders.Appearance.HeaderPanel.Font = CType(resources.GetObject("viewHeaders.Appearance.HeaderPanel.Font"), System.Drawing.Font)
+        Me.viewHeaders.Appearance.HeaderPanel.Options.UseFont = True
+        Me.viewHeaders.Appearance.Row.Font = CType(resources.GetObject("viewHeaders.Appearance.Row.Font"), System.Drawing.Font)
+        Me.viewHeaders.Appearance.Row.Options.UseFont = True
+        Me.viewHeaders.GridControl = Me.grdHeaders
+        Me.viewHeaders.Name = "viewHeaders"
+        Me.viewHeaders.OptionsBehavior.Editable = False
+        Me.viewHeaders.OptionsView.ColumnAutoWidth = False
+        Me.viewHeaders.OptionsView.EnableAppearanceEvenRow = True
+        Me.viewHeaders.OptionsView.EnableAppearanceOddRow = True
+        Me.viewHeaders.OptionsView.ShowAutoFilterRow = True
+        Me.viewHeaders.OptionsView.ShowGroupPanel = False
+        '
+        'pnlHeaders
+        '
+        Me.pnlHeaders.Controls.Add(Me.lblHdrListTitle)
+        resources.ApplyResources(Me.pnlHeaders, "pnlHeaders")
+        Me.pnlHeaders.Name = "pnlHeaders"
+        '
+        'lblHdrListTitle
+        '
+        Me.lblHdrListTitle.Appearance.Font = CType(resources.GetObject("lblHdrListTitle.Appearance.Font"), System.Drawing.Font)
+        Me.lblHdrListTitle.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblHdrListTitle, "lblHdrListTitle")
+        Me.lblHdrListTitle.Name = "lblHdrListTitle"
+        '
+        'tabSummary
+        '
+        Me.tabSummary.Controls.Add(Me.grdSummary)
+        Me.tabSummary.Name = "tabSummary"
+        resources.ApplyResources(Me.tabSummary, "tabSummary")
+        '
+        'grdSummary
+        '
+        resources.ApplyResources(Me.grdSummary, "grdSummary")
+        Me.grdSummary.MainView = Me.viewSummary
+        Me.grdSummary.Name = "grdSummary"
+        Me.grdSummary.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.viewSummary})
+        '
+        'viewSummary
+        '
+        Me.viewSummary.Appearance.HeaderPanel.Font = CType(resources.GetObject("viewSummary.Appearance.HeaderPanel.Font"), System.Drawing.Font)
+        Me.viewSummary.Appearance.HeaderPanel.Options.UseFont = True
+        Me.viewSummary.Appearance.Row.Font = CType(resources.GetObject("viewSummary.Appearance.Row.Font"), System.Drawing.Font)
+        Me.viewSummary.Appearance.Row.Options.UseFont = True
+        Me.viewSummary.GridControl = Me.grdSummary
+        Me.viewSummary.Name = "viewSummary"
+        Me.viewSummary.OptionsBehavior.Editable = False
+        Me.viewSummary.OptionsView.ColumnAutoWidth = False
+        Me.viewSummary.OptionsView.EnableAppearanceEvenRow = True
+        Me.viewSummary.OptionsView.EnableAppearanceOddRow = True
+        Me.viewSummary.OptionsView.ShowFooter = True
+        Me.viewSummary.OptionsView.ShowGroupPanel = False
+        '
+        'FrmSuppInvoices
+        '
+        resources.ApplyResources(Me, "$this")
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.tabMain)
+        Me.Controls.Add(Me.panelFilters)
+        Me.Name = "FrmSuppInvoices"
+        CType(Me.panelFilters, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelFilters.ResumeLayout(False)
+        Me.panelFilters.PerformLayout()
+        CType(Me.cmbSupplier.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkAllSuppliers.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtFrom.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtFrom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tabMain, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabMain.ResumeLayout(False)
+        Me.tabInvoices.ResumeLayout(False)
+        CType(Me.grdDetails, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.viewDetails, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.panelHeader, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelHeader.ResumeLayout(False)
+        Me.panelHeader.PerformLayout()
+        CType(Me.grdHeaders, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.viewHeaders, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pnlHeaders, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlHeaders.ResumeLayout(False)
+        Me.pnlHeaders.PerformLayout()
+        Me.tabSummary.ResumeLayout(False)
+        CType(Me.grdSummary, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.viewSummary, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+
+    Friend WithEvents btnReport As SimpleButton
+    Friend WithEvents btnReport2 As SimpleButton
+End Class

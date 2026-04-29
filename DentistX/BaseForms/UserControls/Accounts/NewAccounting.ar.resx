@@ -1,0 +1,1034 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MainSplit.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TrtSplit.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkFullDetail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 200</value>
+  </data>
+  <data name="chkFullDetail.Properties.Caption" xml:space="preserve">
+    <value>تضمين العلاجات في الرسالة</value>
+  </data>
+  <data name="chkFullDetail.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkFullDetail.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkFullDetail.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="chkFullDetail.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="chkFullDetail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 19</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 169</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>لغة الرسالة</value>
+  </data>
+  <data name="RadioLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 165</value>
+  </data>
+  <data name="RadioLang.Properties.Items1" xml:space="preserve">
+    <value>عربي</value>
+  </data>
+  <data name="RadioLang.Properties.Items5" xml:space="preserve">
+    <value>انجليزي</value>
+  </data>
+  <data name="txtWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 115</value>
+  </data>
+  <data name="btnPrint.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 45</value>
+  </data>
+  <data name="btnPrint.Text" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="btnInvoiceGen.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnInvoiceGen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 45</value>
+  </data>
+  <data name="btnInvoiceGen.Text" xml:space="preserve">
+    <value>فاتورة</value>
+  </data>
+  <data name="btnAddTreat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 12</value>
+  </data>
+  <data name="btnAddTreat.Text" xml:space="preserve">
+    <value>إضافة علاج يدويا</value>
+  </data>
+  <data name="btnEditTrt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 12</value>
+  </data>
+  <data name="btnEditTrt.Text" xml:space="preserve">
+    <value>تعديل علاج</value>
+  </data>
+  <data name="btnResetPatientAccount.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnResetPatientAccount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 78</value>
+  </data>
+  <data name="btnResetPatientAccount.Text" xml:space="preserve">
+    <value>تصفير حساب المريض</value>
+  </data>
+  <data name="lblWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 144</value>
+  </data>
+  <data name="lblWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="lblWhats.Text" xml:space="preserve">
+    <value>رقم واتساب</value>
+  </data>
+  <data name="cboPrefix.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 115</value>
+  </data>
+  <data name="btnWhatsSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 109</value>
+  </data>
+  <data name="showAsChildChck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>174, 228</value>
+  </data>
+  <data name="showAsChildChck.Properties.Caption" xml:space="preserve">
+    <value>إظهار جميع الدفعات</value>
+  </data>
+  <data name="showAsChildChck.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="showAsChildChck.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="showAsChildChck.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="showAsChildChck.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="showAsChildChck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 19</value>
+  </data>
+  <data name="RadioFilter.Properties.Items1" xml:space="preserve">
+    <value>جميع العلاجات</value>
+  </data>
+  <data name="RadioFilter.Properties.Items5" xml:space="preserve">
+    <value>علاجات سنية</value>
+  </data>
+  <data name="RadioFilter.Properties.Items7" xml:space="preserve">
+    <value>علاجات اخرى</value>
+  </data>
+  <data name="RadioFilter.Properties.Items9" xml:space="preserve">
+    <value>علاجات التقويم</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.Append.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.CancelEdit.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.Edit.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.EndEdit.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.Buttons.Remove.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="Patient_TrtsGridControl.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRowNum.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colRowNum.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colTrtID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colPatientID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colToothTrtID.Caption" xml:space="preserve">
+    <value>علاج السن</value>
+  </data>
+  <data name="colToothTrtID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colOrthoID.Caption" xml:space="preserve">
+    <value>تقويم</value>
+  </data>
+  <data name="colOrthoID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colOtherTrtID.Caption" xml:space="preserve">
+    <value>علاج آخر</value>
+  </data>
+  <data name="colOtherTrtID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colDetail.Caption" xml:space="preserve">
+    <value>تفاصيل العلاج</value>
+  </data>
+  <data name="colDetail.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colTrtDate.Caption" xml:space="preserve">
+    <value>تاريخ العلاج</value>
+  </data>
+  <data name="colTrtDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colTrtValue.Caption" xml:space="preserve">
+    <value>قيمة العلاج</value>
+  </data>
+  <data name="colTrtValue.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colIsMultiTooth.Caption" xml:space="preserve">
+    <value>متعدد الأسنان</value>
+  </data>
+  <data name="colIsMultiTooth.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colDiscount.Caption" xml:space="preserve">
+    <value>خصم</value>
+  </data>
+  <data name="colDiscount.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colDiscount2.Caption" xml:space="preserve">
+    <value>خصم ثاني</value>
+  </data>
+  <data name="colDiscount2.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colDiscountType.Caption" xml:space="preserve">
+    <value>نوع الخصم</value>
+  </data>
+  <data name="colDiscountType.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ToolStripLabel5.ToolTipText" xml:space="preserve">
+    <value>إجمالي عدد العناصر</value>
+  </data>
+  <data name="ToolStripButton23.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton23.Text" xml:space="preserve">
+    <value>الأول</value>
+  </data>
+  <data name="ToolStripButton24.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton24.Text" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="ToolStripTextBox5.AccessibleName" xml:space="preserve">
+    <value>الموضع</value>
+  </data>
+  <data name="ToolStripTextBox5.ToolTipText" xml:space="preserve">
+    <value>الموضع الحالي</value>
+  </data>
+  <data name="ToolStripButton25.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton25.Text" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="ToolStripButton26.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton26.Text" xml:space="preserve">
+    <value>الأخير</value>
+  </data>
+  <data name="TrtSavNav.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="TrtSavNav.Text" xml:space="preserve">
+    <value>حفظ البيانات</value>
+  </data>
+  <data name="btnTrtDel.Text" xml:space="preserve">
+    <value>حذف علاج</value>
+  </data>
+  <data name="PaysSplit.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SidePanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>409, 0</value>
+  </data>
+  <data name="SidePanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 250</value>
+  </data>
+  <data name="btnBrowse.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 144</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>إستعراض</value>
+  </data>
+  <data name="btnEditPay.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnEditPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 96</value>
+  </data>
+  <data name="btnEditPay.Text" xml:space="preserve">
+    <value>تعديل دفعة</value>
+  </data>
+  <data name="cboPayType.EditValue" xml:space="preserve">
+    <value>جميع الدفعات</value>
+  </data>
+  <data name="cboPayType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 67</value>
+  </data>
+  <data name="cboPayType.Properties.Items" xml:space="preserve">
+    <value>جميع الدفعات</value>
+  </data>
+  <data name="cboPayType.Properties.Items1" xml:space="preserve">
+    <value>نقدًا</value>
+  </data>
+  <data name="cboPayType.Properties.Items2" xml:space="preserve">
+    <value>شيك</value>
+  </data>
+  <data name="cboPayType.Properties.Items3" xml:space="preserve">
+    <value>تأمين</value>
+  </data>
+  <data name="cboPayType.Properties.Items4" xml:space="preserve">
+    <value>بطاقة ائتمان</value>
+  </data>
+  <data name="cboPayType.Properties.Items5" xml:space="preserve">
+    <value>تحويل بنكي</value>
+  </data>
+  <data name="btnScan.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnScan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 144</value>
+  </data>
+  <data name="btnScan.Text" xml:space="preserve">
+    <value>مسح ضوئي</value>
+  </data>
+  <data name="btnAddPay.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnAddPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 63</value>
+  </data>
+  <data name="btnAddPay.Text" xml:space="preserve">
+    <value>إضافة دفعة</value>
+  </data>
+  <data name="LabelControl13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 71</value>
+  </data>
+  <data name="LabelControl13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="LabelControl13.Text" xml:space="preserve">
+    <value>نوع الدفعة</value>
+  </data>
+  <data name="SidePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="SidePanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>409, 250</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AllPaysGrid.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRowNum3.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="GridColumn3.Caption" xml:space="preserve">
+    <value>نوع الدفعة</value>
+  </data>
+  <data name="GridColumn3.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GridColumn4.Caption" xml:space="preserve">
+    <value>رقم المريض</value>
+  </data>
+  <data name="GridColumn5.Caption" xml:space="preserve">
+    <value>قيمة الدفعة</value>
+  </data>
+  <data name="GridColumn6.Caption" xml:space="preserve">
+    <value>تاريخ الدفعة</value>
+  </data>
+  <data name="GridColumn7.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="GridColumn8.Caption" xml:space="preserve">
+    <value>رقم الشيك</value>
+  </data>
+  <data name="GridColumn9.Caption" xml:space="preserve">
+    <value>حساب الشيك</value>
+  </data>
+  <data name="GridColumn10.Caption" xml:space="preserve">
+    <value>تاريخ الاستحقاق</value>
+  </data>
+  <data name="GridColumn11.Caption" xml:space="preserve">
+    <value>بنك الشيك</value>
+  </data>
+  <data name="GridColumn12.Caption" xml:space="preserve">
+    <value>صاحب الشيك</value>
+  </data>
+  <data name="GridColumn13.Caption" xml:space="preserve">
+    <value>مستلم الدفعة</value>
+  </data>
+  <data name="AllPaysPage.Text" xml:space="preserve">
+    <value>جميع الدفعات</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.Buttons.Append.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="Patient_PaysGridControl.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRowNum1.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colRowNum1.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colPayID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colTrtID1.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colPayType.Caption" xml:space="preserve">
+    <value>نوع الدفعة</value>
+  </data>
+  <data name="colPayType.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colPatientID1.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colPayValue.Caption" xml:space="preserve">
+    <value>قيمة الدفعة</value>
+  </data>
+  <data name="colPayValue.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colPayDate.Caption" xml:space="preserve">
+    <value>تاريخ الدفعة</value>
+  </data>
+  <data name="colPayDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colNotes.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="colNotes.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GridColumn1.Caption" xml:space="preserve">
+    <value>مستلم الدفعة</value>
+  </data>
+  <data name="CashGridPage.Text" xml:space="preserve">
+    <value>الدفعات النقدية</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.Buttons.Append.Hint" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="ChqsPayGrid.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRowNum2.Caption" xml:space="preserve">
+    <value>الرقم</value>
+  </data>
+  <data name="colRowNum2.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqsPayID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colPayTypeChq.Caption" xml:space="preserve">
+    <value>نوع الدفعة</value>
+  </data>
+  <data name="colPayTypeChq.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqPatientID.Caption" xml:space="preserve">
+    <value>رقم المريض</value>
+  </data>
+  <data name="colChqPatientID.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqsPayValue.Caption" xml:space="preserve">
+    <value>الدفعة</value>
+  </data>
+  <data name="colChqsPayValue.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqsPayDate.Caption" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="colChqsPayDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqsPayNotes.Caption" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="colChqsPayNotes.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GridColumn14.Caption" xml:space="preserve">
+    <value>مستلم الدفعة</value>
+  </data>
+  <data name="colChqNumber.Caption" xml:space="preserve">
+    <value>رقم الشيك</value>
+  </data>
+  <data name="colChqNumber.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqAccount.Caption" xml:space="preserve">
+    <value>رقم الحساب</value>
+  </data>
+  <data name="colChqAccount.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqDueDate.Caption" xml:space="preserve">
+    <value>تاريخ الحق</value>
+  </data>
+  <data name="colChqDueDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqBank.Caption" xml:space="preserve">
+    <value>البنك</value>
+  </data>
+  <data name="colChqBank.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colChqOwner.Caption" xml:space="preserve">
+    <value>صاحب الشيك</value>
+  </data>
+  <data name="colChqOwner.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChqGridPage.Text" xml:space="preserve">
+    <value>دفعات الشيكات</value>
+  </data>
+  <data name="ScannedPage.Text" xml:space="preserve">
+    <value>ملفات الماسح</value>
+  </data>
+  <data name="AttachedPage.Text" xml:space="preserve">
+    <value>الملفات المرفقة</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FileInfoPage.Text" xml:space="preserve">
+    <value>معلومات الملفات</value>
+  </data>
+  <data name="ToolStripLabel3.ToolTipText" xml:space="preserve">
+    <value>إجمالي عدد العناصر</value>
+  </data>
+  <data name="ToolStripButton15.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABMUlEQVQ4T2NgGDSgcNbz/00Lnv/PnPj4
+        P7ocDIS3P8Apx5A789n/VUfe/8elKL77wf/ghmtY5cAgY8rT/wv3fcCqKL7n4f+l+///96++gCEHBwk9
+        T/5P2/IeQ1FE+32w5sxZ//97lZ7AbUBk16P/vas/oCgKbb0H1ty67v9//86//13yD+A2ILD54f+6+e/g
+        ioJb7v5ftPf//451//9nzPn5367u53/7jO24DfCouv8/f9obFEV2xbf/p8/5/d+/69t/ncJ3/y0S1uM2
+        wL707v/sya8xFOmnnP9vUvTiv0rWp//GkctwG2CRd+d/av9rrIoMkk78l037+l83eB6GHBwYZt3+H9by
+        Eqci/dTL/zV8p2GVAwOdtBv//aof4lWk4jEBpxyDU+6V/yAFeBUNSgAA8HbAq1iUth4AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="ToolStripButton15.Text" xml:space="preserve">
+    <value>الأول</value>
+  </data>
+  <data name="ToolStripButton16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAu0lEQVQ4T2NgGDIgvP3Bf3QxokF894P/
+        wQ3XyDMgvufh/6X7///3r75AugER7ffBmjNn/f/vVXqCNANCW++BNbeu+//fv/Pvf5f8A8QbENxy9/+i
+        vf//d6z7/z9jzs//dnU//9tnbCfeABCwK779P33O7//+Xd/+6xS++2+RsJ40A0BAP+X8f5OiF/9Vsj79
+        N45cRroBIGCQdOK/bNrX/7rB88gzAAT0Uy//1/CdRr4BIKDiMYEyAwYvAADQFGCYLCz/twAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="ToolStripButton16.Text" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="ToolStripTextBox3.AccessibleName" xml:space="preserve">
+    <value>الموضع</value>
+  </data>
+  <data name="ToolStripTextBox3.ToolTipText" xml:space="preserve">
+    <value>الموضع الحالي</value>
+  </data>
+  <data name="ToolStripButton17.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVQ4T2NgGHSgcNbz/+hiJIHcmc/+
+        J3TfI9+QjClP/8/b//t/Qtcd8gxJ6Hnyf/a+X/87t/7971Z6mXRDIrse/Z+y7df/kqV//ydM//vfJvcs
+        aYYENj/837r2PVizccmX/9LR1/4bRy4j3hCPqvv/S+a+g2tWdOkhXjMI2Jfe/R/Y8ow8zSBgkXfnv03B
+        FfI0g4Bh1m3yNYOATtoN8jUPTQAAoH5foGOrmpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton17.Text" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="ToolStripButton18.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABK0lEQVQ4T2NgGFSgcNbz/+hiMACSa1rw
+        /H/mxMc41TDkznz2P6H7HlYFILlVR97/D29/gFUeDDKmPP0/b//v/wlddzAUgeQW7vvwP7jhGoYcHCT0
+        PPk/e9+v/51b//53K72MohAkN23L+//+1RdwGxDZ9ej/lG2//pcs/fs/Yfrf/za5Z+GKQXK9qz/89yo9
+        gduAwOaH/1vXvgdrNi758l86+tp/48hlYA0gubr57/675B/AbYBH1f3/JXPfwTUruvTAFYPk8qe9+W+f
+        sR23Afald/8HtjzD0AyTy578+r9FwnrcBljk3flvU3AFQzNMLrX/NdxLWIFh1m2smkEAJBfW8vK/bvA8
+        rPJgoJN2A6ckSM6v+uF/Dd9pONXgBU65V/6reEwAY3S5gQUAvtG/s2ZdVhgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripButton18.Text" xml:space="preserve">
+    <value>الأخير</value>
+  </data>
+  <data name="PaySavNav.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJklEQVQ4T62S30uTURjH/Re67ybootuc
+        GsO5mA3edA1l2TAsiX69kWZpukyTFC3TaK+6QbbEqZNmq43YRCN/gClSIspUsjJzhUscaopNBIOvPEd8
+        D9vFbuqB5+bA53PO8z1PXNz/qN6eMKh93k143Bvocq6hoz2E57YlWC2LkMwBPKqdR1XlV5SXfUJJ8TRu
+        3fRDFhA4OABYmrYRq7a2d6DLHsTZ7DesZYH79ToT1Nf9jmbkIji0toXjhrdQKEQYz7i4wPlilQmqKn9F
+        c6z24e/BdSTofSi7u4DThk4usLcuM8Ed07doNgKemgvhiOBGUeEsMjPsXND8NMgEBTemY8Kj/iAOapwQ
+        xXHo9TYuaGr8yQTi1fGY8MDYDxxIbse58++Rnm7lgsf1C+jvA3p7gAuXPsKYO8LSpsBoZno23bwHDyHL
+        +A6CIHFBTfUcun2Axw10Ov5CMv9B7cMVFioFRjPn5/ll+FSmF1ptHRfcK5+F6yXQZt+B1RKGLqcwog0X
+        Tci5XrEHZ3ihTXNBo6nmAlPJDNrsQGNDmN1MEJ0nqARMfFnGzPwKxOIHOKHzMFiV6oBaXcEFtJa2Z5Cf
+        TQKCr5U+wefAKgJLG7h9X0KixgFVagcSU1qgSi7lgvy8SUjmTQYf1rpwKF7Aq+5h+PpG0T80hpEPEzip
+        N0KhbkVSSguOKpuhVBZFCq5cHmbrSRtGS0L/TF9FaVNgNDPdSk3wsaQCLviX2gVsaDpr26+G4AAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="PaySavNav.Text" xml:space="preserve">
+    <value>حفظ البيانات</value>
+  </data>
+  <data name="btnPayDel.Text" xml:space="preserve">
+    <value>حذف دفعة</value>
+  </data>
+  <data name="LabelTotalDiscounts.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelTotalDiscounts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>731, 36</value>
+  </data>
+  <data name="LabelTotalDiscounts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 19</value>
+  </data>
+  <data name="LabelTotalDiscounts.Text" xml:space="preserve">
+    <value>مجموع الخصومات</value>
+  </data>
+  <data name="lblBal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 34</value>
+  </data>
+  <data name="lblBal.Text" xml:space="preserve">
+    <value>الرصيد النهائي للمريض :</value>
+  </data>
+  <data name="LabelControl12.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 36</value>
+  </data>
+  <data name="LabelControl12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 19</value>
+  </data>
+  <data name="LabelControl12.Text" xml:space="preserve">
+    <value>الرصيد النهائي</value>
+  </data>
+  <data name="lblTotalPays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>342, 34</value>
+  </data>
+  <data name="lblTotalPays.Text" xml:space="preserve">
+    <value>إجمالي قيمة الدفعات:</value>
+  </data>
+  <data name="lblTotalDisc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>596, 34</value>
+  </data>
+  <data name="lblTotalDisc.Text" xml:space="preserve">
+    <value>إجمالي قيمة الخصومات:</value>
+  </data>
+  <data name="lblTotalTrts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>924, 34</value>
+  </data>
+  <data name="lblTotalTrts.Text" xml:space="preserve">
+    <value>إجمالي قيمة العلاجات:</value>
+  </data>
+  <data name="LabelControl11.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 36</value>
+  </data>
+  <data name="LabelControl11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 19</value>
+  </data>
+  <data name="LabelControl11.Text" xml:space="preserve">
+    <value>مجموع الدفعات</value>
+  </data>
+  <data name="LabelControl10.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1059, 36</value>
+  </data>
+  <data name="LabelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 19</value>
+  </data>
+  <data name="LabelControl10.Text" xml:space="preserve">
+    <value>مجموع العلاجات</value>
+  </data>
+  <data name="BalanceGroup.Text" xml:space="preserve">
+    <value>تفاصيل الرصيد</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+</root>

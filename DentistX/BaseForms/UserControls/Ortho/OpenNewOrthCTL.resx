@@ -1,0 +1,2917 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TeethLosCombo.Properties.Items18" xml:space="preserve">
+    <value>LL3</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Clas2DetCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="TeethApprCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;ReverseBiteCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl21.Name" xml:space="preserve">
+    <value>LabelControl21</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="TeethChCombo.Properties.Items" xml:space="preserve">
+    <value>In Time</value>
+  </data>
+  <data name="OverLoadTeethTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 201</value>
+  </data>
+  <data name="&gt;&gt;RadioLips.Name" xml:space="preserve">
+    <value>RadioLips</value>
+  </data>
+  <data name="Clas2Combo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;txtPervOrth.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;OpenBiteDetCombo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="txtClas1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 53</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LabelControl14.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="OrthInfoGrp.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;txtClas3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="Label2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="OrthInfoGrp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>697, 270</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>Milk Teeth Appr.</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items23" xml:space="preserve">
+    <value>LL8</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items5" xml:space="preserve">
+    <value>Temporomandibular Joint</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items6" xml:space="preserve">
+    <value>UL7</value>
+  </data>
+  <data name="LabelControl17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 181</value>
+  </data>
+  <data name="LabelControl12.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;LipsCutTextBox.Name" xml:space="preserve">
+    <value>LipsCutTextBox</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items1" xml:space="preserve">
+    <value>UL2</value>
+  </data>
+  <data name="&gt;&gt;DeepBiteCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Name" xml:space="preserve">
+    <value>LabelControl7</value>
+  </data>
+  <data name="RadioLips.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl23.Text" xml:space="preserve">
+    <value>Ortho Pay Detail</value>
+  </data>
+  <data name="&gt;&gt;IllnesPeriodTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="CompliantsCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtPayValue.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 130</value>
+  </data>
+  <data name="&gt;&gt;btAddOrtho.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items13" xml:space="preserve">
+    <value>UR6 </value>
+  </data>
+  <data name="&gt;&gt;ClosingCombo.Name" xml:space="preserve">
+    <value>ClosingCombo</value>
+  </data>
+  <data name="&gt;&gt;txtPrevIll.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Name" xml:space="preserve">
+    <value>LabelControl13</value>
+  </data>
+  <data name="&gt;&gt;BadHabCombo.ZOrder" xml:space="preserve">
+    <value>37</value>
+  </data>
+  <data name="LabelControl7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>363, 205</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl18.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="IllnesCombo.Properties.Items1" xml:space="preserve">
+    <value>After Change</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>697, 600</value>
+  </data>
+  <data name="txtBite.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="OrthInfoGrp.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btResetDiag.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="RadioCusin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
+  </data>
+  <data name="&gt;&gt;txtPrevIll.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 15</value>
+  </data>
+  <data name="&gt;&gt;txtPayValue.Name" xml:space="preserve">
+    <value>txtPayValue</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items18" xml:space="preserve">
+    <value>LL3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl7.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 110</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 56</value>
+  </data>
+  <data name="BadHabCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="txtClosing.TabIndex" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
+  <data name="ClosingCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;RadioCusin.ZOrder" xml:space="preserve">
+    <value>47</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;DiagnoseGrp.Name" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="txtOrthoPriceDet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 26</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items24" xml:space="preserve">
+    <value>LR1</value>
+  </data>
+  <data name="&gt;&gt;Clas2Combo.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items26" xml:space="preserve">
+    <value>LR3</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items27" xml:space="preserve">
+    <value>LR4</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items20" xml:space="preserve">
+    <value>LL5</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items21" xml:space="preserve">
+    <value>LL6</value>
+  </data>
+  <data name="&gt;&gt;RadioPrevOrth.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items23" xml:space="preserve">
+    <value>LL8</value>
+  </data>
+  <data name="&gt;&gt;txtClosing.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;LabelControl15.Name" xml:space="preserve">
+    <value>LabelControl15</value>
+  </data>
+  <data name="txtPayValue.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 31</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items29" xml:space="preserve">
+    <value>LR6</value>
+  </data>
+  <data name="&gt;&gt;LabelControl16.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 15</value>
+  </data>
+  <data name="Clas2Combo.Properties.Items" xml:space="preserve">
+    <value>Division 1</value>
+  </data>
+  <data name="MilkTeethAppearTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>Birth</value>
+  </data>
+  <data name="&gt;&gt;txtKhota.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="TeethChCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 126</value>
+  </data>
+  <data name="LabelControl9.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="ClosingCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="LabelControl17.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Name" xml:space="preserve">
+    <value>LabelControl5</value>
+  </data>
+  <data name="&gt;&gt;txtPrevIll.Name" xml:space="preserve">
+    <value>txtPrevIll</value>
+  </data>
+  <data name="txtClas2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
+  </data>
+  <data name="FeedTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;CompliantsTextBox.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items" xml:space="preserve">
+    <value>UL1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl15.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;MalfunctionTextBox.Name" xml:space="preserve">
+    <value>MalfunctionTextBox</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items4" xml:space="preserve">
+    <value>UL5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TeethApprCombo.Properties.Items" xml:space="preserve">
+    <value>In Time</value>
+  </data>
+  <data name="txtTrtPrice.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 13pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtClas2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txtKhota.Name" xml:space="preserve">
+    <value>txtKhota</value>
+  </data>
+  <data name="&gt;&gt;LabelControl24.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="&gt;&gt;OrthoInfBindingSource.Name" xml:space="preserve">
+    <value>OrthoInfBindingSource</value>
+  </data>
+  <data name="FeedTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="btResetDiag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 23</value>
+  </data>
+  <data name="LabelControl19.Text" xml:space="preserve">
+    <value>Ortho Price</value>
+  </data>
+  <data name="LabelControl8.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="LabelControl9.Text" xml:space="preserve">
+    <value>Bad Habits</value>
+  </data>
+  <data name="LabelControl7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 15</value>
+  </data>
+  <data name="&gt;&gt;BadHabitsTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="BadHabitsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 126</value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items10" xml:space="preserve">
+    <value>UR3 </value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items30" xml:space="preserve">
+    <value>LR7</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items20" xml:space="preserve">
+    <value>LL5</value>
+  </data>
+  <data name="&gt;&gt;orthoDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtClas3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 106</value>
+  </data>
+  <data name="BadHabCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>589, 126</value>
+  </data>
+  <data name="&gt;&gt;TeethLosCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="TeethBurdCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 22</value>
+  </data>
+  <data name="&gt;&gt;OverLoadTeethTextBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="IllnesPeriodTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="txtBite.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CousinsHFactorTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="LabelControl12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>388, 181</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items26" xml:space="preserve">
+    <value>LR3</value>
+  </data>
+  <data name="LabelControl21.Text" xml:space="preserve">
+    <value>Ortho Price Detail</value>
+  </data>
+  <data name="txtClosing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl16.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="TeethOvrCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="CompliantsCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="&gt;&gt;btRestINF.Name" xml:space="preserve">
+    <value>btRestINF</value>
+  </data>
+  <data name="LabelControl13.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items23" xml:space="preserve">
+    <value>LL8</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Occlusion</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 105</value>
+  </data>
+  <data name="&gt;&gt;LabelControl23.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="&gt;&gt;ReverseBiteCombo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="&gt;&gt;BreastCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="TeethBurdCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="Clas1Combo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>254, 26</value>
+  </data>
+  <data name="IllnesPeriodTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;ThroatCutTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TeethLossTextBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtClas3.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="&gt;&gt;ThroatCutTextBox.Name" xml:space="preserve">
+    <value>ThroatCutTextBox</value>
+  </data>
+  <data name="txtClas2.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="&gt;&gt;BirthCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btResetDiag.Name" xml:space="preserve">
+    <value>btResetDiag</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items28" xml:space="preserve">
+    <value>LR5</value>
+  </data>
+  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items2" xml:space="preserve">
+    <value>UL3</value>
+  </data>
+  <data name="&gt;&gt;TeethApprCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items3" xml:space="preserve">
+    <value>Bilateral</value>
+  </data>
+  <data name="IllnesCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;TeethBurdCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;RadioThroat.ZOrder" xml:space="preserve">
+    <value>48</value>
+  </data>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="TeethApprCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items11" xml:space="preserve">
+    <value>UR4 </value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items21" xml:space="preserve">
+    <value>LL6</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="orthoDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items5" xml:space="preserve">
+    <value>UL6</value>
+  </data>
+  <data name="&gt;&gt;RadioPrevOrth.Name" xml:space="preserve">
+    <value>RadioPrevOrth</value>
+  </data>
+  <data name="&gt;&gt;ClosingCombo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items1" xml:space="preserve">
+    <value>Pronunciation</value>
+  </data>
+  <data name="&gt;&gt;RadioCusin.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BadHabitsTextBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="RadioPrevOrth.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="CompliantsCombo.Properties.Items1" xml:space="preserve">
+    <value>Functional</value>
+  </data>
+  <data name="TeethLossTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;OrthoDiagBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtBite.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="&gt;&gt;OrthInfoGrp.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btRestINF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 23</value>
+  </data>
+  <data name="orthoDate.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;btRestINF.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="LabelControl16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 15</value>
+  </data>
+  <data name="txtTrtPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 25</value>
+  </data>
+  <data name="TeethLosCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="LabelControl8.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ClosingCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;TeethBurdCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="MilkTeethAppearTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Label4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 65</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="OpenBiteDetCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Name" xml:space="preserve">
+    <value>LabelControl9</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="CompliantsTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 156</value>
+  </data>
+  <data name="RadioThroat.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="MalfuncCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl23.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;OrthInfoGrp.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtPrevIll.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;BadHabCombo.Name" xml:space="preserve">
+    <value>BadHabCombo</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items28" xml:space="preserve">
+    <value>LR5</value>
+  </data>
+  <data name="LabelControl15.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioPrevOrth.EditValue" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BadHabitsTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="Clas2DetCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="OverLoadTeethTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;OpenBiteDetCombo.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="txtPayValue.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;OrthInfoGrp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtPayValue.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="RadioCusin.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;OverLoadTeethTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="TeethApprCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="&gt;&gt;BadHabCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="MilkTeethAppearTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 101</value>
+  </data>
+  <data name="&gt;&gt;OrthoDiagBindingSource.Name" xml:space="preserve">
+    <value>OrthoDiagBindingSource</value>
+  </data>
+  <data name="CousinsHFactorTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtClas1.Name" xml:space="preserve">
+    <value>txtClas1</value>
+  </data>
+  <data name="&gt;&gt;MilkTeethChngTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;RadioPrevOrth.ZOrder" xml:space="preserve">
+    <value>46</value>
+  </data>
+  <data name="LabelControl8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 242</value>
+  </data>
+  <data name="TeethLossTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BirthCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="LipsCutTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="CousinsHFactorTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 77</value>
+  </data>
+  <data name="Clas2Combo.Properties.Items1" xml:space="preserve">
+    <value>Division 2</value>
+  </data>
+  <data name="txtOrthoPriceDet.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;OpenBiteCombo.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="TeethOvrCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 22</value>
+  </data>
+  <data name="DiagnoseGrp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>697, 330</value>
+  </data>
+  <data name="&gt;&gt;CousinsHFactorTextBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="LabelControl14.Text" xml:space="preserve">
+    <value>Throat Cut</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items14" xml:space="preserve">
+    <value>UR7 </value>
+  </data>
+  <data name="IllnesCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="&gt;&gt;MalfuncCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;RadioThroat.Name" xml:space="preserve">
+    <value>RadioThroat</value>
+  </data>
+  <data name="BreastCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;FeedTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="txtClas1.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="BiteCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 106</value>
+  </data>
+  <data name="btResetDiag.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items17" xml:space="preserve">
+    <value>LL2</value>
+  </data>
+  <data name="&gt;&gt;LabelControl21.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="Clas1Combo.Properties.Items1" xml:space="preserve">
+    <value>Spacing (DEASTEMA)</value>
+  </data>
+  <data name="&gt;&gt;LabelControl22.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPrice.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="LipsCutTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="txtPayNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="RadioLips.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="DeepBiteCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="LabelControl8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 15</value>
+  </data>
+  <data name="&gt;&gt;orthoDate.Name" xml:space="preserve">
+    <value>orthoDate</value>
+  </data>
+  <data name="txtPervOrth.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="BirthCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="RadioThroat.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;TeethLosCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl18.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;txtClas3.Name" xml:space="preserve">
+    <value>txtClas3</value>
+  </data>
+  <data name="Clas2DetCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items4" xml:space="preserve">
+    <value>UL5</value>
+  </data>
+  <data name="LabelControl19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 21</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>OpenNewOrthCTL</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items" xml:space="preserve">
+    <value>UL1</value>
+  </data>
+  <data name="Clas3Combo.Properties.Items" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPrice.Name" xml:space="preserve">
+    <value>txtTrtPrice</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;txtOrthoPriceDet.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="GroupControl1.Text" xml:space="preserve">
+    <value>Price And Payments</value>
+  </data>
+  <data name="&gt;&gt;txtBite.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="RadioThroat.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="RadioThroat.Properties.Items5" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items8" xml:space="preserve">
+    <value>UR1</value>
+  </data>
+  <data name="txtClosing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>568, 26</value>
+  </data>
+  <data name="RadioThroat.Properties.Items1" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="RadioThroat.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OpenBiteDetCombo.Properties.Items1" xml:space="preserve">
+    <value>Dental</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items15" xml:space="preserve">
+    <value>UR8 </value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items25" xml:space="preserve">
+    <value>LR2</value>
+  </data>
+  <data name="MilkTeethChngTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;OrthoInfBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LabelControl21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 15</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items30" xml:space="preserve">
+    <value>LR7</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items31" xml:space="preserve">
+    <value>LR8</value>
+  </data>
+  <data name="&gt;&gt;txtPayNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BreastCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="RadioPrevOrth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
+  </data>
+  <data name="LabelControl23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 54</value>
+  </data>
+  <data name="txtPrevIll.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;MilkTeethAppearTextBox.Name" xml:space="preserve">
+    <value>MilkTeethAppearTextBox</value>
+  </data>
+  <data name="OpenBiteCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items27" xml:space="preserve">
+    <value>LR4</value>
+  </data>
+  <data name="&gt;&gt;RadioCusin.Name" xml:space="preserve">
+    <value>RadioCusin</value>
+  </data>
+  <data name="&gt;&gt;LabelControl24.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="btRestINF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>639, 238</value>
+  </data>
+  <data name="BadHabitsTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TeethChCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioPrevOrth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>571, 101</value>
+  </data>
+  <data name="Clas2DetCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="RadioLips.EditValue" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btRestINF.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>Milk Teeth Change</value>
+  </data>
+  <data name="&gt;&gt;IllnesCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="LabelControl6.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;txtClas2.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="btAddOrtho.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BirthCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TeethApprCombo.Properties.Items1" xml:space="preserve">
+    <value>Early</value>
+  </data>
+  <data name="&gt;&gt;txtKhota.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TeethChCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BirthCombo.ZOrder" xml:space="preserve">
+    <value>44</value>
+  </data>
+  <data name="ThroatCutTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraUserControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;CompliantsTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="LabelControl9.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BreastCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="RadioLips.Properties.Items5" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="RadioLips.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;OpenBiteDetCombo.Name" xml:space="preserve">
+    <value>OpenBiteDetCombo</value>
+  </data>
+  <data name="RadioLips.Properties.Items1" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="&gt;&gt;Clas3Combo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="RadioLips.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
+  </data>
+  <data name="RadioLips.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Clas2Combo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="DeepBiteCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="LipsCutTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="FeedTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="RadioCusin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>571, 77</value>
+  </data>
+  <data name="&gt;&gt;ThroatCutTextBox.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="Clas3Combo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 15</value>
+  </data>
+  <data name="&gt;&gt;btResetDiag.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 56</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items11" xml:space="preserve">
+    <value>UR4 </value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items31" xml:space="preserve">
+    <value>LR8</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items21" xml:space="preserve">
+    <value>LL6</value>
+  </data>
+  <data name="txtPayValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 61</value>
+  </data>
+  <data name="&gt;&gt;TeethOvrCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="RadioCusin.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;MilkTeethChngTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 29</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items2" xml:space="preserve">
+    <value>Unilateral</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="LabelControl12.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;Clas2DetCombo.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items4" xml:space="preserve">
+    <value>Mandibular Displacement</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 15</value>
+  </data>
+  <data name="&gt;&gt;Clas2DetCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtClas2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtPervOrth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Items" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl7.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="Clas1Combo.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="ClosingCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;CompliantsTextBox.Name" xml:space="preserve">
+    <value>CompliantsTextBox</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 15</value>
+  </data>
+  <data name="BirthTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;TeethApprCombo.Name" xml:space="preserve">
+    <value>TeethApprCombo</value>
+  </data>
+  <data name="&gt;&gt;LipsCutTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ClosingCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;CompliantsCombo.ZOrder" xml:space="preserve">
+    <value>45</value>
+  </data>
+  <data name="RadioCusin.Properties.Items5" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="&gt;&gt;TeethLosCombo.ZOrder" xml:space="preserve">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;TeethApprCombo.ZOrder" xml:space="preserve">
+    <value>39</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;CompliantsCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl8.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;BirthTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="OverLoadTeethTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtClas2.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;BiteCombo.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;LipsCutTextBox.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="LabelControl12.Text" xml:space="preserve">
+    <value>Illnes Period</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items12" xml:space="preserve">
+    <value>UR5 </value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items22" xml:space="preserve">
+    <value>LL7</value>
+  </data>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>57</value>
+  </data>
+  <data name="&gt;&gt;TeethChCombo.Name" xml:space="preserve">
+    <value>TeethChCombo</value>
+  </data>
+  <data name="Clas3Combo.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Name" xml:space="preserve">
+    <value>LabelControl2</value>
+  </data>
+  <data name="&gt;&gt;txtPayValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="MalfunctionTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtClas2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 81</value>
+  </data>
+  <data name="&gt;&gt;TeethOvrCombo.Name" xml:space="preserve">
+    <value>TeethOvrCombo</value>
+  </data>
+  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="TeethBurdCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>185, 177</value>
+  </data>
+  <data name="&gt;&gt;CousinsHFactorTextBox.Name" xml:space="preserve">
+    <value>CousinsHFactorTextBox</value>
+  </data>
+  <data name="btAddOrtho.Location" type="System.Drawing.Point, System.Drawing">
+    <value>322, 78</value>
+  </data>
+  <data name="BreastCombo.Properties.Items2" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="BreastCombo.Properties.Items1" xml:space="preserve">
+    <value>Bottle</value>
+  </data>
+  <data name="BiteCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;txtPervOrth.Name" xml:space="preserve">
+    <value>txtPervOrth</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>CLASS III</value>
+  </data>
+  <data name="DiagnoseGrp.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="Clas2Combo.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="txtPayValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 26</value>
+  </data>
+  <data name="MalfunctionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 152</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.ZOrder" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;LabelControl21.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl19.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;txtPayNotes.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="BreastCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 77</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items19" xml:space="preserve">
+    <value>LL4</value>
+  </data>
+  <data name="&gt;&gt;LabelControl24.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;OverLoadTeethTextBox.Name" xml:space="preserve">
+    <value>OverLoadTeethTextBox</value>
+  </data>
+  <data name="BadHabCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Clas3Combo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="LabelControl15.Text" xml:space="preserve">
+    <value>Previous Orth.</value>
+  </data>
+  <data name="BirthTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;BurriedTeethTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="OrthInfoGrp.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl8.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="TeethOvrCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>185, 201</value>
+  </data>
+  <data name="CompliantsCombo.Properties.Items" xml:space="preserve">
+    <value>Out Look</value>
+  </data>
+  <data name="LabelControl9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>388, 130</value>
+  </data>
+  <data name="&gt;&gt;BadHabitsTextBox.Name" xml:space="preserve">
+    <value>BadHabitsTextBox</value>
+  </data>
+  <data name="BiteCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items22" xml:space="preserve">
+    <value>LL7</value>
+  </data>
+  <data name="&gt;&gt;TeethOvrCombo.ZOrder" xml:space="preserve">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;GroupControl1.Name" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="BreastCombo.Properties.Items" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="OrthInfoGrp.Text" xml:space="preserve">
+    <value>General Information</value>
+  </data>
+  <data name="IllnesCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;FeedTextBox.Name" xml:space="preserve">
+    <value>FeedTextBox</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>209, 30</value>
+  </data>
+  <data name="LabelControl21.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;Clas1Combo.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="BurriedTeethTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 177</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="BadHabCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;BreastCombo.Name" xml:space="preserve">
+    <value>BreastCombo</value>
+  </data>
+  <data name="&gt;&gt;Clas3Combo.Name" xml:space="preserve">
+    <value>Clas3Combo</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Name" xml:space="preserve">
+    <value>LabelControl12</value>
+  </data>
+  <data name="&gt;&gt;txtOrthoPriceDet.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="LabelControl15.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl11.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;ReverseBiteCombo.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="LabelControl5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items1" xml:space="preserve">
+    <value>Upper Lip</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items2" xml:space="preserve">
+    <value>Lower Lip</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items3" xml:space="preserve">
+    <value>Finger</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items4" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items13" xml:space="preserve">
+    <value>UR6 </value>
+  </data>
+  <data name="&gt;&gt;btAddOrtho.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl17.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;txtClosing.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;CousinsHFactorTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items4" xml:space="preserve">
+    <value>UL5</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items24" xml:space="preserve">
+    <value>LR1</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items15" xml:space="preserve">
+    <value>UR8 </value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items25" xml:space="preserve">
+    <value>LR2</value>
+  </data>
+  <data name="Label1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="OpenBiteCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 106</value>
+  </data>
+  <data name="BirthCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 52</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 30</value>
+  </data>
+  <data name="LabelControl17.Text" xml:space="preserve">
+    <value>Burried Teeth</value>
+  </data>
+  <data name="MilkTeethChngTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Name" xml:space="preserve">
+    <value>LabelControl14</value>
+  </data>
+  <data name="&gt;&gt;TeethOvrCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MalfunctionTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl17.Name" xml:space="preserve">
+    <value>LabelControl17</value>
+  </data>
+  <data name="txtPervOrth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 101</value>
+  </data>
+  <data name="TeethChCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;txtBite.Name" xml:space="preserve">
+    <value>txtBite</value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btRestINF.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items29" xml:space="preserve">
+    <value>LR6</value>
+  </data>
+  <data name="&gt;&gt;TeethLossTextBox.Name" xml:space="preserve">
+    <value>TeethLossTextBox</value>
+  </data>
+  <data name="txtTrtPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 28</value>
+  </data>
+  <data name="&gt;&gt;btResetDiag.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="&gt;&gt;txtBite.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BirthCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="ThroatCutTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 15</value>
+  </data>
+  <data name="orthoDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="btRestINF.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Name" xml:space="preserve">
+    <value>LabelControl6</value>
+  </data>
+  <data name="LabelControl23.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items10" xml:space="preserve">
+    <value>UR3 </value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items20" xml:space="preserve">
+    <value>LL5</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items30" xml:space="preserve">
+    <value>LR7</value>
+  </data>
+  <data name="&gt;&gt;Clas2DetCombo.Name" xml:space="preserve">
+    <value>Clas2DetCombo</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items16" xml:space="preserve">
+    <value>LL1 </value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items26" xml:space="preserve">
+    <value>LR3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.Name" xml:space="preserve">
+    <value>LabelControl19</value>
+  </data>
+  <data name="BurriedTeethTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl21.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="RadioCusin.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BadHabitsTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;ClosingCombo.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;CompliantsCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;CompliantsTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="RadioLips.Location" type="System.Drawing.Point, System.Drawing">
+    <value>571, 27</value>
+  </data>
+  <data name="LabelControl18.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BirthCombo.Properties.Items" xml:space="preserve">
+    <value>In Time</value>
+  </data>
+  <data name="LabelControl18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 205</value>
+  </data>
+  <data name="RadioCusin.EditValue" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;RadioLips.ZOrder" xml:space="preserve">
+    <value>49</value>
+  </data>
+  <data name="txtPrevIll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 201</value>
+  </data>
+  <data name="MalfunctionTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;BurriedTeethTextBox.Name" xml:space="preserve">
+    <value>BurriedTeethTextBox</value>
+  </data>
+  <data name="orthoDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="Clas1Combo.Properties.Items2" xml:space="preserve">
+    <value>Proclination</value>
+  </data>
+  <data name="txtClas3.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items14" xml:space="preserve">
+    <value>UR7 </value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items15" xml:space="preserve">
+    <value>UR8 </value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items16" xml:space="preserve">
+    <value>LL1 </value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items17" xml:space="preserve">
+    <value>LL2</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items10" xml:space="preserve">
+    <value>UR3 </value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items11" xml:space="preserve">
+    <value>UR4 </value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items12" xml:space="preserve">
+    <value>UR5 </value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items13" xml:space="preserve">
+    <value>UR6 </value>
+  </data>
+  <data name="BreastCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioThroat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>571, 52</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items25" xml:space="preserve">
+    <value>LR2</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items19" xml:space="preserve">
+    <value>LL4</value>
+  </data>
+  <data name="&gt;&gt;CompliantsCombo.Name" xml:space="preserve">
+    <value>CompliantsCombo</value>
+  </data>
+  <data name="RadioThroat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
+  </data>
+  <data name="BreastCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="CompliantsTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items4" xml:space="preserve">
+    <value>Bruxism</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 85</value>
+  </data>
+  <data name="LabelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPrice.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtOrthoPriceDet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 22</value>
+  </data>
+  <data name="Clas2Combo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="BurriedTeethTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="LabelControl21.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="IllnesCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>589, 177</value>
+  </data>
+  <data name="LabelControl7.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ThroatCutTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="LabelControl6.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 15</value>
+  </data>
+  <data name="txtPervOrth.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;Clas2DetCombo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="RadioCusin.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Name" xml:space="preserve">
+    <value>LabelControl11</value>
+  </data>
+  <data name="&gt;&gt;MilkTeethAppearTextBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="OverLoadTeethTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;MalfuncCombo.ZOrder" xml:space="preserve">
+    <value>41</value>
+  </data>
+  <data name="TeethChCombo.Properties.Items2" xml:space="preserve">
+    <value>Late</value>
+  </data>
+  <data name="&gt;&gt;RadioCusin.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPrice.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TeethLossTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;TeethApprCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="BiteCombo.Properties.Items" xml:space="preserve">
+    <value>Open Bite</value>
+  </data>
+  <data name="IllnesPeriodTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 177</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Items3" xml:space="preserve">
+    <value>Posterial Bilateral</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Items2" xml:space="preserve">
+    <value>Posterial Unilateral</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Items1" xml:space="preserve">
+    <value>Dental Anterior</value>
+  </data>
+  <data name="&gt;&gt;OverLoadTeethTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;btAddOrtho.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Clas2Combo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="btRestINF.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="&gt;&gt;OpenBiteCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ReverseBiteCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 106</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items17" xml:space="preserve">
+    <value>LL2</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items27" xml:space="preserve">
+    <value>LR4</value>
+  </data>
+  <data name="LabelControl7.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="TeethChCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="Clas1Combo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items19" xml:space="preserve">
+    <value>LL4</value>
+  </data>
+  <data name="MilkTeethAppearTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;IllnesPeriodTextBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtPervOrth.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="GroupControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 484</value>
+  </data>
+  <data name="&gt;&gt;LabelControl22.Parent" xml:space="preserve">
+    <value>GroupControl1</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Items" xml:space="preserve">
+    <value>Skeletal Anterior</value>
+  </data>
+  <data name="&gt;&gt;LabelControl23.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="LabelControl8.Text" xml:space="preserve">
+    <value>Suggested Treat Plan &amp;&amp; Period</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 15</value>
+  </data>
+  <data name="&gt;&gt;DiagnoseGrp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="txtClas3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 22</value>
+  </data>
+  <data name="&gt;&gt;OrthInfoGrp.Name" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;txtClas1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl7.Text" xml:space="preserve">
+    <value>Current Diseases</value>
+  </data>
+  <data name="&gt;&gt;orthoDate.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Items5" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="RadioLips.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="MilkTeethChngTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioThroat.Properties.Items" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtPayNotes.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items2" xml:space="preserve">
+    <value>Ankyloglossia</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items7" xml:space="preserve">
+    <value>UL8</value>
+  </data>
+  <data name="OpenNewOrthCTL.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="OpenBiteDetCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="btResetDiag.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtKhota.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items1" xml:space="preserve">
+    <value>UL2</value>
+  </data>
+  <data name="IllnesPeriodTextBox.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 105</value>
+  </data>
+  <data name="&gt;&gt;TeethLosCombo.Name" xml:space="preserve">
+    <value>TeethLosCombo</value>
+  </data>
+  <data name="&gt;&gt;BirthTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items14" xml:space="preserve">
+    <value>UR7 </value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items24" xml:space="preserve">
+    <value>LR1</value>
+  </data>
+  <data name="&gt;&gt;GroupControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelControl15.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;BurriedTeethTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btResetDiag.TabIndex" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="RadioThroat.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BirthTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;IllnesPeriodTextBox.Name" xml:space="preserve">
+    <value>IllnesPeriodTextBox</value>
+  </data>
+  <data name="&gt;&gt;btAddOrtho.Name" xml:space="preserve">
+    <value>btAddOrtho</value>
+  </data>
+  <data name="&gt;&gt;TeethBurdCombo.Name" xml:space="preserve">
+    <value>TeethBurdCombo</value>
+  </data>
+  <data name="txtPayNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 22</value>
+  </data>
+  <data name="LabelControl23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 15</value>
+  </data>
+  <data name="&gt;&gt;OpenBiteCombo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="LabelControl24.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioCusin.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="CousinsHFactorTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;MilkTeethChngTextBox.Name" xml:space="preserve">
+    <value>MilkTeethChngTextBox</value>
+  </data>
+  <data name="BurriedTeethTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BirthCombo.Properties.Items1" xml:space="preserve">
+    <value>Before Time</value>
+  </data>
+  <data name="LabelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="IllnesCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl16.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>Compliants</value>
+  </data>
+  <data name="Label5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="DiagnoseGrp.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="LabelControl14.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ReverseBiteCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="Clas1Combo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;DeepBiteCombo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="LabelControl13.Text" xml:space="preserve">
+    <value>Lips Cut</value>
+  </data>
+  <data name="&gt;&gt;txtPayNotes.Name" xml:space="preserve">
+    <value>txtPayNotes</value>
+  </data>
+  <data name="&gt;&gt;Clas3Combo.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;Clas1Combo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TeethApprCombo.Properties.Items2" xml:space="preserve">
+    <value>Late</value>
+  </data>
+  <data name="&gt;&gt;ReverseBiteCombo.Name" xml:space="preserve">
+    <value>ReverseBiteCombo</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items31" xml:space="preserve">
+    <value>LR8</value>
+  </data>
+  <data name="MilkTeethChngTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 126</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl22.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;LipsCutTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtPayNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 50</value>
+  </data>
+  <data name="&gt;&gt;MalfuncCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="BirthTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 52</value>
+  </data>
+  <data name="&gt;&gt;IllnesCombo.Name" xml:space="preserve">
+    <value>IllnesCombo</value>
+  </data>
+  <data name="&gt;&gt;RadioThroat.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;GroupControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>CLASS I</value>
+  </data>
+  <data name="DeepBiteCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 106</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;MalfunctionTextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="LabelControl19.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 13pt, style=Bold</value>
+  </data>
+  <data name="LabelControl22.Text" xml:space="preserve">
+    <value>Pay Value</value>
+  </data>
+  <data name="&gt;&gt;TeethChCombo.ZOrder" xml:space="preserve">
+    <value>43</value>
+  </data>
+  <data name="RadioCusin.Properties.Items1" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="LabelControl11.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="GroupControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;MalfuncCombo.Name" xml:space="preserve">
+    <value>MalfuncCombo</value>
+  </data>
+  <data name="ClosingCombo.Properties.Items1" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="RadioCusin.Properties.Items" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 57</value>
+  </data>
+  <data name="LabelControl24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 15</value>
+  </data>
+  <data name="txtKhota.Location" type="System.Drawing.Point, System.Drawing">
+    <value>185, 226</value>
+  </data>
+  <data name="Label3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="TeethLosCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>185, 152</value>
+  </data>
+  <data name="&gt;&gt;Clas2Combo.Name" xml:space="preserve">
+    <value>Clas2Combo</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="GroupControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>697, 116</value>
+  </data>
+  <data name="LabelControl22.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="&gt;&gt;BiteCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Clas2Combo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="LabelControl16.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Breast Feed</value>
+  </data>
+  <data name="ClosingCombo.Properties.Items" xml:space="preserve">
+    <value>Abnormal</value>
+  </data>
+  <data name="txtOrthoPriceDet.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="LabelControl24.Text" xml:space="preserve">
+    <value>Ortho Date</value>
+  </data>
+  <data name="&gt;&gt;RadioLips.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="GroupControl1.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>388, 156</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;txtPervOrth.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;OpenBiteCombo.Name" xml:space="preserve">
+    <value>OpenBiteCombo</value>
+  </data>
+  <data name="&gt;&gt;MilkTeethChngTextBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="OpenBiteDetCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Name" xml:space="preserve">
+    <value>LabelControl4</value>
+  </data>
+  <data name="&gt;&gt;RadioLips.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="CompliantsTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="txtTrtPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items" xml:space="preserve">
+    <value>Tongue Sucking</value>
+  </data>
+  <data name="&gt;&gt;MilkTeethAppearTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="LabelControl9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items1" xml:space="preserve">
+    <value>UL2</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items3" xml:space="preserve">
+    <value>UL4</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items2" xml:space="preserve">
+    <value>UL3</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items5" xml:space="preserve">
+    <value>UL6</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items7" xml:space="preserve">
+    <value>UL8</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items6" xml:space="preserve">
+    <value>UL7</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items9" xml:space="preserve">
+    <value>UR2</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items8" xml:space="preserve">
+    <value>UR1</value>
+  </data>
+  <data name="TeethLossTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 152</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items3" xml:space="preserve">
+    <value>UL4</value>
+  </data>
+  <data name="txtBite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LabelControl24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 162</value>
+  </data>
+  <data name="MalfuncCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="BiteCombo.Properties.Items1" xml:space="preserve">
+    <value>Deep Bite</value>
+  </data>
+  <data name="BirthCombo.Properties.Items2" xml:space="preserve">
+    <value>Seven Months</value>
+  </data>
+  <data name="BiteCombo.Properties.Items2" xml:space="preserve">
+    <value>Reverse Bite</value>
+  </data>
+  <data name="&gt;&gt;DiagnoseGrp.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TeethApprCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="LabelControl11.Text" xml:space="preserve">
+    <value>Malfunction</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items18" xml:space="preserve">
+    <value>LL3</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items28" xml:space="preserve">
+    <value>LR5</value>
+  </data>
+  <data name="txtPrevIll.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl16.Text" xml:space="preserve">
+    <value>Cousins H Factor</value>
+  </data>
+  <data name="LabelControl16.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;Clas3Combo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="ClosingCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 26</value>
+  </data>
+  <data name="Clas2Combo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 53</value>
+  </data>
+  <data name="&gt;&gt;IllnesPeriodTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl18.Text" xml:space="preserve">
+    <value>OverLoad Teeth</value>
+  </data>
+  <data name="OrthInfoGrp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;BirthCombo.Name" xml:space="preserve">
+    <value>BirthCombo</value>
+  </data>
+  <data name="BadHabCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;txtPayNotes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btAddOrtho.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl13.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LipsCutTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 27</value>
+  </data>
+  <data name="MalfunctionTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items" xml:space="preserve">
+    <value>UL1</value>
+  </data>
+  <data name="&gt;&gt;CousinsHFactorTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btAddOrtho.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;txtClas1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="txtClosing.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="BadHabitsTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;txtOrthoPriceDet.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;Clas1Combo.Name" xml:space="preserve">
+    <value>Clas1Combo</value>
+  </data>
+  <data name="MalfuncCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>589, 152</value>
+  </data>
+  <data name="&gt;&gt;txtClosing.Name" xml:space="preserve">
+    <value>txtClosing</value>
+  </data>
+  <data name="LabelControl18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 15</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 15</value>
+  </data>
+  <data name="FeedTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 77</value>
+  </data>
+  <data name="orthoDate.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="&gt;&gt;FeedTextBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;LabelControl17.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DeepBiteCombo.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="TeethLossTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;FeedTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="RadioThroat.EditValue" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btRestINF.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="&gt;&gt;Clas1Combo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="&gt;&gt;txtClas2.Name" xml:space="preserve">
+    <value>txtClas2</value>
+  </data>
+  <data name="&gt;&gt;GroupControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>34</value>
+  </data>
+  <data name="txtClas1.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="TeethChCombo.Properties.Items1" xml:space="preserve">
+    <value>Early</value>
+  </data>
+  <data name="LabelControl22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 19</value>
+  </data>
+  <data name="txtBite.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 134</value>
+  </data>
+  <data name="&gt;&gt;MilkTeethAppearTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items12" xml:space="preserve">
+    <value>UR5 </value>
+  </data>
+  <data name="&gt;&gt;txtClas1.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items22" xml:space="preserve">
+    <value>LL7</value>
+  </data>
+  <data name="&gt;&gt;TeethLossTextBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="DiagnoseGrp.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl24.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="btResetDiag.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 162</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 15</value>
+  </data>
+  <data name="btAddOrtho.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 23</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items8" xml:space="preserve">
+    <value>UR1</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items9" xml:space="preserve">
+    <value>UR2</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items" xml:space="preserve">
+    <value>Skeletal</value>
+  </data>
+  <data name="&gt;&gt;LabelControl22.Name" xml:space="preserve">
+    <value>LabelControl22</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items2" xml:space="preserve">
+    <value>UL3</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items3" xml:space="preserve">
+    <value>UL4</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items5" xml:space="preserve">
+    <value>UL6</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items6" xml:space="preserve">
+    <value>UL7</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items7" xml:space="preserve">
+    <value>UL8</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 31</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items1" xml:space="preserve">
+    <value>Dental</value>
+  </data>
+  <data name="btResetDiag.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items" xml:space="preserve">
+    <value>Mouth Breathing</value>
+  </data>
+  <data name="BirthCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;LabelControl17.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="DiagnoseGrp.Text" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+  <data name="OpenBiteDetCombo.Properties.Items" xml:space="preserve">
+    <value>Skeletal</value>
+  </data>
+  <data name="&gt;&gt;LabelControl8.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="BiteCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 81</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items3" xml:space="preserve">
+    <value>Slow Chewing</value>
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;LabelControl22.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Clas2DetCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 53</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="OpenBiteDetCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="&gt;&gt;LabelControl15.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtOrthoPriceDet.Name" xml:space="preserve">
+    <value>txtOrthoPriceDet</value>
+  </data>
+  <data name="&gt;&gt;BirthTextBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="RadioLips.Properties.Items" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;MalfunctionTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;LabelControl8.Name" xml:space="preserve">
+    <value>LabelControl8</value>
+  </data>
+  <data name="&gt;&gt;LabelControl24.Name" xml:space="preserve">
+    <value>LabelControl24</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TeethChCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="TeethOvrCombo.Properties.Items29" xml:space="preserve">
+    <value>LR6</value>
+  </data>
+  <data name="LabelControl12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 15</value>
+  </data>
+  <data name="&gt;&gt;orthoDate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GroupControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;LabelControl23.Name" xml:space="preserve">
+    <value>LabelControl23</value>
+  </data>
+  <data name="Clas2DetCombo.Properties.Items1" xml:space="preserve">
+    <value>Retroclination</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 81</value>
+  </data>
+  <data name="IllnesCombo.Properties.Items" xml:space="preserve">
+    <value>Before Change</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="&gt;&gt;DiagnoseGrp.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl18.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ThroatCutTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 52</value>
+  </data>
+  <data name="CompliantsCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>CLASS II</value>
+  </data>
+  <data name="&gt;&gt;txtClas3.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;RadioPrevOrth.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TeethChCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;txtKhota.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CompliantsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 27</value>
+  </data>
+  <data name="txtKhota.Size" type="System.Drawing.Size, System.Drawing">
+    <value>431, 41</value>
+  </data>
+  <data name="TeethBurdCombo.Properties.Items9" xml:space="preserve">
+    <value>UR2</value>
+  </data>
+  <data name="BiteCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="ReverseBiteCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="OpenBiteDetCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 130</value>
+  </data>
+  <data name="LabelControl17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 15</value>
+  </data>
+  <data name="Clas2DetCombo.Properties.Items" xml:space="preserve">
+    <value>Proclination</value>
+  </data>
+  <data name="&gt;&gt;BiteCombo.Name" xml:space="preserve">
+    <value>BiteCombo</value>
+  </data>
+  <data name="&gt;&gt;txtClas3.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Bite</value>
+  </data>
+  <data name="&gt;&gt;DeepBiteCombo.Name" xml:space="preserve">
+    <value>DeepBiteCombo</value>
+  </data>
+  <data name="LabelControl17.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl13.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="DeepBiteCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="&gt;&gt;LabelControl16.Name" xml:space="preserve">
+    <value>LabelControl16</value>
+  </data>
+  <data name="txtClas1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 22</value>
+  </data>
+  <data name="CompliantsCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 27</value>
+  </data>
+  <data name="&gt;&gt;txtClosing.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="CompliantsCombo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="Clas3Combo.Properties.Items1" xml:space="preserve">
+    <value>Pseudo</value>
+  </data>
+  <data name="LabelControl21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>209, 29</value>
+  </data>
+  <data name="&gt;&gt;OpenBiteDetCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ThroatCutTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="&gt;&gt;TeethBurdCombo.ZOrder" xml:space="preserve">
+    <value>38</value>
+  </data>
+  <data name="TeethApprCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 101</value>
+  </data>
+  <data name="&gt;&gt;btRestINF.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BiteCombo.Parent" xml:space="preserve">
+    <value>DiagnoseGrp</value>
+  </data>
+  <data name="orthoDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 158</value>
+  </data>
+  <data name="txtPrevIll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 22</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>Teeth Loss</value>
+  </data>
+  <data name="DeepBiteCombo.Properties.Items" xml:space="preserve">
+    <value>Dental Anomalies in the Transverse Plane</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="&gt;&gt;IllnesCombo.ZOrder" xml:space="preserve">
+    <value>35</value>
+  </data>
+  <data name="TeethLosCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 22</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="DeepBiteCombo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;IllnesCombo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="Clas1Combo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 22</value>
+  </data>
+  <data name="&gt;&gt;RadioThroat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="OpenBiteCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl18.Name" xml:space="preserve">
+    <value>LabelControl18</value>
+  </data>
+  <data name="LabelControl11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 15</value>
+  </data>
+  <data name="&gt;&gt;LabelControl18.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="Clas3Combo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="btAddOrtho.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Clas1Combo.Properties.Items" xml:space="preserve">
+    <value>Crowding</value>
+  </data>
+  <data name="&gt;&gt;BirthTextBox.Name" xml:space="preserve">
+    <value>BirthTextBox</value>
+  </data>
+  <data name="&gt;&gt;BadHabCombo.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="Clas3Combo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 81</value>
+  </data>
+  <data name="TeethLosCombo.Properties.Items16" xml:space="preserve">
+    <value>LL1 </value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Items1" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="LabelControl23.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;BreastCombo.ZOrder" xml:space="preserve">
+    <value>42</value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BurriedTeethTextBox.Parent" xml:space="preserve">
+    <value>OrthInfoGrp</value>
+  </data>
+  <data name="DiagnoseGrp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 270</value>
+  </data>
+  <metadata name="OrthoDiagBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>193, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="OrthoInfBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+</root>

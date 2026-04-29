@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 10</value>
+  </data>
+  <data name="btnClose.Text" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>364, 10</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="txtTrtPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>343, 272</value>
+  </data>
+  <data name="LabelControl22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 278</value>
+  </data>
+  <data name="LabelControl22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 19</value>
+  </data>
+  <data name="LabelControl22.Text" xml:space="preserve">
+    <value>قيمة الدفعة</value>
+  </data>
+  <data name="txtPayValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>184, 275</value>
+  </data>
+  <data name="LabelControl23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>241, 329</value>
+  </data>
+  <data name="LabelControl23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 15</value>
+  </data>
+  <data name="LabelControl23.Text" xml:space="preserve">
+    <value>تفاصيل دفعة التقويم</value>
+  </data>
+  <data name="LabelControl19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>425, 276</value>
+  </data>
+  <data name="LabelControl19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 23</value>
+  </data>
+  <data name="LabelControl19.Text" xml:space="preserve">
+    <value>قيمة التقويم</value>
+  </data>
+  <data name="LabelControl21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>587, 329</value>
+  </data>
+  <data name="LabelControl21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 15</value>
+  </data>
+  <data name="LabelControl21.Text" xml:space="preserve">
+    <value>تفاصيل قيمة التقويم</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>618, 92</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 17</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>الصنف الثالث</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>618, 64</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 17</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>الصنف الثاني</value>
+  </data>
+  <data name="txtBite.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 142</value>
+  </data>
+  <data name="txtClas3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 114</value>
+  </data>
+  <data name="btResetDiag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 23</value>
+  </data>
+  <data name="btResetDiag.Text" xml:space="preserve">
+    <value>إعادة تعيين</value>
+  </data>
+  <data name="txtClas2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 89</value>
+  </data>
+  <data name="txtClas1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 61</value>
+  </data>
+  <data name="txtClosing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 26</value>
+  </data>
+  <data name="BiteCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>515, 114</value>
+  </data>
+  <data name="BiteCombo.Properties.Items" xml:space="preserve">
+    <value>العضة المفتوحة</value>
+  </data>
+  <data name="BiteCombo.Properties.Items1" xml:space="preserve">
+    <value>العضة العميقة</value>
+  </data>
+  <data name="BiteCombo.Properties.Items2" xml:space="preserve">
+    <value>العضة المعكوسة</value>
+  </data>
+  <data name="ClosingCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>529, 26</value>
+  </data>
+  <data name="ClosingCombo.Properties.Items" xml:space="preserve">
+    <value>غير طبيعي</value>
+  </data>
+  <data name="ClosingCombo.Properties.Items1" xml:space="preserve">
+    <value>طبيعية</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>635, 29</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>الاطباق</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>618, 117</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 17</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>العضة</value>
+  </data>
+  <data name="Clas2Combo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>515, 61</value>
+  </data>
+  <data name="Clas2Combo.Properties.Items" xml:space="preserve">
+    <value>نموذج اول</value>
+  </data>
+  <data name="Clas2Combo.Properties.Items1" xml:space="preserve">
+    <value>نموذج ثاني</value>
+  </data>
+  <data name="Clas3Combo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>515, 89</value>
+  </data>
+  <data name="Clas3Combo.Properties.Items" xml:space="preserve">
+    <value>الحقيقي</value>
+  </data>
+  <data name="Clas3Combo.Properties.Items1" xml:space="preserve">
+    <value>الكاذب</value>
+  </data>
+  <data name="OpenBiteDetCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>386, 138</value>
+  </data>
+  <data name="OpenBiteDetCombo.Properties.Items" xml:space="preserve">
+    <value>هيكلية</value>
+  </data>
+  <data name="OpenBiteDetCombo.Properties.Items1" xml:space="preserve">
+    <value>سنية</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>459, 29</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 17</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>الصنف الاول</value>
+  </data>
+  <data name="Clas1Combo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>165, 26</value>
+  </data>
+  <data name="Clas1Combo.Properties.Items" xml:space="preserve">
+    <value>ضيق في القوس السني  (تراكم في الاسنان) </value>
+  </data>
+  <data name="Clas1Combo.Properties.Items1" xml:space="preserve">
+    <value>فروقات بين الاسنان (DEASTEMA)</value>
+  </data>
+  <data name="Clas1Combo.Properties.Items2" xml:space="preserve">
+    <value>اندفاع الأسنان الأمامية</value>
+  </data>
+  <data name="Clas2DetCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>390, 61</value>
+  </data>
+  <data name="Clas2DetCombo.Properties.Items" xml:space="preserve">
+    <value>اندفاع الأسنان الأمامية</value>
+  </data>
+  <data name="Clas2DetCombo.Properties.Items1" xml:space="preserve">
+    <value>انقباض الأسنان الأمامية</value>
+  </data>
+  <data name="ReverseBiteCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>386, 114</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items" xml:space="preserve">
+    <value>هيكلية</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items1" xml:space="preserve">
+    <value>سنية</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items2" xml:space="preserve">
+    <value>احادي الجانب</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items3" xml:space="preserve">
+    <value>ثنائي الجانب</value>
+  </data>
+  <data name="ReverseBiteCombo.Properties.Items4" xml:space="preserve">
+    <value>انزياح الفك السفلي</value>
+  </data>
+  <data name="OpenBiteCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>386, 114</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Items" xml:space="preserve">
+    <value>امامية هيكلية</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Items1" xml:space="preserve">
+    <value>امامية سنية</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Items2" xml:space="preserve">
+    <value>خلفية احادي الجانب</value>
+  </data>
+  <data name="OpenBiteCombo.Properties.Items3" xml:space="preserve">
+    <value>خلفية ثنائي الجانب</value>
+  </data>
+  <data name="DeepBiteCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>386, 114</value>
+  </data>
+  <data name="DeepBiteCombo.Properties.Items" xml:space="preserve">
+    <value>الشذوذات السنية الوجهية في المستوى العرضي</value>
+  </data>
+  <data name="DiagnoseGrp.Text" xml:space="preserve">
+    <value>تشخيص الحالة</value>
+  </data>
+  <data name="orthoDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 276</value>
+  </data>
+  <data name="txtKhota.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 207</value>
+  </data>
+  <data name="LabelControl24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 280</value>
+  </data>
+  <data name="LabelControl24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="LabelControl24.Text" xml:space="preserve">
+    <value>تاريخ التقويم</value>
+  </data>
+  <data name="btRestINF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>597, 230</value>
+  </data>
+  <data name="btRestINF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 23</value>
+  </data>
+  <data name="btRestINF.Text" xml:space="preserve">
+    <value>إعادة تعيين</value>
+  </data>
+  <data name="LabelControl49.Location" type="System.Drawing.Point, System.Drawing">
+    <value>446, 220</value>
+  </data>
+  <data name="LabelControl49.Text" xml:space="preserve">
+    <value>فترة وخطة العلاج المقترحة</value>
+  </data>
+  <data name="OverLoadTeethTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 179</value>
+  </data>
+  <data name="BurriedTeethTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 155</value>
+  </data>
+  <data name="txtPrevIll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>369, 179</value>
+  </data>
+  <data name="TeethLossTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 130</value>
+  </data>
+  <data name="IllnesPeriodTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 155</value>
+  </data>
+  <data name="MilkTeethChngTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 104</value>
+  </data>
+  <data name="MalfunctionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 130</value>
+  </data>
+  <data name="MilkTeethAppearTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 79</value>
+  </data>
+  <data name="BadHabitsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 104</value>
+  </data>
+  <data name="FeedTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 55</value>
+  </data>
+  <data name="txtPervOrth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 79</value>
+  </data>
+  <data name="BirthTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 30</value>
+  </data>
+  <data name="CousinsHFactorTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 55</value>
+  </data>
+  <data name="CompliantsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 5</value>
+  </data>
+  <data name="ThroatCutTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 30</value>
+  </data>
+  <data name="LipsCutTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 5</value>
+  </data>
+  <data name="LabelControl38.Location" type="System.Drawing.Point, System.Drawing">
+    <value>254, 183</value>
+  </data>
+  <data name="LabelControl38.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelControl38.Text" xml:space="preserve">
+    <value>أسنان زائدة</value>
+  </data>
+  <data name="LabelControl39.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 159</value>
+  </data>
+  <data name="LabelControl39.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 15</value>
+  </data>
+  <data name="LabelControl39.Text" xml:space="preserve">
+    <value>أسنان مطمورة</value>
+  </data>
+  <data name="LabelControl40.Location" type="System.Drawing.Point, System.Drawing">
+    <value>635, 159</value>
+  </data>
+  <data name="LabelControl40.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelControl40.Text" xml:space="preserve">
+    <value>فترة المرض</value>
+  </data>
+  <data name="LabelControl41.Location" type="System.Drawing.Point, System.Drawing">
+    <value>623, 134</value>
+  </data>
+  <data name="LabelControl41.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 15</value>
+  </data>
+  <data name="LabelControl41.Text" xml:space="preserve">
+    <value>خلل وظيفي</value>
+  </data>
+  <data name="LabelControl42.Location" type="System.Drawing.Point, System.Drawing">
+    <value>597, 59</value>
+  </data>
+  <data name="LabelControl42.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 15</value>
+  </data>
+  <data name="LabelControl42.Text" xml:space="preserve">
+    <value>عامل وراثي عند الأهل</value>
+  </data>
+  <data name="LabelControl43.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 134</value>
+  </data>
+  <data name="LabelControl43.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 15</value>
+  </data>
+  <data name="LabelControl43.Text" xml:space="preserve">
+    <value>فقدان أسنان</value>
+  </data>
+  <data name="LabelControl44.Location" type="System.Drawing.Point, System.Drawing">
+    <value>603, 83</value>
+  </data>
+  <data name="LabelControl44.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="LabelControl44.Text" xml:space="preserve">
+    <value>تقويم سابق</value>
+  </data>
+  <data name="LabelControl45.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 108</value>
+  </data>
+  <data name="LabelControl45.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 15</value>
+  </data>
+  <data name="LabelControl45.Text" xml:space="preserve">
+    <value>تبديل الأسنان اللبنية</value>
+  </data>
+  <data name="LabelControl46.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 108</value>
+  </data>
+  <data name="LabelControl46.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 15</value>
+  </data>
+  <data name="LabelControl46.Text" xml:space="preserve">
+    <value>عادات سيئة</value>
+  </data>
+  <data name="LabelControl47.Location" type="System.Drawing.Point, System.Drawing">
+    <value>611, 34</value>
+  </data>
+  <data name="LabelControl47.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="LabelControl47.Text" xml:space="preserve">
+    <value>شق الحلق</value>
+  </data>
+  <data name="LabelControl48.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 59</value>
+  </data>
+  <data name="LabelControl48.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 15</value>
+  </data>
+  <data name="LabelControl48.Text" xml:space="preserve">
+    <value>رضاعة طبيعية</value>
+  </data>
+  <data name="LabelControl50.Location" type="System.Drawing.Point, System.Drawing">
+    <value>637, 9</value>
+  </data>
+  <data name="LabelControl50.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="LabelControl50.Text" xml:space="preserve">
+    <value>شق الشفة</value>
+  </data>
+  <data name="LabelControl51.Location" type="System.Drawing.Point, System.Drawing">
+    <value>234, 83</value>
+  </data>
+  <data name="LabelControl51.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 15</value>
+  </data>
+  <data name="LabelControl51.Text" xml:space="preserve">
+    <value>بزوغ الأسنان اللبنية</value>
+  </data>
+  <data name="LabelControl52.Location" type="System.Drawing.Point, System.Drawing">
+    <value>617, 183</value>
+  </data>
+  <data name="LabelControl52.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 15</value>
+  </data>
+  <data name="LabelControl52.Text" xml:space="preserve">
+    <value>الأمراض الحالية</value>
+  </data>
+  <data name="LabelControl53.Location" type="System.Drawing.Point, System.Drawing">
+    <value>289, 34</value>
+  </data>
+  <data name="LabelControl53.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 15</value>
+  </data>
+  <data name="LabelControl53.Text" xml:space="preserve">
+    <value>الولادة</value>
+  </data>
+  <data name="LabelControl54.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 9</value>
+  </data>
+  <data name="LabelControl54.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 15</value>
+  </data>
+  <data name="LabelControl54.Text" xml:space="preserve">
+    <value>الشكاوى</value>
+  </data>
+  <data name="IllnesCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>493, 155</value>
+  </data>
+  <data name="IllnesCombo.Properties.Items" xml:space="preserve">
+    <value>قبل التبديل</value>
+  </data>
+  <data name="IllnesCombo.Properties.Items1" xml:space="preserve">
+    <value>بعد التبديل</value>
+  </data>
+  <data name="TeethOvrCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>184, 179</value>
+  </data>
+  <data name="BadHabCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>493, 104</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items" xml:space="preserve">
+    <value>مص اللسان</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items1" xml:space="preserve">
+    <value>الشفة العليا</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items2" xml:space="preserve">
+    <value>الشفة السفلى</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items3" xml:space="preserve">
+    <value>الاصبع</value>
+  </data>
+  <data name="BadHabCombo.Properties.Items4" xml:space="preserve">
+    <value>ادوات</value>
+  </data>
+  <data name="TeethBurdCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>184, 155</value>
+  </data>
+  <data name="TeethApprCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 79</value>
+  </data>
+  <data name="TeethApprCombo.Properties.Items" xml:space="preserve">
+    <value>في الموعد</value>
+  </data>
+  <data name="TeethApprCombo.Properties.Items1" xml:space="preserve">
+    <value>مبكرة</value>
+  </data>
+  <data name="TeethApprCombo.Properties.Items2" xml:space="preserve">
+    <value>متاخرة</value>
+  </data>
+  <data name="TeethLosCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>184, 130</value>
+  </data>
+  <data name="MalfuncCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>493, 130</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items" xml:space="preserve">
+    <value>تنفس من الفم</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items1" xml:space="preserve">
+    <value>لفظ بعض الأحرف</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items2" xml:space="preserve">
+    <value>عقدة اللسان</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items3" xml:space="preserve">
+    <value>مضغ بطئ</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items4" xml:space="preserve">
+    <value>طحن أو صرير الأسنان</value>
+  </data>
+  <data name="MalfuncCombo.Properties.Items5" xml:space="preserve">
+    <value>المفصل الصدغي الفكي</value>
+  </data>
+  <data name="BreastCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 55</value>
+  </data>
+  <data name="BreastCombo.Properties.Items" xml:space="preserve">
+    <value>طبيعية</value>
+  </data>
+  <data name="BreastCombo.Properties.Items1" xml:space="preserve">
+    <value>رضاعة اصطناعية</value>
+  </data>
+  <data name="BreastCombo.Properties.Items2" xml:space="preserve">
+    <value>مختلطة</value>
+  </data>
+  <data name="TeethChCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 104</value>
+  </data>
+  <data name="TeethChCombo.Properties.Items" xml:space="preserve">
+    <value>في الموعد</value>
+  </data>
+  <data name="TeethChCombo.Properties.Items1" xml:space="preserve">
+    <value>مبكرة</value>
+  </data>
+  <data name="TeethChCombo.Properties.Items2" xml:space="preserve">
+    <value>متاخرة</value>
+  </data>
+  <data name="BirthCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 30</value>
+  </data>
+  <data name="BirthCombo.Properties.Items" xml:space="preserve">
+    <value>في الموعد</value>
+  </data>
+  <data name="BirthCombo.Properties.Items1" xml:space="preserve">
+    <value>قبل الموعد</value>
+  </data>
+  <data name="BirthCombo.Properties.Items2" xml:space="preserve">
+    <value>سبعة أشهر</value>
+  </data>
+  <data name="CompliantsCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 5</value>
+  </data>
+  <data name="CompliantsCombo.Properties.Items" xml:space="preserve">
+    <value>المظهر الخارجي</value>
+  </data>
+  <data name="CompliantsCombo.Properties.Items1" xml:space="preserve">
+    <value>وظيفية</value>
+  </data>
+  <data name="RadioPrevOrth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>475, 79</value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Items1" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="RadioPrevOrth.Properties.Items5" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="RadioCusin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>475, 55</value>
+  </data>
+  <data name="RadioCusin.Properties.Items1" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="RadioCusin.Properties.Items5" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="RadioThroat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>475, 30</value>
+  </data>
+  <data name="RadioThroat.Properties.Items1" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="RadioThroat.Properties.Items5" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="RadioLips.Location" type="System.Drawing.Point, System.Drawing">
+    <value>475, 5</value>
+  </data>
+  <data name="RadioLips.Properties.Items1" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="RadioLips.Properties.Items5" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="txtOrthoPriceDet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>337, 313</value>
+  </data>
+  <data name="txtPayNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 313</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>تعديل التقويم و التشخيص</value>
+  </data>
+</root>

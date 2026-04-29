@@ -1,0 +1,1096 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnShowImages.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnShowImages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>423, 2</value>
+  </data>
+  <data name="btnShowImages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 28</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnShowImages.TabIndex" type="System.Int32, mscorlib">
+    <value>233</value>
+  </data>
+  <data name="btnShowImages.Text" xml:space="preserve">
+    <value>Show Before / After</value>
+  </data>
+  <data name="&gt;&gt;btnShowImages.Name" xml:space="preserve">
+    <value>btnShowImages</value>
+  </data>
+  <data name="&gt;&gt;btnShowImages.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnShowImages.Parent" xml:space="preserve">
+    <value>RadiosPanel</value>
+  </data>
+  <data name="&gt;&gt;btnShowImages.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RadioBefor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="RadioBefor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioBefor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 7</value>
+  </data>
+  <data name="RadioBefor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 19</value>
+  </data>
+  <data name="RadioBefor.TabIndex" type="System.Int32, mscorlib">
+    <value>179</value>
+  </data>
+  <data name="RadioBefor.Text" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="&gt;&gt;RadioBefor.Name" xml:space="preserve">
+    <value>RadioBefor</value>
+  </data>
+  <data name="&gt;&gt;RadioBefor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioBefor.Parent" xml:space="preserve">
+    <value>RadiosPanel</value>
+  </data>
+  <data name="&gt;&gt;RadioBefor.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="RadioDur.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioDur.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioDur.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 7</value>
+  </data>
+  <data name="RadioDur.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 19</value>
+  </data>
+  <data name="RadioDur.TabIndex" type="System.Int32, mscorlib">
+    <value>186</value>
+  </data>
+  <data name="RadioDur.Text" xml:space="preserve">
+    <value>During</value>
+  </data>
+  <data name="&gt;&gt;RadioDur.Name" xml:space="preserve">
+    <value>RadioDur</value>
+  </data>
+  <data name="&gt;&gt;RadioDur.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioDur.Parent" xml:space="preserve">
+    <value>RadiosPanel</value>
+  </data>
+  <data name="&gt;&gt;RadioDur.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="RadioAfter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioAfter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioAfter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>355, 7</value>
+  </data>
+  <data name="RadioAfter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 19</value>
+  </data>
+  <data name="RadioAfter.TabIndex" type="System.Int32, mscorlib">
+    <value>180</value>
+  </data>
+  <data name="RadioAfter.Text" xml:space="preserve">
+    <value>After</value>
+  </data>
+  <data name="&gt;&gt;RadioAfter.Name" xml:space="preserve">
+    <value>RadioAfter</value>
+  </data>
+  <data name="&gt;&gt;RadioAfter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioAfter.Parent" xml:space="preserve">
+    <value>RadiosPanel</value>
+  </data>
+  <data name="&gt;&gt;RadioAfter.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="RadiosPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="RadiosPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="RadiosPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>596, 34</value>
+  </data>
+  <data name="RadiosPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>203</value>
+  </data>
+  <data name="&gt;&gt;RadiosPanel.Name" xml:space="preserve">
+    <value>RadiosPanel</value>
+  </data>
+  <data name="&gt;&gt;RadiosPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;RadiosPanel.Parent" xml:space="preserve">
+    <value>ThumbsPanel</value>
+  </data>
+  <data name="&gt;&gt;RadiosPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cmdStart.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="cmdStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmdStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>882, 8</value>
+  </data>
+  <data name="cmdStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 28</value>
+  </data>
+  <data name="cmdStart.TabIndex" type="System.Int32, mscorlib">
+    <value>208</value>
+  </data>
+  <data name="cmdStart.Text" xml:space="preserve">
+    <value>Start Power Point</value>
+  </data>
+  <data name="&gt;&gt;cmdStart.Name" xml:space="preserve">
+    <value>cmdStart</value>
+  </data>
+  <data name="&gt;&gt;cmdStart.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cmdStart.Parent" xml:space="preserve">
+    <value>PanelFilePath</value>
+  </data>
+  <data name="&gt;&gt;cmdStart.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnEdit.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>868, 4</value>
+  </data>
+  <data name="btnEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 28</value>
+  </data>
+  <data name="btnEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>207</value>
+  </data>
+  <data name="btnEdit.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
+    <value>btnEdit</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnSaveImage.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSaveImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSaveImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>686, 4</value>
+  </data>
+  <data name="btnSaveImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 28</value>
+  </data>
+  <data name="btnSaveImage.TabIndex" type="System.Int32, mscorlib">
+    <value>206</value>
+  </data>
+  <data name="btnSaveImage.Text" xml:space="preserve">
+    <value>Save Image</value>
+  </data>
+  <data name="&gt;&gt;btnSaveImage.Name" xml:space="preserve">
+    <value>btnSaveImage</value>
+  </data>
+  <data name="&gt;&gt;btnSaveImage.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnSaveImage.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;btnSaveImage.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btLoadPics.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btLoadPics.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btLoadPics.Location" type="System.Drawing.Point, System.Drawing">
+    <value>593, 4</value>
+  </data>
+  <data name="btLoadPics.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 28</value>
+  </data>
+  <data name="btLoadPics.TabIndex" type="System.Int32, mscorlib">
+    <value>204</value>
+  </data>
+  <data name="btLoadPics.Text" xml:space="preserve">
+    <value>Load Pics</value>
+  </data>
+  <data name="&gt;&gt;btLoadPics.Name" xml:space="preserve">
+    <value>btLoadPics</value>
+  </data>
+  <data name="&gt;&gt;btLoadPics.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btLoadPics.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;btLoadPics.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btAddPics.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btAddPics.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btAddPics.Location" type="System.Drawing.Point, System.Drawing">
+    <value>462, 4</value>
+  </data>
+  <data name="btAddPics.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 28</value>
+  </data>
+  <data name="btAddPics.TabIndex" type="System.Int32, mscorlib">
+    <value>203</value>
+  </data>
+  <data name="btAddPics.Text" xml:space="preserve">
+    <value>Add Before IMGS</value>
+  </data>
+  <data name="&gt;&gt;btAddPics.Name" xml:space="preserve">
+    <value>btAddPics</value>
+  </data>
+  <data name="&gt;&gt;btAddPics.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btAddPics.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;btAddPics.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="BtnDel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BtnDel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtnDel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>781, 4</value>
+  </data>
+  <data name="BtnDel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 28</value>
+  </data>
+  <data name="BtnDel.TabIndex" type="System.Int32, mscorlib">
+    <value>205</value>
+  </data>
+  <data name="BtnDel.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;BtnDel.Name" xml:space="preserve">
+    <value>BtnDel</value>
+  </data>
+  <data name="&gt;&gt;BtnDel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnDel.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;BtnDel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnImgInPpt.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnImgInPpt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1036, 8</value>
+  </data>
+  <data name="btnImgInPpt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 28</value>
+  </data>
+  <data name="btnImgInPpt.TabIndex" type="System.Int32, mscorlib">
+    <value>209</value>
+  </data>
+  <data name="btnImgInPpt.Text" xml:space="preserve">
+    <value>Open Image In PowerPoint</value>
+  </data>
+  <data name="&gt;&gt;btnImgInPpt.Name" xml:space="preserve">
+    <value>btnImgInPpt</value>
+  </data>
+  <data name="&gt;&gt;btnImgInPpt.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnImgInPpt.Parent" xml:space="preserve">
+    <value>PanelFilePath</value>
+  </data>
+  <data name="&gt;&gt;btnImgInPpt.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnBrowse.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>686, 8</value>
+  </data>
+  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 28</value>
+  </data>
+  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>201</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Browse/ Open In PowerPoint</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
+    <value>btnBrowse</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
+    <value>PanelFilePath</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LabelFilePath.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelFilePath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 13</value>
+  </data>
+  <data name="LabelFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="LabelFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="LabelFilePath.Text" xml:space="preserve">
+    <value>File Path</value>
+  </data>
+  <data name="&gt;&gt;LabelFilePath.Name" xml:space="preserve">
+    <value>LabelFilePath</value>
+  </data>
+  <data name="&gt;&gt;LabelFilePath.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelFilePath.Parent" xml:space="preserve">
+    <value>PanelFilePath</value>
+  </data>
+  <data name="&gt;&gt;LabelFilePath.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TextFilePath.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TextFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 11</value>
+  </data>
+  <data name="TextFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>511, 23</value>
+  </data>
+  <data name="TextFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>199</value>
+  </data>
+  <data name="&gt;&gt;TextFilePath.Name" xml:space="preserve">
+    <value>TextFilePath</value>
+  </data>
+  <data name="&gt;&gt;TextFilePath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextFilePath.Parent" xml:space="preserve">
+    <value>PanelFilePath</value>
+  </data>
+  <data name="&gt;&gt;TextFilePath.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="PanelFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="PanelFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 38</value>
+  </data>
+  <data name="PanelFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1210, 45</value>
+  </data>
+  <data name="PanelFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>204</value>
+  </data>
+  <data name="&gt;&gt;PanelFilePath.Name" xml:space="preserve">
+    <value>PanelFilePath</value>
+  </data>
+  <data name="&gt;&gt;PanelFilePath.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelFilePath.Parent" xml:space="preserve">
+    <value>BottomPanel</value>
+  </data>
+  <data name="&gt;&gt;PanelFilePath.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ChkDrive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 9</value>
+  </data>
+  <data name="ChkDrive.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ChkDrive.Properties.Caption" xml:space="preserve">
+    <value>Use Drive</value>
+  </data>
+  <data name="ChkDrive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 19</value>
+  </data>
+  <data name="ChkDrive.TabIndex" type="System.Int32, mscorlib">
+    <value>213</value>
+  </data>
+  <data name="&gt;&gt;ChkDrive.Name" xml:space="preserve">
+    <value>ChkDrive</value>
+  </data>
+  <data name="&gt;&gt;ChkDrive.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ChkDrive.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;ChkDrive.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnOpenEditor.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnOpenEditor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>950, 4</value>
+  </data>
+  <data name="btnOpenEditor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 28</value>
+  </data>
+  <data name="btnOpenEditor.TabIndex" type="System.Int32, mscorlib">
+    <value>208</value>
+  </data>
+  <data name="btnOpenEditor.Text" xml:space="preserve">
+    <value>Open Editor</value>
+  </data>
+  <data name="&gt;&gt;btnOpenEditor.Name" xml:space="preserve">
+    <value>btnOpenEditor</value>
+  </data>
+  <data name="&gt;&gt;btnOpenEditor.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnOpenEditor.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;btnOpenEditor.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnDicomViewer.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnDicomViewer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDicomViewer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1036, 4</value>
+  </data>
+  <data name="btnDicomViewer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 28</value>
+  </data>
+  <data name="btnDicomViewer.TabIndex" type="System.Int32, mscorlib">
+    <value>209</value>
+  </data>
+  <data name="btnDicomViewer.Text" xml:space="preserve">
+    <value>DICOM Viewer</value>
+  </data>
+  <data name="&gt;&gt;btnDicomViewer.Name" xml:space="preserve">
+    <value>btnDicomViewer</value>
+  </data>
+  <data name="&gt;&gt;btnDicomViewer.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnDicomViewer.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;btnDicomViewer.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnCrop.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnCrop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCrop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1132, 4</value>
+  </data>
+  <data name="btnCrop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 28</value>
+  </data>
+  <data name="btnCrop.TabIndex" type="System.Int32, mscorlib">
+    <value>210</value>
+  </data>
+  <data name="btnCrop.Text" xml:space="preserve">
+    <value>Crop</value>
+  </data>
+  <data name="&gt;&gt;btnCrop.Name" xml:space="preserve">
+    <value>btnCrop</value>
+  </data>
+  <data name="&gt;&gt;btnCrop.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnCrop.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;btnCrop.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LabelPatname.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="LabelPatname.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabelPatname.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelPatname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 9</value>
+  </data>
+  <data name="LabelPatname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>289, 19</value>
+  </data>
+  <data name="LabelPatname.TabIndex" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="LabelPatname.Text" xml:space="preserve">
+    <value>ppppppp</value>
+  </data>
+  <data name="&gt;&gt;LabelPatname.Name" xml:space="preserve">
+    <value>LabelPatname</value>
+  </data>
+  <data name="&gt;&gt;LabelPatname.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelPatname.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;LabelPatname.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="LabelPatientName.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelPatientName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelPatientName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 11</value>
+  </data>
+  <data name="LabelPatientName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 15</value>
+  </data>
+  <data name="LabelPatientName.TabIndex" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="LabelPatientName.Text" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="&gt;&gt;LabelPatientName.Name" xml:space="preserve">
+    <value>LabelPatientName</value>
+  </data>
+  <data name="&gt;&gt;LabelPatientName.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelPatientName.Parent" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;LabelPatientName.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="PanelPatientName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="PanelPatientName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="PanelPatientName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1210, 83</value>
+  </data>
+  <data name="PanelPatientName.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
+  </data>
+  <data name="&gt;&gt;PanelPatientName.Name" xml:space="preserve">
+    <value>PanelPatientName</value>
+  </data>
+  <data name="&gt;&gt;PanelPatientName.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelPatientName.Parent" xml:space="preserve">
+    <value>BottomPanel</value>
+  </data>
+  <data name="&gt;&gt;PanelPatientName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BottomPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="BottomPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 569</value>
+  </data>
+  <data name="BottomPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 85</value>
+  </data>
+  <data name="BottomPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BottomPanel.Name" xml:space="preserve">
+    <value>BottomPanel</value>
+  </data>
+  <data name="&gt;&gt;BottomPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BottomPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BottomPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>742, 17</value>
+  </metadata>
+  <data name="tsX64.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
+  </data>
+  <data name="tsX64.Text" xml:space="preserve">
+    <value>64 x 64</value>
+  </data>
+  <data name="tsX128.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
+  </data>
+  <data name="tsX128.Text" xml:space="preserve">
+    <value>128 x 128</value>
+  </data>
+  <data name="tsX256.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
+  </data>
+  <data name="tsX256.Text" xml:space="preserve">
+    <value>256 x 256</value>
+  </data>
+  <data name="tsImageSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="tsImageSize.Text" xml:space="preserve">
+    <value>Image Size</value>
+  </data>
+  <data name="tsDeleteImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="tsDeleteImage.Text" xml:space="preserve">
+    <value>Delete Image</value>
+  </data>
+  <data name="tsReload.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="tsReload.Text" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="ContextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 70</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip1.Name" xml:space="preserve">
+    <value>ContextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ThumbsGrp.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ThumbsGrp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 36</value>
+  </data>
+  <data name="ThumbsGrp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>596, 531</value>
+  </data>
+  <data name="ThumbsGrp.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ThumbsGrp.Name" xml:space="preserve">
+    <value>ThumbsGrp</value>
+  </data>
+  <data name="&gt;&gt;ThumbsGrp.Type" xml:space="preserve">
+    <value>DentistX.ThumbGalleryViewer, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ThumbsGrp.Parent" xml:space="preserve">
+    <value>ThumbsPanel</value>
+  </data>
+  <data name="&gt;&gt;ThumbsGrp.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ThumbsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="ThumbsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ThumbsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 569</value>
+  </data>
+  <data name="ThumbsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ThumbsPanel.Name" xml:space="preserve">
+    <value>ThumbsPanel</value>
+  </data>
+  <data name="&gt;&gt;ThumbsPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ThumbsPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ThumbsPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="picCanvas.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="picCanvas.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="picCanvas.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="picCanvas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="picCanvas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 565</value>
+  </data>
+  <data name="picCanvas.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;picCanvas.Name" xml:space="preserve">
+    <value>picCanvas</value>
+  </data>
+  <data name="&gt;&gt;picCanvas.Type" xml:space="preserve">
+    <value>DentistX.ImageBox, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;picCanvas.Parent" xml:space="preserve">
+    <value>CanvasPanel</value>
+  </data>
+  <data name="&gt;&gt;picCanvas.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CanvasPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="CanvasPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>600, 0</value>
+  </data>
+  <data name="CanvasPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>614, 569</value>
+  </data>
+  <data name="CanvasPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;CanvasPanel.Name" xml:space="preserve">
+    <value>CanvasPanel</value>
+  </data>
+  <data name="&gt;&gt;CanvasPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;CanvasPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CanvasPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="sfdImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>899, 17</value>
+  </metadata>
+  <data name="sfdImage.Filter" xml:space="preserve">
+    <value>Graphics Files|*.bmp;*.gif;*.jpg;*.jpeg;*.png;*.tif;*.tiff|All Files|*.*</value>
+  </data>
+  <metadata name="ofdImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1001, 17</value>
+  </metadata>
+  <data name="ofdImage.Filter" xml:space="preserve">
+    <value>Graphics Files|*.bmp;*.gif;*.jpg;*.jpeg;*.png;*.tif;*.tiff|All Files|*.*</value>
+  </data>
+  <metadata name="FBDlg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1105, 17</value>
+  </metadata>
+  <data name="FBDlg.Title" xml:space="preserve">
+    <value>Choose Folder Of Images To Open In PowerPoint</value>
+  </data>
+  <metadata name="FolderBrwsrDlg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1189, 17</value>
+  </metadata>
+  <metadata name="PicsBSBefore.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="PatientBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>138, 17</value>
+  </metadata>
+  <metadata name="Patient_ImgsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>306, 17</value>
+  </metadata>
+  <metadata name="PicsBSDuring.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>506, 17</value>
+  </metadata>
+  <metadata name="PicsBSAfter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>629, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>62</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 654</value>
+  </data>
+  <data name="&gt;&gt;tsImageSize.Name" xml:space="preserve">
+    <value>tsImageSize</value>
+  </data>
+  <data name="&gt;&gt;tsImageSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsX64.Name" xml:space="preserve">
+    <value>tsX64</value>
+  </data>
+  <data name="&gt;&gt;tsX64.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsX128.Name" xml:space="preserve">
+    <value>tsX128</value>
+  </data>
+  <data name="&gt;&gt;tsX128.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsX256.Name" xml:space="preserve">
+    <value>tsX256</value>
+  </data>
+  <data name="&gt;&gt;tsX256.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsDeleteImage.Name" xml:space="preserve">
+    <value>tsDeleteImage</value>
+  </data>
+  <data name="&gt;&gt;tsDeleteImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsReload.Name" xml:space="preserve">
+    <value>tsReload</value>
+  </data>
+  <data name="&gt;&gt;tsReload.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sfdImage.Name" xml:space="preserve">
+    <value>sfdImage</value>
+  </data>
+  <data name="&gt;&gt;sfdImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ofdImage.Name" xml:space="preserve">
+    <value>ofdImage</value>
+  </data>
+  <data name="&gt;&gt;ofdImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FBDlg.Name" xml:space="preserve">
+    <value>FBDlg</value>
+  </data>
+  <data name="&gt;&gt;FBDlg.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraFolderBrowserDialog, DevExpress.XtraDialogs.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;FolderBrwsrDlg.Name" xml:space="preserve">
+    <value>FolderBrwsrDlg</value>
+  </data>
+  <data name="&gt;&gt;FolderBrwsrDlg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PicsBSBefore.Name" xml:space="preserve">
+    <value>PicsBSBefore</value>
+  </data>
+  <data name="&gt;&gt;PicsBSBefore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PatientBindingSource.Name" xml:space="preserve">
+    <value>PatientBindingSource</value>
+  </data>
+  <data name="&gt;&gt;PatientBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Patient_ImgsBindingSource.Name" xml:space="preserve">
+    <value>Patient_ImgsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;Patient_ImgsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PicsBSDuring.Name" xml:space="preserve">
+    <value>PicsBSDuring</value>
+  </data>
+  <data name="&gt;&gt;PicsBSDuring.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PicsBSAfter.Name" xml:space="preserve">
+    <value>PicsBSAfter</value>
+  </data>
+  <data name="&gt;&gt;PicsBSAfter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ThumbNailViewer</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraUserControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

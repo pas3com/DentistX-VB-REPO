@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HdrDS" targetNamespace="http://tempuri.org/HdrDS.xsd" xmlns:mstns="http://tempuri.org/HdrDS.xsd" xmlns="http://tempuri.org/HdrDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DentistXConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DentistXConnectionString2 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DentistX.My.MySettings.GlobalReference.Default.DentistXConnectionString2" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PatientViewTableAdapter" GeneratorDataComponentClassName="PatientViewTableAdapter" Name="PatientView" UserDataComponentName="PatientViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DentistXConnectionString2 (MySettings)" DbObjectName="DentistX.dbo.PatientView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PatientID, PatientName, PatientNumber, Sex, StillKid, Phone, Address, Health, Treat, Implant, Mobile, Ortho, Struc, Notes, PatientAge, PatientBalance, Age, BirthY FROM dbo.PatientView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PatientID" DataSetColumn="PatientID" />
+              <Mapping SourceColumn="PatientName" DataSetColumn="PatientName" />
+              <Mapping SourceColumn="PatientNumber" DataSetColumn="PatientNumber" />
+              <Mapping SourceColumn="Sex" DataSetColumn="Sex" />
+              <Mapping SourceColumn="StillKid" DataSetColumn="StillKid" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Health" DataSetColumn="Health" />
+              <Mapping SourceColumn="Treat" DataSetColumn="Treat" />
+              <Mapping SourceColumn="Implant" DataSetColumn="Implant" />
+              <Mapping SourceColumn="Mobile" DataSetColumn="Mobile" />
+              <Mapping SourceColumn="Ortho" DataSetColumn="Ortho" />
+              <Mapping SourceColumn="Struc" DataSetColumn="Struc" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+              <Mapping SourceColumn="PatientAge" DataSetColumn="PatientAge" />
+              <Mapping SourceColumn="PatientBalance" DataSetColumn="PatientBalance" />
+              <Mapping SourceColumn="Age" DataSetColumn="Age" />
+              <Mapping SourceColumn="BirthY" DataSetColumn="BirthY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HdrDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="HdrDS" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="HdrDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PatientView" msprop:Generator_RowEvHandlerName="PatientViewRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientViewRowDeleted" msprop:Generator_RowDeletingName="PatientViewRowDeleting" msprop:Generator_RowEvArgName="PatientViewRowChangeEvent" msprop:Generator_TablePropName="PatientView" msprop:Generator_RowChangedName="PatientViewRowChanged" msprop:Generator_RowChangingName="PatientViewRowChanging" msprop:Generator_TableClassName="PatientViewDataTable" msprop:Generator_RowClassName="PatientViewRow" msprop:Generator_TableVarName="tablePatientView" msprop:Generator_UserTableName="PatientView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PatientID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="PatientID" msprop:Generator_ColumnPropNameInTable="PatientIDColumn" msprop:Generator_ColumnVarNameInTable="columnPatientID" msprop:Generator_UserColumnName="PatientID" type="xs:int" />
+              <xs:element name="PatientName" msprop:Generator_ColumnPropNameInRow="PatientName" msprop:Generator_ColumnPropNameInTable="PatientNameColumn" msprop:Generator_ColumnVarNameInTable="columnPatientName" msprop:Generator_UserColumnName="PatientName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PatientNumber" msprop:Generator_ColumnPropNameInRow="PatientNumber" msprop:Generator_ColumnPropNameInTable="PatientNumberColumn" msprop:Generator_ColumnVarNameInTable="columnPatientNumber" msprop:Generator_UserColumnName="PatientNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnPropNameInTable="SexColumn" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_UserColumnName="Sex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StillKid" msprop:Generator_ColumnPropNameInRow="StillKid" msprop:Generator_ColumnPropNameInTable="StillKidColumn" msprop:Generator_ColumnVarNameInTable="columnStillKid" msprop:Generator_UserColumnName="StillKid" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Phone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_UserColumnName="Phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Health" msprop:Generator_ColumnPropNameInRow="Health" msprop:Generator_ColumnPropNameInTable="HealthColumn" msprop:Generator_ColumnVarNameInTable="columnHealth" msprop:Generator_UserColumnName="Health" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Treat" msprop:Generator_ColumnPropNameInRow="Treat" msprop:Generator_ColumnPropNameInTable="TreatColumn" msprop:Generator_ColumnVarNameInTable="columnTreat" msprop:Generator_UserColumnName="Treat" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Implant" msprop:Generator_ColumnPropNameInRow="Implant" msprop:Generator_ColumnPropNameInTable="ImplantColumn" msprop:Generator_ColumnVarNameInTable="columnImplant" msprop:Generator_UserColumnName="Implant" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Mobile" msprop:Generator_ColumnPropNameInRow="Mobile" msprop:Generator_ColumnPropNameInTable="MobileColumn" msprop:Generator_ColumnVarNameInTable="columnMobile" msprop:Generator_UserColumnName="Mobile" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Ortho" msprop:Generator_ColumnPropNameInRow="Ortho" msprop:Generator_ColumnPropNameInTable="OrthoColumn" msprop:Generator_ColumnVarNameInTable="columnOrtho" msprop:Generator_UserColumnName="Ortho" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Struc" msprop:Generator_ColumnPropNameInRow="Struc" msprop:Generator_ColumnPropNameInTable="StrucColumn" msprop:Generator_ColumnVarNameInTable="columnStruc" msprop:Generator_UserColumnName="Struc" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Notes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="350" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PatientAge" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PatientAge" msprop:Generator_ColumnPropNameInTable="PatientAgeColumn" msprop:Generator_ColumnVarNameInTable="columnPatientAge" msprop:Generator_UserColumnName="PatientAge" type="xs:int" minOccurs="0" />
+              <xs:element name="PatientBalance" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PatientBalance" msprop:Generator_ColumnPropNameInTable="PatientBalanceColumn" msprop:Generator_ColumnVarNameInTable="columnPatientBalance" msprop:Generator_UserColumnName="PatientBalance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Age" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnPropNameInTable="AgeColumn" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_UserColumnName="Age" type="xs:int" minOccurs="0" />
+              <xs:element name="BirthY" msprop:Generator_ColumnPropNameInRow="BirthY" msprop:Generator_ColumnPropNameInTable="BirthYColumn" msprop:Generator_ColumnVarNameInTable="columnBirthY" msprop:Generator_UserColumnName="BirthY" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PatientView" />
+      <xs:field xpath="mstns:PatientID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

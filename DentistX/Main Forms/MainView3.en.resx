@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="TreatsButton.SuperTip" type="DevExpress.Utils.SuperToolTip, DevExpress.Utils.v25.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYyNS4xLCBWZXJzaW9uPTI1LjEu
+        My4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFlE
+        ZXZFeHByZXNzLkRhdGEudjI1LjEsIFZlcnNpb249MjUuMS4zLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
+        bGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURldkV4cHJlc3MuVXRpbHMuU3VwZXJUb29s
+        VGlwBQAAAA1BbGxvd0h0bWxUZXh0EUZpeGVkVG9vbFRpcFdpZHRoCkl0ZW1zQ291bnQJaXRlbVR5cGUw
+        BWl0ZW0wBAAABAQfRGV2RXhwcmVzcy5VdGlscy5EZWZhdWx0Qm9vbGVhbgMAAAABCCVEZXZFeHByZXNz
+        LlV0aWxzLlN1cGVyVG9vbFRpcEl0ZW1UeXBlAgAAABxEZXZFeHByZXNzLlV0aWxzLlRvb2xUaXBJdGVt
+        AgAAAAIAAAAF/P///x9EZXZFeHByZXNzLlV0aWxzLkRlZmF1bHRCb29sZWFuAQAAAAd2YWx1ZV9fAAgD
+        AAAAAgAAAAABAAAABfv///8lRGV2RXhwcmVzcy5VdGlscy5TdXBlclRvb2xUaXBJdGVtVHlwZQEAAAAH
+        dmFsdWVfXwAIAgAAAAAAAAAJBgAAAAwHAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJzaW9uPTQuMC4wLjAs
+        IEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEzYQUGAAAAHERldkV4
+        cHJlc3MuVXRpbHMuVG9vbFRpcEl0ZW0HAAAADUFsbG93SHRtbFRleHQESWNvbgxJbWFnZU9wdGlvbnMK
+        TGVmdEluZGVudAhNYXhXaWR0aBJPd25lckFsbG93SHRtbFRleHQEVGV4dAQEBAAAAAEfRGV2RXhwcmVz
+        cy5VdGlscy5EZWZhdWx0Qm9vbGVhbgMAAAATU3lzdGVtLkRyYXdpbmcuSWNvbgcAAAAoRGV2RXhwcmVz
+        cy5VdGlscy5Ub29sVGlwSXRlbUltYWdlT3B0aW9ucwIAAAAICAECAAAAAfj////8////AAAAAAoJCQAA
+        AAAAAAA8AQAAAAYKAAAADTxiPlRyZWF0czwvYj4FCQAAAChEZXZFeHByZXNzLlV0aWxzLlRvb2xUaXBJ
+        dGVtSW1hZ2VPcHRpb25zBgAAAAhJbWFnZVVyaQxTdmdJbWFnZVNpemUJQWxpZ25tZW50CkltYWdlSW5k
+        ZXgISW1hZ2VLZXkTSW1hZ2VUb1RleHREaXN0YW5jZQEEBAABABNTeXN0ZW0uRHJhd2luZy5TaXplBwAA
+        ACZEZXZFeHByZXNzLlV0aWxzLlRvb2xUaXBJbWFnZUFsaWdubWVudAIAAAAICAIAAAAGCwAAAAAF9P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIBwAAAAAAAAAAAAAABfP///8m
+        RGV2RXhwcmVzcy5VdGlscy5Ub29sVGlwSW1hZ2VBbGlnbm1lbnQBAAAAB3ZhbHVlX18ACAIAAAAAAAAA
+        /////wkLAAAADgAAAAs=
+</value>
+  </data>
+  <data name="OrthoButton.SuperTip" type="DevExpress.Utils.SuperToolTip, DevExpress.Utils.v25.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYyNS4xLCBWZXJzaW9uPTI1LjEu
+        My4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFlE
+        ZXZFeHByZXNzLkRhdGEudjI1LjEsIFZlcnNpb249MjUuMS4zLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
+        bGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURldkV4cHJlc3MuVXRpbHMuU3VwZXJUb29s
+        VGlwBQAAAA1BbGxvd0h0bWxUZXh0EUZpeGVkVG9vbFRpcFdpZHRoCkl0ZW1zQ291bnQJaXRlbVR5cGUw
+        BWl0ZW0wBAAABAQfRGV2RXhwcmVzcy5VdGlscy5EZWZhdWx0Qm9vbGVhbgMAAAABCCVEZXZFeHByZXNz
+        LlV0aWxzLlN1cGVyVG9vbFRpcEl0ZW1UeXBlAgAAABxEZXZFeHByZXNzLlV0aWxzLlRvb2xUaXBJdGVt
+        AgAAAAIAAAAF/P///x9EZXZFeHByZXNzLlV0aWxzLkRlZmF1bHRCb29sZWFuAQAAAAd2YWx1ZV9fAAgD
+        AAAAAgAAAAABAAAABfv///8lRGV2RXhwcmVzcy5VdGlscy5TdXBlclRvb2xUaXBJdGVtVHlwZQEAAAAH
+        dmFsdWVfXwAIAgAAAAAAAAAJBgAAAAwHAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJzaW9uPTQuMC4wLjAs
+        IEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEzYQUGAAAAHERldkV4
+        cHJlc3MuVXRpbHMuVG9vbFRpcEl0ZW0HAAAADUFsbG93SHRtbFRleHQESWNvbgxJbWFnZU9wdGlvbnMK
+        TGVmdEluZGVudAhNYXhXaWR0aBJPd25lckFsbG93SHRtbFRleHQEVGV4dAQEBAAAAAEfRGV2RXhwcmVz
+        cy5VdGlscy5EZWZhdWx0Qm9vbGVhbgMAAAATU3lzdGVtLkRyYXdpbmcuSWNvbgcAAAAoRGV2RXhwcmVz
+        cy5VdGlscy5Ub29sVGlwSXRlbUltYWdlT3B0aW9ucwIAAAAICAECAAAAAfj////8////AAAAAAoJCQAA
+        AAAAAAA8AQAAAAYKAAAAEzxiPk9ydGhvZG9udGljczwvYj4FCQAAAChEZXZFeHByZXNzLlV0aWxzLlRv
+        b2xUaXBJdGVtSW1hZ2VPcHRpb25zBgAAAAhJbWFnZVVyaQxTdmdJbWFnZVNpemUJQWxpZ25tZW50Cklt
+        YWdlSW5kZXgISW1hZ2VLZXkTSW1hZ2VUb1RleHREaXN0YW5jZQEEBAABABNTeXN0ZW0uRHJhd2luZy5T
+        aXplBwAAACZEZXZFeHByZXNzLlV0aWxzLlRvb2xUaXBJbWFnZUFsaWdubWVudAIAAAAICAIAAAAGCwAA
+        AAAF9P///xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIBwAAAAAAAAAAAAAA
+        BfP///8mRGV2RXhwcmVzcy5VdGlscy5Ub29sVGlwSW1hZ2VBbGlnbm1lbnQBAAAAB3ZhbHVlX18ACAIA
+        AAAAAAAA/////wkLAAAADgAAAAs=
+</value>
+  </data>
+  <data name="DiagButton.SuperTip" type="DevExpress.Utils.SuperToolTip, DevExpress.Utils.v25.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYyNS4xLCBWZXJzaW9uPTI1LjEu
+        My4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFlE
+        ZXZFeHByZXNzLkRhdGEudjI1LjEsIFZlcnNpb249MjUuMS4zLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
+        bGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURldkV4cHJlc3MuVXRpbHMuU3VwZXJUb29s
+        VGlwBQAAAA1BbGxvd0h0bWxUZXh0EUZpeGVkVG9vbFRpcFdpZHRoCkl0ZW1zQ291bnQJaXRlbVR5cGUw
+        BWl0ZW0wBAAABAQfRGV2RXhwcmVzcy5VdGlscy5EZWZhdWx0Qm9vbGVhbgMAAAABCCVEZXZFeHByZXNz
+        LlV0aWxzLlN1cGVyVG9vbFRpcEl0ZW1UeXBlAgAAABxEZXZFeHByZXNzLlV0aWxzLlRvb2xUaXBJdGVt
+        AgAAAAIAAAAF/P///x9EZXZFeHByZXNzLlV0aWxzLkRlZmF1bHRCb29sZWFuAQAAAAd2YWx1ZV9fAAgD
+        AAAAAgAAAAABAAAABfv///8lRGV2RXhwcmVzcy5VdGlscy5TdXBlclRvb2xUaXBJdGVtVHlwZQEAAAAH
+        dmFsdWVfXwAIAgAAAAAAAAAJBgAAAAwHAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJzaW9uPTQuMC4wLjAs
+        IEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEzYQUGAAAAHERldkV4
+        cHJlc3MuVXRpbHMuVG9vbFRpcEl0ZW0HAAAADUFsbG93SHRtbFRleHQESWNvbgxJbWFnZU9wdGlvbnMK
+        TGVmdEluZGVudAhNYXhXaWR0aBJPd25lckFsbG93SHRtbFRleHQEVGV4dAQEBAAAAAEfRGV2RXhwcmVz
+        cy5VdGlscy5EZWZhdWx0Qm9vbGVhbgMAAAATU3lzdGVtLkRyYXdpbmcuSWNvbgcAAAAoRGV2RXhwcmVz
+        cy5VdGlscy5Ub29sVGlwSXRlbUltYWdlT3B0aW9ucwIAAAAICAECAAAAAfj////8////AAAAAAoJCQAA
+        AAAAAAA8AQAAAAYKAAAADkRpYWdub3NpcyBGb3JtBQkAAAAoRGV2RXhwcmVzcy5VdGlscy5Ub29sVGlw
+        SXRlbUltYWdlT3B0aW9ucwYAAAAISW1hZ2VVcmkMU3ZnSW1hZ2VTaXplCUFsaWdubWVudApJbWFnZUlu
+        ZGV4CEltYWdlS2V5E0ltYWdlVG9UZXh0RGlzdGFuY2UBBAQAAQATU3lzdGVtLkRyYXdpbmcuU2l6ZQcA
+        AAAmRGV2RXhwcmVzcy5VdGlscy5Ub29sVGlwSW1hZ2VBbGlnbm1lbnQCAAAACAgCAAAABgsAAAAABfT/
+        //8TU3lzdGVtLkRyYXdpbmcuU2l6ZQIAAAAFd2lkdGgGaGVpZ2h0AAAICAcAAAAAAAAAAAAAAAXz////
+        JkRldkV4cHJlc3MuVXRpbHMuVG9vbFRpcEltYWdlQWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAAAAA
+        AP////8JCwAAAA4AAAAL
+</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="stLoggedUserLbl.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stLoggedUserLbl.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stLoggedUserLbl.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stLoggedUserLbl.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="stLoggedUserLbl.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="stUserNameTxt.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stUserNameTxt.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stUserNameTxt.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stUserNameTxt.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stUserNameTxt.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="BarStaticItem1.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BarStaticItem1.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BarStaticItem1.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BarStaticItem1.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BarStaticItem1.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="stFormNameLbl.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stFormNameLbl.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stFormNameLbl.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stFormNameLbl.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stFormNameLbl.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="stFormNameTxt.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stFormNameTxt.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stFormNameTxt.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stFormNameTxt.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stFormNameTxt.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="stPatientNameLbl.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stPatientNameLbl.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stPatientNameLbl.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stPatientNameLbl.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stPatientNameLbl.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="stPatientNameTxt.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stPatientNameTxt.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stPatientNameTxt.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stPatientNameTxt.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stPatientNameTxt.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="stLoadingLbl.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stLoadingLbl.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stLoadingLbl.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="stLoadingLbl.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="stLoadingLbl.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="chkBackup.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="chkBackup.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkBackup.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="chkBackup.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkBackup.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="SkinBarSubItem1.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="SkinBarSubItem1.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SkinBarSubItem1.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="SkinBarSubItem1.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SkinBarSubItem1.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="BarHeaderItem1.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BarHeaderItem1.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BarHeaderItem1.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BarHeaderItem1.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BarHeaderItem1.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="MainView3.IconOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAv1JREFUOE9jYMACJCUluSQlJUWQxVRVVZXi4uIKW1paZrS2tk51cnKyRZaHAcak
+        pKSsQ4cOfTh+/PjfSZMmLTA0NFRZt27djrt37/75+PHj/5OnTr7eunXrnbdv334VERFRRdHt5OQU8uXL
+        l79fvnz59+3bt//fv3//v3bt2nPHjh17ffbs2c9VVVWbTU1NUxgYGIQuXbr02tLSMhFZP+OMWTN2FpUU
+        Tefn53dsaGjY+P79+99fv379v33n9uttHW0b1q9ff4ufn98ApHjFihV77O3tc5ANYF28ePGFgIAAfyif
+        RUZGxr21tXXztm3b7k2cOHG/pKSkDUzx8uXL1xsYGMQhtDMwsMyfP/90ampqBLIgAwMDEwMDAycDAwMz
+        suCaNWu2CIsLOyGLMdbX16/r6uqqBWkSZGDg52dgEABhBgYGDgYGBl4QGyQOMmzVqlUHGRgYFJENYPDw
+        8qjesmXLJgkeHs1KdeU7O3y9fi2zt/6hycralCMldm2Xh8uvOhXFByJcXEZz5sw5ysDAwI1iAA8Pj/XD
+        hw/fqqiosINcoczEFNuvqfp2urXZtRJpidvKTEzhIK+C0khre+tmqPdQzdi8efPdkJAQVyFOTuloWenJ
+        +VISl2LEhLYuNzX4GiAl3irMwMAb6Ovr4efnVw3Wwc/AIKgjJqanLSqqL83LqxoRETZ564J514tkpK7o
+        sLBkgDSkBQXNmqSh/GObndXfCTqaL2fU1d0UFBS0BhsgxcCQcTEh5v/t9KT/88xNPiXJy96+evnyF2Up
+        KVmoqzhzc3P7QIEIwoKCgvy9vb07GBgY+MCykgwMKUtsLX+sdrT9kSgqfI2BgUG0oKBgBTQ2GGRlZaVK
+        SkvmwKLRxcXFJC0tbSrUcDAABQQo0ECYFSTAzc2tfeTIkUf29vYK/kH+UQ4ODnkBAQE+ILkFCxYs5+fn
+        N0Y2ACswNjbOOX78+I2enp51IOd2dnZuWL58+crY2NiZ6IkKF2CWk5PzFhUV1YfyxdXU1EDRyIOsCADt
+        FwDfcqFOHQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="MainMenu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="MainMenu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MainMenu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="MainMenu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MainMenu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="DBaseMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="DBaseMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DBaseMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="DBaseMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DBaseMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListChckConnMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListChckConnMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListChckConnMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListChckConnMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListChckConnMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListBackupMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListBackupMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListBackupMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListBackupMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListBackupMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListRestoreMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListRestoreMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListRestoreMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListRestoreMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListRestoreMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="SettingsMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="SettingsMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SettingsMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="SettingsMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SettingsMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListSettingsMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListSettingsMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListSettingsMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListSettingsMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListSettingsMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListUserMngmntMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListUserMngmntMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListUserMngmntMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListUserMngmntMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListUserMngmntMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListUsersMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListUsersMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListUsersMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListUsersMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListUsersMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListAddNewUsrGrpMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListAddNewUsrGrpMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListAddNewUsrGrpMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListAddNewUsrGrpMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListAddNewUsrGrpMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListPermissionMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListPermissionMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListPermissionMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListPermissionMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListPermissionMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListChangePassMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListChangePassMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListChangePassMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListChangePassMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListChangePassMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="LstRestPassMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="LstRestPassMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LstRestPassMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="LstRestPassMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LstRestPassMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="bntLogInOUT.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="bntLogInOUT.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="bntLogInOUT.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="bntLogInOUT.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="bntLogInOUT.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ExitMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ExitMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ExitMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ExitMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ExitMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnMnuExit.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnMnuExit.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnMnuExit.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnMnuExit.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnMnuExit.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnAbout.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnAbout.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnAbout.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="btnAbout.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnAbout.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="BasicDataMenu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BasicDataMenu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BasicDataMenu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BasicDataMenu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BasicDataMenu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="CitiesMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="CitiesMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CitiesMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="CitiesMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CitiesMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListCitiesMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListCitiesMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListCitiesMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListCitiesMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListCitiesMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="HealthMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="HealthMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HealthMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="HealthMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HealthMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListHealthMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListHealthMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListHealthMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListHealthMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListHealthMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="TreatsMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="TreatsMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TreatsMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="TreatsMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TreatsMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListTreatsMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListTreatsMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListTreatsMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListTreatsMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListTreatsMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="WireTypeMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="WireTypeMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WireTypeMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="WireTypeMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WireTypeMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListWireTypeMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListWireTypeMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListWireTypeMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListWireTypeMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListWireTypeMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="WireMeasureMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="WireMeasureMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WireMeasureMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="WireMeasureMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WireMeasureMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListWireMeasureMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListWireMeasureMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListWireMeasureMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListWireMeasureMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListWireMeasureMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VisitTypeMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="VisitTypeMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VisitTypeMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="VisitTypeMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VisitTypeMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListVisitTypeMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListVisitTypeMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListVisitTypeMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListVisitTypeMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListVisitTypeMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="RxDetailsMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="RxDetailsMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RxDetailsMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="RxDetailsMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RxDetailsMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ListRxDetailsMnu.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListRxDetailsMnu.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListRxDetailsMnu.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="ListRxDetailsMnu.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListRxDetailsMnu.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="BtnDashCreate.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BtnDashCreate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnDashCreate.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BtnDashCreate.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnDashCreate.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="BtnFinancePass.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BtnFinancePass.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnFinancePass.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="BtnFinancePass.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BtnFinancePass.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="UseGridCheckItem.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="UseGridCheckItem.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UseGridCheckItem.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="UseGridCheckItem.ImageOptions.LargeImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UseGridCheckItem.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+</root>

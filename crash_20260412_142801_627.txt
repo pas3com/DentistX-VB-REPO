@@ -1,0 +1,25 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-04-12 11:28:01Z
+Local: 2026-04-12 14:28:01Z
+Machine: PASCAL-2021
+User: PASCAL-2021\Pascal
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: False
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX\DentistX.exe
+Working directory: C:\Pascal\DentistX
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (2):
+  - DentistX.MainView3 | DentistX Trial Version
+  - DevExpress.Utils.FlyoutPanelToolForm | 
+
+--- Exception ---
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at DentistX.AdultJaw.BuildToothTrt(SvgImageBox svg, TreeNode node, String treatmentText)
+   at DentistX.AdultJaw.TreeView_NodeMouseDoubleClick(Object sender, TreeNodeMouseClickEventArgs e)
+   at System.Windows.Forms.TreeView.OnNodeMouseDoubleClick(TreeNodeMouseClickEventArgs e)
+   at System.Windows.Forms.TreeView.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

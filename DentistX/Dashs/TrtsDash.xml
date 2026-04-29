@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US" RequestParameters="false">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <SqlDataSource Name="SQL Data Source 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="localhost_DentistX_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="DentistX" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="Patient_Trts">
+        <Tables>
+          <Table Name="Patient_Trts" X="30" Y="30" Width="125" Height="303" />
+          <Table Name="Patient_Pays" X="185" Y="30" Width="125" Height="403" />
+          <Relation Type="Inner" Parent="Patient_Trts" Nested="Patient_Pays">
+            <KeyColumn Parent="TrtID" Nested="TrtID" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <Column Table="Patient_Trts" Name="TrtID" />
+          <Column Table="Patient_Trts" Name="PatientID" />
+          <Column Table="Patient_Trts" Name="ToothTrtID" />
+          <Column Table="Patient_Trts" Name="OrthoID" />
+          <Column Table="Patient_Trts" Name="OtherTrtID" />
+          <Column Table="Patient_Trts" Name="Detail" />
+          <Column Table="Patient_Trts" Name="TrtDate" />
+          <Column Table="Patient_Trts" Name="TrtValue" />
+          <Column Table="Patient_Trts" Name="Discount" />
+          <Column Table="Patient_Pays" Name="PayID" />
+          <Column Table="Patient_Pays" Name="PayValue" />
+          <Column Table="Patient_Pays" Name="PayDate" />
+          <Column Table="Patient_Pays" Name="Notes" />
+          <Column Table="Patient_Pays" Name="PayType" />
+          <Column Table="Patient_Pays" Name="ChqDueDate" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 1">
+          <View Name="Patient_Trts">
+            <Field Name="TrtID" Type="Int32" />
+            <Field Name="PatientID" Type="Int32" />
+            <Field Name="ToothTrtID" Type="Int32" />
+            <Field Name="OrthoID" Type="Int32" />
+            <Field Name="OtherTrtID" Type="Int32" />
+            <Field Name="Detail" Type="String" />
+            <Field Name="TrtDate" Type="DateTime" />
+            <Field Name="TrtValue" Type="Decimal" />
+            <Field Name="Discount" Type="Decimal" />
+            <Field Name="PayID" Type="Int32" />
+            <Field Name="PayValue" Type="Decimal" />
+            <Field Name="PayDate" Type="DateTime" />
+            <Field Name="Notes" Type="String" />
+            <Field Name="PayType" Type="String" />
+            <Field Name="ChqDueDate" Type="DateTime" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="Parameter1" Type="System.Int16" Value="2020">
+      <DynamicListLookUpSettings />
+    </Parameter>
+  </Parameters>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Treats Chart" ParentContainer="dashboardItemGroup1" DataSource="dashboardSqlDataSource1" DataMember="Patient_Trts">
+      <DataItems>
+        <Dimension DataMember="TrtDate" DefaultId="DataItem0" />
+        <Dimension DataMember="TrtDate" DateTimeGroupInterval="Quarter" DefaultId="DataItem1" />
+        <Measure DataMember="TrtValue" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple Name="Treat Value ">
+              <Value DefaultId="DataItem2" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="List Box 1" ParentContainer="dashboardItemGroup1" DataSource="dashboardSqlDataSource1" DataMember="Patient_Trts" ListBoxType="Radio">
+      <DataItems>
+        <Dimension DataMember="TrtDate" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+  </Items>
+  <Groups>
+    <Group ComponentName="dashboardItemGroup1" Name="Quarter By Year" />
+  </Groups>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup DashboardItem="dashboardItemGroup1" Weight="100">
+        <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="9.79498861047836" />
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="90.205011389521644" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

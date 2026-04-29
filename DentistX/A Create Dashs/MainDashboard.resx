@@ -1,0 +1,1473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;demographicChart.Name" xml:space="preserve">
+    <value>demographicChart</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TileItemElement3.Text" xml:space="preserve">
+    <value>Revenue</value>
+  </data>
+  <data name="&gt;&gt;gridPatientPayments.Parent" xml:space="preserve">
+    <value>TablePanel1</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="GridViewTreatments.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="gridPatientTreatments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>556, 337</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridPatientPayments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>573, 302</value>
+  </data>
+  <data name="&gt;&gt;tilePatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileItem, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="itemPatientList.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="dateEditFrom.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="DateEditTo.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;financeGroup.Name" xml:space="preserve">
+    <value>financeGroup</value>
+  </data>
+  <data name="&gt;&gt;itemShowTreats.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="navBar.Text" xml:space="preserve">
+    <value>NavBarControl1</value>
+  </data>
+  <data name="&gt;&gt;SidePanel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="resource.ImageKey3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;DateEditTo.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="&gt;&gt;pageTreatments2.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;panel.Parent" xml:space="preserve">
+    <value>splitContainerPatients.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="tileCollectionRate.AppearanceItem.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridPatientPayments.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="SidePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="resource.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;revenueChart.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridControlPatients.Name" xml:space="preserve">
+    <value>gridControlPatients</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Parent" xml:space="preserve">
+    <value>pageOverview</value>
+  </data>
+  <data name="&gt;&gt;pageTreatments2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="TileItemElement2.Text" xml:space="preserve">
+    <value>Appointments</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Parent" xml:space="preserve">
+    <value>pagePatients</value>
+  </data>
+  <data name="tileThisMonth.AppearanceItem.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;gridViewPatients.Name" xml:space="preserve">
+    <value>gridViewPatients</value>
+  </data>
+  <data name="groupPatients.Caption" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="&gt;&gt;gridControlPatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;itemShowAppt.Name" xml:space="preserve">
+    <value>itemShowAppt</value>
+  </data>
+  <data name="TablePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="&gt;&gt;pageOverview.Name" xml:space="preserve">
+    <value>pageOverview</value>
+  </data>
+  <data name="SimpleButtonReset.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pageFinancial.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tileRevenue.AppearanceItem.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;pageOverview.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="NavigationFrame1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pageTreatments2.Caption" xml:space="preserve">
+    <value>pageTreatments2</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Panel2.Parent" xml:space="preserve">
+    <value>chartPanel</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 15</value>
+  </data>
+  <data name="demographicChart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>654, 586</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridPatientTreatments.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="pageTreatments2.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pageAnalytics.Caption" xml:space="preserve">
+    <value>pageAnalytics</value>
+  </data>
+  <data name="&gt;&gt;SidePanel3.Name" xml:space="preserve">
+    <value>SidePanel3</value>
+  </data>
+  <data name="TileItemElement6.Text" xml:space="preserve">
+    <value>Active Treatments</value>
+  </data>
+  <data name="pageTreatments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="pagePatients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="&gt;&gt;SidePanel3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SimpleButtonReset.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="pageTreatments2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="TablePanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 652</value>
+  </data>
+  <data name="tileContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="groupPatients.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitContainerPatients.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="itemShowTreats2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="itemShowFinancial.Caption" xml:space="preserve">
+    <value>Show Financial</value>
+  </data>
+  <data name="tileOutstanding.AppearanceItem.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;TileGroup2.Name" xml:space="preserve">
+    <value>TileGroup2</value>
+  </data>
+  <data name="SimpleButtonApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>695, 34</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;itemShowAnalytics.Name" xml:space="preserve">
+    <value>itemShowAnalytics</value>
+  </data>
+  <data name="&gt;&gt;pageAppointments.Name" xml:space="preserve">
+    <value>pageAppointments</value>
+  </data>
+  <data name="SimpleButtonReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridPatientTreatments.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;demographicChart.Parent" xml:space="preserve">
+    <value>chartPanel.Panel2</value>
+  </data>
+  <data name="&gt;&gt;TileGroup2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="navBar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pageTreatments2.Parent" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="&gt;&gt;dateEditFrom.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>Implant</value>
+  </data>
+  <data name="&gt;&gt;SidePanel3.Parent" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="gridPatientPayments.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tileContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CheckEditUnpaid.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chartPanel.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 42</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 736</value>
+  </data>
+  <data name="apptGroup.Caption" xml:space="preserve">
+    <value>Appointments</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="revenueChart.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="DateEditTo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="&gt;&gt;pagePatients.Name" xml:space="preserve">
+    <value>pagePatients</value>
+  </data>
+  <data name="gridControlPatients.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridControlPatients.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;demographicChart.Type" xml:space="preserve">
+    <value>DevExpress.XtraCharts.ChartControl, DevExpress.XtraCharts.v25.1.UI, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Panel1.Name" xml:space="preserve">
+    <value>chartPanel.Panel1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Name" xml:space="preserve">
+    <value>LabelControl4</value>
+  </data>
+  <data name="&gt;&gt;dateEditFrom.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageAnalytics.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dateEditFrom.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;financeGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chartPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TileItemElement5.Text" xml:space="preserve">
+    <value>Outstanding</value>
+  </data>
+  <data name="gridControlPatients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1134, 286</value>
+  </data>
+  <data name="pageFinancial.Caption" xml:space="preserve">
+    <value>pageFinancial</value>
+  </data>
+  <data name="itemShowAnalytics.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="revenueChart.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CheckEditUnpaid.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chartPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 150</value>
+  </data>
+  <data name="GridViewPayments.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;itemPatientList.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageTreatments.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pageTreatments2.Name" xml:space="preserve">
+    <value>pageTreatments2</value>
+  </data>
+  <data name="TileItemElement4.Text" xml:space="preserve">
+    <value>ThisMonth</value>
+  </data>
+  <data name="SimpleButtonApply.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="panel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="SidePanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="&gt;&gt;NavigationFrame1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationFrame, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="pageOverview.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chartPanel.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridPatientTreatments.Name" xml:space="preserve">
+    <value>gridPatientTreatments</value>
+  </data>
+  <data name="SimpleButtonReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>808, 34</value>
+  </data>
+  <data name="&gt;&gt;itemShowFinancial.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridViewPatients.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="pageOverview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;NavigationFrame1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tilePatients.AppearanceItem.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;pageFinancial.Name" xml:space="preserve">
+    <value>pageFinancial</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridPatientPayments.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;dateEditFrom.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="financeGroup.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;SidePanel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;NavigationFrame1.Name" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="&gt;&gt;pageFinancial.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tileNewPatientsThisMonth.AppearanceItem.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;apptGroup.Name" xml:space="preserve">
+    <value>apptGroup</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;SimpleButtonReset.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="financeGroup.Caption" xml:space="preserve">
+    <value>Financials</value>
+  </data>
+  <data name="&gt;&gt;NavigationFrame1.Parent" xml:space="preserve">
+    <value>SidePanel3</value>
+  </data>
+  <data name="splitContainerPatients.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tileAppointments.AppearanceItem.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="resource.ImageKey2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="navBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 736</value>
+  </data>
+  <data name="&gt;&gt;tileContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;gridPatientPayments.Name" xml:space="preserve">
+    <value>gridPatientPayments</value>
+  </data>
+  <data name="LabelControl4.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="revenueChart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>500, 586</value>
+  </data>
+  <data name="TablePanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TileItemElement8.Text" xml:space="preserve">
+    <value>Collection Rate</value>
+  </data>
+  <data name="NavigationFrame1.Text" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="&gt;&gt;itemShowTreats2.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SidePanel1.Name" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="apptGroup.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="CheckEditUnpaid.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="resource.ImageKey5" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DateEditTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 39</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="resource.ImageKey6" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tileContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 150</value>
+  </data>
+  <data name="SidePanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="itemShowTreats2.Caption" xml:space="preserve">
+    <value>Show Treats 2</value>
+  </data>
+  <data name="navBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Panel2.Name" xml:space="preserve">
+    <value>chartPanel.Panel2</value>
+  </data>
+  <data name="chartPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="demographicChart.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TileItemElement1.Text" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridViewPatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TablePanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;CheckEditUnpaid.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="revenueChart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;groupDashboard.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SimpleButtonApply.Text" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="&gt;&gt;SimpleButtonReset.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="&gt;&gt;CheckEditUnpaid.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridPatientTreatments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="itemShowAnalytics.Caption" xml:space="preserve">
+    <value>Show Analytics</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="itemOverview.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridControlPatients.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;revenueChart.Parent" xml:space="preserve">
+    <value>chartPanel.Panel1</value>
+  </data>
+  <data name="dateEditFrom.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="SidePanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="CheckEditUnpaid.Properties.Caption" xml:space="preserve">
+    <value>Show Only Unpaid</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tileContainer.Name" xml:space="preserve">
+    <value>tileContainer</value>
+  </data>
+  <data name="&gt;&gt;groupPatients.Name" xml:space="preserve">
+    <value>groupPatients</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="CheckEditUnpaid.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pageAnalytics.Name" xml:space="preserve">
+    <value>pageAnalytics</value>
+  </data>
+  <data name="&gt;&gt;pagePatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="itemShowAppt.Caption" xml:space="preserve">
+    <value>Show Appointments</value>
+  </data>
+  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pageFinancial.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="&gt;&gt;tileRevenue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileItem, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="&gt;&gt;SimpleButtonApply.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="DateEditTo.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;itemShowTreats2.Name" xml:space="preserve">
+    <value>itemShowTreats2</value>
+  </data>
+  <data name="&gt;&gt;pagePatients.Parent" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="&gt;&gt;panel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SimpleButtonReset.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="groupDashboard.Caption" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="&gt;&gt;TablePanel1.Parent" xml:space="preserve">
+    <value>splitContainerPatients.Panel2</value>
+  </data>
+  <data name="splitContainerPatients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Name" xml:space="preserve">
+    <value>chartPanel</value>
+  </data>
+  <data name="&gt;&gt;gridPatientTreatments.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="NavigationFrame1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="&gt;&gt;pageTreatments.Name" xml:space="preserve">
+    <value>pageTreatments</value>
+  </data>
+  <data name="pageTreatments.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;itemPatientList.Name" xml:space="preserve">
+    <value>itemPatientList</value>
+  </data>
+  <data name="gridPatientPayments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>922, 9</value>
+  </data>
+  <data name="SidePanel1.Text" xml:space="preserve">
+    <value>SidePanel1</value>
+  </data>
+  <data name="CheckEditUnpaid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>364, 12</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="CheckEditUnpaid.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridPatientTreatments.Parent" xml:space="preserve">
+    <value>TablePanel1</value>
+  </data>
+  <data name="pagePatients.Caption" xml:space="preserve">
+    <value>pagePatients</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;SimpleButtonReset.Name" xml:space="preserve">
+    <value>SimpleButtonReset</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainerPatients.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="gridPatientPayments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>574, 337</value>
+  </data>
+  <data name="pageAppointments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="&gt;&gt;SidePanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SimpleButtonApply.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SidePanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;gridPatientTreatments.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageFinancial.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;DateEditTo.Name" xml:space="preserve">
+    <value>DateEditTo</value>
+  </data>
+  <data name="&gt;&gt;itemOverview.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pageAppointments.Parent" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
+  </data>
+  <data name="&gt;&gt;gridPatientPayments.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;DateEditTo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TablePanel1.Name" xml:space="preserve">
+    <value>TablePanel1</value>
+  </data>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="GridViewTreatments.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;groupPatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SimpleButtonApply.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="TablePanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 14</value>
+  </data>
+  <data name="DateEditTo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Children</value>
+  </data>
+  <data name="&gt;&gt;tileCollectionRate.Name" xml:space="preserve">
+    <value>tileCollectionRate</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;pageOverview.Parent" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="demographicChart.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tileCollectionRate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileItem, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;itemShowFinancial.Name" xml:space="preserve">
+    <value>itemShowFinancial</value>
+  </data>
+  <data name="&gt;&gt;tileOutstanding.Name" xml:space="preserve">
+    <value>tileOutstanding</value>
+  </data>
+  <data name="&gt;&gt;treatGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>922, 30</value>
+  </data>
+  <data name="&gt;&gt;revenueChart.Type" xml:space="preserve">
+    <value>DevExpress.XtraCharts.ChartControl, DevExpress.XtraCharts.v25.1.UI, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="demographicChart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;apptGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>From Date:</value>
+  </data>
+  <data name="&gt;&gt;tileContainer.Parent" xml:space="preserve">
+    <value>pageOverview</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;itemOverview.Name" xml:space="preserve">
+    <value>itemOverview</value>
+  </data>
+  <data name="groupDashboard.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainDashboard</value>
+  </data>
+  <data name="&gt;&gt;pageAnalytics.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="&gt;&gt;pageTreatments.Parent" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="navBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pageFinancial.Parent" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Panel1.Parent" xml:space="preserve">
+    <value>chartPanel</value>
+  </data>
+  <data name="LabelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="resource.ExpandedWidth" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="&gt;&gt;pagePatients.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SidePanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TablePanel1.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridControlPatients.Parent" xml:space="preserve">
+    <value>TablePanel1</value>
+  </data>
+  <data name="&gt;&gt;dateEditFrom.Name" xml:space="preserve">
+    <value>dateEditFrom</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Name" xml:space="preserve">
+    <value>LabelControl5</value>
+  </data>
+  <data name="CheckEditUnpaid.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;tileRevenue.Name" xml:space="preserve">
+    <value>tileRevenue</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;revenueChart.Name" xml:space="preserve">
+    <value>revenueChart</value>
+  </data>
+  <data name="&gt;&gt;pageOverview.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SidePanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1156, 74</value>
+  </data>
+  <data name="&gt;&gt;SidePanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tileOutstanding.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileItem, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tileContainer.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chartPanel.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="itemShowFinancial.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;SimpleButtonReset.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dateEditFrom.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;pageAppointments.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="&gt;&gt;navBar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;panel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Panel2.Name" xml:space="preserve">
+    <value>splitContainerPatients.Panel2</value>
+  </data>
+  <data name="&gt;&gt;pageTreatments.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="pageTreatments.Caption" xml:space="preserve">
+    <value>pageTreatments</value>
+  </data>
+  <data name="GridViewPayments.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="SimpleButtonReset.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="&gt;&gt;tileNewPatientsThisMonth.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileItem, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SidePanel2.Name" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>Diagnosis</value>
+  </data>
+  <data name="&gt;&gt;GridViewTreatments.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBar.Name" xml:space="preserve">
+    <value>navBar</value>
+  </data>
+  <data name="CheckEditUnpaid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 19</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;demographicChart.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tileActiveTreatments.Name" xml:space="preserve">
+    <value>tileActiveTreatments</value>
+  </data>
+  <data name="&gt;&gt;panel.Name" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;tileAppointments.Name" xml:space="preserve">
+    <value>tileAppointments</value>
+  </data>
+  <data name="tileContainer.Text" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="SimpleButtonApply.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gridControlPatients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 12</value>
+  </data>
+  <data name="&gt;&gt;itemShowAnalytics.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SidePanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 0</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="tileContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="pagePatients.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SimpleButtonApply.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="dateEditFrom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="&gt;&gt;GridViewPayments.Name" xml:space="preserve">
+    <value>GridViewPayments</value>
+  </data>
+  <data name="LabelControl5.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tilePatients.Name" xml:space="preserve">
+    <value>tilePatients</value>
+  </data>
+  <data name="&gt;&gt;pageAppointments.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.NavigationPage, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerPatients</value>
+  </data>
+  <data name="pageAppointments.Caption" xml:space="preserve">
+    <value>pageAppointments</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerPatients</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;GridViewPayments.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Main Dashboard</value>
+  </data>
+  <data name="panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 78</value>
+  </data>
+  <data name="NavigationFrame1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>922, 50</value>
+  </data>
+  <data name="resource.ImageKey4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
+  <data name="&gt;&gt;GridViewTreatments.Name" xml:space="preserve">
+    <value>GridViewTreatments</value>
+  </data>
+  <data name="gridPatientTreatments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 302</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="&gt;&gt;DateEditTo.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;groupDashboard.Name" xml:space="preserve">
+    <value>groupDashboard</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
+  <data name="TileItemElement7.Text" xml:space="preserve">
+    <value>New Patients This Month</value>
+  </data>
+  <data name="gridPatientTreatments.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="treatGroup.Caption" xml:space="preserve">
+    <value>Treatments</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="itemOverview.Caption" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="splitContainerPatients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitContainerPatients.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SimpleButtonApply.Name" xml:space="preserve">
+    <value>SimpleButtonApply</value>
+  </data>
+  <data name="resource.ImageKey7" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tileActiveTreatments.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileItem, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tileActiveTreatments.AppearanceItem.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;itemShowTreats.Name" xml:space="preserve">
+    <value>itemShowTreats</value>
+  </data>
+  <data name="DateEditTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="LabelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="DateEditTo.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="treatGroup.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="pageAppointments.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;gridPatientPayments.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;itemShowAppt.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;CheckEditUnpaid.Name" xml:space="preserve">
+    <value>CheckEditUnpaid</value>
+  </data>
+  <data name="itemPatientList.Caption" xml:space="preserve">
+    <value>Patient List</value>
+  </data>
+  <data name="&gt;&gt;tileNewPatientsThisMonth.Name" xml:space="preserve">
+    <value>tileNewPatientsThisMonth</value>
+  </data>
+  <data name="&gt;&gt;SidePanel2.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="itemShowTreats.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="&gt;&gt;tileThisMonth.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileItem, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SimpleButtonApply.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;treatGroup.Name" xml:space="preserve">
+    <value>treatGroup</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Panel1.Name" xml:space="preserve">
+    <value>splitContainerPatients.Panel1</value>
+  </data>
+  <data name="SidePanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pageAnalytics.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 736</value>
+  </data>
+  <data name="SidePanel3.Text" xml:space="preserve">
+    <value>SidePanel3</value>
+  </data>
+  <data name="SidePanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pageOverview.Caption" xml:space="preserve">
+    <value>pageOverview</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="itemShowAppt.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;navBar.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarControl, DevExpress.XtraNavBar.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chartPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 586</value>
+  </data>
+  <data name="SidePanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gridControlPatients.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;SidePanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainerPatients.Name" xml:space="preserve">
+    <value>splitContainerPatients</value>
+  </data>
+  <data name="&gt;&gt;CheckEditUnpaid.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="splitContainerPatients.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;SidePanel3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="NavigationFrame1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="SidePanel2.Text" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridPatientPayments.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="gridViewPatients.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Name" xml:space="preserve">
+    <value>LabelControl2</value>
+  </data>
+  <data name="LabelControl3.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="SidePanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tileThisMonth.Name" xml:space="preserve">
+    <value>tileThisMonth</value>
+  </data>
+  <data name="&gt;&gt;chartPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dateEditFrom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 11</value>
+  </data>
+  <data name="&gt;&gt;tileAppointments.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TileItem, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>To Date:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dateEditFrom.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl2.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <data name="pageAnalytics.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pageAnalytics.Parent" xml:space="preserve">
+    <value>NavigationFrame1</value>
+  </data>
+  <data name="resource.ImageKey1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 15</value>
+  </data>
+  <data name="itemShowTreats.Caption" xml:space="preserve">
+    <value>Show Treats</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Parent" xml:space="preserve">
+    <value>SidePanel2</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

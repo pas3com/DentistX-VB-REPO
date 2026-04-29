@@ -1,0 +1,2042 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainSplit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="MainSplit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 74</value>
+  </data>
+  <data name="AllChqsGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="AllChqsGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="AllChqsView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="AllChqsView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="AllChqsGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>796, 516</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AllChqsGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;AllChqsGrid.Name" xml:space="preserve">
+    <value>AllChqsGrid</value>
+  </data>
+  <data name="&gt;&gt;AllChqsGrid.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AllChqsGrid.Parent" xml:space="preserve">
+    <value>MainSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;AllChqsGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="MainSplit.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel1.Name" xml:space="preserve">
+    <value>MainSplit.Panel1</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel1.Parent" xml:space="preserve">
+    <value>MainSplit</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ChqImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ChqImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 51</value>
+  </data>
+  <data name="ChqImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>553, 465</value>
+  </data>
+  <data name="ChqImage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ChqImage.Name" xml:space="preserve">
+    <value>ChqImage</value>
+  </data>
+  <data name="&gt;&gt;ChqImage.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ChqImage.Parent" xml:space="preserve">
+    <value>MainSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;ChqImage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblAllChqsChequeScanSide.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblAllChqsChequeScanSide.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblAllChqsChequeScanSide.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 36</value>
+  </data>
+  <data name="lblAllChqsChequeScanSide.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 15</value>
+  </data>
+  <data name="lblAllChqsChequeScanSide.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblAllChqsChequeScanSide.Text" xml:space="preserve">
+    <value>Cheque scan side:</value>
+  </data>
+  <data name="&gt;&gt;lblAllChqsChequeScanSide.Name" xml:space="preserve">
+    <value>lblAllChqsChequeScanSide</value>
+  </data>
+  <data name="&gt;&gt;lblAllChqsChequeScanSide.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblAllChqsChequeScanSide.Parent" xml:space="preserve">
+    <value>MainSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;lblAllChqsChequeScanSide.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioAllChqsChequeSide.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="radioAllChqsChequeSide.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="radioAllChqsChequeSide.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="radioAllChqsChequeSide.Size" type="System.Drawing.Size, System.Drawing">
+    <value>553, 36</value>
+  </data>
+  <data name="radioAllChqsChequeSide.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;radioAllChqsChequeSide.Name" xml:space="preserve">
+    <value>radioAllChqsChequeSide</value>
+  </data>
+  <data name="&gt;&gt;radioAllChqsChequeSide.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;radioAllChqsChequeSide.Parent" xml:space="preserve">
+    <value>MainSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;radioAllChqsChequeSide.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="MainSplit.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel2.Name" xml:space="preserve">
+    <value>MainSplit.Panel2</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel2.Parent" xml:space="preserve">
+    <value>MainSplit</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MainSplit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 516</value>
+  </data>
+  <data name="MainSplit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Name" xml:space="preserve">
+    <value>MainSplit</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.Parent" xml:space="preserve">
+    <value>AllChequesTab</value>
+  </data>
+  <data name="&gt;&gt;MainSplit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnListChqs.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnListChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>750, 85</value>
+  </data>
+  <data name="btnListChqs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 23</value>
+  </data>
+  <data name="btnListChqs.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnListChqs.Text" xml:space="preserve">
+    <value>List Cheques</value>
+  </data>
+  <data name="&gt;&gt;btnListChqs.Name" xml:space="preserve">
+    <value>btnListChqs</value>
+  </data>
+  <data name="&gt;&gt;btnListChqs.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnListChqs.Parent" xml:space="preserve">
+    <value>hdrPanel</value>
+  </data>
+  <data name="&gt;&gt;btnListChqs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>517, 88</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 15</value>
+  </data>
+  <data name="LabelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>Working Days After Due Date</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Name" xml:space="preserve">
+    <value>LabelControl2</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Parent" xml:space="preserve">
+    <value>hdrPanel</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14pt, style=Bold</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>492, 8</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 23</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>Check The Listed Cheques If They Were Cashed</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>hdrPanel</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rgDueCheqListMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 36</value>
+  </data>
+  <data name="rgDueCheqListMode.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt</value>
+  </data>
+  <data name="rgDueCheqListMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1178, 44</value>
+  </data>
+  <data name="rgDueCheqListMode.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;rgDueCheqListMode.Name" xml:space="preserve">
+    <value>rgDueCheqListMode</value>
+  </data>
+  <data name="&gt;&gt;rgDueCheqListMode.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rgDueCheqListMode.Parent" xml:space="preserve">
+    <value>hdrPanel</value>
+  </data>
+  <data name="&gt;&gt;rgDueCheqListMode.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtWorkDays.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtWorkDays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>692, 86</value>
+  </data>
+  <data name="txtWorkDays.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="txtWorkDays.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v25.1">
+    <value>Numeric</value>
+  </data>
+  <data name="txtWorkDays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 22</value>
+  </data>
+  <data name="txtWorkDays.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtWorkDays.Name" xml:space="preserve">
+    <value>txtWorkDays</value>
+  </data>
+  <data name="&gt;&gt;txtWorkDays.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtWorkDays.Parent" xml:space="preserve">
+    <value>hdrPanel</value>
+  </data>
+  <data name="&gt;&gt;txtWorkDays.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblDueChqListHint.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="lblDueChqListHint.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblDueChqListHint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 124</value>
+  </data>
+  <data name="lblDueChqListHint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1178, 46</value>
+  </data>
+  <data name="lblDueChqListHint.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblDueChqListHint.Text" xml:space="preserve">
+    <value>Lists cheques whose "Adjusted due date" equals today — that value is cheque due date + N working days (Sunday through Thursday; Friday and Saturday are skipped). This is not the same as "due within the next N days." Change N above, then click List Cheques.</value>
+  </data>
+  <data name="&gt;&gt;lblDueChqListHint.Name" xml:space="preserve">
+    <value>lblDueChqListHint</value>
+  </data>
+  <data name="&gt;&gt;lblDueChqListHint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDueChqListHint.Parent" xml:space="preserve">
+    <value>hdrPanel</value>
+  </data>
+  <data name="&gt;&gt;lblDueChqListHint.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="hdrPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="hdrPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="hdrPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 176</value>
+  </data>
+  <data name="hdrPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;hdrPanel.Name" xml:space="preserve">
+    <value>hdrPanel</value>
+  </data>
+  <data name="&gt;&gt;hdrPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;hdrPanel.Parent" xml:space="preserve">
+    <value>DueChequesTab</value>
+  </data>
+  <data name="&gt;&gt;hdrPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnUpdateAll.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnUpdateAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>624, 40</value>
+  </data>
+  <data name="btnUpdateAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 27</value>
+  </data>
+  <data name="btnUpdateAll.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnUpdateAll.Text" xml:space="preserve">
+    <value>Update All List</value>
+  </data>
+  <data name="&gt;&gt;btnUpdateAll.Name" xml:space="preserve">
+    <value>btnUpdateAll</value>
+  </data>
+  <data name="&gt;&gt;btnUpdateAll.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnUpdateAll.Parent" xml:space="preserve">
+    <value>botmPanel</value>
+  </data>
+  <data name="&gt;&gt;btnUpdateAll.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnEditDueCheque.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEditDueCheque.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 40</value>
+  </data>
+  <data name="btnEditDueCheque.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 27</value>
+  </data>
+  <data name="btnEditDueCheque.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnEditDueCheque.Text" xml:space="preserve">
+    <value>Edit payment…</value>
+  </data>
+  <data name="&gt;&gt;btnEditDueCheque.Name" xml:space="preserve">
+    <value>btnEditDueCheque</value>
+  </data>
+  <data name="&gt;&gt;btnEditDueCheque.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnEditDueCheque.Parent" xml:space="preserve">
+    <value>botmPanel</value>
+  </data>
+  <data name="&gt;&gt;btnEditDueCheque.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnUpdate.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnUpdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 40</value>
+  </data>
+  <data name="btnUpdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 27</value>
+  </data>
+  <data name="btnUpdate.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>Update Current</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Name" xml:space="preserve">
+    <value>btnUpdate</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Parent" xml:space="preserve">
+    <value>botmPanel</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="botmPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="botmPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 470</value>
+  </data>
+  <data name="botmPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 120</value>
+  </data>
+  <data name="botmPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;botmPanel.Name" xml:space="preserve">
+    <value>botmPanel</value>
+  </data>
+  <data name="&gt;&gt;botmPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;botmPanel.Parent" xml:space="preserve">
+    <value>DueChequesTab</value>
+  </data>
+  <data name="&gt;&gt;botmPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="ChqsBS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>159, 17</value>
+  </metadata>
+  <data name="chqsGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="chqsGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="DueChqView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="DueChqView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colPayID.Caption" xml:space="preserve">
+    <value>PayID</value>
+  </data>
+  <data name="colPatientID.Caption" xml:space="preserve">
+    <value>PatientID</value>
+  </data>
+  <data name="colPatientName.Caption" xml:space="preserve">
+    <value>Patient Name </value>
+  </data>
+  <data name="colPatientName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPatientName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colPatientName.Width" type="System.Int32, mscorlib">
+    <value>121</value>
+  </data>
+  <data name="colChqOwner.Caption" xml:space="preserve">
+    <value>Cheque Owner </value>
+  </data>
+  <data name="colChqOwner.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqOwner.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colChqOwner.Width" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="colAccountNumber.Caption" xml:space="preserve">
+    <value>Account Number </value>
+  </data>
+  <data name="colAccountNumber.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colAccountNumber.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colAccountNumber.Width" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="colChqNumber.Caption" xml:space="preserve">
+    <value>Cheque Number </value>
+  </data>
+  <data name="colChqNumber.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqNumber.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colChqNumber.Width" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="colChqBank.Caption" xml:space="preserve">
+    <value>Cheque Bank </value>
+  </data>
+  <data name="colChqBank.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqBank.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="colChqBank.Width" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="colChqDueDate.Caption" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="colChqDueDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChqDueDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colChqDueDate.Width" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="colAdjustedDueDate.Caption" xml:space="preserve">
+    <value>Adjusted Date</value>
+  </data>
+  <data name="colAdjustedDueDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colAdjustedDueDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="colAdjustedDueDate.Width" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="colPayValue.Caption" xml:space="preserve">
+    <value>Chq Value</value>
+  </data>
+  <data name="colPayValue.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPayValue.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="colPayValue.Width" type="System.Int32, mscorlib">
+    <value>76</value>
+  </data>
+  <data name="colPayDate.Caption" xml:space="preserve">
+    <value>Pay Date </value>
+  </data>
+  <data name="colPayDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPayDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="colPayDate.Width" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="colNotes.Caption" xml:space="preserve">
+    <value>Notes </value>
+  </data>
+  <data name="colNotes.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colNotes.VisibleIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="colNotes.Width" type="System.Int32, mscorlib">
+    <value>128</value>
+  </data>
+  <data name="colPayType.Caption" xml:space="preserve">
+    <value>Pay Type </value>
+  </data>
+  <data name="colIsCashed.Caption" xml:space="preserve">
+    <value>Is Cashed </value>
+  </data>
+  <data name="colIsCashed.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colIsCashed.VisibleIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="colIsCashed.Width" type="System.Int32, mscorlib">
+    <value>76</value>
+  </data>
+  <data name="colIsForward.Caption" xml:space="preserve">
+    <value>Forwarded To</value>
+  </data>
+  <data name="colIsForward.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colIsForward.VisibleIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="colIsForward.Width" type="System.Int32, mscorlib">
+    <value>138</value>
+  </data>
+  <data name="colIsReturnedDue.Caption" xml:space="preserve">
+    <value>Is Returned</value>
+  </data>
+  <data name="colIsReturnedDue.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colIsReturnedDue.VisibleIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="chqsGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1351, 290</value>
+  </data>
+  <data name="chqsGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chqsGrid.Name" xml:space="preserve">
+    <value>chqsGrid</value>
+  </data>
+  <data name="&gt;&gt;chqsGrid.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chqsGrid.Parent" xml:space="preserve">
+    <value>gridPanel</value>
+  </data>
+  <data name="&gt;&gt;chqsGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 176</value>
+  </data>
+  <data name="gridPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 294</value>
+  </data>
+  <data name="gridPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;gridPanel.Name" xml:space="preserve">
+    <value>gridPanel</value>
+  </data>
+  <data name="&gt;&gt;gridPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridPanel.Parent" xml:space="preserve">
+    <value>DueChequesTab</value>
+  </data>
+  <data name="&gt;&gt;gridPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CheuqesTab.AppearancePage.Header.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="CheuqesTab.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="CheuqesTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="dtpFromPayDate.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dtpFromPayDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>643, 26</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="dtpFromPayDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtpFromPayDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtpFromPayDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="dtpFromPayDate.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;dtpFromPayDate.Name" xml:space="preserve">
+    <value>dtpFromPayDate</value>
+  </data>
+  <data name="&gt;&gt;dtpFromPayDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dtpFromPayDate.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;dtpFromPayDate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="dtpToPayDate.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dtpToPayDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>788, 26</value>
+  </data>
+  <data name="dtpToPayDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtpToPayDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtpToPayDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="dtpToPayDate.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;dtpToPayDate.Name" xml:space="preserve">
+    <value>dtpToPayDate</value>
+  </data>
+  <data name="&gt;&gt;dtpToPayDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dtpToPayDate.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;dtpToPayDate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnListAllChqs.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnListAllChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1015, 25</value>
+  </data>
+  <data name="btnListAllChqs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 24</value>
+  </data>
+  <data name="btnListAllChqs.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnListAllChqs.Text" xml:space="preserve">
+    <value>List All</value>
+  </data>
+  <data name="&gt;&gt;btnListAllChqs.Name" xml:space="preserve">
+    <value>btnListAllChqs</value>
+  </data>
+  <data name="&gt;&gt;btnListAllChqs.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnListAllChqs.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;btnListAllChqs.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnEditAllChqs.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEditAllChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1113, 25</value>
+  </data>
+  <data name="btnEditAllChqs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 24</value>
+  </data>
+  <data name="btnEditAllChqs.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnEditAllChqs.Text" xml:space="preserve">
+    <value>Edit payment…</value>
+  </data>
+  <data name="&gt;&gt;btnEditAllChqs.Name" xml:space="preserve">
+    <value>btnEditAllChqs</value>
+  </data>
+  <data name="&gt;&gt;btnEditAllChqs.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnEditAllChqs.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;btnEditAllChqs.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnSrchAllChqs.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSrchAllChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>915, 25</value>
+  </data>
+  <data name="btnSrchAllChqs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 24</value>
+  </data>
+  <data name="btnSrchAllChqs.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnSrchAllChqs.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="&gt;&gt;btnSrchAllChqs.Name" xml:space="preserve">
+    <value>btnSrchAllChqs</value>
+  </data>
+  <data name="&gt;&gt;btnSrchAllChqs.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnSrchAllChqs.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;btnSrchAllChqs.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtChqNumSrch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 26</value>
+  </data>
+  <data name="txtChqNumSrch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
+  </data>
+  <data name="txtChqNumSrch.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;txtChqNumSrch.Name" xml:space="preserve">
+    <value>txtChqNumSrch</value>
+  </data>
+  <data name="&gt;&gt;txtChqNumSrch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtChqNumSrch.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;txtChqNumSrch.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>51, 30</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 15</value>
+  </data>
+  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Patient Name.:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtPatientSrch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 26</value>
+  </data>
+  <data name="txtPatientSrch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="txtPatientSrch.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txtPatientSrch.Name" xml:space="preserve">
+    <value>txtPatientSrch</value>
+  </data>
+  <data name="&gt;&gt;txtPatientSrch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtPatientSrch.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;txtPatientSrch.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LabelControl6.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>762, 30</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 15</value>
+  </data>
+  <data name="LabelControl6.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>To.:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Name" xml:space="preserve">
+    <value>LabelControl6</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="LabelControl5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>592, 30</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 15</value>
+  </data>
+  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>From.:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Name" xml:space="preserve">
+    <value>LabelControl5</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>333, 30</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 15</value>
+  </data>
+  <data name="LabelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>Cheque No.:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Name" xml:space="preserve">
+    <value>LabelControl4</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Parent" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="pnlFilter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="pnlFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 74</value>
+  </data>
+  <data name="pnlFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlFilter.Name" xml:space="preserve">
+    <value>pnlFilter</value>
+  </data>
+  <data name="&gt;&gt;pnlFilter.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlFilter.Parent" xml:space="preserve">
+    <value>AllChequesTab</value>
+  </data>
+  <data name="&gt;&gt;pnlFilter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="AllChequesTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 590</value>
+  </data>
+  <data name="AllChequesTab.Text" xml:space="preserve">
+    <value>All Cheques</value>
+  </data>
+  <data name="&gt;&gt;AllChequesTab.Name" xml:space="preserve">
+    <value>AllChequesTab</value>
+  </data>
+  <data name="&gt;&gt;AllChequesTab.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;AllChequesTab.Parent" xml:space="preserve">
+    <value>CheuqesTab</value>
+  </data>
+  <data name="&gt;&gt;AllChequesTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CheuqesTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 618</value>
+  </data>
+  <data name="CheuqesTab.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="DueChequesTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 590</value>
+  </data>
+  <data name="DueChequesTab.Text" xml:space="preserve">
+    <value>Due Cheques</value>
+  </data>
+  <data name="&gt;&gt;DueChequesTab.Name" xml:space="preserve">
+    <value>DueChequesTab</value>
+  </data>
+  <data name="&gt;&gt;DueChequesTab.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;DueChequesTab.Parent" xml:space="preserve">
+    <value>CheuqesTab</value>
+  </data>
+  <data name="&gt;&gt;DueChequesTab.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="ReturnedChqsBS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="gridReturned.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridReturned.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 52</value>
+  </data>
+  <data name="ReturnedGridView.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ReturnedGridView.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="colReturnedPayID.Caption" xml:space="preserve">
+    <value>PayID</value>
+  </data>
+  <data name="colReturnedPatientID.Caption" xml:space="preserve">
+    <value>PatientID</value>
+  </data>
+  <data name="colReturnedPatientName.Caption" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="colReturnedPatientName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedPatientName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colReturnedPatientName.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="colReturnedChqOwner.Caption" xml:space="preserve">
+    <value>Cheque Owner</value>
+  </data>
+  <data name="colReturnedChqOwner.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedChqOwner.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colReturnedChqOwner.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="colReturnedAccountNumber.Caption" xml:space="preserve">
+    <value>Account No.</value>
+  </data>
+  <data name="colReturnedAccountNumber.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedAccountNumber.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colReturnedAccountNumber.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="colReturnedChqNumber.Caption" xml:space="preserve">
+    <value>Cheque No.</value>
+  </data>
+  <data name="colReturnedChqNumber.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedChqNumber.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colReturnedChqNumber.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="colReturnedChqBank.Caption" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="colReturnedChqBank.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedChqBank.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="colReturnedChqBank.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="colReturnedChqDueDate.Caption" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="colReturnedChqDueDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedChqDueDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colReturnedChqDueDate.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="colReturnedPayValue.Caption" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="colReturnedPayValue.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedPayValue.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="colReturnedPayValue.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="colReturnedPayDate.Caption" xml:space="preserve">
+    <value>Pay Date</value>
+  </data>
+  <data name="colReturnedPayDate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedPayDate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="colReturnedPayDate.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="colReturnedNotes.Caption" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="colReturnedNotes.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedNotes.VisibleIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="colReturnedNotes.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="colReturnedIsCashed.Caption" xml:space="preserve">
+    <value>Cashed</value>
+  </data>
+  <data name="colReturnedIsCashed.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colReturnedIsCashed.VisibleIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="colReturnedIsCashed.Width" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="colIsReturned.Caption" xml:space="preserve">
+    <value>Is Returned</value>
+  </data>
+  <data name="colIsReturned.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colIsReturned.VisibleIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="gridReturned.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 358</value>
+  </data>
+  <data name="gridReturned.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;gridReturned.Name" xml:space="preserve">
+    <value>gridReturned</value>
+  </data>
+  <data name="&gt;&gt;gridReturned.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridReturned.Parent" xml:space="preserve">
+    <value>ChequeReturnedTab</value>
+  </data>
+  <data name="&gt;&gt;gridReturned.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpPatient.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblPatientNameVal.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="lblPatientNameVal.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblPatientNameVal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 52</value>
+  </data>
+  <data name="lblPatientNameVal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>480, 14</value>
+  </data>
+  <data name="lblPatientNameVal.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblPatientNameVal.Text" xml:space="preserve">
+    <value>--</value>
+  </data>
+  <data name="&gt;&gt;lblPatientNameVal.Name" xml:space="preserve">
+    <value>lblPatientNameVal</value>
+  </data>
+  <data name="&gt;&gt;lblPatientNameVal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPatientNameVal.Parent" xml:space="preserve">
+    <value>grpPatient</value>
+  </data>
+  <data name="&gt;&gt;lblPatientNameVal.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblPatientIDVal.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="lblPatientIDVal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 28</value>
+  </data>
+  <data name="lblPatientIDVal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>8, 14</value>
+  </data>
+  <data name="lblPatientIDVal.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblPatientIDVal.Text" xml:space="preserve">
+    <value>--</value>
+  </data>
+  <data name="&gt;&gt;lblPatientIDVal.Name" xml:space="preserve">
+    <value>lblPatientIDVal</value>
+  </data>
+  <data name="&gt;&gt;lblPatientIDVal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPatientIDVal.Parent" xml:space="preserve">
+    <value>grpPatient</value>
+  </data>
+  <data name="&gt;&gt;lblPatientIDVal.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblPatientNameCap.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblPatientNameCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 52</value>
+  </data>
+  <data name="lblPatientNameCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 15</value>
+  </data>
+  <data name="lblPatientNameCap.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblPatientNameCap.Text" xml:space="preserve">
+    <value>Patient Name:</value>
+  </data>
+  <data name="&gt;&gt;lblPatientNameCap.Name" xml:space="preserve">
+    <value>lblPatientNameCap</value>
+  </data>
+  <data name="&gt;&gt;lblPatientNameCap.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPatientNameCap.Parent" xml:space="preserve">
+    <value>grpPatient</value>
+  </data>
+  <data name="&gt;&gt;lblPatientNameCap.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblPatientIDCap.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblPatientIDCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 28</value>
+  </data>
+  <data name="lblPatientIDCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="lblPatientIDCap.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblPatientIDCap.Text" xml:space="preserve">
+    <value>Patient ID:</value>
+  </data>
+  <data name="&gt;&gt;lblPatientIDCap.Name" xml:space="preserve">
+    <value>lblPatientIDCap</value>
+  </data>
+  <data name="&gt;&gt;lblPatientIDCap.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPatientIDCap.Parent" xml:space="preserve">
+    <value>grpPatient</value>
+  </data>
+  <data name="&gt;&gt;lblPatientIDCap.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="grpPatient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>600, 8</value>
+  </data>
+  <data name="grpPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>595, 164</value>
+  </data>
+  <data name="grpPatient.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="grpPatient.Text" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="&gt;&gt;grpPatient.Name" xml:space="preserve">
+    <value>grpPatient</value>
+  </data>
+  <data name="&gt;&gt;grpPatient.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpPatient.Parent" xml:space="preserve">
+    <value>ReturnedDetailsPanel</value>
+  </data>
+  <data name="&gt;&gt;grpPatient.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpChqDetails.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblChqDetailsVal.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="lblChqDetailsVal.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblChqDetailsVal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 48</value>
+  </data>
+  <data name="lblChqDetailsVal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 110</value>
+  </data>
+  <data name="lblChqDetailsVal.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblChqDetailsVal.Text" xml:space="preserve">
+    <value>Select a row above to see details.</value>
+  </data>
+  <data name="&gt;&gt;lblChqDetailsVal.Name" xml:space="preserve">
+    <value>lblChqDetailsVal</value>
+  </data>
+  <data name="&gt;&gt;lblChqDetailsVal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblChqDetailsVal.Parent" xml:space="preserve">
+    <value>grpChqDetails</value>
+  </data>
+  <data name="&gt;&gt;lblChqDetailsVal.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblChqDetailsCap.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
+  <data name="lblChqDetailsCap.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblChqDetailsCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 28</value>
+  </data>
+  <data name="lblChqDetailsCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>550, 13</value>
+  </data>
+  <data name="lblChqDetailsCap.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblChqDetailsCap.Text" xml:space="preserve">
+    <value>PayID, Chq No., Account No., Bank, Owner, Due Date, Value, Pay Date, Notes, Cashed</value>
+  </data>
+  <data name="&gt;&gt;lblChqDetailsCap.Name" xml:space="preserve">
+    <value>lblChqDetailsCap</value>
+  </data>
+  <data name="&gt;&gt;lblChqDetailsCap.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblChqDetailsCap.Parent" xml:space="preserve">
+    <value>grpChqDetails</value>
+  </data>
+  <data name="&gt;&gt;lblChqDetailsCap.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="grpChqDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="grpChqDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>580, 164</value>
+  </data>
+  <data name="grpChqDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpChqDetails.Text" xml:space="preserve">
+    <value>Cheque details</value>
+  </data>
+  <data name="&gt;&gt;grpChqDetails.Name" xml:space="preserve">
+    <value>grpChqDetails</value>
+  </data>
+  <data name="&gt;&gt;grpChqDetails.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpChqDetails.Parent" xml:space="preserve">
+    <value>ReturnedDetailsPanel</value>
+  </data>
+  <data name="&gt;&gt;grpChqDetails.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ReturnedDetailsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="ReturnedDetailsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 410</value>
+  </data>
+  <data name="ReturnedDetailsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 180</value>
+  </data>
+  <data name="ReturnedDetailsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ReturnedDetailsPanel.Name" xml:space="preserve">
+    <value>ReturnedDetailsPanel</value>
+  </data>
+  <data name="&gt;&gt;ReturnedDetailsPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ReturnedDetailsPanel.Parent" xml:space="preserve">
+    <value>ChequeReturnedTab</value>
+  </data>
+  <data name="&gt;&gt;ReturnedDetailsPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnListAllReturned.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnListAllReturned.Location" type="System.Drawing.Point, System.Drawing">
+    <value>618, 12</value>
+  </data>
+  <data name="btnListAllReturned.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 24</value>
+  </data>
+  <data name="btnListAllReturned.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnListAllReturned.Text" xml:space="preserve">
+    <value>List All</value>
+  </data>
+  <data name="&gt;&gt;btnListAllReturned.Name" xml:space="preserve">
+    <value>btnListAllReturned</value>
+  </data>
+  <data name="&gt;&gt;btnListAllReturned.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnListAllReturned.Parent" xml:space="preserve">
+    <value>ReturnedSearchHeader</value>
+  </data>
+  <data name="&gt;&gt;btnListAllReturned.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnSearchReturned.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSearchReturned.Location" type="System.Drawing.Point, System.Drawing">
+    <value>518, 12</value>
+  </data>
+  <data name="btnSearchReturned.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 24</value>
+  </data>
+  <data name="btnSearchReturned.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnSearchReturned.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="&gt;&gt;btnSearchReturned.Name" xml:space="preserve">
+    <value>btnSearchReturned</value>
+  </data>
+  <data name="&gt;&gt;btnSearchReturned.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnSearchReturned.Parent" xml:space="preserve">
+    <value>ReturnedSearchHeader</value>
+  </data>
+  <data name="&gt;&gt;btnSearchReturned.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnEditReturnedCheque.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnEditReturnedCheque.Location" type="System.Drawing.Point, System.Drawing">
+    <value>723, 12</value>
+  </data>
+  <data name="btnEditReturnedCheque.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 24</value>
+  </data>
+  <data name="btnEditReturnedCheque.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnEditReturnedCheque.Text" xml:space="preserve">
+    <value>Edit payment…</value>
+  </data>
+  <data name="&gt;&gt;btnEditReturnedCheque.Name" xml:space="preserve">
+    <value>btnEditReturnedCheque</value>
+  </data>
+  <data name="&gt;&gt;btnEditReturnedCheque.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnEditReturnedCheque.Parent" xml:space="preserve">
+    <value>ReturnedSearchHeader</value>
+  </data>
+  <data name="&gt;&gt;btnEditReturnedCheque.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtSearchAccountNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 13</value>
+  </data>
+  <data name="txtSearchAccountNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
+  </data>
+  <data name="txtSearchAccountNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtSearchAccountNumber.Name" xml:space="preserve">
+    <value>txtSearchAccountNumber</value>
+  </data>
+  <data name="&gt;&gt;txtSearchAccountNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtSearchAccountNumber.Parent" xml:space="preserve">
+    <value>ReturnedSearchHeader</value>
+  </data>
+  <data name="&gt;&gt;txtSearchAccountNumber.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblAccountNumber.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblAccountNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 16</value>
+  </data>
+  <data name="lblAccountNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 15</value>
+  </data>
+  <data name="lblAccountNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblAccountNumber.Text" xml:space="preserve">
+    <value>Account No.:</value>
+  </data>
+  <data name="&gt;&gt;lblAccountNumber.Name" xml:space="preserve">
+    <value>lblAccountNumber</value>
+  </data>
+  <data name="&gt;&gt;lblAccountNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblAccountNumber.Parent" xml:space="preserve">
+    <value>ReturnedSearchHeader</value>
+  </data>
+  <data name="&gt;&gt;lblAccountNumber.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtSearchChqNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 13</value>
+  </data>
+  <data name="txtSearchChqNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
+  </data>
+  <data name="txtSearchChqNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtSearchChqNumber.Name" xml:space="preserve">
+    <value>txtSearchChqNumber</value>
+  </data>
+  <data name="&gt;&gt;txtSearchChqNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtSearchChqNumber.Parent" xml:space="preserve">
+    <value>ReturnedSearchHeader</value>
+  </data>
+  <data name="&gt;&gt;txtSearchChqNumber.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblChqNumber.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblChqNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 16</value>
+  </data>
+  <data name="lblChqNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 15</value>
+  </data>
+  <data name="lblChqNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblChqNumber.Text" xml:space="preserve">
+    <value>Cheque No.:</value>
+  </data>
+  <data name="&gt;&gt;lblChqNumber.Name" xml:space="preserve">
+    <value>lblChqNumber</value>
+  </data>
+  <data name="&gt;&gt;lblChqNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblChqNumber.Parent" xml:space="preserve">
+    <value>ReturnedSearchHeader</value>
+  </data>
+  <data name="&gt;&gt;lblChqNumber.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="ReturnedSearchHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="ReturnedSearchHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ReturnedSearchHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 52</value>
+  </data>
+  <data name="ReturnedSearchHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ReturnedSearchHeader.Name" xml:space="preserve">
+    <value>ReturnedSearchHeader</value>
+  </data>
+  <data name="&gt;&gt;ReturnedSearchHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ReturnedSearchHeader.Parent" xml:space="preserve">
+    <value>ChequeReturnedTab</value>
+  </data>
+  <data name="&gt;&gt;ReturnedSearchHeader.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ChequeReturnedTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 590</value>
+  </data>
+  <data name="ChequeReturnedTab.Text" xml:space="preserve">
+    <value>Returned Cheuqes</value>
+  </data>
+  <data name="&gt;&gt;ChequeReturnedTab.Name" xml:space="preserve">
+    <value>ChequeReturnedTab</value>
+  </data>
+  <data name="&gt;&gt;ChequeReturnedTab.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ChequeReturnedTab.Parent" xml:space="preserve">
+    <value>CheuqesTab</value>
+  </data>
+  <data name="&gt;&gt;ChequeReturnedTab.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;CheuqesTab.Name" xml:space="preserve">
+    <value>CheuqesTab</value>
+  </data>
+  <data name="&gt;&gt;CheuqesTab.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;CheuqesTab.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CheuqesTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 618</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Due Cheques</value>
+  </data>
+  <data name="&gt;&gt;AllChqsView.Name" xml:space="preserve">
+    <value>AllChqsView</value>
+  </data>
+  <data name="&gt;&gt;AllChqsView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ChqsBS.Name" xml:space="preserve">
+    <value>ChqsBS</value>
+  </data>
+  <data name="&gt;&gt;ChqsBS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DueChqView.Name" xml:space="preserve">
+    <value>DueChqView</value>
+  </data>
+  <data name="&gt;&gt;DueChqView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayID.Name" xml:space="preserve">
+    <value>colPayID</value>
+  </data>
+  <data name="&gt;&gt;colPayID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPatientID.Name" xml:space="preserve">
+    <value>colPatientID</value>
+  </data>
+  <data name="&gt;&gt;colPatientID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPatientName.Name" xml:space="preserve">
+    <value>colPatientName</value>
+  </data>
+  <data name="&gt;&gt;colPatientName.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqOwner.Name" xml:space="preserve">
+    <value>colChqOwner</value>
+  </data>
+  <data name="&gt;&gt;colChqOwner.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colAccountNumber.Name" xml:space="preserve">
+    <value>colAccountNumber</value>
+  </data>
+  <data name="&gt;&gt;colAccountNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqNumber.Name" xml:space="preserve">
+    <value>colChqNumber</value>
+  </data>
+  <data name="&gt;&gt;colChqNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqBank.Name" xml:space="preserve">
+    <value>colChqBank</value>
+  </data>
+  <data name="&gt;&gt;colChqBank.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colChqDueDate.Name" xml:space="preserve">
+    <value>colChqDueDate</value>
+  </data>
+  <data name="&gt;&gt;colChqDueDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colAdjustedDueDate.Name" xml:space="preserve">
+    <value>colAdjustedDueDate</value>
+  </data>
+  <data name="&gt;&gt;colAdjustedDueDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayValue.Name" xml:space="preserve">
+    <value>colPayValue</value>
+  </data>
+  <data name="&gt;&gt;colPayValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayDate.Name" xml:space="preserve">
+    <value>colPayDate</value>
+  </data>
+  <data name="&gt;&gt;colPayDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colNotes.Name" xml:space="preserve">
+    <value>colNotes</value>
+  </data>
+  <data name="&gt;&gt;colNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPayType.Name" xml:space="preserve">
+    <value>colPayType</value>
+  </data>
+  <data name="&gt;&gt;colPayType.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colIsCashed.Name" xml:space="preserve">
+    <value>colIsCashed</value>
+  </data>
+  <data name="&gt;&gt;colIsCashed.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colIsForward.Name" xml:space="preserve">
+    <value>colIsForward</value>
+  </data>
+  <data name="&gt;&gt;colIsForward.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colIsReturnedDue.Name" xml:space="preserve">
+    <value>colIsReturnedDue</value>
+  </data>
+  <data name="&gt;&gt;colIsReturnedDue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ReturnedChqsBS.Name" xml:space="preserve">
+    <value>ReturnedChqsBS</value>
+  </data>
+  <data name="&gt;&gt;ReturnedChqsBS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ReturnedGridView.Name" xml:space="preserve">
+    <value>ReturnedGridView</value>
+  </data>
+  <data name="&gt;&gt;ReturnedGridView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPayID.Name" xml:space="preserve">
+    <value>colReturnedPayID</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPayID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPatientID.Name" xml:space="preserve">
+    <value>colReturnedPatientID</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPatientID.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPatientName.Name" xml:space="preserve">
+    <value>colReturnedPatientName</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPatientName.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedChqOwner.Name" xml:space="preserve">
+    <value>colReturnedChqOwner</value>
+  </data>
+  <data name="&gt;&gt;colReturnedChqOwner.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedAccountNumber.Name" xml:space="preserve">
+    <value>colReturnedAccountNumber</value>
+  </data>
+  <data name="&gt;&gt;colReturnedAccountNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedChqNumber.Name" xml:space="preserve">
+    <value>colReturnedChqNumber</value>
+  </data>
+  <data name="&gt;&gt;colReturnedChqNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedChqBank.Name" xml:space="preserve">
+    <value>colReturnedChqBank</value>
+  </data>
+  <data name="&gt;&gt;colReturnedChqBank.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedChqDueDate.Name" xml:space="preserve">
+    <value>colReturnedChqDueDate</value>
+  </data>
+  <data name="&gt;&gt;colReturnedChqDueDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPayValue.Name" xml:space="preserve">
+    <value>colReturnedPayValue</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPayValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPayDate.Name" xml:space="preserve">
+    <value>colReturnedPayDate</value>
+  </data>
+  <data name="&gt;&gt;colReturnedPayDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedNotes.Name" xml:space="preserve">
+    <value>colReturnedNotes</value>
+  </data>
+  <data name="&gt;&gt;colReturnedNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colReturnedIsCashed.Name" xml:space="preserve">
+    <value>colReturnedIsCashed</value>
+  </data>
+  <data name="&gt;&gt;colReturnedIsCashed.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colIsReturned.Name" xml:space="preserve">
+    <value>colIsReturned</value>
+  </data>
+  <data name="&gt;&gt;colIsReturned.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Frm5DueChqs</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>
