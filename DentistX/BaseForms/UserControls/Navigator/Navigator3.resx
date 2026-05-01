@@ -460,7 +460,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btNewPatient.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="btnLast.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -490,7 +490,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnLast.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -520,7 +520,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btnPrev.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -547,7 +547,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnPrev.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="btnFirst.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -574,7 +574,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnFirst.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="PopupPatient.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -611,7 +611,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PopupPatient.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="grpPatientInfo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -1551,7 +1551,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtCount.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="LabelControl8.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1581,7 +1581,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LabelControl8.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="posTxt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1611,7 +1611,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;posTxt.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="btnAdultChart.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -1641,7 +1641,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnAdultChart.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="LabelAge.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14pt, style=Bold</value>
@@ -1701,7 +1701,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;IsKidLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnResetKid.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -1731,7 +1731,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnResetKid.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="LabelAddress.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14pt, style=Bold</value>
@@ -1791,7 +1791,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPatientNum.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lblPatientName.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
@@ -1983,7 +1983,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Side1.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="txtPatientName.Location" type="System.Drawing.Point, System.Drawing">
     <value>489, 6</value>
@@ -1997,8 +1997,11 @@
   <data name="txtPatientName.Properties.NullValuePrompt" xml:space="preserve">
     <value>Search by patient name or file number…</value>
   </data>
+  <data name="txtPatientName.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
   <data name="txtPatientName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 28</value>
+    <value>209, 28</value>
   </data>
   <data name="txtPatientName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2013,6 +2016,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtPatientName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnSearchResults.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSearchResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>698, 6</value>
+  </data>
+  <data name="btnSearchResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="btnSearchResults.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnSearchResults.Text" xml:space="preserve">
+    <value>▼</value>
+  </data>
+  <data name="&gt;&gt;btnSearchResults.Name" xml:space="preserve">
+    <value>btnSearchResults</value>
+  </data>
+  <data name="&gt;&gt;btnSearchResults.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnSearchResults.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSearchResults.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="FlyoutPanelControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -2112,7 +2142,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnWhatsSend.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>1214, 481</value>
@@ -2160,6 +2190,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FlyoutPatientInfo.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
 </root>

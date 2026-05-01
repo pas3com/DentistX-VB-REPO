@@ -124,8 +124,6 @@ Partial Class frmGenerateInvoice
         '
         Me.cbPatients.Location = New System.Drawing.Point(73, 30)
         Me.cbPatients.Name = "cbPatients"
-        Me.cbPatients.PatientID = 2
-        Me.cbPatients.PatientName = "Patient 1"
         Me.cbPatients.Size = New System.Drawing.Size(221, 22)
         Me.cbPatients.TabIndex = 3
         '

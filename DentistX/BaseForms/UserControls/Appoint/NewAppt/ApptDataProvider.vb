@@ -24,32 +24,41 @@ Public Class ApptDataProvider
     End Property
 
     Public Function Load(state As ApptState) As ApptDataBundle
-        Dim bundle As New ApptDataBundle()
-        bundle.DateRange = GetViewRange(state)
-        bundle.Appointments = _repo.GetFiltered(bundle.DateRange.StartDate,
-                                                bundle.DateRange.EndDate,
-                                                state.PatientFilterId,
-                                                state.DoctorFilterId,
-                                                NormalizeFilter(state.VisibleReason),
-                                                NormalizeFilter(state.VisibleStatus))
+        Try
+            Dim bundle As New ApptDataBundle()
+            bundle.DateRange = GetViewRange(state)
+            bundle.Appointments = _repo.GetFiltered(bundle.DateRange.StartDate,
+                                                    bundle.DateRange.EndDate,
+                                                    state.PatientFilterId,
+                                                    state.DoctorFilterId,
+                                                    NormalizeFilter(state.VisibleReason),
+                                                    NormalizeFilter(state.VisibleStatus))
 
-        LoadAllDoctors(bundle)
+            LoadAllDoctors(bundle)
 
-        For Each appointment In bundle.Appointments
-            NormalizeAppointmentDate(appointment)
-            Dim doctor = ResolveDoctor(appointment.DrID)
-            If Not bundle.DoctorInfos.ContainsKey(doctor.DrID) Then
-                bundle.DoctorInfos.Add(doctor.DrID, doctor)
-            End If
+            For Each appointment In bundle.Appointments
+                NormalizeAppointmentDate(appointment)
+                Dim doctor = ResolveDoctor(appointment.DrID)
+                If Not bundle.DoctorInfos.ContainsKey(doctor.DrID) Then
+                    bundle.DoctorInfos.Add(doctor.DrID, doctor)
+                End If
 
-            Dim patientName = ResolvePatientName(appointment.PatientID)
-            If Not bundle.PatientNames.ContainsKey(appointment.PatientID) Then
-                bundle.PatientNames.Add(appointment.PatientID, patientName)
-            End If
-        Next
+                Dim patientName = ResolvePatientName(appointment.PatientID)
+                If Not bundle.PatientNames.ContainsKey(appointment.PatientID) Then
+                    bundle.PatientNames.Add(appointment.PatientID, patientName)
+                End If
+            Next
 
-        bundle.Appointments = ApptTheme.OrderAppointmentsForDisplay(bundle.Appointments, bundle, linkedDoctorAtEnd:=True)
-        Return bundle
+            bundle.Appointments = ApptTheme.OrderAppointmentsForDisplay(bundle.Appointments, bundle, linkedDoctorAtEnd:=True)
+            Return bundle
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptDataProvider.Load",
+                                   showUser:=True,
+                                   englishMessage:="Could not load appointments.",
+                                   arabicMessage:="تعذر تحميل المواعيد.")
+            Return New ApptDataBundle()
+        End Try
     End Function
 
     ''' <summary>
@@ -58,30 +67,55 @@ Public Class ApptDataProvider
     ''' which uses <see cref="GetViewRange"/> / header filter dates.
     ''' </summary>
     Public Function LoadEdgeHintAppointments(state As ApptState) As List(Of AppointmentC)
-        If state Is Nothing Then Return New List(Of AppointmentC)()
-        Dim list = _repo.GetFiltered(
-            Nothing,
-            Nothing,
-            state.PatientFilterId,
-            state.DoctorFilterId,
-            NormalizeFilter(state.VisibleReason),
-            NormalizeFilter(state.VisibleStatus))
-        For Each appointment In list
-            NormalizeAppointmentDate(appointment)
-        Next
-        Return ApptTheme.OrderAppointmentsForDisplay(list, Function(id) _repo.GetDoctorName(id), linkedDoctorAtEnd:=True)
+        Try
+            If state Is Nothing Then Return New List(Of AppointmentC)()
+            Dim list = _repo.GetFiltered(
+                Nothing,
+                Nothing,
+                state.PatientFilterId,
+                state.DoctorFilterId,
+                NormalizeFilter(state.VisibleReason),
+                NormalizeFilter(state.VisibleStatus))
+            For Each appointment In list
+                NormalizeAppointmentDate(appointment)
+            Next
+            Return ApptTheme.OrderAppointmentsForDisplay(list, Function(id) _repo.GetDoctorName(id), linkedDoctorAtEnd:=True)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptDataProvider.LoadEdgeHintAppointments",
+                                   showUser:=False)
+            Return New List(Of AppointmentC)()
+        End Try
     End Function
 
     Public Function AddAppointment(appt As AppointmentC, Optional reminderMessageEnglish As Boolean? = Nothing) As Integer
-        NormalizeAppointmentDate(appt)
-        Dim newId = _repo.Insert(appt, reminderMessageEnglish)
-        appt.AppointmentID = newId
-        Return newId
+        Try
+            NormalizeAppointmentDate(appt)
+            Dim newId = _repo.Insert(appt, reminderMessageEnglish)
+            appt.AppointmentID = newId
+            Return newId
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptDataProvider.AddAppointment",
+                                   showUser:=True,
+                                   englishMessage:="Could not add the appointment.",
+                                   arabicMessage:="تعذر إضافة الموعد.")
+            Return 0
+        End Try
     End Function
 
     Public Function UpdateAppointment(appt As AppointmentC, Optional reminderMessageEnglish As Boolean? = Nothing) As Integer
-        NormalizeAppointmentDate(appt)
-        Return _repo.Update(appt, reminderMessageEnglish)
+        Try
+            NormalizeAppointmentDate(appt)
+            Return _repo.Update(appt, reminderMessageEnglish)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptDataProvider.UpdateAppointment",
+                                   showUser:=True,
+                                   englishMessage:="Could not update the appointment.",
+                                   arabicMessage:="تعذر تحديث الموعد.")
+            Return 0
+        End Try
     End Function
 
     ''' <summary>Moves an appointment to <paramref name="targetDay"/> keeping time-of-day and duration; transactional overlap check like <see cref="SchedulerNew.TrySaveAppointmentTransactional"/>.</summary>
@@ -131,11 +165,11 @@ Public Class ApptDataProvider
             appt.StartDateTime = originalStart
             appt.EndDateTime = originalEnd
             appt.AppDate = originalAppDate
-            MessageBox.Show(
-                If(Eng, $"Error saving appointment: {ex.Message}", $"خطأ في حفظ الموعد: {ex.Message}"),
-                If(Eng, "Error", "خطأ"),
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error)
+            ApptErrorHelper.Report(ex,
+                                   "ApptDataProvider.TryMoveAppointmentToDate",
+                                   showUser:=True,
+                                   englishMessage:="Could not move the appointment.",
+                                   arabicMessage:="تعذر نقل الموعد.")
             Return False
         End Try
     End Function
@@ -186,39 +220,58 @@ Public Class ApptDataProvider
             appt.StartDateTime = originalStart
             appt.EndDateTime = originalEnd
             appt.AppDate = originalAppDate
-            MessageBox.Show(
-                If(Eng, $"Error saving appointment: {ex.Message}", $"خطأ في حفظ الموعد: {ex.Message}"),
-                If(Eng, "Error", "خطأ"),
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error)
+            ApptErrorHelper.Report(ex,
+                                   "ApptDataProvider.TryUpdateAppointmentTimes",
+                                   showUser:=True,
+                                   englishMessage:="Could not update the appointment time.",
+                                   arabicMessage:="تعذر تحديث وقت الموعد.")
             Return False
         End Try
     End Function
 
     Public Function DeleteAppointment(appointmentId As Integer) As Integer
-        Return _repo.Delete(appointmentId)
+        Try
+            Return _repo.Delete(appointmentId)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptDataProvider.DeleteAppointment",
+                                   showUser:=True,
+                                   englishMessage:="Could not delete the appointment.",
+                                   arabicMessage:="تعذر حذف الموعد.")
+            Return 0
+        End Try
     End Function
 
     Public Function BuildVisualModel(appointment As AppointmentC,
                                      bundle As ApptDataBundle,
                                      state As ApptState,
                                      selector As Func(Of ApptCardVm, ApptCardAppearance)) As ApptCardVm
-        Dim model As New ApptCardVm With {
-            .Appointment = appointment,
-            .PatientName = bundle.ResolvePatientName(appointment.PatientID),
-            .DoctorInfo = bundle.ResolveDoctor(appointment.DrID)
-        }
+        Try
+            Dim model As New ApptCardVm With {
+                .Appointment = appointment,
+                .PatientName = bundle.ResolvePatientName(appointment.PatientID),
+                .DoctorInfo = bundle.ResolveDoctor(appointment.DrID)
+            }
 
-        Dim appearance = BuildDefaultCardAppearance(model, state)
-        If selector IsNot Nothing Then
-            Dim customAppearance = selector(model)
-            If customAppearance IsNot Nothing Then
-                appearance = customAppearance
+            Dim appearance = BuildDefaultCardAppearance(model, state)
+            If selector IsNot Nothing Then
+                Dim customAppearance = selector(model)
+                If customAppearance IsNot Nothing Then
+                    appearance = customAppearance
+                End If
             End If
-        End If
 
-        model.Appearance = appearance
-        Return model
+            model.Appearance = appearance
+            Return model
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptDataProvider.BuildVisualModel",
+                                   showUser:=False)
+            Return New ApptCardVm With {
+                .Appointment = appointment,
+                .Appearance = New ApptCardAppearance()
+            }
+        End Try
     End Function
 
     Private Shared Function NormalizeFilter(value As String) As String
@@ -247,12 +300,14 @@ Public Class ApptDataProvider
         Dim doctor As New ApptDoctorInfo With {.DrID = drId, .DrName = $"Doctor {drId}", .DrColor = Color.LightSteelBlue}
         Try
             doctor.DrName = _repo.GetDoctorName(drId)
-        Catch
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDataProvider.ResolveDoctor.Name", showUser:=False)
         End Try
 
         Try
             doctor.DrColor = ParseDoctorColor(_repo.GetDoctorColor(drId))
-        Catch
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDataProvider.ResolveDoctor.Color", showUser:=False)
         End Try
 
         _doctorCache(drId) = doctor
@@ -267,7 +322,8 @@ Public Class ApptDataProvider
         Dim patientName = $"Patient {patientId}"
         Try
             patientName = _repo.GetPatientName(patientId)
-        Catch
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDataProvider.ResolvePatientName", showUser:=False)
         End Try
 
         _patientNameCache(patientId) = patientName
@@ -292,7 +348,8 @@ Public Class ApptDataProvider
                     End If
                 Next
             End Using
-        Catch
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDataProvider.LoadAllDoctors", showUser:=False)
         End Try
     End Sub
 End Class

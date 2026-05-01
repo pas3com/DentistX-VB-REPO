@@ -494,9 +494,12 @@ Partial Public Class SnapShotSender
         End Try
         If row Is Nothing Then Return
         Try
-            Await SchedulerSnapshotAutoSendService.RunJobAsync(row, DateTime.Now.Date, forceRun:=True).ConfigureAwait(True)
-            MsgBox(If(Eng, "Message queued for sending.", "تم وضع الرسالة في الطابور للإرسال."), MsgBoxStyle.Information)
-
+            Dim confirmedInQueue = Await SchedulerSnapshotAutoSendService.RunJobAsync(row, DateTime.Now.Date, forceRun:=True).ConfigureAwait(True)
+            If confirmedInQueue Then
+                MessageBox.Show(
+                    If(Eng, "Snapshot test messages are confirmed in the WhatsApp queue.", "تم تأكيد وجود رسائل اختبار اللقطة في طابور واتساب."),
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally

@@ -12,6 +12,7 @@ Public Class ImprDetCombo
     Implements INotifyPropertyChanged
 
     Private ReadOnly _connectionString As String = DentistXDATA.GetConnection.connectionString
+    Private _dataLoaded As Boolean
 
     Public Event ImprDetValueChanged(ByVal sender As Object, ByVal e As ImprDetIndexChangedEvent)
 
@@ -183,6 +184,7 @@ Public Class ImprDetCombo
             conn.Open()
             _allImprDets = conn.Query(Of ImprDetCls)(sql).ToList()
         End Using
+        _dataLoaded = True
     End Sub
 
     Private Sub BindImprDets()
@@ -192,13 +194,15 @@ Public Class ImprDetCombo
         ApplyImprDetFilter()
     End Sub
 
+    Public Sub EnsureDataLoaded()
+        If _dataLoaded Then Return
+        BindImprDets()
+    End Sub
+
     Public Sub UpdateImpComboByParentID(parentID As Integer)
         ClearSearchBox()
-        Const sql As String = "SELECT ImpDetID, ImprID AS ParentID, ImprDetail FROM ImprDet WHERE ImprID = @ImprID;"
-        Using conn As New SqlConnection(_connectionString)
-            conn.Open()
-            _scopedImprDets = conn.Query(Of ImprDetCls)(sql, New With {.ImprID = parentID}).ToList()
-        End Using
+        EnsureDataLoaded()
+        _scopedImprDets = _allImprDets.Where(Function(x) x.ParentID = parentID).ToList()
         ApplyImprDetFilter(autoSelectFirstWhenUnfiltered:=True)
     End Sub
 
@@ -253,6 +257,7 @@ Public Class ImprDetCombo
     End Sub
 
     Private Sub btnSerach_Click(sender As Object, e As EventArgs) Handles btnSerach.Click
+        EnsureDataLoaded()
         ComboFlyoutSearchHelper.ShowFlyoutSearchDeferred(Flyout1, PanelControl2, CboImprDet, txtSearch, Me)
     End Sub
 
@@ -262,6 +267,7 @@ Public Class ImprDetCombo
     End Sub
 
     Public Function GetImprDetTable() As DataTable
+        EnsureDataLoaded()
         Dim dt As New DataTable()
         dt.Columns.Add("ImpDetID", GetType(Integer))
         dt.Columns.Add("ImprID", GetType(Integer))
@@ -273,6 +279,7 @@ Public Class ImprDetCombo
     End Function
 
     Public Function GetImprDetTblByParent(ByVal parentID As Integer) As DataTable
+        EnsureDataLoaded()
         Dim dt As New DataTable()
         dt.Columns.Add("ImpDetID", GetType(Integer))
         dt.Columns.Add("ImprID", GetType(Integer))
@@ -295,7 +302,10 @@ Public Class ImprDetCombo
     Public Sub New()
         InitializeComponent()
         ApplyToolbarLayout()
-        BindImprDets()
+    End Sub
+
+    Private Sub CboImprDet_Enter(sender As Object, e As EventArgs) Handles CboImprDet.Enter
+        EnsureDataLoaded()
     End Sub
 
     Private Sub HandleImprDetValueChanged(ByVal sender As Object, ByVal e As ImprDetIndexChangedEvent) Handles Me.ImprDetValueChanged
@@ -319,11 +329,13 @@ Public Class ImprDetCombo
 
     ''' <summary>Select by detail text (used when loading orders).</summary>
     Public Sub SetSelectedImprDetail(ImprDetail As String)
+        EnsureDataLoaded()
         Me.ImpDetID = GetImpDetID(ImprDetail)
         UpdateImpDetIDComboBoxSelection(ImpDetID)
     End Sub
 
     Public Sub SetSelectedImpDetID(ImpDetID As Integer)
+        If ImpDetID > 0 Then EnsureDataLoaded()
         Me.ImpDetID = ImpDetID
         UpdateImpDetIDComboBoxSelection(ImpDetID)
     End Sub

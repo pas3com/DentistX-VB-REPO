@@ -62,7 +62,7 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DBase\DentistX.mdf;Integrated Security=True;Connect Timeout=30</Value>
     </Setting>
-    <Setting Name="UseHdrTestModHeader" Type="System.String" Scope="User">
+    <Setting Name="UseHdrTestModHeader" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="LastWeeklyBackupDate" Type="System.String" Scope="User">

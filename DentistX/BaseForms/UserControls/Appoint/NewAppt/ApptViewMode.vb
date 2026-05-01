@@ -311,6 +311,19 @@ Public Module ApptTheme
         End Try
     End Sub
 
+    ''' <summary>WinForms <c>Controls.Clear()</c> removes child controls but may leave native handles alive until GC; dispose dynamic children explicitly.</summary>
+    Public Sub DisposeChildControls(parent As Control)
+        If parent Is Nothing Then Return
+        While parent.Controls.Count > 0
+            Dim child = parent.Controls(parent.Controls.Count - 1)
+            parent.Controls.RemoveAt(parent.Controls.Count - 1)
+            Try
+                child.Dispose()
+            Catch
+            End Try
+        End While
+    End Sub
+
     Public Function CreateCalibriFont(size As Single, Optional style As FontStyle = FontStyle.Regular) As Font
         Return New Font("Calibri", Math.Max(6.0F, size), style)
     End Function
@@ -454,6 +467,36 @@ Public Module ApptTheme
         appearance.NotesStyle.Visible = state IsNot Nothing AndAlso state.IncludeReason
         Return appearance
     End Function
+
+    Public Function BuildBoundCardViewModel(appointment As AppointmentC,
+                                            data As ApptDataBundle,
+                                            state As ApptState,
+                                            appearanceSelector As Func(Of ApptCardVm, ApptCardAppearance)) As ApptCardVm
+        If appointment Is Nothing Then Return Nothing
+        Dim model As New ApptCardVm With {
+            .Appointment = appointment,
+            .PatientName = If(data Is Nothing, "", data.ResolvePatientName(appointment.PatientID)),
+            .DoctorInfo = If(data Is Nothing, Nothing, data.ResolveDoctor(appointment.DrID))
+        }
+        model.Appearance = BuildDefaultCardAppearance(model, state)
+        If appearanceSelector IsNot Nothing Then
+            Dim selectedAppearance = appearanceSelector(model)
+            If selectedAppearance IsNot Nothing Then
+                model.Appearance = selectedAppearance
+            End If
+        End If
+        Return model
+    End Function
+
+    Public Sub BindAppointmentCard(card As ApptCard,
+                                   appointment As AppointmentC,
+                                   data As ApptDataBundle,
+                                   state As ApptState,
+                                   appearanceSelector As Func(Of ApptCardVm, ApptCardAppearance),
+                                   use24Hour As Boolean)
+        If card Is Nothing Then Return
+        card.Bind(BuildBoundCardViewModel(appointment, data, state, appearanceSelector), use24Hour)
+    End Sub
 
     Public Function MeasureTextHeight(text As String, font As Font, width As Integer, maxLines As Integer) As Integer
         Dim safeWidth = Math.Max(40, width)

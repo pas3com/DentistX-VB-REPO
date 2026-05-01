@@ -69,7 +69,7 @@ Public Class Navigator3
     Private _pendingSuppressPatientBroadcast As Boolean
     ''' <summary>After a non-major module switch, first user keystroke promotes search scope to ALL.</summary>
     Private _promoteSearchScopeToAllOnNextUserType As Boolean
-    ''' <summary>Small button at the right edge of txtPatientName to reopen suggestions.</summary>
+    ''' <summary>Designer-hosted button at the right edge of txtPatientName to reopen suggestions.</summary>
     Private _showResultsButton As SimpleButton
     ''' <summary>Patients currently shown in the suggestion popup (may differ from <see cref="_bindingPatients"/> when the binding list is left empty after load).</summary>
     Private _lastSuggestionPatients As List(Of Patient)
@@ -184,18 +184,67 @@ Public Class Navigator3
         UpdateNavigationControls()
     End Sub
 
+    Private Shared Function NormalizePatientSearchText(value As String) As String
+        If String.IsNullOrWhiteSpace(value) Then Return ""
+
+        Dim raw As String = value.Trim().Normalize(NormalizationForm.FormKC)
+        Dim sb As New StringBuilder(raw.Length)
+        Dim prevWasSpace As Boolean = False
+
+        For Each ch As Char In raw
+            Dim mapped As String = Nothing
+            Select Case ch
+                Case ChrW(&H622), ChrW(&H623), ChrW(&H625), ChrW(&H671) ' alef variants
+                    mapped = ChrW(&H627)
+                Case ChrW(&H624) ' waw with hamza
+                    mapped = ChrW(&H648)
+                Case ChrW(&H626), ChrW(&H649), ChrW(&H6CC) ' yaa variants
+                    mapped = ChrW(&H64A)
+                Case ChrW(&H6A9) ' Persian keheh -> Arabic kaf
+                    mapped = ChrW(&H643)
+                Case ChrW(&H640), ChrW(&H200C), ChrW(&H200D), ChrW(&H200E), ChrW(&H200F) ' tatweel / joiners / direction marks
+                    Continue For
+            End Select
+
+            Dim cat As UnicodeCategory = CharUnicodeInfo.GetUnicodeCategory(ch)
+            If cat = UnicodeCategory.NonSpacingMark OrElse
+               cat = UnicodeCategory.SpacingCombiningMark OrElse
+               cat = UnicodeCategory.EnclosingMark Then
+                Continue For
+            End If
+
+            Dim outText As String = If(mapped, ch.ToString())
+            For Each outCh As Char In outText
+                If Char.IsWhiteSpace(outCh) Then
+                    If Not prevWasSpace Then
+                        sb.Append(" "c)
+                        prevWasSpace = True
+                    End If
+                Else
+                    sb.Append(outCh)
+                    prevWasSpace = False
+                End If
+            Next
+        Next
+
+        Return sb.ToString().Trim()
+    End Function
+
     ''' <summary>Search mode: 0 = first (StartsWith), 1 = any (contains), 2 = last (EndsWith). Unified box uses contains (1) for name text.</summary>
     Private Shared Function NameMatchesSearch(name As String, q As String, searchMethod As Integer) As Boolean
-        If String.IsNullOrEmpty(name) Then Return False
+        Dim normalizedName As String = NormalizePatientSearchText(name)
+        Dim normalizedQuery As String = NormalizePatientSearchText(q)
+        If String.IsNullOrEmpty(normalizedName) OrElse String.IsNullOrEmpty(normalizedQuery) Then Return False
+
         Select Case searchMethod
             Case 0
-                Return name.StartsWith(q, StringComparison.OrdinalIgnoreCase)
+                Return normalizedName.StartsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase)
             Case 1
-                Return name.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0
+                Return normalizedName.IndexOf(normalizedQuery, StringComparison.OrdinalIgnoreCase) >= 0
             Case 2
-                Return name.EndsWith(q, StringComparison.OrdinalIgnoreCase)
+                Return normalizedName.EndsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase)
             Case Else
-                Return name.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0
+                Return normalizedName.IndexOf(normalizedQuery, StringComparison.OrdinalIgnoreCase) >= 0
         End Select
     End Function
 
@@ -274,24 +323,18 @@ Public Class Navigator3
     End Sub
 
     Private Sub EnsureSearchResultsButton()
-        If txtPatientName Is Nothing Then Return
-        If _showResultsButton IsNot Nothing Then Return
+        If txtPatientName Is Nothing OrElse btnSearchResults Is Nothing Then Return
+        If _showResultsButton Is btnSearchResults Then
+            PositionSearchResultsButton()
+            Return
+        End If
 
-        _showResultsButton = New SimpleButton With {
-            .Text = "▼",
-            .TabStop = False,
-            .Visible = False
-        }
-
+        _showResultsButton = btnSearchResults
+        _showResultsButton.Text = "▼"
+        _showResultsButton.TabStop = False
+        _showResultsButton.Visible = False
         _showResultsButton.ToolTip = If(Eng, "Show results", "إظهار النتائج")
         _showResultsButton.LookAndFeel.UseDefaultLookAndFeel = True
-        AddHandler _showResultsButton.Click, AddressOf ShowResultsButton_Click
-
-        Dim parent = txtPatientName.Parent
-        If parent IsNot Nothing Then
-            parent.Controls.Add(_showResultsButton)
-            _showResultsButton.BringToFront()
-        End If
 
         AddHandler txtPatientName.SizeChanged, AddressOf txtPatientName_RepositionShowResultsButton
         AddHandler txtPatientName.LocationChanged, AddressOf txtPatientName_RepositionShowResultsButton
@@ -314,10 +357,7 @@ Public Class Navigator3
 
         Dim btnH As Integer = Math.Max(1, txtPatientName.Height)
         Dim btnW As Integer = Math.Max(14, btnH)
-        Dim isRtl As Boolean = (Me.RightToLeft = RightToLeft.Yes) OrElse
-                               (txtPatientName.RightToLeft = RightToLeft.Yes) OrElse
-                               (Not Eng)
-        Dim x As Integer = If(isRtl, txtPatientName.Left, txtPatientName.Left + txtPatientName.Width - btnW)
+        Dim x As Integer = txtPatientName.Right
         Dim y As Integer = txtPatientName.Top
         _showResultsButton.SetBounds(x, y, btnW, btnH)
     End Sub
@@ -407,10 +447,23 @@ Public Class Navigator3
         End If
     End Sub
 
-    Private Sub ShowResultsButton_Click(sender As Object, e As EventArgs)
+    Private Sub ShowResultsButton_Click(sender As Object, e As EventArgs) Handles btnSearchResults.Click
         If _showResultsButton Is Nothing Then Return
         UpdateAndShowPatientSuggestions(forceShow:=True)
         txtPatientName.Focus()
+    End Sub
+
+    Private Sub ClearPatientSearchBox()
+        If txtPatientName Is Nothing Then Return
+        If _searchTimer IsNot Nothing Then _searchTimer.Stop()
+        HidePatientSuggestions()
+        _suppressSearchText = True
+        Try
+            txtPatientName.Text = ""
+        Finally
+            _suppressSearchText = False
+        End Try
+        UpdateSearchResultsButtonVisibility()
     End Sub
 
     Private Sub PatientSuggestion_MouseDown(sender As Object, e As MouseEventArgs)
@@ -1600,7 +1653,8 @@ Public Class Navigator3
                 MsgBox(If(Eng, "Delete operation failed.", "فشل الحذف."), MsgBoxStyle.Exclamation)
                 Return
             End If
-            Dim currentPos As Integer = PatientBS.Position
+
+            Dim fallbackPatientId As Integer? = Nothing
             Dim idxInBinding As Integer = -1
             For i As Integer = 0 To _bindingPatients.Count - 1
                 If CType(_bindingPatients(i), Patient).PatientID = toDelete.PatientID Then
@@ -1608,17 +1662,27 @@ Public Class Navigator3
                     Exit For
                 End If
             Next
-            If idxInBinding >= 0 Then
-                _bindingPatients.RemoveAt(idxInBinding)
+
+            If idxInBinding > 0 Then
+                fallbackPatientId = _bindingPatients(idxInBinding - 1).PatientID
+            ElseIf idxInBinding >= 0 AndAlso idxInBinding < _bindingPatients.Count - 1 Then
+                fallbackPatientId = _bindingPatients(idxInBinding + 1).PatientID
+            End If
+
+            If _allPatients IsNot Nothing Then
                 Dim idxInAll As Integer = _allPatients.FindIndex(Function(p) p.PatientID = toDelete.PatientID)
                 If idxInAll >= 0 Then _allPatients.RemoveAt(idxInAll)
-                ' Focus on the one before: move to previous index (or 0 if we removed first)
-                If _bindingPatients.Count > 0 Then
-                    Dim newPos As Integer = Math.Max(0, idxInBinding - 1)
-                    PatientBS.Position = newPos
-                End If
-                _currentPatient = If(PatientBS.Count > 0, TryCast(PatientBS.Current, Patient), Nothing)
             End If
+
+            If _filteredPatients IsNot Nothing Then
+                Dim idxInFiltered As Integer = _filteredPatients.FindIndex(Function(p) p.PatientID = toDelete.PatientID)
+                If idxInFiltered >= 0 Then _filteredPatients.RemoveAt(idxInFiltered)
+            End If
+
+            ClearPatientSearchBox()
+            RefreshBindingListFromFiltered(Nothing, suppressPatientBroadcast:=False, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=fallbackPatientId)
+            _currentPatient = If(PatientBS.Count > 0, TryCast(PatientBS.Current, Patient), Nothing)
+
             FlyoutPatientInfo.HidePopup()
             UpdateNavigationControls()
             FirePatientChangedForCurrent()

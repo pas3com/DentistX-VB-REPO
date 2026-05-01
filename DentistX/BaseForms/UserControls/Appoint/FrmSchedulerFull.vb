@@ -25,6 +25,41 @@ Public Class FrmSchedulerFull
         'StoreOriginalBounds(Me)
     End Sub
 
+    Protected Overrides Sub OnFormClosed(e As FormClosedEventArgs)
+        Try
+            ApptErrorHelper.ReportDiagnostic(
+                "FrmSchedulerFull.OnFormClosed",
+                $"before-close-cleanup; scheduleAlive={schedule IsNot Nothing AndAlso Not schedule.IsDisposed}; bodyChildren={If(pnlBody Is Nothing, -1, pnlBody.Controls.Count)}")
+        Catch
+        End Try
+
+        Try
+            If schedule IsNot Nothing Then
+                RemoveHandler schedule.AppointmentDoubleClicked, AddressOf OnAppointmentDoubleClicked
+                If schedule.Parent IsNot Nothing Then
+                    schedule.Parent.Controls.Remove(schedule)
+                End If
+                If Not schedule.IsDisposed Then
+                    schedule.Dispose()
+                End If
+                schedule = Nothing
+            End If
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "FrmSchedulerFull.OnFormClosed.ScheduleDispose", showUser:=False)
+        End Try
+
+        Try
+            If pnlBody IsNot Nothing Then pnlBody.Controls.Clear()
+            ApptErrorHelper.ReportDiagnostic(
+                "FrmSchedulerFull.OnFormClosed",
+                $"after-close-cleanup; scheduleAlive={schedule IsNot Nothing}; bodyChildren={If(pnlBody Is Nothing, -1, pnlBody.Controls.Count)}")
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "FrmSchedulerFull.OnFormClosed.ClearBody", showUser:=False)
+        End Try
+
+        MyBase.OnFormClosed(e)
+    End Sub
+
 
 
 #Region "Resize"

@@ -131,7 +131,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1364, 767</value>
+    <value>1594, 897</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ContainerA.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -144,7 +144,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="ContainerA.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1157, 660</value>
+    <value>1387, 790</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ContainerA.TabIndex" type="System.Int32, mscorlib">
@@ -419,7 +419,7 @@
   <data name="btnCsiImage.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAABxFJREFUWEe9lnlQlOcdx9Pzj/6T1LFOaToOgsDQyaIcgjFcKhUPimEQowg2EOSU
+        vAAADrwBlbxySQAABxFJREFUWEe9lnlQlOcdx9Pzj/6T1LFOaToOgsDQyaIcgjFcKhUPimEQowg2EOSU
         cLikXC4slwGUhrBcQgKVw4nAgrQF5JIYUbEckaSrThOkkoyNXZgYEZbl3d+38zyyW/ZdMub+znxnj3ff
         5/t5fs/z/N596qkfQACeAWAO4Bfia9+biGiDTqfLJKL36dGnoJlxkEa9SETdROQi/v23FoCfAvAkoj8T
         0cTs5/eg/bAIC907oGlZv2QraAfDoJudYiCB4jG+tlhJicgPQK0gCGq1ehqqm7dwq+8kvlA6LAs29kLH
@@ -612,6 +612,9 @@
   <data name="VendorsButton.Appearance.Default.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
+  <data name="btnOLdScheduler.Text" xml:space="preserve">
+    <value>Old Scheduler</value>
+  </data>
   <data name="VendorsButton.Hint" xml:space="preserve">
     <value>Vendors</value>
   </data>
@@ -625,7 +628,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="MainAccordion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 660</value>
+    <value>157, 790</value>
   </data>
   <data name="MainAccordion.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2408,7 +2411,7 @@
     <value>25, 29</value>
   </data>
   <data name="hideContainerTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1314, 25</value>
+    <value>1544, 25</value>
   </data>
   <data name="&gt;&gt;hideContainerTop.Name" xml:space="preserve">
     <value>hideContainerTop</value>
@@ -2468,10 +2471,10 @@
     <value>Bottom</value>
   </data>
   <data name="hideContainerBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 714</value>
+    <value>25, 844</value>
   </data>
   <data name="hideContainerBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1314, 25</value>
+    <value>1544, 25</value>
   </data>
   <data name="&gt;&gt;hideContainerBottom.Name" xml:space="preserve">
     <value>hideContainerBottom</value>
@@ -2534,7 +2537,7 @@
     <value>0, 29</value>
   </data>
   <data name="hideContainerLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 710</value>
+    <value>25, 840</value>
   </data>
   <data name="&gt;&gt;hideContainerLeft.Name" xml:space="preserve">
     <value>hideContainerLeft</value>
@@ -2819,10 +2822,10 @@
     <value>Right</value>
   </data>
   <data name="hideContainerRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1339, 29</value>
+    <value>1569, 29</value>
   </data>
   <data name="hideContainerRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 710</value>
+    <value>25, 840</value>
   </data>
   <data name="hideContainerRight.Text" xml:space="preserve">
     <value>Message Center</value>
@@ -2897,7 +2900,7 @@
     <value>0, 29</value>
   </data>
   <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1364, 0</value>
+    <value>1594, 0</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Name" xml:space="preserve">
     <value>barDockControlTop</value>
@@ -2915,10 +2918,10 @@
     <value>Bottom</value>
   </data>
   <data name="barDockControlBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 739</value>
+    <value>0, 869</value>
   </data>
   <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1364, 28</value>
+    <value>1594, 28</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Name" xml:space="preserve">
     <value>barDockControlBottom</value>
@@ -2936,10 +2939,10 @@
     <value>Right</value>
   </data>
   <data name="barDockControlRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1364, 29</value>
+    <value>1594, 29</value>
   </data>
   <data name="barDockControlRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 710</value>
+    <value>0, 840</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Name" xml:space="preserve">
     <value>barDockControlRight</value>
@@ -2963,7 +2966,7 @@
     <value>BarHeaderItem1</value>
   </data>
   <data name="barDockControlLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 710</value>
+    <value>0, 840</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Name" xml:space="preserve">
     <value>barDockControlLeft</value>
@@ -3479,7 +3482,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="FluentDesignFormControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1364, 29</value>
+    <value>1594, 29</value>
   </data>
   <data name="FluentDesignFormControl1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3771,6 +3774,12 @@
     <value>VendorsButton</value>
   </data>
   <data name="&gt;&gt;VendorsButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnOLdScheduler.Name" xml:space="preserve">
+    <value>btnOLdScheduler</value>
+  </data>
+  <data name="&gt;&gt;btnOLdScheduler.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;MainMenu.Name" xml:space="preserve">

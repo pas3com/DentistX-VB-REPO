@@ -15,8 +15,8 @@ Friend MustInherit Class ApptDrawerDimScrimPanel
     Private Const WM_NCHITTEST As Integer = &H84
     Private Const HTCLIENT As Integer = 1
 
-    ''' <summary>~40% blue tint (ARGB alpha 100), same as Gemini branch.</summary>
-    Protected Shared ReadOnly ScrimBrushColor As Color = Color.FromArgb(100, 30, 80, 140)
+    ''' <summary>Soft relaxing blue scrim so the squeezed background stays calm instead of reading as dark/black.</summary>
+    Protected Shared ReadOnly ScrimBrushColor As Color = Color.FromArgb(104, 170, 206, 235)
 
     Private ReadOnly _onDismiss As Action
 

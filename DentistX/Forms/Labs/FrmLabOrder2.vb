@@ -8,6 +8,9 @@ Imports DentistX
 
 Partial Public Class FrmLabOrder2
 
+    Private _initialDataQueued As Boolean = False
+    Private _loadingGrid As Boolean = False
+    Private _suspendRowDisplay As Boolean = False
 
     Public Sub New()
         InitializeComponent()
@@ -28,14 +31,29 @@ Partial Public Class FrmLabOrder2
 
 
     Private Sub FrmLabOrder2_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        LoadDGV()
-        ShowToolStripItems("Cancel")
-        'If colLabCombo.CboLab.Properties.Items.Count > 0 Then
-        '    colLabCombo.CboLab.SelectedIndex = 0
-        'End If
-        'If colPatientCombo.CboPatient.Properties.Items.Count > 0 Then
-        '    colPatientCombo.CboPatient.SelectedIndex = 0
-        'End If
+        EnableRecord(False)
+        bAdd.Enabled = False
+        bEdit.Enabled = False
+        bDelete.Enabled = False
+        bRefresh.Enabled = False
+        butApply.Enabled = False
+        butCancel.Enabled = False
+    End Sub
+
+    Private Sub FrmLabOrder2_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        If _initialDataQueued Then Return
+        _initialDataQueued = True
+        BeginInvoke(New MethodInvoker(AddressOf InitializeAfterShown))
+    End Sub
+
+    Private Sub InitializeAfterShown()
+        _suspendRowDisplay = True
+        Try
+            LoadDGV()
+            ShowToolStripItems("Cancel")
+        Finally
+            _suspendRowDisplay = False
+        End Try
     End Sub
     Private bAddMode As Boolean = False
     Private bEditMode As Boolean = False
@@ -80,6 +98,7 @@ Partial Public Class FrmLabOrder2
 
     Private Sub LoadDGV()
         Try
+            _loadingGrid = True
             With DGV
                 .DataSource = clsLabOrderData.SelectAll
                 bsiRecordsCount.Caption = "RECORDS : " & .DataSource.Count
@@ -91,11 +110,14 @@ Partial Public Class FrmLabOrder2
             End With
         Catch ex As Exception
             MsgBox(ex.Message)
+        Finally
+            _loadingGrid = False
         End Try
     End Sub
 
     Private Sub DGV_Click(sender As Object, e As System.EventArgs) Handles DGV.Click
         Try
+            If _loadingGrid OrElse _suspendRowDisplay Then Return
             Row = dgView.FocusedRowHandle
             Display()
         Catch ex As Exception
@@ -105,6 +127,7 @@ Partial Public Class FrmLabOrder2
 
     Private Sub DGV_SelectionChanged(sender As Object, e As System.EventArgs) Handles dgView.SelectionChanged
         Try
+            If _loadingGrid OrElse _suspendRowDisplay Then Return
             Row = dgView.FocusedRowHandle
             Display()
         Catch ex As Exception
@@ -156,9 +179,12 @@ Partial Public Class FrmLabOrder2
 
     Private Sub Display()
         ClearRecord()
-        Dim clsLabOrder As New LabOrder
-        clsLabOrder.LabOrderID = System.Convert.ToInt32(dgView.GetRowCellDisplayText(Row, colLabOrderID))
-        clsLabOrder = clsLabOrderData.Select_Record(clsLabOrder)
+        Dim clsLabOrder As LabOrder = TryCast(dgView.GetRow(Row), LabOrder)
+        If clsLabOrder Is Nothing Then
+            clsLabOrder = New LabOrder
+            clsLabOrder.LabOrderID = System.Convert.ToInt32(dgView.GetRowCellDisplayText(Row, colLabOrderID))
+            clsLabOrder = clsLabOrderData.Select_Record(clsLabOrder)
+        End If
         If Not clsLabOrder Is Nothing Then
             Try
                 LabOrderIDSpinEdit.Value = System.Convert.ToInt32(clsLabOrder.LabOrderID)

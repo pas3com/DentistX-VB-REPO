@@ -5,8 +5,8 @@ Imports System.IO
 Imports System.Windows.Forms
 
 ''' <summary>
-''' Renders the same 7-day (Sat–Fri) week snapshot as <see cref="SchedulerNew"/> without the user opening the scheduler,
-''' by hosting <see cref="SchedulerNew"/> on a hidden off-screen form on the UI thread.
+''' Renders the same 7-day (Sat-Fri) week snapshot as the live appointments week view without the user opening the scheduler,
+''' by hosting <see cref="ApptHostCtl"/> on a hidden off-screen form on the UI thread.
 ''' </summary>
 Public NotInheritable Class SchedulerWeekSnapshotBackgroundCapture
     Private Sub New()
@@ -42,7 +42,9 @@ Public NotInheritable Class SchedulerWeekSnapshotBackgroundCapture
     End Function
 
     ''' <summary>
-    ''' Produces up to two week PNGs and/or two HTML files (current and next Sat–Fri) under Attachments\ClinicUse, per <paramref name="mode"/>.
+    ''' Produces up to two week PNGs and/or two HTML files under Attachments\ClinicUse, per <paramref name="mode"/>.
+    ''' When <paramref name="useScheduledWeekRule"/> is True, Thursday shifts forward and sends next week plus the week after next;
+    ''' otherwise it always captures the current week plus the next week (used by the manual test send).
     ''' HTML is written while each week is still the active view (required for a correct export).
     ''' </summary>
     Public Shared Function TrySaveCurrentAndNextWeekMedia(anchorDate As Date,
@@ -52,7 +54,8 @@ Public NotInheritable Class SchedulerWeekSnapshotBackgroundCapture
                                                         ByRef pathPngCurrent As String,
                                                         ByRef pathPngNext As String,
                                                         ByRef pathHtmlCurrent As String,
-                                                        ByRef pathHtmlNext As String) As Boolean
+                                                        ByRef pathHtmlNext As String,
+                                                        Optional useScheduledWeekRule As Boolean = True) As Boolean
         captionCurrent = Nothing
         captionNext = Nothing
         pathPngCurrent = Nothing
@@ -72,10 +75,13 @@ Public NotInheritable Class SchedulerWeekSnapshotBackgroundCapture
             Return False
         End Try
 
-        Dim currentWeekSat = GetWeekStartSaturday(anchorDate.Date)
-        Dim nextWeekSat = currentWeekSat.AddDays(7)
-        pathPngCurrent = Path.Combine(exportsDir, BuildSnapshotFileNameForSatFriWeek(currentWeekSat))
-        pathPngNext = Path.Combine(exportsDir, BuildSnapshotFileNameForSatFriWeek(nextWeekSat))
+        Dim baseWeekSat = GetWeekStartSaturday(anchorDate.Date)
+        Dim firstWeekOffset = If(useScheduledWeekRule AndAlso anchorDate.Date.DayOfWeek = DayOfWeek.Thursday, 1, 0)
+        Dim secondWeekOffset = firstWeekOffset + 1
+        Dim firstWeekSat = baseWeekSat.AddDays(firstWeekOffset * 7)
+        Dim secondWeekSat = baseWeekSat.AddDays(secondWeekOffset * 7)
+        pathPngCurrent = Path.Combine(exportsDir, BuildSnapshotFileNameForSatFriWeek(firstWeekSat))
+        pathPngNext = Path.Combine(exportsDir, BuildSnapshotFileNameForSatFriWeek(secondWeekSat))
 
         Dim wa = Screen.PrimaryScreen.WorkingArea
         Using host As New Form With {
@@ -85,7 +91,7 @@ Public NotInheritable Class SchedulerWeekSnapshotBackgroundCapture
             .Bounds = New Rectangle(-20000, -20000, wa.Width, wa.Height),
             .Opacity = 0R
         }
-            Dim sched As New SchedulerNew()
+            Dim sched As New ApptHostCtl()
             sched.Dock = DockStyle.Fill
             host.Controls.Add(sched)
             host.Show()
@@ -101,9 +107,9 @@ Public NotInheritable Class SchedulerWeekSnapshotBackgroundCapture
             Dim bmp1 As Bitmap = Nothing
             Dim bmp2 As Bitmap = Nothing
             Try
-                bmp1 = sched.TryCaptureWeekSnapshotBitmap(anchorDate, 0, clearFiltersForBroadcast:=True, weekCaptionOut:=cap1,
+                bmp1 = sched.TryCaptureWeekSnapshotBitmap(anchorDate, firstWeekOffset, clearFiltersForBroadcast:=True, weekCaptionOut:=cap1,
                     alsoWritePng:=wantPng, alsoWriteHtml:=wantHtml, htmlExportDir:=exportsDir, weekHtmlFilePathOut:=h1)
-                bmp2 = sched.TryCaptureWeekSnapshotBitmap(anchorDate, 1, clearFiltersForBroadcast:=True, weekCaptionOut:=cap2,
+                bmp2 = sched.TryCaptureWeekSnapshotBitmap(anchorDate, secondWeekOffset, clearFiltersForBroadcast:=True, weekCaptionOut:=cap2,
                     alsoWritePng:=wantPng, alsoWriteHtml:=wantHtml, htmlExportDir:=exportsDir, weekHtmlFilePathOut:=h2)
             Finally
                 Try

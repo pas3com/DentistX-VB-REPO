@@ -12,6 +12,7 @@ Public Class ImpressionCombo
     Implements INotifyPropertyChanged
 
     Private ReadOnly _connectionString As String = DentistXDATA.GetConnection.connectionString
+    Private _dataLoaded As Boolean
 
     Public Event ImpressionValueChanged(ByVal sender As Object, ByVal e As ImpressionIndexChangedEvent)
 
@@ -165,7 +166,13 @@ Public Class ImpressionCombo
             conn.Open()
             _allRows = conn.Query(Of ImpressionCls)(sql).ToList()
         End Using
+        _dataLoaded = True
         ApplyNameFilter()
+    End Sub
+
+    Public Sub EnsureDataLoaded()
+        If _dataLoaded Then Return
+        BindImpressions()
     End Sub
 
     Private Sub UpdateImprIDComboBoxSelection(ImprID As Integer)
@@ -214,6 +221,7 @@ Public Class ImpressionCombo
     End Sub
 
     Private Sub btnSerach_Click(sender As Object, e As EventArgs) Handles btnSerach.Click
+        EnsureDataLoaded()
         ComboFlyoutSearchHelper.ShowFlyoutSearchDeferred(Flyout1, PanelControl2, CboImpression, txtSearch, Me)
     End Sub
 
@@ -223,6 +231,7 @@ Public Class ImpressionCombo
     End Sub
 
     Public Function GetImpressionTable() As DataTable
+        EnsureDataLoaded()
         Dim dt As New DataTable()
         dt.Columns.Add("ImprID", GetType(Integer))
         dt.Columns.Add("ImprType", GetType(String))
@@ -244,7 +253,10 @@ Public Class ImpressionCombo
     Public Sub New()
         InitializeComponent()
         ApplyToolbarLayout()
-        BindImpressions()
+    End Sub
+
+    Private Sub CboImpression_Enter(sender As Object, e As EventArgs) Handles CboImpression.Enter
+        EnsureDataLoaded()
     End Sub
 
     Private Sub HandleImpressionValueChanged(ByVal sender As Object, ByVal e As ImpressionIndexChangedEvent) Handles Me.ImpressionValueChanged
@@ -267,11 +279,13 @@ Public Class ImpressionCombo
     End Function
 
     Public Sub SetSelectedImprType(ImprID As Integer)
+        If ImprID > 0 Then EnsureDataLoaded()
         Me.ImprID = ImprID
         UpdateImprIDComboBoxSelection(ImprID)
     End Sub
 
     Public Sub SetSelectedImprID(ImprType As String)
+        EnsureDataLoaded()
         Me.ImprID = GetImprID(ImprType)
         UpdateImprIDComboBoxSelection(ImprID)
     End Sub

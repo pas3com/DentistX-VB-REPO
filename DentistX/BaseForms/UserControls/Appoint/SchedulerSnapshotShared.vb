@@ -28,15 +28,15 @@ Friend NotInheritable Class SchedulerSnapshotShared
                         If b IsNot Nothing Then Return b
                     End If
                 Case SchedulerNew.ViewMode.ThisWeekFull, SchedulerNew.ViewMode.ThisWeek
+                    Dim wk = FindDescendantApptWeekCtl(pnlBody)
+                    If wk IsNot Nothing Then
+                        Dim apptW = wk.CaptureStitchedWeekSnapshotBitmap()
+                        If apptW IsNot Nothing Then Return apptW
+                    End If
                     Dim wf = TryFindWeekDayColumnsMainFlow(pnlBody)
                     If wf IsNot Nothing Then
                         Dim wBmp = CaptureWeekColumnsFullHeightBitmap(wf, pnlBody.ClientSize.Width)
                         If wBmp IsNot Nothing Then Return wBmp
-                    End If
-                    If pnlBody.Controls.Count > 0 AndAlso TypeOf pnlBody.Controls(0) Is ApptWeekCtl Then
-                        Dim wk = DirectCast(pnlBody.Controls(0), ApptWeekCtl)
-                        Dim apptW = wk.CaptureStitchedWeekSnapshotBitmap()
-                        If apptW IsNot Nothing Then Return apptW
                     End If
                 Case SchedulerNew.ViewMode.MonthlyWeek
                     Dim mwf = TryFindMonthWeeksMainFlow(pnlBody)
@@ -120,19 +120,53 @@ Friend NotInheritable Class SchedulerSnapshotShared
     Private Shared Function TryFindWeekDayColumnsMainFlow(pnlBody As Control) As FlowLayoutPanel
         If pnlBody Is Nothing Then Return Nothing
         For Each c As Control In pnlBody.Controls
+            If TryCast(c, ArrowLable) IsNot Nothing Then Continue For
             Dim mf = TryCast(c, FlowLayoutPanel)
-            If mf Is Nothing OrElse mf.FlowDirection <> FlowDirection.TopDown Then Continue For
-            If mf.Controls.Count < 2 Then Continue For
-            Dim band = TryCast(mf.Controls(1), FlowLayoutPanel)
-            If band Is Nothing OrElse band.FlowDirection <> FlowDirection.LeftToRight Then Continue For
-            If band.Controls.Count < 3 Then Continue For
-            Dim columnsOk = False
-            For Each bc As Control In band.Controls
-                Dim pcol = TryCast(bc, Panel)
-                If pcol Is Nothing Then Continue For
-                If pcol.Controls.OfType(Of FlowLayoutPanel)().Any() Then columnsOk = True : Exit For
-            Next
-            If columnsOk Then Return mf
+            If mf IsNot Nothing AndAlso mf.FlowDirection = FlowDirection.TopDown Then
+                If mf.Controls.Count >= 2 Then
+                    Dim band = TryCast(mf.Controls(1), FlowLayoutPanel)
+                    If band IsNot Nothing AndAlso band.FlowDirection = FlowDirection.LeftToRight AndAlso band.Controls.Count >= 3 Then
+                        Dim columnsOk = False
+                        For Each bc As Control In band.Controls
+                            Dim pcol = TryCast(bc, Panel)
+                            If pcol Is Nothing Then Continue For
+                            If pcol.Controls.OfType(Of FlowLayoutPanel)().Any() Then
+                                columnsOk = True
+                                Exit For
+                            End If
+                        Next
+                        If columnsOk Then Return mf
+                    End If
+                End If
+            End If
+            Dim nested = TryFindWeekDayColumnsMainFlow(c)
+            If nested IsNot Nothing Then Return nested
+        Next
+        Return Nothing
+    End Function
+
+    Private Shared Function FindDescendantApptWeekCtl(root As Control) As ApptWeekCtl
+        If root Is Nothing Then Return Nothing
+        For Each c As Control In root.Controls
+            If TryCast(c, ArrowLable) IsNot Nothing Then Continue For
+            Dim wk = TryCast(c, ApptWeekCtl)
+            If wk IsNot Nothing Then Return wk
+            Dim nested = FindDescendantApptWeekCtl(c)
+            If nested IsNot Nothing Then Return nested
+        Next
+        Return Nothing
+    End Function
+
+    Private Shared Function TryFindMonthWeeksMainFlow(pnlBody As Control) As FlowLayoutPanel
+        If pnlBody Is Nothing Then Return Nothing
+        For Each c As Control In pnlBody.Controls
+            If TryCast(c, ArrowLable) IsNot Nothing Then Continue For
+            Dim mf = TryCast(c, FlowLayoutPanel)
+            If mf IsNot Nothing AndAlso mf.FlowDirection = FlowDirection.TopDown AndAlso mf.Controls.Count > 0 AndAlso TryCast(mf.Controls(0), GroupControl) IsNot Nothing Then
+                Return mf
+            End If
+            Dim nested = TryFindMonthWeeksMainFlow(c)
+            If nested IsNot Nothing Then Return nested
         Next
         Return Nothing
     End Function
@@ -144,18 +178,6 @@ Friend NotInheritable Class SchedulerSnapshotShared
     End Function
 
     ''' <summary>Month-week layout: vertical flow of <see cref="GroupControl"/> week groups.</summary>
-    Private Shared Function TryFindMonthWeeksMainFlow(pnlBody As Control) As FlowLayoutPanel
-        If pnlBody Is Nothing Then Return Nothing
-        For Each c As Control In pnlBody.Controls
-            Dim mf = TryCast(c, FlowLayoutPanel)
-            If mf Is Nothing OrElse mf.FlowDirection <> FlowDirection.TopDown Then Continue For
-            If mf.Controls.Count = 0 Then Continue For
-            If TryCast(mf.Controls(0), GroupControl) Is Nothing Then Continue For
-            Return mf
-        Next
-        Return Nothing
-    End Function
-
     Private Shared Function FindTimelineOrScrollBodyPanel(pnlBody As Control) As Panel
         If pnlBody Is Nothing Then Return Nothing
         For Each c As Control In pnlBody.Controls

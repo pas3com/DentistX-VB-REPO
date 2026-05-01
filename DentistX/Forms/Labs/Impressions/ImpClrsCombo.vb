@@ -12,6 +12,7 @@ Public Class ImpClrsCombo
     Implements INotifyPropertyChanged
 
     Private ReadOnly _connectionString As String = DentistXDATA.GetConnection.connectionString
+    Private _dataLoaded As Boolean
 
     Private Shared Function NormalizeImpClrText(value As Object) As String
         If value Is Nothing OrElse IsDBNull(value) Then Return String.Empty
@@ -176,7 +177,13 @@ Public Class ImpClrsCombo
             Dim raw = conn.Query(Of ImpClrsCls)(sql).ToList()
             _allRows = raw.Select(Function(r) New ImpClrsCls With {.ImpClrID = r.ImpClrID, .ImpClr = NormalizeImpClrText(r.ImpClr)}).ToList()
         End Using
+        _dataLoaded = True
         ApplyNameFilter()
+    End Sub
+
+    Public Sub EnsureDataLoaded()
+        If _dataLoaded Then Return
+        BindImpClrss()
     End Sub
 
     Private Sub UpdateImpClrIDComboBoxSelection(ImpClrID As Integer)
@@ -225,6 +232,7 @@ Public Class ImpClrsCombo
     End Sub
 
     Private Sub btnSerach_Click(sender As Object, e As EventArgs) Handles btnSerach.Click
+        EnsureDataLoaded()
         ComboFlyoutSearchHelper.ShowFlyoutSearchDeferred(Flyout1, PanelControl2, CboImpClrs, txtSearch, Me)
     End Sub
 
@@ -234,6 +242,7 @@ Public Class ImpClrsCombo
     End Sub
 
     Public Function GetImpClrsTable() As DataTable
+        EnsureDataLoaded()
         Dim dt As New DataTable()
         dt.Columns.Add("ImpClrID", GetType(Integer))
         dt.Columns.Add("ImpClr", GetType(String))
@@ -255,7 +264,10 @@ Public Class ImpClrsCombo
     Public Sub New()
         InitializeComponent()
         ApplyToolbarLayout()
-        BindImpClrss()
+    End Sub
+
+    Private Sub CboImpClrs_Enter(sender As Object, e As EventArgs) Handles CboImpClrs.Enter
+        EnsureDataLoaded()
     End Sub
 
     Private Sub HandleImpClrsValueChanged(ByVal sender As Object, ByVal e As ImpClrsIndexChangedEvent) Handles Me.ImpClrsValueChanged
@@ -278,6 +290,7 @@ Public Class ImpClrsCombo
     End Function
 
     Public Sub SetSelectedImpClr(ImpClrID As Integer)
+        If ImpClrID > 0 Then EnsureDataLoaded()
         Me.ImpClrID = ImpClrID
         UpdateImpClrIDComboBoxSelection(ImpClrID)
     End Sub
@@ -287,6 +300,7 @@ Public Class ImpClrsCombo
             SetSelectedImpClr(0)
             Return
         End If
+        EnsureDataLoaded()
         Me.ImpClrID = GetImpClrID(ImpClr)
         UpdateImpClrIDComboBoxSelection(ImpClrID)
     End Sub

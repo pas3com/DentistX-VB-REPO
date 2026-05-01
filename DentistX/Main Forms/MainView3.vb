@@ -33,10 +33,13 @@ Imports Infralution.Localization
 Public Class MainView3
 
     Private _suppressToggleSwchProgrammatic As Boolean
+    Private _suppressUseHdrCheckItemPersistence As Boolean
     Private _suppressLangComboEvents As Boolean
+    Private _modalSchedulerSessionDepth As Integer
 
     Public Sub New()
         _suppressToggleSwchProgrammatic = True
+        _suppressUseHdrCheckItemPersistence = True
         Try
             InitializeComponent()
             Me.DoubleBuffered = True
@@ -53,6 +56,7 @@ Public Class MainView3
             ToggleSwch.Checked = Not Eng
         Finally
             _suppressToggleSwchProgrammatic = False
+            _suppressUseHdrCheckItemPersistence = False
         End Try
     End Sub
 #Region "map controls to resources"
@@ -575,7 +579,12 @@ Public Class MainView3
 
         ' Sync header choice: Checked = "Use New Header Style" (Navigator), Unchecked = "Use Old Header Style" (Navigator2 on workspace; HdrTestMod retired)
         BasePatientWorkspace.UseHdrTestModHeader = My.Settings.UseHdrTestModHeader
-        UseHdrCheckItem.Checked = Not BasePatientWorkspace.UseHdrTestModHeader
+        _suppressUseHdrCheckItemPersistence = True
+        Try
+            UseHdrCheckItem.Checked = Not BasePatientWorkspace.UseHdrTestModHeader
+        Finally
+            _suppressUseHdrCheckItemPersistence = False
+        End Try
         UpdateHeaderStyleCaption()
 
         ApplyShortReminderSpinFromSettings()
@@ -583,14 +592,14 @@ Public Class MainView3
         ' Start weekly backup timer: check periodically (every hour) if a weekly backup is due
         _weeklyBackupTimer = New System.Windows.Forms.Timer With {.Interval = 60 * 60 * 1000}
         AddHandler _weeklyBackupTimer.Tick, AddressOf WeeklyBackupTimer_Tick
-        _weeklyBackupTimer.Start()
+        TryStartMainTimer(_weeklyBackupTimer, NameOf(_weeklyBackupTimer))
         ' Also perform an immediate check at startup so backups are not delayed until the first timer tick
         WeeklyBackupTimer_Tick(Nothing, EventArgs.Empty)
 
         ' Start appointment reminder timer (check every hour, send reminders for appts in ~24h)
         _appointmentReminderTimer = New System.Windows.Forms.Timer With {.Interval = 60 * 60 * 1000}
         AddHandler _appointmentReminderTimer.Tick, AddressOf AppointmentReminderTimer_Tick
-        _appointmentReminderTimer.Start()
+        TryStartMainTimer(_appointmentReminderTimer, NameOf(_appointmentReminderTimer))
         ' Run first check after 1 minute (so first run doesn't wait a full hour)
         Task.Run(Async Function()
                      Await Task.Delay(60 * 1000)
@@ -605,7 +614,7 @@ Public Class MainView3
         ' Short reminder send time = appointment start minus My.Settings.ShortReminder hours (sync on save + this poll).
         _twoHourApptReminderTimer = New System.Windows.Forms.Timer With {.Interval = 60 * 1000}
         AddHandler _twoHourApptReminderTimer.Tick, AddressOf TwoHourApptReminderTimer_Tick
-        _twoHourApptReminderTimer.Start()
+        TryStartMainTimer(_twoHourApptReminderTimer, NameOf(_twoHourApptReminderTimer))
         Task.Run(Async Function()
                      Await Task.Delay(15 * 1000)
                      If _twoHourApptReminderTimer IsNot Nothing AndAlso IsHandleCreated Then
@@ -719,7 +728,7 @@ Public Class MainView3
         Catch
         Finally
             If _twoHourApptReminderTimer IsNot Nothing AndAlso Not _twoHourApptReminderTimer.Enabled Then
-                _twoHourApptReminderTimer.Start()
+                TryStartMainTimer(_twoHourApptReminderTimer, NameOf(_twoHourApptReminderTimer))
             End If
         End Try
     End Sub
@@ -750,7 +759,7 @@ Public Class MainView3
             ' Silently ignore; will retry next hour
         Finally
             If _appointmentReminderTimer IsNot Nothing AndAlso Not _appointmentReminderTimer.Enabled Then
-                _appointmentReminderTimer.Start()
+                TryStartMainTimer(_appointmentReminderTimer, NameOf(_appointmentReminderTimer))
             End If
         End Try
     End Sub
@@ -786,13 +795,24 @@ Public Class MainView3
                 TrySilentBackupToDefaultFolder(New CancelEventArgs, Me)
                 My.Settings.LastWeeklyBackupDate = DateTime.Today.ToString("yyyy-MM-dd")
                 My.Settings.Save()
-                _weeklyBackupTimer.Start()
+                TryStartMainTimer(_weeklyBackupTimer, NameOf(_weeklyBackupTimer))
             End If
         Catch ex As Exception
             ' Avoid breaking the app; timer will retry next hour
             If _weeklyBackupTimer IsNot Nothing AndAlso _weeklyBackupTimer.Enabled = False Then
-                _weeklyBackupTimer.Start()
+                TryStartMainTimer(_weeklyBackupTimer, NameOf(_weeklyBackupTimer))
             End If
+        End Try
+    End Sub
+
+    Private Sub TryStartMainTimer(timer As System.Windows.Forms.Timer, timerName As String)
+        If timer Is Nothing Then Return
+        Try
+            timer.Start()
+        Catch ex As System.ComponentModel.Win32Exception
+            ApptErrorHelper.Report(ex, $"MainView3.TryStartMainTimer.{timerName}", showUser:=False)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, $"MainView3.TryStartMainTimer.{timerName}", showUser:=False)
         End Try
     End Sub
     Private Sub EnsureDatabaseConnection()
@@ -1470,6 +1490,11 @@ Public Class MainView3
     End Function
 
     Private Sub UseHdrCheckItem_CheckedChanged(sender As Object, e As ItemClickEventArgs) Handles UseHdrCheckItem.CheckedChanged
+        If _suppressUseHdrCheckItemPersistence Then
+            UpdateHeaderStyleCaption()
+            Return
+        End If
+
         ' Checked = "Use New Header Style" (Navigator), Unchecked = legacy slot (Navigator2 in BasePatientWorkspace; HdrTestMod retired)
         BasePatientWorkspace.UseHdrTestModHeader = Not UseHdrCheckItem.Checked
         My.Settings.UseHdrTestModHeader = BasePatientWorkspace.UseHdrTestModHeader
@@ -1482,6 +1507,7 @@ Public Class MainView3
                 MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+
     Private Sub UpdateHeaderStyleCaption()
         UseHdrCheckItem.Caption = If(UseHdrCheckItem.Checked, If(Eng, "Use New Header Style", "استخدم نمط عرض المرضى الجديد"), If(Eng, "Use Old Header Style", "استخدم نمط عرض المرضى القديم"))
         If UseHdrCheckItem.Hint IsNot Nothing Then
@@ -1642,17 +1668,21 @@ Public Class MainView3
 
         Try
             If Not FormAccessGate.TryEnterForm(Me, "SchedulerFull") Then Return
-            'Dim fr As New FrmSchedulerFull 'FrmAdminAppt() '
-            'fr.Icon = AppIcon
-            'fr.ShowDialog(Me)
             FormManager.Instance.SwitchUserControl(GetType(SchedulerNew), "Appointments Scheduler")
-            'FormManager.Instance.SwitchUserControl(GetType(ApptHostCtl), "Appointments Scheduler")
-            'MySettings.Default.DentistXConnectionString
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
 
+    Private Sub btnOLdScheduler_Click(sender As Object, e As EventArgs) Handles btnOLdScheduler.Click
+
+        Try
+            If Not FormAccessGate.TryEnterForm(Me, "SchedulerFull") Then Return
+            ShowModernSchedulerForm()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 #End Region
 #Region "Auxes"
 
@@ -2419,13 +2449,47 @@ Public Class MainView3
     End Sub
 
     Private Sub btnScheduler_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btnScheduler.ItemClick
+        ShowModernSchedulerForm()
+    End Sub
+
+    Private Sub ShowModernSchedulerForm()
         Try
+            EnterModalSchedulerSession()
             Dim F As New FrmSchedulerFull
             F.Icon = AppIcon
             F.ShowDialog(Me)
         Catch ex As Exception
             MsgBox(ex.Message)
+        Finally
+            ExitModalSchedulerSession()
         End Try
+    End Sub
+
+    Friend Function ShouldDeferSchedulerBackgroundWork() As Boolean
+        Return _modalSchedulerSessionDepth > 0 OrElse IsEmbeddedSchedulerHostActive()
+    End Function
+
+    Private Function IsEmbeddedSchedulerHostActive() As Boolean
+        Try
+            Dim ws = FormManager.Instance.CurrentForm
+            If ws Is Nothing OrElse ws.IsDisposed OrElse ws.BodyPanel Is Nothing OrElse ws.BodyPanel.Controls.Count = 0 Then Return False
+            Dim activeBody = ws.BodyPanel.Controls(0)
+            Return TypeOf activeBody Is ApptHostCtl OrElse TypeOf activeBody Is SchedulerNew
+        Catch
+            Return False
+        End Try
+    End Function
+
+    Private Sub EnterModalSchedulerSession()
+        _modalSchedulerSessionDepth += 1
+        SchedulerSnapshotAutoSendService.PushUiSuppression()
+    End Sub
+
+    Private Sub ExitModalSchedulerSession()
+        If _modalSchedulerSessionDepth > 0 Then
+            _modalSchedulerSessionDepth -= 1
+        End If
+        SchedulerSnapshotAutoSendService.PopUiSuppression(shouldRequestImmediateRun:=_modalSchedulerSessionDepth = 0)
     End Sub
 
     Private Sub btnSnapshotSender_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btnSnapshotSender.ItemClick
@@ -3336,5 +3400,7 @@ Public Class MainView3
             If(Eng, "Carestream Patient Browser", "متصفح مريض كاريستريم"),
             MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
+
 End Class
 

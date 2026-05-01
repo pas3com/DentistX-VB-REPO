@@ -12,6 +12,7 @@ Public Class LabCombo
     Implements INotifyPropertyChanged
 
     Private ReadOnly _connectionString As String = DentistXDATA.GetConnection.connectionString
+    Private _dataLoaded As Boolean
 
     Public Event LabValueChanged(ByVal sender As Object, ByVal e As LabIndexChangedEvent)
 
@@ -175,7 +176,13 @@ Public Class LabCombo
 
     Private Sub BindLabs()
         _allLabs = GetLabs()
+        _dataLoaded = True
         ApplyLabNameFilter()
+    End Sub
+
+    Public Sub EnsureDataLoaded()
+        If _dataLoaded Then Return
+        BindLabs()
     End Sub
 
     Private Sub UpdateLabIDComboBoxSelection(LabID As Integer)
@@ -227,6 +234,7 @@ Public Class LabCombo
     End Sub
 
     Private Sub btnSerach_Click(sender As Object, e As EventArgs) Handles btnSerach.Click
+        EnsureDataLoaded()
         ComboFlyoutSearchHelper.ShowFlyoutSearchDeferred(Flyout1, PanelControl2, CboLab, txtSearch, Me)
     End Sub
 
@@ -236,6 +244,7 @@ Public Class LabCombo
     End Sub
 
     Public Function GetLabTable() As DataTable
+        EnsureDataLoaded()
         Dim dt As New DataTable()
         dt.Columns.Add("LabID", GetType(Integer))
         dt.Columns.Add("LabName", GetType(String))
@@ -275,7 +284,10 @@ Public Class LabCombo
     Public Sub New()
         InitializeComponent()
         ApplyToolbarLayout()
-        BindLabs()
+    End Sub
+
+    Private Sub CboLab_Enter(sender As Object, e As EventArgs) Handles CboLab.Enter
+        EnsureDataLoaded()
     End Sub
 
     Private Sub HandleLabValueChanged(ByVal sender As Object, ByVal e As LabIndexChangedEvent) Handles Me.LabValueChanged
@@ -298,11 +310,13 @@ Public Class LabCombo
     End Function
 
     Public Sub SetSelectedLabName(LabID As Integer)
+        If LabID > 0 Then EnsureDataLoaded()
         Me.LabID = LabID
         UpdateLabIDComboBoxSelection(LabID)
     End Sub
 
     Public Sub SetSelectedLabID(LabName As String)
+        EnsureDataLoaded()
         Me.LabID = GetLabID(LabName)
         UpdateLabIDComboBoxSelection(LabID)
     End Sub

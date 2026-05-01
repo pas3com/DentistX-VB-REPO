@@ -347,6 +347,10 @@
     <Compile Include="1Classes\BAL\Impression.vb" />
     <Compile Include="1Classes\BAL\IMPS.vb" />
     <Compile Include="1Classes\BAL\Lab.vb" />
+    <Compile Include="1Classes\BAL\LabMsgDetail.vb" />
+    <Compile Include="1Classes\BAL\LabMsgDetailChoice.vb" />
+    <Compile Include="1Classes\BAL\LabMsgs.vb" />
+    <Compile Include="1Classes\BAL\LabMsgSubject.vb" />
     <Compile Include="1Classes\BAL\LabOrder.vb" />
     <Compile Include="1Classes\BAL\LabPay.vb" />
     <Compile Include="1Classes\BAL\LD.vb" />
@@ -459,6 +463,10 @@
     <Compile Include="1Classes\DAL\ImprDetDATA.vb" />
     <Compile Include="1Classes\DAL\ImpressionDATA.vb" />
     <Compile Include="1Classes\DAL\LabDATA.vb" />
+    <Compile Include="1Classes\DAL\LabMsgDetailDATA.vb" />
+    <Compile Include="1Classes\DAL\LabMsgDetailChoiceDATA.vb" />
+    <Compile Include="1Classes\DAL\LabMsgsDATA.vb" />
+    <Compile Include="1Classes\DAL\LabMsgSubjectDATA.vb" />
     <Compile Include="1Classes\DAL\LabOrderDATA.vb" />
     <Compile Include="1Classes\DAL\LabPayDATA.vb" />
     <Compile Include="1Classes\DAL\LDDATA.vb" />
@@ -677,6 +685,7 @@
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptCard.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptErrorHelper.vb" />
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptHeaderCtl.Designer.vb">
       <DependentUpon>ApptHeaderCtl.vb</DependentUpon>
     </Compile>
@@ -687,6 +696,12 @@
       <DependentUpon>FrmLabSendWhats.vb</DependentUpon>
     </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabSendWhats.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabWhatsHistory.Designer.vb">
+      <DependentUpon>FrmLabWhatsHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabWhatsHistory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\HtmlCard.Designer.vb">
@@ -726,6 +741,30 @@
     </Compile>
     <Compile Include="BaseForms\UserControls\Navigator\Navigator3.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Labs\LabMsg\Combos\LabMsgDetailChoiceCombo.Designer.vb">
+      <DependentUpon>LabMsgDetailChoiceCombo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Labs\LabMsg\Combos\LabMsgDetailChoiceCombo.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Labs\LabMsg\Combos\LabMsgSubjectCombo.Designer.vb">
+      <DependentUpon>LabMsgSubjectCombo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Labs\LabMsg\Combos\LabMsgSubjectCombo.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Labs\LabMsg\FrmLabMsgDetailChoice.Designer.vb">
+      <DependentUpon>FrmLabMsgDetailChoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Labs\LabMsg\FrmLabMsgDetailChoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Labs\LabMsg\FrmLabMsgSubject.Designer.vb">
+      <DependentUpon>FrmLabMsgSubject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Labs\LabMsg\FrmLabMsgSubject.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Test\XtraForm1.Designer.vb">
       <DependentUpon>XtraForm1.vb</DependentUpon>
@@ -2621,8 +2660,23 @@
     <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\ApptHeaderCtl.resx">
       <DependentUpon>ApptHeaderCtl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabSendWhats.ar.resx">
+      <DependentUpon>FrmLabSendWhats.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabSendWhats.en.resx">
+      <DependentUpon>FrmLabSendWhats.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabSendWhats.resx">
       <DependentUpon>FrmLabSendWhats.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabWhatsHistory.ar.resx">
+      <DependentUpon>FrmLabWhatsHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabWhatsHistory.en.resx">
+      <DependentUpon>FrmLabWhatsHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FrmLabWhatsHistory.resx">
+      <DependentUpon>FrmLabWhatsHistory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\HtmlCard.resx">
       <DependentUpon>HtmlCard.vb</DependentUpon>
@@ -2680,6 +2734,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Navigator\Navigator3.resx">
       <DependentUpon>Navigator3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Labs\LabMsg\Combos\LabMsgDetailChoiceCombo.resx">
+      <DependentUpon>LabMsgDetailChoiceCombo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Labs\LabMsg\Combos\LabMsgSubjectCombo.resx">
+      <DependentUpon>LabMsgSubjectCombo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Labs\LabMsg\FrmLabMsgDetailChoice.resx">
+      <DependentUpon>FrmLabMsgDetailChoice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Labs\LabMsg\FrmLabMsgSubject.resx">
+      <DependentUpon>FrmLabMsgSubject.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\FrmNewSettings.ar.resx">
       <DependentUpon>FrmNewSettings.vb</DependentUpon>

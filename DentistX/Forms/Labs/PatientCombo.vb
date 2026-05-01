@@ -1,4 +1,5 @@
 Imports System.ComponentModel
+Imports System.ComponentModel.Design.Serialization
 Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Drawing
@@ -12,11 +13,13 @@ Public Class PatientCombo
     Implements INotifyPropertyChanged
 
     Private ReadOnly _connectionString As String = DentistXDATA.GetConnection.ConnectionString
+    Private _dataLoaded As Boolean
 
     ' Define events for property changes
     Public Event PatientValueChanged(ByVal sender As Object, ByVal e As PatientIndexChangedEvent)
     ' Define properties and backing fields
     Private _CurrentPatientID As Integer
+    <Browsable(False), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
     Public Property PatientID As Integer
         Get
             Return _CurrentPatientID
@@ -32,6 +35,7 @@ Public Class PatientCombo
     End Property
 
     Private _CurrentPatientName As String
+    <Browsable(False), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
     Public Property PatientName As String
         Get
             Return _CurrentPatientName
@@ -42,6 +46,13 @@ Public Class PatientCombo
                 OnPropertyChanged(NameOf(PatientName))
             End If
         End Set
+    End Property
+
+    <Browsable(False), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
+    Public ReadOnly Property HasPatients As Boolean
+        Get
+            Return _allPatients IsNot Nothing AndAlso _allPatients.Count > 0
+        End Get
     End Property
 
     Private _allPatients As New List(Of PatientCls)()
@@ -103,6 +114,22 @@ Public Class PatientCombo
         Return True
     End Function
 
+    Private Sub ApplySelectedPatient(selectedItem As ComboBoxItem, raiseChanged As Boolean)
+        If selectedItem Is Nothing Then
+            _CurrentPatientID = 0
+            _CurrentPatientName = Nothing
+            Return
+        End If
+
+        _CurrentPatientID = selectedItem.ID
+        _CurrentPatientName = selectedItem.Name
+        OnPropertyChanged(NameOf(PatientID))
+        OnPropertyChanged(NameOf(PatientName))
+        If raiseChanged Then
+            RaiseEvent PatientValueChanged(Me, New PatientIndexChangedEvent(_CurrentPatientID, _CurrentPatientName))
+        End If
+    End Sub
+
     Public Sub ClearSearchBox()
         If txtSearch Is Nothing Then Return
         _suppressSearchTextChanged = True
@@ -141,14 +168,12 @@ Public Class PatientCombo
 
             If keepItem IsNot Nothing Then
                 CboPatient.SelectedItem = keepItem
-                _CurrentPatientID = keepItem.ID
-                _CurrentPatientName = keepItem.Name
+                ApplySelectedPatient(keepItem, raiseChanged:=False)
             ElseIf String.IsNullOrWhiteSpace(searchTyped) AndAlso String.IsNullOrWhiteSpace(external) AndAlso CboPatient.Properties.Items.Count > 0 Then
                 CboPatient.SelectedIndex = 0
                 Dim first As ComboBoxItem = TryCast(CboPatient.SelectedItem, ComboBoxItem)
                 If first IsNot Nothing Then
-                    _CurrentPatientID = first.ID
-                    _CurrentPatientName = first.Name
+                    ApplySelectedPatient(first, raiseChanged:=False)
                 End If
             Else
                 CboPatient.EditValue = Nothing
@@ -166,7 +191,13 @@ Public Class PatientCombo
     ' Bind the ComboBoxes to the appropriate data
     Private Sub BindPatients()
         _allPatients = GetPatients()
+        _dataLoaded = True
         ApplyPatientNameFilter()
+    End Sub
+
+    Public Sub EnsureDataLoaded()
+        If _dataLoaded Then Return
+        BindPatients()
     End Sub
 
     ' Update ComboBox selection based on property values
@@ -221,6 +252,7 @@ Public Class PatientCombo
     End Sub
 
     Private Sub btnSerach_Click(sender As Object, e As EventArgs) Handles btnSerach.Click
+        EnsureDataLoaded()
         txtSearch.SelectAll()
         ComboFlyoutSearchHelper.ShowFlyoutSearchDeferred(Flyout1, PanelControl2, CboPatient, txtSearch, Me)
     End Sub
@@ -232,6 +264,7 @@ Public Class PatientCombo
     End Sub
 
     Public Function GetPatientTable() As DataTable
+        EnsureDataLoaded()
         Dim rows = GetPatients()
         Dim dt As New DataTable()
         dt.Columns.Add("PatientID", GetType(Integer))
@@ -250,6 +283,17 @@ Public Class PatientCombo
         End Using
     End Function
 
+    Public Function EnsureFirstPatientSelected() As Boolean
+        If CboPatient Is Nothing OrElse CboPatient.Properties.Items.Count = 0 Then Return False
+
+        Dim first As ComboBoxItem = TryCast(CboPatient.Properties.Items(0), ComboBoxItem)
+        If first Is Nothing Then Return False
+
+        CboPatient.SelectedIndex = 0
+        ApplySelectedPatient(first, raiseChanged:=True)
+        Return True
+    End Function
+
     ' Utility methods for ComboBoxes
     Private Sub SetTextEditStyle(ByVal comboBox As ComboBoxEdit)
         comboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
@@ -265,7 +309,10 @@ Public Class PatientCombo
     Public Sub New()
         InitializeComponent()
         ApplyToolbarLayout()
-        BindPatients()
+    End Sub
+
+    Private Sub CboPatient_Enter(sender As Object, e As EventArgs) Handles CboPatient.Enter
+        EnsureDataLoaded()
     End Sub
 
     ' Method to handle Patient value changed event
@@ -296,12 +343,14 @@ Public Class PatientCombo
 
     ' Set selected PatientName by ID
     Public Sub SetCurrentPatientName(PatientID As Integer)
+        If PatientID > 0 Then EnsureDataLoaded()
         Me.PatientID = PatientID
         UpdatePatientIDComboBoxSelection(PatientID)
     End Sub
 
     ' Set selected Patient by Name
     Public Sub SetCurrentPatientID(PatientName As String)
+        EnsureDataLoaded()
         Me.PatientID = GetPatientID(PatientName)
         UpdatePatientIDComboBoxSelection(PatientID)
     End Sub

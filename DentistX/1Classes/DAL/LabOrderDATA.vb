@@ -97,6 +97,18 @@ Imports Dapper
 		End Using
 		End Function
 
+		Public Function UpdateReceiveInfo(labOrderID As Integer, recieveDate As Nullable(Of DateTime), notes As String) As Boolean
+			Using conn As New SqlConnection(ConnectionString)
+			Dim sql As String = "UPDATE [dbo].[LabOrder] SET [RecieveDate] = @RecieveDate, [Notes] = @Notes WHERE [LabOrderID] = @LabOrderID"
+			Dim affectedRows As Integer = conn.Execute(sql, New With {
+				.LabOrderID = labOrderID,
+				.RecieveDate = recieveDate,
+				.Notes = notes
+			})
+			Return affectedRows > 0
+		End Using
+		End Function
+
 		Public Function Delete(ByVal clsLabOrder As LabOrder) As Boolean
 			Dim deleteStatement As String =
 			"DELETE FROM [LabOrder] 

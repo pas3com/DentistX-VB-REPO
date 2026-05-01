@@ -89,6 +89,7 @@ Partial Class Navigator3
         Me.lblPays = New DevExpress.XtraEditors.LabelControl()
         Me.lbltxtBal = New DevExpress.XtraEditors.LabelControl()
         Me.txtPatientName = New DevExpress.XtraEditors.TextEdit()
+        Me.btnSearchResults = New DevExpress.XtraEditors.SimpleButton()
         Me.FlyoutPatientInfo = New DevExpress.Utils.FlyoutPanel()
         Me.FlyoutPanelControl1 = New DevExpress.Utils.FlyoutPanelControl()
         Me.btnWhatsSend = New DevExpress.XtraEditors.SimpleButton()
@@ -682,6 +683,14 @@ Partial Class Navigator3
         Me.txtPatientName.Properties.AutoHeight = CType(resources.GetObject("txtPatientName.Properties.AutoHeight"), Boolean)
         Me.txtPatientName.Properties.NullValuePrompt = resources.GetString("txtPatientName.Properties.NullValuePrompt")
         '
+        'btnSearchResults
+        '
+        Me.btnSearchResults.Appearance.Font = CType(resources.GetObject("btnSearchResults.Appearance.Font"), System.Drawing.Font)
+        Me.btnSearchResults.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.btnSearchResults, "btnSearchResults")
+        Me.btnSearchResults.Name = "btnSearchResults"
+        Me.btnSearchResults.TabStop = False
+        '
         'FlyoutPatientInfo
         '
         Me.FlyoutPatientInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
@@ -719,6 +728,7 @@ Partial Class Navigator3
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnSearchResults)
         Me.Controls.Add(Me.txtPatientName)
         Me.Controls.Add(Me.lblPatientNum)
         Me.Controls.Add(Me.btnResetKid)
@@ -830,4 +840,5 @@ Partial Class Navigator3
     Friend WithEvents lblPays As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lbltxtBal As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblPatientName As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents btnSearchResults As DevExpress.XtraEditors.SimpleButton
 End Class

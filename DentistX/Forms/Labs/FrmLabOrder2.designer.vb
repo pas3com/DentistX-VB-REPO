@@ -507,8 +507,6 @@ Partial Class FrmLabOrder2
         resources.ApplyResources(Me.colPatientCombo, "colPatientCombo")
         Me.colPatientCombo.Filter = ""
         Me.colPatientCombo.Name = "colPatientCombo"
-        Me.colPatientCombo.PatientID = 2
-        Me.colPatientCombo.PatientName = Nothing
         Me.TableData.SetRow(Me.colPatientCombo, 1)
         '
         'ImprTypeLabel

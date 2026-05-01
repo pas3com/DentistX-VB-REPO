@@ -391,6 +391,7 @@ Partial Class NewAccounting
         'btnWhatsSend
         '
         Me.btnWhatsSend.ImageOptions.ImageKey = resources.GetString("btnWhatsSend.ImageOptions.ImageKey")
+        Me.btnWhatsSend.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter
         Me.btnWhatsSend.ImageOptions.SvgImage = Global.DentistX.My.Resources.Resources.whatsapp
         Me.btnWhatsSend.ImageOptions.SvgImageSize = New System.Drawing.Size(25, 25)
         resources.ApplyResources(Me.btnWhatsSend, "btnWhatsSend")

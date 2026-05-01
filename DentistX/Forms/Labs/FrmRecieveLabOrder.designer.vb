@@ -55,15 +55,15 @@ Partial Class FrmRecieveLabOrder
         Me.TableData = New DevExpress.Utils.Layout.TablePanel()
         Me.RecieveDateDateEdit = New DevExpress.XtraEditors.DateEdit()
         Me.DeliveryDateDateEdit = New DevExpress.XtraEditors.DateEdit()
-        Me.ImprDetCombo1 = New DentistX.ImprDetCombo()
-        Me.ImpClrsCombo1 = New DentistX.ImpClrsCombo()
-        Me.ImpressionCombo1 = New DentistX.ImpressionCombo()
+        Me.ImprDetCombo1 = New DevExpress.XtraEditors.TextEdit()
+        Me.ImpClrsCombo1 = New DevExpress.XtraEditors.TextEdit()
+        Me.ImpressionCombo1 = New DevExpress.XtraEditors.TextEdit()
         Me.LabOrderIDLabel = New DevExpress.XtraEditors.LabelControl()
         Me.LabOrderIDSpinEdit = New DevExpress.XtraEditors.SpinEdit()
         Me.LabIDLabel = New DevExpress.XtraEditors.LabelControl()
-        Me.colLabCombo = New DentistX.LabCombo()
+        Me.colLabCombo = New DevExpress.XtraEditors.TextEdit()
         Me.PatientIDLabel = New DevExpress.XtraEditors.LabelControl()
-        Me.colPatientCombo = New DentistX.PatientCombo()
+        Me.colPatientCombo = New DevExpress.XtraEditors.TextEdit()
         Me.ImprTypeLabel = New DevExpress.XtraEditors.LabelControl()
         Me.ImprDetLabel = New DevExpress.XtraEditors.LabelControl()
         Me.ImprClrLabel = New DevExpress.XtraEditors.LabelControl()
@@ -96,7 +96,12 @@ Partial Class FrmRecieveLabOrder
         CType(Me.RecieveDateDateEdit.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeliveryDateDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeliveryDateDateEdit.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImprDetCombo1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImpClrsCombo1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImpressionCombo1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LabOrderIDSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.colLabCombo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.colPatientCombo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImprCountSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PriceSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NotesTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -403,29 +408,43 @@ Partial Class FrmRecieveLabOrder
         'ImprDetCombo1
         '
         Me.TableData.SetColumn(Me.ImprDetCombo1, 2)
-        Me.ImprDetCombo1.ImpDetID = 0
-        Me.ImprDetCombo1.ImprDetail = "0"
-        Me.ImprDetCombo1.ImprID = 0
         resources.ApplyResources(Me.ImprDetCombo1, "ImprDetCombo1")
+        Me.ImprDetCombo1.MenuManager = Me.ribbonControl
         Me.ImprDetCombo1.Name = "ImprDetCombo1"
+        Me.ImprDetCombo1.Properties.Appearance.Font = CType(resources.GetObject("ImprDetCombo1.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.ImprDetCombo1.Properties.Appearance.Options.UseFont = True
+        Me.ImprDetCombo1.Properties.Appearance.Options.UseTextOptions = True
+        Me.ImprDetCombo1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ImprDetCombo1.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.ImprDetCombo1.Properties.ReadOnly = True
         Me.TableData.SetRow(Me.ImprDetCombo1, 2)
         '
         'ImpClrsCombo1
         '
         Me.TableData.SetColumn(Me.ImpClrsCombo1, 5)
-        Me.ImpClrsCombo1.ImpClr = Nothing
-        Me.ImpClrsCombo1.ImpClrID = 0
         resources.ApplyResources(Me.ImpClrsCombo1, "ImpClrsCombo1")
+        Me.ImpClrsCombo1.MenuManager = Me.ribbonControl
         Me.ImpClrsCombo1.Name = "ImpClrsCombo1"
+        Me.ImpClrsCombo1.Properties.Appearance.Font = CType(resources.GetObject("ImpClrsCombo1.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.ImpClrsCombo1.Properties.Appearance.Options.UseFont = True
+        Me.ImpClrsCombo1.Properties.Appearance.Options.UseTextOptions = True
+        Me.ImpClrsCombo1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ImpClrsCombo1.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.ImpClrsCombo1.Properties.ReadOnly = True
         Me.TableData.SetRow(Me.ImpClrsCombo1, 2)
         '
         'ImpressionCombo1
         '
         Me.TableData.SetColumn(Me.ImpressionCombo1, 5)
-        Me.ImpressionCombo1.ImprID = 0
-        Me.ImpressionCombo1.ImprType = Nothing
         resources.ApplyResources(Me.ImpressionCombo1, "ImpressionCombo1")
+        Me.ImpressionCombo1.MenuManager = Me.ribbonControl
         Me.ImpressionCombo1.Name = "ImpressionCombo1"
+        Me.ImpressionCombo1.Properties.Appearance.Font = CType(resources.GetObject("ImpressionCombo1.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.ImpressionCombo1.Properties.Appearance.Options.UseFont = True
+        Me.ImpressionCombo1.Properties.Appearance.Options.UseTextOptions = True
+        Me.ImpressionCombo1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ImpressionCombo1.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.ImpressionCombo1.Properties.ReadOnly = True
         Me.TableData.SetRow(Me.ImpressionCombo1, 1)
         '
         'LabOrderIDLabel
@@ -466,13 +485,16 @@ Partial Class FrmRecieveLabOrder
         '
         'colLabCombo
         '
-        Me.colLabCombo.Appearance.Font = CType(resources.GetObject("colLabCombo.Appearance.Font"), System.Drawing.Font)
-        Me.colLabCombo.Appearance.Options.UseFont = True
         Me.TableData.SetColumn(Me.colLabCombo, 5)
         resources.ApplyResources(Me.colLabCombo, "colLabCombo")
-        Me.colLabCombo.LabID = 0
-        Me.colLabCombo.LabName = Nothing
+        Me.colLabCombo.MenuManager = Me.ribbonControl
         Me.colLabCombo.Name = "colLabCombo"
+        Me.colLabCombo.Properties.Appearance.Font = CType(resources.GetObject("colLabCombo.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.colLabCombo.Properties.Appearance.Options.UseFont = True
+        Me.colLabCombo.Properties.Appearance.Options.UseTextOptions = True
+        Me.colLabCombo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.colLabCombo.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colLabCombo.Properties.ReadOnly = True
         Me.TableData.SetRow(Me.colLabCombo, 0)
         '
         'PatientIDLabel
@@ -489,13 +511,16 @@ Partial Class FrmRecieveLabOrder
         '
         'colPatientCombo
         '
-        Me.colPatientCombo.Appearance.Font = CType(resources.GetObject("colPatientCombo.Appearance.Font"), System.Drawing.Font)
-        Me.colPatientCombo.Appearance.Options.UseFont = True
         Me.TableData.SetColumn(Me.colPatientCombo, 2)
         resources.ApplyResources(Me.colPatientCombo, "colPatientCombo")
+        Me.colPatientCombo.MenuManager = Me.ribbonControl
         Me.colPatientCombo.Name = "colPatientCombo"
-        Me.colPatientCombo.PatientID = 0
-        Me.colPatientCombo.PatientName = Nothing
+        Me.colPatientCombo.Properties.Appearance.Font = CType(resources.GetObject("colPatientCombo.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.colPatientCombo.Properties.Appearance.Options.UseFont = True
+        Me.colPatientCombo.Properties.Appearance.Options.UseTextOptions = True
+        Me.colPatientCombo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.colPatientCombo.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colPatientCombo.Properties.ReadOnly = True
         Me.TableData.SetRow(Me.colPatientCombo, 1)
         '
         'ImprTypeLabel
@@ -725,7 +750,12 @@ Partial Class FrmRecieveLabOrder
         CType(Me.RecieveDateDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DeliveryDateDateEdit.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DeliveryDateDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImprDetCombo1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImpClrsCombo1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImpressionCombo1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LabOrderIDSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.colLabCombo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.colPatientCombo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImprCountSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PriceSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NotesTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -788,11 +818,11 @@ Partial Class FrmRecieveLabOrder
     Friend WithEvents NotesTextEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents NotesLabel As DevExpress.XtraEditors.LabelControl
     Friend WithEvents colNotes As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colLabCombo As DentistX.LabCombo
-    Friend WithEvents colPatientCombo As DentistX.PatientCombo
-    Friend WithEvents ImprDetCombo1 As ImprDetCombo
-    Friend WithEvents ImpClrsCombo1 As ImpClrsCombo
-    Friend WithEvents ImpressionCombo1 As ImpressionCombo
+    Friend WithEvents colLabCombo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents colPatientCombo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ImprDetCombo1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ImpClrsCombo1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ImpressionCombo1 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents colLabName As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPatientName As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl

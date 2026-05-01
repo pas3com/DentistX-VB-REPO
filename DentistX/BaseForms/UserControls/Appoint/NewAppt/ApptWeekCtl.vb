@@ -33,8 +33,8 @@ Public Class ApptWeekCtl
     ''' Max <see cref="ApptCard"/> rows per day column. 0 = unlimited (slower for busy days &amp; on maximize). Default 40 keeps UI responsive; open day header for full list.
     ''' </summary>
     Private Const WeekViewMaxApptCardsPerDay As Integer = 40
-    ''' <summary>False: day drawer test without dim scrim over week grid. Set True to restore normal dimmed backdrop.</summary>
-    Private Const WeekDayDrawerUseDimOverlay As Boolean = True 'False
+    ''' <summary>True keeps the side-squeezed layout and also dims the remaining week grid for focus.</summary>
+    Private Const WeekDayDrawerUseDimOverlay As Boolean = True
 #End Region
 
 #Region "Native (batched week scroll refresh)"
@@ -89,6 +89,7 @@ Public Class ApptWeekCtl
     Private ReadOnly _workArea As Panel
     Private ReadOnly _dimOverlay As WeekDrawerDimPanel
     Private ReadOnly _dayDrawerHost As WeekDayCardDrawerHost
+    Private ReadOnly _drawerDialogHost As WeekDayCardDialogHost
     Private ReadOnly _dayHosts As New List(Of PanelControl)()
     Private ReadOnly _dayCardLayers As New List(Of PanelControl)()
     Private ReadOnly _dayColumnScrolls As New List(Of DayColumnScrollInfo)()
@@ -107,6 +108,14 @@ Public Class ApptWeekCtl
     Private _weekColumnDragInProgress As Boolean
     Private _lastWeekClientW As Integer = -1
     Private _lastWeekClientH As Integer = -1
+    Private _dialogOverlayParent As Control
+    Private _dialogExpandedHost As ApptHostCtl
+    Private _dialogExpandedHostTemporarily As Boolean
+
+    Private NotInheritable Class WeekReusableCardContext
+        Public Property DayDate As Date
+        Public Property IsWired As Boolean
+    End Class
 
     Public Sub New()
         Appearance.BackColor = Color.Transparent
@@ -141,6 +150,8 @@ Public Class ApptWeekCtl
             .Margin = New Padding(0)
         }
         _workArea.Controls.Add(_dayDrawerHost)
+        _drawerDialogHost = New WeekDayCardDialogHost(Me) With {.Dock = DockStyle.Fill, .Visible = False}
+        _workArea.Controls.Add(_drawerDialogHost)
         _weekRoot.Controls.Add(_workArea)
         Controls.Add(_weekRoot)
 
@@ -152,9 +163,41 @@ Public Class ApptWeekCtl
     End Sub
 
     Protected Overrides Sub Dispose(disposing As Boolean)
-        If disposing AndAlso _weekResizeDebounce IsNot Nothing Then
-            RemoveHandler _weekResizeDebounce.Tick, AddressOf WeekResizeDebounce_Tick
-            _weekResizeDebounce.Dispose()
+        If disposing Then
+            Try
+                If _dialogOverlayParent IsNot Nothing Then
+                    RemoveHandler _dialogOverlayParent.SizeChanged, AddressOf DialogOverlayParent_SizeChanged
+                    _dialogOverlayParent = Nothing
+                End If
+                _dialogExpandedHost = Nothing
+                _dialogExpandedHostTemporarily = False
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptWeekCtl.Dispose.DialogOverlayParentHandler", showUser:=False)
+            End Try
+
+            Try
+                _weekDragTimer.Stop()
+                RemoveHandler _weekDragTimer.Tick, AddressOf WeekDragTimer_Tick
+                _weekDragTimer.Dispose()
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptWeekCtl.Dispose.WeekDragTimer", showUser:=False)
+            End Try
+
+            Try
+                If _weekResizeDebounce IsNot Nothing Then
+                    _weekResizeDebounce.Stop()
+                    RemoveHandler _weekResizeDebounce.Tick, AddressOf WeekResizeDebounce_Tick
+                    _weekResizeDebounce.Dispose()
+                End If
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptWeekCtl.Dispose.WeekResizeDebounce", showUser:=False)
+            End Try
+
+            Try
+                RemoveHandler Resize, AddressOf WeekView_Resize
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptWeekCtl.Dispose.ResizeHandler", showUser:=False)
+            End Try
         End If
         MyBase.Dispose(disposing)
     End Sub
@@ -172,7 +215,33 @@ Public Class ApptWeekCtl
         CloseWeekDayDrawerImmediate()
     End Sub
 
+    Friend Sub RequestOpenWeekDrawerDialog(dayDate As DateTime, appts As List(Of AppointmentC), data As ApptDataBundle, state As ApptState, request As ApptViewRequest)
+        If _drawerDialogHost Is Nothing OrElse data Is Nothing OrElse state Is Nothing Then Return
+        PrepareDialogOverlayParent()
+        If _dimOverlay IsNot Nothing Then
+            _dimOverlay.Visible = True
+            _dimOverlay.BringToFront()
+        End If
+        _drawerDialogHost.Visible = True
+        _drawerDialogHost.BringToFront()
+        _drawerDialogHost.Populate(dayDate, appts, data, state, request, Me)
+        ApptErrorHelper.SafeFocus(_drawerDialogHost, "ApptWeekCtl.RequestOpenWeekDrawerDialog.FocusDialog")
+    End Sub
+
+    Friend Sub RequestCloseWeekDrawerDialog()
+        If _drawerDialogHost IsNot Nothing Then
+            _drawerDialogHost.Visible = False
+        End If
+        RestoreDialogOverlayParent()
+        If _dayDrawerHost IsNot Nothing AndAlso _dayDrawerHost.Visible Then
+            _dayDrawerHost.BringToFront()
+        ElseIf _dimOverlay IsNot Nothing Then
+            _dimOverlay.Visible = False
+        End If
+    End Sub
+
     Private Sub CloseWeekDayDrawerImmediate()
+        RequestCloseWeekDrawerDialog()
         If _dayDrawerHost IsNot Nothing Then
             _dayDrawerHost.Visible = False
             _dayDrawerHost.Width = 0
@@ -181,13 +250,24 @@ Public Class ApptWeekCtl
         LayoutWeekColumns()
     End Sub
 
-    Private Const WeekDayDrawerWidthPx As Integer = 240
+    Private Const WeekDayDrawerWidthPx As Integer = 232
+
+    Private Function BuildWeekDayAppointments(dayDate As DateTime, data As ApptDataBundle) As List(Of AppointmentC)
+        Return ApptTheme.OrderAppointmentsForDisplay(
+            If(data?.Appointments, New List(Of AppointmentC)()).Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = dayDate.Date),
+            data, linkedDoctorAtEnd:=True)
+    End Function
+
+    Private Sub OpenWeekDayDrawerDialog(dayDate As DateTime)
+        If _request Is Nothing OrElse _request.Data Is Nothing OrElse _request.State Is Nothing Then Return
+        Dim appts = BuildWeekDayAppointments(dayDate, _request.Data)
+        RequestOpenWeekDrawerDialog(dayDate.Date, appts, _request.Data, _request.State, _request)
+    End Sub
 
     Private Sub ShowWeekDayDrawer(dayDate As DateTime, state As ApptState, data As ApptDataBundle)
         If _request Is Nothing OrElse data Is Nothing OrElse _dayDrawerHost Is Nothing OrElse _dimOverlay Is Nothing Then Return
-        Dim appts = ApptTheme.OrderAppointmentsForDisplay(
-            If(data.Appointments, New List(Of AppointmentC)()).Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = dayDate.Date),
-            data, linkedDoctorAtEnd:=True)
+        RestoreDialogOverlayParent()
+        Dim appts = BuildWeekDayAppointments(dayDate, data)
         _dayDrawerHost.SuspendLayout()
         Try
             _dayDrawerHost.Visible = True
@@ -198,16 +278,18 @@ Public Class ApptWeekCtl
             Else
                 If _dimOverlay IsNot Nothing Then _dimOverlay.Visible = False
             End If
-            _dayDrawerHost.BringToFront()
+            If WeekDayDrawerUseDimOverlay Then _dayDrawerHost.BringToFront()
             _weekRoot.PerformLayout()
             _workArea.PerformLayout()
             _dayDrawerHost.Populate(dayDate.Date, appts, data, state, _request, Me)
             LayoutWeekColumns()
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptWeekCtl.ShowWeekDayDrawer", showUser:=False)
         Finally
             _dayDrawerHost.ResumeLayout(True)
         End Try
-        _dayDrawerHost.Refresh()
-        _dayDrawerHost.Focus()
+        ApptErrorHelper.SafeInvalidate(_dayDrawerHost, "ApptWeekCtl.ShowWeekDayDrawer.InvalidateDrawer", invalidateChildren:=True)
+        ApptErrorHelper.SafeFocus(_dayDrawerHost, "ApptWeekCtl.ShowWeekDayDrawer.FocusDrawer")
         BeginInvoke(New MethodInvoker(Sub()
                                           If _dayDrawerHost IsNot Nothing AndAlso _dayDrawerHost.Visible Then
                                               _dayDrawerHost.RelayoutAfterOpen()
@@ -217,17 +299,7 @@ Public Class ApptWeekCtl
 
     ''' <summary>Wires hub, status menu, column drag/drop for cards hosted in the week day drawer.</summary>
     Friend Sub WireDrawerDayCard(card As ApptCard, dayDate As DateTime)
-        If card Is Nothing Then Return
-        AddHandler card.AppointmentClicked, Sub(ap) If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentClicked(ap)
-        AddHandler card.AppointmentDoubleClicked, Sub(ap) If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentDoubleClicked(ap)
-        AddHandler card.StatusContextEditRequested, Sub(ap) If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentDoubleClicked(ap)
-        AddHandler card.StatusChangeRequested,
-            Sub(ap, statusKey, col)
-                If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentStatusChange(ap, statusKey, col)
-            End Sub
-        WireWeekDropTarget(card, dayDate)
-        AddHandler card.CardDragMouseDown, Sub(c, ev) OnWeekCardDragMouseDown(c, dayDate, ev)
-        AddHandler card.CardDragMouseUp, Sub(c, ev) OnWeekCardDragMouseUp(c, ev)
+        PrepareReusableWeekCard(card, dayDate.Date)
     End Sub
 
     Private Sub RenderWeek()
@@ -257,7 +329,7 @@ Public Class ApptWeekCtl
         End If
         _layout.SuspendLayout()
         Try
-            _layout.Controls.Clear()
+            DisposeChildControls(_layout)
             _layout.Columns.Clear()
             _layout.Rows.Clear()
             _dayHosts.Clear()
@@ -309,7 +381,7 @@ Public Class ApptWeekCtl
     Private Sub FullClearWeekView()
         _layout.SuspendLayout()
         Try
-            _layout.Controls.Clear()
+            DisposeChildControls(_layout)
             _layout.Columns.Clear()
             _layout.Rows.Clear()
             _dayHosts.Clear()
@@ -364,7 +436,7 @@ Public Class ApptWeekCtl
     Private Sub UpdateDayColumnHeader(columnIndex As Integer, dayDate As DateTime, apptCount As Integer, state As ApptState)
         If columnIndex < 0 OrElse columnIndex >= _dayHeaderRefs.Count Then Return
         Dim h = _dayHeaderRefs(columnIndex)
-        If h.HeaderPanel Is Nothing OrElse h.TitleLabel Is Nothing OrElse h.DateLineLabel Is Nothing Then Return
+        If h.HeaderPanel Is Nothing OrElse h.TitleLabel Is Nothing OrElse h.DateLineLabel Is Nothing OrElse h.MaxLabel Is Nothing Then Return
 
         Dim dayHeaderBg = If(dayDate.Date = Date.Today,
             WeekViewTodayHeaderColor,
@@ -379,6 +451,7 @@ Public Class ApptWeekCtl
 
         Dim apptSuffix = If(Eng, If(apptCount = 1, "Appt", "Appts"), If(apptCount = 1, "موعد", "مواعيد"))
         h.DateLineLabel.Text = $"{dayDate:dd MMM yyyy}.({apptCount} {apptSuffix})"
+        LayoutDayPanelHeader(h.HeaderPanel, h.TitleLabel, h.DateLineLabel, h.MaxLabel)
     End Sub
 
     Private Function WeekViewScrollHeightsLookUndersized() As Boolean
@@ -423,7 +496,6 @@ Public Class ApptWeekCtl
         headerPanel.Appearance.Options.UseBackColor = True
 
         Dim titleLabel = New LabelControl() With {
-            .Dock = DockStyle.Top,
             .AutoSizeMode = LabelAutoSizeMode.None,
             .Height = 18,
             .Text = dayDate.ToString("dddd")
@@ -439,7 +511,6 @@ Public Class ApptWeekCtl
 
         Dim apptSuffix = If(Eng, If(apptCount = 1, "Appt", "Appts"), If(apptCount = 1, "موعد", "مواعيد"))
         Dim dateLabel = New LabelControl() With {
-            .Dock = DockStyle.Fill,
             .AutoSizeMode = LabelAutoSizeMode.None,
             .Text = $"{dayDate:dd MMM yyyy}.({apptCount} {apptSuffix})"
         }
@@ -451,8 +522,23 @@ Public Class ApptWeekCtl
         dateLabel.Appearance.TextOptions.VAlignment = VertAlignment.Center
         dateLabel.Appearance.Options.UseTextOptions = True
 
+        Dim maxLabel = New Label With {
+            .Text = "MAX",
+            .Size = New Size(42, 24),
+            .Font = CreateCalibriFont(8.5F, FontStyle.Bold),
+            .ForeColor = Color.White,
+            .BackColor = Color.FromArgb(36, 128, 145),
+            .Cursor = Cursors.Hand,
+            .TextAlign = ContentAlignment.MiddleCenter
+        }
+        AddHandler maxLabel.Click, Sub() OpenWeekDayDrawerDialog(dayDate.Date)
+        AddHandler maxLabel.MouseEnter, Sub() maxLabel.BackColor = Color.FromArgb(48, 146, 164)
+        AddHandler maxLabel.MouseLeave, Sub() maxLabel.BackColor = Color.FromArgb(36, 128, 145)
+
         headerPanel.Controls.Add(dateLabel)
         headerPanel.Controls.Add(titleLabel)
+        headerPanel.Controls.Add(maxLabel)
+        maxLabel.BringToFront()
         WireWeekDropTarget(headerPanel, dayDate)
 
         headerPanel.Cursor = Cursors.Hand
@@ -467,6 +553,8 @@ Public Class ApptWeekCtl
         AddHandler headerPanel.MouseClick, openDrawer
         AddHandler titleLabel.MouseClick, openDrawer
         AddHandler dateLabel.MouseClick, openDrawer
+        AddHandler headerPanel.SizeChanged, Sub() LayoutDayPanelHeader(headerPanel, titleLabel, dateLabel, maxLabel)
+        LayoutDayPanelHeader(headerPanel, titleLabel, dateLabel, maxLabel)
 
         Dim scrollHost = New XtraScrollableControl() With {
             .Dock = DockStyle.Fill,
@@ -524,6 +612,7 @@ Public Class ApptWeekCtl
         AddHandler headerPanel.MouseWheel, wh
         AddHandler titleLabel.MouseWheel, wh
         AddHandler dateLabel.MouseWheel, wh
+        AddHandler maxLabel.MouseWheel, wh
         AddHandler shell.MouseWheel, wh
 
         shell.Controls.Add(scrollHost)
@@ -536,19 +625,210 @@ Public Class ApptWeekCtl
         _dayHeaderRefs.Add(New DayColumnHeaderRef With {
             .HeaderPanel = headerPanel,
             .TitleLabel = titleLabel,
-            .DateLineLabel = dateLabel
+            .DateLineLabel = dateLabel,
+            .MaxLabel = maxLabel
         })
         Return shell
     End Function
 
+    Private Sub LayoutDayPanelHeader(headerPanel As PanelControl, titleLabel As LabelControl, dateLabel As LabelControl, maxLabel As Label)
+        If headerPanel Is Nothing OrElse titleLabel Is Nothing OrElse dateLabel Is Nothing OrElse maxLabel Is Nothing Then Return
+
+        Const badgeWidth As Integer = 42
+        Const badgeHeight As Integer = 24
+        Const sidePad As Integer = 6
+
+        Dim badgeLeft As Integer = If(Eng, headerPanel.ClientSize.Width - badgeWidth - sidePad, sidePad)
+        maxLabel.SetBounds(Math.Max(0, badgeLeft), 8, badgeWidth, badgeHeight)
+
+        Dim textLeft As Integer = If(Eng, sidePad, badgeWidth + sidePad * 2)
+        Dim textRight As Integer = If(Eng, badgeWidth + sidePad * 2, sidePad)
+        Dim textWidth As Integer = Math.Max(40, headerPanel.ClientSize.Width - textLeft - textRight)
+        titleLabel.SetBounds(textLeft, 1, textWidth, 18)
+        dateLabel.SetBounds(textLeft, 18, textWidth, Math.Max(18, headerPanel.ClientSize.Height - 20))
+    End Sub
+
+    Private Function CurrentCardAppearanceSelector() As Func(Of ApptCardVm, ApptCardAppearance)
+        Return If(_request Is Nothing, Nothing, _request.AppointmentAppearanceSelector)
+    End Function
+
+    Friend Sub PrepareReusableWeekCard(card As ApptCard, dayDate As Date)
+        If card Is Nothing Then Return
+        Dim ctx = TryCast(card.Tag, WeekReusableCardContext)
+        If ctx Is Nothing Then
+            ctx = New WeekReusableCardContext()
+            card.Tag = ctx
+        End If
+        ctx.DayDate = dayDate.Date
+        If ctx.IsWired Then Return
+
+        AddHandler card.AppointmentClicked, AddressOf ReusableWeekCard_AppointmentClicked
+        AddHandler card.AppointmentDoubleClicked, AddressOf ReusableWeekCard_AppointmentDoubleClicked
+        AddHandler card.StatusContextEditRequested, AddressOf ReusableWeekCard_StatusContextEditRequested
+        AddHandler card.StatusChangeRequested, AddressOf ReusableWeekCard_StatusChangeRequested
+        AddHandler card.CardDragMouseDown, AddressOf ReusableWeekCard_CardDragMouseDown
+        AddHandler card.CardDragMouseUp, AddressOf ReusableWeekCard_CardDragMouseUp
+        AddHandler card.DragEnter, AddressOf ReusableWeekCard_DragEnter
+        AddHandler card.DragDrop, AddressOf ReusableWeekCard_DragDrop
+        card.AllowDrop = True
+        ctx.IsWired = True
+    End Sub
+
+    Private Shared Function GetReusableWeekCardDay(card As ApptCard) As Date
+        Dim ctx = TryCast(If(card Is Nothing, Nothing, card.Tag), WeekReusableCardContext)
+        If ctx Is Nothing Then Return Date.MinValue
+        Return ctx.DayDate
+    End Function
+
+    Private Sub ReusableWeekCard_AppointmentClicked(ap As AppointmentC)
+        If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentClicked(ap)
+    End Sub
+
+    Private Sub ReusableWeekCard_AppointmentDoubleClicked(ap As AppointmentC)
+        If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentDoubleClicked(ap)
+    End Sub
+
+    Private Sub ReusableWeekCard_StatusContextEditRequested(ap As AppointmentC)
+        If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentDoubleClicked(ap)
+    End Sub
+
+    Private Sub ReusableWeekCard_StatusChangeRequested(ap As AppointmentC, statusKey As String, col As Color)
+        If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentStatusChange(ap, statusKey, col)
+    End Sub
+
+    Private Sub ReusableWeekCard_CardDragMouseDown(card As ApptCard, e As MouseEventArgs)
+        OnWeekCardDragMouseDown(card, GetReusableWeekCardDay(card), e)
+    End Sub
+
+    Private Sub ReusableWeekCard_CardDragMouseUp(card As ApptCard, e As MouseEventArgs)
+        OnWeekCardDragMouseUp(card, e)
+    End Sub
+
+    Private Sub ReusableWeekCard_DragEnter(sender As Object, e As DragEventArgs)
+        WeekColumn_DragEnter(e)
+    End Sub
+
+    Private Sub ReusableWeekCard_DragDrop(sender As Object, e As DragEventArgs)
+        Dim card = TryCast(sender, ApptCard)
+        If card Is Nothing Then Return
+        Dim targetDay = GetReusableWeekCardDay(card)
+        If targetDay = Date.MinValue Then Return
+        WeekColumn_DragDrop(targetDay, e)
+    End Sub
+
+    Private Function EnsureWeekDayCardPool(cardsLayer As PanelControl, requiredCount As Integer, dayDate As Date) As List(Of ApptCard)
+        If cardsLayer Is Nothing Then Return New List(Of ApptCard)()
+        Dim cards = cardsLayer.Controls.OfType(Of ApptCard)().ToList()
+        While cards.Count < requiredCount
+            Dim card As New ApptCard() With {.Dock = DockStyle.None}
+            PrepareReusableWeekCard(card, dayDate)
+            cardsLayer.Controls.Add(card)
+            cards.Add(card)
+        End While
+        For i = 0 To cards.Count - 1
+            Dim showCard = i < requiredCount
+            cards(i).Visible = showCard
+            If showCard Then
+                PrepareReusableWeekCard(cards(i), dayDate)
+                cards(i).BringToFront()
+            End If
+        Next
+        Return cards
+    End Function
+
+    Private Function GetOrCreateWeekEmptyLabel(host As Control, controlName As String, emptyText As String) As LabelControl
+        If host Is Nothing Then Return Nothing
+        Dim existing = host.Controls.OfType(Of LabelControl)().FirstOrDefault(Function(lbl) String.Equals(lbl.Name, controlName, StringComparison.Ordinal))
+        If existing IsNot Nothing Then
+            existing.Text = emptyText
+            existing.Visible = True
+            Return existing
+        End If
+
+        Dim emptyLabel = New LabelControl() With {
+            .Name = controlName,
+            .Dock = DockStyle.None,
+            .AutoSizeMode = LabelAutoSizeMode.None,
+            .Height = 48,
+            .Text = emptyText
+        }
+        emptyLabel.Appearance.Font = CreateCalibriFont(10.0F, FontStyle.Italic)
+        emptyLabel.Appearance.Options.UseFont = True
+        emptyLabel.Appearance.ForeColor = Color.Gray
+        emptyLabel.Appearance.Options.UseForeColor = True
+        emptyLabel.Appearance.TextOptions.HAlignment = HorzAlignment.Center
+        emptyLabel.Appearance.TextOptions.VAlignment = VertAlignment.Center
+        emptyLabel.Appearance.Options.UseTextOptions = True
+        AddHandler emptyLabel.DoubleClick, AddressOf WeekEmptyLabel_DoubleClick
+        host.Controls.Add(emptyLabel)
+        Return emptyLabel
+    End Function
+
+    Private Function GetOrCreateWeekMoreLabel(host As Control) As LabelControl
+        If host Is Nothing Then Return Nothing
+        Dim existing = host.Controls.OfType(Of LabelControl)().FirstOrDefault(Function(lbl) String.Equals(lbl.Name, "weekMoreLabel", StringComparison.Ordinal))
+        If existing IsNot Nothing Then Return existing
+
+        Dim moreLabel = New LabelControl() With {
+            .Name = "weekMoreLabel",
+            .Dock = DockStyle.None,
+            .AutoSizeMode = LabelAutoSizeMode.None,
+            .Height = 34,
+            .Cursor = Cursors.Hand,
+            .Visible = False
+        }
+        moreLabel.Appearance.Font = CreateCalibriFont(9.0F, FontStyle.Italic)
+        moreLabel.Appearance.Options.UseFont = True
+        moreLabel.Appearance.ForeColor = Color.FromArgb(37, 99, 235)
+        moreLabel.Appearance.Options.UseForeColor = True
+        moreLabel.Appearance.TextOptions.HAlignment = HorzAlignment.Center
+        moreLabel.Appearance.TextOptions.VAlignment = VertAlignment.Center
+        moreLabel.Appearance.Options.UseTextOptions = True
+        AddHandler moreLabel.MouseClick, AddressOf WeekMoreLabel_MouseClick
+        host.Controls.Add(moreLabel)
+        host.Controls.SetChildIndex(moreLabel, 0)
+        Return moreLabel
+    End Function
+
+    Private Shared Function ResolveTaggedDate(ctrl As Control) As Date
+        If ctrl Is Nothing OrElse ctrl.Tag Is Nothing Then Return Date.MinValue
+        If TypeOf ctrl.Tag Is DateTime Then Return CType(ctrl.Tag, DateTime).Date
+        If TypeOf ctrl.Tag Is Date Then Return CDate(ctrl.Tag).Date
+        Dim ctx = TryCast(ctrl.Tag, WeekReusableCardContext)
+        If ctx IsNot Nothing Then Return ctx.DayDate
+        Return Date.MinValue
+    End Function
+
+    Private Sub WeekMoreLabel_MouseClick(sender As Object, e As MouseEventArgs)
+        If e.Button <> MouseButtons.Left Then Return
+        If _request Is Nothing OrElse _request.State Is Nothing OrElse _request.Data Is Nothing Then Return
+        Dim targetDay = ResolveTaggedDate(TryCast(sender, Control))
+        If targetDay = Date.MinValue Then Return
+        ShowWeekDayDrawer(targetDay, _request.State, _request.Data)
+    End Sub
+
+    Private Sub WeekEmptyLabel_DoubleClick(sender As Object, e As EventArgs)
+        Dim targetDay = ResolveTaggedDate(TryCast(sender, Control))
+        If targetDay = Date.MinValue Then Return
+        RaiseEmptyDate(targetDay)
+    End Sub
+
     Private Sub PopulateDayCards(cardsLayer As PanelControl, dayDate As DateTime, state As ApptState, data As ApptDataBundle)
         cardsLayer.SuspendLayout()
         Try
-            cardsLayer.Controls.Clear()
             cardsLayer.BackColor = Color.Transparent
-            Dim dayAppointments = ApptTheme.OrderAppointmentsForDisplay(
-                If(data.Appointments, New List(Of AppointmentC)()).Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = dayDate.Date),
-                data, linkedDoctorAtEnd:=True)
+            Dim dayAppointments = BuildWeekDayAppointments(dayDate, data)
+            Dim emptyText = If(Eng, "No appointments", "لا توجد مواعيد")
+            Dim emptyLabel = GetOrCreateWeekEmptyLabel(cardsLayer, "weekEmptyLabel", emptyText)
+            Dim moreLabel = GetOrCreateWeekMoreLabel(cardsLayer)
+            If emptyLabel IsNot Nothing Then
+                emptyLabel.Tag = dayDate.Date
+                emptyLabel.Visible = False
+            End If
+            If moreLabel IsNot Nothing Then
+                moreLabel.Tag = dayDate.Date
+                moreLabel.Visible = False
+            End If
 
             Dim totalDay = dayAppointments.Count
             Dim hiddenAfterCap = 0
@@ -558,84 +838,36 @@ Public Class ApptWeekCtl
             End If
 
             If dayAppointments.Count = 0 Then
-                Dim emptyLabel = New LabelControl() With {
-                    .Dock = DockStyle.Top,
-                    .AutoSizeMode = LabelAutoSizeMode.None,
-                    .Height = 48,
-                    .Text = "No appointments"
-                }
-                emptyLabel.Appearance.Font = CreateCalibriFont(10.0F, FontStyle.Italic)
-                emptyLabel.Appearance.Options.UseFont = True
-                emptyLabel.Appearance.ForeColor = Color.Gray
-                emptyLabel.Appearance.Options.UseForeColor = True
-                emptyLabel.Appearance.TextOptions.HAlignment = HorzAlignment.Center
-                emptyLabel.Appearance.TextOptions.VAlignment = VertAlignment.Center
-                emptyLabel.Appearance.Options.UseTextOptions = True
-                AddHandler emptyLabel.DoubleClick, Sub() RaiseEmptyDate(dayDate.Date)
-                cardsLayer.Controls.Add(emptyLabel)
-                cardsLayer.Height = emptyLabel.Height + 12
+                If emptyLabel IsNot Nothing Then
+                    emptyLabel.Visible = True
+                    emptyLabel.BringToFront()
+                End If
+                For Each pooledCard In cardsLayer.Controls.OfType(Of ApptCard)()
+                    pooledCard.Visible = False
+                Next
+                LayoutDayCards(cardsLayer)
                 Return
             End If
 
-            For Each appointment In dayAppointments
-                Dim model = New ApptCardVm With {
-                    .Appointment = appointment,
-                    .PatientName = data.ResolvePatientName(appointment.PatientID),
-                    .DoctorInfo = data.ResolveDoctor(appointment.DrID)
-                }
-                model.Appearance = BuildDefaultCardAppearance(model, state)
-                If _request.AppointmentAppearanceSelector IsNot Nothing Then
-                    Dim selectedAppearance = _request.AppointmentAppearanceSelector(model)
-                    If selectedAppearance IsNot Nothing Then
-                        model.Appearance = selectedAppearance
-                    End If
-                End If
-
-                Dim card = New ApptCard() With {
-                    .Dock = DockStyle.None,
-                    .Width = If(_compactSixDayWeek,
-                        Math.Max(1, cardsLayer.Width - 2 * DayColumnCardHorizontalInsetSixDay),
-                        Math.Max(190, cardsLayer.Width - 4))
-                }
-                card.Bind(model, state.Use24HourFormat)
-                AddHandler card.AppointmentClicked, Sub(ap) If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentClicked(ap)
-                AddHandler card.AppointmentDoubleClicked, Sub(ap) If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentDoubleClicked(ap)
-                AddHandler card.StatusContextEditRequested, Sub(ap) If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentDoubleClicked(ap)
-                AddHandler card.StatusChangeRequested,
-                    Sub(ap, statusKey, col)
-                        If InteractionHub IsNot Nothing Then InteractionHub.PublishAppointmentStatusChange(ap, statusKey, col)
-                    End Sub
-                WireWeekDropTarget(card, dayDate)
-                AddHandler card.CardDragMouseDown, Sub(c, ev) OnWeekCardDragMouseDown(c, dayDate, ev)
-                AddHandler card.CardDragMouseUp, Sub(c, ev) OnWeekCardDragMouseUp(c, ev)
-                cardsLayer.Controls.Add(card)
+            Dim pooledCards = EnsureWeekDayCardPool(cardsLayer, dayAppointments.Count, dayDate.Date)
+            For i = 0 To dayAppointments.Count - 1
+                Dim appointment = dayAppointments(i)
+                Dim card = pooledCards(i)
+                card.Width = If(_compactSixDayWeek,
+                    Math.Max(1, cardsLayer.Width - 2 * DayColumnCardHorizontalInsetSixDay),
+                    Math.Max(190, cardsLayer.Width - 4))
+                BindAppointmentCard(card, appointment, data, state, CurrentCardAppearanceSelector(), state.Use24HourFormat)
+                card.Visible = True
             Next
 
             If hiddenAfterCap > 0 Then
-                Dim moreTxt = If(Eng,
-                    $"+{hiddenAfterCap} more — click to show all",
-                    $"و{hiddenAfterCap} إضافية — انقر لعرض الكل")
-                Dim moreLabel = New LabelControl() With {
-                    .Dock = DockStyle.None,
-                    .AutoSizeMode = LabelAutoSizeMode.None,
-                    .Height = 34,
-                    .Text = moreTxt,
-                    .Cursor = Cursors.Hand
-                }
-                moreLabel.Appearance.Font = CreateCalibriFont(9.0F, FontStyle.Italic)
-                moreLabel.Appearance.Options.UseFont = True
-                moreLabel.Appearance.ForeColor = Color.FromArgb(37, 99, 235)
-                moreLabel.Appearance.Options.UseForeColor = True
-                moreLabel.Appearance.TextOptions.HAlignment = HorzAlignment.Center
-                moreLabel.Appearance.TextOptions.VAlignment = VertAlignment.Center
-                moreLabel.Appearance.Options.UseTextOptions = True
-                AddHandler moreLabel.MouseClick,
-                    Sub(s, e)
-                        If e.Button = MouseButtons.Left Then ShowWeekDayDrawer(dayDate.Date, state, data)
-                    End Sub
-                ' Add first, then move to index 0 so the layout Reverse() pass ends with "more" at the bottom of the column.
-                cardsLayer.Controls.Add(moreLabel)
-                cardsLayer.Controls.SetChildIndex(moreLabel, 0)
+                If moreLabel IsNot Nothing Then
+                    moreLabel.Text = If(Eng,
+                        $"+{hiddenAfterCap} more — click to show all",
+                        $"و{hiddenAfterCap} إضافية — انقر لعرض الكل")
+                    moreLabel.Visible = True
+                    moreLabel.BringToFront()
+                End If
             End If
 
             LayoutDayCards(cardsLayer)
@@ -657,7 +889,17 @@ Public Class ApptWeekCtl
             width = Math.Max(180, cardsLayer.Width - 4)
         End If
 
-        For Each ctrl As Control In cardsLayer.Controls.OfType(Of Control)().Reverse()
+        Dim visibleCards = cardsLayer.Controls.OfType(Of ApptCard)().
+            Where(Function(ctrl) ctrl.Visible).
+            OrderBy(Function(ctrl) cardsLayer.Controls.GetChildIndex(ctrl)).
+            Cast(Of Control)().
+            ToList()
+        Dim visibleOtherControls = cardsLayer.Controls.OfType(Of Control)().
+            Where(Function(ctrl) ctrl.Visible AndAlso Not TypeOf ctrl Is ApptCard).
+            OrderBy(Function(ctrl) cardsLayer.Controls.GetChildIndex(ctrl)).
+            ToList()
+
+        For Each ctrl As Control In visibleCards.Concat(visibleOtherControls)
             Dim wChanged = (ctrl.Width <> width)
             ctrl.Width = width
             Dim weekCard = TryCast(ctrl, ApptCard)
@@ -895,10 +1137,10 @@ Public Class ApptWeekCtl
         Dim slimV = scrollHost.Controls.OfType(Of DevExpress.XtraEditors.VScrollBar)().FirstOrDefault()
         Dim cardsLayer = scrollHost.Controls.OfType(Of PanelControl)().FirstOrDefault()
         If slimV Is Nothing OrElse cardsLayer Is Nothing Then Return
-        Dim cardCtl = cardsLayer.Controls.OfType(Of ApptCard)().FirstOrDefault(
+        Dim cardCtl = cardsLayer.Controls.OfType(Of ApptCard)().Where(Function(c) c.Visible).FirstOrDefault(
             Function(c) c.BoundAppointment IsNot Nothing AndAlso c.BoundAppointment.AppointmentID > 0 AndAlso c.BoundAppointment.AppointmentID = ap.AppointmentID)
         If cardCtl Is Nothing Then
-            cardCtl = cardsLayer.Controls.OfType(Of ApptCard)().FirstOrDefault(
+            cardCtl = cardsLayer.Controls.OfType(Of ApptCard)().Where(Function(c) c.Visible).FirstOrDefault(
                 Function(c) c.BoundAppointment IsNot Nothing AndAlso
                     c.BoundAppointment.StartDateTime = ap.StartDateTime AndAlso
                     c.BoundAppointment.PatientID = ap.PatientID)
@@ -946,6 +1188,93 @@ Public Class ApptWeekCtl
             Return cw
         End If
         Return Math.Max(180, cw - 16)
+    End Function
+
+    Private Sub PrepareDialogOverlayParent()
+        Dim host = FindAncestorApptHost()
+        If host IsNot Nothing Then
+            _dialogExpandedHost = host
+            _dialogExpandedHostTemporarily = Not host.IsBodyWorkspaceExpanded
+            If _dialogExpandedHostTemporarily Then
+                host.EnsureBodyWorkspaceExpanded()
+            End If
+        Else
+            _dialogExpandedHost = Nothing
+            _dialogExpandedHostTemporarily = False
+        End If
+        Dim overlayParent As Control = If(TryCast(host, Control), CType(_workArea, Control))
+        MoveOverlayToParent(_dimOverlay, overlayParent)
+        MoveOverlayToParent(_drawerDialogHost, overlayParent)
+    End Sub
+
+    Private Sub RestoreDialogOverlayParent()
+        MoveOverlayToParent(_dimOverlay, _workArea)
+        MoveOverlayToParent(_drawerDialogHost, _workArea)
+        If _dialogExpandedHostTemporarily AndAlso _dialogExpandedHost IsNot Nothing Then
+            _dialogExpandedHost.EnsureBodyWorkspaceCollapsed()
+        End If
+        _dialogExpandedHost = Nothing
+        _dialogExpandedHostTemporarily = False
+    End Sub
+
+    Private Sub MoveOverlayToParent(overlay As Control, targetParent As Control)
+        If overlay Is Nothing OrElse targetParent Is Nothing Then Return
+        If overlay.Parent Is targetParent Then
+            If overlay Is _drawerDialogHost Then
+                AttachDialogOverlayParent(targetParent)
+                overlay.Dock = DockStyle.None
+                LayoutDialogOverlayHost()
+            Else
+                overlay.Dock = DockStyle.Fill
+            End If
+            Return
+        End If
+        If overlay.Parent IsNot Nothing Then
+            overlay.Parent.Controls.Remove(overlay)
+        End If
+        targetParent.Controls.Add(overlay)
+        If overlay Is _drawerDialogHost Then
+            AttachDialogOverlayParent(targetParent)
+            overlay.Dock = DockStyle.None
+            LayoutDialogOverlayHost()
+        Else
+            overlay.Dock = DockStyle.Fill
+        End If
+        overlay.BringToFront()
+    End Sub
+
+    Private Sub AttachDialogOverlayParent(targetParent As Control)
+        If Object.ReferenceEquals(_dialogOverlayParent, targetParent) Then Return
+        If _dialogOverlayParent IsNot Nothing Then
+            RemoveHandler _dialogOverlayParent.SizeChanged, AddressOf DialogOverlayParent_SizeChanged
+        End If
+        _dialogOverlayParent = targetParent
+        If _dialogOverlayParent IsNot Nothing Then
+            AddHandler _dialogOverlayParent.SizeChanged, AddressOf DialogOverlayParent_SizeChanged
+        End If
+    End Sub
+
+    Private Sub DialogOverlayParent_SizeChanged(sender As Object, e As EventArgs)
+        LayoutDialogOverlayHost()
+    End Sub
+
+    Private Sub LayoutDialogOverlayHost()
+        If _drawerDialogHost Is Nothing OrElse _drawerDialogHost.Parent Is Nothing Then Return
+        Dim parentClient = _drawerDialogHost.Parent.ClientSize
+        Dim w = Math.Max(0, CInt(Math.Ceiling(parentClient.Width / 2.0R)))
+        Dim x = Math.Max(0, (parentClient.Width - w) \ 2)
+        _drawerDialogHost.Bounds = New Rectangle(x, 0, w, Math.Max(0, parentClient.Height))
+        _drawerDialogHost.BringToFront()
+    End Sub
+
+    Private Function FindAncestorApptHost() As ApptHostCtl
+        Dim current As Control = Me
+        While current IsNot Nothing
+            Dim host = TryCast(current, ApptHostCtl)
+            If host IsNot Nothing Then Return host
+            current = current.Parent
+        End While
+        Return Nothing
     End Function
 
     Private Shared Function FindTopDockedHeaderControl(shell As Control, scroll As Control) As Control
@@ -1107,7 +1436,7 @@ Public Class ApptWeekCtl
             End If
 
             Dim appts As New List(Of WeekSnapshotHtmlAppt)()
-            For Each c In sc.Cards.Controls.OfType(Of ApptCard)().OrderBy(Function(x) x.Top)
+            For Each c In sc.Cards.Controls.OfType(Of ApptCard)().Where(Function(card) card.Visible).OrderBy(Function(x) x.Top)
                 Dim row = c.TryGetWeekHtmlExportRow()
                 If row IsNot Nothing Then appts.Add(row)
             Next
@@ -1197,6 +1526,7 @@ Public Class ApptWeekCtl
         Public HeaderPanel As PanelControl
         Public TitleLabel As LabelControl
         Public DateLineLabel As LabelControl
+        Public MaxLabel As Label
     End Class
 End Class
 
@@ -1217,13 +1547,19 @@ Friend NotInheritable Class WeekDayCardDrawerHost
     Private ReadOnly _weekCtl As ApptWeekCtl
     Private ReadOnly _header As Panel
     Private ReadOnly _lblTitle As Label
+    Private ReadOnly _btnExpand As Label
     Private ReadOnly _btnClose As Label
     Private ReadOnly _scroll As Panel
+    Private _currentDay As Date
+    Private _currentAppts As List(Of AppointmentC)
+    Private _currentData As ApptDataBundle
+    Private _currentState As ApptState
+    Private _currentRequest As ApptViewRequest
 
     Public Sub New(weekCtl As ApptWeekCtl)
         _weekCtl = weekCtl
         SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.OptimizedDoubleBuffer Or ControlStyles.ResizeRedraw Or ControlStyles.UserPaint, True)
-        Width = 240
+        Width = 232
         BackColor = DrawerDayPanelWash
         BorderStyle = BorderStyle.Fixed3D
         Margin = New Padding(0)
@@ -1231,14 +1567,23 @@ Friend NotInheritable Class WeekDayCardDrawerHost
         _lblTitle = New Label With {
             .AutoSize = False,
             .Dock = DockStyle.Fill,
-            .Padding = New Padding(44, 14, 14, 8),
+            .Padding = New Padding(88, 14, 14, 8),
             .Font = CreateCalibriFont(11.0F, FontStyle.Bold),
             .ForeColor = Color.White,
             .BackColor = Color.Transparent,
             .TextAlign = ContentAlignment.TopLeft
         }
+        _btnExpand = New Label With {
+            .Text = "MAX",
+            .Size = New Size(42, 24),
+            .Font = CreateCalibriFont(8.5F, FontStyle.Bold),
+            .ForeColor = Color.White,
+            .BackColor = Color.FromArgb(36, 128, 145),
+            .Cursor = Cursors.Hand,
+            .TextAlign = ContentAlignment.MiddleCenter
+        }
         _btnClose = New Label With {
-            .Text = "✕",
+            .Text = "X",
             .Size = New Size(36, 36),
             .Anchor = AnchorStyles.Top Or AnchorStyles.Left,
             .Location = New Point(6, 8),
@@ -1249,22 +1594,30 @@ Friend NotInheritable Class WeekDayCardDrawerHost
             .TextAlign = ContentAlignment.MiddleCenter
         }
 
+        AddHandler _btnExpand.Click,
+            Sub()
+                _weekCtl.RequestOpenWeekDrawerDialog(_currentDay, _currentAppts, _currentData, _currentState, _currentRequest)
+            End Sub
+        AddHandler _btnExpand.MouseEnter, Sub() _btnExpand.BackColor = Color.FromArgb(48, 146, 164)
+        AddHandler _btnExpand.MouseLeave, Sub() _btnExpand.BackColor = Color.FromArgb(36, 128, 145)
         AddHandler _btnClose.Click, Sub() _weekCtl.RequestCloseWeekDrawer()
         AddHandler _btnClose.MouseEnter, Sub() _btnClose.ForeColor = Color.FromArgb(255, 200, 200)
         AddHandler _btnClose.MouseLeave, Sub() _btnClose.ForeColor = DrawerHeaderCloseIdle
 
         _header.Controls.Add(_lblTitle)
+        _header.Controls.Add(_btnExpand)
         _header.Controls.Add(_btnClose)
         _btnClose.BringToFront()
-        AddHandler _header.SizeChanged, Sub() PositionCloseButton()
+        _btnExpand.BringToFront()
+        AddHandler _header.SizeChanged, Sub() PositionHeaderButtons()
 
         _scroll = New Panel With {
             .Margin = New Padding(5),
             .BorderStyle = BorderStyle.Fixed3D,
             .Dock = DockStyle.Fill,
             .AutoScroll = True,
-            .BackColor = Color.DeepSkyBlue,'Color.Transparent,
-            .Padding = New Padding(10, 10, 10, 14)
+            .BackColor = Color.FromArgb(232, 242, 252),
+            .Padding = New Padding(10, 10, 6, 14)
         }
 
         Controls.Add(_scroll)
@@ -1302,96 +1655,126 @@ Friend NotInheritable Class WeekDayCardDrawerHost
         End Using
     End Sub
 
-    Private Sub PositionCloseButton()
-        If _header Is Nothing OrElse _btnClose Is Nothing Then Return
+    Private Sub PositionHeaderButtons()
+        If _header Is Nothing OrElse _btnClose Is Nothing OrElse _btnExpand Is Nothing Then Return
         Dim y = (_header.ClientSize.Height - _btnClose.Height) \ 2
         If Eng Then
             _btnClose.Left = 6
             _btnClose.Top = y
+            _btnExpand.Left = _btnClose.Right + 6
+            _btnExpand.Top = y + ((_btnClose.Height - _btnExpand.Height) \ 2)
         Else
             _btnClose.Left = _header.ClientSize.Width - _btnClose.Width - 6
             _btnClose.Top = y
+            _btnExpand.Left = _btnClose.Left - _btnExpand.Width - 6
+            _btnExpand.Top = y + ((_btnClose.Height - _btnExpand.Height) \ 2)
         End If
     End Sub
 
     Friend Sub RelayoutAfterOpen()
         PerformLayout()
         RelayoutDrawerCards()
-        PositionCloseButton()
+        PositionHeaderButtons()
         Invalidate(True)
     End Sub
 
     Private Sub RelayoutDrawerCards()
         If _scroll Is Nothing Then Return
         Dim inner = Math.Max(80, _scroll.ClientSize.Width - _scroll.Padding.Horizontal)
-        Dim w = Math.Max(80, inner - 8)
+        Dim w = Math.Max(80, inner - 4)
         Dim y = 0
         Const gap = 8
-        For Each c As Control In _scroll.Controls
+        For Each c As Control In _scroll.Controls.OfType(Of Control)().Where(Function(ctrl) ctrl.Visible)
             c.Width = w
             Dim weekCard = TryCast(c, ApptCard)
             If weekCard IsNot Nothing Then
                 weekCard.ApplyContentHeightToFitForWeekView()
             End If
-            c.Left = 4
+            c.Left = 2
             c.Top = y
             y += c.Height + gap
         Next
     End Sub
 
+    Private Function GetOrCreateEmptyLabel() As Label
+        Dim existing = _scroll.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) String.Equals(lbl.Name, "weekDrawerEmptyLabel", StringComparison.Ordinal))
+        If existing IsNot Nothing Then Return existing
+        Dim emptyLbl As New Label With {
+            .Name = "weekDrawerEmptyLabel",
+            .AutoSize = False,
+            .Height = 56,
+            .Text = If(Eng, "No appointments scheduled for this day.", "لا توجد مواعيد في هذا اليوم."),
+            .Font = CreateCalibriFont(10.5F, FontStyle.Italic),
+            .ForeColor = Color.FromArgb(118, 128, 145),
+            .BackColor = DrawerDayPanelWash,
+            .TextAlign = ContentAlignment.TopCenter,
+            .Visible = False
+        }
+        _scroll.Controls.Add(emptyLbl)
+        Return emptyLbl
+    End Function
+
+    Private Function EnsureDrawerCardPool(requiredCount As Integer, day As Date, weekHost As ApptWeekCtl) As List(Of ApptCard)
+        Dim cards = _scroll.Controls.OfType(Of ApptCard)().ToList()
+        While cards.Count < requiredCount
+            Dim card As New ApptCard()
+            weekHost.WireDrawerDayCard(card, day)
+            _scroll.Controls.Add(card)
+            cards.Add(card)
+        End While
+        For i = 0 To cards.Count - 1
+            Dim showCard = i < requiredCount
+            cards(i).Visible = showCard
+            If showCard Then
+                weekHost.WireDrawerDayCard(cards(i), day)
+            End If
+        Next
+        Return cards
+    End Function
+
     Public Sub Populate(day As Date, appts As List(Of AppointmentC), data As ApptDataBundle, state As ApptState, request As ApptViewRequest, weekHost As ApptWeekCtl)
-        _scroll.Controls.Clear()
+        _currentDay = day
+        _currentAppts = If(appts, New List(Of AppointmentC)())
+        _currentData = data
+        _currentState = state
+        _currentRequest = request
         If Eng Then
             RightToLeft = RightToLeft.No
             _lblTitle.RightToLeft = RightToLeft.No
             _scroll.RightToLeft = RightToLeft.No
             _header.RightToLeft = RightToLeft.No
-            _lblTitle.Padding = New Padding(44, 14, 14, 8)
+            _lblTitle.Padding = New Padding(88, 14, 14, 8)
             _btnClose.Anchor = AnchorStyles.Top Or AnchorStyles.Left
+            _btnExpand.Anchor = AnchorStyles.Top Or AnchorStyles.Left
         Else
             RightToLeft = RightToLeft.Yes
             _lblTitle.RightToLeft = RightToLeft.Yes
             _scroll.RightToLeft = RightToLeft.Yes
             _header.RightToLeft = RightToLeft.Yes
-            _lblTitle.Padding = New Padding(14, 14, 44, 8)
+            _lblTitle.Padding = New Padding(14, 14, 88, 8)
             _btnClose.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+            _btnExpand.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         End If
-        PositionCloseButton()
+        PositionHeaderButtons()
         _lblTitle.TextAlign = If(Eng, ContentAlignment.TopLeft, ContentAlignment.TopRight)
         _lblTitle.Text = FormatCaptionDayFull(day)
 
         Dim innerW = Math.Max(80, _scroll.ClientSize.Width - _scroll.Padding.Horizontal - 8)
+        Dim emptyLbl = GetOrCreateEmptyLabel()
+        emptyLbl.Width = innerW
+        emptyLbl.Visible = False
         If appts.Count = 0 Then
-            Dim emptyLbl As New Label With {
-                .AutoSize = False,
-                .Width = innerW,
-                .Height = 56,
-                .Text = If(Eng, "No appointments scheduled for this day.", "لا توجد مواعيد في هذا اليوم."),
-                .Font = CreateCalibriFont(10.5F, FontStyle.Italic),
-                .ForeColor = Color.FromArgb(118, 128, 145),
-                .BackColor = DrawerDayPanelWash,
-                .TextAlign = ContentAlignment.TopCenter
-            }
-            _scroll.Controls.Add(emptyLbl)
+            emptyLbl.Visible = True
+            For Each card In _scroll.Controls.OfType(Of ApptCard)()
+                card.Visible = False
+            Next
         Else
-            For Each appointment In appts
-                Dim model As New ApptCardVm With {
-                    .Appointment = appointment,
-                    .PatientName = data.ResolvePatientName(appointment.PatientID),
-                    .DoctorInfo = data.ResolveDoctor(appointment.DrID)
-                }
-                model.Appearance = BuildDefaultCardAppearance(model, state)
-                If request IsNot Nothing AndAlso request.AppointmentAppearanceSelector IsNot Nothing Then
-                    Dim sel = request.AppointmentAppearanceSelector(model)
-                    If sel IsNot Nothing Then model.Appearance = sel
-                End If
-                Dim card As New ApptCard With {
-                    .Width = innerW,
-                    .Left = 4
-                }
-                card.Bind(model, state.Use24HourFormat)
-                weekHost.WireDrawerDayCard(card, day)
-                _scroll.Controls.Add(card)
+            Dim cards = EnsureDrawerCardPool(appts.Count, day, weekHost)
+            For i = 0 To appts.Count - 1
+                Dim card = cards(i)
+                card.Width = innerW
+                card.Left = 4
+                BindAppointmentCard(card, appts(i), data, state, If(request Is Nothing, Nothing, request.AppointmentAppearanceSelector), state.Use24HourFormat)
             Next
         End If
         _scroll.PerformLayout()
@@ -1400,7 +1783,195 @@ Friend NotInheritable Class WeekDayCardDrawerHost
 
     Protected Overrides Sub OnResize(e As EventArgs)
         MyBase.OnResize(e)
-        PositionCloseButton()
+        PositionHeaderButtons()
     End Sub
+End Class
+
+Friend NotInheritable Class WeekDayCardDialogHost
+    Inherits Panel
+
+    Private ReadOnly _weekCtl As ApptWeekCtl
+    Private ReadOnly _surface As Panel
+    Private ReadOnly _header As Panel
+    Private ReadOnly _title As Label
+    Private ReadOnly _subtitle As Label
+    Private ReadOnly _btnClose As Label
+    Private ReadOnly _scroll As Panel
+
+    Public Sub New(weekCtl As ApptWeekCtl)
+        _weekCtl = weekCtl
+        SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.OptimizedDoubleBuffer Or ControlStyles.ResizeRedraw Or ControlStyles.UserPaint, True)
+        BackColor = Color.Transparent
+        _surface = New Panel With {
+            .BackColor = Color.FromArgb(248, 251, 255),
+            .BorderStyle = BorderStyle.None
+        }
+        _header = New Panel With {
+            .Dock = DockStyle.Top,
+            .Height = 66,
+            .BackColor = Color.FromArgb(18, 111, 126)
+        }
+        _title = New Label With {
+            .Dock = DockStyle.Top,
+            .Height = 34,
+            .Padding = New Padding(18, 12, 56, 0),
+            .Font = CreateCalibriFont(12.0F, FontStyle.Bold),
+            .ForeColor = Color.White,
+            .BackColor = Color.Transparent,
+            .TextAlign = ContentAlignment.MiddleLeft
+        }
+        _subtitle = New Label With {
+            .Dock = DockStyle.Fill,
+            .Padding = New Padding(18, 0, 56, 10),
+            .Font = CreateCalibriFont(9.5F, FontStyle.Regular),
+            .ForeColor = Color.FromArgb(224, 239, 244),
+            .BackColor = Color.Transparent,
+            .TextAlign = ContentAlignment.TopLeft
+        }
+        _btnClose = New Label With {
+            .Text = "X",
+            .Size = New Size(34, 34),
+            .Font = CreateCalibriFont(12.0F, FontStyle.Bold),
+            .ForeColor = Color.White,
+            .BackColor = Color.Transparent,
+            .Cursor = Cursors.Hand,
+            .TextAlign = ContentAlignment.MiddleCenter
+        }
+        _scroll = New Panel With {
+            .Dock = DockStyle.Fill,
+            .AutoScroll = True,
+            .BackColor = Color.FromArgb(241, 246, 251),
+            .Padding = New Padding(18, 16, 18, 18)
+        }
+
+        AddHandler _btnClose.Click, Sub() _weekCtl.RequestCloseWeekDrawerDialog()
+        AddHandler _btnClose.MouseEnter, Sub() _btnClose.ForeColor = Color.FromArgb(255, 220, 220)
+        AddHandler _btnClose.MouseLeave, Sub() _btnClose.ForeColor = Color.White
+        AddHandler _header.SizeChanged, Sub() PositionHeaderChrome()
+
+        _header.Controls.Add(_subtitle)
+        _header.Controls.Add(_title)
+        _header.Controls.Add(_btnClose)
+        _btnClose.BringToFront()
+
+        _surface.Controls.Add(_scroll)
+        _surface.Controls.Add(_header)
+        Controls.Add(_surface)
+    End Sub
+
+    Public Sub Populate(day As Date, appts As List(Of AppointmentC), data As ApptDataBundle, state As ApptState, request As ApptViewRequest, weekHost As ApptWeekCtl)
+        _title.Text = FormatCaptionDayFull(day)
+        Dim apptCount = If(appts Is Nothing, 0, appts.Count)
+        _subtitle.Text = If(Eng,
+            $"{apptCount} appointment(s) in focus view",
+            $"عرض مكبر لعدد {apptCount} موعد")
+
+        Dim innerW = Math.Max(220, _scroll.ClientSize.Width - _scroll.Padding.Horizontal - 6)
+        Dim emptyLbl = GetOrCreateEmptyLabel()
+        emptyLbl.Width = innerW
+        emptyLbl.Visible = False
+        If appts Is Nothing OrElse appts.Count = 0 Then
+            emptyLbl.Visible = True
+            For Each card In _scroll.Controls.OfType(Of ApptCard)()
+                card.Visible = False
+            Next
+        Else
+            Dim cards = EnsureDialogCardPool(appts.Count, day, weekHost)
+            For i = 0 To appts.Count - 1
+                Dim card = cards(i)
+                card.Width = innerW
+                BindAppointmentCard(card, appts(i), data, state, If(request Is Nothing, Nothing, request.AppointmentAppearanceSelector), state.Use24HourFormat)
+            Next
+        End If
+
+        LayoutCards()
+        CenterSurface()
+        Invalidate(True)
+    End Sub
+
+    Protected Overrides Sub OnResize(e As EventArgs)
+        MyBase.OnResize(e)
+        CenterSurface()
+        PositionHeaderChrome()
+        LayoutCards()
+    End Sub
+
+    Protected Overrides Sub OnPaintBackground(e As PaintEventArgs)
+        Using br As New SolidBrush(Color.FromArgb(180, 120, 190, 245))
+            e.Graphics.FillRectangle(br, ClientRectangle)
+        End Using
+    End Sub
+
+    Protected Overrides Sub OnMouseClick(e As MouseEventArgs)
+        MyBase.OnMouseClick(e)
+        If Not _surface.Bounds.Contains(e.Location) Then
+            _weekCtl.RequestCloseWeekDrawerDialog()
+        End If
+    End Sub
+
+    Private Sub CenterSurface()
+        If _surface Is Nothing Then Return
+        Const sideMargin As Integer = 15
+        Dim w = Math.Max(0, ClientSize.Width - (sideMargin * 2))
+        _surface.Bounds = New Rectangle(sideMargin, 0, w, Math.Max(0, ClientSize.Height))
+    End Sub
+
+    Private Sub PositionHeaderChrome()
+        If _btnClose Is Nothing OrElse _header Is Nothing Then Return
+        _btnClose.Left = _header.ClientSize.Width - _btnClose.Width - 10
+        _btnClose.Top = (_header.ClientSize.Height - _btnClose.Height) \ 2
+    End Sub
+
+    Private Sub LayoutCards()
+        If _scroll Is Nothing Then Return
+        Dim y = 0
+        Dim innerW = Math.Max(220, _scroll.ClientSize.Width - _scroll.Padding.Horizontal - 6)
+        For Each c As Control In _scroll.Controls.OfType(Of Control)().Where(Function(ctrl) ctrl.Visible)
+            c.Left = 0
+            c.Top = y
+            c.Width = innerW
+            Dim weekCard = TryCast(c, ApptCard)
+            If weekCard IsNot Nothing Then
+                weekCard.ApplyContentHeightToFitForWeekView()
+            End If
+            y += c.Height + 10
+        Next
+    End Sub
+
+    Private Function GetOrCreateEmptyLabel() As Label
+        Dim existing = _scroll.Controls.OfType(Of Label)().FirstOrDefault(Function(lbl) String.Equals(lbl.Name, "weekDialogEmptyLabel", StringComparison.Ordinal))
+        If existing IsNot Nothing Then Return existing
+        Dim emptyLbl As New Label With {
+            .Name = "weekDialogEmptyLabel",
+            .AutoSize = False,
+            .Height = 64,
+            .Text = If(Eng, "No appointments scheduled for this day.", "لا توجد مواعيد في هذا اليوم."),
+            .Font = CreateCalibriFont(10.5F, FontStyle.Italic),
+            .ForeColor = Color.FromArgb(92, 105, 120),
+            .BackColor = Color.Transparent,
+            .TextAlign = ContentAlignment.MiddleCenter,
+            .Visible = False
+        }
+        _scroll.Controls.Add(emptyLbl)
+        Return emptyLbl
+    End Function
+
+    Private Function EnsureDialogCardPool(requiredCount As Integer, day As Date, weekHost As ApptWeekCtl) As List(Of ApptCard)
+        Dim cards = _scroll.Controls.OfType(Of ApptCard)().ToList()
+        While cards.Count < requiredCount
+            Dim card As New ApptCard()
+            weekHost.WireDrawerDayCard(card, day)
+            _scroll.Controls.Add(card)
+            cards.Add(card)
+        End While
+        For i = 0 To cards.Count - 1
+            Dim showCard = i < requiredCount
+            cards(i).Visible = showCard
+            If showCard Then
+                weekHost.WireDrawerDayCard(cards(i), day)
+            End If
+        Next
+        Return cards
+    End Function
 End Class
 #End Region

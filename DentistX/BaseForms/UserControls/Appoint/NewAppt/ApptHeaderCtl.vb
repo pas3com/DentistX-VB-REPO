@@ -71,45 +71,60 @@ Public Class ApptHeaderCtl
     Private _cardNotesColor As Color
 
     Public Sub New()
-        InitializeComponent()
-        Dock = DockStyle.Fill
-        cmbView.Properties.Items.Clear()
-        InitializeComboValues()
-        LocalizeStaticText()
-        pnlDoctorFilterScroll.AutoScroll = False
-        WireDoctorSlotButtons()
-        WireEvents()
-        AddHandler Resize, AddressOf Header_Resize
-        AddHandler pnlDoctorFilterScroll.Resize, AddressOf DoctorFilterScrollPanel_Resize
-        AdjustDoctorFilterScrollExtent()
-        pnlHeader.AutoScroll = True
-        legendPanel.AutoScroll = True
-        InitializeApptCardTimeColorPickersFromSettings()
-        InitializeApptCardLabelColorCacheFromSettings()
-        InitializeViewNavButtons()
-        InitializeWeekSnapshotButton()
+        Try
+            InitializeComponent()
+            Dock = DockStyle.Fill
+            cmbView.Properties.Items.Clear()
+            InitializeComboValues()
+            LocalizeStaticText()
+            pnlDoctorFilterScroll.AutoScroll = False
+            WireDoctorSlotButtons()
+            WireEvents()
+            AddHandler Resize, AddressOf Header_Resize
+            AddHandler pnlDoctorFilterScroll.Resize, AddressOf DoctorFilterScrollPanel_Resize
+            AdjustDoctorFilterScrollExtent()
+            pnlHeader.AutoScroll = True
+            legendPanel.AutoScroll = True
+            InitializeApptCardTimeColorPickersFromSettings()
+            InitializeApptCardLabelColorCacheFromSettings()
+            InitializeViewNavButtons()
+            InitializeWeekSnapshotButton()
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.New",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="The appointment header could not be initialized.",
+                                   arabicMessage:="تعذر تهيئة رأس المواعيد.")
+        End Try
     End Sub
 
     ''' <summary>Matches <see cref="SchedulerNew.UpdateViewNavButtonVisibility"/>.</summary>
     Public Sub UpdateViewNavButtonVisibility(backCount As Integer, forwardCount As Integer)
-        If btnPrevView IsNot Nothing Then btnPrevView.Visible = backCount > 0
-        If btnNextView IsNot Nothing Then btnNextView.Visible = forwardCount > 0
+        Try
+            If btnPrevView IsNot Nothing Then btnPrevView.Visible = backCount > 0
+            If btnNextView IsNot Nothing Then btnNextView.Visible = forwardCount > 0
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptHeaderCtl.UpdateViewNavButtonVisibility", showUser:=False)
+        End Try
     End Sub
 
     ''' <summary>Updates the view combo without recording view history (used for Prev/Next view and host <see cref="ApptHostCtl.SetView"/>).</summary>
     Public Sub SyncViewComboToState(state As ApptState)
-        If state Is Nothing OrElse cmbView Is Nothing Then Return
-        _syncing = True
         Try
+            If state Is Nothing OrElse cmbView Is Nothing Then Return
+            _syncing = True
             SelectComboValue(cmbView, state.CurrentView)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptHeaderCtl.SyncViewComboToState", showUser:=False)
         Finally
             _syncing = False
         End Try
     End Sub
 
     Public Sub ApplyState(state As ApptState, data As ApptDataBundle, patientCaption As String, hasCurrentPatient As Boolean)
-        _syncing = True
         Try
+            _syncing = True
             lblPatient.Text = patientCaption
             lblRange.Text = BuildRangeCaption(state, data)
             lblCount.Text = ApptTheme.CountAppointmentsForCurrentView(state, data).ToString()
@@ -133,6 +148,11 @@ Public Class ApptHeaderCtl
             _cardPatientNameColor = state.ApptCardPatientNameColor
             _cardReasonColor = state.ApptCardReasonColor
             _cardNotesColor = state.ApptCardNotesColor
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.ApplyState",
+                                   showUser:=False,
+                                   owner:=Me)
         Finally
 
             _syncing = False
@@ -285,32 +305,46 @@ Public Class ApptHeaderCtl
     End Sub
 
     Private Sub WireEvents()
-        AddHandler btnPrev.Click, Sub() RaiseEvent PrevRequested()
-        AddHandler btnNext.Click, Sub() RaiseEvent NextRequested()
-        AddHandler btnToday.Click, Sub() RaiseEvent TodayRequested()
-        AddHandler btnAdd.Click, Sub() RaiseEvent AddRequested()
-        AddHandler btnPrevView.Click, Sub() RaiseEvent PrevViewRequested()
-        AddHandler btnNextView.Click, Sub() RaiseEvent NextViewRequested()
-        AddHandler btnAllPatients.Click, Sub() If Not _syncing Then RaiseEvent AllPatientsRequested()
-        AddHandler btnThisPatient.Click, Sub() If Not _syncing Then RaiseEvent ThisPatientRequested()
-        AddHandler btnFilterDoctor0.Click, Sub() If Not _syncing Then RaiseEvent DoctorFilterChanged(Nothing)
-        AddHandler btnAllReasons.Click, Sub() If Not _syncing Then RaiseEvent StatusFilterChanged(Nothing)
-        AddHandler btnPending.Click, Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Pending")
-        AddHandler btnRunning.Click, Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Running")
-        AddHandler btnCompleted.Click, Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Completed")
-        AddHandler btnCanceled.Click, Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Canceled")
-        AddHandler btnPostponed.Click, Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Postponed")
-        AddHandler chkUse24.CheckedChanged, Sub() If Not _syncing Then RaiseEvent Use24Changed(chkUse24.Checked)
-        AddHandler gotoDate.EditValueChanged, Sub() If Not _syncing AndAlso gotoDate.EditValue IsNot Nothing Then RaiseEvent CurrentDateChanged(Convert.ToDateTime(gotoDate.EditValue))
+        AddHandler btnPrev.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.PrevRequested", Sub() RaiseEvent PrevRequested())
+        AddHandler btnNext.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.NextRequested", Sub() RaiseEvent NextRequested())
+        AddHandler btnToday.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.TodayRequested", Sub() RaiseEvent TodayRequested())
+        AddHandler btnAdd.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.AddRequested", Sub() RaiseEvent AddRequested())
+        AddHandler btnPrevView.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.PrevViewRequested", Sub() RaiseEvent PrevViewRequested())
+        AddHandler btnNextView.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.NextViewRequested", Sub() RaiseEvent NextViewRequested())
+        AddHandler btnAllPatients.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.AllPatientsRequested", Sub() If Not _syncing Then RaiseEvent AllPatientsRequested())
+        AddHandler btnThisPatient.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.ThisPatientRequested", Sub() If Not _syncing Then RaiseEvent ThisPatientRequested())
+        AddHandler btnFilterDoctor0.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.DoctorFilterChanged.All", Sub() If Not _syncing Then RaiseEvent DoctorFilterChanged(Nothing))
+        AddHandler btnAllReasons.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.All", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged(Nothing))
+        AddHandler btnPending.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Pending", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Pending"))
+        AddHandler btnRunning.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Running", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Running"))
+        AddHandler btnCompleted.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Completed", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Completed"))
+        AddHandler btnCanceled.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Canceled", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Canceled"))
+        AddHandler btnPostponed.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Postponed", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Postponed"))
+        AddHandler chkUse24.CheckedChanged, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.Use24Changed", Sub() If Not _syncing Then RaiseEvent Use24Changed(chkUse24.Checked))
+        AddHandler gotoDate.EditValueChanged, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.CurrentDateChanged", Sub() If Not _syncing AndAlso gotoDate.EditValue IsNot Nothing Then RaiseEvent CurrentDateChanged(Convert.ToDateTime(gotoDate.EditValue)))
         AddHandler cmbView.SelectedIndexChanged, AddressOf CmbView_SelectedIndexChanged
-        AddHandler includeReasonCheck.CheckedChanged, Sub() If Not _syncing Then RaiseEvent IncludeReasonChanged(includeReasonCheck.Checked)
-        AddHandler boldFontCheck.CheckedChanged, Sub() If Not _syncing Then RaiseEvent FontProfileChanged(boldFontCheck.Checked, sizeFontCheck.Checked)
-        AddHandler sizeFontCheck.CheckedChanged, Sub() If Not _syncing Then RaiseEvent FontProfileChanged(boldFontCheck.Checked, sizeFontCheck.Checked)
+        AddHandler includeReasonCheck.CheckedChanged, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.IncludeReasonChanged", Sub() If Not _syncing Then RaiseEvent IncludeReasonChanged(includeReasonCheck.Checked))
+        AddHandler boldFontCheck.CheckedChanged, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.FontProfileChanged.Bold", Sub() If Not _syncing Then RaiseEvent FontProfileChanged(boldFontCheck.Checked, sizeFontCheck.Checked))
+        AddHandler sizeFontCheck.CheckedChanged, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.FontProfileChanged.Size", Sub() If Not _syncing Then RaiseEvent FontProfileChanged(boldFontCheck.Checked, sizeFontCheck.Checked))
         AddHandler dtStartTime.EditValueChanged, AddressOf WorkingHours_EditValueChanged
         AddHandler dtEndTime.EditValueChanged, AddressOf WorkingHours_EditValueChanged
         If startColor IsNot Nothing Then AddHandler startColor.EditValueChanged, AddressOf ApptCardTimeColorPickers_EditValueChanged
         If endColor IsNot Nothing Then AddHandler endColor.EditValueChanged, AddressOf ApptCardTimeColorPickers_EditValueChanged
         If btnLabelsColors IsNot Nothing Then AddHandler btnLabelsColors.Click, AddressOf BtnLabelsColors_Click
+    End Sub
+
+    Private Sub SafeRaiseHeaderAction(context As String, action As Action)
+        If action Is Nothing Then Return
+        Try
+            action()
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   context,
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not apply the header action.",
+                                   arabicMessage:="تعذر تنفيذ إجراء الرأس.")
+        End Try
     End Sub
 
     Private Sub InitializeViewNavButtons()
@@ -353,25 +387,43 @@ Public Class ApptHeaderCtl
     End Sub
 
     Private Sub BtnLabelsColors_Click(sender As Object, e As EventArgs)
-        If _syncing Then Return
-        Using dlg As New ApptCardLabelColorsDialog(_cardPatientNameColor, _cardReasonColor, _cardNotesColor)
-            If dlg.ShowDialog(Me) <> DialogResult.OK Then Return
-            _cardPatientNameColor = dlg.ResultPatientNameColor
-            _cardReasonColor = dlg.ResultReasonColor
-            _cardNotesColor = dlg.ResultNotesColor
-            RaiseEvent ApptCardLabelColorsChanged(
-                dlg.ResultPatientNameColor,
-                dlg.ResultReasonColor,
-                dlg.ResultNotesColor)
-        End Using
+        Try
+            If _syncing Then Return
+            Using dlg As New ApptCardLabelColorsDialog(_cardPatientNameColor, _cardReasonColor, _cardNotesColor)
+                If dlg.ShowDialog(Me) <> DialogResult.OK Then Return
+                _cardPatientNameColor = dlg.ResultPatientNameColor
+                _cardReasonColor = dlg.ResultReasonColor
+                _cardNotesColor = dlg.ResultNotesColor
+                RaiseEvent ApptCardLabelColorsChanged(
+                    dlg.ResultPatientNameColor,
+                    dlg.ResultReasonColor,
+                    dlg.ResultNotesColor)
+            End Using
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.BtnLabelsColors_Click",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not update appointment label colors.",
+                                   arabicMessage:="تعذر تحديث ألوان تسميات الموعد.")
+        End Try
     End Sub
 
     Private Sub ApptCardTimeColorPickers_EditValueChanged(sender As Object, e As EventArgs)
-        If _syncing Then Return
-        Dim sc = ColorFromPicker(startColor, Color.Red)
-        Dim ec = ColorFromPicker(endColor, Color.SteelBlue)
-        ApplyHeaderTimeLabelColors(sc, ec)
-        RaiseEvent ApptCardTimeColorsChanged(sc, ec)
+        Try
+            If _syncing Then Return
+            Dim sc = ColorFromPicker(startColor, Color.Red)
+            Dim ec = ColorFromPicker(endColor, Color.SteelBlue)
+            ApplyHeaderTimeLabelColors(sc, ec)
+            RaiseEvent ApptCardTimeColorsChanged(sc, ec)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.ApptCardTimeColorPickers_EditValueChanged",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not update appointment time colors.",
+                                   arabicMessage:="تعذر تحديث ألوان وقت الموعد.")
+        End Try
     End Sub
 
     Private Shared Function ColorFromPicker(picker As DevExpress.XtraEditors.ColorEdit, fallback As Color) As Color
@@ -388,7 +440,8 @@ Public Class ApptHeaderCtl
         End If
         Try
             Return Color.FromArgb(Convert.ToInt32(editValue))
-        Catch
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptHeaderCtl.NormalizeColorValue", showUser:=False)
             Return fallback
         End Try
     End Function
@@ -405,24 +458,51 @@ Public Class ApptHeaderCtl
     End Sub
 
     Private Sub CmbView_SelectedIndexChanged(sender As Object, e As EventArgs)
-        If _syncing Then Return
-        Dim item = TryCast(cmbView.SelectedItem, ComboValueItem(Of ApptViewMode))
-        If item Is Nothing Then Return
-        RaiseEvent ViewChanged(item.Value)
+        Try
+            If _syncing Then Return
+            Dim item = TryCast(cmbView.SelectedItem, ComboValueItem(Of ApptViewMode))
+            If item Is Nothing Then Return
+            RaiseEvent ViewChanged(item.Value)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.CmbView_SelectedIndexChanged",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not change the appointment view.",
+                                   arabicMessage:="تعذر تغيير عرض المواعيد.")
+        End Try
     End Sub
 
     Private Sub WorkingHours_EditValueChanged(sender As Object, e As EventArgs)
-        If _syncing Then Return
-        Dim startTime = If(dtStartTime.EditValue Is Nothing, Date.Today.AddHours(8), Convert.ToDateTime(dtStartTime.EditValue))
-        Dim endTime = If(dtEndTime.EditValue Is Nothing, Date.Today.AddHours(16), Convert.ToDateTime(dtEndTime.EditValue))
-        RaiseEvent WorkingHoursChanged(startTime.TimeOfDay, endTime.TimeOfDay)
+        Try
+            If _syncing Then Return
+            Dim startTime = If(dtStartTime.EditValue Is Nothing, Date.Today.AddHours(8), Convert.ToDateTime(dtStartTime.EditValue))
+            Dim endTime = If(dtEndTime.EditValue Is Nothing, Date.Today.AddHours(16), Convert.ToDateTime(dtEndTime.EditValue))
+            RaiseEvent WorkingHoursChanged(startTime.TimeOfDay, endTime.TimeOfDay)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.WorkingHours_EditValueChanged",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not update working hours.",
+                                   arabicMessage:="تعذر تحديث ساعات العمل.")
+        End Try
     End Sub
 
     Private Sub DoctorFilterButton_Click(sender As Object, e As EventArgs)
-        If _syncing Then Return
-        Dim btn = TryCast(sender, SimpleButton)
-        If btn Is Nothing OrElse btn.Tag Is Nothing Then Return
-        RaiseEvent DoctorFilterChanged(CInt(btn.Tag))
+        Try
+            If _syncing Then Return
+            Dim btn = TryCast(sender, SimpleButton)
+            If btn Is Nothing OrElse btn.Tag Is Nothing Then Return
+            RaiseEvent DoctorFilterChanged(CInt(btn.Tag))
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.DoctorFilterButton_Click",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not apply the doctor filter.",
+                                   arabicMessage:="تعذر تطبيق فلتر الطبيب.")
+        End Try
     End Sub
 
     Private Sub Header_Resize(sender As Object, e As EventArgs)
@@ -478,7 +558,8 @@ Public Class ApptHeaderCtl
                 If headerTable IsNot Nothing AndAlso Not headerTable.IsDisposed Then
                     AddHandler headerTable.Layout, AddressOf HeaderTable_LayoutSyncButtonHeights
                 End If
-            Catch
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptHeaderCtl.ApplyHeaderToolbarButtonHeights.Rehook", showUser:=False)
             End Try
         End Try
     End Sub
@@ -808,7 +889,16 @@ Public Class ApptHeaderCtl
     End Sub
 
     Private Sub btnWeekSnapshot_Click(sender As Object, e As EventArgs) Handles btnWeekSnapshot.Click
-        RaiseEvent WeekSnapshotRequested()
+        Try
+            RaiseEvent WeekSnapshotRequested()
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.btnWeekSnapshot_Click",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not start the snapshot action.",
+                                   arabicMessage:="تعذر بدء إجراء اللقطة.")
+        End Try
     End Sub
 
     Private Sub FilterDoctorAllButton_Click(sender As Object, e As EventArgs)
@@ -816,8 +906,17 @@ Public Class ApptHeaderCtl
     End Sub
 
     Private Sub btnLabs_Click(sender As Object, e As EventArgs) Handles btnLabs.Click
-        Using F As New FrmLabSendWhats
-            F.ShowDialog(Me)
-        End Using
+        Try
+            Using F As New FrmLabSendWhats
+                F.ShowDialog(Me)
+            End Using
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.btnLabs_Click",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not open the lab WhatsApp window.",
+                                   arabicMessage:="تعذر فتح نافذة واتساب المختبر.")
+        End Try
     End Sub
 End Class

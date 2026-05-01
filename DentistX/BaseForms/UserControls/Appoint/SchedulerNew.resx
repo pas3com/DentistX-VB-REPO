@@ -130,7 +130,7 @@
     <value>3, 155</value>
   </data>
   <data name="pnlBody.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1151, 502</value>
+    <value>1394, 642</value>
   </data>
   <data name="pnlBody.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -484,7 +484,7 @@
     <value>103, 3</value>
   </data>
   <data name="pnlDoctorFilterScroll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>742, 19</value>
+    <value>925, 19</value>
   </data>
   <data name="pnlDoctorFilterScroll.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -511,7 +511,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tblFilterDoctors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>848, 25</value>
+    <value>1031, 25</value>
   </data>
   <data name="tblFilterDoctors.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -532,10 +532,10 @@
     <value>Fill</value>
   </data>
   <data name="pnlFilterDoctors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 38</value>
+    <value>233, 38</value>
   </data>
   <data name="pnlFilterDoctors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>848, 25</value>
+    <value>1031, 25</value>
   </data>
   <data name="pnlFilterDoctors.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -559,10 +559,10 @@
     <value>Fill</value>
   </data>
   <data name="lblStartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 69</value>
+    <value>579, 69</value>
   </data>
   <data name="lblStartTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 22</value>
+    <value>109, 22</value>
   </data>
   <data name="lblStartTime.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -592,7 +592,7 @@
     <value>3, 3</value>
   </data>
   <data name="btnAllReasons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
+    <value>108, 23</value>
   </data>
   <data name="btnAllReasons.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -619,10 +619,10 @@
     <value>Fill</value>
   </data>
   <data name="btnPending.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 3</value>
+    <value>117, 3</value>
   </data>
   <data name="btnPending.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
+    <value>108, 23</value>
   </data>
   <data name="btnPending.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -649,10 +649,10 @@
     <value>Fill</value>
   </data>
   <data name="btnRunning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 3</value>
+    <value>231, 3</value>
   </data>
   <data name="btnRunning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
+    <value>108, 23</value>
   </data>
   <data name="btnRunning.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -679,10 +679,10 @@
     <value>Fill</value>
   </data>
   <data name="btnCompleted.Location" type="System.Drawing.Point, System.Drawing">
-    <value>285, 3</value>
+    <value>346, 3</value>
   </data>
   <data name="btnCompleted.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
+    <value>108, 23</value>
   </data>
   <data name="btnCompleted.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -709,10 +709,10 @@
     <value>Fill</value>
   </data>
   <data name="btnCanceled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>378, 3</value>
+    <value>460, 3</value>
   </data>
   <data name="btnCanceled.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
+    <value>108, 23</value>
   </data>
   <data name="btnCanceled.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -739,10 +739,10 @@
     <value>Fill</value>
   </data>
   <data name="btnPostponed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>472, 3</value>
+    <value>574, 3</value>
   </data>
   <data name="btnPostponed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
+    <value>108, 23</value>
   </data>
   <data name="btnPostponed.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -772,7 +772,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tblFilterReasons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>563, 29</value>
+    <value>685, 29</value>
   </data>
   <data name="tblFilterReasons.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -793,10 +793,10 @@
     <value>Fill</value>
   </data>
   <data name="pnlFilterReasons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 3</value>
+    <value>579, 3</value>
   </data>
   <data name="pnlFilterReasons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>563, 29</value>
+    <value>685, 29</value>
   </data>
   <data name="pnlFilterReasons.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -817,7 +817,7 @@
     <value />
   </data>
   <data name="dtStartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>573, 69</value>
+    <value>694, 69</value>
   </data>
   <data name="dtStartTime.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -830,7 +830,7 @@
     <value>Combo</value>
   </data>
   <data name="dtStartTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 22</value>
+    <value>109, 22</value>
   </data>
   <data name="dtStartTime.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -857,7 +857,7 @@
     <value>3, 3</value>
   </data>
   <data name="btnAllPatients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 23</value>
+    <value>110, 23</value>
   </data>
   <data name="btnAllPatients.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -884,10 +884,10 @@
     <value>Fill</value>
   </data>
   <data name="btnThisPatient.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 3</value>
+    <value>119, 3</value>
   </data>
   <data name="btnThisPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 23</value>
+    <value>110, 23</value>
   </data>
   <data name="btnThisPatient.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -917,7 +917,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tblFilterPatients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 29</value>
+    <value>232, 29</value>
   </data>
   <data name="tblFilterPatients.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -938,10 +938,10 @@
     <value>Fill</value>
   </data>
   <data name="pnlFilterPatients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 3</value>
+    <value>233, 3</value>
   </data>
   <data name="pnlFilterPatients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 29</value>
+    <value>232, 29</value>
   </data>
   <data name="pnlFilterPatients.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -962,7 +962,7 @@
     <value>True</value>
   </data>
   <data name="includeReasonCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 70</value>
+    <value>233, 70</value>
   </data>
   <data name="includeReasonCheck.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -971,7 +971,7 @@
     <value>Include Reason</value>
   </data>
   <data name="includeReasonCheck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 19</value>
+    <value>128, 19</value>
   </data>
   <data name="includeReasonCheck.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1002,10 +1002,10 @@
     <value>Blue</value>
   </data>
   <data name="lblPatients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 3</value>
+    <value>118, 3</value>
   </data>
   <data name="lblPatients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 29</value>
+    <value>109, 29</value>
   </data>
   <data name="lblPatients.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1032,10 +1032,10 @@
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="btnNextView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1047, 46</value>
+    <value>1270, 46</value>
   </data>
   <data name="btnNextView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 37</value>
+    <value>109, 37</value>
   </data>
   <data name="btnNextView.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1065,7 +1065,7 @@
     <value>3, 46</value>
   </data>
   <data name="btnPrevView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 37</value>
+    <value>109, 37</value>
   </data>
   <data name="btnPrevView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1098,10 +1098,10 @@
     <value>Blue</value>
   </data>
   <data name="lblDoc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 38</value>
+    <value>118, 38</value>
   </data>
   <data name="lblDoc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 25</value>
+    <value>109, 25</value>
   </data>
   <data name="lblDoc.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1134,10 +1134,10 @@
     <value>Blue</value>
   </data>
   <data name="lblOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 69</value>
+    <value>118, 69</value>
   </data>
   <data name="lblOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 22</value>
+    <value>109, 22</value>
   </data>
   <data name="lblOptions.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1167,10 +1167,10 @@
     <value>Blue</value>
   </data>
   <data name="lblStatusFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>389, 3</value>
+    <value>471, 3</value>
   </data>
   <data name="lblStatusFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 29</value>
+    <value>102, 29</value>
   </data>
   <data name="lblStatusFilter.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1194,7 +1194,7 @@
     <value>True</value>
   </data>
   <data name="boldFontCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 70</value>
+    <value>367, 70</value>
   </data>
   <data name="boldFontCheck.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -1203,7 +1203,7 @@
     <value>Bold Font</value>
   </data>
   <data name="boldFontCheck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 19</value>
+    <value>98, 19</value>
   </data>
   <data name="boldFontCheck.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1224,7 +1224,7 @@
     <value>True</value>
   </data>
   <data name="sizeFontCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>389, 70</value>
+    <value>471, 70</value>
   </data>
   <data name="sizeFontCheck.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -1233,7 +1233,7 @@
     <value>Font Size</value>
   </data>
   <data name="sizeFontCheck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 19</value>
+    <value>102, 19</value>
   </data>
   <data name="sizeFontCheck.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1257,10 +1257,10 @@
     <value>Vertical</value>
   </data>
   <data name="lblApptsCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>857, 71</value>
+    <value>1040, 71</value>
   </data>
   <data name="lblApptsCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 17</value>
+    <value>109, 17</value>
   </data>
   <data name="lblApptsCount.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1284,7 +1284,7 @@
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="lblCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>952, 72</value>
+    <value>1155, 72</value>
   </data>
   <data name="lblCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 15</value>
@@ -1311,7 +1311,7 @@
     <value />
   </data>
   <data name="dtEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>762, 69</value>
+    <value>924, 69</value>
   </data>
   <data name="dtEndTime.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -1323,7 +1323,7 @@
     <value>Combo</value>
   </data>
   <data name="dtEndTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 22</value>
+    <value>109, 22</value>
   </data>
   <data name="dtEndTime.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1347,10 +1347,10 @@
     <value>Fill</value>
   </data>
   <data name="lblEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>667, 69</value>
+    <value>809, 69</value>
   </data>
   <data name="lblEndTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 22</value>
+    <value>109, 22</value>
   </data>
   <data name="lblEndTime.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1377,7 +1377,7 @@
     <value>2, 2</value>
   </data>
   <data name="filtersTable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1139, 94</value>
+    <value>1382, 94</value>
   </data>
   <data name="filtersTable.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1401,7 +1401,7 @@
     <value>2, 42</value>
   </data>
   <data name="grpFilters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1143, 98</value>
+    <value>1386, 98</value>
   </data>
   <data name="grpFilters.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -1431,7 +1431,7 @@
     <value>0, 0</value>
   </data>
   <data name="lblPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 30</value>
+    <value>242, 30</value>
   </data>
   <data name="lblPatient.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1458,7 +1458,7 @@
     <value>0, 0, 4, 0</value>
   </data>
   <data name="pnlHeaderLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 30</value>
+    <value>246, 30</value>
   </data>
   <data name="pnlHeaderLeft.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1812,10 +1812,10 @@
     <value>0</value>
   </data>
   <data name="pnlHeaderCenter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 3</value>
+    <value>255, 3</value>
   </data>
   <data name="pnlHeaderCenter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>730, 30</value>
+    <value>888, 30</value>
   </data>
   <data name="pnlHeaderCenter.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1845,7 +1845,7 @@
     <value>4, 0</value>
   </data>
   <data name="lblRange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 30</value>
+    <value>227, 30</value>
   </data>
   <data name="lblRange.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1866,13 +1866,13 @@
     <value>0</value>
   </data>
   <data name="pnlHeaderRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>947, 3</value>
+    <value>1148, 3</value>
   </data>
   <data name="pnlHeaderRight.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 0, 0</value>
   </data>
   <data name="pnlHeaderRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 30</value>
+    <value>231, 30</value>
   </data>
   <data name="pnlHeaderRight.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1896,7 +1896,7 @@
     <value>2, 2</value>
   </data>
   <data name="headerTable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1139, 36</value>
+    <value>1382, 36</value>
   </data>
   <data name="headerTable.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1920,7 +1920,7 @@
     <value>2, 2</value>
   </data>
   <data name="pnlButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1143, 40</value>
+    <value>1386, 40</value>
   </data>
   <data name="pnlButtons.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1944,7 +1944,7 @@
     <value>2, 2</value>
   </data>
   <data name="legendPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1147, 142</value>
+    <value>1390, 142</value>
   </data>
   <data name="legendPanel.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1968,7 +1968,7 @@
     <value>3, 3</value>
   </data>
   <data name="pnlHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1151, 146</value>
+    <value>1394, 146</value>
   </data>
   <data name="pnlHeader.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1992,7 +1992,7 @@
     <value>0, 0</value>
   </data>
   <data name="tlpMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1157, 660</value>
+    <value>1400, 800</value>
   </data>
   <data name="tlpMain.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2013,7 +2013,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1157, 660</value>
+    <value>1400, 800</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SchedulerNew</value>

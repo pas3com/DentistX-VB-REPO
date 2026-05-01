@@ -2,10 +2,12 @@ Imports System.Collections.Concurrent
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports System.Diagnostics
 Imports System.Drawing
 Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
 Imports System.Drawing.Text
+Imports System.Globalization
 Imports System.IO
 Imports System.Linq
 Imports System.Runtime.InteropServices
@@ -223,7 +225,7 @@ Public Class SchedulerNew
 
 #Region "1.8 Resize"
     Private ReadOnly controlBoundsCache As New ConcurrentDictionary(Of Control, Rectangle)
-    Private Const OriginalPanelWidth As Integer = 1157
+    Private Const OriginalPanelWidth As Integer = 1387
     Private Const OriginalPanelHeight As Integer = 660
     Private ReadOnly originalPanelSize As New Size(OriginalPanelWidth, OriginalPanelHeight)
     Private _resizeTimer As System.Windows.Forms.Timer
@@ -234,6 +236,16 @@ Public Class SchedulerNew
     ' ──────────────────────────────────────────
 
 #Region "1.8b Body workspace expand"
+    Private Const BodyEdgeHintWidth As Integer = 36
+    Private Const BodyEdgeHintHeight As Integer = 90
+    Private Const BodyEdgeHintHostPadding As Integer = 0
+    Private Const BodyEdgeHintBandWidth As Single = BodyEdgeHintWidth
+
+    Private _bodyViewHost As PanelControl
+    Private _bodyPrevHintHost As PanelControl
+    Private _bodyNextHintHost As PanelControl
+    Private _bodyLayoutHost As TablePanel
+    Private _bodyWorkspaceEventsWired As Boolean
     Private _btnBodyExpand As SimpleButton
     ''' <summary>Toolbar duplicate for Add; visible only while body is expanded (maximized).</summary>
     Private _btnBodyQuickAdd As SimpleButton
@@ -254,6 +266,13 @@ Public Class SchedulerNew
     Private _appointmentFont As Font
     Private _appointmentFontKey As String
     Private _cboDocsLegend As ComboBoxEdit
+    Private _schedulerToolTip As ToolTip
+    Private _weekSnapshotToolTip As ToolTip
+    Private _statusContextMenu As ContextMenuStrip
+    Private _statusContextMenuFont As Font
+    Private _statusContextMenuAppointment As AppointmentC
+    Private _statusContextMenuLabel As Label
+    Private _statusContextMenuColors As Dictionary(Of String, Color)
     Private _legendOptionHandlersWired As Boolean
     Private ReadOnly _viewNavBack As New Stack(Of ViewMode)
     Private ReadOnly _viewNavForward As New Stack(Of ViewMode)
@@ -263,6 +282,9 @@ Public Class SchedulerNew
     Private _suppressGotoDateSync As Boolean
     ''' <summary>When switching to day view from a week card, filter columns to this doctor once.</summary>
     Private _pendingDayViewDoctorFilter As Integer?
+    Private _loadAndRenderInProgress As Boolean
+    Private _loadAndRenderQueued As Boolean
+    Private _lastSchedulerHandlePressureLogUtc As DateTime = DateTime.MinValue
 #End Region
 
     ' ──────────────────────────────────────────
@@ -428,10 +450,42 @@ Public Class SchedulerNew
 
     Private Function AppointmentTimeFromDateEdit(de As DateEdit, defaultTimeOfDay As TimeSpan) As DateTime
         If de Is Nothing OrElse de.EditValue Is Nothing OrElse IsDBNull(de.EditValue) Then
+            Dim fallback As DateTime
+            If TryGetDateTimeFromEditorValue(If(de Is Nothing, Nothing, de.Text), fallback) Then
+                Return DateTime.Today.Add(fallback.TimeOfDay)
+            End If
             Return DateTime.Today.Add(defaultTimeOfDay)
         End If
-        Dim raw = Convert.ToDateTime(de.EditValue)
-        Return DateTime.Today.Add(raw.TimeOfDay)
+        Dim raw As DateTime
+        If TryGetDateTimeFromEditorValue(de.EditValue, raw) OrElse
+           TryGetDateTimeFromEditorValue(de.Text, raw) Then
+            Return DateTime.Today.Add(raw.TimeOfDay)
+        End If
+        Return DateTime.Today.Add(defaultTimeOfDay)
+    End Function
+
+    Private Shared Function TryGetDateTimeFromEditorValue(raw As Object, ByRef value As DateTime) As Boolean
+        value = DateTime.MinValue
+        If raw Is Nothing OrElse IsDBNull(raw) Then Return False
+
+        If TypeOf raw Is DateTime Then
+            value = DirectCast(raw, DateTime)
+            Return True
+        End If
+
+        If TypeOf raw Is Date Then
+            value = CDate(raw)
+            Return True
+        End If
+
+        Dim text = TryCast(raw, String)
+        If String.IsNullOrWhiteSpace(text) Then
+            text = Convert.ToString(raw, CultureInfo.CurrentCulture)
+        End If
+        If String.IsNullOrWhiteSpace(text) Then Return False
+
+        Return DateTime.TryParse(text, CultureInfo.CurrentCulture, DateTimeStyles.AllowWhiteSpaces, value) OrElse
+               DateTime.TryParse(text, CultureInfo.InvariantCulture, DateTimeStyles.AllowWhiteSpaces, value)
     End Function
 
     Private Sub ApplyWorkingHoursFromPickers(persistToSettings As Boolean, refreshView As Boolean)
@@ -566,6 +620,22 @@ Public Class SchedulerNew
                                         _appointmentFont.Dispose()
                                         _appointmentFont = Nothing
                                     End If
+                                    If _schedulerToolTip IsNot Nothing Then
+                                        _schedulerToolTip.Dispose()
+                                        _schedulerToolTip = Nothing
+                                    End If
+                                    If _weekSnapshotToolTip IsNot Nothing Then
+                                        _weekSnapshotToolTip.Dispose()
+                                        _weekSnapshotToolTip = Nothing
+                                    End If
+                                    If _statusContextMenu IsNot Nothing Then
+                                        _statusContextMenu.Dispose()
+                                        _statusContextMenu = Nothing
+                                    End If
+                                    If _statusContextMenuFont IsNot Nothing Then
+                                        _statusContextMenuFont.Dispose()
+                                        _statusContextMenuFont = Nothing
+                                    End If
                                 End Sub
         If btnPrevView IsNot Nothing Then btnPrevView.Visible = False
         If btnNextView IsNot Nothing Then btnNextView.Visible = False
@@ -574,6 +644,7 @@ Public Class SchedulerNew
         EnsureFiltersTableButtonHeightHook()
         InitializeWorkingHoursPickersFromSettings()
         SyncDefaultWeekViewFromCombo()
+        EnsureSchedulerBodyWorkspace()
         EnsureBodyWorkspaceExpandButton()
         InitializeWeekSnapshotButton()
         'StoreOriginalBounds(Me)
@@ -603,6 +674,22 @@ Public Class SchedulerNew
                                         _appointmentFont.Dispose()
                                         _appointmentFont = Nothing
                                     End If
+                                    If _schedulerToolTip IsNot Nothing Then
+                                        _schedulerToolTip.Dispose()
+                                        _schedulerToolTip = Nothing
+                                    End If
+                                    If _weekSnapshotToolTip IsNot Nothing Then
+                                        _weekSnapshotToolTip.Dispose()
+                                        _weekSnapshotToolTip = Nothing
+                                    End If
+                                    If _statusContextMenu IsNot Nothing Then
+                                        _statusContextMenu.Dispose()
+                                        _statusContextMenu = Nothing
+                                    End If
+                                    If _statusContextMenuFont IsNot Nothing Then
+                                        _statusContextMenuFont.Dispose()
+                                        _statusContextMenuFont = Nothing
+                                    End If
                                 End Sub
         If btnPrevView IsNot Nothing Then btnPrevView.Visible = False
         If btnNextView IsNot Nothing Then btnNextView.Visible = False
@@ -611,6 +698,7 @@ Public Class SchedulerNew
         EnsureFiltersTableButtonHeightHook()
         InitializeWorkingHoursPickersFromSettings()
         SyncDefaultWeekViewFromCombo()
+        EnsureSchedulerBodyWorkspace()
         EnsureBodyWorkspaceExpandButton()
         InitializeWeekSnapshotButton()
         StoreOriginalBounds(Me)
@@ -619,6 +707,7 @@ Public Class SchedulerNew
         ' DateEdit often drops ctor-time EditValue until the control is loaded; re-bind from My.Settings before first render.
         InitializeWorkingHoursPickersFromSettings()
         ApplyLocalizedSchedulerFilterRadioCaptions()
+        ReleaseSchedulerTransientUiHandles()
         If _view <> ViewMode.ThisWeekFull OrElse cmbView.SelectedIndex <> ComboIndexFromViewMode(ViewMode.ThisWeekFull) Then
             SetView(ViewMode.ThisWeekFull)
         Else
@@ -1878,70 +1967,71 @@ Public Class SchedulerNew
 
     Public Sub LoadAndRender()
         If _repo Is Nothing Then Return
-        EnsureAppointmentCachePrimed()
-        Dim rangeStart As DateTime
-        Dim rangeEnd As DateTime
-        'If CurrentUser IsNot Nothing Then
-        '    FilterDoctorId = CurrentUser.DrID
-        '    If PatientID > 0 Then
-        '        FilterPatientId = PatientID
-        '    End If
-        'End If
+        If _loadAndRenderInProgress Then
+            _loadAndRenderQueued = True
+            Return
+        End If
 
-        Select Case _view
-            Case ViewMode.DayView
-                rangeStart = _currentDate.Date
-                rangeEnd = _currentDate.Date.AddDays(1)
-            Case ViewMode.ThisWeekFull
-                ' Full week (Sat-Fri)   
-                Dim currentDayOfWeek As Integer = CInt(_currentDate.DayOfWeek)
-                Dim daysToSaturday As Integer = (currentDayOfWeek - 6 + 7) Mod 7
-                Dim weekStart As DateTime = _currentDate.Date.AddDays(-daysToSaturday)
-                rangeStart = weekStart
-                rangeEnd = weekStart.AddDays(7) ' Sat to Fri (7 days)
-            Case ViewMode.ThisWeek
-                ' Fixed for ThisWeek (Sat-Thu week)
-                Dim currentDayOfWeek As Integer = CInt(_currentDate.DayOfWeek)
-                Dim daysToSaturday As Integer = (currentDayOfWeek - 6 + 7) Mod 7
-                Dim weekStart As DateTime = _currentDate.Date.AddDays(-daysToSaturday)
-                rangeStart = weekStart
-                rangeEnd = weekStart.AddDays(6) ' Sat to Thu (6 days)
-            Case ViewMode.MonthlyWeek
-                Dim d0 = _currentDate.Date.AddDays(-(CInt(_currentDate.DayOfWeek)))
-                rangeStart = d0
-                rangeEnd = d0.AddDays(7)
-            Case ViewMode.DaysTimeline
-                ' 7-day timeline starting from Saturday of current week
-                Dim currentDow As Integer = CInt(_currentDate.DayOfWeek)
-                Dim daysToSat As Integer = (currentDow - 6 + 7) Mod 7
-                Dim tlWeekStart As DateTime = _currentDate.Date.AddDays(-daysToSat)
-                rangeStart = tlWeekStart
-                rangeEnd = tlWeekStart.AddDays(7)
-            Case ViewMode.DoctorsDay
-                rangeStart = _currentDate.Date
-                rangeEnd = _currentDate.Date.AddDays(1)
-            Case Else
-                rangeStart = New DateTime(_currentDate.Year, _currentDate.Month, 1)
-                rangeEnd = rangeStart.AddMonths(1)
-        End Select
+        _loadAndRenderInProgress = True
+        Try
+            Do
+                _loadAndRenderQueued = False
+                EnsureAppointmentCachePrimed()
+                Dim rangeStart As DateTime
+                Dim rangeEnd As DateTime
 
-        ' expand by filter range if specified
-        If FilterStartDate <> Date.MinValue Then rangeStart = Min(rangeStart, FilterStartDate)
-        If FilterEndDate <> Date.MinValue Then rangeEnd = Max(rangeEnd, FilterEndDate)
+                Select Case _view
+                    Case ViewMode.DayView
+                        rangeStart = _currentDate.Date
+                        rangeEnd = _currentDate.Date.AddDays(1)
+                    Case ViewMode.ThisWeekFull
+                        Dim currentDayOfWeek As Integer = CInt(_currentDate.DayOfWeek)
+                        Dim daysToSaturday As Integer = (currentDayOfWeek - 6 + 7) Mod 7
+                        Dim weekStart As DateTime = _currentDate.Date.AddDays(-daysToSaturday)
+                        rangeStart = weekStart
+                        rangeEnd = weekStart.AddDays(7)
+                    Case ViewMode.ThisWeek
+                        Dim currentDayOfWeek As Integer = CInt(_currentDate.DayOfWeek)
+                        Dim daysToSaturday As Integer = (currentDayOfWeek - 6 + 7) Mod 7
+                        Dim weekStart As DateTime = _currentDate.Date.AddDays(-daysToSaturday)
+                        rangeStart = weekStart
+                        rangeEnd = weekStart.AddDays(6)
+                    Case ViewMode.MonthlyWeek
+                        Dim d0 = _currentDate.Date.AddDays(-(CInt(_currentDate.DayOfWeek)))
+                        rangeStart = d0
+                        rangeEnd = d0.AddDays(7)
+                    Case ViewMode.DaysTimeline
+                        Dim currentDow As Integer = CInt(_currentDate.DayOfWeek)
+                        Dim daysToSat As Integer = (currentDow - 6 + 7) Mod 7
+                        Dim tlWeekStart As DateTime = _currentDate.Date.AddDays(-daysToSat)
+                        rangeStart = tlWeekStart
+                        rangeEnd = tlWeekStart.AddDays(7)
+                    Case ViewMode.DoctorsDay
+                        rangeStart = _currentDate.Date
+                        rangeEnd = _currentDate.Date.AddDays(1)
+                    Case Else
+                        rangeStart = New DateTime(_currentDate.Year, _currentDate.Month, 1)
+                        rangeEnd = rangeStart.AddMonths(1)
+                End Select
 
-        Dim reasonFilter As String = If(String.IsNullOrWhiteSpace(FilterReason), Nothing, FilterReason.Trim())
-        Dim statusFilter As String = If(String.IsNullOrWhiteSpace(FilterStatus), Nothing, FilterStatus.Trim())
-        ' Same filters except doctor: keeps all doctor radio slots populated while one doctor is selected.
-        Dim apptsForDoctorStrip = _repo.GetFiltered(rangeStart, rangeEnd, FilterPatientId, Nothing, reasonFilter, statusFilter)
-        ' FilterDoctorId validity is enforced in LoadDoctorLegend against dbo.Doctors (not “doctors with appointments in range”).
-        Dim effectiveDoctorFilter As Integer? = FilterDoctorId
-        If _view = ViewMode.DoctorsDay Then effectiveDoctorFilter = Nothing
-        Dim loadedAppts = _repo.GetFiltered(rangeStart, rangeEnd, FilterPatientId, effectiveDoctorFilter, reasonFilter, statusFilter)
-        Dim orderedAppts = ApptTheme.OrderAppointmentsForDisplay(loadedAppts, Function(id) _repo.GetDoctorName(id))
-        _AppointmentC = New BindingList(Of AppointmentC)(orderedAppts)
-        LoadDoctorLegend(apptsForDoctorStrip)
-        RebuildNavigationHintLists(reasonFilter, statusFilter, effectiveDoctorFilter)
-        Render()
+                If FilterStartDate <> Date.MinValue Then rangeStart = Min(rangeStart, FilterStartDate)
+                If FilterEndDate <> Date.MinValue Then rangeEnd = Max(rangeEnd, FilterEndDate)
+
+                Dim reasonFilter As String = If(String.IsNullOrWhiteSpace(FilterReason), Nothing, FilterReason.Trim())
+                Dim statusFilter As String = If(String.IsNullOrWhiteSpace(FilterStatus), Nothing, FilterStatus.Trim())
+                Dim apptsForDoctorStrip = _repo.GetFiltered(rangeStart, rangeEnd, FilterPatientId, Nothing, reasonFilter, statusFilter)
+                Dim effectiveDoctorFilter As Integer? = FilterDoctorId
+                If _view = ViewMode.DoctorsDay Then effectiveDoctorFilter = Nothing
+                Dim loadedAppts = _repo.GetFiltered(rangeStart, rangeEnd, FilterPatientId, effectiveDoctorFilter, reasonFilter, statusFilter)
+                Dim orderedAppts = ApptTheme.OrderAppointmentsForDisplay(loadedAppts, Function(id) _repo.GetDoctorName(id))
+                _AppointmentC = New BindingList(Of AppointmentC)(orderedAppts)
+                LoadDoctorLegend(apptsForDoctorStrip)
+                RebuildNavigationHintLists(reasonFilter, statusFilter, effectiveDoctorFilter)
+                Render()
+            Loop While _loadAndRenderQueued AndAlso Not _isShuttingDown
+        Finally
+            _loadAndRenderInProgress = False
+        End Try
     End Sub
 
     ''' <summary>PREV/NEXT edge hints must see appointments outside the visible date window (e.g. prior year). Uses full cache with the same filters as the grid, without date clipping.</summary>
@@ -1997,6 +2087,10 @@ Public Class SchedulerNew
     Private Shared Function SendMessageRedraw(hWnd As IntPtr, msg As Integer, wParam As IntPtr, lParam As IntPtr) As IntPtr
     End Function
 
+    <DllImport("user32.dll", SetLastError:=True)>
+    Private Shared Function GetGuiResources(hProcess As IntPtr, uiFlags As Integer) As Integer
+    End Function
+
     Private Shared Sub SetControlDoubleBuffered(c As Control)
         If c Is Nothing Then Return
         Try
@@ -2015,7 +2109,7 @@ Public Class SchedulerNew
     Private Sub ResumePnlBodyRedraw()
         If pnlBody Is Nothing OrElse Not pnlBody.IsHandleCreated Then Return
         SendMessageRedraw(pnlBody.Handle, WM_SETREDRAW, New IntPtr(1), IntPtr.Zero)
-        pnlBody.Refresh()
+        ApptErrorHelper.SafeRefresh(pnlBody, "SchedulerNew.ResumePnlBodyRedraw.RefreshBody")
     End Sub
 
     ''' <summary>
@@ -2023,6 +2117,10 @@ Public Class SchedulerNew
     ''' <see cref="EnsureWeekEdgeHints"/> may re-add disposed controls and exhaust window handles.
     ''' </summary>
     Private Sub InvalidatePnlBodyEdgeHintsAfterClear()
+        If _bodyViewHost IsNot Nothing AndAlso _bodyViewHost.IsDisposed Then _bodyViewHost = Nothing
+        If _bodyPrevHintHost IsNot Nothing AndAlso _bodyPrevHintHost.IsDisposed Then _bodyPrevHintHost = Nothing
+        If _bodyNextHintHost IsNot Nothing AndAlso _bodyNextHintHost.IsDisposed Then _bodyNextHintHost = Nothing
+        If _bodyLayoutHost IsNot Nothing AndAlso _bodyLayoutHost.IsDisposed Then _bodyLayoutHost = Nothing
         If _weekPrevHint IsNot Nothing AndAlso _weekPrevHint.IsDisposed Then _weekPrevHint = Nothing
         If _weekNextHint IsNot Nothing AndAlso _weekNextHint.IsDisposed Then _weekNextHint = Nothing
         If _dayPrevHint IsNot Nothing AndAlso _dayPrevHint.IsDisposed Then _dayPrevHint = Nothing
@@ -2045,6 +2143,176 @@ Public Class SchedulerNew
         End Try
     End Sub
 
+    Private Shared Function IsTransientDevExpressPopupForm(f As Form) As Boolean
+        If f Is Nothing OrElse f.IsDisposed Then Return False
+        Dim typeName = f.GetType().FullName
+        If String.IsNullOrEmpty(typeName) Then Return False
+        Return typeName.IndexOf("DevExpress.XtraEditors.Popup.", StringComparison.OrdinalIgnoreCase) >= 0 OrElse
+               typeName.IndexOf("DevExpress.Utils.SuperToolTipWindow", StringComparison.OrdinalIgnoreCase) >= 0 OrElse
+               typeName.IndexOf("DevExpress.Utils.FlyoutPanelToolForm", StringComparison.OrdinalIgnoreCase) >= 0
+    End Function
+
+    Private Shared Function CountTransientPopupForms() As Integer
+        Try
+            Dim count = 0
+            For Each f As Form In Application.OpenForms
+                If IsTransientDevExpressPopupForm(f) Then count += 1
+            Next
+            Return count
+        Catch
+            Return -1
+        End Try
+    End Function
+
+    Private Sub CloseGlobalTransientPopupForms()
+        Try
+            Dim toClose As New List(Of Form)()
+            For Each f As Form In Application.OpenForms
+                If IsTransientDevExpressPopupForm(f) Then toClose.Add(f)
+            Next
+            For Each popupForm As Form In toClose
+                Try
+                    popupForm.Hide()
+                Catch
+                End Try
+                Try
+                    popupForm.Close()
+                Catch
+                End Try
+                Try
+                    popupForm.Dispose()
+                Catch
+                End Try
+            Next
+        Catch
+        End Try
+    End Sub
+
+    Private Sub EnsureSchedulerTransientUiHelpers()
+        If _schedulerToolTip Is Nothing Then
+            _schedulerToolTip = New ToolTip With {
+                .AutomaticDelay = 300,
+                .AutoPopDelay = 8000,
+                .InitialDelay = 300,
+                .ReshowDelay = 100
+            }
+        End If
+        If _weekSnapshotToolTip Is Nothing Then
+            _weekSnapshotToolTip = New ToolTip With {
+                .AutomaticDelay = 300,
+                .AutoPopDelay = 7000,
+                .InitialDelay = 300,
+                .ReshowDelay = 100
+            }
+        End If
+        If _statusContextMenuFont Is Nothing Then
+            _statusContextMenuFont = New Font("Calibri", 10, FontStyle.Bold)
+        End If
+        If _statusContextMenu Is Nothing Then
+            _statusContextMenu = New ContextMenuStrip With {
+                .ShowImageMargin = False,
+                .Font = _statusContextMenuFont
+            }
+        End If
+    End Sub
+
+    Private Sub ClearSchedulerRenderToolTips()
+        If _schedulerToolTip Is Nothing Then Return
+        Try
+            _schedulerToolTip.RemoveAll()
+        Catch
+        End Try
+    End Sub
+
+    Private Function SchedulerRenderToolTip() As ToolTip
+        EnsureSchedulerTransientUiHelpers()
+        Return _schedulerToolTip
+    End Function
+
+    Private Sub ReleaseSchedulerTransientUiHandles()
+        CloseSchedulerDevExpressPopups()
+        CloseGlobalTransientPopupForms()
+        ClearSchedulerRenderToolTips()
+        Try
+            If _statusContextMenu IsNot Nothing Then _statusContextMenu.Close()
+        Catch
+        End Try
+    End Sub
+
+    Private Shared Function CurrentProcessUserHandleCount() As Integer
+        Try
+            Return GetGuiResources(Process.GetCurrentProcess().Handle, 1)
+        Catch
+            Return -1
+        End Try
+    End Function
+
+    Private Shared Function CurrentProcessGdiHandleCount() As Integer
+        Try
+            Return GetGuiResources(Process.GetCurrentProcess().Handle, 0)
+        Catch
+            Return -1
+        End Try
+    End Function
+
+    Private Function TryRecoverSchedulerResources() As Boolean
+        ReleaseSchedulerTransientUiHandles()
+        Try
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            GC.Collect()
+        Catch
+        End Try
+        Dim userHandles = CurrentProcessUserHandleCount()
+        Dim gdiHandles = CurrentProcessGdiHandleCount()
+        Dim popupForms = CountTransientPopupForms()
+        Return (userHandles < 0 OrElse userHandles < 6500) AndAlso
+               (gdiHandles < 0 OrElse gdiHandles < 8000) AndAlso
+               (popupForms < 0 OrElse popupForms <= 2)
+    End Function
+
+    Private Function CurrentViewUsesLightweightSurface() As Boolean
+        Return _view = ViewMode.DoctorsDay
+    End Function
+
+    Private Function EnsureSchedulerCanRenderHeavyView() As Boolean
+        Dim userHandles = CurrentProcessUserHandleCount()
+        Dim gdiHandles = CurrentProcessGdiHandleCount()
+        Dim popupForms = CountTransientPopupForms()
+        Dim userHandleLimit = If(CurrentViewUsesLightweightSurface(), 9000, 6500)
+        If (userHandles >= 0 AndAlso userHandles >= userHandleLimit) OrElse
+           (gdiHandles >= 0 AndAlso gdiHandles >= 8000) OrElse
+           (popupForms >= 0 AndAlso popupForms > 2) Then
+            If Not TryRecoverSchedulerResources() Then
+                If pnlBody IsNot Nothing Then
+                    ClearSchedulerBodyContent()
+                    Dim warn As New Label With {
+                        .Dock = DockStyle.Fill,
+                        .TextAlign = ContentAlignment.MiddleCenter,
+                        .Font = New Font("Segoe UI", 11, FontStyle.Bold),
+                        .ForeColor = Color.DarkRed,
+                        .BackColor = Color.MistyRose,
+                        .Text = If(Eng,
+                                   "Scheduler rendering was paused because Windows UI handle usage is too high." & Environment.NewLine &
+                                   "Close popup windows or switch views, then try again.",
+                                   "تم إيقاف رسم الجدول لأن استهلاك مقابض واجهة ويندوز مرتفع جداً." & Environment.NewLine &
+                                   "أغلق النوافذ المنبثقة أو بدّل العرض ثم حاول مرة أخرى.")
+                    }
+                    AddSchedulerBodyContent(warn)
+                End If
+                If DateTime.UtcNow - _lastSchedulerHandlePressureLogUtc > TimeSpan.FromSeconds(30) Then
+                    _lastSchedulerHandlePressureLogUtc = DateTime.UtcNow
+                    ApptErrorHelper.Report(
+                        New InvalidOperationException($"Scheduler render blocked due to handle pressure. USER={userHandles}, GDI={gdiHandles}, POPUPS={popupForms}."),
+                        "SchedulerNew.EnsureSchedulerCanRenderHeavyView",
+                        showUser:=False)
+                End If
+                Return False
+            End If
+        End If
+        Return True
+    End Function
+
     ''' <summary>Suppress painting on the schedule chrome while toggling header visibility + row heights (expand/collapse body).</summary>
     Private Sub BeginBatchSchedulerVisualUpdate()
         If tlpMain IsNot Nothing AndAlso tlpMain.IsHandleCreated Then
@@ -2061,24 +2329,26 @@ Public Class SchedulerNew
         End If
         If Me.IsHandleCreated Then
             SendMessageRedraw(Me.Handle, WM_SETREDRAW, New IntPtr(1), IntPtr.Zero)
-            Me.Refresh()
+            ApptErrorHelper.SafeRefresh(Me, "SchedulerNew.EndBatchSchedulerVisualUpdate.RefreshSelf")
         End If
     End Sub
 
 #Region "8a. Body layout metrics (geometric fit to pnlBody)"
     Private Function SchedulerBodyClientWidth() As Integer
-        If pnlBody Is Nothing Then Return 800
-        Return Math.Max(1, pnlBody.ClientSize.Width)
+        Dim targetHost = CType(If(_bodyViewHost, pnlBody), Control)
+        If targetHost Is Nothing Then Return 800
+        Return Math.Max(1, targetHost.ClientSize.Width)
     End Function
 
     Private Function SchedulerBodyClientHeight() As Integer
-        If pnlBody Is Nothing Then Return 600
-        Return Math.Max(1, pnlBody.ClientSize.Height)
+        Dim targetHost = CType(If(_bodyViewHost, pnlBody), Control)
+        If targetHost Is Nothing Then Return 600
+        Return Math.Max(1, targetHost.ClientSize.Height)
     End Function
 
     ''' <summary>Usable width for FlowLayoutPanels with horizontal padding (left + right) already subtracted from body.</summary>
     Private Function SchedulerBodyInnerFlowWidth(flowHorizontalPadding As Integer) As Integer
-        Return Math.Max(1, SchedulerBodyClientWidth() - flowHorizontalPadding)
+        Return Math.Max(1, SchedulerBodyClientWidth() - flowHorizontalPadding - SystemInformation.VerticalScrollBarWidth - 2)
     End Function
 
     ''' <summary>Height for the horizontal day-columns band in week views (below the week title label).</summary>
@@ -2159,19 +2429,118 @@ Public Class SchedulerNew
         RefreshEdgeHintLayoutAfterBodyResize()
     End Sub
 
+    Private Shared Function CreateBodyEdgeHintHost(name As String) As PanelControl
+        Dim host = New PanelControl() With {
+            .Dock = DockStyle.Fill,
+            .Name = name,
+            .BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder,
+            .Padding = New Padding(BodyEdgeHintHostPadding, 0, BodyEdgeHintHostPadding, 0),
+            .Margin = Padding.Empty
+        }
+        host.Appearance.BackColor = Color.Transparent
+        host.Appearance.Options.UseBackColor = True
+        Return host
+    End Function
+
+    Private Sub EnsureSchedulerBodyWorkspace()
+        If pnlBody Is Nothing OrElse pnlBody.IsDisposed Then Return
+        If _bodyLayoutHost IsNot Nothing AndAlso Not _bodyLayoutHost.IsDisposed AndAlso _bodyLayoutHost.Parent Is pnlBody Then
+            Return
+        End If
+
+        pnlBody.SuspendLayout()
+        Try
+            If _bodyLayoutHost IsNot Nothing AndAlso Not _bodyLayoutHost.IsDisposed AndAlso _bodyLayoutHost.Parent IsNot Nothing Then
+                _bodyLayoutHost.Parent.Controls.Remove(_bodyLayoutHost)
+                _bodyLayoutHost.Dispose()
+            End If
+
+            _bodyViewHost = New PanelControl() With {
+                .Dock = DockStyle.Fill,
+                .Name = "schedulerBodyViewHost",
+                .BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder,
+                .Margin = Padding.Empty
+            }
+            _bodyViewHost.Appearance.BackColor = Color.Transparent
+            _bodyViewHost.Appearance.Options.UseBackColor = True
+
+            _bodyPrevHintHost = CreateBodyEdgeHintHost("schedulerBodyPrevHintHost")
+            _bodyNextHintHost = CreateBodyEdgeHintHost("schedulerBodyNextHintHost")
+
+            _bodyLayoutHost = New TablePanel With {
+                .Dock = DockStyle.Fill,
+                .Name = "schedulerBodyLayoutHost",
+                .Padding = Padding.Empty,
+                .Margin = Padding.Empty
+            }
+            _bodyLayoutHost.Appearance.BackColor = Color.Transparent
+            _bodyLayoutHost.Appearance.Options.UseBackColor = True
+            _bodyLayoutHost.Columns.Add(New TablePanelColumn(TablePanelEntityStyle.Absolute, BodyEdgeHintBandWidth))
+            _bodyLayoutHost.Columns.Add(New TablePanelColumn(TablePanelEntityStyle.Relative, 100.0F))
+            _bodyLayoutHost.Columns.Add(New TablePanelColumn(TablePanelEntityStyle.Absolute, BodyEdgeHintBandWidth))
+            _bodyLayoutHost.Rows.Add(New TablePanelRow(TablePanelEntityStyle.Relative, 100.0F))
+            _bodyLayoutHost.Controls.Add(_bodyPrevHintHost)
+            _bodyLayoutHost.Controls.Add(_bodyViewHost)
+            _bodyLayoutHost.Controls.Add(_bodyNextHintHost)
+            _bodyLayoutHost.SetColumn(_bodyPrevHintHost, 0)
+            _bodyLayoutHost.SetRow(_bodyPrevHintHost, 0)
+            _bodyLayoutHost.SetColumn(_bodyViewHost, 1)
+            _bodyLayoutHost.SetRow(_bodyViewHost, 0)
+            _bodyLayoutHost.SetColumn(_bodyNextHintHost, 2)
+            _bodyLayoutHost.SetRow(_bodyNextHintHost, 0)
+
+            DisposeChildControls(pnlBody)
+            pnlBody.Controls.Add(_bodyLayoutHost)
+
+            If Not _bodyWorkspaceEventsWired Then
+                AddHandler pnlBody.SizeChanged, AddressOf PnlBody_ChangedForExpandBtnLayout
+                _bodyWorkspaceEventsWired = True
+            End If
+            RemoveHandler _bodyViewHost.SizeChanged, AddressOf PnlBody_ChangedForExpandBtnLayout
+            RemoveHandler _bodyPrevHintHost.SizeChanged, AddressOf PnlBody_ChangedForExpandBtnLayout
+            RemoveHandler _bodyNextHintHost.SizeChanged, AddressOf PnlBody_ChangedForExpandBtnLayout
+            AddHandler _bodyViewHost.SizeChanged, AddressOf PnlBody_ChangedForExpandBtnLayout
+            AddHandler _bodyPrevHintHost.SizeChanged, AddressOf PnlBody_ChangedForExpandBtnLayout
+            AddHandler _bodyNextHintHost.SizeChanged, AddressOf PnlBody_ChangedForExpandBtnLayout
+        Finally
+            pnlBody.ResumeLayout(False)
+        End Try
+    End Sub
+
+    Private Function SchedulerBodyContentHost() As PanelControl
+        EnsureSchedulerBodyWorkspace()
+        Return If(_bodyViewHost, pnlBody)
+    End Function
+
+    Private Sub ClearSchedulerBodyContent()
+        Dim host = SchedulerBodyContentHost()
+        If host Is Nothing Then Return
+        DisposeChildControls(host)
+        InvalidatePnlBodyEdgeHintsAfterClear()
+    End Sub
+
+    Private Sub AddSchedulerBodyContent(ctrl As Control)
+        If ctrl Is Nothing Then Return
+        Dim host = SchedulerBodyContentHost()
+        If host Is Nothing Then Return
+        host.Controls.Add(ctrl)
+    End Sub
+
     ''' <summary>Top-right overlay on pnlBody; parented to the scheduler so pnlBody.Controls.Clear() never removes it. Quick-add sits to the left of expand when expanded.</summary>
     Private Sub LayoutBodyWorkspaceExpandButton()
         If _btnBodyExpand Is Nothing OrElse pnlBody Is Nothing Then Return
+        Dim targetHost = CType(If(_bodyViewHost, pnlBody), Control)
+        If targetHost Is Nothing Then Return
         Const pad As Integer = 3
         Const gap As Integer = 4
         Dim clientY = pad
-        Dim expandClientX = pnlBody.ClientSize.Width - _btnBodyExpand.Width - pad
-        Dim ptExpand = Me.PointToClient(pnlBody.PointToScreen(New Point(expandClientX, clientY)))
+        Dim expandClientX = targetHost.ClientSize.Width - _btnBodyExpand.Width - pad
+        Dim ptExpand = Me.PointToClient(targetHost.PointToScreen(New Point(expandClientX, clientY)))
         _btnBodyExpand.Location = ptExpand
         _btnBodyExpand.BringToFront()
         If _btnBodyQuickAdd IsNot Nothing Then
             Dim quickClientX = expandClientX - gap - _btnBodyQuickAdd.Width
-            Dim ptQuick = Me.PointToClient(pnlBody.PointToScreen(New Point(quickClientX, clientY)))
+            Dim ptQuick = Me.PointToClient(targetHost.PointToScreen(New Point(quickClientX, clientY)))
             _btnBodyQuickAdd.Location = ptQuick
             _btnBodyQuickAdd.BringToFront()
         End If
@@ -2255,15 +2624,16 @@ Public Class SchedulerNew
 
     Private Sub Render()
         If _isShuttingDown OrElse IsDisposed OrElse Disposing OrElse pnlBody Is Nothing Then Return
-        CloseSchedulerDevExpressPopups()
+        EnsureSchedulerBodyWorkspace()
+        ReleaseSchedulerTransientUiHandles()
         Me.SuspendLayout()
         If pnlBody IsNot Nothing Then pnlBody.SuspendLayout()
         SuspendPnlBodyRedraw()
         Try
             If pnlBody IsNot Nothing Then
-                pnlBody.Controls.Clear()
-                InvalidatePnlBodyEdgeHintsAfterClear()
+                ClearSchedulerBodyContent()
             End If
+            If Not EnsureSchedulerCanRenderHeavyView() Then Return
 
             ' 🔹 Update lblRange text dynamically
             ' 🔹 Update lblCount to match displayed appts for current view (day/week/month/timeline)
@@ -2342,10 +2712,14 @@ Public Class SchedulerNew
         If pnlBody Is Nothing Then Return
         If pnlBody.ClientSize.Width < 1 OrElse pnlBody.ClientSize.Height < 1 Then Return
         Select Case _view
+            Case ViewMode.DayView, ViewMode.DoctorsDay
+                If _dayPrevHint IsNot Nothing AndAlso _dayNextHint IsNot Nothing Then PositionDayEdgeHints()
             Case ViewMode.ThisWeekFull, ViewMode.ThisWeek, ViewMode.MonthlyWeek
                 If _weekPrevHint IsNot Nothing AndAlso _weekNextHint IsNot Nothing Then PositionWeekEdgeHints()
             Case ViewMode.MonthView
                 If _monthPrevHint IsNot Nothing AndAlso _monthNextHint IsNot Nothing Then PositionMonthEdgeHints()
+            Case ViewMode.DaysTimeline
+                If _tlPrevHint IsNot Nothing AndAlso _tlNextHint IsNot Nothing Then PositionTimelineEdgeHints()
         End Select
     End Sub
 
@@ -2938,8 +3312,8 @@ Public Class SchedulerNew
         If _dayPrevHint Is Nothing Then
             _dayPrevHint = New ArrowLable With {
                 .AutoSize = False,
-                .Width = 36,
-                .Height = 90,
+                .Width = BodyEdgeHintWidth,
+                .Height = BodyEdgeHintHeight,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Text = If(Eng, "PREV", "السابق"),
                 .Visible = False,
@@ -2954,8 +3328,7 @@ Public Class SchedulerNew
             }
             AddHandler _dayPrevHint.Click,
                 Sub()
-                    Dim scrollPanel = GetDayScrollPanel()
-                    If _dayPrevTarget IsNot Nothing AndAlso scrollPanel IsNot Nothing Then
+                    If _dayPrevTarget IsNot Nothing Then
                         NavigateWithSlide(-1,
                                           Sub()
                                               _currentDate = _dayPrevTarget.AppDate.Date
@@ -2964,15 +3337,16 @@ Public Class SchedulerNew
                     End If
                 End Sub
         End If
-        If _dayPrevHint.Parent Is Nothing Then
-            pnlBody.Controls.Add(_dayPrevHint)
+        If _bodyPrevHintHost IsNot Nothing AndAlso _dayPrevHint.Parent IsNot _bodyPrevHintHost Then
+            If _dayPrevHint.Parent IsNot Nothing Then _dayPrevHint.Parent.Controls.Remove(_dayPrevHint)
+            _bodyPrevHintHost.Controls.Add(_dayPrevHint)
             _dayPrevHint.BringToFront()
         End If
         If _dayNextHint Is Nothing Then
             _dayNextHint = New ArrowLable With {
                 .AutoSize = False,
-                .Width = 36,
-                .Height = 90,
+                .Width = BodyEdgeHintWidth,
+                .Height = BodyEdgeHintHeight,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Text = If(Eng, "NEXT", "التالي"),
                 .Visible = False,
@@ -2987,8 +3361,7 @@ Public Class SchedulerNew
             }
             AddHandler _dayNextHint.Click,
                 Sub()
-                    Dim scrollPanel = GetDayScrollPanel()
-                    If _dayNextTarget IsNot Nothing AndAlso scrollPanel IsNot Nothing Then
+                    If _dayNextTarget IsNot Nothing Then
                         NavigateWithSlide(1,
                                           Sub()
                                               _currentDate = _dayNextTarget.AppDate.Date
@@ -2997,17 +3370,22 @@ Public Class SchedulerNew
                     End If
                 End Sub
         End If
-        If _dayNextHint.Parent Is Nothing Then
-            pnlBody.Controls.Add(_dayNextHint)
+        If _bodyNextHintHost IsNot Nothing AndAlso _dayNextHint.Parent IsNot _bodyNextHintHost Then
+            If _dayNextHint.Parent IsNot Nothing Then _dayNextHint.Parent.Controls.Remove(_dayNextHint)
+            _bodyNextHintHost.Controls.Add(_dayNextHint)
             _dayNextHint.BringToFront()
         End If
         PositionDayEdgeHints()
     End Sub
     Private Sub PositionDayEdgeHints()
         If _dayPrevHint Is Nothing OrElse _dayNextHint Is Nothing Then Return
-        Dim midY = Math.Max(0, (pnlBody.ClientSize.Height - _dayPrevHint.Height) \ 2)
-        _dayPrevHint.Location = New Point(0, midY)
-        _dayNextHint.Location = New Point(Math.Max(0, pnlBody.ClientSize.Width - _dayNextHint.Width), midY)
+        If _bodyPrevHintHost Is Nothing OrElse _bodyNextHintHost Is Nothing Then Return
+        Dim prevX = Math.Max(0, (_bodyPrevHintHost.ClientSize.Width - _dayPrevHint.Width) \ 2)
+        Dim prevY = Math.Max(0, (_bodyPrevHintHost.ClientSize.Height - _dayPrevHint.Height) \ 2)
+        Dim nextX = Math.Max(0, (_bodyNextHintHost.ClientSize.Width - _dayNextHint.Width) \ 2)
+        Dim nextY = Math.Max(0, (_bodyNextHintHost.ClientSize.Height - _dayNextHint.Height) \ 2)
+        _dayPrevHint.Location = New Point(prevX, prevY)
+        _dayNextHint.Location = New Point(nextX, nextY)
         _dayPrevHint.BringToFront()
         _dayNextHint.BringToFront()
     End Sub
@@ -3069,7 +3447,10 @@ Public Class SchedulerNew
             LoadAndRender()
             Return
         End If
-        If _slideAnimating OrElse pnlBody Is Nothing OrElse Not pnlBody.IsHandleCreated OrElse pnlBody.Controls.Count = 0 OrElse pnlBody.Width <= 0 OrElse pnlBody.Height <= 0 Then
+        Dim bodyContentHost = SchedulerBodyContentHost()
+        If _slideAnimating OrElse pnlBody Is Nothing OrElse Not pnlBody.IsHandleCreated OrElse
+           bodyContentHost Is Nothing OrElse bodyContentHost.Controls.Count = 0 OrElse
+           pnlBody.Width <= 0 OrElse pnlBody.Height <= 0 Then
             LoadAndRender()
             Return
         End If
@@ -3102,12 +3483,12 @@ Public Class SchedulerNew
 
     Private Sub InitializeWeekSnapshotButton()
         If btnWeekSnapshot Is Nothing OrElse btnWeekSnapshot.IsDisposed Then Return
+        EnsureSchedulerTransientUiHelpers()
         btnWeekSnapshot.Text = If(Eng, "Snapshot", "لقطة")
         Dim tip = If(Eng,
                       "Capture the current schedule view as an image (scroll areas expanded where supported).",
                       "التقاط صورة للعرض الحالي (مع توسيع المناطق القابلة للتمرير حيثما أمكن).")
-        Dim tt As New ToolTip()
-        tt.SetToolTip(btnWeekSnapshot, tip)
+        _weekSnapshotToolTip.SetToolTip(btnWeekSnapshot, tip)
     End Sub
 
     ''' <summary>Same root folder as patient attachments / new files: <c>Application.StartupPath\Attachments</c>.</summary>
@@ -3202,7 +3583,7 @@ Public Class SchedulerNew
         orderedDrIdsExport = orderedDrIdsExport.Where(Function(id) byDrExport.ContainsKey(id)).ToList()
 
         Dim totalSlots As Integer = (_endHour - _startHour) * 2
-        Dim dayGridWidth As Integer = Math.Max(1, SchedulerBodyClientWidth())
+        Dim dayGridWidth As Integer = Math.Max(1, SchedulerBodyClientWidth() - SystemInformation.VerticalScrollBarWidth - 2)
         Dim doctorCount = orderedDrIdsExport.Count
         Dim baseLeft As Integer = 70
         Dim minWidth As Integer = 140
@@ -3432,7 +3813,7 @@ Public Class SchedulerNew
             apptsByDoctor(k) = ApptTheme.OrderAppointmentsForDisplay(apptsByDoctor(k), getDoctorName)
         Next
 
-        Dim dayViewportW As Integer = Math.Max(1, SchedulerBodyClientWidth())
+        Dim dayViewportW As Integer = Math.Max(1, SchedulerBodyClientWidth() - SystemInformation.VerticalScrollBarWidth - 2)
         Dim scheduleAreaW As Integer = Math.Max(1, dayViewportW - timeColW)
         Dim pnlSlotsWidth As Integer = dayViewportW
         If doctorCount > 0 AndAlso scheduleAreaW < doctorCount * minDoctorColW Then
@@ -3766,7 +4147,7 @@ Public Class SchedulerNew
         End Try
 
         Application.DoEvents()
-        If pnlBody IsNot Nothing Then pnlBody.Refresh()
+        ApptErrorHelper.SafeRefresh(pnlBody, "SchedulerNew.btnWeekSnapshot_Click.RefreshBody")
         Application.DoEvents()
 
         Dim bmp As Bitmap = Nothing
@@ -3837,8 +4218,9 @@ Public Class SchedulerNew
 
     ''' <summary>When the new appointment week control hosts the week body, HTML export can mirror day columns and card colors.</summary>
     Friend Function TryGetApptWeekFromPnlBody() As ApptWeekCtl
-        If pnlBody Is Nothing OrElse pnlBody.Controls.Count = 0 Then Return Nothing
-        Return TryCast(pnlBody.Controls(0), ApptWeekCtl)
+        Dim host = SchedulerBodyContentHost()
+        If host Is Nothing OrElse host.Controls.Count = 0 Then Return Nothing
+        Return TryCast(host.Controls(0), ApptWeekCtl)
     End Function
 
     ''' <summary>HTML export for classic scheduler (no <see cref="ApptWeekCtl"/>); uses the same model/appearance as the new Appt module via <see cref="ApptSnapshotHtmlBuilder"/>.</summary>
@@ -3884,6 +4266,127 @@ Public Class SchedulerNew
             Return Nothing
         End Try
     End Function
+
+    Private Function BuildSchedulerModularDataBundle(Optional includeAllDoctors As Boolean = False) As ApptDataBundle
+        Dim data As New ApptDataBundle()
+        data.Appointments = If(_AppointmentC Is Nothing, New List(Of AppointmentC)(), _AppointmentC.ToList())
+
+        For Each ap In data.Appointments
+            If ap Is Nothing Then Continue For
+            If Not data.PatientNames.ContainsKey(ap.PatientID) Then
+                data.PatientNames(ap.PatientID) = _repo.GetPatientName(ap.PatientID)
+            End If
+            If ap.DrID > 0 AndAlso Not data.DoctorInfos.ContainsKey(ap.DrID) Then
+                data.DoctorInfos(ap.DrID) = New ApptDoctorInfo With {
+                    .DrID = ap.DrID,
+                    .DrName = _repo.GetDoctorName(ap.DrID),
+                    .DrColor = ApptTheme.ParseDoctorColor(_repo.GetDoctorColor(ap.DrID))
+                }
+            End If
+        Next
+
+        If includeAllDoctors Then
+            For Each doctor In QueryAllDoctorsForDoctorsDayView()
+                If doctor.DrID <= 0 OrElse data.DoctorInfos.ContainsKey(doctor.DrID) Then Continue For
+                data.DoctorInfos(doctor.DrID) = New ApptDoctorInfo With {
+                    .DrID = doctor.DrID,
+                    .DrName = doctor.DrName,
+                    .DrColor = SchedulerParseDoctorColor(doctor.DrColor)
+                }
+            Next
+        End If
+
+        Return data
+    End Function
+
+    Private Function BuildSchedulerModularState(viewMode As ApptViewMode,
+                                                currentDate As DateTime,
+                                                Optional ignoreDoctorFilter As Boolean = False) As ApptState
+        Dim state As New ApptState() With {
+            .CurrentDate = currentDate,
+            .CurrentView = viewMode,
+            .Use24HourFormat = Use24HourFormat,
+            .IncludeReason = True,
+            .WorkStartTime = _workStart,
+            .WorkEndTime = _workEnd,
+            .PatientFilterId = FilterPatientId,
+            .DoctorFilterId = If(ignoreDoctorFilter, CType(Nothing, Integer?), FilterDoctorId),
+            .FilterStartDate = FilterStartDate,
+            .FilterEndDate = FilterEndDate
+        }
+        state.VisibleReason = If(String.IsNullOrWhiteSpace(FilterReason), Nothing, FilterReason.Trim())
+        state.VisibleStatus = If(String.IsNullOrWhiteSpace(FilterStatus), Nothing, FilterStatus.Trim())
+        Return state
+    End Function
+
+    Private Sub RenderDoctorsDayViewLight(day As DateTime)
+        _ddDoctorLefts = Nothing
+        _ddDoctorWidths = Nothing
+        _ddDoctorIds = Nothing
+        _dayViewSingleDoctorFilterId = 0
+        _renderDay = day.Date
+
+        Dim dayView As New ApptDayDoctors With {
+            .Dock = DockStyle.Fill,
+            .Name = "schedulerDoctorsDayLightView"
+        }
+        Dim hub As New ApptInteractionHub()
+
+        AddHandler hub.AppointmentClicked,
+            Sub(ap)
+                RaiseEvent AppointmentClicked(ap)
+            End Sub
+
+        AddHandler hub.AppointmentDoubleClicked,
+            Sub(ap)
+                If ap Is Nothing Then Return
+                OpenAppointmentEditor(ap, False)
+            End Sub
+
+        AddHandler hub.EmptyDateInvoked,
+            Sub(clickedDate)
+                Dim newAppt As New AppointmentC With {
+                    .AppDate = clickedDate.Date,
+                    .StartDateTime = clickedDate,
+                    .EndDateTime = clickedDate.AddMinutes(30)
+                }
+                OpenAppointmentEditor(newAppt, True)
+            End Sub
+
+        AddHandler hub.AppointmentStatusChangeRequested,
+            Sub(ap, statusKey, statusColor)
+                If ap Is Nothing OrElse String.IsNullOrWhiteSpace(statusKey) Then Return
+                UpdateAppointmentCtatus(ap, statusKey, statusColor)
+            End Sub
+
+        AddHandler hub.AppointmentTimeChangeRequested,
+            Sub(ap, newStart, newEnd)
+                If ap Is Nothing Then Return
+                ap.AppDate = newStart.Date
+                ap.StartDateTime = newStart
+                ap.EndDateTime = newEnd
+                UpdateAppointment(ap)
+            End Sub
+
+        dayView.InteractionHub = hub
+        dayView.BindData(New ApptViewRequest With {
+            .State = BuildSchedulerModularState(ApptViewMode.DoctorsDay, day.Date, ignoreDoctorFilter:=True),
+            .Data = BuildSchedulerModularDataBundle(includeAllDoctors:=True),
+            .PendingScrollAppointment = _pendingScrollTarget,
+            .AppointmentAppearanceSelector = Nothing
+        })
+        _pendingScrollTarget = Nothing
+
+        If pnlBody IsNot Nothing Then
+            pnlBody.BackColor = SystemColors.Control
+        End If
+        AddSchedulerBodyContent(dayView)
+        dayView.BringToFront()
+        EnsureDayEdgeHints()
+        UpdateDayEdgeHints()
+        RemoveHandler Me.Resize, AddressOf OnScheduleResize
+        AddHandler Me.Resize, AddressOf OnScheduleResize
+    End Sub
 
     Private Sub btnWeekSnapshot_Click(sender As Object, e As EventArgs) Handles btnWeekSnapshot.Click
         If _slideAnimating Then Return
@@ -4017,8 +4520,8 @@ Public Class SchedulerNew
         If _weekPrevHint Is Nothing Then
             _weekPrevHint = New ArrowLable With {
                 .AutoSize = False,
-                .Width = 36,
-                .Height = 90,
+                .Width = BodyEdgeHintWidth,
+                .Height = BodyEdgeHintHeight,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Text = If(Eng, "PREV", "السابق"),
                 .Visible = False,
@@ -4041,15 +4544,16 @@ Public Class SchedulerNew
                     End If
                 End Sub
         End If
-        If _weekPrevHint.Parent Is Nothing Then
-            pnlBody.Controls.Add(_weekPrevHint)
+        If _bodyPrevHintHost IsNot Nothing AndAlso _weekPrevHint.Parent IsNot _bodyPrevHintHost Then
+            If _weekPrevHint.Parent IsNot Nothing Then _weekPrevHint.Parent.Controls.Remove(_weekPrevHint)
+            _bodyPrevHintHost.Controls.Add(_weekPrevHint)
             _weekPrevHint.BringToFront()
         End If
         If _weekNextHint Is Nothing Then
             _weekNextHint = New ArrowLable With {
                 .AutoSize = False,
-                .Width = 36,
-                .Height = 90,
+                .Width = BodyEdgeHintWidth,
+                .Height = BodyEdgeHintHeight,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Text = If(Eng, "NEXT", "التالي"),
                 .Visible = False,
@@ -4072,17 +4576,22 @@ Public Class SchedulerNew
                     End If
                 End Sub
         End If
-        If _weekNextHint.Parent Is Nothing Then
-            pnlBody.Controls.Add(_weekNextHint)
+        If _bodyNextHintHost IsNot Nothing AndAlso _weekNextHint.Parent IsNot _bodyNextHintHost Then
+            If _weekNextHint.Parent IsNot Nothing Then _weekNextHint.Parent.Controls.Remove(_weekNextHint)
+            _bodyNextHintHost.Controls.Add(_weekNextHint)
             _weekNextHint.BringToFront()
         End If
         PositionWeekEdgeHints()
     End Sub
     Private Sub PositionWeekEdgeHints()
         If _weekPrevHint Is Nothing OrElse _weekNextHint Is Nothing Then Return
-        Dim midY = Math.Max(0, (pnlBody.ClientSize.Height - _weekPrevHint.Height) \ 2)
-        _weekPrevHint.Location = New Point(0, midY)
-        _weekNextHint.Location = New Point(Math.Max(0, pnlBody.ClientSize.Width - _weekNextHint.Width), midY)
+        If _bodyPrevHintHost Is Nothing OrElse _bodyNextHintHost Is Nothing Then Return
+        Dim prevX = Math.Max(0, (_bodyPrevHintHost.ClientSize.Width - _weekPrevHint.Width) \ 2)
+        Dim prevY = Math.Max(0, (_bodyPrevHintHost.ClientSize.Height - _weekPrevHint.Height) \ 2)
+        Dim nextX = Math.Max(0, (_bodyNextHintHost.ClientSize.Width - _weekNextHint.Width) \ 2)
+        Dim nextY = Math.Max(0, (_bodyNextHintHost.ClientSize.Height - _weekNextHint.Height) \ 2)
+        _weekPrevHint.Location = New Point(prevX, prevY)
+        _weekNextHint.Location = New Point(nextX, nextY)
         _weekPrevHint.BringToFront()
         _weekNextHint.BringToFront()
     End Sub
@@ -4144,8 +4653,8 @@ Public Class SchedulerNew
         If _monthPrevHint Is Nothing Then
             _monthPrevHint = New ArrowLable With {
                 .AutoSize = False,
-                .Width = 36,
-                .Height = 90,
+                .Width = BodyEdgeHintWidth,
+                .Height = BodyEdgeHintHeight,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Text = If(Eng, "PREV", "السابق"),
                 .Visible = False,
@@ -4168,15 +4677,16 @@ Public Class SchedulerNew
                     End If
                 End Sub
         End If
-        If _monthPrevHint.Parent Is Nothing Then
-            pnlBody.Controls.Add(_monthPrevHint)
+        If _bodyPrevHintHost IsNot Nothing AndAlso _monthPrevHint.Parent IsNot _bodyPrevHintHost Then
+            If _monthPrevHint.Parent IsNot Nothing Then _monthPrevHint.Parent.Controls.Remove(_monthPrevHint)
+            _bodyPrevHintHost.Controls.Add(_monthPrevHint)
             _monthPrevHint.BringToFront()
         End If
         If _monthNextHint Is Nothing Then
             _monthNextHint = New ArrowLable With {
                 .AutoSize = False,
-                .Width = 36,
-                .Height = 90,
+                .Width = BodyEdgeHintWidth,
+                .Height = BodyEdgeHintHeight,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Text = If(Eng, "NEXT", "التالي"),
                 .Visible = False,
@@ -4199,17 +4709,22 @@ Public Class SchedulerNew
                     End If
                 End Sub
         End If
-        If _monthNextHint.Parent Is Nothing Then
-            pnlBody.Controls.Add(_monthNextHint)
+        If _bodyNextHintHost IsNot Nothing AndAlso _monthNextHint.Parent IsNot _bodyNextHintHost Then
+            If _monthNextHint.Parent IsNot Nothing Then _monthNextHint.Parent.Controls.Remove(_monthNextHint)
+            _bodyNextHintHost.Controls.Add(_monthNextHint)
             _monthNextHint.BringToFront()
         End If
         PositionMonthEdgeHints()
     End Sub
     Private Sub PositionMonthEdgeHints()
         If _monthPrevHint Is Nothing OrElse _monthNextHint Is Nothing Then Return
-        Dim midY = Math.Max(0, (pnlBody.ClientSize.Height - _monthPrevHint.Height) \ 2)
-        _monthPrevHint.Location = New Point(0, midY)
-        _monthNextHint.Location = New Point(Math.Max(0, pnlBody.ClientSize.Width - _monthNextHint.Width), midY)
+        If _bodyPrevHintHost Is Nothing OrElse _bodyNextHintHost Is Nothing Then Return
+        Dim prevX = Math.Max(0, (_bodyPrevHintHost.ClientSize.Width - _monthPrevHint.Width) \ 2)
+        Dim prevY = Math.Max(0, (_bodyPrevHintHost.ClientSize.Height - _monthPrevHint.Height) \ 2)
+        Dim nextX = Math.Max(0, (_bodyNextHintHost.ClientSize.Width - _monthNextHint.Width) \ 2)
+        Dim nextY = Math.Max(0, (_bodyNextHintHost.ClientSize.Height - _monthNextHint.Height) \ 2)
+        _monthPrevHint.Location = New Point(prevX, prevY)
+        _monthNextHint.Location = New Point(nextX, nextY)
         _monthPrevHint.BringToFront()
         _monthNextHint.BringToFront()
     End Sub
@@ -4255,7 +4770,9 @@ Public Class SchedulerNew
         Return _renderDay.AddHours(midHour)
     End Function
     Private Function GetDayScrollPanel() As Panel
-        Return TryCast(pnlBody.Controls.OfType(Of Panel)().FirstOrDefault(), Panel)
+        Dim host = SchedulerBodyContentHost()
+        If host Is Nothing Then Return Nothing
+        Return TryCast(host.Controls.OfType(Of Panel)().FirstOrDefault(), Panel)
     End Function
     Private Function GetAppointmentTopPixels(ap As AppointmentC) As Integer
         Dim startOffsetMins As Double = (ap.StartDateTime - _renderDay.AddHours(_startHour)).TotalMinutes
@@ -4346,8 +4863,9 @@ Public Class SchedulerNew
             .Visible = False
         }
         ' Add to form or main container
-        If pnlBody.Controls.Count > 0 AndAlso TypeOf pnlBody.Controls(0) Is Panel Then
-            Dim scrollPanel = DirectCast(pnlBody.Controls(0), Panel)
+        Dim host = SchedulerBodyContentHost()
+        If host IsNot Nothing AndAlso host.Controls.Count > 0 AndAlso TypeOf host.Controls(0) Is Panel Then
+            Dim scrollPanel = DirectCast(host.Controls(0), Panel)
             scrollPanel.Controls.Add(infoLabel)
         End If
     End Sub
@@ -4450,6 +4968,84 @@ Public Class SchedulerNew
         Return String.Format("z{0:O}|{1}|{2}", a.StartDateTime, a.DrID, a.PatientID)
     End Function
 
+    Private Structure SchedulerDayOverlapInterval
+        Public Appointment As AppointmentC
+        Public StartTime As DateTime
+        Public EndTime As DateTime
+    End Structure
+
+    Private Structure SchedulerDayOverlapPlacement
+        Public LaneIndex As Integer
+        Public LaneCount As Integer
+    End Structure
+
+    Private Shared Function BuildSchedulerDayOverlapPlacements(appts As IEnumerable(Of AppointmentC), workStart As DateTime, workEnd As DateTime) As Dictionary(Of AppointmentC, SchedulerDayOverlapPlacement)
+        Dim placements As New Dictionary(Of AppointmentC, SchedulerDayOverlapPlacement)()
+        If appts Is Nothing Then Return placements
+
+        Dim ordered = appts.
+            Select(Function(ap)
+                       Dim st = If(ap.StartDateTime < workStart, workStart, ap.StartDateTime)
+                       Dim en = If(ap.EndDateTime > workEnd, workEnd, ap.EndDateTime)
+                       If en <= st Then en = st.AddMinutes(1)
+                       Return New SchedulerDayOverlapInterval With {.Appointment = ap, .StartTime = st, .EndTime = en}
+                   End Function).
+            OrderBy(Function(x) x.StartTime).
+            ThenBy(Function(x) x.EndTime).
+            ToList()
+
+        Dim cluster As New List(Of SchedulerDayOverlapInterval)()
+        Dim clusterMaxEnd = DateTime.MinValue
+
+        For Each item In ordered
+            If cluster.Count > 0 AndAlso item.StartTime >= clusterMaxEnd Then
+                AssignSchedulerDayOverlapCluster(cluster, placements)
+                cluster.Clear()
+                clusterMaxEnd = DateTime.MinValue
+            End If
+
+            cluster.Add(item)
+            If item.EndTime > clusterMaxEnd Then clusterMaxEnd = item.EndTime
+        Next
+
+        AssignSchedulerDayOverlapCluster(cluster, placements)
+        Return placements
+    End Function
+
+    Private Shared Sub AssignSchedulerDayOverlapCluster(cluster As List(Of SchedulerDayOverlapInterval), placements As Dictionary(Of AppointmentC, SchedulerDayOverlapPlacement))
+        If cluster Is Nothing OrElse cluster.Count = 0 Then Return
+
+        Dim laneEnds As New List(Of DateTime)()
+        Dim laneByAppointment As New Dictionary(Of AppointmentC, Integer)()
+
+        For Each item In cluster.OrderBy(Function(x) x.StartTime).ThenBy(Function(x) x.EndTime)
+            Dim laneIndex = -1
+            For i = 0 To laneEnds.Count - 1
+                If laneEnds(i) <= item.StartTime Then
+                    laneIndex = i
+                    Exit For
+                End If
+            Next
+
+            If laneIndex = -1 Then
+                laneIndex = laneEnds.Count
+                laneEnds.Add(item.EndTime)
+            Else
+                laneEnds(laneIndex) = item.EndTime
+            End If
+
+            laneByAppointment(item.Appointment) = laneIndex
+        Next
+
+        Dim laneCount = Math.Max(1, laneEnds.Count)
+        For Each kvp In laneByAppointment
+            placements(kvp.Key) = New SchedulerDayOverlapPlacement With {
+                .LaneIndex = kvp.Value,
+                .LaneCount = laneCount
+            }
+        Next
+    End Sub
+
     ''' <summary>Appointments for the day column, ordered by start; duplicate rows (same <see cref="AppointmentC.AppointmentID"/>) are collapsed to one entry.</summary>
     Private Function GetDayViewAppointmentsForDate(day As Date) As List(Of AppointmentC)
         If _AppointmentC Is Nothing Then Return New List(Of AppointmentC)()
@@ -4480,7 +5076,7 @@ Public Class SchedulerNew
         Dim doctorNameCache As New Dictionary(Of Integer, String)()
         Dim patientNameCache As New Dictionary(Of Integer, String)()
         Dim doctorColorCache As New Dictionary(Of Integer, Color)()
-        Dim dayToolTip As New ToolTip()
+        Dim dayToolTip = SchedulerRenderToolTip()
         Dim getDoctorName As Func(Of Integer, String) =
             Function(id)
                 If Not doctorNameCache.ContainsKey(id) Then
@@ -4520,20 +5116,12 @@ Public Class SchedulerNew
         Dim dayGridWidth As Integer = Math.Max(1, SchedulerBodyClientWidth())
         Dim dailyAppointmentC = GetDayViewAppointmentsForDate(day.Date)
         _dayViewSingleDoctorFilterId = If(DrID > 0, DrID, 0)
-        Dim byDrDay = dailyAppointmentC.GroupBy(Function(a) a.DrID).ToDictionary(Function(g) g.Key, Function(g) g)
-        Dim orderedDrIdsDay = If(DrID > 0,
-            New List(Of Integer) From {DrID},
-            ApptTheme.OrderDoctorColumnIdsForDisplay(dailyAppointmentC.Select(Function(a) a.DrID), getDoctorName))
-        orderedDrIdsDay = orderedDrIdsDay.Where(Function(id) byDrDay.ContainsKey(id)).ToList()
-        Const overlapRowSpacing As Integer = 6
-        Dim maxStackH As Integer = 0
-        For Each drIdD In orderedDrIdsDay
-            Dim grpD = byDrDay(drIdD)
-            If grpD IsNot Nothing AndAlso grpD.Count() > 1 Then
-                maxStackH = Math.Max(maxStackH, (grpD.Count() - 1) * overlapRowSpacing)
-            End If
-        Next
-        Dim totalHeight As Integer = totalSlots * _slotHeight + maxStackH + 8
+        If DrID > 0 Then
+            dailyAppointmentC = dailyAppointmentC.Where(Function(a) a.DrID = DrID).ToList()
+        End If
+        Dim dayAppts = ApptTheme.OrderAppointmentsForDisplay(dailyAppointmentC, getDoctorName)
+        Dim headerTop As Integer = 44
+        Dim totalHeight As Integer = headerTop + totalSlots * _slotHeight + 8
         ' --- Background panel for slots
         Dim pnlSlots As New Panel With {
         .Height = totalHeight,
@@ -4542,15 +5130,8 @@ Public Class SchedulerNew
         .Top = 0,
         .AutoSize = False
     }
-        Dim doctorCount = orderedDrIdsDay.Count
         Dim baseLeft As Integer = 70
-        Dim minWidth As Integer = 140
-        Dim scheduleAvailForColumns As Integer = Math.Max(minWidth * Math.Max(1, doctorCount), dayGridWidth - baseLeft - 8)
-        Dim GetDoctorWidth As Func(Of Integer) =
-        Function() Math.Max(minWidth, scheduleAvailForColumns \ Math.Max(1, doctorCount))
-        Dim doctorWidth As Integer = GetDoctorWidth()
-
-        Dim headerTop As Integer = 44
+        Dim scheduleAvailForColumns As Integer = Math.Max(120, dayGridWidth - baseLeft - 8)
 
         ' --- Create time slot panels with double-click handlers
         For i = 0 To totalSlots - 1
@@ -4585,46 +5166,29 @@ Public Class SchedulerNew
             AddHandler lbl.DoubleClick, AddressOf TimeSlot_DoubleClick ' Also handle label double-clicks
             pnlSlots.Controls.Add(slotPanel)
         Next
-        ' --- Create doctor columns for empty area double-clicks
-        For doctorIndex = 0 To doctorCount - 1
-            Dim doctorColumn As New Panel With {
-            .Width = doctorWidth - 8,
-            .Height = totalSlots * _slotHeight,
-            .Left = baseLeft + doctorIndex * doctorWidth,
-            .Top = headerTop + 28,
-            .BackColor = Color.Transparent,
-            .Name = "DoctorColumn",
-            .Tag = orderedDrIdsDay(doctorIndex) ' Store doctor ID
-        }
-            ' Add double-click handler for doctor column empty areas
-            AddHandler doctorColumn.DoubleClick, AddressOf DoctorColumn_DoubleClick
-            pnlSlots.Controls.Add(doctorColumn)
-            doctorColumn.SendToBack() ' Place behind AppointmentC
-        Next
         _renderDay = day.Date
         _renderHeaderTop = headerTop
-        _renderGridTop = headerTop + 28
+        _renderGridTop = headerTop
         _renderPixelsPerMinute = _slotHeight / 30.0   ' same as in your mapping
         _renderDoctorBaseLeft = baseLeft
-        _renderDoctorWidth = doctorWidth
-        _renderDoctorCount = doctorCount
+        _renderDoctorWidth = scheduleAvailForColumns
+        _renderDoctorCount = 1
         '
         ' Make sure ghost/preview exist on pnlSlots
         EnsureGhostAndPreview(pnlSlots)
         '======================
-        ' --- Render AppointmentC per doctor
-        For doctorIndex = 0 To orderedDrIdsDay.Count - 1
-            Dim grp = byDrDay(orderedDrIdsDay(doctorIndex))
-            Dim appts = ApptTheme.OrderAppointmentsForDisplay(grp, getDoctorName)
-            Dim colLeft = baseLeft + doctorIndex * doctorWidth
-            ' Get doctor color from DB with smart fallback
-            Dim doctorColor As Color = getDoctorColor(grp.Key)
-            ' Active end times per doctor (for overlap spacing)
-            Dim currentEndTimes As New List(Of DateTime)
-            For i = 0 To appts.Count - 1
-                Dim ap = appts(i)
-                Dim prevAppt As AppointmentC = If(i > 0, appts(i - 1), Nothing)
-                Dim nextAppt As AppointmentC = If(i < appts.Count - 1, appts(i + 1), Nothing)
+        ' --- Render appointments on one shared day canvas
+        Dim workStart = day.AddHours(_startHour)
+        Dim workEnd = day.AddHours(_endHour)
+        Dim placements = BuildSchedulerDayOverlapPlacements(dayAppts, workStart, workEnd)
+        Const overlapLaneGapPx As Integer = 4
+        Const slotOuterGapPx As Integer = 6
+        Dim slotWidth = Math.Max(120, scheduleAvailForColumns)
+        For i = 0 To dayAppts.Count - 1
+            Dim ap = dayAppts(i)
+            Dim prevAppt As AppointmentC = If(i > 0, dayAppts(i - 1), Nothing)
+            Dim nextAppt As AppointmentC = If(i < dayAppts.Count - 1, dayAppts(i + 1), Nothing)
+            Dim doctorColor As Color = getDoctorColor(ap.DrID)
                 ' Clamp within working hours
                 Dim startTime = If(ap.StartDateTime.TimeOfDay < TimeSpan.FromHours(_startHour),
                        day.AddHours(_startHour), ap.StartDateTime)
@@ -4641,28 +5205,17 @@ Public Class SchedulerNew
                 pixelsPerMinute = _slotHeight / 30.0
                 currentDay = day
                 workingStartHour = _startHour
-                ' Determine overlap row
-                Dim rowIndex As Integer = -1
-                For j = 0 To currentEndTimes.Count - 1
-                    If currentEndTimes(j) <= startTime Then
-                        rowIndex = j
-                        Exit For
-                    End If
-                Next
-                If rowIndex = -1 Then
-                    rowIndex = currentEndTimes.Count
-                    currentEndTimes.Add(endTime)
-                Else
-                    currentEndTimes(rowIndex) = endTime
-                End If
-                Dim rowSpacing As Integer = 6
-                Dim yOffset As Integer = topPixels + (rowIndex * rowSpacing)
+                Dim placement = If(placements.ContainsKey(ap),
+                    placements(ap),
+                    New SchedulerDayOverlapPlacement With {.LaneIndex = 0, .LaneCount = 1})
+                Dim laneCount = Math.Max(1, placement.LaneCount)
+                Dim usableWidth = Math.Max(48, slotWidth - (slotOuterGapPx * 2) - ((laneCount - 1) * overlapLaneGapPx))
+                Dim cardWidth As Integer = Math.Max(60, usableWidth \ laneCount)
+                Dim cardLeft As Integer = baseLeft + slotOuterGapPx + placement.LaneIndex * (cardWidth + overlapLaneGapPx)
                 Dim cardPadding As Integer = 6
-                Dim cardWidth As Integer = doctorWidth - 8 - (cardPadding * 2)
                 Dim cardHeight As Integer = heightPx - (cardPadding * 2)
                 If cardHeight < 26 Then cardHeight = 26
-                Dim cardLeft As Integer = colLeft + (doctorWidth - 8 - cardWidth) \ 2
-                Dim cardTop As Integer = yOffset + cardPadding
+                Dim cardTop As Integer = topPixels + cardPadding
 
                 ' card panel with modern soft background
                 Dim card As New Panel With {
@@ -4710,7 +5263,7 @@ Public Class SchedulerNew
                 }
                 Dim gripRight As New Panel With {
                             .Height = cardHeight,
-                            .Width = 40,
+                            .Width = Math.Max(14, Math.Min(40, Math.Max(14, cardWidth \ 3))),
                             .Dock = DockStyle.Right,
                             .Cursor = Cursors.SizeAll,
                             .BackColor = Color.FromArgb(100, Color.Blue), ' transparent-ish; adjust if you want
@@ -4765,9 +5318,10 @@ Public Class SchedulerNew
                     End If
                 End If
                 ' --- Status Label ---
+                Dim statusColWidth As Integer = Math.Max(28, Math.Min(70, Math.Max(28, cardWidth \ 3)))
                 Dim lblStatus As New Label With {
                                                 .AutoSize = False,
-                                                .Width = 70,
+                                                .Width = statusColWidth,
                                                 .Dock = DockStyle.Right,
                                                 .TextAlign = ContentAlignment.MiddleCenter,
                                                 .Font = GetAppointmentFont(),
@@ -4840,11 +5394,10 @@ Public Class SchedulerNew
                                                 End Sub
                 pnlSlots.Controls.Add(card)
                 card.BringToFront()
-            Next
         Next
         scrollPanel.Controls.Add(pnlSlots)
-        pnlBody.Controls.Clear()
-        pnlBody.Controls.Add(scrollPanel)
+        ClearSchedulerBodyContent()
+        AddSchedulerBodyContent(scrollPanel)
         EnsureDayEdgeHints()
         UpdateDayEdgeHints()
         AddHandler scrollPanel.Scroll, Sub(sender As Object, e As ScrollEventArgs)
@@ -4949,6 +5502,8 @@ Public Class SchedulerNew
     ''' Excel-like day grid: time column + doctor columns that equally share the remaining width; solid gray cells; appointment block height follows duration.
     ''' </summary>
     Private Sub RenderDoctorsDayView(day As DateTime)
+        RenderDoctorsDayViewLight(day)
+        Return
         Const headerRowH As Integer = 40
         Const timeColW As Integer = 72
         Const minDoctorColW As Integer = 72
@@ -4962,7 +5517,7 @@ Public Class SchedulerNew
         Dim doctorNameCache As New Dictionary(Of Integer, String)()
         Dim patientNameCache As New Dictionary(Of Integer, String)()
         Dim doctorColorCache As New Dictionary(Of Integer, Color)()
-        Dim dayToolTip As New ToolTip()
+        Dim dayToolTip = SchedulerRenderToolTip()
         Dim getDoctorName As Func(Of Integer, String) =
             Function(id)
                 If Not doctorNameCache.ContainsKey(id) Then doctorNameCache(id) = _repo.GetDoctorName(id)
@@ -5031,12 +5586,9 @@ Public Class SchedulerNew
         Dim dayViewportW As Integer = Math.Max(1, SchedulerBodyClientWidth())
         Dim scheduleAreaW As Integer = Math.Max(1, dayViewportW - timeColW)
         Dim pnlSlotsWidth As Integer = dayViewportW
-        If doctorCount > 0 AndAlso scheduleAreaW < doctorCount * minDoctorColW Then
-            pnlSlotsWidth = dayViewportW + (doctorCount * minDoctorColW - scheduleAreaW)
-        End If
         If pnlSlotsWidth < dayViewportW Then pnlSlotsWidth = dayViewportW
 
-        Dim doctorWidths As Integer() = If(doctorCount > 0, DoctorsDaySplitEqualWidths(Math.Max(1, pnlSlotsWidth - timeColW), doctorCount), Nothing)
+        Dim doctorWidths As Integer() = If(doctorCount > 0, DoctorsDaySplitEqualWidths(scheduleAreaW, doctorCount), Nothing)
         Dim doctorLefts As Integer() = If(doctorWidths IsNot Nothing, DoctorsDayCumulativeLefts(timeColW, doctorWidths), Nothing)
 
         If doctorCount > 0 AndAlso doctorLefts IsNot Nothing AndAlso doctorWidths IsNot Nothing Then
@@ -5233,8 +5785,8 @@ Public Class SchedulerNew
         End If
 
         scrollPanel.Controls.Add(pnlSlots)
-        pnlBody.Controls.Clear()
-        pnlBody.Controls.Add(scrollPanel)
+        ClearSchedulerBodyContent()
+        AddSchedulerBodyContent(scrollPanel)
         EnsureDayEdgeHints()
         UpdateDayEdgeHints()
         AddHandler scrollPanel.Scroll, Sub(sender As Object, e As ScrollEventArgs) UpdateDayEdgeHints()
@@ -5397,7 +5949,7 @@ Public Class SchedulerNew
         Dim doctorNameCache As New Dictionary(Of Integer, String)()
         Dim patientNameCache As New Dictionary(Of Integer, String)()
         Dim doctorColorCache As New Dictionary(Of Integer, Color)()
-        Dim tlToolTip As New ToolTip() With {.AutoPopDelay = 8000, .InitialDelay = 300}
+        Dim tlToolTip = SchedulerRenderToolTip()
 
         Dim getDoctorNameTL As Func(Of Integer, String) =
             Function(id)
@@ -5443,7 +5995,7 @@ Public Class SchedulerNew
         Const dayLanePadWithAppts As Integer = 0
         Const emptyDayLaneHeight As Integer = 40
         Dim totalTimeMinutes As Integer = (_endHour - _startHour) * 60
-        Dim timelineWidth As Integer = Math.Max(120, SchedulerBodyClientWidth() - dayLabelWidth - 2)
+        Dim timelineWidth As Integer = Math.Max(120, SchedulerBodyInnerFlowWidth(dayLabelWidth + 2))
         Dim pixelsPerMinute As Double = timelineWidth / CDbl(totalTimeMinutes)
         Dim tlStatusColors As New Dictionary(Of String, Color) From {
             {"Pending", Color.LightGoldenrodYellow},
@@ -5829,8 +6381,8 @@ Public Class SchedulerNew
             Math.Max(Math.Max(pnlContent.ClientSize.Width, dayLabelWidth + timelineWidth + tlMinSlack), tlMaxR + tlMinSlack),
             Math.Max(currentTop, tlMaxB + tlMinSlack))
 
-        pnlBody.Controls.Clear()
-        pnlBody.Controls.Add(pnlContent)
+        ClearSchedulerBodyContent()
+        AddSchedulerBodyContent(pnlContent)
 
         EnsureTimelineEdgeHints()
         UpdateTimelineEdgeHints(weekStart)
@@ -5987,8 +6539,8 @@ Public Class SchedulerNew
         If _tlPrevHint Is Nothing Then
             _tlPrevHint = New ArrowLable With {
                 .AutoSize = False,
-                .Width = 36,
-                .Height = 90,
+                .Width = BodyEdgeHintWidth,
+                .Height = BodyEdgeHintHeight,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Text = If(Eng, "PREV", "السابق"),
                 .Visible = False,
@@ -6011,15 +6563,16 @@ Public Class SchedulerNew
                     End If
                 End Sub
         End If
-        If _tlPrevHint.Parent Is Nothing Then
-            pnlBody.Controls.Add(_tlPrevHint)
+        If _bodyPrevHintHost IsNot Nothing AndAlso _tlPrevHint.Parent IsNot _bodyPrevHintHost Then
+            If _tlPrevHint.Parent IsNot Nothing Then _tlPrevHint.Parent.Controls.Remove(_tlPrevHint)
+            _bodyPrevHintHost.Controls.Add(_tlPrevHint)
             _tlPrevHint.BringToFront()
         End If
         If _tlNextHint Is Nothing Then
             _tlNextHint = New ArrowLable With {
                 .AutoSize = False,
-                .Width = 36,
-                .Height = 90,
+                .Width = BodyEdgeHintWidth,
+                .Height = BodyEdgeHintHeight,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Text = If(Eng, "NEXT", "التالي"),
                 .Visible = False,
@@ -6042,8 +6595,9 @@ Public Class SchedulerNew
                     End If
                 End Sub
         End If
-        If _tlNextHint.Parent Is Nothing Then
-            pnlBody.Controls.Add(_tlNextHint)
+        If _bodyNextHintHost IsNot Nothing AndAlso _tlNextHint.Parent IsNot _bodyNextHintHost Then
+            If _tlNextHint.Parent IsNot Nothing Then _tlNextHint.Parent.Controls.Remove(_tlNextHint)
+            _bodyNextHintHost.Controls.Add(_tlNextHint)
             _tlNextHint.BringToFront()
         End If
         PositionTimelineEdgeHints()
@@ -6051,9 +6605,13 @@ Public Class SchedulerNew
 
     Private Sub PositionTimelineEdgeHints()
         If _tlPrevHint Is Nothing OrElse _tlNextHint Is Nothing Then Return
-        Dim midY = Math.Max(0, (pnlBody.ClientSize.Height - _tlPrevHint.Height) \ 2)
-        _tlPrevHint.Location = New Point(0, midY)
-        _tlNextHint.Location = New Point(Math.Max(0, pnlBody.ClientSize.Width - _tlNextHint.Width), midY)
+        If _bodyPrevHintHost Is Nothing OrElse _bodyNextHintHost Is Nothing Then Return
+        Dim prevX = Math.Max(0, (_bodyPrevHintHost.ClientSize.Width - _tlPrevHint.Width) \ 2)
+        Dim prevY = Math.Max(0, (_bodyPrevHintHost.ClientSize.Height - _tlPrevHint.Height) \ 2)
+        Dim nextX = Math.Max(0, (_bodyNextHintHost.ClientSize.Width - _tlNextHint.Width) \ 2)
+        Dim nextY = Math.Max(0, (_bodyNextHintHost.ClientSize.Height - _tlNextHint.Height) \ 2)
+        _tlPrevHint.Location = New Point(prevX, prevY)
+        _tlNextHint.Location = New Point(nextX, nextY)
         _tlPrevHint.BringToFront()
         _tlNextHint.BringToFront()
     End Sub
@@ -6161,7 +6719,7 @@ Public Class SchedulerNew
         .Font = New Font("Segoe UI", 11, FontStyle.Italic),
         .TextAlign = ContentAlignment.MiddleCenter
     }
-            pnlBody.Controls.Add(noDataLabel)
+            AddSchedulerBodyContent(noDataLabel)
             ApplyPatientHintsForEmptyState(currentDate)
             Dim todayEmpty As DateTime = currentDate.Date
             Dim dowEmpty As Integer = CInt(todayEmpty.DayOfWeek)
@@ -6173,7 +6731,7 @@ Public Class SchedulerNew
             Exit Sub
         End If
 
-        Using weekToolTip As New ToolTip()
+        Dim weekToolTip = SchedulerRenderToolTip()
         ' Calculate current week range (Sat-Fri) using the passed currentDate parameter
         Dim today As DateTime = currentDate.Date
         Dim currentDayOfWeek As Integer = CInt(today.DayOfWeek)
@@ -6623,7 +7181,7 @@ Public Class SchedulerNew
         Next
 
         mainFlow.Controls.Add(daysFlow)
-        pnlBody.Controls.Add(mainFlow)
+        AddSchedulerBodyContent(mainFlow)
         daysFlow.ResumeLayout()
         mainFlow.ResumeLayout()
         pnlBody.ResumeLayout()
@@ -6632,7 +7190,6 @@ Public Class SchedulerNew
         mainFlow.BringToFront()
         EnsureWeekEdgeHints()
         UpdateWeekEdgeHints(weekStart, 7)
-        End Using
     End Sub
 
     Private Sub RenderCurrentWeek6Days(currentDate As DateTime)
@@ -6689,7 +7246,7 @@ Public Class SchedulerNew
             .Font = New Font("Segoe UI", 11, FontStyle.Italic),
             .TextAlign = ContentAlignment.MiddleCenter
         }
-            pnlBody.Controls.Add(noDataLabel)
+            AddSchedulerBodyContent(noDataLabel)
             ApplyPatientHintsForEmptyState(currentDate)
             Dim todayEmpty2 As DateTime = currentDate.Date
             Dim dowEmpty2 As Integer = CInt(todayEmpty2.DayOfWeek)
@@ -6701,7 +7258,7 @@ Public Class SchedulerNew
             Exit Sub
         End If
 
-        Using weekToolTip As New ToolTip()
+        Dim weekToolTip = SchedulerRenderToolTip()
         ' Calculate current week range (Sat-Thu) using the passed currentDate parameter
         Dim today As DateTime = currentDate.Date
         Dim currentDayOfWeek As Integer = CInt(today.DayOfWeek)
@@ -7166,44 +7723,60 @@ Public Class SchedulerNew
         Next
 
         mainFlow.Controls.Add(daysFlow)
-        pnlBody.Controls.Add(mainFlow)
+        AddSchedulerBodyContent(mainFlow)
         daysFlow.ResumeLayout()
         mainFlow.ResumeLayout()
         pnlBody.ResumeLayout()
         mainFlow.BringToFront()
         EnsureWeekEdgeHints()
         UpdateWeekEdgeHints(weekStart, 6)
-        End Using
     End Sub
 
     ''' <param name="statusLabel">When set (week/day status chip), updates label in place; otherwise refreshes via LoadAndRender (month views).</param>
     Private Sub ShowAppointmentStatusContextMenu(host As Control, appt As AppointmentC, statusColors As Dictionary(Of String, Color), e As MouseEventArgs, Optional statusLabel As Label = Nothing)
         If e.Button <> MouseButtons.Right Then Return
         If appt Is Nothing OrElse host Is Nothing Then Return
+        EnsureSchedulerTransientUiHelpers()
 
-        Dim menuFont As New Font("Calibri", 10, FontStyle.Bold)
-        Dim contextMenu As New ContextMenuStrip() With {
-            .RightToLeft = If(Eng, RightToLeft.No, RightToLeft.Yes),
-            .Font = menuFont,
-            .ShowImageMargin = False
+        _statusContextMenuAppointment = appt
+        _statusContextMenuLabel = statusLabel
+        _statusContextMenuColors = statusColors
+        _statusContextMenu.RightToLeft = If(Eng, RightToLeft.No, RightToLeft.Yes)
+        _statusContextMenu.Font = _statusContextMenuFont
+        _statusContextMenu.Items.Clear()
+
+        Dim editItem = New ToolStripMenuItem(If(Eng, "Edit appointment...", "تعديل الموعد...")) With {
+            .Font = _statusContextMenuFont,
+            .Tag = "__edit__"
         }
-        Dim editItem = New ToolStripMenuItem(If(Eng, "Edit appointment...", "تعديل الموعد...")) With {.Font = menuFont}
-        AddHandler editItem.Click, Sub(s, ea) OpenAppointmentEditor(appt, False)
-        contextMenu.Items.Add(editItem)
-        Dim sep As New ToolStripSeparator()
-        sep.Font = menuFont
-        contextMenu.Items.Add(sep)
+        AddHandler editItem.Click, AddressOf StatusContextMenuItem_Click
+        _statusContextMenu.Items.Add(editItem)
+        _statusContextMenu.Items.Add(New ToolStripSeparator())
 
         For Each kvp In statusColors
-            Dim statusKey = kvp.Key
-            Dim c = kvp.Value
-            Dim menuItem = New ToolStripMenuItem(TranslateAppointmentStatus(statusKey)) With {.Font = menuFont}
-            Dim lblRef = statusLabel
-            AddHandler menuItem.Click, Sub(s, ea) UpdateAppointmentCtatus(appt, statusKey, c, lblRef)
-            contextMenu.Items.Add(menuItem)
+            Dim menuItem = New ToolStripMenuItem(TranslateAppointmentStatus(kvp.Key)) With {
+                .Font = _statusContextMenuFont,
+                .Tag = kvp.Key
+            }
+            AddHandler menuItem.Click, AddressOf StatusContextMenuItem_Click
+            _statusContextMenu.Items.Add(menuItem)
         Next
 
-        contextMenu.Show(host, e.Location)
+        _statusContextMenu.Show(host, e.Location)
+    End Sub
+
+    Private Sub StatusContextMenuItem_Click(sender As Object, e As EventArgs)
+        Dim item = TryCast(sender, ToolStripMenuItem)
+        If item Is Nothing OrElse _statusContextMenuAppointment Is Nothing Then Return
+
+        Dim command = Convert.ToString(item.Tag)
+        If String.Equals(command, "__edit__", StringComparison.Ordinal) Then
+            OpenAppointmentEditor(_statusContextMenuAppointment, False)
+            Return
+        End If
+
+        If _statusContextMenuColors Is Nothing OrElse Not _statusContextMenuColors.ContainsKey(command) Then Return
+        UpdateAppointmentCtatus(_statusContextMenuAppointment, command, _statusContextMenuColors(command), _statusContextMenuLabel)
     End Sub
 
     Private Sub UpdateAppointmentCtatus(appt As AppointmentC, newStatus As String, color As Color, Optional statusLabel As Label = Nothing)
@@ -7329,7 +7902,7 @@ Public Class SchedulerNew
             {"مؤجل", Color.LightGray}
         }
         Dim patientNameCache As New Dictionary(Of Integer, String)()
-        Dim monthWeekToolTip As New ToolTip() With {.AutomaticDelay = 300, .AutoPopDelay = 7000}
+        Dim monthWeekToolTip = SchedulerRenderToolTip()
         Dim getPatientName As Func(Of Integer, String) =
             Function(id)
                 If Not patientNameCache.ContainsKey(id) Then
@@ -7337,7 +7910,7 @@ Public Class SchedulerNew
                 End If
                 Return patientNameCache(id)
             End Function
-        pnlBody.Controls.Clear()
+        ClearSchedulerBodyContent()
 
         If _AppointmentC Is Nothing OrElse _AppointmentC.Count = 0 Then
             Dim noDataLabel As New Label With {
@@ -7346,7 +7919,7 @@ Public Class SchedulerNew
             .Font = New Font("Segoe UI", 11, FontStyle.Italic),
             .TextAlign = ContentAlignment.MiddleCenter
         }
-            pnlBody.Controls.Add(noDataLabel)
+            AddSchedulerBodyContent(noDataLabel)
             ApplyPatientHintsForEmptyState(currentDate)
             Dim firstOfMonthEmpty As DateTime = New DateTime(currentDate.Year, currentDate.Month, 1)
             EnsureMonthEdgeHints()
@@ -7692,7 +8265,7 @@ Public Class SchedulerNew
             weekStart = weekStart.AddDays(7)
         Loop
 
-        pnlBody.Controls.Add(mainFlow)
+        AddSchedulerBodyContent(mainFlow)
         mainFlow.BringToFront()
         EnsureWeekEdgeHints()
         UpdateMonthWeeksEdgeHints(startOfFirstWeek, endOfMonthRange.AddDays(1))
@@ -7738,7 +8311,7 @@ Public Class SchedulerNew
 
 #Region "═══ 13. MONTH CALENDAR VIEW ═══"
     Private Sub RenderMonthView(currentDate As DateTime)
-        pnlBody.Controls.Clear()
+        ClearSchedulerBodyContent()
         Dim doctorNameCache As New Dictionary(Of Integer, String)()
         Dim patientNameCache As New Dictionary(Of Integer, String)()
         Dim getDoctorName As Func(Of Integer, String) =
@@ -7879,7 +8452,7 @@ Public Class SchedulerNew
             Next
         Next
 
-        pnlBody.Controls.Add(table)
+        AddSchedulerBodyContent(table)
         EnsureMonthEdgeHints()
         UpdateMonthEdgeHints(firstOfMonth)
     End Sub
@@ -9033,8 +9606,12 @@ Public Class SchedulerNew
     End Sub
     Private Sub gotoDate_EditValueChanged(sender As Object, e As EventArgs) Handles gotoDate.EditValueChanged
         If _suppressGotoDateSync Then Return
-        If gotoDate.Text.Length < 10 Then Return
-        _currentDate = gotoDate.DateTime.Date
+        Dim selectedDate As DateTime
+        If Not TryGetDateTimeFromEditorValue(gotoDate.EditValue, selectedDate) AndAlso
+           Not TryGetDateTimeFromEditorValue(gotoDate.Text, selectedDate) Then
+            Return
+        End If
+        _currentDate = selectedDate.Date
         Select Case _view
             Case ViewMode.DayView : _currentDate = _currentDate.AddDays(0)
             Case ViewMode.ThisWeekFull : _currentDate = _currentDate.AddDays(0)
@@ -9281,7 +9858,7 @@ Public Class SchedulerNew
         _dragStartCard = Nothing
     End Sub
     Private Sub RenderCurrentWeek6Days2(currentDate As DateTime)
-        pnlBody.Controls.Clear()
+        ClearSchedulerBodyContent()
         Dim doctorNameCache As New Dictionary(Of Integer, String)()
         Dim patientNameCache As New Dictionary(Of Integer, String)()
         Dim doctorColorCache As New Dictionary(Of Integer, Color)()
@@ -9326,7 +9903,7 @@ Public Class SchedulerNew
             .Font = New Font("Segoe UI", 11, FontStyle.Italic),
             .TextAlign = ContentAlignment.MiddleCenter
         }
-            pnlBody.Controls.Add(noDataLabel)
+            AddSchedulerBodyContent(noDataLabel)
             ApplyPatientHintsForEmptyState(currentDate)
             Dim todayEmpty3 As DateTime = currentDate.Date
             Dim dowEmpty3 As Integer = CInt(todayEmpty3.DayOfWeek)
@@ -9642,7 +10219,7 @@ Public Class SchedulerNew
         Next
 
         mainFlow.Controls.Add(daysFlow)
-        pnlBody.Controls.Add(mainFlow)
+        AddSchedulerBodyContent(mainFlow)
         mainFlow.BringToFront()
     End Sub
     Private Sub OpenDoctorDayView(doctorId As Integer, day As DateTime)
@@ -9676,7 +10253,7 @@ Public Class SchedulerNew
 
         ' Find the rendered day view control and move it to the form
         Dim dayViewControl As Control = Nothing
-        For Each ctrl As Control In pnlBody.Controls
+        For Each ctrl As Control In SchedulerBodyContentHost().Controls
             If TypeOf ctrl Is Panel AndAlso ctrl.Dock = DockStyle.Fill Then
                 dayViewControl = ctrl
                 Exit For

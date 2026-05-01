@@ -234,9 +234,9 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
-        Public Property UseHdrTestModHeader() As String
+        Public Property UseHdrTestModHeader() As Boolean
             Get
-                Return CType(Me("UseHdrTestModHeader"),String)
+                Return CType(Me("UseHdrTestModHeader"),Boolean)
             End Get
             Set
                 Me("UseHdrTestModHeader") = value

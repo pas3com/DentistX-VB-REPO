@@ -69,6 +69,7 @@ Partial Class MainView3
         Me.btnRecieveOrder = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.btnLabPay = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.VendorsButton = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.btnOLdScheduler = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.FluentDesignFormControl1 = New DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl()
         Me.MainMenu = New DevExpress.XtraBars.BarSubItem()
         Me.DBaseMnu = New DevExpress.XtraBars.BarSubItem()
@@ -576,8 +577,16 @@ Partial Class MainView3
         '
         Me.VendorsButton.Appearance.Default.Font = CType(resources.GetObject("VendorsButton.Appearance.Default.Font"), System.Drawing.Font)
         Me.VendorsButton.Appearance.Default.Options.UseFont = True
+        Me.VendorsButton.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.btnOLdScheduler})
+        Me.VendorsButton.Expanded = True
         resources.ApplyResources(Me.VendorsButton, "VendorsButton")
         Me.VendorsButton.Name = "VendorsButton"
+        '
+        'btnOLdScheduler
+        '
+        Me.btnOLdScheduler.Name = "btnOLdScheduler"
+        Me.btnOLdScheduler.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        resources.ApplyResources(Me.btnOLdScheduler, "btnOLdScheduler")
         '
         'FluentDesignFormControl1
         '
@@ -2298,4 +2307,5 @@ Partial Class MainView3
     Friend WithEvents btnCsiImage As DevExpress.XtraBars.Navigation.AccordionControlElement
     Friend WithEvents AccordionControlSeparator14 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
     Friend WithEvents AccordionControlSeparator15 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
+    Friend WithEvents btnOLdScheduler As DevExpress.XtraBars.Navigation.AccordionControlElement
 End Class

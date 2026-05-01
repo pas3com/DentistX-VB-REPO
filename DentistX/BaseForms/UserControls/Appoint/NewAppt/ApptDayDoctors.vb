@@ -125,10 +125,14 @@ Public Class ApptDayDoctors
         AddHandler _canvas.DragDrop, AddressOf Canvas_DragDrop
 
         _nowTimer = New Timer With {.Interval = 60000}
-        AddHandler _nowTimer.Tick, Sub()
-                                       If _canvas IsNot Nothing AndAlso _canvas.Visible Then _canvas.Invalidate()
-                                   End Sub
+        AddHandler _nowTimer.Tick, AddressOf NowTimer_Tick
         _nowTimer.Start()
+    End Sub
+
+    Private Sub NowTimer_Tick(sender As Object, e As EventArgs)
+        If _canvas IsNot Nothing AndAlso _canvas.Visible Then
+            ApptErrorHelper.SafeInvalidate(_canvas, "ApptDayDoctors.NowTimer_Tick.InvalidateCanvas")
+        End If
     End Sub
 
     Private Sub OnCardDragMouseDown(card As ApptCardCtl, day As Date, e As MouseEventArgs)
@@ -260,13 +264,15 @@ Public Class ApptDayDoctors
 
         Try
             _dragSourceCard.IndicatorColor = Color.BlueViolet
-            _dragSourceCard.Update()
+            ApptErrorHelper.SafeInvalidate(_dragSourceCard, "ApptDayDoctors.HoldTimer_Tick.HighlightCard")
 
             Dim dObj As New DataObject()
             dObj.SetData("Appointment", _dragSourceAppt)
             dObj.SetData("SourceDay", If(_dragSourceDay, Date.Today))
             dObj.SetData("SourceDoctor", _dragSourceAppt.DrID)
             _dragSourceCard.DoDragDrop(dObj, DragDropEffects.Move)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayDoctors.HoldTimer_Tick", showUser:=False)
         Finally
             _dragSourceCard.IndicatorColor = Color.Transparent
             _dragSourceCard = Nothing
@@ -274,7 +280,7 @@ Public Class ApptDayDoctors
             _dragSourceDay = Nothing
             _dragTargetTime = DateTime.MinValue
             _dragTargetDrId = -1
-            _canvas.Invalidate()
+            ApptErrorHelper.SafeInvalidate(_canvas, "ApptDayDoctors.HoldTimer_Tick.InvalidateCanvas")
         End Try
     End Sub
 
@@ -403,9 +409,13 @@ Public Class ApptDayDoctors
     Public Property InteractionHub As ApptInteractionHub Implements IApptViewCtl.InteractionHub
 
     Public Sub BindData(request As ApptViewRequest) Implements IApptViewCtl.BindData
-        _request = request
-        RenderDay()
-        If request IsNot Nothing Then TryScrollToAppointment(request.PendingScrollAppointment)
+        Try
+            _request = request
+            RenderDay()
+            If request IsNot Nothing Then TryScrollToAppointment(request.PendingScrollAppointment)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayDoctors.BindData", showUser:=False)
+        End Try
     End Sub
 
     Private Sub FitCanvasWidth()
@@ -446,7 +456,7 @@ Public Class ApptDayDoctors
         If _canvas Is Nothing Then Return
         _canvas.SuspendLayout()
         Try
-            _canvas.Controls.Clear()
+            DisposeChildControls(_canvas)
             If _request Is Nothing OrElse _request.State Is Nothing OrElse _request.Data Is Nothing Then
                 _headerWeekdayLead = ""
                 _headerDateCore = ""
@@ -617,6 +627,8 @@ Public Class ApptDayDoctors
             Next
             _canvas.Height = maxBottom
             _canvas.Invalidate()
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayDoctors.RenderDay", showUser:=False)
         Finally
             _canvas.ResumeLayout(True)
         End Try
@@ -652,6 +664,48 @@ Public Class ApptDayDoctors
         If grid <= 0 Then Return mins
         Return CInt(Math.Round(mins / CDbl(grid))) * grid
     End Function
+
+    Protected Overrides Sub Dispose(disposing As Boolean)
+        If disposing Then
+            Try
+                _holdTimer.Stop()
+                RemoveHandler _holdTimer.Tick, AddressOf HoldTimer_Tick
+                _holdTimer.Dispose()
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptDayDoctors.Dispose.HoldTimer", showUser:=False)
+            End Try
+
+            Try
+                If _nowTimer IsNot Nothing Then
+                    _nowTimer.Stop()
+                    RemoveHandler _nowTimer.Tick, AddressOf NowTimer_Tick
+                    _nowTimer.Dispose()
+                    _nowTimer = Nothing
+                End If
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptDayDoctors.Dispose.NowTimer", showUser:=False)
+            End Try
+
+            Try
+                If _canvas IsNot Nothing Then
+                    RemoveHandler _canvas.DragEnter, AddressOf Canvas_DragEnter
+                    RemoveHandler _canvas.DragOver, AddressOf Canvas_DragOver
+                    RemoveHandler _canvas.DragLeave, AddressOf Canvas_DragLeave
+                    RemoveHandler _canvas.DragDrop, AddressOf Canvas_DragDrop
+                End If
+                If _scrollHost IsNot Nothing Then
+                    RemoveHandler _scrollHost.Resize, AddressOf ScrollHost_Resize
+                End If
+                If _headerBand IsNot Nothing Then
+                    RemoveHandler _headerBand.Paint, AddressOf HeaderBand_Paint
+                End If
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptDayDoctors.Dispose.EventHandlers", showUser:=False)
+            End Try
+        End If
+
+        MyBase.Dispose(disposing)
+    End Sub
 
     ''' <summary>Paints hour grid, half-hour wash, column rules, time labels, and optional “now” line.</summary>
     Private NotInheritable Class DayDoctorsTimelineCanvas
@@ -722,68 +776,66 @@ Public Class ApptDayDoctors
                 End Using
             Next
 
-            Using fCorner = CreateCalibriFont(8.25F, FontStyle.Bold)
+            Dim y0 = _gridTop
+
+            Using fCorner = CreateCalibriFont(8.25F, FontStyle.Bold),
+                  fColumn = CreateCalibriFont(8.75F, FontStyle.Bold),
+                  fHour = CreateCalibriFont(9.5F, FontStyle.Bold)
                 Dim timeLab = If(Eng, "Time", "الوقت")
                 TextRenderer.DrawText(g, timeLab, fCorner, New Rectangle(6, hdrTop + 4, TimeGutterPx - 12, DoctorHeaderPx - 6), Color.FromArgb(72, 82, 98),
                     TextFormatFlags.Left Or TextFormatFlags.VerticalCenter Or TextFormatFlags.EndEllipsis)
-            End Using
-            For ci = 0 To _docCount - 1
-                Dim colTitle = If(ci < _columnNames.Count, _columnNames(ci), "")
-                Dim xCol = TimeGutterPx + ci * _colW
-                Dim back = If(ci < _columnBackColors.Count, _columnBackColors(ci), Color.FromArgb(241, 244, 250))
-                Dim tcol = GetReadableForeColor(back)
-                Using fc = CreateCalibriFont(8.75F, FontStyle.Bold)
-                    TextRenderer.DrawText(g, colTitle, fc, New Rectangle(xCol + 6, hdrTop + 4, _colW - 12, DoctorHeaderPx - 6), tcol,
+                For ci = 0 To _docCount - 1
+                    Dim colTitle = If(ci < _columnNames.Count, _columnNames(ci), "")
+                    Dim xCol = TimeGutterPx + ci * _colW
+                    Dim back = If(ci < _columnBackColors.Count, _columnBackColors(ci), Color.FromArgb(241, 244, 250))
+                    Dim tcol = GetReadableForeColor(back)
+                    TextRenderer.DrawText(g, colTitle, fColumn, New Rectangle(xCol + 6, hdrTop + 4, _colW - 12, DoctorHeaderPx - 6), tcol,
                         TextFormatFlags.HorizontalCenter Or TextFormatFlags.VerticalCenter Or TextFormatFlags.SingleLine Or TextFormatFlags.EndEllipsis)
-                End Using
-            Next
+                Next
 
-            Dim y0 = _gridTop
+                ' Half-hour calming bands (whole-hour rows alternate)
+                Dim halfCount = CInt(Math.Ceiling(_totalMin / 30.0R))
+                For i = 0 To halfCount - 1
+                    If i Mod 2 = 1 Then
+                        Dim yBand = y0 + CSng(i * 30) * _pxPm
+                        Dim rh = CSng(30) * _pxPm
+                        Using br As New SolidBrush(ApptDayDoctors.HalfHourBand)
+                            g.FillRectangle(br, TimeGutterPx, CInt(yBand), Math.Max(1, Width - TimeGutterPx), CInt(Math.Max(1.0F, rh)))
+                        End Using
+                    End If
+                Next
 
-            ' Half-hour calming bands (whole-hour rows alternate)
-            Dim halfCount = CInt(Math.Ceiling(_totalMin / 30.0R))
-            For i = 0 To halfCount - 1
-                If i Mod 2 = 1 Then
-                    Dim yBand = y0 + CSng(i * 30) * _pxPm
-                    Dim rh = CSng(30) * _pxPm
-                    Using br As New SolidBrush(ApptDayDoctors.HalfHourBand)
-                        g.FillRectangle(br, TimeGutterPx, CInt(yBand), Math.Max(1, Width - TimeGutterPx), CInt(Math.Max(1.0F, rh)))
+                ' Half-hour ticks and faint guide lines (between hours)
+                For hm = 30 To _totalMin - 1 Step 30
+                    If hm Mod 60 = 0 Then Continue For
+                    Dim yh = y0 + CSng(hm) * _pxPm
+                    Using pHalf As New Pen(ApptDayDoctors.HalfHourLine, 1.0F)
+                        g.DrawLine(pHalf, TimeGutterPx + 2, yh, Width, yh)
                     End Using
-                End If
-            Next
+                    Using pTk As New Pen(ApptDayDoctors.TickHalf, 1.0F)
+                        g.DrawLine(pTk, TimeGutterPx - 6, yh, TimeGutterPx, yh)
+                    End Using
+                Next
 
-            ' Half-hour ticks and faint guide lines (between hours)
-            For hm = 30 To _totalMin - 1 Step 30
-                If hm Mod 60 = 0 Then Continue For
-                Dim yh = y0 + CSng(hm) * _pxPm
-                Using pHalf As New Pen(ApptDayDoctors.HalfHourLine, 1.0F)
-                    g.DrawLine(pHalf, TimeGutterPx + 2, yh, Width, yh)
-                End Using
-                Using pTk As New Pen(ApptDayDoctors.TickHalf, 1.0F)
-                    g.DrawLine(pTk, TimeGutterPx - 6, yh, TimeGutterPx, yh)
-                End Using
-            Next
-
-            ' Hour lines, gutter ticks, bold labels
-            Dim t = _workStart
-            While t < _workEnd.AddSeconds(1)
-                Dim minsH = CInt((t - _workStart).TotalMinutes)
-                Dim y = y0 + CSng(minsH) * _pxPm
-                Using p As New Pen(ApptDayDoctors.HourLine, 1.35F)
-                    g.DrawLine(p, TimeGutterPx, y, Width, y)
-                End Using
-                Using pTk As New Pen(ApptDayDoctors.TickHour, 1.35F)
-                    g.DrawLine(pTk, TimeGutterPx - 11, y, TimeGutterPx, y)
-                End Using
-                Dim tf = If(_host._request IsNot Nothing AndAlso _host._request.State IsNot Nothing AndAlso _host._request.State.Use24HourFormat,
-                    "HH:mm", "hh:mm tt")
-                Dim lab = t.ToString(tf)
-                Using f = CreateCalibriFont(9.5F, FontStyle.Bold)
-                    TextRenderer.DrawText(g, lab, f, New Rectangle(2, CInt(y - 12), TimeGutterPx - 4, 24), Color.FromArgb(48, 58, 76),
+                ' Hour lines, gutter ticks, bold labels
+                Dim t = _workStart
+                While t < _workEnd.AddSeconds(1)
+                    Dim minsH = CInt((t - _workStart).TotalMinutes)
+                    Dim y = y0 + CSng(minsH) * _pxPm
+                    Using p As New Pen(ApptDayDoctors.HourLine, 1.35F)
+                        g.DrawLine(p, TimeGutterPx, y, Width, y)
+                    End Using
+                    Using pTk As New Pen(ApptDayDoctors.TickHour, 1.35F)
+                        g.DrawLine(pTk, TimeGutterPx - 11, y, TimeGutterPx, y)
+                    End Using
+                    Dim tf = If(_host._request IsNot Nothing AndAlso _host._request.State IsNot Nothing AndAlso _host._request.State.Use24HourFormat,
+                        "HH:mm", "hh:mm tt")
+                    Dim lab = t.ToString(tf)
+                    TextRenderer.DrawText(g, lab, fHour, New Rectangle(2, CInt(y - 12), TimeGutterPx - 4, 24), Color.FromArgb(48, 58, 76),
                         TextFormatFlags.Right Or TextFormatFlags.VerticalCenter Or TextFormatFlags.SingleLine)
-                End Using
-                t = t.AddHours(1)
-            End While
+                    t = t.AddHours(1)
+                End While
+            End Using
 
             For c = 1 To _docCount - 1
                 Dim x = TimeGutterPx + c * _colW

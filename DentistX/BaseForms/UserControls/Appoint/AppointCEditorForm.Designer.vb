@@ -355,8 +355,6 @@ Partial Class AppointCEditorForm
         Me.PatientCombo1.Filter = ""
         resources.ApplyResources(Me.PatientCombo1, "PatientCombo1")
         Me.PatientCombo1.Name = "PatientCombo1"
-        Me.PatientCombo1.PatientID = 2
-        Me.PatientCombo1.PatientName = Nothing
         '
         'DoctorsCombo1
         '

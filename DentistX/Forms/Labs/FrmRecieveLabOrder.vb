@@ -1,5 +1,4 @@
 Imports System.ComponentModel
-Imports System.Collections.Generic
 Imports DevExpress.XtraBars
 Imports System.ComponentModel.DataAnnotations
 Imports DevExpress.XtraGrid.Views.Base
@@ -7,6 +6,10 @@ Imports System.Windows.Forms
 Imports DentistX
 
 Partial Public Class FrmRecieveLabOrder
+
+    Private _initialDataQueued As Boolean = False
+    Private _loadingGrid As Boolean = False
+    Private _suspendRowDisplay As Boolean = False
 
 
     Public Sub New()
@@ -28,14 +31,29 @@ Partial Public Class FrmRecieveLabOrder
 
 
     Private Sub FrmRecieveLabOrder_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        LoadDGV()
-        ShowToolStripItems("Cancel")
-        'If colLabCombo.CboLab.Properties.Items.Count > 0 Then
-        '    colLabCombo.CboLab.SelectedIndex = 0
-        'End If
-        'If colPatientCombo.CboPatient.Properties.Items.Count > 0 Then
-        '    colPatientCombo.CboPatient.SelectedIndex = 0
-        'End If
+        EnableRecord(False)
+        bAdd.Enabled = False
+        bEdit.Enabled = False
+        bDelete.Enabled = False
+        bRefresh.Enabled = False
+        butApply.Enabled = False
+        butCancel.Enabled = False
+    End Sub
+
+    Private Sub FrmRecieveLabOrder_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        If _initialDataQueued Then Return
+        _initialDataQueued = True
+        BeginInvoke(New MethodInvoker(AddressOf InitializeAfterShown))
+    End Sub
+
+    Private Sub InitializeAfterShown()
+        _suspendRowDisplay = True
+        Try
+            LoadDGV()
+            ShowToolStripItems("Cancel")
+        Finally
+            _suspendRowDisplay = False
+        End Try
     End Sub
     Private bAddMode As Boolean = False
     Private bEditMode As Boolean = False
@@ -80,6 +98,7 @@ Partial Public Class FrmRecieveLabOrder
 
     Private Sub LoadDGV()
         Try
+            _loadingGrid = True
             With DGV
                 .DataSource = clsLabOrderData.SelectAll
                 bsiRecordsCount.Caption = "RECORDS : " & .DataSource.Count
@@ -91,11 +110,14 @@ Partial Public Class FrmRecieveLabOrder
             End With
         Catch ex As Exception
             MsgBox(ex.Message)
+        Finally
+            _loadingGrid = False
         End Try
     End Sub
 
     Private Sub DGV_Click(sender As Object, e As System.EventArgs) Handles DGV.Click
         Try
+            If _loadingGrid OrElse _suspendRowDisplay Then Return
             Row = dgView.FocusedRowHandle
             Display()
         Catch ex As Exception
@@ -105,6 +127,7 @@ Partial Public Class FrmRecieveLabOrder
 
     Private Sub DGV_SelectionChanged(sender As Object, e As System.EventArgs) Handles dgView.SelectionChanged
         Try
+            If _loadingGrid OrElse _suspendRowDisplay Then Return
             Row = dgView.FocusedRowHandle
             Display()
         Catch ex As Exception
@@ -148,29 +171,36 @@ Partial Public Class FrmRecieveLabOrder
     Private Sub ApplyImprClrFromLabOrder(imprClr As Object)
         Dim s = Convert.ToString(imprClr)
         If String.IsNullOrWhiteSpace(s) Then
-            ImpClrsCombo1.SetSelectedImpClr(-1)
+            ImpClrsCombo1.Text = String.Empty
         Else
-            ImpClrsCombo1.SetSelectedImpClrID(s)
+            ImpClrsCombo1.Text = s
         End If
     End Sub
 
     Private Sub Display()
         ClearRecord()
-        Dim clsLabOrder As New LabOrder
-        clsLabOrder.LabOrderID = System.Convert.ToInt32(dgView.GetRowCellDisplayText(Row, colLabOrderID))
-        clsLabOrder = clsLabOrderData.Select_Record(clsLabOrder)
+        Dim clsLabOrder As LabOrder = TryCast(dgView.GetRow(Row), LabOrder)
+        If clsLabOrder Is Nothing Then
+            clsLabOrder = New LabOrder
+            clsLabOrder.LabOrderID = System.Convert.ToInt32(dgView.GetRowCellDisplayText(Row, colLabOrderID))
+            clsLabOrder = clsLabOrderData.Select_Record(clsLabOrder)
+        End If
         If Not clsLabOrder Is Nothing Then
             Try
                 LabOrderIDSpinEdit.Value = System.Convert.ToInt32(clsLabOrder.LabOrderID)
-                colLabCombo.SetSelectedLabName(System.Convert.ToInt32(clsLabOrder.LabID))
-                colPatientCombo.SetCurrentPatientName(System.Convert.ToInt32(clsLabOrder.PatientID))
-                ImpressionCombo1.SetSelectedImprID(Convert.ToString(clsLabOrder.ImprType))
-                ImprDetCombo1.SetSelectedImprDetail(Convert.ToString(clsLabOrder.ImprDet))
+                colLabCombo.Text = Convert.ToString(clsLabOrder.LabName)
+                colPatientCombo.Text = Convert.ToString(clsLabOrder.PatientName)
+                ImpressionCombo1.Text = Convert.ToString(clsLabOrder.ImprType)
+                ImprDetCombo1.Text = Convert.ToString(clsLabOrder.ImprDet)
                 ApplyImprClrFromLabOrder(clsLabOrder.ImprClr)
                 ImprCountSpinEdit.Value = System.Convert.ToInt32(clsLabOrder.ImprCount)
-                DeliveryDateDateEdit.Text = System.Convert.ToDateTime(clsLabOrder.DeliveryDate)
+                If clsLabOrder.DeliveryDate.HasValue Then
+                    DeliveryDateDateEdit.DateTime = clsLabOrder.DeliveryDate.Value
+                Else
+                    DeliveryDateDateEdit.EditValue = Nothing
+                End If
                 PriceSpinEdit.Value = System.Convert.ToInt32(clsLabOrder.Price)
-                RefreshOrderDetailsFromImpressionControls()
+                OrderDetailsTextEdit.Text = Convert.ToString(clsLabOrder.OrderDetails)
                 If clsLabOrder.RecieveDate.HasValue Then
                     RecieveDateDateEdit.DateTime = clsLabOrder.RecieveDate.Value
                 Else
@@ -211,55 +241,17 @@ Partial Public Class FrmRecieveLabOrder
 
     Private Sub ClearRecord()
         LabOrderIDSpinEdit.Value = 0
-        colLabCombo.SetSelectedLabName(-1)
-        colLabCombo.LabName = Nothing
-        colPatientCombo.SetCurrentPatientName(-1)
-        ImpressionCombo1.ImprID = -1
-        ImprDetCombo1.ImpDetID = -1
-        ImpClrsCombo1.SetSelectedImpClr(-1)
+        colLabCombo.Text = Nothing
+        colPatientCombo.Text = Nothing
+        ImpressionCombo1.Text = Nothing
+        ImprDetCombo1.Text = Nothing
+        ImpClrsCombo1.Text = Nothing
         ImprCountSpinEdit.Value = 0
         DeliveryDateDateEdit.Text = Nothing
         PriceSpinEdit.Value = 0
         OrderDetailsTextEdit.Text = Nothing
         RecieveDateDateEdit.Text = Nothing
         NotesTextEdit.Text = Nothing
-        RefreshOrderDetailsFromImpressionControls()
-    End Sub
-
-    Private Shared Function IsUsableOrderDetailsPart(value As String) As Boolean
-        If String.IsNullOrWhiteSpace(value) Then Return False
-        Dim t = value.Trim()
-        If t = "-1" OrElse t = "0" Then Return False
-        Return True
-    End Function
-
-    ''' <summary>Builds a single line for OrderDetails from impression type, detail, shade/color, and count (max 250 chars).</summary>
-    Private Function BuildOrderDetailsSummary() As String
-        Dim parts As New List(Of String)()
-        If IsUsableOrderDetailsPart(ImpressionCombo1.ImprType) Then
-            parts.Add(ImpressionCombo1.ImprType.Trim())
-        End If
-        If IsUsableOrderDetailsPart(ImprDetCombo1.ImprDetail) Then
-            parts.Add(ImprDetCombo1.ImprDetail.Trim())
-        End If
-        Dim impClrPart = If(ImpClrsCombo1.ImpClr, String.Empty)
-        If IsUsableOrderDetailsPart(impClrPart) Then
-            parts.Add(impClrPart.Trim())
-        End If
-        Dim qty = CInt(ImprCountSpinEdit.Value)
-        If qty > 0 Then
-            parts.Add("×" & qty.ToString())
-        End If
-        Dim s = String.Join(" • ", parts)
-        Const maxLen As Integer = 250
-        If s.Length > maxLen Then
-            s = s.Substring(0, maxLen)
-        End If
-        Return s
-    End Function
-
-    Private Sub RefreshOrderDetailsFromImpressionControls()
-        OrderDetailsTextEdit.Text = BuildOrderDetailsSummary()
     End Sub
 
     Private Sub GoBack_To_Grid()
@@ -284,52 +276,18 @@ Partial Public Class FrmRecieveLabOrder
         End Try
         AddHandler dgView.SelectionChanged, AddressOf DGV_SelectionChanged
     End Sub
-    Private Sub SetData(ByVal clsLabOrder As LabOrder)
-        With clsLabOrder
-            .LabOrderID = System.Convert.ToInt32(LabOrderIDSpinEdit.Value)
-            .LabID = System.Convert.ToInt32(colLabCombo.LabID)
-            .LabName = System.Convert.ToString(colLabCombo.LabName)
-            .PatientID = System.Convert.ToInt32(colPatientCombo.PatientID)
-            .PatientName = System.Convert.ToString(colPatientCombo.PatientName)
-            .ImprType = System.Convert.ToString(ImpressionCombo1.ImprType)
-            .ImprDet = System.Convert.ToString(ImprDetCombo1.ImprDetail)
-            .ImprClr = System.Convert.ToString(ImpClrsCombo1.ImpClr)
-            .ImprCount = System.Convert.ToInt32(ImprCountSpinEdit.Value)
-            .DeliveryDate = System.Convert.ToDateTime(DeliveryDateDateEdit.DateTime)
-            .Price = System.Convert.ToInt32(PriceSpinEdit.Value)
-            .OrderDetails = System.Convert.ToString(OrderDetailsTextEdit.Text)
-            If RecieveDateDateEdit.EditValue Is Nothing OrElse RecieveDateDateEdit.EditValue Is DBNull.Value Then
-                .RecieveDate = Nothing
-            Else
-                .RecieveDate = RecieveDateDateEdit.DateTime
-            End If
-            .Notes = System.Convert.ToString(NotesTextEdit.Text)
-        End With
-    End Sub
-
     Private Sub InsertRecord()
-        Dim clsLabOrder As New LabOrder
-        If VerifyData() = True Then
-            SetData(clsLabOrder)
-            Dim bSuccess As Boolean
-            bSuccess = clsLabOrderData.Add(clsLabOrder)
-            If bSuccess = True Then
-                GoBack_To_Grid()
-            Else
-                MsgBox("Insert failed.", MsgBoxStyle.OkOnly, "Error")
-            End If
-        End If
+        MsgBox("Adding lab orders is not supported from this receive form.", MsgBoxStyle.OkOnly, "Info")
     End Sub
 
     Private Sub UpdateRecord()
-        Dim oclsLabOrder As New LabOrder
-        Dim clsLabOrder As New LabOrder
-        oclsLabOrder.LabOrderID = System.Convert.ToInt32(dgView.GetRowCellDisplayText(Row, colLabOrderID))
-        oclsLabOrder = clsLabOrderData.Select_Record(oclsLabOrder)
         If VerifyData() = True Then
-            SetData(clsLabOrder)
             Dim bSuccess As Boolean
-            bSuccess = clsLabOrderData.Update(oclsLabOrder, clsLabOrder)
+            Dim receiveDate As Nullable(Of DateTime) = Nothing
+            If Not (RecieveDateDateEdit.EditValue Is Nothing OrElse RecieveDateDateEdit.EditValue Is DBNull.Value) Then
+                receiveDate = RecieveDateDateEdit.DateTime
+            End If
+            bSuccess = clsLabOrderData.UpdateReceiveInfo(System.Convert.ToInt32(LabOrderIDSpinEdit.Value), receiveDate, System.Convert.ToString(NotesTextEdit.Text))
             If bSuccess = True Then
                 GoBack_To_Grid()
             Else
@@ -354,50 +312,9 @@ Partial Public Class FrmRecieveLabOrder
     End Sub
 
     Private Function VerifyData() As Boolean
-        ' Check required fields
-        If LabOrderIDSpinEdit.Value = Nothing OrElse LabOrderIDSpinEdit.Value.ToString() = "" Then
-            MsgBox("LabOrderID is required.", MsgBoxStyle.OkOnly, "Entry Error")
+        If LabOrderIDSpinEdit.Value <= 0 Then
+            MsgBox("Please select a lab order.", MsgBoxStyle.OkOnly, "Entry Error")
             LabOrderIDSpinEdit.Select()
-            Return False
-        End If
-        If colLabCombo.LabID <= 0 OrElse String.IsNullOrWhiteSpace(colLabCombo.LabName) Then
-            MsgBox("Please select a lab.", MsgBoxStyle.OkOnly, "Entry Error")
-            colLabCombo.Select()
-            Return False
-        End If
-        If colPatientCombo.PatientID <= 0 OrElse String.IsNullOrWhiteSpace(colPatientCombo.PatientName) Then
-            MsgBox("PatientID is required.", MsgBoxStyle.OkOnly, "Entry Error")
-            colPatientCombo.Select()
-            Return False
-        End If
-        'If ImpressionCombo1.Text = "" Then
-        '    MsgBox("ImprType is required.", MsgBoxStyle.OkOnly, "Entry Error")
-        '    ImpressionCombo1.Select()
-        '    Return False
-        'End If
-        If OrderDetailsTextEdit.Text = "" Then
-            MsgBox("Order Details is required.", MsgBoxStyle.OkOnly, "Entry Error")
-            OrderDetailsTextEdit.Select()
-            Return False
-        End If
-        ''If ImpClrsCombo1.Text = "" Then
-        ''    MsgBox("ImprClr is required.", MsgBoxStyle.OkOnly, "Entry Error")
-        ''    ImpClrsCombo1.Select()
-        ''    Return False
-        ''End If
-        'If ImprCountSpinEdit.Value = Nothing OrElse ImprCountSpinEdit.Value.ToString() = "" Then
-        '    MsgBox("ImprCount is required.", MsgBoxStyle.OkOnly, "Entry Error")
-        '    ImprCountSpinEdit.Select()
-        '    Return False
-        'End If
-        If DeliveryDateDateEdit.EditValue = Nothing OrElse DeliveryDateDateEdit.EditValue.ToString() = "" Then
-            MsgBox("Price is required.", MsgBoxStyle.OkOnly, "Entry Error")
-            DeliveryDateDateEdit.Select()
-            Return False
-        End If
-        If PriceSpinEdit.Value = Nothing OrElse PriceSpinEdit.Value.ToString() = "" Then
-            MsgBox("Price is required.", MsgBoxStyle.OkOnly, "Entry Error")
-            PriceSpinEdit.Select()
             Return False
         End If
         Return True
@@ -462,23 +379,5 @@ Partial Public Class FrmRecieveLabOrder
     End Sub
     Private Sub bCancel_ItemClick(sender As Object, e As ItemClickEventArgs) Handles bCancel.ItemClick
         ShowToolStripItems("Cancel")
-    End Sub
-
-
-    Private Sub ImpressionCombo1_ImpressionValueChanged(sender As Object, e As ImpressionCombo.ImpressionIndexChangedEvent) Handles ImpressionCombo1.ImpressionValueChanged
-        ImprDetCombo1.UpdateImpComboByParentID(e.ImprID)
-        RefreshOrderDetailsFromImpressionControls()
-    End Sub
-
-    Private Sub ImprDetCombo1_ImprDetValueChanged(sender As Object, e As ImprDetCombo.ImprDetIndexChangedEvent) Handles ImprDetCombo1.ImprDetValueChanged
-        RefreshOrderDetailsFromImpressionControls()
-    End Sub
-
-    Private Sub ImpClrsCombo1_ImpClrsValueChanged(sender As Object, e As ImpClrsCombo.ImpClrsIndexChangedEvent) Handles ImpClrsCombo1.ImpClrsValueChanged
-        RefreshOrderDetailsFromImpressionControls()
-    End Sub
-
-    Private Sub ImprCountSpinEdit_EditValueChanged(sender As Object, e As EventArgs) Handles ImprCountSpinEdit.EditValueChanged
-        RefreshOrderDetailsFromImpressionControls()
     End Sub
 End Class

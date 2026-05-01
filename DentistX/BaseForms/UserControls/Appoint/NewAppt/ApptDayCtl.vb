@@ -6,9 +6,8 @@ Imports System.Windows.Forms
 Imports DevExpress.XtraEditors
 
 ''' <summary>
-''' <see cref="ApptViewMode.DayView"/>: 30-minute slot rows with borders, time gutter (~70px), optional doctor caption strip,
-''' transparent doctor columns for empty double-clicks, and time-scaled <see cref="ApptCardCtl"/> blocks
-''' (same layout model as <see cref="SchedulerNew.RenderDayView"/>). To use <see cref="HtmlCard"/> instead, replace
+''' <see cref="ApptViewMode.DayView"/>: 30-minute slot rows with borders, time gutter (~70px), and a free day canvas where
+''' time-overlapping appointments divide the shared horizontal space. To use <see cref="HtmlCard"/> instead, replace
 ''' <c>ApptCardCtl</c> with <c>HtmlCard</c> here and in <see cref="ApptDayDoctors"/>; week view uses <see cref="ApptWeekCtl"/>.
 ''' </summary>
 Public Class ApptDayCtl
@@ -51,6 +50,17 @@ Public Class ApptDayCtl
     Private _pxPerMin As Single
 
     Private ReadOnly _scrollResizeDebounce As Timer
+
+    Private Structure DayOverlapInterval
+        Public Appointment As AppointmentC
+        Public StartTime As DateTime
+        Public EndTime As DateTime
+    End Structure
+
+    Private Structure DayOverlapPlacement
+        Public LaneIndex As Integer
+        Public LaneCount As Integer
+    End Structure
 
     Public Sub New()
         Appearance.BackColor = Color.FromArgb(245, 247, 250)
@@ -139,11 +149,78 @@ Public Class ApptDayCtl
         If _content.Width <> w Then _content.Width = w
     End Sub
 
+    Private Shared Function BuildDayOverlapPlacements(appts As IEnumerable(Of AppointmentC), workStart As DateTime, workEnd As DateTime) As Dictionary(Of AppointmentC, DayOverlapPlacement)
+        Dim placements As New Dictionary(Of AppointmentC, DayOverlapPlacement)()
+        If appts Is Nothing Then Return placements
+
+        Dim ordered = appts.
+            Select(Function(ap)
+                       Dim st = If(ap.StartDateTime < workStart, workStart, ap.StartDateTime)
+                       Dim en = If(ap.EndDateTime > workEnd, workEnd, ap.EndDateTime)
+                       If en <= st Then en = st.AddMinutes(1)
+                       Return New DayOverlapInterval With {.Appointment = ap, .StartTime = st, .EndTime = en}
+                   End Function).
+            OrderBy(Function(x) x.StartTime).
+            ThenBy(Function(x) x.EndTime).
+            ToList()
+
+        Dim cluster As New List(Of DayOverlapInterval)()
+        Dim clusterMaxEnd = DateTime.MinValue
+
+        For Each item In ordered
+            If cluster.Count > 0 AndAlso item.StartTime >= clusterMaxEnd Then
+                AssignDayOverlapCluster(cluster, placements)
+                cluster.Clear()
+                clusterMaxEnd = DateTime.MinValue
+            End If
+
+            cluster.Add(item)
+            If item.EndTime > clusterMaxEnd Then clusterMaxEnd = item.EndTime
+        Next
+
+        AssignDayOverlapCluster(cluster, placements)
+        Return placements
+    End Function
+
+    Private Shared Sub AssignDayOverlapCluster(cluster As List(Of DayOverlapInterval), placements As Dictionary(Of AppointmentC, DayOverlapPlacement))
+        If cluster Is Nothing OrElse cluster.Count = 0 Then Return
+
+        Dim laneEnds As New List(Of DateTime)()
+        Dim laneByAppointment As New Dictionary(Of AppointmentC, Integer)()
+
+        For Each item In cluster.OrderBy(Function(x) x.StartTime).ThenBy(Function(x) x.EndTime)
+            Dim laneIndex = -1
+            For i = 0 To laneEnds.Count - 1
+                If laneEnds(i) <= item.StartTime Then
+                    laneIndex = i
+                    Exit For
+                End If
+            Next
+
+            If laneIndex = -1 Then
+                laneIndex = laneEnds.Count
+                laneEnds.Add(item.EndTime)
+            Else
+                laneEnds(laneIndex) = item.EndTime
+            End If
+
+            laneByAppointment(item.Appointment) = laneIndex
+        Next
+
+        Dim laneCount = Math.Max(1, laneEnds.Count)
+        For Each kvp In laneByAppointment
+            placements(kvp.Key) = New DayOverlapPlacement With {
+                .LaneIndex = kvp.Value,
+                .LaneCount = laneCount
+            }
+        Next
+    End Sub
+
     Private Sub RenderTimeline()
         If _content Is Nothing Then Return
         _content.SuspendLayout()
         Try
-            _content.Controls.Clear()
+            DisposeChildControls(_content)
             if _request Is Nothing OrElse _request.State Is Nothing OrElse _request.Data Is Nothing Then Return
 
             Dim state = _request.State
@@ -164,7 +241,7 @@ Public Class ApptDayCtl
             Dim totalSlots = Math.Max(1, CInt(Math.Ceiling(totalMin / 30.0R)))
 
             _pxPerMin = CSng(SlotHeightPx / 30.0F)
-            Dim cardGridTop = GridOriginY + DoctorStripHeightPx
+            Dim cardGridTop = GridOriginY
             Dim gridPixelHeight = totalSlots * SlotHeightPx
 
             _lblBanner.Text = FormatCaptionDayFull(day)
@@ -174,29 +251,15 @@ Public Class ApptDayCtl
             Dim dayApptsAll = If(data.Appointments, New List(Of AppointmentC)()).Where(
                 Function(a) ApptTheme.AppointmentCalendarDayInInclusiveRange(a, day, day) AndAlso
                 ApptTheme.AppointmentMatchesApptStateFilters(a, state)).ToList()
-            Dim byDr0 = dayApptsAll.GroupBy(Function(a) a.DrID).ToDictionary(Function(g) g.Key, Function(g) g)
-            Dim gKeys0 = ApptTheme.OrderDoctorColumnIdsForDisplay(byDr0.Keys, data, linkedDoctorAtEnd:=True)
-            Dim groups = gKeys0.Select(Function(k) byDr0(k)).ToList()
             If state.DoctorFilterId.HasValue AndAlso state.DoctorFilterId.Value > 0 Then
                 Dim fid = state.DoctorFilterId.Value
-                Dim byDrF = dayApptsAll.Where(Function(a) a.DrID = fid).GroupBy(Function(a) a.DrID).ToDictionary(Function(g) g.Key, Function(g) g)
-                gKeys0 = ApptTheme.OrderDoctorColumnIdsForDisplay(byDrF.Keys, data, linkedDoctorAtEnd:=True)
-                groups = gKeys0.Select(Function(k) byDrF(k)).ToList()
+                dayApptsAll = dayApptsAll.Where(Function(a) a.DrID = fid).ToList()
             End If
+            Dim visibleAppts = ApptTheme.OrderAppointmentsForDisplay(dayApptsAll, data, linkedDoctorAtEnd:=True)
 
-            Const overlapRowSpacing As Integer = 6
-            Dim maxStackH As Integer = 0
-            For Each grp In groups
-                If grp IsNot Nothing AndAlso grp.Count() > 1 Then
-                    maxStackH = Math.Max(maxStackH, (grp.Count() - 1) * overlapRowSpacing)
-                End If
-            Next
-            Dim contentH = cardGridTop + gridPixelHeight + 8 + maxStackH
-
-            Dim docCount = Math.Max(1, groups.Count)
-            Dim scheduleW = Math.Max(MinDoctorColPx * docCount, dayW - TimeGutterPx - 8)
-            Dim doctorW = Math.Max(MinDoctorColPx, scheduleW \ docCount)
+            Dim contentH = cardGridTop + gridPixelHeight + 8
             Dim baseLeft = TimeGutterPx
+            Dim scheduleW = Math.Max(160, dayW - TimeGutterPx - 8)
 
             ' --- 30-minute slot rows
             For i = 0 To totalSlots - 1
@@ -229,108 +292,53 @@ Public Class ApptDayCtl
                 _content.Controls.Add(slotPanel)
             Next
 
-            ' --- Doctor captions + column hit targets
-            For gi = 0 To groups.Count - 1
-                Dim grp = groups(gi)
-                Dim di = data.ResolveDoctor(grp.Key)
-                Dim colLeft = baseLeft + gi * doctorW
-                Dim cap As New Label With {
-                    .AutoSize = False,
-                    .Text = If(di Is Nothing, $"Dr {grp.Key}", di.DrName),
-                    .Font = CreateCalibriFont(8.75F, FontStyle.Bold),
-                    .ForeColor = Color.FromArgb(52, 62, 82),
-                    .BackColor = Color.FromArgb(236, 240, 246),
-                    .TextAlign = ContentAlignment.MiddleCenter,
-                    .BorderStyle = BorderStyle.FixedSingle,
-                    .Bounds = New Rectangle(colLeft, GridOriginY, doctorW - 8, DoctorStripHeightPx)
-                }
-                _content.Controls.Add(cap)
-
-                Dim colPanel As New Panel With {
-                    .Width = doctorW - 8,
-                    .Height = gridPixelHeight + maxStackH,
-                    .Left = colLeft,
-                    .Top = cardGridTop,
-                    .BackColor = Color.Transparent,
-                    .Tag = New DoctorColumnTag With {.DrId = grp.Key, .GridStart = gridStart, .TotalSlots = totalSlots}
-                }
-                AddHandler colPanel.DoubleClick, AddressOf DoctorColumn_DoubleClick
-                _content.Controls.Add(colPanel)
-            Next
-
-            If groups.Count = 0 Then
-                Dim fid = If(state.DoctorFilterId.HasValue, state.DoctorFilterId.Value, 0)
-                Dim colPanel As New Panel With {
-                    .Width = doctorW - 8,
-                    .Height = gridPixelHeight + maxStackH,
-                    .Left = baseLeft,
-                    .Top = cardGridTop,
-                    .BackColor = Color.Transparent,
-                    .Tag = New DoctorColumnTag With {.DrId = fid, .GridStart = gridStart, .TotalSlots = totalSlots}
-                }
-                AddHandler colPanel.DoubleClick, AddressOf DoctorColumn_DoubleClick
-                _content.Controls.Add(colPanel)
-            End If
-
             ' --- Appointment cards
             Dim workStartDay = day.Add(state.WorkStartTime)
             Dim workEndDay = day.Add(state.WorkEndTime)
             If workEndDay <= workStartDay Then workEndDay = workStartDay.AddHours(1)
+            Dim placements = BuildDayOverlapPlacements(visibleAppts, workStartDay, workEndDay)
+            Const overlapLaneGapPx As Integer = 4
+            Const slotOuterGapPx As Integer = 6
+            Dim slotWidth = Math.Max(80, scheduleW)
 
-            For gi = 0 To groups.Count - 1
-                Dim grp = groups(gi)
-                Dim colLeft = baseLeft + gi * doctorW
-                Dim appts = grp.OrderBy(Function(a) a.StartDateTime).ToList()
-                Dim laneEnds As New List(Of DateTime)()
+            For Each ap In visibleAppts
+                Dim startT = If(ap.StartDateTime < workStartDay, workStartDay, ap.StartDateTime)
+                Dim endT = If(ap.EndDateTime > workEndDay, workEndDay, ap.EndDateTime)
+                If endT <= startT Then endT = startT.AddMinutes(1)
 
-                For Each ap In appts
-                    Dim startT = If(ap.StartDateTime < workStartDay, workStartDay, ap.StartDateTime)
-                    Dim endT = If(ap.EndDateTime > workEndDay, workEndDay, ap.EndDateTime)
-                    If endT <= startT Then endT = startT.AddMinutes(1)
+                Dim startOffsetMins = CSng((startT - gridStart).TotalMinutes)
+                Dim durMin = CSng(Math.Max(1, (endT - startT).TotalMinutes))
+                Dim topPx = CInt(startOffsetMins * _pxPerMin) + cardGridTop
+                Dim hPx = Math.Max(48, CInt(durMin * _pxPerMin) - CardInsetPx * 2)
+                Dim placement = If(placements.ContainsKey(ap),
+                    placements(ap),
+                    New DayOverlapPlacement With {.LaneIndex = 0, .LaneCount = 1})
+                Dim laneCount = Math.Max(1, placement.LaneCount)
+                Dim usableWidth = Math.Max(48, slotWidth - (slotOuterGapPx * 2) - ((laneCount - 1) * overlapLaneGapPx))
+                Dim cardW = Math.Max(60, usableWidth \ laneCount)
+                Dim cardLeft = baseLeft + slotOuterGapPx + placement.LaneIndex * (cardW + overlapLaneGapPx)
 
-                    Dim rowIndex = -1
-                    For j = 0 To laneEnds.Count - 1
-                        If laneEnds(j) <= startT Then
-                            rowIndex = j
-                            Exit For
-                        End If
-                    Next
-                    If rowIndex = -1 Then
-                        rowIndex = laneEnds.Count
-                        laneEnds.Add(endT)
-                    Else
-                        laneEnds(rowIndex) = endT
-                    End If
+                Dim model As New ApptCardVm With {
+                    .Appointment = ap,
+                    .PatientName = data.ResolvePatientName(ap.PatientID),
+                    .DoctorInfo = data.ResolveDoctor(ap.DrID)
+                }
+                model.Appearance = BuildDefaultCardAppearance(model, state)
+                If _request.AppointmentAppearanceSelector IsNot Nothing Then
+                    Dim sel = _request.AppointmentAppearanceSelector(model)
+                    If sel IsNot Nothing Then model.Appearance = sel
+                End If
 
-                    Dim startOffsetMins = CSng((startT - gridStart).TotalMinutes)
-                    Dim durMin = CSng(Math.Max(1, (endT - startT).TotalMinutes))
-                    Dim topPx = CInt(startOffsetMins * _pxPerMin) + cardGridTop + rowIndex * OverlapLanePx
-                    Dim hPx = Math.Max(48, CInt(durMin * _pxPerMin) - CardInsetPx * 2)
-                    Dim cardW = doctorW - 8 - CardInsetPx * 2
-                    Dim cardLeft = colLeft + (doctorW - 8 - cardW) \ 2
-
-                    Dim model As New ApptCardVm With {
-                        .Appointment = ap,
-                        .PatientName = data.ResolvePatientName(ap.PatientID),
-                        .DoctorInfo = data.ResolveDoctor(ap.DrID)
-                    }
-                    model.Appearance = BuildDefaultCardAppearance(model, state)
-                    If _request.AppointmentAppearanceSelector IsNot Nothing Then
-                        Dim sel = _request.AppointmentAppearanceSelector(model)
-                        If sel IsNot Nothing Then model.Appearance = sel
-                    End If
-
-                    Dim card As New ApptCardCtl With {
-                        .Left = cardLeft,
-                        .Top = topPx,
-                        .Width = Math.Max(80, cardW),
-                        .Height = hPx
-                    }
-                    card.Bind(model, state.Use24HourFormat)
-                    WireCard(card, day)
-                    _content.Controls.Add(card)
-                    card.BringToFront()
-                Next
+                Dim card As New ApptCardCtl With {
+                    .Left = cardLeft,
+                    .Top = topPx,
+                    .Width = cardW,
+                    .Height = hPx
+                }
+                card.Bind(model, state.Use24HourFormat)
+                WireCard(card, day)
+                _content.Controls.Add(card)
+                card.BringToFront()
             Next
 
             _content.Height = contentH
@@ -415,7 +423,7 @@ Public Class ApptDayCtl
         Dim startMinTotal = CInt(_request.State.WorkStartTime.TotalMinutes)
         Dim snapStart = (startMinTotal \ 30) * 30
         Dim gridStart = day.AddMinutes(snapStart)
-        Dim cardGridTop = GridOriginY + DoctorStripHeightPx
+        Dim cardGridTop = GridOriginY
 
         ' Calculate exact visual Y/H for "smooth motion" feel
         Dim visualDiffY = CSng(diffY)
@@ -487,13 +495,15 @@ Public Class ApptDayCtl
 
         Try
             _dragSourceCard.IndicatorColor = Color.BlueViolet
-            _dragSourceCard.Update()
+            ApptErrorHelper.SafeInvalidate(_dragSourceCard, "ApptDayCtl.HoldTimer_Tick.HighlightCard")
 
             Dim dObj As New DataObject()
             dObj.SetData("Appointment", _dragSourceAppt)
             dObj.SetData("SourceDay", If(_dragSourceDay, Date.Today))
             dObj.SetData("SourceDoctor", _dragSourceAppt.DrID)
             _dragSourceCard.DoDragDrop(dObj, DragDropEffects.Move)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayCtl.HoldTimer_Tick", showUser:=False)
         Finally
             _dragSourceCard.IndicatorColor = Color.Transparent
             _dragSourceCard = Nothing
@@ -502,7 +512,7 @@ Public Class ApptDayCtl
             _dragTargetTime = DateTime.MinValue
             _dragTargetDrId = -1
             _ghostRect = Rectangle.Empty
-            _content.Invalidate()
+            ApptErrorHelper.SafeInvalidate(_content, "ApptDayCtl.HoldTimer_Tick.InvalidateContent")
         End Try
     End Sub
 
@@ -518,7 +528,7 @@ Public Class ApptDayCtl
         If Not e.Data.GetDataPresent("Appointment") Then Return
         
         Dim pt = _content.PointToClient(New Point(e.X, e.Y))
-        Dim cardGridTop = GridOriginY + DoctorStripHeightPx
+        Dim cardGridTop = GridOriginY
         
         If pt.Y < cardGridTop OrElse pt.X < TimeGutterPx Then
             _dragTargetTime = DateTime.MinValue
@@ -537,31 +547,14 @@ Public Class ApptDayCtl
             Dim gridStart = day.AddMinutes(snapStart)
             _dragTargetTime = gridStart.AddMinutes(totalMins)
 
-            ' Doctor detection
-            Dim relX = pt.X - TimeGutterPx
-            Dim dayW = _content.Width
-            Dim colPanels = _content.Controls.OfType(Of Panel).Where(Function(p) p.Tag IsNot Nothing AndAlso TypeOf p.Tag Is DoctorColumnTag).ToList()
-            Dim docCount = Math.Max(1, colPanels.Count)
-            Dim scheduleW = Math.Max(MinDoctorColPx * docCount, dayW - TimeGutterPx - 8)
-            Dim doctorW = Math.Max(MinDoctorColPx, scheduleW \ docCount)
-            
-            Dim docIdx = relX \ doctorW
-            docIdx = Math.Max(0, Math.Min(docIdx, docCount - 1))
-            
-            If docIdx < colPanels.Count Then
-                Dim tag = DirectCast(colPanels(docIdx).Tag, DoctorColumnTag)
-                _dragTargetDrId = tag.DrId
-                
-                ' Calculate Ghost Rect for visual feedback (same size as purple card)
-                Dim x = TimeGutterPx + docIdx * doctorW + CardInsetPx
-                Dim w = doctorW - 8 - CardInsetPx * 2
-                Dim yGhost = CSng((_dragTargetTime - gridStart).TotalMinutes) * _pxPerMin + cardGridTop
-                Dim hGhost = CSng(_draggingDuration.TotalMinutes) * _pxPerMin
-                _ghostRect = New Rectangle(x, CInt(yGhost), w, CInt(hGhost))
-            Else
-                _dragTargetDrId = -1
-                _ghostRect = Rectangle.Empty
-            End If
+            _dragTargetDrId = -1
+
+            ' Full-width ghost: day view no longer uses hidden doctor lanes.
+            Dim x = TimeGutterPx + CardInsetPx
+            Dim w = Math.Max(80, _content.Width - x - CardInsetPx - 8)
+            Dim yGhost = CSng((_dragTargetTime - gridStart).TotalMinutes) * _pxPerMin + cardGridTop
+            Dim hGhost = CSng(_draggingDuration.TotalMinutes) * _pxPerMin
+            _ghostRect = New Rectangle(x, CInt(yGhost), w, CInt(hGhost))
         End If
 
         _content.Invalidate()
@@ -581,11 +574,6 @@ Public Class ApptDayCtl
         Dim duration = appt.EndDateTime - appt.StartDateTime
         Dim newStart = _dragTargetTime
         Dim newEnd = newStart.Add(duration)
-
-        ' Update DrID if changed
-        If _dragTargetDrId <> -1 AndAlso _dragTargetDrId <> appt.DrID Then
-            appt.DrID = _dragTargetDrId
-        End If
 
         If InteractionHub IsNot Nothing Then
             InteractionHub.PublishAppointmentTimeChange(appt, newStart, newEnd)
@@ -661,9 +649,38 @@ Public Class ApptDayCtl
     End Sub
 
     Protected Overrides Sub Dispose(disposing As Boolean)
-        If disposing AndAlso _scrollResizeDebounce IsNot Nothing Then
-            RemoveHandler _scrollResizeDebounce.Tick, AddressOf ScrollResizeDebounce_Tick
-            _scrollResizeDebounce.Dispose()
+        If disposing Then
+            Try
+                _holdTimer.Stop()
+                RemoveHandler _holdTimer.Tick, AddressOf HoldTimer_Tick
+                _holdTimer.Dispose()
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptDayCtl.Dispose.HoldTimer", showUser:=False)
+            End Try
+
+            Try
+                If _scrollResizeDebounce IsNot Nothing Then
+                    RemoveHandler _scrollResizeDebounce.Tick, AddressOf ScrollResizeDebounce_Tick
+                    _scrollResizeDebounce.Dispose()
+                End If
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptDayCtl.Dispose.ScrollResizeDebounce", showUser:=False)
+            End Try
+
+            Try
+                If _content IsNot Nothing Then
+                    RemoveHandler _content.Paint, AddressOf Content_Paint
+                    RemoveHandler _content.DragEnter, AddressOf Content_DragEnter
+                    RemoveHandler _content.DragOver, AddressOf Content_DragOver
+                    RemoveHandler _content.DragLeave, AddressOf Content_DragLeave
+                    RemoveHandler _content.DragDrop, AddressOf Content_DragDrop
+                End If
+                If _scrollHost IsNot Nothing Then
+                    RemoveHandler _scrollHost.Resize, AddressOf ScrollHost_Resize
+                End If
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptDayCtl.Dispose.EventHandlers", showUser:=False)
+            End Try
         End If
         MyBase.Dispose(disposing)
     End Sub

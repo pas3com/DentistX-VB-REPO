@@ -550,6 +550,9 @@
   <data name="txtPatientName.Properties.NullValuePrompt" xml:space="preserve">
     <value>ابحث بالاسم أو رقم الملف…</value>
   </data>
+  <data name="btnSearchResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>698, 1</value>
+  </data>
   <data name="FlyoutPatientInfo.OptionsButtonPanel.Buttons" xml:space="preserve">
     <value>إغلاق</value>
   </data>

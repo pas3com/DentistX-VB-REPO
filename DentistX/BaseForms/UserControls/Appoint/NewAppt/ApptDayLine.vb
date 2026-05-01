@@ -3,6 +3,7 @@ Imports System.Collections.Generic
 Imports System.Drawing
 Imports System.Drawing.Drawing2D
 Imports System.Linq
+Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
 Imports DevExpress.XtraEditors
 
@@ -13,6 +14,12 @@ Imports DevExpress.XtraEditors
 Public Class ApptDayLine
     Inherits XtraUserControl
     Implements IApptViewCtl
+
+    Private Const WM_SETREDRAW As Integer = &HB
+
+    <DllImport("user32.dll", EntryPoint:="SendMessage", CharSet:=CharSet.Auto)>
+    Private Shared Function SendMessageRedraw(hWnd As IntPtr, msg As Integer, wParam As IntPtr, lParam As IntPtr) As IntPtr
+    End Function
 
     Private Const EnhancedReadability As Boolean = True
     Private Const ChipTailNarrow As Integer = 3
@@ -30,6 +37,7 @@ Public Class ApptDayLine
     Private _content As Panel
     Private _toolTip As ToolTip
     Private _lastScrollInnerW As Integer = -1
+    Private ReadOnly _resizeRenderTimer As New Timer With {.Interval = 90}
     ''' <summary>During <see cref="BeginSnapshotBitmapLayout"/>, caps effective inner width so expanding the scroll host for PNG capture does not stretch the time scale past on-screen <see cref="MinTimelinePixelsPerHour"/>.</summary>
     Private _snapshotScrollInnerWCap As Integer = -1
 
@@ -58,40 +66,55 @@ Public Class ApptDayLine
     Public Sub New()
         Appearance.BackColor = Color.FromArgb(245, 247, 250)
         Appearance.Options.UseBackColor = True
+        SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.OptimizedDoubleBuffer Or ControlStyles.ResizeRedraw, True)
         DoubleBuffered = True
         RightToLeft = RightToLeft.No
 
-        _scrollHost = New Panel With {
+        _scrollHost = New TimelineBufferedPanel With {
             .Dock = DockStyle.Fill,
             .AutoScroll = True,
             .BackColor = Color.White,
             .Padding = New Padding(4, 4, 4, 6),
             .RightToLeft = RightToLeft.No
         }
+        ApptTheme.SetControlDoubleBuffered(_scrollHost)
         Controls.Add(_scrollHost)
         AddHandler _scrollHost.Resize, AddressOf ScrollHost_Resize
         AddHandler _holdTimer.Tick, AddressOf HoldTimer_Tick
+        AddHandler _resizeRenderTimer.Tick, AddressOf ResizeRenderTimer_Tick
     End Sub
 
     Private Sub ScrollHost_Resize(sender As Object, e As EventArgs)
         If _request Is Nothing Then Return
         Dim w = _scrollHost.ClientSize.Width - _scrollHost.Padding.Horizontal
         If w = _lastScrollInnerW Then Return
+        _resizeRenderTimer.Stop()
+        _resizeRenderTimer.Start()
+    End Sub
+
+    Private Sub ResizeRenderTimer_Tick(sender As Object, e As EventArgs)
+        _resizeRenderTimer.Stop()
+        If _request Is Nothing Then Return
         RenderTimeline()
     End Sub
 
     Public Property InteractionHub As ApptInteractionHub Implements IApptViewCtl.InteractionHub
 
     Public Sub BindData(request As ApptViewRequest) Implements IApptViewCtl.BindData
-        _request = request
-        If _toolTip IsNot Nothing Then
-            _toolTip.Dispose()
-            _toolTip = Nothing
-        End If
-        _toolTip = New ToolTip With {.AutoPopDelay = 8000, .InitialDelay = 300}
-        _lastScrollInnerW = -1
-        RenderTimeline()
-        If request IsNot Nothing Then TryScrollToAppointment(request.PendingScrollAppointment)
+        Try
+            _request = request
+            If _toolTip IsNot Nothing Then
+                _toolTip.Dispose()
+                _toolTip = Nothing
+            End If
+            _toolTip = New ToolTip With {.AutoPopDelay = 8000, .InitialDelay = 300}
+            _lastScrollInnerW = -1
+            _resizeRenderTimer.Stop()
+            RenderTimeline()
+            If request IsNot Nothing Then TryScrollToAppointment(request.PendingScrollAppointment)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayLine.BindData", showUser:=False)
+        End Try
     End Sub
 
     ''' <summary>HTML export: Sat–Fri day rows, time on the X-axis (not week columns or day-doctors layout).</summary>
@@ -101,23 +124,64 @@ Public Class ApptDayLine
 
     ''' <summary>Call before <see cref="SchedulerSnapshotShared.CaptureSnapshot"/> expands the day-line scroll panel so <see cref="RenderTimeline"/> keeps the same time scale as on screen.</summary>
     Friend Sub BeginSnapshotBitmapLayout()
-        If _scrollHost Is Nothing Then Return
-        _snapshotScrollInnerWCap = Math.Max(0, _scrollHost.ClientSize.Width - _scrollHost.Padding.Horizontal)
+        Try
+            If _scrollHost Is Nothing Then Return
+            _snapshotScrollInnerWCap = Math.Max(0, _scrollHost.ClientSize.Width - _scrollHost.Padding.Horizontal)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayLine.BeginSnapshotBitmapLayout", showUser:=False)
+        End Try
     End Sub
 
     ''' <summary>Restores normal layout after PNG capture.</summary>
     Friend Sub EndSnapshotBitmapLayout()
-        _snapshotScrollInnerWCap = -1
-        _lastScrollInnerW = -1
-        If _request IsNot Nothing Then RenderTimeline()
+        Try
+            _snapshotScrollInnerWCap = -1
+            _lastScrollInnerW = -1
+            _resizeRenderTimer.Stop()
+            If _request IsNot Nothing Then RenderTimeline()
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayLine.EndSnapshotBitmapLayout", showUser:=False)
+        End Try
     End Sub
 
     Protected Overrides Sub Dispose(disposing As Boolean)
-        If disposing AndAlso _toolTip IsNot Nothing Then
-            _toolTip.Dispose()
-            _toolTip = Nothing
+        If disposing Then
+            _request = Nothing
+            If _toolTip IsNot Nothing Then
+                _toolTip.Dispose()
+                _toolTip = Nothing
+            End If
+            _holdTimer.Stop()
+            _holdTimer.Dispose()
+            _resizeRenderTimer.Stop()
+            _resizeRenderTimer.Dispose()
+            DisposeScrollHostChildren()
         End If
         MyBase.Dispose(disposing)
+    End Sub
+
+    Private Sub SuspendScrollHostRedraw()
+        If _scrollHost Is Nothing OrElse Not _scrollHost.IsHandleCreated Then Return
+        SendMessageRedraw(_scrollHost.Handle, WM_SETREDRAW, IntPtr.Zero, IntPtr.Zero)
+    End Sub
+
+    Private Sub ResumeScrollHostRedraw()
+        If _scrollHost Is Nothing OrElse Not _scrollHost.IsHandleCreated Then Return
+        SendMessageRedraw(_scrollHost.Handle, WM_SETREDRAW, New IntPtr(1), IntPtr.Zero)
+        ApptErrorHelper.SafeInvalidate(_scrollHost, "ApptDayLine.ResumeScrollHostRedraw", invalidateChildren:=True)
+    End Sub
+
+    Private Sub DisposeScrollHostChildren()
+        If _scrollHost Is Nothing Then Return
+        For i = _scrollHost.Controls.Count - 1 To 0 Step -1
+            Dim child = _scrollHost.Controls(i)
+            _scrollHost.Controls.RemoveAt(i)
+            Try
+                child.Dispose()
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex, "ApptDayLine.DisposeScrollHostChildren", showUser:=False)
+            End Try
+        Next
     End Sub
 
     Private Sub OnChipDragMouseDown(chip As Panel, day As Date, e As MouseEventArgs)
@@ -133,8 +197,7 @@ Public Class ApptDayLine
             _resizeStartTime = ap.StartDateTime
             _resizeEndTime = ap.EndDateTime
             _resizeProposedInChip = New Rectangle(0, 0, Math.Max(1, chip.ClientSize.Width - 1), Math.Max(1, chip.ClientSize.Height - 1))
-            _resizingChip.Invalidate()
-            _resizingChip.Update()
+            ApptErrorHelper.SafeInvalidate(_resizingChip, "ApptDayLine.OnChipDragMouseDown.HighlightResizeChip")
             Return
         End If
 
@@ -246,21 +309,22 @@ Public Class ApptDayLine
         If _dragSourceChip Is Nothing OrElse _dragSourceAppt Is Nothing Then Return
         Try
             _holdStripBlueChip = _dragSourceChip
-            _holdStripBlueChip.Invalidate()
-            _holdStripBlueChip.Update()
+            ApptErrorHelper.SafeInvalidate(_holdStripBlueChip, "ApptDayLine.HoldTimer_Tick.HighlightChip")
 
             Dim dObj As New DataObject()
             dObj.SetData("Appointment", _dragSourceAppt)
             dObj.SetData("SourceDay", _dragSourceAppt.StartDateTime.Date)
             dObj.SetData("SourceDoctor", _dragSourceAppt.DrID)
             _dragSourceChip.DoDragDrop(dObj, DragDropEffects.Move)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayLine.HoldTimer_Tick", showUser:=False)
         Finally
             _holdStripBlueChip = Nothing
             _dragSourceChip = Nothing
             _dragSourceAppt = Nothing
             _dragTargetTime = DateTime.MinValue
             _dragTargetDay = DateTime.MinValue
-            _content.Invalidate()
+            ApptErrorHelper.SafeInvalidate(_content, "ApptDayLine.HoldTimer_Tick.InvalidateContent")
             InvalidateAllRows()
         End Try
     End Sub
@@ -319,18 +383,19 @@ Public Class ApptDayLine
         If _content Is Nothing Then Return
         For Each c As Control In _content.Controls
             If TypeOf c Is Panel AndAlso c.Tag IsNot Nothing AndAlso TypeOf c.Tag Is DateTime Then
-                c.Invalidate()
+                ApptErrorHelper.SafeInvalidate(c, "ApptDayLine.InvalidateAllRows.Row")
             End If
         Next
     End Sub
 
     Private Sub RenderTimeline()
+        SuspendScrollHostRedraw()
         _scrollHost.SuspendLayout()
         Dim headerFont As Font = Nothing
         Dim apptFont As Font = Nothing
         Dim lblDrBoldFont As Font = Nothing
         Try
-            _scrollHost.Controls.Clear()
+            DisposeScrollHostChildren()
             If _request Is Nothing OrElse _request.State Is Nothing OrElse _request.Data Is Nothing Then Return
 
             Dim state = _request.State
@@ -353,13 +418,14 @@ Public Class ApptDayLine
 
             headerFont = New Font("Calibri", 12.0F, FontStyle.Bold)
             Dim timeHeaderHeight As Integer
-            
-            _content = New Panel With {
+
+            _content = New TimelineBufferedPanel With {
                 .Location = Point.Empty,
                 .AutoSize = False,
                 .BackColor = Color.White,
                 .RightToLeft = RightToLeft.No
             }
+            ApptTheme.SetControlDoubleBuffered(_content)
 
             If EnhancedReadability Then
                 PopulateTimeHeaderEnhanced(_content, DayLabelWidth, timelineWidth, totalTimeMinutes, _pixelsPerMinute, headerFont, timeHeaderHeight, startHour, state.Use24HourFormat)
@@ -474,7 +540,7 @@ Public Class ApptDayLine
                 }
                 _content.Controls.Add(lblDay)
 
-                Dim dayRow As New Panel With {
+                Dim dayRow As New TimelineBufferedPanel With {
                     .Left = DayLabelWidth,
                     .Top = currentTop,
                     .Width = timelineWidth,
@@ -484,10 +550,15 @@ Public Class ApptDayLine
                     .Tag = day,
                     .AllowDrop = True
                 }
+                ApptTheme.SetControlDoubleBuffered(dayRow)
                 AddHandler dayRow.DragEnter, Sub(s, e) Row_DragEnter(e)
                 AddHandler dayRow.DragOver, Sub(s, e) Row_DragOver(DirectCast(s, Panel), e)
                 AddHandler dayRow.DragLeave, Sub(s, e) Row_DragLeave()
                 AddHandler dayRow.DragDrop, Sub(s, e) Row_DragDrop(e)
+                AddHandler dayRow.Paint,
+                    Sub(sender, pe)
+                        PaintDayRowGrid(pe.Graphics, DirectCast(sender, Panel).ClientSize.Width, dayRowHeight, startHour, endHour, _pixelsPerMinute)
+                    End Sub
 
                 Dim pm = _pixelsPerMinute
                 Dim sh = startHour
@@ -502,34 +573,6 @@ Public Class ApptDayLine
                         Dim clickTime = clickDay.Date.AddMinutes(snapMin)
                         InteractionHub.PublishEmptyDateInvoked(clickTime)
                     End Sub
-
-                For hour1 = startHour To endHour
-                    Dim lineX = CInt((hour1 - startHour) * 60 * _pixelsPerMinute)
-                    Dim gridLine As New Panel With {
-                        .Left = lineX,
-                        .Top = 0,
-                        .Width = 1,
-                        .Height = dayRowHeight,
-                        .BackColor = If(hour1 = startHour OrElse hour1 = endHour,
-                                        Color.FromArgb(200, 200, 200),
-                                        Color.FromArgb(230, 230, 230))
-                    }
-                    dayRow.Controls.Add(gridLine)
-                    gridLine.SendToBack()
-                Next
-
-                For hour1 = startHour To endHour - 1
-                    Dim halfLineX = CInt(((hour1 - startHour) * 60 + 30) * _pixelsPerMinute)
-                    Dim halfLine As New Panel With {
-                        .Left = halfLineX,
-                        .Top = 0,
-                        .Width = 1,
-                        .Height = dayRowHeight,
-                        .BackColor = Color.FromArgb(242, 242, 242)
-                    }
-                    dayRow.Controls.Add(halfLine)
-                    halfLine.SendToBack()
-                Next
 
                 Dim yRowCursor = DayLanePadWithAppts
                 For rowIdx = 0 To stackRows.Count - 1
@@ -614,7 +657,7 @@ Public Class ApptDayLine
                             statusTop += extraH
                         End If
 
-                        Dim chip As New Panel With {
+                        Dim chip As New TimelineBufferedPanel With {
                             .Left = chipLeft,
                             .Top = chipTop,
                             .Width = chipWidth,
@@ -624,6 +667,7 @@ Public Class ApptDayLine
                             .Tag = ap,
                             .Cursor = Cursors.Hand
                         }
+                        ApptTheme.SetControlDoubleBuffered(chip)
                         AddHandler chip.Paint,
                             Sub(s, pe)
                                 ' Same feedback as ApptDayDoctors on ApptCardCtl: 3px Red (edge resize), BlueViolet (hold then DoDragDrop), proposed rect during drag-width.
@@ -697,10 +741,13 @@ Public Class ApptDayLine
                         Dim tipTls = If(Eng,
                                $"Patient: {patientName}{vbCrLf}Doctor: {doctorName}{vbCrLf}Time: {ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}{vbCrLf}Reason: {If(ap.Reason, "")}{vbCrLf}Notes: {If(ap.Notes, "")}{vbCrLf}Status: {If(ap.Status, "")}",
                                $"المريض: {patientName}{vbCrLf}الطبيب: {doctorName}{vbCrLf}الوقت: {ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}{vbCrLf}السبب: {If(ap.Reason, "")}{vbCrLf}ملاحظات: {If(ap.Notes, "")}{vbCrLf}الحالة: {GetAppointmentStatusDisplayText(ap)}")
-                        _toolTip.SetToolTip(chip, tipTls)
-                        _toolTip.SetToolTip(lblDr, tipTls)
-                        _toolTip.SetToolTip(lblApp, tipTls)
-                        _toolTip.SetToolTip(lblStatus, tipTls)
+                        Dim toolTipRef = _toolTip
+                        If toolTipRef IsNot Nothing Then
+                            toolTipRef.SetToolTip(chip, tipTls)
+                            toolTipRef.SetToolTip(lblDr, tipTls)
+                            toolTipRef.SetToolTip(lblApp, tipTls)
+                            toolTipRef.SetToolTip(lblStatus, tipTls)
+                        End If
 
                         WireChipClicks(chip, ap)
                         WireChipClicks(lblDr, ap)
@@ -754,12 +801,33 @@ Public Class ApptDayLine
             _content.Width = Math.Max(minW, tlMaxR + slack)
             _content.Height = Math.Max(currentTop, tlMaxB + slack)
             _scrollHost.Controls.Add(_content)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptDayLine.RenderTimeline", showUser:=False)
         Finally
             If lblDrBoldFont IsNot Nothing Then lblDrBoldFont.Dispose()
             If apptFont IsNot Nothing Then apptFont.Dispose()
             If headerFont IsNot Nothing Then headerFont.Dispose()
             _scrollHost.ResumeLayout(True)
+            ResumeScrollHostRedraw()
         End Try
+    End Sub
+
+    Private Shared Sub PaintDayRowGrid(g As Graphics, rowWidth As Integer, rowHeight As Integer, startHour As Integer, endHour As Integer, pixelsPerMinute As Double)
+        If rowWidth <= 0 OrElse rowHeight <= 0 Then Return
+        Using majorPen As New Pen(Color.FromArgb(230, 230, 230)),
+              edgePen As New Pen(Color.FromArgb(200, 200, 200)),
+              halfPen As New Pen(Color.FromArgb(242, 242, 242))
+            For hour1 = startHour To endHour
+                Dim lineX = CInt((hour1 - startHour) * 60 * pixelsPerMinute)
+                Dim usePen = If(hour1 = startHour OrElse hour1 = endHour, edgePen, majorPen)
+                g.DrawLine(usePen, lineX, 0, lineX, rowHeight)
+            Next
+
+            For hour1 = startHour To endHour - 1
+                Dim halfLineX = CInt(((hour1 - startHour) * 60 + 30) * pixelsPerMinute)
+                g.DrawLine(halfPen, halfLineX, 0, halfLineX, rowHeight)
+            Next
+        End Using
     End Sub
 
     Private Sub WireChipClicks(host As Control, ap As AppointmentC)
@@ -980,4 +1048,14 @@ Public Class ApptDayLine
         Next
         Return Nothing
     End Function
+
+    Private NotInheritable Class TimelineBufferedPanel
+        Inherits Panel
+
+        Public Sub New()
+            SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.OptimizedDoubleBuffer Or ControlStyles.ResizeRedraw Or ControlStyles.UserPaint, True)
+            DoubleBuffered = True
+            UpdateStyles()
+        End Sub
+    End Class
 End Class

@@ -108,7 +108,6 @@ Public Class ApptCardCtl
         Set(value As Color)
             _indicatorColor = value
             _rootPanel.Invalidate()
-            _rootPanel.Update() ' Force immediate paint for hold-timer indicator
         End Set
     End Property
 
@@ -166,53 +165,78 @@ Public Class ApptCardCtl
 
     ''' <summary>Sets control height to the vertical stack of body fields (times + text); status column stays docked right. Only used from <see cref="ApptWeekCtl"/>.</summary>
     Friend Sub ApplyContentHeightToFitForWeekView()
-        If _currentModel Is Nothing OrElse _currentModel.Appearance Is Nothing Then Return
-        LayoutFields()
-        If _measuredContentHeightInRoot <= 0 Then Return
-        Dim h = Padding.Top + _measuredContentHeightInRoot + Padding.Bottom
-        h = Math.Max(1, h)
-        If Height = h Then Return
-        Height = h
+        Try
+            If _currentModel Is Nothing OrElse _currentModel.Appearance Is Nothing Then Return
+            LayoutFields()
+            If _measuredContentHeightInRoot <= 0 Then Return
+            Dim h = Padding.Top + _measuredContentHeightInRoot + Padding.Bottom
+            h = Math.Max(1, h)
+            If Height = h Then Return
+            Height = h
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptCardCtl.ApplyContentHeightToFitForWeekView", showUser:=False)
+        End Try
     End Sub
 
     Public Sub Bind(model As ApptCardVm, use24Hour As Boolean)
-        _currentModel = model
-        If model Is Nothing OrElse model.Appointment Is Nothing Then
+        Try
+            _currentModel = model
+            If model Is Nothing OrElse model.Appointment Is Nothing Then
+                Visible = False
+                Return
+            End If
+
+            Visible = True
+            Dim appearance = If(model.Appearance, New ApptCardAppearance())
+
+            SuspendLayout()
+            Try
+                _startTimeLabel.Text = FormatAppointmentTime(model.Appointment.StartDateTime, use24Hour)
+                _endTimeLabel.Text = FormatAppointmentTime(model.Appointment.EndDateTime, use24Hour)
+                _patientLabel.Text = model.PatientName
+                _doctorLabel.Text = model.DoctorName
+                _reasonLabel.Text = If(model.Appointment.Reason, "")
+                _notesLabel.Text = If(model.Appointment.Notes, "")
+                _statusLabel.Text = GetAppointmentStatusDisplayText(model.Appointment)
+
+                ApplyCardAppearance(appearance)
+                LayoutFields()
+            Finally
+                ResumeLayout(False)
+            End Try
+        Catch ex As Exception
             Visible = False
-            Return
-        End If
-
-        Visible = True
-        Dim appearance = If(model.Appearance, New ApptCardAppearance())
-
-        _startTimeLabel.Text = FormatAppointmentTime(model.Appointment.StartDateTime, use24Hour)
-        _endTimeLabel.Text = FormatAppointmentTime(model.Appointment.EndDateTime, use24Hour)
-        _patientLabel.Text = model.PatientName
-        _doctorLabel.Text = model.DoctorName
-        _reasonLabel.Text = If(model.Appointment.Reason, "")
-        _notesLabel.Text = If(model.Appointment.Notes, "")
-        _statusLabel.Text = GetAppointmentStatusDisplayText(model.Appointment)
-
-        ApplyCardAppearance(appearance)
-        PerformLayout()
-        LayoutFields()
+            ApptErrorHelper.Report(ex, "ApptCardCtl.Bind", showUser:=False)
+        End Try
     End Sub
 
     ''' <summary>Re-applies the bound <see cref="ApptCardVm.Appearance"/> after you change colors/styles on the model (e.g. <see cref="ApptCardAppearance.UniformTextForeColor"/>). Does not alter drag/drop wiring.</summary>
     Public Sub ReapplyAppearance()
-        If _currentModel Is Nothing OrElse _currentModel.Appointment Is Nothing Then Return
-        Dim appearance = If(_currentModel.Appearance, New ApptCardAppearance())
-        ApplyCardAppearance(appearance)
-        PerformLayout()
-        LayoutFields()
+        Try
+            If _currentModel Is Nothing OrElse _currentModel.Appointment Is Nothing Then Return
+            Dim appearance = If(_currentModel.Appearance, New ApptCardAppearance())
+            SuspendLayout()
+            Try
+                ApplyCardAppearance(appearance)
+                LayoutFields()
+            Finally
+                ResumeLayout(False)
+            End Try
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptCardCtl.ReapplyAppearance", showUser:=False)
+        End Try
     End Sub
 
     ''' <summary>Convenience: sets uniform text colors on the bound model and refreshes the card. Drag/drop unchanged.</summary>
     Public Sub ApplyUniformTextColors(foreColor As Color, Optional backColor As Color? = Nothing)
-        If _currentModel Is Nothing Then Return
-        If _currentModel.Appearance Is Nothing Then _currentModel.Appearance = New ApptCardAppearance()
-        _currentModel.Appearance.UniformTextColors(foreColor, backColor)
-        ReapplyAppearance()
+        Try
+            If _currentModel Is Nothing Then Return
+            If _currentModel.Appearance Is Nothing Then _currentModel.Appearance = New ApptCardAppearance()
+            _currentModel.Appearance.UniformTextColors(foreColor, backColor)
+            ReapplyAppearance()
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptCardCtl.ApplyUniformTextColors", showUser:=False)
+        End Try
     End Sub
 
     Private Shared Function CreateTimeFieldLabel() As LabelControl

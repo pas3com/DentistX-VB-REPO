@@ -93,8 +93,6 @@ Partial Class FrmAccountReminderSchedule
         Me.CboPatient.BtnSearchVisible = True
         Me.CboPatient.Filter = ""
         Me.CboPatient.Name = "CboPatient"
-        Me.CboPatient.PatientID = 2
-        Me.CboPatient.PatientName = "Patient 1"
         '
         'LblPatient
         '

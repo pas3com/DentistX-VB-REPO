@@ -6,6 +6,9 @@ Imports System.Windows.Forms
 
 Partial Public Class FrmLabPay
 
+    Private _initialDataQueued As Boolean = False
+    Private _loadingGrid As Boolean = False
+    Private _suspendRowDisplay As Boolean = False
 
     Public Sub New()
         InitializeComponent()
@@ -26,9 +29,30 @@ Partial Public Class FrmLabPay
 
 
     Private Sub FrmLabPay_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        LoadDGV()
         IntegerMoneyGridColumns.ApplyIntegerPayTrtEditors(DGV)
-        ShowToolStripItems("Cancel")
+        EnableRecord(False)
+        bAdd.Enabled = False
+        bEdit.Enabled = False
+        bDelete.Enabled = False
+        bRefresh.Enabled = False
+        butApply.Enabled = False
+        butCancel.Enabled = False
+    End Sub
+
+    Private Sub FrmLabPay_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        If _initialDataQueued Then Return
+        _initialDataQueued = True
+        BeginInvoke(New MethodInvoker(AddressOf InitializeAfterShown))
+    End Sub
+
+    Private Sub InitializeAfterShown()
+        _suspendRowDisplay = True
+        Try
+            LoadDGV()
+            ShowToolStripItems("Cancel")
+        Finally
+            _suspendRowDisplay = False
+        End Try
     End Sub
     Private bAddMode As Boolean = False
     Private bEditMode As Boolean = False
@@ -73,6 +97,7 @@ Partial Public Class FrmLabPay
 
     Private Sub LoadDGV()
         Try
+            _loadingGrid = True
             With DGV
                 .DataSource = clsLabPayData.SelectAll
                 bsiRecordsCount.Caption = "RECORDS : " & .DataSource.Count
@@ -84,11 +109,14 @@ Partial Public Class FrmLabPay
             End With
         Catch ex As Exception
             MsgBox(ex.Message)
+        Finally
+            _loadingGrid = False
         End Try
     End Sub
 
     Private Sub DGV_Click(sender As Object, e As System.EventArgs) Handles DGV.Click
         Try
+            If _loadingGrid OrElse _suspendRowDisplay Then Return
             Row = dgView.FocusedRowHandle
             Display()
         Catch ex As Exception
@@ -98,6 +126,7 @@ Partial Public Class FrmLabPay
 
     Private Sub DGV_SelectionChanged(sender As Object, e As System.EventArgs) Handles dgView.SelectionChanged
         Try
+            If _loadingGrid OrElse _suspendRowDisplay Then Return
             Row = dgView.FocusedRowHandle
             Display()
         Catch ex As Exception
@@ -133,9 +162,12 @@ Partial Public Class FrmLabPay
     End Sub
     Private Sub Display()
         ClearRecord()
-        Dim clsLabPay As New LabPay
-        clsLabPay.LabPayID = System.Convert.ToInt32(dgView.GetRowCellDisplayText(Row, colLabPayID))
-        clsLabPay = clsLabPayData.Select_Record(clsLabPay)
+        Dim clsLabPay As LabPay = TryCast(dgView.GetRow(Row), LabPay)
+        If clsLabPay Is Nothing Then
+            clsLabPay = New LabPay
+            clsLabPay.LabPayID = System.Convert.ToInt32(dgView.GetRowCellDisplayText(Row, colLabPayID))
+            clsLabPay = clsLabPayData.Select_Record(clsLabPay)
+        End If
         If Not clsLabPay Is Nothing Then
             Try
                 LabPayIDSpinEdit.Value = System.Convert.ToInt32(clsLabPay.LabPayID)
