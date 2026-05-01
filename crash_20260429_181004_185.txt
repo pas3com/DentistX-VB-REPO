@@ -1,0 +1,88 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-04-29 15:10:04Z
+Local: 2026-04-29 18:10:04Z
+Machine: DESKTOP-D1L0T4D
+User: DESKTOP-D1L0T4D\User
+[ClinicNameEn]: DR. MALEK CLINIC
+[ClinicNameAr]: عيادة الدكتور مالك عبد الواحد
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: True
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX_64\DentistX.exe
+App base directory: C:\Pascal\DentistX_64\
+Working directory: C:\Pascal\DentistX_64
+Crash log directory: C:\Pascal\DentistX_64\crash_logs
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (4):
+  - [ACTIVE] DentistX.MainView3 | DentistX Trial Version
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.XtraEditors.Popup.TouchPopupDateEditForm | 
+  - DevExpress.XtraEditors.Popup.PopupDateEditForm | 
+
+--- Last opened UI (session) ---
+Last form (Shown/visible at hook): DevExpress.Utils.SuperToolTipWindow | Text=
+  At (UTC): 2026-04-29 15:04:25Z
+Last user control (last became visible): DevExpress.Utils.FlyoutPanel | Name=Flyout1 | ParentForm=DevExpress.Utils.FlyoutPanelToolForm / 
+  At (UTC): 2026-04-29 14:59:41Z
+
+--- UI context (best effort) ---
+Thread: ManagedId=1, Name=(default), UI=STA
+ActiveForm: DentistX.MainView3 | Text=DentistX Trial Version
+Focused control (leaf): DevExpress.XtraBars.Navigation.AccordionControl | Name=MainAccordion; Text=
+  Parent[0]: DentistX.MainView3 | Name=MainView3; Text=DentistX Trial Version
+
+--- Exception detail ---
+--- Level 0 ---
+Type: System.ComponentModel.Win32Exception
+Message: Error creating window handle.
+HResult: 0x80004005
+NativeErrorCode: 1158
+TargetSite: System.Windows.Forms.NativeWindow.CreateHandle
+Source: System.Windows.Forms
+Stack:
+   at System.Windows.Forms.NativeWindow.CreateHandle(CreateParams cp)
+   at System.Windows.Forms.Control.CreateHandle()
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl()
+   at System.Windows.Forms.Control.ControlCollection.Add(Control value)
+   at DentistX.SchedulerNew.RenderCurrentWeek7Days(DateTime currentDate)
+   at DentistX.SchedulerNew.Render()
+   at DentistX.SchedulerNew.LoadAndRender()
+   at DentistX.SchedulerNew.ScheduleAdmin_Load(Object sender, EventArgs e)
+   at System.Windows.Forms.UserControl.OnLoad(EventArgs e)
+   at DevExpress.XtraEditors.XtraUserControl.OnLoad(EventArgs e)
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl()
+   at System.Windows.Forms.Control.WmShowWindow(Message& m)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.UserControl.WndProc(Message& m)
+   at DevExpress.XtraEditors.XtraUserControl.BaseWndProc(Message& m)
+   at DevExpress.XtraEditors.XtraUserControl.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+--- Full ToString() (includes inners) ---
+System.ComponentModel.Win32Exception (0x80004005): Error creating window handle.
+   at System.Windows.Forms.NativeWindow.CreateHandle(CreateParams cp)
+   at System.Windows.Forms.Control.CreateHandle()
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl()
+   at System.Windows.Forms.Control.ControlCollection.Add(Control value)
+   at DentistX.SchedulerNew.RenderCurrentWeek7Days(DateTime currentDate)
+   at DentistX.SchedulerNew.Render()
+   at DentistX.SchedulerNew.LoadAndRender()
+   at DentistX.SchedulerNew.ScheduleAdmin_Load(Object sender, EventArgs e)
+   at System.Windows.Forms.UserControl.OnLoad(EventArgs e)
+   at DevExpress.XtraEditors.XtraUserControl.OnLoad(EventArgs e)
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl()
+   at System.Windows.Forms.Control.WmShowWindow(Message& m)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.UserControl.WndProc(Message& m)
+   at DevExpress.XtraEditors.XtraUserControl.BaseWndProc(Message& m)
+   at DevExpress.XtraEditors.XtraUserControl.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
