@@ -28,6 +28,15 @@ Imports Dapper
 			End Using
 		End Function
 
+		Public Function CountByLengthMM(lengthMm As Decimal, Optional excludeLengthId As Integer? = Nothing) As Integer
+			Using conn As New SqlConnection(ConnectionString)
+				conn.Open()
+				Const sql As String =
+					"SELECT COUNT(*) FROM ImplantLength WHERE LengthMM = @LengthMM AND (@ExcludeLengthId IS NULL OR LengthID <> @ExcludeLengthId)"
+				Return CInt(conn.ExecuteScalar(Of Integer)(sql, New With {.LengthMM = lengthMm, .ExcludeLengthId = excludeLengthId}))
+			End Using
+		End Function
+
 		Public Function Add(ByVal clsImplantLength As ImplantLength) As Boolean
 			Dim RowsAffected As Integer=0
 			Using conn As New SqlConnection(ConnectionString)
@@ -39,10 +48,9 @@ Imports Dapper
 
 		Public Function Update(oldImplantLength As ImplantLength, newImplantLength As ImplantLength) As Boolean
 			Using conn As New SqlConnection(ConnectionString)
-			    Dim parameters = New With { 
-					.NewLengthMM = newImplantLength.LengthMM, .OldLengthMM = oldImplantLength.LengthMM
-										  }
-			    Dim affectedRows As Integer = conn.Execute("UPDATE [ImplantLength] SET [LengthMM] = @NewLengthMM WHERE [LengthMM] = @OldLengthMM", parameters)
+			    Dim affectedRows As Integer = conn.Execute(
+					"UPDATE [ImplantLength] SET [LengthMM] = @NewLengthMM WHERE [LengthID] = @LengthID",
+					New With {.NewLengthMM = newImplantLength.LengthMM, .LengthID = oldImplantLength.LengthID})
 			    Return affectedRows > 0
 			End Using
 		End Function

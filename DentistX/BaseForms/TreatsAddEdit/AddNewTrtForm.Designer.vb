@@ -26,6 +26,7 @@ Partial Class AddNewTrtForm
         Me.capOpacity = New DevExpress.XtraEditors.TrackBarControl()
         Me.LabelControl29 = New DevExpress.XtraEditors.LabelControl()
         Me.capRootThick = New DevExpress.XtraEditors.TrackBarControl()
+        Me.TrtBS = New System.Windows.Forms.BindingSource(Me.components)
         Me.LabelControl28 = New DevExpress.XtraEditors.LabelControl()
         Me.btCapRootClrDef = New DevExpress.XtraEditors.SimpleButton()
         Me.btnSetCapRootCustmClr = New DevExpress.XtraEditors.SimpleButton()
@@ -78,6 +79,10 @@ Partial Class AddNewTrtForm
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ImpPopup = New DevExpress.XtraEditors.PopupContainerEdit()
         Me.ImpContainer = New DevExpress.XtraEditors.PopupContainerControl()
+        Me.cmbLength = New DentistX.ImplantLengthCombo()
+        Me.cmbDiameter = New DentistX.ImplantDiameterCombo()
+        Me.cmbType = New DentistX.ImplantTypeCombo()
+        Me.cmbBrand = New DentistX.ImplantBrandCombo()
         Me.btnCancelImp = New DevExpress.XtraEditors.SimpleButton()
         Me.btnSelect = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl18 = New DevExpress.XtraEditors.LabelControl()
@@ -111,11 +116,6 @@ Partial Class AddNewTrtForm
         Me.txtTreat = New DevExpress.XtraEditors.TextEdit()
         Me.ImplantSpecsLbl = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
-        Me.cmbLength = New DentistX.ImplantLengthCombo()
-        Me.cmbDiameter = New DentistX.ImplantDiameterCombo()
-        Me.cmbType = New DentistX.ImplantTypeCombo()
-        Me.cmbBrand = New DentistX.ImplantBrandCombo()
-        Me.TrtBS = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.GroupMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupMain.SuspendLayout()
         CType(Me.grpSpecialClrs, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,6 +124,7 @@ Partial Class AddNewTrtForm
         CType(Me.capOpacity.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.capRootThick, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.capRootThick.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrtBS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CapFillPick.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RootFillPick.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RightGroup, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,11 +172,11 @@ Partial Class AddNewTrtForm
         CType(Me.cboTrtType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTrtPlan.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTreat.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrtBS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupMain
         '
+        resources.ApplyResources(Me.GroupMain, "GroupMain")
         Me.GroupMain.AppearanceCaption.Font = CType(resources.GetObject("GroupMain.AppearanceCaption.Font"), System.Drawing.Font)
         Me.GroupMain.AppearanceCaption.ForeColor = System.Drawing.Color.Blue
         Me.GroupMain.AppearanceCaption.Options.UseFont = True
@@ -203,11 +204,11 @@ Partial Class AddNewTrtForm
         Me.GroupMain.Controls.Add(Me.ImplantSpecsLbl)
         Me.GroupMain.Controls.Add(Me.LabelControl9)
         Me.GroupMain.Controls.Add(Me.ImpContainer)
-        resources.ApplyResources(Me.GroupMain, "GroupMain")
         Me.GroupMain.Name = "GroupMain"
         '
         'grpSpecialClrs
         '
+        resources.ApplyResources(Me.grpSpecialClrs, "grpSpecialClrs")
         Me.grpSpecialClrs.AppearanceCaption.Font = CType(resources.GetObject("grpSpecialClrs.AppearanceCaption.Font"), System.Drawing.Font)
         Me.grpSpecialClrs.AppearanceCaption.Options.UseFont = True
         Me.grpSpecialClrs.Controls.Add(Me.capOpacity)
@@ -220,7 +221,6 @@ Partial Class AddNewTrtForm
         Me.grpSpecialClrs.Controls.Add(Me.LabelControl25)
         Me.grpSpecialClrs.Controls.Add(Me.RootFillPick)
         Me.grpSpecialClrs.Controls.Add(Me.LabelControl26)
-        resources.ApplyResources(Me.grpSpecialClrs, "grpSpecialClrs")
         Me.grpSpecialClrs.Name = "grpSpecialClrs"
         '
         'capOpacity
@@ -232,6 +232,7 @@ Partial Class AddNewTrtForm
         Me.capOpacity.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.capOpacity.Properties.Maximum = 138
         Me.capOpacity.Properties.Minimum = 118
+        Me.capOpacity.Properties.Orientation = CType(resources.GetObject("capOpacity.Properties.Orientation"), System.Windows.Forms.Orientation)
         Me.capOpacity.Properties.ShowValueToolTip = True
         Me.capOpacity.Properties.SmallChangeUseMode = DevExpress.XtraEditors.Repository.SmallChangeUseMode.ArrowKeysAndMouse
         Me.capOpacity.Properties.TickStyle = System.Windows.Forms.TickStyle.None
@@ -240,47 +241,54 @@ Partial Class AddNewTrtForm
         '
         'LabelControl29
         '
+        resources.ApplyResources(Me.LabelControl29, "LabelControl29")
         Me.LabelControl29.Appearance.Font = CType(resources.GetObject("LabelControl29.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl29.Appearance.ForeColor = System.Drawing.Color.Black
         Me.LabelControl29.Appearance.Options.UseFont = True
         Me.LabelControl29.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl29, "LabelControl29")
         Me.LabelControl29.Name = "LabelControl29"
         '
         'capRootThick
         '
-        Me.capRootThick.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TrtBS, "BorderThickness", True))
         resources.ApplyResources(Me.capRootThick, "capRootThick")
+        Me.capRootThick.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TrtBS, "BorderThickness", True))
         Me.capRootThick.Name = "capRootThick"
         Me.capRootThick.Properties.AutoSize = False
         Me.capRootThick.Properties.LabelAppearance.Options.UseTextOptions = True
         Me.capRootThick.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.capRootThick.Properties.LargeChange = 2
         Me.capRootThick.Properties.Maximum = 3
+        Me.capRootThick.Properties.Orientation = CType(resources.GetObject("capRootThick.Properties.Orientation"), System.Windows.Forms.Orientation)
         Me.capRootThick.Properties.ShowValueToolTip = True
         Me.capRootThick.Properties.SmallChangeUseMode = DevExpress.XtraEditors.Repository.SmallChangeUseMode.ArrowKeysAndMouse
         Me.capRootThick.ShowToolTips = False
         Me.capRootThick.Value = 1
         '
+        'TrtBS
+        '
+        Me.TrtBS.DataSource = GetType(DentistX.Patient_ToothTrt)
+        '
         'LabelControl28
         '
+        resources.ApplyResources(Me.LabelControl28, "LabelControl28")
         Me.LabelControl28.Appearance.Font = CType(resources.GetObject("LabelControl28.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl28.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl28, "LabelControl28")
         Me.LabelControl28.Name = "LabelControl28"
         '
         'btCapRootClrDef
         '
+        resources.ApplyResources(Me.btCapRootClrDef, "btCapRootClrDef")
         Me.btCapRootClrDef.Appearance.Font = CType(resources.GetObject("btCapRootClrDef.Appearance.Font"), System.Drawing.Font)
         Me.btCapRootClrDef.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btCapRootClrDef, "btCapRootClrDef")
+        Me.btCapRootClrDef.ImageOptions.ImageKey = resources.GetString("btCapRootClrDef.ImageOptions.ImageKey")
         Me.btCapRootClrDef.Name = "btCapRootClrDef"
         '
         'btnSetCapRootCustmClr
         '
+        resources.ApplyResources(Me.btnSetCapRootCustmClr, "btnSetCapRootCustmClr")
         Me.btnSetCapRootCustmClr.Appearance.Font = CType(resources.GetObject("btnSetCapRootCustmClr.Appearance.Font"), System.Drawing.Font)
         Me.btnSetCapRootCustmClr.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnSetCapRootCustmClr, "btnSetCapRootCustmClr")
+        Me.btnSetCapRootCustmClr.ImageOptions.ImageKey = resources.GetString("btnSetCapRootCustmClr.ImageOptions.ImageKey")
         Me.btnSetCapRootCustmClr.Name = "btnSetCapRootCustmClr"
         '
         'CapFillPick
@@ -297,9 +305,9 @@ Partial Class AddNewTrtForm
         '
         'LabelControl25
         '
+        resources.ApplyResources(Me.LabelControl25, "LabelControl25")
         Me.LabelControl25.Appearance.Font = CType(resources.GetObject("LabelControl25.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl25.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl25, "LabelControl25")
         Me.LabelControl25.Name = "LabelControl25"
         '
         'RootFillPick
@@ -315,23 +323,24 @@ Partial Class AddNewTrtForm
         '
         'LabelControl26
         '
+        resources.ApplyResources(Me.LabelControl26, "LabelControl26")
         Me.LabelControl26.Appearance.Font = CType(resources.GetObject("LabelControl26.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl26.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl26, "LabelControl26")
         Me.LabelControl26.Name = "LabelControl26"
         '
         'RightGroup
         '
+        resources.ApplyResources(Me.RightGroup, "RightGroup")
         Me.RightGroup.AppearanceCaption.Font = CType(resources.GetObject("RightGroup.AppearanceCaption.Font"), System.Drawing.Font)
         Me.RightGroup.AppearanceCaption.Options.UseFont = True
         Me.RightGroup.Controls.Add(Me.PanelControl1)
         Me.RightGroup.Controls.Add(Me.GrpPays)
         Me.RightGroup.Controls.Add(Me.GrpExtern)
-        resources.ApplyResources(Me.RightGroup, "RightGroup")
         Me.RightGroup.Name = "RightGroup"
         '
         'PanelControl1
         '
+        resources.ApplyResources(Me.PanelControl1, "PanelControl1")
         Me.PanelControl1.Controls.Add(Me.dtTrtEnd)
         Me.PanelControl1.Controls.Add(Me.LabelControl14)
         Me.PanelControl1.Controls.Add(Me.btnSetCustmColor)
@@ -346,13 +355,12 @@ Partial Class AddNewTrtForm
         Me.PanelControl1.Controls.Add(Me.clrBorderColor)
         Me.PanelControl1.Controls.Add(Me.LabelControl21)
         Me.PanelControl1.Controls.Add(Me.LabelControl8)
-        resources.ApplyResources(Me.PanelControl1, "PanelControl1")
         Me.PanelControl1.Name = "PanelControl1"
         '
         'dtTrtEnd
         '
-        Me.dtTrtEnd.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TrtBS, "TreatEndDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.dtTrtEnd, "dtTrtEnd")
+        Me.dtTrtEnd.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TrtBS, "TreatEndDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.dtTrtEnd.EnterMoveNextControl = True
         Me.dtTrtEnd.Name = "dtTrtEnd"
         Me.dtTrtEnd.Properties.Appearance.Font = CType(resources.GetObject("dtTrtEnd.Properties.Appearance.Font"), System.Drawing.Font)
@@ -362,39 +370,42 @@ Partial Class AddNewTrtForm
         '
         'LabelControl14
         '
+        resources.ApplyResources(Me.LabelControl14, "LabelControl14")
         Me.LabelControl14.Appearance.Font = CType(resources.GetObject("LabelControl14.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl14.Appearance.ForeColor = System.Drawing.Color.MediumBlue
         Me.LabelControl14.Appearance.Options.UseFont = True
         Me.LabelControl14.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl14, "LabelControl14")
         Me.LabelControl14.Name = "LabelControl14"
         '
         'btnSetCustmColor
         '
+        resources.ApplyResources(Me.btnSetCustmColor, "btnSetCustmColor")
         Me.btnSetCustmColor.Appearance.Font = CType(resources.GetObject("btnSetCustmColor.Appearance.Font"), System.Drawing.Font)
         Me.btnSetCustmColor.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnSetCustmColor, "btnSetCustmColor")
+        Me.btnSetCustmColor.ImageOptions.ImageKey = resources.GetString("btnSetCustmColor.ImageOptions.ImageKey")
         Me.btnSetCustmColor.Name = "btnSetCustmColor"
         '
         'btTrtClrDef
         '
+        resources.ApplyResources(Me.btTrtClrDef, "btTrtClrDef")
         Me.btTrtClrDef.Appearance.Font = CType(resources.GetObject("btTrtClrDef.Appearance.Font"), System.Drawing.Font)
         Me.btTrtClrDef.Appearance.Options.UseFont = True
+        Me.btTrtClrDef.ImageOptions.ImageKey = resources.GetString("btTrtClrDef.ImageOptions.ImageKey")
         Me.btTrtClrDef.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter
         Me.btTrtClrDef.ImageOptions.SvgImageSize = New System.Drawing.Size(20, 20)
-        resources.ApplyResources(Me.btTrtClrDef, "btTrtClrDef")
         Me.btTrtClrDef.Name = "btTrtClrDef"
         '
         'tbThick
         '
-        Me.tbThick.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TrtBS, "BorderThickness", True))
         resources.ApplyResources(Me.tbThick, "tbThick")
+        Me.tbThick.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TrtBS, "BorderThickness", True))
         Me.tbThick.Name = "tbThick"
         Me.tbThick.Properties.AutoSize = False
         Me.tbThick.Properties.LabelAppearance.Options.UseTextOptions = True
         Me.tbThick.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.tbThick.Properties.LargeChange = 2
         Me.tbThick.Properties.Maximum = 3
+        Me.tbThick.Properties.Orientation = CType(resources.GetObject("tbThick.Properties.Orientation"), System.Windows.Forms.Orientation)
         Me.tbThick.Properties.ShowValueToolTip = True
         Me.tbThick.Properties.SmallChangeUseMode = DevExpress.XtraEditors.Repository.SmallChangeUseMode.ArrowKeysAndMouse
         Me.tbThick.ShowToolTips = False
@@ -409,6 +420,7 @@ Partial Class AddNewTrtForm
         Me.tbOpacity.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.tbOpacity.Properties.Maximum = 138
         Me.tbOpacity.Properties.Minimum = 118
+        Me.tbOpacity.Properties.Orientation = CType(resources.GetObject("tbOpacity.Properties.Orientation"), System.Windows.Forms.Orientation)
         Me.tbOpacity.Properties.ShowValueToolTip = True
         Me.tbOpacity.Properties.SmallChangeUseMode = DevExpress.XtraEditors.Repository.SmallChangeUseMode.ArrowKeysAndMouse
         Me.tbOpacity.Properties.TickStyle = System.Windows.Forms.TickStyle.None
@@ -417,11 +429,11 @@ Partial Class AddNewTrtForm
         '
         'LabelControl13
         '
+        resources.ApplyResources(Me.LabelControl13, "LabelControl13")
         Me.LabelControl13.Appearance.Font = CType(resources.GetObject("LabelControl13.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl13.Appearance.ForeColor = System.Drawing.Color.Black
         Me.LabelControl13.Appearance.Options.UseFont = True
         Me.LabelControl13.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl13, "LabelControl13")
         Me.LabelControl13.Name = "LabelControl13"
         '
         'ceFinish
@@ -429,12 +441,16 @@ Partial Class AddNewTrtForm
         resources.ApplyResources(Me.ceFinish, "ceFinish")
         Me.ceFinish.Name = "ceFinish"
         Me.ceFinish.Properties.Caption = resources.GetString("ceFinish.Properties.Caption")
+        Me.ceFinish.Properties.DisplayValueChecked = resources.GetString("ceFinish.Properties.DisplayValueChecked")
+        Me.ceFinish.Properties.DisplayValueGrayed = resources.GetString("ceFinish.Properties.DisplayValueGrayed")
+        Me.ceFinish.Properties.DisplayValueUnchecked = resources.GetString("ceFinish.Properties.DisplayValueUnchecked")
+        Me.ceFinish.Properties.GlyphVerticalAlignment = CType(resources.GetObject("ceFinish.Properties.GlyphVerticalAlignment"), DevExpress.Utils.VertAlignment)
         '
         'LabelControl27
         '
+        resources.ApplyResources(Me.LabelControl27, "LabelControl27")
         Me.LabelControl27.Appearance.Font = CType(resources.GetObject("LabelControl27.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl27.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl27, "LabelControl27")
         Me.LabelControl27.Name = "LabelControl27"
         '
         'clrFillColor
@@ -451,9 +467,9 @@ Partial Class AddNewTrtForm
         '
         'LabelControl22
         '
+        resources.ApplyResources(Me.LabelControl22, "LabelControl22")
         Me.LabelControl22.Appearance.Font = CType(resources.GetObject("LabelControl22.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl22.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl22, "LabelControl22")
         Me.LabelControl22.Name = "LabelControl22"
         '
         'clrBorderColor
@@ -469,20 +485,21 @@ Partial Class AddNewTrtForm
         '
         'LabelControl21
         '
+        resources.ApplyResources(Me.LabelControl21, "LabelControl21")
         Me.LabelControl21.Appearance.Font = CType(resources.GetObject("LabelControl21.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl21.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl21, "LabelControl21")
         Me.LabelControl21.Name = "LabelControl21"
         '
         'LabelControl8
         '
+        resources.ApplyResources(Me.LabelControl8, "LabelControl8")
         Me.LabelControl8.Appearance.Font = CType(resources.GetObject("LabelControl8.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl8.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl8, "LabelControl8")
         Me.LabelControl8.Name = "LabelControl8"
         '
         'GrpPays
         '
+        resources.ApplyResources(Me.GrpPays, "GrpPays")
         Me.GrpPays.AppearanceCaption.Font = CType(resources.GetObject("GrpPays.AppearanceCaption.Font"), System.Drawing.Font)
         Me.GrpPays.AppearanceCaption.ForeColor = System.Drawing.Color.Red
         Me.GrpPays.AppearanceCaption.Options.UseFont = True
@@ -493,31 +510,30 @@ Partial Class AddNewTrtForm
         Me.GrpPays.Controls.Add(Me.txtPayValue)
         Me.GrpPays.Controls.Add(Me.LabelControl23)
         Me.GrpPays.Controls.Add(Me.LabelControl19)
-        resources.ApplyResources(Me.GrpPays, "GrpPays")
         Me.GrpPays.Name = "GrpPays"
         '
         'grpTrtPrice
         '
+        resources.ApplyResources(Me.grpTrtPrice, "grpTrtPrice")
         Me.grpTrtPrice.AppearanceCaption.Font = CType(resources.GetObject("grpTrtPrice.AppearanceCaption.Font"), System.Drawing.Font)
         Me.grpTrtPrice.AppearanceCaption.Options.UseFont = True
         Me.grpTrtPrice.Controls.Add(Me.LabelControl6)
         Me.grpTrtPrice.Controls.Add(Me.txtTrtPrice)
-        resources.ApplyResources(Me.grpTrtPrice, "grpTrtPrice")
         Me.grpTrtPrice.Name = "grpTrtPrice"
         '
         'LabelControl6
         '
+        resources.ApplyResources(Me.LabelControl6, "LabelControl6")
         Me.LabelControl6.Appearance.Font = CType(resources.GetObject("LabelControl6.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl6.Appearance.ForeColor = System.Drawing.Color.Red
         Me.LabelControl6.Appearance.Options.UseFont = True
         Me.LabelControl6.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl6, "LabelControl6")
         Me.LabelControl6.Name = "LabelControl6"
         '
         'txtTrtPrice
         '
-        Me.txtTrtPrice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "TrtValue", True))
         resources.ApplyResources(Me.txtTrtPrice, "txtTrtPrice")
+        Me.txtTrtPrice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "TrtValue", True))
         Me.txtTrtPrice.EnterMoveNextControl = True
         Me.txtTrtPrice.Name = "txtTrtPrice"
         Me.txtTrtPrice.Properties.Appearance.Font = CType(resources.GetObject("txtTrtPrice.Properties.Appearance.Font"), System.Drawing.Font)
@@ -532,27 +548,31 @@ Partial Class AddNewTrtForm
         '
         'txtPayNotes
         '
-        Me.txtPayNotes.EnterMoveNextControl = True
         resources.ApplyResources(Me.txtPayNotes, "txtPayNotes")
+        Me.txtPayNotes.EnterMoveNextControl = True
         Me.txtPayNotes.Name = "txtPayNotes"
         Me.txtPayNotes.Properties.Appearance.Font = CType(resources.GetObject("txtPayNotes.Properties.Appearance.Font"), System.Drawing.Font)
         Me.txtPayNotes.Properties.Appearance.Options.UseFont = True
         '
         'isPaidChck
         '
-        Me.isPaidChck.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TrtBS, "IsPaid", True))
         resources.ApplyResources(Me.isPaidChck, "isPaidChck")
+        Me.isPaidChck.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TrtBS, "IsPaid", True))
         Me.isPaidChck.Name = "isPaidChck"
         Me.isPaidChck.Properties.Appearance.Font = CType(resources.GetObject("isPaidChck.Properties.Appearance.Font"), System.Drawing.Font)
         Me.isPaidChck.Properties.Appearance.ForeColor = System.Drawing.Color.Red
         Me.isPaidChck.Properties.Appearance.Options.UseFont = True
         Me.isPaidChck.Properties.Appearance.Options.UseForeColor = True
         Me.isPaidChck.Properties.Caption = resources.GetString("isPaidChck.Properties.Caption")
+        Me.isPaidChck.Properties.DisplayValueChecked = resources.GetString("isPaidChck.Properties.DisplayValueChecked")
+        Me.isPaidChck.Properties.DisplayValueGrayed = resources.GetString("isPaidChck.Properties.DisplayValueGrayed")
+        Me.isPaidChck.Properties.DisplayValueUnchecked = resources.GetString("isPaidChck.Properties.DisplayValueUnchecked")
+        Me.isPaidChck.Properties.GlyphVerticalAlignment = CType(resources.GetObject("isPaidChck.Properties.GlyphVerticalAlignment"), DevExpress.Utils.VertAlignment)
         '
         'txtPayValue
         '
-        Me.txtPayValue.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "PayValue", True))
         resources.ApplyResources(Me.txtPayValue, "txtPayValue")
+        Me.txtPayValue.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "PayValue", True))
         Me.txtPayValue.EnterMoveNextControl = True
         Me.txtPayValue.Name = "txtPayValue"
         Me.txtPayValue.Properties.Appearance.Font = CType(resources.GetObject("txtPayValue.Properties.Appearance.Font"), System.Drawing.Font)
@@ -567,24 +587,25 @@ Partial Class AddNewTrtForm
         '
         'LabelControl23
         '
+        resources.ApplyResources(Me.LabelControl23, "LabelControl23")
         Me.LabelControl23.Appearance.Font = CType(resources.GetObject("LabelControl23.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl23.Appearance.ForeColor = System.Drawing.Color.Green
         Me.LabelControl23.Appearance.Options.UseFont = True
         Me.LabelControl23.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl23, "LabelControl23")
         Me.LabelControl23.Name = "LabelControl23"
         '
         'LabelControl19
         '
+        resources.ApplyResources(Me.LabelControl19, "LabelControl19")
         Me.LabelControl19.Appearance.Font = CType(resources.GetObject("LabelControl19.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl19.Appearance.ForeColor = System.Drawing.Color.Green
         Me.LabelControl19.Appearance.Options.UseFont = True
         Me.LabelControl19.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl19, "LabelControl19")
         Me.LabelControl19.Name = "LabelControl19"
         '
         'GrpExtern
         '
+        resources.ApplyResources(Me.GrpExtern, "GrpExtern")
         Me.GrpExtern.AppearanceCaption.Font = CType(resources.GetObject("GrpExtern.AppearanceCaption.Font"), System.Drawing.Font)
         Me.GrpExtern.AppearanceCaption.ForeColor = System.Drawing.Color.Blue
         Me.GrpExtern.AppearanceCaption.Options.UseFont = True
@@ -593,44 +614,47 @@ Partial Class AddNewTrtForm
         Me.GrpExtern.Controls.Add(Me.IsExternalchk)
         Me.GrpExtern.Controls.Add(Me.LabelControl24)
         Me.GrpExtern.Controls.Add(Me.lblExternal)
-        resources.ApplyResources(Me.GrpExtern, "GrpExtern")
         Me.GrpExtern.Name = "GrpExtern"
         '
         'txtExtClinic
         '
-        Me.txtExtClinic.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "ExternalClinicName", True))
         resources.ApplyResources(Me.txtExtClinic, "txtExtClinic")
+        Me.txtExtClinic.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "ExternalClinicName", True))
         Me.txtExtClinic.Name = "txtExtClinic"
         Me.txtExtClinic.Properties.Appearance.ForeColor = System.Drawing.Color.DarkViolet
         Me.txtExtClinic.Properties.Appearance.Options.UseForeColor = True
         '
         'IsExternalchk
         '
-        Me.IsExternalchk.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TrtBS, "IsExternal", True))
         resources.ApplyResources(Me.IsExternalchk, "IsExternalchk")
+        Me.IsExternalchk.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TrtBS, "IsExternal", True))
         Me.IsExternalchk.Name = "IsExternalchk"
         Me.IsExternalchk.Properties.Appearance.Font = CType(resources.GetObject("IsExternalchk.Properties.Appearance.Font"), System.Drawing.Font)
         Me.IsExternalchk.Properties.Appearance.ForeColor = System.Drawing.Color.DarkViolet
         Me.IsExternalchk.Properties.Appearance.Options.UseFont = True
         Me.IsExternalchk.Properties.Appearance.Options.UseForeColor = True
         Me.IsExternalchk.Properties.Caption = resources.GetString("IsExternalchk.Properties.Caption")
+        Me.IsExternalchk.Properties.DisplayValueChecked = resources.GetString("IsExternalchk.Properties.DisplayValueChecked")
+        Me.IsExternalchk.Properties.DisplayValueGrayed = resources.GetString("IsExternalchk.Properties.DisplayValueGrayed")
+        Me.IsExternalchk.Properties.DisplayValueUnchecked = resources.GetString("IsExternalchk.Properties.DisplayValueUnchecked")
+        Me.IsExternalchk.Properties.GlyphVerticalAlignment = CType(resources.GetObject("IsExternalchk.Properties.GlyphVerticalAlignment"), DevExpress.Utils.VertAlignment)
         '
         'LabelControl24
         '
+        resources.ApplyResources(Me.LabelControl24, "LabelControl24")
         Me.LabelControl24.Appearance.Font = CType(resources.GetObject("LabelControl24.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl24.Appearance.ForeColor = System.Drawing.Color.DarkViolet
         Me.LabelControl24.Appearance.Options.UseFont = True
         Me.LabelControl24.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl24, "LabelControl24")
         Me.LabelControl24.Name = "LabelControl24"
         '
         'lblExternal
         '
+        resources.ApplyResources(Me.lblExternal, "lblExternal")
         Me.lblExternal.Appearance.Font = CType(resources.GetObject("lblExternal.Appearance.Font"), System.Drawing.Font)
         Me.lblExternal.Appearance.ForeColor = System.Drawing.Color.DarkViolet
         Me.lblExternal.Appearance.Options.UseFont = True
         Me.lblExternal.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.lblExternal, "lblExternal")
         Me.lblExternal.Name = "lblExternal"
         '
         'impCheck
@@ -642,14 +666,18 @@ Partial Class AddNewTrtForm
         Me.impCheck.Properties.Appearance.Options.UseFont = True
         Me.impCheck.Properties.Appearance.Options.UseForeColor = True
         Me.impCheck.Properties.Caption = resources.GetString("impCheck.Properties.Caption")
+        Me.impCheck.Properties.DisplayValueChecked = resources.GetString("impCheck.Properties.DisplayValueChecked")
+        Me.impCheck.Properties.DisplayValueGrayed = resources.GetString("impCheck.Properties.DisplayValueGrayed")
+        Me.impCheck.Properties.DisplayValueUnchecked = resources.GetString("impCheck.Properties.DisplayValueUnchecked")
+        Me.impCheck.Properties.GlyphVerticalAlignment = CType(resources.GetObject("impCheck.Properties.GlyphVerticalAlignment"), DevExpress.Utils.VertAlignment)
         '
         'BindingNavigator1
         '
+        resources.ApplyResources(Me.BindingNavigator1, "BindingNavigator1")
         Me.BindingNavigator1.AddNewItem = Me.BindingNavigatorAddNewItem
         Me.BindingNavigator1.BindingSource = Me.TrtBS
         Me.BindingNavigator1.CountItem = Me.BindingNavigatorCountItem
         Me.BindingNavigator1.DeleteItem = Me.BindingNavigatorDeleteItem
-        resources.ApplyResources(Me.BindingNavigator1, "BindingNavigator1")
         Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
         Me.BindingNavigator1.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.BindingNavigator1.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -660,37 +688,37 @@ Partial Class AddNewTrtForm
         '
         'BindingNavigatorAddNewItem
         '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.BindingNavigatorAddNewItem, "BindingNavigatorAddNewItem")
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
         '
         'BindingNavigatorCountItem
         '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
         resources.ApplyResources(Me.BindingNavigatorCountItem, "BindingNavigatorCountItem")
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
         '
         'BindingNavigatorDeleteItem
         '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.BindingNavigatorDeleteItem, "BindingNavigatorDeleteItem")
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
         '
         'BindingNavigatorMoveFirstItem
         '
-        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.BindingNavigatorMoveFirstItem, "BindingNavigatorMoveFirstItem")
+        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
         '
         'BindingNavigatorMovePreviousItem
         '
-        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.BindingNavigatorMovePreviousItem, "BindingNavigatorMovePreviousItem")
+        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
         '
         'BindingNavigatorSeparator
         '
-        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
         resources.ApplyResources(Me.BindingNavigatorSeparator, "BindingNavigatorSeparator")
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
         '
         'BindingNavigatorPositionItem
         '
@@ -699,25 +727,25 @@ Partial Class AddNewTrtForm
         '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         resources.ApplyResources(Me.BindingNavigatorSeparator1, "BindingNavigatorSeparator1")
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         '
         'BindingNavigatorMoveNextItem
         '
-        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.BindingNavigatorMoveNextItem, "BindingNavigatorMoveNextItem")
+        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         '
         'BindingNavigatorMoveLastItem
         '
-        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.BindingNavigatorMoveLastItem, "BindingNavigatorMoveLastItem")
+        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         resources.ApplyResources(Me.BindingNavigatorSeparator2, "BindingNavigatorSeparator2")
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         '
         'ImpPopup
         '
@@ -728,6 +756,7 @@ Partial Class AddNewTrtForm
         '
         'ImpContainer
         '
+        resources.ApplyResources(Me.ImpContainer, "ImpContainer")
         Me.ImpContainer.Controls.Add(Me.cmbLength)
         Me.ImpContainer.Controls.Add(Me.cmbDiameter)
         Me.ImpContainer.Controls.Add(Me.cmbType)
@@ -741,56 +770,97 @@ Partial Class AddNewTrtForm
         Me.ImpContainer.Controls.Add(Me.LabelControl11)
         Me.ImpContainer.Controls.Add(Me.cmbDesign)
         Me.ImpContainer.Controls.Add(Me.ResultLbl)
-        resources.ApplyResources(Me.ImpContainer, "ImpContainer")
         Me.ImpContainer.Name = "ImpContainer"
+        '
+        'cmbLength
+        '
+        resources.ApplyResources(Me.cmbLength, "cmbLength")
+        Me.cmbLength.BtnAddVisible = True
+        Me.cmbLength.BtnSearchVisible = True
+        Me.cmbLength.Filter = ""
+        Me.cmbLength.LengthID = 1
+        Me.cmbLength.LengthMM = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.cmbLength.Name = "cmbLength"
+        '
+        'cmbDiameter
+        '
+        resources.ApplyResources(Me.cmbDiameter, "cmbDiameter")
+        Me.cmbDiameter.BtnAddVisible = True
+        Me.cmbDiameter.BtnSearchVisible = True
+        Me.cmbDiameter.DiameterID = 1
+        Me.cmbDiameter.DiameterMM = New Decimal(New Integer() {280, 0, 0, 131072})
+        Me.cmbDiameter.Filter = ""
+        Me.cmbDiameter.Name = "cmbDiameter"
+        '
+        'cmbType
+        '
+        resources.ApplyResources(Me.cmbType, "cmbType")
+        Me.cmbType.BtnAddVisible = True
+        Me.cmbType.BtnSearchVisible = True
+        Me.cmbType.Filter = ""
+        Me.cmbType.Name = "cmbType"
+        Me.cmbType.TypeID = 1
+        Me.cmbType.TypeName = Nothing
+        '
+        'cmbBrand
+        '
+        resources.ApplyResources(Me.cmbBrand, "cmbBrand")
+        Me.cmbBrand.BrandID = 1
+        Me.cmbBrand.BrandName = "ADIN"
+        Me.cmbBrand.BtnAddVisible = True
+        Me.cmbBrand.BtnSearchVisible = True
+        Me.cmbBrand.Filter = ""
+        Me.cmbBrand.Name = "cmbBrand"
         '
         'btnCancelImp
         '
+        resources.ApplyResources(Me.btnCancelImp, "btnCancelImp")
         Me.btnCancelImp.Appearance.Font = CType(resources.GetObject("btnCancelImp.Appearance.Font"), System.Drawing.Font)
         Me.btnCancelImp.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnCancelImp, "btnCancelImp")
+        Me.btnCancelImp.ImageOptions.ImageKey = resources.GetString("btnCancelImp.ImageOptions.ImageKey")
         Me.btnCancelImp.Name = "btnCancelImp"
         '
         'btnSelect
         '
+        resources.ApplyResources(Me.btnSelect, "btnSelect")
         Me.btnSelect.Appearance.Font = CType(resources.GetObject("btnSelect.Appearance.Font"), System.Drawing.Font)
         Me.btnSelect.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnSelect, "btnSelect")
+        Me.btnSelect.ImageOptions.ImageKey = resources.GetString("btnSelect.ImageOptions.ImageKey")
         Me.btnSelect.Name = "btnSelect"
         '
         'LabelControl18
         '
+        resources.ApplyResources(Me.LabelControl18, "LabelControl18")
         Me.LabelControl18.Appearance.Font = CType(resources.GetObject("LabelControl18.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl18.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl18, "LabelControl18")
         Me.LabelControl18.Name = "LabelControl18"
         '
         'LabelControl17
         '
+        resources.ApplyResources(Me.LabelControl17, "LabelControl17")
         Me.LabelControl17.Appearance.Font = CType(resources.GetObject("LabelControl17.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl17.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl17, "LabelControl17")
         Me.LabelControl17.Name = "LabelControl17"
         '
         'LabelControl16
         '
+        resources.ApplyResources(Me.LabelControl16, "LabelControl16")
         Me.LabelControl16.Appearance.Font = CType(resources.GetObject("LabelControl16.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl16.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl16, "LabelControl16")
         Me.LabelControl16.Name = "LabelControl16"
         '
         'LabelControl15
         '
+        resources.ApplyResources(Me.LabelControl15, "LabelControl15")
         Me.LabelControl15.Appearance.Font = CType(resources.GetObject("LabelControl15.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl15.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl15, "LabelControl15")
         Me.LabelControl15.Name = "LabelControl15"
         '
         'LabelControl11
         '
+        resources.ApplyResources(Me.LabelControl11, "LabelControl11")
         Me.LabelControl11.Appearance.Font = CType(resources.GetObject("LabelControl11.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl11.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl11, "LabelControl11")
         Me.LabelControl11.Name = "LabelControl11"
         '
         'cmbDesign
@@ -804,25 +874,27 @@ Partial Class AddNewTrtForm
         '
         'ResultLbl
         '
+        resources.ApplyResources(Me.ResultLbl, "ResultLbl")
         Me.ResultLbl.Appearance.Font = CType(resources.GetObject("ResultLbl.Appearance.Font"), System.Drawing.Font)
         Me.ResultLbl.Appearance.Options.UseFont = True
         Me.ResultLbl.Appearance.Options.UseTextOptions = True
         Me.ResultLbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-        resources.ApplyResources(Me.ResultLbl, "ResultLbl")
         Me.ResultLbl.Name = "ResultLbl"
         '
         'btnCancel
         '
+        resources.ApplyResources(Me.btnCancel, "btnCancel")
         Me.btnCancel.Appearance.Font = CType(resources.GetObject("btnCancel.Appearance.Font"), System.Drawing.Font)
         Me.btnCancel.Appearance.ForeColor = System.Drawing.Color.Red
         Me.btnCancel.Appearance.Options.UseFont = True
         Me.btnCancel.Appearance.Options.UseForeColor = True
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        resources.ApplyResources(Me.btnCancel, "btnCancel")
+        Me.btnCancel.ImageOptions.ImageKey = resources.GetString("btnCancel.ImageOptions.ImageKey")
         Me.btnCancel.Name = "btnCancel"
         '
         'GroupHeader
         '
+        resources.ApplyResources(Me.GroupHeader, "GroupHeader")
         Me.GroupHeader.Appearance.Options.UseBorderColor = True
         Me.GroupHeader.Appearance.Options.UseFont = True
         Me.GroupHeader.Appearance.Options.UseForeColor = True
@@ -845,13 +917,12 @@ Partial Class AddNewTrtForm
         Me.GroupHeader.Controls.Add(Me.txtToothName)
         Me.GroupHeader.Controls.Add(Me.LabelControl3)
         Me.GroupHeader.Controls.Add(Me.LabelControl5)
-        resources.ApplyResources(Me.GroupHeader, "GroupHeader")
         Me.GroupHeader.Name = "GroupHeader"
         '
         'txtToothNum
         '
-        Me.txtToothNum.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "ToothNum", True))
         resources.ApplyResources(Me.txtToothNum, "txtToothNum")
+        Me.txtToothNum.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "ToothNum", True))
         Me.txtToothNum.Name = "txtToothNum"
         Me.txtToothNum.Properties.Appearance.Font = CType(resources.GetObject("txtToothNum.Properties.Appearance.Font"), System.Drawing.Font)
         Me.txtToothNum.Properties.Appearance.ForeColor = System.Drawing.Color.Red
@@ -863,11 +934,11 @@ Partial Class AddNewTrtForm
         '
         'LabelControl4
         '
+        resources.ApplyResources(Me.LabelControl4, "LabelControl4")
         Me.LabelControl4.Appearance.Font = CType(resources.GetObject("LabelControl4.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl4.Appearance.ForeColor = System.Drawing.Color.Green
         Me.LabelControl4.Appearance.Options.UseFont = True
         Me.LabelControl4.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl4, "LabelControl4")
         Me.LabelControl4.Name = "LabelControl4"
         '
         'txtPatientID
@@ -896,17 +967,17 @@ Partial Class AddNewTrtForm
         '
         'LabelControl2
         '
+        resources.ApplyResources(Me.LabelControl2, "LabelControl2")
         Me.LabelControl2.Appearance.Font = CType(resources.GetObject("LabelControl2.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.Blue
         Me.LabelControl2.Appearance.Options.UseFont = True
         Me.LabelControl2.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl2, "LabelControl2")
         Me.LabelControl2.Name = "LabelControl2"
         '
         'txtToothName
         '
-        Me.txtToothName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "ToothName", True))
         resources.ApplyResources(Me.txtToothName, "txtToothName")
+        Me.txtToothName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "ToothName", True))
         Me.txtToothName.Name = "txtToothName"
         Me.txtToothName.Properties.Appearance.Font = CType(resources.GetObject("txtToothName.Properties.Appearance.Font"), System.Drawing.Font)
         Me.txtToothName.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -918,35 +989,36 @@ Partial Class AddNewTrtForm
         '
         'LabelControl3
         '
+        resources.ApplyResources(Me.LabelControl3, "LabelControl3")
         Me.LabelControl3.Appearance.Font = CType(resources.GetObject("LabelControl3.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl3.Appearance.ForeColor = System.Drawing.Color.Blue
         Me.LabelControl3.Appearance.Options.UseFont = True
         Me.LabelControl3.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl3, "LabelControl3")
         Me.LabelControl3.Name = "LabelControl3"
         '
         'LabelControl5
         '
+        resources.ApplyResources(Me.LabelControl5, "LabelControl5")
         Me.LabelControl5.Appearance.Font = CType(resources.GetObject("LabelControl5.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl5.Appearance.ForeColor = System.Drawing.Color.Green
         Me.LabelControl5.Appearance.Options.UseFont = True
         Me.LabelControl5.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl5, "LabelControl5")
         Me.LabelControl5.Name = "LabelControl5"
         '
         'btnSaveTrt
         '
+        resources.ApplyResources(Me.btnSaveTrt, "btnSaveTrt")
         Me.btnSaveTrt.Appearance.Font = CType(resources.GetObject("btnSaveTrt.Appearance.Font"), System.Drawing.Font)
         Me.btnSaveTrt.Appearance.ForeColor = System.Drawing.Color.Blue
         Me.btnSaveTrt.Appearance.Options.UseFont = True
         Me.btnSaveTrt.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.btnSaveTrt, "btnSaveTrt")
+        Me.btnSaveTrt.ImageOptions.ImageKey = resources.GetString("btnSaveTrt.ImageOptions.ImageKey")
         Me.btnSaveTrt.Name = "btnSaveTrt"
         '
         'dtTrtDate
         '
-        Me.dtTrtDate.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TrtBS, "TreatDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         resources.ApplyResources(Me.dtTrtDate, "dtTrtDate")
+        Me.dtTrtDate.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TrtBS, "TreatDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.dtTrtDate.EnterMoveNextControl = True
         Me.dtTrtDate.Name = "dtTrtDate"
         Me.dtTrtDate.Properties.Appearance.Font = CType(resources.GetObject("dtTrtDate.Properties.Appearance.Font"), System.Drawing.Font)
@@ -960,16 +1032,16 @@ Partial Class AddNewTrtForm
         '
         'txtTrtNotes
         '
+        resources.ApplyResources(Me.txtTrtNotes, "txtTrtNotes")
         Me.txtTrtNotes.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "TreatNotes", True))
         Me.txtTrtNotes.EnterMoveNextControl = True
-        resources.ApplyResources(Me.txtTrtNotes, "txtTrtNotes")
         Me.txtTrtNotes.Name = "txtTrtNotes"
         '
         'txtTrtDetails
         '
+        resources.ApplyResources(Me.txtTrtDetails, "txtTrtDetails")
         Me.txtTrtDetails.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "TreatDetails", True))
         Me.txtTrtDetails.EnterMoveNextControl = True
-        resources.ApplyResources(Me.txtTrtDetails, "txtTrtDetails")
         Me.txtTrtDetails.Name = "txtTrtDetails"
         '
         'cboTrtType
@@ -984,116 +1056,72 @@ Partial Class AddNewTrtForm
         '
         'LabelControl12
         '
+        resources.ApplyResources(Me.LabelControl12, "LabelControl12")
         Me.LabelControl12.Appearance.Font = CType(resources.GetObject("LabelControl12.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl12.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl12, "LabelControl12")
         Me.LabelControl12.Name = "LabelControl12"
         '
         'LabelControl20
         '
+        resources.ApplyResources(Me.LabelControl20, "LabelControl20")
         Me.LabelControl20.Appearance.Font = CType(resources.GetObject("LabelControl20.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl20.Appearance.ForeColor = System.Drawing.Color.MediumBlue
         Me.LabelControl20.Appearance.Options.UseFont = True
         Me.LabelControl20.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl20, "LabelControl20")
         Me.LabelControl20.Name = "LabelControl20"
         '
         'LabelControl7
         '
+        resources.ApplyResources(Me.LabelControl7, "LabelControl7")
         Me.LabelControl7.Appearance.Font = CType(resources.GetObject("LabelControl7.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl7.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl7, "LabelControl7")
         Me.LabelControl7.Name = "LabelControl7"
         '
         'LabelControl1
         '
+        resources.ApplyResources(Me.LabelControl1, "LabelControl1")
         Me.LabelControl1.Appearance.Font = CType(resources.GetObject("LabelControl1.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.MediumBlue
         Me.LabelControl1.Appearance.Options.UseFont = True
         Me.LabelControl1.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.LabelControl1, "LabelControl1")
         Me.LabelControl1.Name = "LabelControl1"
         '
         'LabelControl10
         '
+        resources.ApplyResources(Me.LabelControl10, "LabelControl10")
         Me.LabelControl10.Appearance.Font = CType(resources.GetObject("LabelControl10.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl10.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl10, "LabelControl10")
         Me.LabelControl10.Name = "LabelControl10"
         '
         'txtTrtPlan
         '
+        resources.ApplyResources(Me.txtTrtPlan, "txtTrtPlan")
         Me.txtTrtPlan.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "TreatPlan", True))
         Me.txtTrtPlan.EnterMoveNextControl = True
-        resources.ApplyResources(Me.txtTrtPlan, "txtTrtPlan")
         Me.txtTrtPlan.Name = "txtTrtPlan"
         '
         'txtTreat
         '
+        resources.ApplyResources(Me.txtTreat, "txtTreat")
         Me.txtTreat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TrtBS, "Treat", True))
         Me.txtTreat.EnterMoveNextControl = True
-        resources.ApplyResources(Me.txtTreat, "txtTreat")
         Me.txtTreat.Name = "txtTreat"
         Me.txtTreat.Properties.Appearance.Font = CType(resources.GetObject("txtTreat.Properties.Appearance.Font"), System.Drawing.Font)
         Me.txtTreat.Properties.Appearance.Options.UseFont = True
         '
         'ImplantSpecsLbl
         '
+        resources.ApplyResources(Me.ImplantSpecsLbl, "ImplantSpecsLbl")
         Me.ImplantSpecsLbl.Appearance.Font = CType(resources.GetObject("ImplantSpecsLbl.Appearance.Font"), System.Drawing.Font)
         Me.ImplantSpecsLbl.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.ImplantSpecsLbl, "ImplantSpecsLbl")
         Me.ImplantSpecsLbl.Name = "ImplantSpecsLbl"
         '
         'LabelControl9
         '
+        resources.ApplyResources(Me.LabelControl9, "LabelControl9")
         Me.LabelControl9.Appearance.Font = CType(resources.GetObject("LabelControl9.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl9.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl9, "LabelControl9")
         Me.LabelControl9.Name = "LabelControl9"
-        '
-        'cmbLength
-        '
-        Me.cmbLength.BtnAddVisible = True
-        Me.cmbLength.BtnSearchVisible = True
-        Me.cmbLength.Filter = ""
-        Me.cmbLength.LengthID = 1
-        Me.cmbLength.LengthMM = New Decimal(New Integer() {0, 0, 0, 0})
-        resources.ApplyResources(Me.cmbLength, "cmbLength")
-        Me.cmbLength.Name = "cmbLength"
-        '
-        'cmbDiameter
-        '
-        Me.cmbDiameter.BtnAddVisible = True
-        Me.cmbDiameter.BtnSearchVisible = True
-        Me.cmbDiameter.DiameterID = 1
-        Me.cmbDiameter.DiameterMM = New Decimal(New Integer() {280, 0, 0, 131072})
-        Me.cmbDiameter.Filter = ""
-        resources.ApplyResources(Me.cmbDiameter, "cmbDiameter")
-        Me.cmbDiameter.Name = "cmbDiameter"
-        '
-        'cmbType
-        '
-        Me.cmbType.BtnAddVisible = True
-        Me.cmbType.BtnSearchVisible = True
-        Me.cmbType.Filter = ""
-        resources.ApplyResources(Me.cmbType, "cmbType")
-        Me.cmbType.Name = "cmbType"
-        Me.cmbType.TypeID = 1
-        Me.cmbType.TypeName = Nothing
-        '
-        'cmbBrand
-        '
-        Me.cmbBrand.BrandID = 1
-        Me.cmbBrand.BrandName = "ADIN"
-        Me.cmbBrand.BtnAddVisible = True
-        Me.cmbBrand.BtnSearchVisible = True
-        Me.cmbBrand.Filter = ""
-        resources.ApplyResources(Me.cmbBrand, "cmbBrand")
-        Me.cmbBrand.Name = "cmbBrand"
-        '
-        'TrtBS
-        '
-        Me.TrtBS.DataSource = GetType(DentistX.Patient_ToothTrt)
         '
         'AddNewTrtForm
         '
@@ -1113,6 +1141,7 @@ Partial Class AddNewTrtForm
         CType(Me.capOpacity, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.capRootThick.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.capRootThick, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrtBS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CapFillPick.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RootFillPick.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RightGroup, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1167,7 +1196,6 @@ Partial Class AddNewTrtForm
         CType(Me.cboTrtType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTrtPlan.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTreat.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrtBS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

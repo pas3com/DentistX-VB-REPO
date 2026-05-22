@@ -259,7 +259,7 @@ Public Class ImplantBrandCombo
         If String.IsNullOrWhiteSpace(brandName) Then Return -1
         Const sql As String = "SELECT BrandID FROM ImplantBrand WHERE BrandName = @BrandName"
         Using conn As New SqlConnection(_connectionString)
-            Dim result As Integer? = conn.QuerySingleOrDefault(Of Integer?)(sql, New With {.BrandName = brandName})
+            Dim result As Integer? = conn.QueryFirstOrDefault(Of Integer?)(sql, New With {.BrandName = brandName})
             Return If(result.HasValue, result.Value, -1)
         End Using
     End Function

@@ -33,8 +33,10 @@ Public Class ApptMonthCtl
     Private _mwDragInitiated As Boolean
     Private Const DragMoveThreshold As Integer = 6
 
-    Private _monthRoot As Panel
+    Private _monthRoot As TableLayoutPanel
+    Private _monthBodyHost As Panel
     Private _workArea As Panel
+    Private ReadOnly _scheduleHeader As New ApptScheduleViewHeaderStrip() With {.Dock = DockStyle.Top}
     Private _dimOverlay As MonthDrawerDimPanel
     Private _dayDrawerHost As MonthDayDrawerHost
     Private _drawerDialogHost As MonthDayDrawerDialogHost
@@ -45,6 +47,12 @@ Public Class ApptMonthCtl
     Private _dialogOverlayParent As Control
     Private _dialogExpandedHost As ApptHostCtl
     Private _dialogExpandedHostTemporarily As Boolean
+    ''' <summary>Brief suppress for scrim/dialog backdrop dismiss; timer-backed.</summary>
+    Private ReadOnly _dimDismissSuppressTimer As New Timer() With {.Enabled = False}
+    Private _dimDismissSuppressed As Boolean
+    ''' <summary>Last <see cref="_workArea"/> client size after <see cref="RenderMonthWeeksView"/> — avoids resize feedback loops.</summary>
+    Private _monthWeekResizeSigW As Integer = Integer.MinValue
+    Private _monthWeekResizeSigH As Integer = Integer.MinValue
 
     Friend Property DragSourceDay As Date = Date.MinValue
     Friend Property DragTargetDay As Date = Date.MinValue
@@ -57,9 +65,15 @@ Public Class ApptMonthCtl
         AddHandler _mwDragTimer.Tick, AddressOf MwDragTimer_Tick
         _drawerAnimTimer = New Timer With {.Interval = 15}
         AddHandler _drawerAnimTimer.Tick, AddressOf DrawerAnimTimer_Tick
-        _monthWeekHostResizeDebounce = New Timer() With {.Enabled = False, .Interval = 32}
+        _monthWeekHostResizeDebounce = New Timer() With {.Enabled = False, .Interval = 110}
         AddHandler _monthWeekHostResizeDebounce.Tick, AddressOf MonthWeekHostResize_Tick
         AddHandler Me.Resize, AddressOf ApptMonthCtl_HostResize
+        AddHandler _dimDismissSuppressTimer.Tick, AddressOf DimDismissSuppressTimer_Tick
+    End Sub
+
+    Private Sub DimDismissSuppressTimer_Tick(sender As Object, e As EventArgs)
+        _dimDismissSuppressTimer.Stop()
+        _dimDismissSuppressed = False
     End Sub
 
     Public Property InteractionHub As ApptInteractionHub Implements IApptViewCtl.InteractionHub
@@ -112,20 +126,61 @@ Public Class ApptMonthCtl
         Next
     End Sub
     Public Sub BindData(request As ApptViewRequest) Implements IApptViewCtl.BindData
+        If request Is Nothing OrElse request.State Is Nothing OrElse request.Data Is Nothing Then
+            CloseDayDrawerImmediate()
+            _request = request
+            _selectedApptId = -1
+            DetachScheduleHeaderFromParent()
+            DisposeChildControls(Me)
+            _monthRoot = Nothing
+            _monthBodyHost = Nothing
+            _workArea = Nothing
+            _dimOverlay = Nothing
+            _dayDrawerHost = Nothing
+            _drawerDialogHost = Nothing
+            _calendarTableHost = Nothing
+            _scheduleHeader.Apply(Nothing)
+            _monthWeekResizeSigW = Integer.MinValue
+            _monthWeekResizeSigH = Integer.MinValue
+            Return
+        End If
+
+        Dim centerDialogOpen = _drawerDialogHost IsNot Nothing AndAlso _drawerDialogHost.Visible
+        If centerDialogOpen AndAlso CanSoftRefreshMonthWhileCenterDialogOpen(request) Then
+            _request = request
+            _selectedApptId = -1
+            CloseMonthSlideDrawerOnly()
+            ClearWorkAreaForMonthWeekRebuild()
+            AttachScheduleHeaderToMonthRoot()
+            Select Case request.State.CurrentView
+                Case ApptViewMode.MonthlyWeek
+                    RenderMonthWeeksView()
+                Case ApptViewMode.MonthView
+                    RenderMonthCalendarView()
+                Case Else
+                    RenderMonthCalendarView()
+            End Select
+            BringMonthDialogDimThenDialogToFront()
+            BeginInvoke(New MethodInvoker(AddressOf BringMonthDialogDimThenDialogToFront))
+            _scheduleHeader.Apply(request)
+            Return
+        End If
+
         CloseDayDrawerImmediate()
         _request = request
         _selectedApptId = -1
+        DetachScheduleHeaderFromParent()
         DisposeChildControls(Me)
         _monthRoot = Nothing
+        _monthBodyHost = Nothing
         _workArea = Nothing
         _dimOverlay = Nothing
         _dayDrawerHost = Nothing
         _drawerDialogHost = Nothing
         _calendarTableHost = Nothing
 
-        If request Is Nothing OrElse request.State Is Nothing OrElse request.Data Is Nothing Then Return
-
         BuildMonthChrome()
+        AttachScheduleHeaderToMonthRoot()
 
         Select Case request.State.CurrentView
             Case ApptViewMode.MonthlyWeek
@@ -135,14 +190,67 @@ Public Class ApptMonthCtl
             Case Else
                 RenderMonthCalendarView()
         End Select
+        _scheduleHeader.Apply(request)
+    End Sub
+
+    Private Sub DetachScheduleHeaderFromParent()
+        If _scheduleHeader Is Nothing OrElse _scheduleHeader.Parent Is Nothing Then Return
+        _scheduleHeader.Parent.Controls.Remove(_scheduleHeader)
+    End Sub
+
+    Private Sub AttachScheduleHeaderToMonthRoot()
+        If _monthRoot Is Nothing OrElse _scheduleHeader Is Nothing Then Return
+        _scheduleHeader.Dock = DockStyle.Fill
+        If _scheduleHeader.Parent IsNot _monthRoot Then
+            _monthRoot.Controls.Add(_scheduleHeader, 0, 0)
+        End If
+        Dim hdrH = CSng(Math.Max(38, _scheduleHeader.Height))
+        If _monthRoot.RowStyles.Count > 0 Then
+            _monthRoot.RowStyles(0) = New RowStyle(SizeType.Absolute, hdrH)
+        End If
+        EnsureDayDrawerOnTop()
+    End Sub
+
+    ''' <summary>When centered MAX is open, avoid nuking chrome so <see cref="BindData"/> can refresh tiles without tearing down <see cref="_drawerDialogHost"/>.</summary>
+    Private Function CanSoftRefreshMonthWhileCenterDialogOpen(request As ApptViewRequest) As Boolean
+        If request Is Nothing OrElse request.State Is Nothing Then Return False
+        If _monthRoot Is Nothing OrElse _workArea Is Nothing OrElse _dimOverlay Is Nothing OrElse _drawerDialogHost Is Nothing Then Return False
+        If _request Is Nothing OrElse _request.State Is Nothing Then Return False
+        If _request.State.CurrentView <> request.State.CurrentView Then Return False
+        If _request.State.CurrentDate.Year <> request.State.CurrentDate.Year OrElse _request.State.CurrentDate.Month <> request.State.CurrentDate.Month Then Return False
+        Return True
+    End Function
+
+    Private Sub CloseMonthSlideDrawerOnly()
+        If _dayDrawerHost IsNot Nothing Then
+            _dayDrawerHost.Visible = False
+            _dayDrawerHost.Width = 0
+        End If
+        Dim centerOpen = _drawerDialogHost IsNot Nothing AndAlso _drawerDialogHost.Visible
+        If Not centerOpen AndAlso _dimOverlay IsNot Nothing Then
+            _dimOverlay.Visible = False
+        End If
     End Sub
 
     Private Sub BuildMonthChrome()
-        _monthRoot = New Panel With {.Dock = DockStyle.Fill, .BackColor = Color.FromArgb(250, 251, 253)}
+        _monthRoot = New TableLayoutPanel With {
+            .Dock = DockStyle.Fill,
+            .ColumnCount = 1,
+            .RowCount = 2,
+            .BackColor = Color.FromArgb(250, 251, 253),
+            .Margin = Padding.Empty,
+            .Padding = Padding.Empty
+        }
+        _monthRoot.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
+        _monthRoot.RowStyles.Add(New RowStyle(SizeType.Absolute, 44.0F))
+        _monthRoot.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         Controls.Add(_monthRoot)
 
+        _monthBodyHost = New Panel With {.Dock = DockStyle.Fill, .BackColor = Color.FromArgb(250, 251, 253), .Margin = Padding.Empty}
+        _monthRoot.Controls.Add(_monthBodyHost, 0, 1)
+
         _workArea = New Panel With {.Dock = DockStyle.Fill, .BackColor = Color.FromArgb(250, 251, 253)}
-        _monthRoot.Controls.Add(_workArea)
+        _monthBodyHost.Controls.Add(_workArea)
         AddHandler _workArea.SizeChanged, AddressOf ApptMonthCtl_HostResize
 
         _dayDrawerHost = New MonthDayDrawerHost(Me) With {
@@ -151,7 +259,7 @@ Public Class ApptMonthCtl
             .Visible = False,
             .BackColor = DrawerDayPanelWash
         }
-        _monthRoot.Controls.Add(_dayDrawerHost)
+        _monthBodyHost.Controls.Add(_dayDrawerHost)
         EnsureDayDrawerOnTop()
 
         _dimOverlay = New MonthDrawerDimPanel(Me) With {.Dock = DockStyle.Fill, .Visible = False}
@@ -166,6 +274,28 @@ Public Class ApptMonthCtl
 
     Friend Sub RequestOpenDayDrawerDialog(day As DateTime, appts As List(Of AppointmentC), data As ApptDataBundle, state As ApptState)
         If _drawerDialogHost Is Nothing OrElse data Is Nothing OrElse state Is Nothing Then Return
+        If IsDisposed OrElse Not IsHandleCreated Then Return
+        NotifyAncestorApptHostDeferBindDuringDayDialog(940)
+        ArmDrawerDimDismissSuppression(650)
+        Dim d = day.Date
+        Dim listCopy As List(Of AppointmentC) = If(appts Is Nothing, Nothing, New List(Of AppointmentC)(appts))
+        BeginInvoke(New Action(Sub() RequestOpenDayDrawerDialogCore(d, listCopy, data, state)))
+    End Sub
+
+    Private Sub ArmDrawerDimDismissSuppression(milliseconds As Integer)
+        _dimDismissSuppressed = True
+        _dimDismissSuppressTimer.Stop()
+        _dimDismissSuppressTimer.Interval = Math.Max(120, milliseconds)
+        _dimDismissSuppressTimer.Start()
+    End Sub
+
+    Friend Function ShouldSuppressDrawerDimDismiss() As Boolean
+        Return _dimDismissSuppressed
+    End Function
+
+    Private Sub RequestOpenDayDrawerDialogCore(day As DateTime, appts As List(Of AppointmentC), data As ApptDataBundle, state As ApptState)
+        If IsDisposed OrElse Not IsHandleCreated Then Return
+        If _drawerDialogHost Is Nothing OrElse data Is Nothing OrElse state Is Nothing Then Return
         PrepareDialogOverlayParent()
         If _dimOverlay IsNot Nothing Then
             _dimOverlay.Visible = True
@@ -174,10 +304,25 @@ Public Class ApptMonthCtl
         _drawerDialogHost.Visible = True
         _drawerDialogHost.BringToFront()
         _drawerDialogHost.Populate(day, appts, data, state, GetStandardAppointmentStatusColors())
+        BringMonthDialogDimThenDialogToFront()
         ApptErrorHelper.SafeFocus(_drawerDialogHost, "ApptMonthCtl.RequestOpenDayDrawerDialog.FocusDialog")
+        BringMonthDialogDimThenDialogToFront()
+        BeginInvoke(New MethodInvoker(AddressOf BringMonthDialogDimThenDialogToFront))
+    End Sub
+
+    Private Sub BringMonthDialogDimThenDialogToFront()
+        If _dimOverlay Is Nothing OrElse _drawerDialogHost Is Nothing Then Return
+        If Not _dimOverlay.Visible OrElse Not _drawerDialogHost.Visible Then Return
+        If _dimOverlay.Parent Is Nothing OrElse _drawerDialogHost.Parent Is Nothing Then Return
+        If Not Object.ReferenceEquals(_dimOverlay.Parent, _drawerDialogHost.Parent) Then Return
+        _dimOverlay.BringToFront()
+        _drawerDialogHost.BringToFront()
     End Sub
 
     Friend Sub RequestCloseDayDrawerDialog()
+        NotifyAncestorApptHostDismissDayDialogDeferArm()
+        _dimDismissSuppressTimer.Stop()
+        _dimDismissSuppressed = False
         If _drawerDialogHost IsNot Nothing Then
             _drawerDialogHost.Visible = False
         End If
@@ -210,7 +355,7 @@ Public Class ApptMonthCtl
             _monthRoot.PerformLayout()
             _workArea.PerformLayout()
             _dayDrawerHost.PerformLayout()
-            _dayDrawerHost.Populate(day, ApptTheme.OrderAppointmentsForDisplay(appts, _request.Data, linkedDoctorAtEnd:=True), _request.Data, _request.State, GetStandardAppointmentStatusColors())
+            _dayDrawerHost.Populate(day, appts, _request.Data, _request.State, GetStandardAppointmentStatusColors())
         Catch ex As Exception
             ApptErrorHelper.Report(ex, "ApptMonthCtl.ShowMonthDayDrawer", showUser:=False)
         Finally
@@ -246,10 +391,11 @@ Public Class ApptMonthCtl
     End Sub
 
     Private Sub EnsureDayDrawerOnTop()
-        If _monthRoot Is Nothing OrElse _workArea Is Nothing OrElse _dayDrawerHost Is Nothing Then Return
-        If _workArea.Parent Is _monthRoot Then
-            _monthRoot.Controls.SetChildIndex(_workArea, 0)
+        If _monthBodyHost Is Nothing OrElse _workArea Is Nothing OrElse _dayDrawerHost Is Nothing Then Return
+        If _workArea.Parent Is _monthBodyHost Then
+            _monthBodyHost.Controls.SetChildIndex(_workArea, 0)
         End If
+        _dayDrawerHost.BringToFront()
     End Sub
 
     Private Sub PrepareDialogOverlayParent()
@@ -322,10 +468,12 @@ Public Class ApptMonthCtl
 
     Private Sub LayoutDialogOverlayHost()
         If _drawerDialogHost Is Nothing OrElse _drawerDialogHost.Parent Is Nothing Then Return
-        Dim parentClient = _drawerDialogHost.Parent.ClientSize
-        Dim w = Math.Max(0, CInt(Math.Ceiling(parentClient.Width / 2.0R)))
-        Dim x = Math.Max(0, (parentClient.Width - w) \ 2)
-        _drawerDialogHost.Bounds = New Rectangle(x, 0, w, Math.Max(0, parentClient.Height))
+        Dim cw = Math.Max(1, _drawerDialogHost.Parent.ClientSize.Width)
+        Dim ch = Math.Max(1, _drawerDialogHost.Parent.ClientSize.Height)
+        Dim w = Math.Max(220, CInt(Math.Ceiling(cw / 2.0R)))
+        If w > cw Then w = cw
+        Dim x = Math.Max(0, (cw - w) \ 2)
+        _drawerDialogHost.Bounds = New Rectangle(x, 0, w, ch)
         _drawerDialogHost.BringToFront()
     End Sub
 
@@ -338,6 +486,16 @@ Public Class ApptMonthCtl
         End While
         Return Nothing
     End Function
+
+    Private Sub NotifyAncestorApptHostDeferBindDuringDayDialog(Optional deferMs As Integer = 940)
+        Dim h = FindAncestorApptHost()
+        If h IsNot Nothing Then h.NotifyDayFocusDialogArm(deferMs)
+    End Sub
+
+    Private Sub NotifyAncestorApptHostDismissDayDialogDeferArm()
+        Dim h = FindAncestorApptHost()
+        If h IsNot Nothing Then h.NotifyDayFocusDialogDismissedArm()
+    End Sub
 
 #Region "Monthly week (horizontal week rows)"
     Private Sub ClearWorkAreaForMonthWeekRebuild()
@@ -354,7 +512,7 @@ Public Class ApptMonthCtl
         If _request Is Nothing OrElse _request.State Is Nothing Then Return
         If _request.State.CurrentView <> ApptViewMode.MonthlyWeek Then Return
         _monthWeekHostResizeDebounce.Stop()
-        _monthWeekHostResizeDebounce.Interval = 32
+        _monthWeekHostResizeDebounce.Interval = 110
         _monthWeekHostResizeDebounce.Start()
     End Sub
 
@@ -364,14 +522,26 @@ Public Class ApptMonthCtl
         If _request Is Nothing OrElse _request.State Is Nothing OrElse _request.Data Is Nothing Then Return
         If _request.State.CurrentView <> ApptViewMode.MonthlyWeek Then Return
         If _workArea Is Nothing OrElse _dimOverlay Is Nothing Then Return
+        Dim w = (_workArea.ClientSize.Width \ 4) * 4
+        Dim h = (_workArea.ClientSize.Height \ 4) * 4
+        If w = _monthWeekResizeSigW AndAlso h = _monthWeekResizeSigH Then Return
         RenderMonthWeeksView()
         If _selectedApptId > 0 Then
             SyncSelectionAcrossControls(Me)
         End If
     End Sub
 
+    Private Sub RecordMonthWeekHostLayoutSignature()
+        If _workArea Is Nothing Then Return
+        _monthWeekResizeSigW = (_workArea.ClientSize.Width \ 4) * 4
+        _monthWeekResizeSigH = (_workArea.ClientSize.Height \ 4) * 4
+    End Sub
+
     Private Sub RenderMonthWeeksView()
         ClearWorkAreaForMonthWeekRebuild()
+        If _workArea Is Nothing Then Return
+        _workArea.SuspendLayout()
+        Try
         Dim data = _request.Data
         Dim state = _request.State
         Dim currentDate = state.CurrentDate
@@ -419,7 +589,7 @@ Public Class ApptMonthCtl
         Dim mainPadVert = mainFlow.Padding.Top + mainFlow.Padding.Bottom
         Dim hostArea = If(_workArea, CType(Me, Control))
         Dim bodyHAvail = Math.Max(weekCount * 92, hostArea.ClientSize.Height - mainPadVert - 4)
-        Const weekHeaderBarH = 34
+        Const weekHeaderBarH = 44
         Const weekShellInnerPad = 6
         Dim dayBoxH = CInt(bodyHAvail / Math.Max(1, weekCount)) - weekHeaderBarH - weekShellInnerPad
         dayBoxH = Math.Max(68, Math.Min(280, dayBoxH))
@@ -530,7 +700,7 @@ Public Class ApptMonthCtl
 
             For i = 0 To 6
                 Dim day = weekStart.AddDays(i)
-                Dim dayAppts = ApptTheme.OrderAppointmentsForDisplay(apptsAll.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = day.Date), data, linkedDoctorAtEnd:=True)
+                Dim dayAppts = ApptTheme.OrderAppointmentsForDisplay(apptsAll.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = day.Date), data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
 
                 Dim dayBox As New Panel With {
                     .Width = CInt((grpWeekContentW - 72) / 7),
@@ -554,20 +724,12 @@ Public Class ApptMonthCtl
                                                                           End Function))
                 If String.IsNullOrWhiteSpace(preview) Then preview = If(Eng, "No appointments", "لا توجد مواعيد")
 
-                Dim dayDow As String
-                If Eng Then
-                    dayDow = day.ToString("ddd").ToUpperInvariant()
-                Else
-                    dayDow = If(day.Date = today, "اليوم", day.ToString("ddd"))
-                End If
-                Dim dayLine = $"{dayDow} · " &
-                    If(Eng,
-                       $"{dayAppts.Count} appt{If(dayAppts.Count <> 1, "s", "")}",
-                       $"{dayAppts.Count} موعد")
+                Dim dayLine = ApptTheme.FormatSchedulerStyleDayColumnHeaderOneLine(day, dayAppts.Count)
                 Dim dayHdrFont As Font = If(day.Date = today,
                     CreateCalibriFont(8.25F, FontStyle.Bold Or FontStyle.Italic),
                     CreateCalibriFont(8.25F, FontStyle.Bold))
                 Dim dayLblSz = MeasureSingleLineLabelSize(dayLine, dayHdrFont, dayLblW, 0, 2)
+                dayLblSz = New Size(dayLblSz.Width, Math.Max(28, dayLblSz.Height))
                 Dim lblDay As New Label With {
                     .Text = dayLine,
                     .Size = dayLblSz,
@@ -742,6 +904,10 @@ Public Class ApptMonthCtl
         mainFlow.SendToBack()
         If MonthDayDrawerUseDimOverlay AndAlso _dimOverlay IsNot Nothing Then _dimOverlay.BringToFront()
         EnsureDayDrawerOnTop()
+        Finally
+            _workArea.ResumeLayout(True)
+            RecordMonthWeekHostLayoutSignature()
+        End Try
     End Sub
 
     Private Sub MwDragTimer_Tick(sender As Object, e As EventArgs)
@@ -850,6 +1016,7 @@ Public Class ApptMonthCtl
 
 #Region "Month calendar grid (magazine tiles)"
     Private Sub RenderMonthCalendarView()
+        ClearWorkAreaForMonthWeekRebuild()
         Dim data = _request.Data
         Dim state = _request.State
         Dim currentDate = state.CurrentDate
@@ -860,48 +1027,6 @@ Public Class ApptMonthCtl
         Dim startDay = firstOfMonth.AddDays(-CInt(firstOfMonth.DayOfWeek))
         Const rows = 6
         Const cols = 7
-
-        Dim titleFont = CreateCalibriFont(15.0F, FontStyle.Bold)
-        Dim titleText = BuildRangeCaption(state, data)
-        Dim titleAvailW = Math.Max(280, ClientSize.Width - 32)
-        Dim titleTextH = TextRenderer.MeasureText(titleText, titleFont, New Size(titleAvailW, Integer.MaxValue),
-            TextFormatFlags.SingleLine Or TextFormatFlags.WordEllipsis).Height
-        Dim monthTitleBarH = titleTextH + 12
-
-        Dim monthTitlePanel As New Panel With {
-            .Dock = DockStyle.Fill,
-            .BackColor = Color.Transparent,
-            .Padding = New Padding(0, 0, 0, 1)
-        }
-        Dim monthTitleLbl As New Label With {
-            .Dock = DockStyle.Fill,
-            .Padding = New Padding(8, 6, 8, 6),
-            .Font = titleFont,
-            .ForeColor = Color.FromArgb(32, 42, 58),
-            .BackColor = Color.Transparent,
-            .TextAlign = ContentAlignment.MiddleCenter,
-            .Text = titleText
-        }
-        If Eng Then monthTitlePanel.RightToLeft = RightToLeft.No Else monthTitlePanel.RightToLeft = RightToLeft.Yes
-        monthTitlePanel.Controls.Add(monthTitleLbl)
-        AddHandler monthTitlePanel.Paint,
-            Sub(s, pe)
-                Using p As New Pen(Color.FromArgb(225, 232, 240), 1)
-                    pe.Graphics.DrawLine(p, 0, monthTitlePanel.Height - 1, monthTitlePanel.Width, monthTitlePanel.Height - 1)
-                End Using
-            End Sub
-
-        Dim calendarHost As New TableLayoutPanel With {
-            .Dock = DockStyle.Fill,
-            .ColumnCount = 1,
-            .RowCount = 2,
-            .BackColor = MonthCalendarGridBack,
-            .Margin = New Padding(0)
-        }
-        calendarHost.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
-        calendarHost.RowStyles.Add(New RowStyle(SizeType.Absolute, CSng(monthTitleBarH)))
-        calendarHost.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
-        calendarHost.Controls.Add(monthTitlePanel, 0, 0)
 
         Dim table As New TableLayoutPanel With {
             .Dock = DockStyle.Fill,
@@ -932,7 +1057,7 @@ Public Class ApptMonthCtl
         For r = 0 To rows - 1
             For c = 0 To cols - 1
                 Dim thisDay = d
-                Dim appts = ApptTheme.OrderAppointmentsForDisplay(apptsAll.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = thisDay.Date), data, linkedDoctorAtEnd:=True)
+                Dim appts = ApptTheme.OrderAppointmentsForDisplay(apptsAll.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = thisDay.Date), data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
                 Dim inMonth = (thisDay.Month = currentDate.Month)
                 Dim tile As New MonthTilePanel(Me, data, state, statusColors, thisDay, appts, inMonth, dayColors(CInt(thisDay.DayOfWeek)), _monthWeekToolTip)
                 table.Controls.Add(tile, c, r)
@@ -941,8 +1066,7 @@ Public Class ApptMonthCtl
         Next
 
         _calendarTableHost = table
-        calendarHost.Controls.Add(table, 0, 1)
-        _workArea.Controls.Add(calendarHost)
+        _workArea.Controls.Add(table)
         If MonthDayDrawerUseDimOverlay AndAlso _dimOverlay IsNot Nothing Then _dimOverlay.BringToFront()
         EnsureDayDrawerOnTop()
     End Sub
@@ -1056,6 +1180,9 @@ Public Class ApptMonthCtl
                 _monthWeekHostResizeDebounce.Dispose()
             End If
             _monthWeekToolTip.Dispose()
+            _dimDismissSuppressTimer.Stop()
+            RemoveHandler _dimDismissSuppressTimer.Tick, AddressOf DimDismissSuppressTimer_Tick
+            _dimDismissSuppressTimer.Dispose()
         End If
         MyBase.Dispose(disposing)
     End Sub
@@ -1204,11 +1331,19 @@ End Module
 Friend NotInheritable Class MonthDrawerDimPanel
     Inherits ApptDrawerDimScrimPanel
 
+    Private ReadOnly _host As ApptMonthCtl
+
     Public Sub New(host As ApptMonthCtl)
         MyBase.New(Sub()
                        If host IsNot Nothing Then host.RequestCloseDayDrawer()
                    End Sub)
+        _host = host
     End Sub
+
+    Protected Overrides Function ShouldRaiseDismissFromClick(e As MouseEventArgs) As Boolean
+        If _host IsNot Nothing AndAlso _host.ShouldSuppressDrawerDimDismiss() Then Return False
+        Return MyBase.ShouldRaiseDismissFromClick(e)
+    End Function
 End Class
 #End Region
 
@@ -1341,7 +1476,8 @@ Friend Class MonthDayDrawerHost
     Public Sub Populate(day As DateTime, appts As List(Of AppointmentC), data As ApptDataBundle, state As ApptState, statusColors As Dictionary(Of String, Color))
         DisposeChildControls(_scroll)
         _currentDay = day
-        _currentAppts = If(appts, New List(Of AppointmentC)())
+        Dim ordered = ApptTheme.OrderAppointmentsForDisplay(If(appts, New List(Of AppointmentC)()), data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=If(state IsNot Nothing, state.OrderByDoctorId, Nothing))
+        _currentAppts = ordered
         _currentData = data
         _currentState = state
         If Eng Then
@@ -1368,7 +1504,7 @@ Friend Class MonthDayDrawerHost
         Dim y = 0
         Dim innerW = Math.Max(80, _scroll.ClientSize.Width - _scroll.Padding.Horizontal)
         Dim rowW = Math.Max(200, Math.Min(innerW - 8, Width - 32))
-        For Each ap In appts
+        For Each ap In ordered
             Dim row As New MonthDrawerApptRow(_monthCtl, ap, data, state, statusColors) With {
                 .Location = New Point(4, y),
                 .Width = rowW,
@@ -1377,7 +1513,7 @@ Friend Class MonthDayDrawerHost
             _scroll.Controls.Add(row)
             y += row.Height + 10
         Next
-        If appts.Count = 0 Then
+        If ordered.Count = 0 Then
             Dim emptyLbl As New Label With {
                 .AutoSize = False,
                 .Location = New Point(4, 4),
@@ -1476,14 +1612,15 @@ Friend NotInheritable Class MonthDayDrawerDialogHost
     Public Sub Populate(day As DateTime, appts As List(Of AppointmentC), data As ApptDataBundle, state As ApptState, statusColors As Dictionary(Of String, Color))
         DisposeChildControls(_scroll)
         _title.Text = FormatCaptionDayFull(day)
-        Dim apptCount = If(appts Is Nothing, 0, appts.Count)
+        Dim ordered = ApptTheme.OrderAppointmentsForDisplay(If(appts, New List(Of AppointmentC)()), data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=If(state IsNot Nothing, state.OrderByDoctorId, Nothing))
+        Dim apptCount = ordered.Count
         _subtitle.Text = If(Eng,
             $"{apptCount} appointment(s) in focus view",
             $"عرض مكبر لعدد {apptCount} موعد")
 
         Dim y = 0
         Dim innerW = Math.Max(220, _scroll.ClientSize.Width - _scroll.Padding.Horizontal - 6)
-        If appts Is Nothing OrElse appts.Count = 0 Then
+        If apptCount = 0 Then
             Dim emptyLbl As New Label With {
                 .AutoSize = False,
                 .Location = New Point(0, 0),
@@ -1497,7 +1634,7 @@ Friend NotInheritable Class MonthDayDrawerDialogHost
             }
             _scroll.Controls.Add(emptyLbl)
         Else
-            For Each ap In appts
+            For Each ap In ordered
                 Dim row As New MonthDrawerApptRow(_monthCtl, ap, data, state, statusColors) With {
                     .Location = New Point(0, y),
                     .Width = innerW
@@ -1527,6 +1664,7 @@ Friend NotInheritable Class MonthDayDrawerDialogHost
 
     Protected Overrides Sub OnMouseClick(e As MouseEventArgs)
         MyBase.OnMouseClick(e)
+        If _monthCtl IsNot Nothing AndAlso _monthCtl.ShouldSuppressDrawerDimDismiss() Then Return
         If Not _surface.Bounds.Contains(e.Location) Then
             _monthCtl.RequestCloseDayDrawerDialog()
         End If

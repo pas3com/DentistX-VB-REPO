@@ -43,8 +43,9 @@ Public NotInheritable Class SchedulerWeekSnapshotBackgroundCapture
 
     ''' <summary>
     ''' Produces up to two week PNGs and/or two HTML files under Attachments\ClinicUse, per <paramref name="mode"/>.
-    ''' When <paramref name="useScheduledWeekRule"/> is True, Thursday shifts forward and sends next week plus the week after next;
-    ''' otherwise it always captures the current week plus the next week (used by the manual test send).
+    ''' When <paramref name="useScheduledWeekRule"/> is True (always used by <see cref="SchedulerSnapshotAutoSendService.RunJobAsync"/>):
+    ''' if <paramref name="anchorDate"/> is Thursday, capture shifts forward (next Sat–Fri week plus the one after), matching live scheduler behaviour.
+    ''' When False, anchor Thursday uses the current Sat–Fri week plus the next only — pass False only for callers that need “calendar” weeks instead.
     ''' HTML is written while each week is still the active view (required for a correct export).
     ''' </summary>
     Public Shared Function TrySaveCurrentAndNextWeekMedia(anchorDate As Date,

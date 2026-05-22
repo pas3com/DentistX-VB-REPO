@@ -27,6 +27,8 @@ Partial Class CtlNotes
         Me.btnDel = New DevExpress.XtraEditors.SimpleButton()
         Me.btEditNotes = New DevExpress.XtraEditors.SimpleButton()
         Me.UltraLabel6 = New DevExpress.XtraEditors.LabelControl()
+        Me.UltraLabel9 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtNotes = New DevExpress.XtraEditors.MemoEdit()
         Me.NotesNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.ToolStripButton33 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripLabel7 = New System.Windows.Forms.ToolStripLabel()
@@ -40,8 +42,6 @@ Partial Class CtlNotes
         Me.ToolStripButton38 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator19 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotesSave = New System.Windows.Forms.ToolStripButton()
-        Me.UltraLabel9 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtNotes = New DevExpress.XtraEditors.MemoEdit()
         Me.NotesGrid = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colRowNum = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -53,15 +53,16 @@ Partial Class CtlNotes
         Me.NotesGroup.SuspendLayout()
         CType(Me.NotesDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NotesDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNotes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NotesNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NotesNavigator.SuspendLayout()
-        CType(Me.txtNotes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NotesGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NotesGroup
         '
+        resources.ApplyResources(Me.NotesGroup, "NotesGroup")
         Me.NotesGroup.AppearanceCaption.Font = CType(resources.GetObject("NotesGroup.AppearanceCaption.Font"), System.Drawing.Font)
         Me.NotesGroup.AppearanceCaption.ForeColor = System.Drawing.Color.Blue
         Me.NotesGroup.AppearanceCaption.Options.UseFont = True
@@ -74,7 +75,6 @@ Partial Class CtlNotes
         Me.NotesGroup.Controls.Add(Me.UltraLabel9)
         Me.NotesGroup.Controls.Add(Me.txtNotes)
         Me.NotesGroup.Controls.Add(Me.NotesNavigator)
-        resources.ApplyResources(Me.NotesGroup, "NotesGroup")
         Me.NotesGroup.Name = "NotesGroup"
         '
         'NotesDate
@@ -88,39 +88,56 @@ Partial Class CtlNotes
         '
         'btAddNotes
         '
+        resources.ApplyResources(Me.btAddNotes, "btAddNotes")
         Me.btAddNotes.Appearance.Font = CType(resources.GetObject("btAddNotes.Appearance.Font"), System.Drawing.Font)
         Me.btAddNotes.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btAddNotes, "btAddNotes")
+        Me.btAddNotes.ImageOptions.ImageKey = resources.GetString("btAddNotes.ImageOptions.ImageKey")
         Me.btAddNotes.Name = "btAddNotes"
         '
         'btnDel
         '
+        resources.ApplyResources(Me.btnDel, "btnDel")
         Me.btnDel.Appearance.Font = CType(resources.GetObject("btnDel.Appearance.Font"), System.Drawing.Font)
         Me.btnDel.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnDel, "btnDel")
+        Me.btnDel.ImageOptions.ImageKey = resources.GetString("btnDel.ImageOptions.ImageKey")
         Me.btnDel.Name = "btnDel"
         '
         'btEditNotes
         '
+        resources.ApplyResources(Me.btEditNotes, "btEditNotes")
         Me.btEditNotes.Appearance.Font = CType(resources.GetObject("btEditNotes.Appearance.Font"), System.Drawing.Font)
         Me.btEditNotes.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btEditNotes, "btEditNotes")
+        Me.btEditNotes.ImageOptions.ImageKey = resources.GetString("btEditNotes.ImageOptions.ImageKey")
         Me.btEditNotes.Name = "btEditNotes"
         '
         'UltraLabel6
         '
+        resources.ApplyResources(Me.UltraLabel6, "UltraLabel6")
         Me.UltraLabel6.Appearance.Font = CType(resources.GetObject("UltraLabel6.Appearance.Font"), System.Drawing.Font)
         Me.UltraLabel6.Appearance.Options.UseFont = True
         Me.UltraLabel6.LineVisible = True
-        resources.ApplyResources(Me.UltraLabel6, "UltraLabel6")
         Me.UltraLabel6.Name = "UltraLabel6"
+        '
+        'UltraLabel9
+        '
+        resources.ApplyResources(Me.UltraLabel9, "UltraLabel9")
+        Me.UltraLabel9.Appearance.Font = CType(resources.GetObject("UltraLabel9.Appearance.Font"), System.Drawing.Font)
+        Me.UltraLabel9.Appearance.Options.UseFont = True
+        Me.UltraLabel9.Name = "UltraLabel9"
+        '
+        'txtNotes
+        '
+        resources.ApplyResources(Me.txtNotes, "txtNotes")
+        Me.txtNotes.Name = "txtNotes"
+        Me.txtNotes.Properties.Appearance.Font = CType(resources.GetObject("txtNotes.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.txtNotes.Properties.Appearance.Options.UseFont = True
         '
         'NotesNavigator
         '
+        resources.ApplyResources(Me.NotesNavigator, "NotesNavigator")
         Me.NotesNavigator.AddNewItem = Me.ToolStripButton33
         Me.NotesNavigator.CountItem = Me.ToolStripLabel7
         Me.NotesNavigator.DeleteItem = Me.ToolStripButton34
-        resources.ApplyResources(Me.NotesNavigator, "NotesNavigator")
         Me.NotesNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton35, Me.ToolStripButton36, Me.ToolStripSeparator17, Me.ToolStripTextBox7, Me.ToolStripLabel7, Me.ToolStripSeparator18, Me.ToolStripButton37, Me.ToolStripButton38, Me.ToolStripSeparator19, Me.ToolStripButton33, Me.ToolStripButton34, Me.NotesSave})
         Me.NotesNavigator.MoveFirstItem = Me.ToolStripButton35
         Me.NotesNavigator.MoveLastItem = Me.ToolStripButton38
@@ -131,37 +148,37 @@ Partial Class CtlNotes
         '
         'ToolStripButton33
         '
-        Me.ToolStripButton33.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.ToolStripButton33, "ToolStripButton33")
+        Me.ToolStripButton33.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton33.Name = "ToolStripButton33"
         '
         'ToolStripLabel7
         '
-        Me.ToolStripLabel7.Name = "ToolStripLabel7"
         resources.ApplyResources(Me.ToolStripLabel7, "ToolStripLabel7")
+        Me.ToolStripLabel7.Name = "ToolStripLabel7"
         '
         'ToolStripButton34
         '
-        Me.ToolStripButton34.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.ToolStripButton34, "ToolStripButton34")
+        Me.ToolStripButton34.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton34.Name = "ToolStripButton34"
         '
         'ToolStripButton35
         '
-        Me.ToolStripButton35.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.ToolStripButton35, "ToolStripButton35")
+        Me.ToolStripButton35.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton35.Name = "ToolStripButton35"
         '
         'ToolStripButton36
         '
-        Me.ToolStripButton36.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.ToolStripButton36, "ToolStripButton36")
+        Me.ToolStripButton36.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton36.Name = "ToolStripButton36"
         '
         'ToolStripSeparator17
         '
-        Me.ToolStripSeparator17.Name = "ToolStripSeparator17"
         resources.ApplyResources(Me.ToolStripSeparator17, "ToolStripSeparator17")
+        Me.ToolStripSeparator17.Name = "ToolStripSeparator17"
         '
         'ToolStripTextBox7
         '
@@ -170,55 +187,55 @@ Partial Class CtlNotes
         '
         'ToolStripSeparator18
         '
-        Me.ToolStripSeparator18.Name = "ToolStripSeparator18"
         resources.ApplyResources(Me.ToolStripSeparator18, "ToolStripSeparator18")
+        Me.ToolStripSeparator18.Name = "ToolStripSeparator18"
         '
         'ToolStripButton37
         '
-        Me.ToolStripButton37.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.ToolStripButton37, "ToolStripButton37")
+        Me.ToolStripButton37.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton37.Name = "ToolStripButton37"
         '
         'ToolStripButton38
         '
-        Me.ToolStripButton38.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.ToolStripButton38, "ToolStripButton38")
+        Me.ToolStripButton38.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton38.Name = "ToolStripButton38"
         '
         'ToolStripSeparator19
         '
-        Me.ToolStripSeparator19.Name = "ToolStripSeparator19"
         resources.ApplyResources(Me.ToolStripSeparator19, "ToolStripSeparator19")
+        Me.ToolStripSeparator19.Name = "ToolStripSeparator19"
         '
         'NotesSave
         '
-        Me.NotesSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         resources.ApplyResources(Me.NotesSave, "NotesSave")
+        Me.NotesSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.NotesSave.Name = "NotesSave"
-        '
-        'UltraLabel9
-        '
-        Me.UltraLabel9.Appearance.Font = CType(resources.GetObject("UltraLabel9.Appearance.Font"), System.Drawing.Font)
-        Me.UltraLabel9.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.UltraLabel9, "UltraLabel9")
-        Me.UltraLabel9.Name = "UltraLabel9"
-        '
-        'txtNotes
-        '
-        resources.ApplyResources(Me.txtNotes, "txtNotes")
-        Me.txtNotes.Name = "txtNotes"
-        Me.txtNotes.Properties.Appearance.Font = CType(resources.GetObject("txtNotes.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.txtNotes.Properties.Appearance.Options.UseFont = True
         '
         'NotesGrid
         '
         resources.ApplyResources(Me.NotesGrid, "NotesGrid")
+        Me.NotesGrid.EmbeddedNavigator.AccessibleDescription = resources.GetString("NotesGrid.EmbeddedNavigator.AccessibleDescription")
+        Me.NotesGrid.EmbeddedNavigator.AccessibleName = resources.GetString("NotesGrid.EmbeddedNavigator.AccessibleName")
+        Me.NotesGrid.EmbeddedNavigator.AllowHtmlTextInToolTip = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.AllowHtmlTextInToolTip"), DevExpress.Utils.DefaultBoolean)
+        Me.NotesGrid.EmbeddedNavigator.Anchor = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.Anchor"), System.Windows.Forms.AnchorStyles)
+        Me.NotesGrid.EmbeddedNavigator.AutoSize = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.AutoSize"), Boolean)
+        Me.NotesGrid.EmbeddedNavigator.BackgroundImage = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.BackgroundImage"), System.Drawing.Image)
+        Me.NotesGrid.EmbeddedNavigator.BackgroundImageLayout = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.BackgroundImageLayout"), System.Windows.Forms.ImageLayout)
+        Me.NotesGrid.EmbeddedNavigator.ImeMode = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.ImeMode"), System.Windows.Forms.ImeMode)
+        Me.NotesGrid.EmbeddedNavigator.MaximumSize = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.MaximumSize"), System.Drawing.Size)
+        Me.NotesGrid.EmbeddedNavigator.TextLocation = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.TextLocation"), DevExpress.XtraEditors.NavigatorButtonsTextLocation)
+        Me.NotesGrid.EmbeddedNavigator.ToolTip = resources.GetString("NotesGrid.EmbeddedNavigator.ToolTip")
+        Me.NotesGrid.EmbeddedNavigator.ToolTipIconType = CType(resources.GetObject("NotesGrid.EmbeddedNavigator.ToolTipIconType"), DevExpress.Utils.ToolTipIconType)
+        Me.NotesGrid.EmbeddedNavigator.ToolTipTitle = resources.GetString("NotesGrid.EmbeddedNavigator.ToolTipTitle")
         Me.NotesGrid.MainView = Me.GridView1
         Me.NotesGrid.Name = "NotesGrid"
         Me.NotesGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'GridView1
         '
+        resources.ApplyResources(Me.GridView1, "GridView1")
         Me.GridView1.Appearance.FixedLine.Font = CType(resources.GetObject("GridView1.Appearance.FixedLine.Font"), System.Drawing.Font)
         Me.GridView1.Appearance.FixedLine.Options.UseFont = True
         Me.GridView1.Appearance.HeaderPanel.Font = CType(resources.GetObject("GridView1.Appearance.HeaderPanel.Font"), System.Drawing.Font)
@@ -242,6 +259,7 @@ Partial Class CtlNotes
         '
         resources.ApplyResources(Me.colRowNum, "colRowNum")
         Me.colRowNum.FieldName = "colRowNum"
+        Me.colRowNum.ImageOptions.ImageKey = resources.GetString("colRowNum.ImageOptions.ImageKey")
         Me.colRowNum.Name = "colRowNum"
         Me.colRowNum.UnboundDataType = GetType(Integer)
         '
@@ -249,6 +267,7 @@ Partial Class CtlNotes
         '
         resources.ApplyResources(Me.ColNoteID, "ColNoteID")
         Me.ColNoteID.FieldName = "NoteID"
+        Me.ColNoteID.ImageOptions.ImageKey = resources.GetString("ColNoteID.ImageOptions.ImageKey")
         Me.ColNoteID.Name = "ColNoteID"
         Me.ColNoteID.UnboundDataType = GetType(Integer)
         '
@@ -256,6 +275,7 @@ Partial Class CtlNotes
         '
         resources.ApplyResources(Me.ColPatientID, "ColPatientID")
         Me.ColPatientID.FieldName = "PatientID"
+        Me.ColPatientID.ImageOptions.ImageKey = resources.GetString("ColPatientID.ImageOptions.ImageKey")
         Me.ColPatientID.Name = "ColPatientID"
         Me.ColPatientID.UnboundDataType = GetType(Integer)
         '
@@ -263,6 +283,7 @@ Partial Class CtlNotes
         '
         resources.ApplyResources(Me.ColNoteDate, "ColNoteDate")
         Me.ColNoteDate.FieldName = "NoteDate"
+        Me.ColNoteDate.ImageOptions.ImageKey = resources.GetString("ColNoteDate.ImageOptions.ImageKey")
         Me.ColNoteDate.Name = "ColNoteDate"
         Me.ColNoteDate.UnboundDataType = GetType(Date)
         '
@@ -270,6 +291,7 @@ Partial Class CtlNotes
         '
         resources.ApplyResources(Me.ColNote, "ColNote")
         Me.ColNote.FieldName = "Note"
+        Me.ColNote.ImageOptions.ImageKey = resources.GetString("ColNote.ImageOptions.ImageKey")
         Me.ColNote.Name = "ColNote"
         Me.ColNote.UnboundDataType = GetType(String)
         '
@@ -285,10 +307,10 @@ Partial Class CtlNotes
         Me.NotesGroup.PerformLayout()
         CType(Me.NotesDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NotesDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNotes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NotesNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NotesNavigator.ResumeLayout(False)
         Me.NotesNavigator.PerformLayout()
-        CType(Me.txtNotes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NotesGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

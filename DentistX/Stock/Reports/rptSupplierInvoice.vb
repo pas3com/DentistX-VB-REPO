@@ -1,7 +1,6 @@
 Imports System.ComponentModel
 Imports System.Linq
 Imports DevExpress.XtraReports.UI
-Imports Stock.Models
 
 Public Class rptSupplierInvoice
     Public Sub New()

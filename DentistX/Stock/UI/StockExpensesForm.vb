@@ -11,7 +11,6 @@ Public Class StockExpensesForm
 
     Private ReadOnly _expenseRepo As ExpenseRepository
     Private ReadOnly _categoryRepo As ExpenseCategoryRepository
-    Private ReadOnly _supplierRepo As SupplierRepository
 
     Private ReadOnly _defaultFont As Font = New Font("Calibri", 10, FontStyle.Bold)
 
@@ -23,7 +22,6 @@ Public Class StockExpensesForm
         Dim conn = DentistXDATA.GetConnection.ConnectionString
         _expenseRepo = New ExpenseRepository(conn)
         _categoryRepo = New ExpenseCategoryRepository(conn)
-        _supplierRepo = New SupplierRepository(conn)
 
         Text = If(Eng, "Expenses", "المصروفات")
 
@@ -44,7 +42,6 @@ Public Class StockExpensesForm
         AddHandler _btnDelete.Click, AddressOf OnDelete
         AddHandler _btnCategories.Click, AddressOf OnCategories
         AddHandler _cmbCategory.SelectedIndexChanged, AddressOf OnRefresh
-        AddHandler _cmbSupplier.SelectedIndexChanged, AddressOf OnRefresh
         AddHandler _spinAmount.EditValueChanged, AddressOf OnRefresh
     End Sub
 
@@ -60,11 +57,6 @@ Public Class StockExpensesForm
         _cmbCategory.Properties.Items.Add(If(Eng, "All categories", "كل التصنيفات"))
         _cmbCategory.Properties.Items.AddRange(_categoryRepo.GetAll().Select(Function(c) c.CategoryName).ToArray())
         _cmbCategory.SelectedIndex = 0
-
-        _cmbSupplier.Properties.Items.Clear()
-        _cmbSupplier.Properties.Items.Add(If(Eng, "All suppliers", "كل الموردين"))
-        _cmbSupplier.Properties.Items.AddRange(_supplierRepo.GetAll().Select(Function(s) s.SupplierName).ToArray())
-        _cmbSupplier.SelectedIndex = 0
 
         _spinAmount.EditValue = 0D
     End Sub
@@ -85,15 +77,6 @@ Public Class StockExpensesForm
             End If
         End If
 
-        ' Filter by supplier (index 0 = All)
-        If _cmbSupplier.SelectedIndex > 0 Then
-            Dim suppliers = _supplierRepo.GetAll().ToList()
-            If _cmbSupplier.SelectedIndex <= suppliers.Count Then
-                Dim supId = suppliers(_cmbSupplier.SelectedIndex - 1).SupplierID
-                list = list.Where(Function(x) x.SupplierID.HasValue AndAlso x.SupplierID.Value = supId).ToList()
-            End If
-        End If
-
         ' Filter by min amount
         Dim minAmt = IntegerMoneyEditorFocus.DecimalFromDecimal2MoneyEdit(_spinAmount)
         If minAmt > 0 Then
@@ -109,7 +92,7 @@ Public Class StockExpensesForm
 
     Private Async Sub OnAdd(sender As Object, e As EventArgs)
         Dim exp As New Expense With {.ExpenseDate = Date.Today}
-        Using dlg As New ExpenseEditForm(exp, _categoryRepo.GetAll().ToList(), _supplierRepo.GetAll().ToList())
+        Using dlg As New ExpenseEditForm(exp, _categoryRepo.GetAll().ToList())
             If dlg.ShowDialog(Me) = DialogResult.OK Then
                 Await _expenseRepo.InsertAsync(exp)
                 LoadData()
@@ -123,14 +106,13 @@ Public Class StockExpensesForm
         Dim edit = New Expense With {
                 .ExpenseID = exp.ExpenseID,
                 .ExpenseCategoryID = exp.ExpenseCategoryID,
-                .SupplierID = exp.SupplierID,
                 .ExpenseDate = exp.ExpenseDate,
                 .Amount = exp.Amount,
                 .PaymentMethod = exp.PaymentMethod,
                 .ReferenceNumber = exp.ReferenceNumber,
                 .Notes = exp.Notes
             }
-        Using dlg As New ExpenseEditForm(edit, _categoryRepo.GetAll().ToList(), _supplierRepo.GetAll().ToList())
+        Using dlg As New ExpenseEditForm(edit, _categoryRepo.GetAll().ToList())
             If dlg.ShowDialog(Me) = DialogResult.OK Then
                 Await _expenseRepo.UpdateAsync(edit)
                 LoadData()
@@ -190,7 +172,10 @@ Public Class StockExpensesForm
         col = _view.Columns("CategoryName")
         If col IsNot Nothing Then col.Caption = If(Eng, "Category", "التصنيف")
         col = _view.Columns("SupplierName")
-        If col IsNot Nothing Then col.Caption = If(Eng, "Supplier", "المورد")
+        If col IsNot Nothing Then
+            col.Caption = If(Eng, "Supplier", "المورد")
+            col.Visible = False
+        End If
         col = _view.Columns("ExpenseDate")
         If col IsNot Nothing Then col.Caption = If(Eng, "Date", "التاريخ")
         col = _view.Columns("Amount")
@@ -210,7 +195,7 @@ Public Class StockExpensesForm
             If Not Await WhatsAppService.EnsureWhatsAppConnectedOrNotifyAsync(Me) Then Return
             Dim clinicId As String = WhatsAppService.GetCurrentClinicId()
             Dim waService As New WhatsAppService()
-            ' Phone number: use selected row / supplier when available; otherwise example placeholder
+            ' Phone number: placeholder until wired to a recipient flow
             Dim number As String = "970512345678"
             Dim pdfPath As String = "C:\Invoices\inv-1001.pdf"
             Dim ctx As New WhatsAppSendContext With {
@@ -353,9 +338,7 @@ Friend Class ExpenseCategoriesForm
 
         Private ReadOnly _expense As Expense
         Private ReadOnly _categories As List(Of ExpenseCategory)
-        Private ReadOnly _suppliers As List(Of Supplier)
         Private ReadOnly _cmbCategory As ComboBoxEdit
-        Private ReadOnly _cmbSupplier As ComboBoxEdit
         Private ReadOnly _dateExp As DateEdit
         Private ReadOnly _spinAmount As TextEdit
         Private ReadOnly _cmbMethod As ComboBoxEdit
@@ -363,10 +346,9 @@ Friend Class ExpenseCategoriesForm
         Private ReadOnly _txtNotes As MemoEdit
         Private ReadOnly _defaultFont As Font = New Font("Calibri", 10, FontStyle.Bold)
 
-        Public Sub New(expense As Expense, categories As List(Of ExpenseCategory), suppliers As List(Of Supplier))
+        Public Sub New(expense As Expense, categories As List(Of ExpenseCategory))
             _expense = expense
             _categories = categories
-            _suppliers = suppliers
 
             Text = If(Eng, "Expense", "مصروف")
             Width = 540
@@ -378,14 +360,12 @@ Friend Class ExpenseCategoriesForm
                 RightToLeftLayout = True
             End If
 
-            Dim layout As New TableLayoutPanel With {.Dock = DockStyle.Fill, .ColumnCount = 2, .RowCount = 6}
+            Dim layout As New TableLayoutPanel With {.Dock = DockStyle.Fill, .ColumnCount = 2, .RowCount = 5}
             layout.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 140))
             layout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100))
 
             _cmbCategory = New ComboBoxEdit() With {.Dock = DockStyle.Fill}
             _cmbCategory.Properties.Items.AddRange(_categories.Select(Function(c) c.CategoryName).ToArray())
-            _cmbSupplier = New ComboBoxEdit() With {.Dock = DockStyle.Fill}
-            _cmbSupplier.Properties.Items.AddRange(_suppliers.Select(Function(s) s.SupplierName).ToArray())
             _dateExp = New DateEdit() With {.Dock = DockStyle.Fill}
             _spinAmount = New TextEdit() With {.Dock = DockStyle.Fill}
             IntegerMoneyEditorFocus.ConfigureDecimal2MoneyTextEdit(_spinAmount)
@@ -399,7 +379,6 @@ Friend Class ExpenseCategoriesForm
             _txtRef = New TextEdit() With {.Dock = DockStyle.Fill}
             _txtNotes = New MemoEdit() With {.Height = 80, .Dock = DockStyle.Fill}
             _cmbCategory.Font = _defaultFont
-            _cmbSupplier.Font = _defaultFont
             _dateExp.Font = _defaultFont
             _spinAmount.Font = _defaultFont
             _cmbMethod.Font = _defaultFont
@@ -408,16 +387,14 @@ Friend Class ExpenseCategoriesForm
 
             layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Category", "التصنيف"), .Font = _defaultFont}, 0, 0)
             layout.Controls.Add(_cmbCategory, 1, 0)
-            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Supplier", "المورد"), .Font = _defaultFont}, 0, 1)
-            layout.Controls.Add(_cmbSupplier, 1, 1)
-            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Date", "التاريخ"), .Font = _defaultFont}, 0, 2)
-            layout.Controls.Add(_dateExp, 1, 2)
-            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Amount", "المبلغ"), .Font = _defaultFont}, 0, 3)
-            layout.Controls.Add(_spinAmount, 1, 3)
-            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Method", "طريقة الدفع"), .Font = _defaultFont}, 0, 4)
-            layout.Controls.Add(_cmbMethod, 1, 4)
-            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Notes", "ملاحظات"), .Font = _defaultFont}, 0, 5)
-            layout.Controls.Add(_txtNotes, 1, 5)
+            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Date", "التاريخ"), .Font = _defaultFont}, 0, 1)
+            layout.Controls.Add(_dateExp, 1, 1)
+            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Amount", "المبلغ"), .Font = _defaultFont}, 0, 2)
+            layout.Controls.Add(_spinAmount, 1, 2)
+            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Method", "طريقة الدفع"), .Font = _defaultFont}, 0, 3)
+            layout.Controls.Add(_cmbMethod, 1, 3)
+            layout.Controls.Add(New LabelControl With {.Text = If(Eng, "Notes", "ملاحظات"), .Font = _defaultFont}, 0, 4)
+            layout.Controls.Add(_txtNotes, 1, 4)
 
             Dim panelButtons As New PanelControl With {.Dock = DockStyle.Bottom, .Height = 48}
             Dim btnOk As New SimpleButton With {.Text = If(Eng, "OK", "موافق"), .DialogResult = DialogResult.OK, .Left = 300, .Top = 10}
@@ -430,7 +407,6 @@ Friend Class ExpenseCategoriesForm
             Controls.Add(panelButtons)
 
             _cmbCategory.SelectedIndex = Math.Max(0, _categories.FindIndex(Function(c) c.ExpenseCategoryID = _expense.ExpenseCategoryID))
-            _cmbSupplier.SelectedIndex = If(_expense.SupplierID.HasValue, Math.Max(0, _suppliers.FindIndex(Function(s) s.SupplierID = _expense.SupplierID.Value)), -1)
             _dateExp.DateTime = If(_expense.ExpenseDate = Date.MinValue, Date.Today, _expense.ExpenseDate)
             _spinAmount.EditValue = _expense.Amount
             _cmbMethod.Text = If(String.IsNullOrWhiteSpace(_expense.PaymentMethod),
@@ -449,11 +425,7 @@ Friend Class ExpenseCategoriesForm
                 Return
             End If
             _expense.ExpenseCategoryID = _categories(_cmbCategory.SelectedIndex).ExpenseCategoryID
-            If _cmbSupplier.SelectedIndex >= 0 Then
-                _expense.SupplierID = _suppliers(_cmbSupplier.SelectedIndex).SupplierID
-            Else
-                _expense.SupplierID = Nothing
-            End If
+            _expense.SupplierID = Nothing
             _expense.ExpenseDate = _dateExp.DateTime.Date
             _expense.Amount = IntegerMoneyEditorFocus.DecimalFromDecimal2MoneyEdit(_spinAmount)
             _expense.PaymentMethod = _cmbMethod.Text

@@ -117,12 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnSetCustmColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>192, 8</value>
+  </data>
   <data name="btnSetCustmColor.Text" xml:space="preserve">
     <value>حدد لون جديد</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btTrtClrDef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 85</value>
+    <value>23, 8</value>
   </data>
   <data name="btTrtClrDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 23</value>
@@ -131,7 +134,7 @@
     <value>اللون الإفتراضي</value>
   </data>
   <data name="tbThick.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 144</value>
+    <value>89, 133</value>
   </data>
   <data name="tbOpacity.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 45</value>
@@ -149,13 +152,13 @@
     <value>الشفافية</value>
   </data>
   <data name="ceFinish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>208, 176</value>
+    <value>208, 165</value>
   </data>
   <data name="LabelControl27.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="LabelControl27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 178</value>
+    <value>249, 167</value>
   </data>
   <data name="LabelControl27.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 15</value>
@@ -164,13 +167,13 @@
     <value>هل إنتهى ؟؟</value>
   </data>
   <data name="clrFillColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 86</value>
+    <value>89, 75</value>
   </data>
   <data name="LabelControl22.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="LabelControl22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 89</value>
+    <value>249, 78</value>
   </data>
   <data name="LabelControl22.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 15</value>
@@ -179,13 +182,13 @@
     <value>لون التعبْة</value>
   </data>
   <data name="clrBorderColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 114</value>
+    <value>89, 103</value>
   </data>
   <data name="LabelControl21.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="LabelControl21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 117</value>
+    <value>249, 106</value>
   </data>
   <data name="LabelControl21.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 15</value>
@@ -197,7 +200,7 @@
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="LabelControl8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 145</value>
+    <value>249, 134</value>
   </data>
   <data name="LabelControl8.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 15</value>
@@ -206,13 +209,13 @@
     <value>سمك الحد</value>
   </data>
   <data name="dtTrtEnd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 203</value>
+    <value>103, 191</value>
   </data>
   <data name="LabelControl14.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 208</value>
+    <value>249, 194</value>
   </data>
   <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 15</value>
@@ -221,7 +224,7 @@
     <value>تاريخ الإنتهاء</value>
   </data>
   <data name="lblIsPaid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 57</value>
+    <value>260, 87</value>
   </data>
   <data name="lblIsPaid.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 17</value>
@@ -230,16 +233,16 @@
     <value>هل تم دفعه ؟؟؟؟</value>
   </data>
   <data name="txtPayNotes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>42, 78</value>
+    <value>42, 108</value>
   </data>
   <data name="isPaidChck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>114, 54</value>
+    <value>114, 84</value>
   </data>
   <data name="isPaidChck.Properties.Caption" xml:space="preserve">
     <value>تم دفعه ؟؟؟؟</value>
   </data>
   <data name="lblPayNotes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>267, 80</value>
+    <value>267, 110</value>
   </data>
   <data name="lblPayNotes.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 17</value>
@@ -248,13 +251,13 @@
     <value>العيادة الخارجية</value>
   </data>
   <data name="txtPayValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 25</value>
+    <value>147, 56</value>
   </data>
   <data name="txtTrtPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 23</value>
+    <value>147, 25</value>
   </data>
   <data name="lblPayValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 29</value>
+    <value>276, 63</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblPayValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
@@ -267,7 +270,7 @@
     <value>قيمة الدفع</value>
   </data>
   <data name="lblTrtPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 29</value>
+    <value>280, 31</value>
   </data>
   <data name="lblTrtPrice.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>

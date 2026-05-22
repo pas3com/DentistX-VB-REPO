@@ -1107,9 +1107,6 @@ Partial Public Class ImageBox
             Me.AdjustViewPort()
         End If
         Me.Invalidate()
-        Dim imgWidth, imgHeight As Integer
-        Dim boxWidth, boxHeight As Integer
-
         Select Case _layoutMode
             Case PictureBoxSizeMode.Normal
                 If Image Is Nothing Then Return
@@ -1310,11 +1307,9 @@ Partial Public Class ImageBox
         Return coordinates
     End Function
 
-    ''' <summary>
-    ''' Raises the <see cref="E:System.Windows.Forms.Control.MouseMove"></see> event.
-    ''' If the mouse is over the <see cref="PictureBox.Image">Image</see>, raises the <see cref="MouseMoveOverImage"></see> event.
-    ''' </summary>
-    ''' <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+    ' Raises the Control.MouseMove event.
+    ' If the mouse is over the image, raises the MouseMoveOverImage event.
+    ' Parameter e contains the event data.
     'Protected Overrides Sub OnMouseMove(ByVal e As MouseEventArgs)
     '    MyBase.OnMouseMove(e)
     '    If Image IsNot Nothing Then

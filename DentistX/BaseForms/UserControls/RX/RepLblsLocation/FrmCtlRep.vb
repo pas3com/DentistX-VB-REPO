@@ -272,7 +272,7 @@ Partial Public Class FrmCtlRep
         ClearRecord()
         ShowToolStripItems("Add")
         CtlIDSpinEdit.Select()
-        CtlIDSpinEdit.Text = clsDentistXData.getAutoID("New", "CtlRep")
+        CtlIDSpinEdit.Text = DentistXDATA.getAutoID("New", "CtlRep")
     End Sub
 
     Private Sub Edit()

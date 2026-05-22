@@ -1,0 +1,57 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-05-13 09:55:16Z
+Local: 2026-05-13 12:55:16Z
+Machine: DESKTOP-D1L0T4D
+User: DESKTOP-D1L0T4D\User
+[ClinicNameEn]: DR. MALEK CLINIC
+[ClinicNameAr]: عيادة الدكتور مالك عبد الواحد
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: True
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX_64\DentistX.exe
+App base directory: C:\Pascal\DentistX_64\
+Working directory: C:\Pascal\DentistX_64
+Crash log directory: C:\Pascal\DentistX_64\crash_logs
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (2):
+  - [ACTIVE] DentistX.AppointCEditorForm | Add Appointment
+  - DevExpress.XtraEditors.Popup.TouchPopupDateEditForm | 
+
+--- Last opened UI (session) ---
+Last form (Shown/visible at hook): DevExpress.XtraEditors.Popup.TouchPopupDateEditForm | Text=
+  At (UTC): 2026-05-13 09:55:12Z
+Last user control (last became visible): DentistX.DoctorsCombo | Name=DoctorsCombo1 | ParentForm=DentistX.AppointCEditorForm / Add Appointment
+  At (UTC): 2026-05-13 09:54:59Z
+
+--- UI context (best effort) ---
+Thread: ManagedId=1, Name=(default), UI=STA
+ActiveForm: DentistX.AppointCEditorForm | Text=Add Appointment
+Focused control (leaf): DevExpress.XtraEditors.SimpleButton | Name=btnSave; Text=Save
+  Parent[0]: DentistX.AppointCEditorForm | Name=AppointCEditorForm; Text=Add Appointment
+
+--- Exception detail ---
+--- Level 0 ---
+Type: System.InvalidOperationException
+Message: Sequence contains more than one element
+HResult: 0x80131509
+TargetSite: System.Linq.Enumerable.SingleOrDefault
+Source: System.Core
+Stack:
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.QueryRowImpl[T](IDbConnection cnn, Row row, CommandDefinition& command, Type effectiveType) in /_/Dapper/SqlMapper.cs:line 1291
+   at Dapper.SqlMapper.QuerySingleOrDefault[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 899
+   at DentistX.PatientCombo.GetPatientID(String PatientName)
+   at DentistX.AppointCEditorForm.VB$StateMachine_162_BtnSave_Click.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+
+--- Full ToString() (includes inners) ---
+System.InvalidOperationException: Sequence contains more than one element
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.QueryRowImpl[T](IDbConnection cnn, Row row, CommandDefinition& command, Type effectiveType) in /_/Dapper/SqlMapper.cs:line 1291
+   at Dapper.SqlMapper.QuerySingleOrDefault[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 899
+   at DentistX.PatientCombo.GetPatientID(String PatientName)
+   at DentistX.AppointCEditorForm.VB$StateMachine_162_BtnSave_Click.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()

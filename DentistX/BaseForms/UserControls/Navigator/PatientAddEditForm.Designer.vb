@@ -29,6 +29,7 @@ Partial Class PatientAddEditForm
         Dim NotesLabel As System.Windows.Forms.Label
         Dim BirthYLabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
         Me.TxtName = New DevExpress.XtraEditors.TextEdit()
         Me.PatientIDEdit = New DevExpress.XtraEditors.TextEdit()
         Me.PicBox = New System.Windows.Forms.PictureBox()
@@ -54,6 +55,9 @@ Partial Class PatientAddEditForm
         Me.CboHealth = New DentistX.HlthCombo()
         Me.DiagCheck = New System.Windows.Forms.CheckBox()
         Me.WhatsAppTextEdit = New DevExpress.XtraEditors.TextEdit()
+        Me.lblWhats = New DevExpress.XtraEditors.LabelControl()
+        Me.cboPrefix = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.txtWhats = New DevExpress.XtraEditors.TextEdit()
         PatientNameLabel = New System.Windows.Forms.Label()
         SexLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -63,6 +67,7 @@ Partial Class PatientAddEditForm
         NotesLabel = New System.Windows.Forms.Label()
         BirthYLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
         CType(Me.TxtName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PatientIDEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,6 +80,8 @@ Partial Class PatientAddEditForm
         CType(Me.TxtAdrs.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtAge.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WhatsAppTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPrefix.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtWhats.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PatientNameLabel
@@ -121,6 +128,11 @@ Partial Class PatientAddEditForm
         '
         resources.ApplyResources(Label1, "Label1")
         Label1.Name = "Label1"
+        '
+        'Label2
+        '
+        resources.ApplyResources(Label2, "Label2")
+        Label2.Name = "Label2"
         '
         'TxtName
         '
@@ -278,15 +290,21 @@ Partial Class PatientAddEditForm
         'CboCity
         '
         resources.ApplyResources(Me.CboCity, "CboCity")
-        Me.CboCity.CityID = 0
-        Me.CboCity.CityName = Nothing
+        Me.CboCity.BtnAddVisible = True
+        Me.CboCity.BtnSearchVisible = True
+        Me.CboCity.CityID = 2
+        Me.CboCity.CityName = "قلقيلية"
+        Me.CboCity.Filter = ""
         Me.CboCity.Name = "CboCity"
         '
         'CboHealth
         '
         resources.ApplyResources(Me.CboHealth, "CboHealth")
-        Me.CboHealth.HealthStat = Nothing
-        Me.CboHealth.HID = 0
+        Me.CboHealth.BtnAddVisible = True
+        Me.CboHealth.BtnSearchVisible = True
+        Me.CboHealth.Filter = ""
+        Me.CboHealth.HealthStat = "سليم"
+        Me.CboHealth.HID = 1
         Me.CboHealth.Name = "CboHealth"
         '
         'DiagCheck
@@ -305,10 +323,37 @@ Partial Class PatientAddEditForm
         Me.WhatsAppTextEdit.Properties.MaskSettings.Set("MaskManagerSignature", "ignoreMaskBlank=True")
         Me.WhatsAppTextEdit.Properties.MaskSettings.Set("mask", "000000000000")
         '
+        'lblWhats
+        '
+        resources.ApplyResources(Me.lblWhats, "lblWhats")
+        Me.lblWhats.Appearance.Font = CType(resources.GetObject("lblWhats.Appearance.Font"), System.Drawing.Font)
+        Me.lblWhats.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.lblWhats.Appearance.Options.UseFont = True
+        Me.lblWhats.Appearance.Options.UseForeColor = True
+        Me.lblWhats.Name = "lblWhats"
+        '
+        'cboPrefix
+        '
+        resources.ApplyResources(Me.cboPrefix, "cboPrefix")
+        Me.cboPrefix.Name = "cboPrefix"
+        Me.cboPrefix.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("cboPrefix.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
+        '
+        'txtWhats
+        '
+        resources.ApplyResources(Me.txtWhats, "txtWhats")
+        Me.txtWhats.Name = "txtWhats"
+        Me.txtWhats.Properties.Appearance.Font = CType(resources.GetObject("txtWhats.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.txtWhats.Properties.Appearance.Options.UseFont = True
+        Me.txtWhats.Properties.MaxLength = 10
+        '
         'PatientAddEditForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.lblWhats)
+        Me.Controls.Add(Me.cboPrefix)
+        Me.Controls.Add(Label2)
+        Me.Controls.Add(Me.txtWhats)
         Me.Controls.Add(Label1)
         Me.Controls.Add(Me.WhatsAppTextEdit)
         Me.Controls.Add(Me.CboCity)
@@ -356,6 +401,8 @@ Partial Class PatientAddEditForm
         CType(Me.TxtAdrs.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtAge.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WhatsAppTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPrefix.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtWhats.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -386,4 +433,7 @@ Partial Class PatientAddEditForm
     Friend WithEvents CboCity As CityCombo
     Friend WithEvents DiagCheck As CheckBox
     Friend WithEvents WhatsAppTextEdit As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents lblWhats As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cboPrefix As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents txtWhats As DevExpress.XtraEditors.TextEdit
 End Class

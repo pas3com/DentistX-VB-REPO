@@ -20,17 +20,7 @@ Partial Class Navigator3
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim PatientNameLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Navigator3))
-        Dim SexLabel As System.Windows.Forms.Label
-        Dim AgeLabel As System.Windows.Forms.Label
-        Dim PhoneLabel As System.Windows.Forms.Label
-        Dim AddressLabel As System.Windows.Forms.Label
-        Dim HealthLabel As System.Windows.Forms.Label
-        Dim NotesLabel As System.Windows.Forms.Label
-        Dim BirthYLabel As System.Windows.Forms.Label
-        Dim Label1 As System.Windows.Forms.Label
-        Dim ButtonImageOptions1 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Me.PatientBS = New System.Windows.Forms.BindingSource(Me.components)
         Me.btNewPatient = New DevExpress.XtraEditors.SimpleButton()
         Me.btnLast = New DevExpress.XtraEditors.SimpleButton()
@@ -38,37 +28,6 @@ Partial Class Navigator3
         Me.btnPrev = New DevExpress.XtraEditors.SimpleButton()
         Me.btnFirst = New DevExpress.XtraEditors.SimpleButton()
         Me.PopupPatient = New DevExpress.XtraEditors.PopupContainerEdit()
-        Me.grpPatientInfo = New DevExpress.XtraEditors.GroupControl()
-        Me.txtWhats = New DevExpress.XtraEditors.TextEdit()
-        Me.lblWhats = New DevExpress.XtraEditors.LabelControl()
-        Me.cboPrefix = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.btnAdd = New DevExpress.XtraEditors.SimpleButton()
-        Me.DiagCheck = New System.Windows.Forms.CheckBox()
-        Me.RadioFemale = New System.Windows.Forms.RadioButton()
-        Me.RadioMale = New System.Windows.Forms.RadioButton()
-        Me.CboCity = New DentistX.CityCombo()
-        Me.CboHealth = New DentistX.HlthCombo()
-        Me.lblAge = New DevExpress.XtraEditors.LabelControl()
-        Me.lblBalance = New DevExpress.XtraEditors.LabelControl()
-        Me.btnDeletePatient = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnUpdatePatient = New DevExpress.XtraEditors.SimpleButton()
-        Me.PatientNameTextEdit = New DevExpress.XtraEditors.TextEdit()
-        Me.PatientIDEdit = New DevExpress.XtraEditors.TextEdit()
-        Me.PicBox = New System.Windows.Forms.PictureBox()
-        Me.SexTextBox = New DevExpress.XtraEditors.TextEdit()
-        Me.AgeSpinEdit = New DevExpress.XtraEditors.SpinEdit()
-        Me.PhoneTextEdit = New DevExpress.XtraEditors.TextEdit()
-        Me.lblPNum = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
-        Me.AddressTextEdit = New DevExpress.XtraEditors.TextEdit()
-        Me.HealthTextBox = New DevExpress.XtraEditors.TextEdit()
-        Me.TreatCheckBox = New System.Windows.Forms.CheckBox()
-        Me.ImplantCheckBox = New System.Windows.Forms.CheckBox()
-        Me.MobileCheckBox = New System.Windows.Forms.CheckBox()
-        Me.OrthoCheckBox = New System.Windows.Forms.CheckBox()
-        Me.StrucCheckBox = New System.Windows.Forms.CheckBox()
-        Me.NotesTextEdit = New DevExpress.XtraEditors.TextEdit()
-        Me.BirthYSpinEdit = New DevExpress.XtraEditors.SpinEdit()
         Me.SurgeryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LabelBal = New DevExpress.XtraEditors.LabelControl()
         Me.txtCount = New DevExpress.XtraEditors.TextEdit()
@@ -88,91 +47,16 @@ Partial Class Navigator3
         Me.lblTxtPays = New DevExpress.XtraEditors.LabelControl()
         Me.lblPays = New DevExpress.XtraEditors.LabelControl()
         Me.lbltxtBal = New DevExpress.XtraEditors.LabelControl()
-        Me.txtPatientName = New DevExpress.XtraEditors.TextEdit()
+        Me.txtPatientName = New System.Windows.Forms.TextBox()
         Me.btnSearchResults = New DevExpress.XtraEditors.SimpleButton()
-        Me.FlyoutPatientInfo = New DevExpress.Utils.FlyoutPanel()
-        Me.FlyoutPanelControl1 = New DevExpress.Utils.FlyoutPanelControl()
         Me.btnWhatsSend = New DevExpress.XtraEditors.SimpleButton()
-        PatientNameLabel = New System.Windows.Forms.Label()
-        SexLabel = New System.Windows.Forms.Label()
-        AgeLabel = New System.Windows.Forms.Label()
-        PhoneLabel = New System.Windows.Forms.Label()
-        AddressLabel = New System.Windows.Forms.Label()
-        HealthLabel = New System.Windows.Forms.Label()
-        NotesLabel = New System.Windows.Forms.Label()
-        BirthYLabel = New System.Windows.Forms.Label()
-        Label1 = New System.Windows.Forms.Label()
         CType(Me.PatientBS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupPatient.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grpPatientInfo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpPatientInfo.SuspendLayout()
-        CType(Me.txtWhats.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cboPrefix.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PatientNameTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PatientIDEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SexTextBox.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AgeSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AddressTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HealthTextBox.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NotesTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BirthYSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SurgeryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.posTxt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Side1.SuspendLayout()
-        CType(Me.txtPatientName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FlyoutPatientInfo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlyoutPatientInfo.SuspendLayout()
-        CType(Me.FlyoutPanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlyoutPanelControl1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'PatientNameLabel
-        '
-        resources.ApplyResources(PatientNameLabel, "PatientNameLabel")
-        PatientNameLabel.Name = "PatientNameLabel"
-        '
-        'SexLabel
-        '
-        resources.ApplyResources(SexLabel, "SexLabel")
-        SexLabel.Name = "SexLabel"
-        '
-        'AgeLabel
-        '
-        resources.ApplyResources(AgeLabel, "AgeLabel")
-        AgeLabel.Name = "AgeLabel"
-        '
-        'PhoneLabel
-        '
-        resources.ApplyResources(PhoneLabel, "PhoneLabel")
-        PhoneLabel.Name = "PhoneLabel"
-        '
-        'AddressLabel
-        '
-        resources.ApplyResources(AddressLabel, "AddressLabel")
-        AddressLabel.Name = "AddressLabel"
-        '
-        'HealthLabel
-        '
-        resources.ApplyResources(HealthLabel, "HealthLabel")
-        HealthLabel.Name = "HealthLabel"
-        '
-        'NotesLabel
-        '
-        resources.ApplyResources(NotesLabel, "NotesLabel")
-        NotesLabel.Name = "NotesLabel"
-        '
-        'BirthYLabel
-        '
-        resources.ApplyResources(BirthYLabel, "BirthYLabel")
-        BirthYLabel.Name = "BirthYLabel"
-        '
-        'Label1
-        '
-        resources.ApplyResources(Label1, "Label1")
-        Label1.Name = "Label1"
         '
         'PatientBS
         '
@@ -229,287 +113,6 @@ Partial Class Navigator3
         Me.PopupPatient.Properties.NullText = resources.GetString("PopupPatient.Properties.NullText")
         Me.PopupPatient.Properties.NullValuePrompt = resources.GetString("PopupPatient.Properties.NullValuePrompt")
         Me.PopupPatient.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
-        '
-        'grpPatientInfo
-        '
-        Me.grpPatientInfo.Appearance.Font = CType(resources.GetObject("grpPatientInfo.Appearance.Font"), System.Drawing.Font)
-        Me.grpPatientInfo.Appearance.Options.UseFont = True
-        Me.grpPatientInfo.AppearanceCaption.Font = CType(resources.GetObject("grpPatientInfo.AppearanceCaption.Font"), System.Drawing.Font)
-        Me.grpPatientInfo.AppearanceCaption.Options.UseFont = True
-        Me.grpPatientInfo.Controls.Add(Me.txtWhats)
-        Me.grpPatientInfo.Controls.Add(Me.lblWhats)
-        Me.grpPatientInfo.Controls.Add(Me.cboPrefix)
-        Me.grpPatientInfo.Controls.Add(Label1)
-        Me.grpPatientInfo.Controls.Add(Me.btnAdd)
-        Me.grpPatientInfo.Controls.Add(Me.DiagCheck)
-        Me.grpPatientInfo.Controls.Add(Me.RadioFemale)
-        Me.grpPatientInfo.Controls.Add(Me.RadioMale)
-        Me.grpPatientInfo.Controls.Add(Me.CboCity)
-        Me.grpPatientInfo.Controls.Add(Me.CboHealth)
-        Me.grpPatientInfo.Controls.Add(Me.lblAge)
-        Me.grpPatientInfo.Controls.Add(Me.lblBalance)
-        Me.grpPatientInfo.Controls.Add(Me.btnDeletePatient)
-        Me.grpPatientInfo.Controls.Add(Me.btnUpdatePatient)
-        Me.grpPatientInfo.Controls.Add(PatientNameLabel)
-        Me.grpPatientInfo.Controls.Add(Me.PatientNameTextEdit)
-        Me.grpPatientInfo.Controls.Add(Me.PatientIDEdit)
-        Me.grpPatientInfo.Controls.Add(SexLabel)
-        Me.grpPatientInfo.Controls.Add(Me.PicBox)
-        Me.grpPatientInfo.Controls.Add(Me.SexTextBox)
-        Me.grpPatientInfo.Controls.Add(AgeLabel)
-        Me.grpPatientInfo.Controls.Add(Me.AgeSpinEdit)
-        Me.grpPatientInfo.Controls.Add(PhoneLabel)
-        Me.grpPatientInfo.Controls.Add(Me.PhoneTextEdit)
-        Me.grpPatientInfo.Controls.Add(Me.lblPNum)
-        Me.grpPatientInfo.Controls.Add(Me.LabelControl4)
-        Me.grpPatientInfo.Controls.Add(AddressLabel)
-        Me.grpPatientInfo.Controls.Add(Me.AddressTextEdit)
-        Me.grpPatientInfo.Controls.Add(HealthLabel)
-        Me.grpPatientInfo.Controls.Add(Me.HealthTextBox)
-        Me.grpPatientInfo.Controls.Add(Me.TreatCheckBox)
-        Me.grpPatientInfo.Controls.Add(Me.ImplantCheckBox)
-        Me.grpPatientInfo.Controls.Add(Me.MobileCheckBox)
-        Me.grpPatientInfo.Controls.Add(Me.OrthoCheckBox)
-        Me.grpPatientInfo.Controls.Add(Me.StrucCheckBox)
-        Me.grpPatientInfo.Controls.Add(NotesLabel)
-        Me.grpPatientInfo.Controls.Add(Me.NotesTextEdit)
-        Me.grpPatientInfo.Controls.Add(BirthYLabel)
-        Me.grpPatientInfo.Controls.Add(Me.BirthYSpinEdit)
-        resources.ApplyResources(Me.grpPatientInfo, "grpPatientInfo")
-        Me.grpPatientInfo.Name = "grpPatientInfo"
-        '
-        'txtWhats
-        '
-        Me.txtWhats.EnterMoveNextControl = True
-        resources.ApplyResources(Me.txtWhats, "txtWhats")
-        Me.txtWhats.Name = "txtWhats"
-        Me.txtWhats.Properties.Appearance.Font = CType(resources.GetObject("txtWhats.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.txtWhats.Properties.Appearance.Options.UseFont = True
-        Me.txtWhats.Properties.MaxLength = 10
-        '
-        'lblWhats
-        '
-        Me.lblWhats.Appearance.Font = CType(resources.GetObject("lblWhats.Appearance.Font"), System.Drawing.Font)
-        Me.lblWhats.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.lblWhats.Appearance.Options.UseFont = True
-        Me.lblWhats.Appearance.Options.UseForeColor = True
-        resources.ApplyResources(Me.lblWhats, "lblWhats")
-        Me.lblWhats.Name = "lblWhats"
-        '
-        'cboPrefix
-        '
-        Me.cboPrefix.EnterMoveNextControl = True
-        resources.ApplyResources(Me.cboPrefix, "cboPrefix")
-        Me.cboPrefix.Name = "cboPrefix"
-        Me.cboPrefix.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("cboPrefix.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Appearance.Font = CType(resources.GetObject("btnAdd.Appearance.Font"), System.Drawing.Font)
-        Me.btnAdd.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnAdd, "btnAdd")
-        Me.btnAdd.Name = "btnAdd"
-        '
-        'DiagCheck
-        '
-        resources.ApplyResources(Me.DiagCheck, "DiagCheck")
-        Me.DiagCheck.Name = "DiagCheck"
-        Me.DiagCheck.UseVisualStyleBackColor = True
-        '
-        'RadioFemale
-        '
-        resources.ApplyResources(Me.RadioFemale, "RadioFemale")
-        Me.RadioFemale.Name = "RadioFemale"
-        Me.RadioFemale.UseVisualStyleBackColor = True
-        '
-        'RadioMale
-        '
-        resources.ApplyResources(Me.RadioMale, "RadioMale")
-        Me.RadioMale.Checked = True
-        Me.RadioMale.Name = "RadioMale"
-        Me.RadioMale.TabStop = True
-        Me.RadioMale.UseVisualStyleBackColor = True
-        '
-        'CboCity
-        '
-        Me.CboCity.BtnAddVisible = True
-        Me.CboCity.BtnSearchVisible = True
-        Me.CboCity.CityID = 2
-        Me.CboCity.CityName = "قلقيلية"
-        Me.CboCity.Filter = ""
-        resources.ApplyResources(Me.CboCity, "CboCity")
-        Me.CboCity.Name = "CboCity"
-        '
-        'CboHealth
-        '
-        Me.CboHealth.BtnAddVisible = True
-        Me.CboHealth.BtnSearchVisible = True
-        Me.CboHealth.Filter = ""
-        Me.CboHealth.HealthStat = "سليم"
-        Me.CboHealth.HID = 1
-        resources.ApplyResources(Me.CboHealth, "CboHealth")
-        Me.CboHealth.Name = "CboHealth"
-        '
-        'lblAge
-        '
-        Me.lblAge.Appearance.Font = CType(resources.GetObject("lblAge.Appearance.Font"), System.Drawing.Font)
-        Me.lblAge.Appearance.Options.UseFont = True
-        Me.lblAge.Appearance.Options.UseTextOptions = True
-        Me.lblAge.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.lblAge.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        resources.ApplyResources(Me.lblAge, "lblAge")
-        Me.lblAge.Name = "lblAge"
-        '
-        'lblBalance
-        '
-        Me.lblBalance.Appearance.Font = CType(resources.GetObject("lblBalance.Appearance.Font"), System.Drawing.Font)
-        Me.lblBalance.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.lblBalance, "lblBalance")
-        Me.lblBalance.Name = "lblBalance"
-        '
-        'btnDeletePatient
-        '
-        Me.btnDeletePatient.Appearance.Font = CType(resources.GetObject("btnDeletePatient.Appearance.Font"), System.Drawing.Font)
-        Me.btnDeletePatient.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnDeletePatient, "btnDeletePatient")
-        Me.btnDeletePatient.Name = "btnDeletePatient"
-        '
-        'btnUpdatePatient
-        '
-        Me.btnUpdatePatient.Appearance.Font = CType(resources.GetObject("btnUpdatePatient.Appearance.Font"), System.Drawing.Font)
-        Me.btnUpdatePatient.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnUpdatePatient, "btnUpdatePatient")
-        Me.btnUpdatePatient.Name = "btnUpdatePatient"
-        '
-        'PatientNameTextEdit
-        '
-        Me.PatientNameTextEdit.EnterMoveNextControl = True
-        resources.ApplyResources(Me.PatientNameTextEdit, "PatientNameTextEdit")
-        Me.PatientNameTextEdit.Name = "PatientNameTextEdit"
-        Me.PatientNameTextEdit.Properties.Appearance.Font = CType(resources.GetObject("PatientNameTextEdit.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.PatientNameTextEdit.Properties.Appearance.Options.UseFont = True
-        '
-        'PatientIDEdit
-        '
-        resources.ApplyResources(Me.PatientIDEdit, "PatientIDEdit")
-        Me.PatientIDEdit.Name = "PatientIDEdit"
-        Me.PatientIDEdit.Properties.Appearance.Font = CType(resources.GetObject("PatientIDEdit.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.PatientIDEdit.Properties.Appearance.Options.UseFont = True
-        '
-        'PicBox
-        '
-        resources.ApplyResources(Me.PicBox, "PicBox")
-        Me.PicBox.Name = "PicBox"
-        Me.PicBox.TabStop = False
-        '
-        'SexTextBox
-        '
-        Me.SexTextBox.EnterMoveNextControl = True
-        resources.ApplyResources(Me.SexTextBox, "SexTextBox")
-        Me.SexTextBox.Name = "SexTextBox"
-        Me.SexTextBox.Properties.Appearance.Font = CType(resources.GetObject("SexTextBox.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.SexTextBox.Properties.Appearance.Options.UseFont = True
-        '
-        'AgeSpinEdit
-        '
-        resources.ApplyResources(Me.AgeSpinEdit, "AgeSpinEdit")
-        Me.AgeSpinEdit.EnterMoveNextControl = True
-        Me.AgeSpinEdit.Name = "AgeSpinEdit"
-        Me.AgeSpinEdit.Properties.Appearance.Font = CType(resources.GetObject("AgeSpinEdit.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.AgeSpinEdit.Properties.Appearance.Options.UseFont = True
-        Me.AgeSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("AgeSpinEdit.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
-        Me.AgeSpinEdit.Properties.IsFloatValue = False
-        Me.AgeSpinEdit.Properties.MaxValue = New Decimal(New Integer() {140, 0, 0, 0})
-        Me.AgeSpinEdit.Properties.MinValue = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'PhoneTextEdit
-        '
-        Me.PhoneTextEdit.EnterMoveNextControl = True
-        resources.ApplyResources(Me.PhoneTextEdit, "PhoneTextEdit")
-        Me.PhoneTextEdit.Name = "PhoneTextEdit"
-        Me.PhoneTextEdit.Properties.Appearance.Font = CType(resources.GetObject("PhoneTextEdit.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.PhoneTextEdit.Properties.Appearance.Options.UseFont = True
-        '
-        'lblPNum
-        '
-        Me.lblPNum.Appearance.Font = CType(resources.GetObject("lblPNum.Appearance.Font"), System.Drawing.Font)
-        Me.lblPNum.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.lblPNum, "lblPNum")
-        Me.lblPNum.Name = "lblPNum"
-        '
-        'LabelControl4
-        '
-        Me.LabelControl4.Appearance.Font = CType(resources.GetObject("LabelControl4.Appearance.Font"), System.Drawing.Font)
-        Me.LabelControl4.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl4, "LabelControl4")
-        Me.LabelControl4.Name = "LabelControl4"
-        '
-        'AddressTextEdit
-        '
-        Me.AddressTextEdit.EnterMoveNextControl = True
-        resources.ApplyResources(Me.AddressTextEdit, "AddressTextEdit")
-        Me.AddressTextEdit.Name = "AddressTextEdit"
-        Me.AddressTextEdit.Properties.Appearance.Font = CType(resources.GetObject("AddressTextEdit.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.AddressTextEdit.Properties.Appearance.Options.UseFont = True
-        '
-        'HealthTextBox
-        '
-        Me.HealthTextBox.EnterMoveNextControl = True
-        resources.ApplyResources(Me.HealthTextBox, "HealthTextBox")
-        Me.HealthTextBox.Name = "HealthTextBox"
-        Me.HealthTextBox.Properties.Appearance.Font = CType(resources.GetObject("HealthTextBox.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.HealthTextBox.Properties.Appearance.Options.UseFont = True
-        '
-        'TreatCheckBox
-        '
-        resources.ApplyResources(Me.TreatCheckBox, "TreatCheckBox")
-        Me.TreatCheckBox.Name = "TreatCheckBox"
-        Me.TreatCheckBox.UseVisualStyleBackColor = True
-        '
-        'ImplantCheckBox
-        '
-        resources.ApplyResources(Me.ImplantCheckBox, "ImplantCheckBox")
-        Me.ImplantCheckBox.Name = "ImplantCheckBox"
-        Me.ImplantCheckBox.UseVisualStyleBackColor = True
-        '
-        'MobileCheckBox
-        '
-        resources.ApplyResources(Me.MobileCheckBox, "MobileCheckBox")
-        Me.MobileCheckBox.Name = "MobileCheckBox"
-        Me.MobileCheckBox.UseVisualStyleBackColor = True
-        '
-        'OrthoCheckBox
-        '
-        resources.ApplyResources(Me.OrthoCheckBox, "OrthoCheckBox")
-        Me.OrthoCheckBox.Name = "OrthoCheckBox"
-        Me.OrthoCheckBox.UseVisualStyleBackColor = True
-        '
-        'StrucCheckBox
-        '
-        resources.ApplyResources(Me.StrucCheckBox, "StrucCheckBox")
-        Me.StrucCheckBox.Name = "StrucCheckBox"
-        Me.StrucCheckBox.UseVisualStyleBackColor = True
-        '
-        'NotesTextEdit
-        '
-        Me.NotesTextEdit.EnterMoveNextControl = True
-        resources.ApplyResources(Me.NotesTextEdit, "NotesTextEdit")
-        Me.NotesTextEdit.Name = "NotesTextEdit"
-        Me.NotesTextEdit.Properties.Appearance.Font = CType(resources.GetObject("NotesTextEdit.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.NotesTextEdit.Properties.Appearance.Options.UseFont = True
-        '
-        'BirthYSpinEdit
-        '
-        resources.ApplyResources(Me.BirthYSpinEdit, "BirthYSpinEdit")
-        Me.BirthYSpinEdit.EnterMoveNextControl = True
-        Me.BirthYSpinEdit.Name = "BirthYSpinEdit"
-        Me.BirthYSpinEdit.Properties.Appearance.Font = CType(resources.GetObject("BirthYSpinEdit.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.BirthYSpinEdit.Properties.Appearance.Options.UseFont = True
-        Me.BirthYSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("BirthYSpinEdit.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
-        Me.BirthYSpinEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
-        Me.BirthYSpinEdit.Properties.MaskSettings.Set("mask", "d")
-        Me.BirthYSpinEdit.Properties.MaskSettings.Set("hideInsignificantZeros", True)
-        Me.BirthYSpinEdit.Properties.MaskSettings.Set("autoHideDecimalSeparator", True)
         '
         'LabelBal
         '
@@ -674,14 +277,9 @@ Partial Class Navigator3
         '
         'txtPatientName
         '
+        Me.txtPatientName.BackColor = System.Drawing.Color.White
         resources.ApplyResources(Me.txtPatientName, "txtPatientName")
         Me.txtPatientName.Name = "txtPatientName"
-        Me.txtPatientName.Properties.Appearance.BackColor = System.Drawing.Color.Linen
-        Me.txtPatientName.Properties.Appearance.Font = CType(resources.GetObject("txtPatientName.Properties.Appearance.Font"), System.Drawing.Font)
-        Me.txtPatientName.Properties.Appearance.Options.UseBackColor = True
-        Me.txtPatientName.Properties.Appearance.Options.UseFont = True
-        Me.txtPatientName.Properties.AutoHeight = CType(resources.GetObject("txtPatientName.Properties.AutoHeight"), Boolean)
-        Me.txtPatientName.Properties.NullValuePrompt = resources.GetString("txtPatientName.Properties.NullValuePrompt")
         '
         'btnSearchResults
         '
@@ -690,30 +288,6 @@ Partial Class Navigator3
         resources.ApplyResources(Me.btnSearchResults, "btnSearchResults")
         Me.btnSearchResults.Name = "btnSearchResults"
         Me.btnSearchResults.TabStop = False
-        '
-        'FlyoutPatientInfo
-        '
-        Me.FlyoutPatientInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.FlyoutPatientInfo.Controls.Add(Me.FlyoutPanelControl1)
-        resources.ApplyResources(Me.FlyoutPatientInfo, "FlyoutPatientInfo")
-        Me.FlyoutPatientInfo.Name = "FlyoutPatientInfo"
-        Me.FlyoutPatientInfo.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-        Me.FlyoutPatientInfo.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade
-        Me.FlyoutPatientInfo.Options.Location = New System.Drawing.Point(299, 74)
-        Me.FlyoutPatientInfo.OptionsBeakPanel.CloseOnOuterClick = False
-        Me.FlyoutPatientInfo.OptionsButtonPanel.AppearanceButton.Normal.Font = CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.AppearanceButton.Normal.Font"), System.Drawing.Font)
-        Me.FlyoutPatientInfo.OptionsButtonPanel.AppearanceButton.Normal.Options.UseFont = True
-        ButtonImageOptions1.Image = Global.DentistX.My.Resources.Resources.cancel_16x16
-        Me.FlyoutPatientInfo.OptionsButtonPanel.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.Utils.PeekFormButton(resources.GetString("FlyoutPatientInfo.OptionsButtonPanel.Buttons"), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons1"), Boolean), ButtonImageOptions1, CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons2"), DevExpress.XtraBars.Docking2010.ButtonStyle), resources.GetString("FlyoutPatientInfo.OptionsButtonPanel.Buttons3"), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons4"), Integer), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons5"), Boolean), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons6"), DevExpress.Utils.SuperToolTip), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons7"), Boolean), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons8"), Boolean), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons9"), Boolean), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons10"), Object), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons11"), Integer), CType(resources.GetObject("FlyoutPatientInfo.OptionsButtonPanel.Buttons12"), Boolean))})
-        Me.FlyoutPatientInfo.OptionsButtonPanel.ShowButtonPanel = True
-        Me.FlyoutPatientInfo.OwnerControl = Me
-        '
-        'FlyoutPanelControl1
-        '
-        Me.FlyoutPanelControl1.Controls.Add(Me.grpPatientInfo)
-        resources.ApplyResources(Me.FlyoutPanelControl1, "FlyoutPanelControl1")
-        Me.FlyoutPanelControl1.FlyoutPanel = Me.FlyoutPatientInfo
-        Me.FlyoutPanelControl1.Name = "FlyoutPanelControl1"
         '
         'btnWhatsSend
         '
@@ -733,7 +307,6 @@ Partial Class Navigator3
         Me.Controls.Add(Me.lblPatientNum)
         Me.Controls.Add(Me.btnResetKid)
         Me.Controls.Add(Me.btnWhatsSend)
-        Me.Controls.Add(Me.FlyoutPatientInfo)
         Me.Controls.Add(Me.IsKidLabel)
         Me.Controls.Add(Me.btnPrev)
         Me.Controls.Add(Me.btnAdultChart)
@@ -749,31 +322,11 @@ Partial Class Navigator3
         Me.Name = "Navigator3"
         CType(Me.PatientBS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PopupPatient.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grpPatientInfo, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpPatientInfo.ResumeLayout(False)
-        Me.grpPatientInfo.PerformLayout()
-        CType(Me.txtWhats.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cboPrefix.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PatientNameTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PatientIDEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SexTextBox.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AgeSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AddressTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HealthTextBox.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NotesTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BirthYSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SurgeryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.posTxt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Side1.ResumeLayout(False)
         Me.Side1.PerformLayout()
-        CType(Me.txtPatientName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FlyoutPatientInfo, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FlyoutPatientInfo.ResumeLayout(False)
-        CType(Me.FlyoutPanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FlyoutPanelControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -799,41 +352,8 @@ Partial Class Navigator3
     Friend WithEvents LabelAddress As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblPatientNum As DevExpress.XtraEditors.LabelControl
     Friend WithEvents Side1 As DevExpress.XtraEditors.SidePanel
-    Friend WithEvents txtPatientName As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents grpPatientInfo As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents DiagCheck As CheckBox
-    Friend WithEvents RadioFemale As RadioButton
-    Friend WithEvents RadioMale As RadioButton
-    Friend WithEvents CboCity As CityCombo
-    Friend WithEvents CboHealth As HlthCombo
-    Friend WithEvents lblAge As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lblBalance As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents btnDeletePatient As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents btnUpdatePatient As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents PatientNameTextEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents PatientIDEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents PicBox As PictureBox
-    Friend WithEvents SexTextBox As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents AgeSpinEdit As DevExpress.XtraEditors.SpinEdit
-    Friend WithEvents PhoneTextEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents lblPNum As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents AddressTextEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents HealthTextBox As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TreatCheckBox As CheckBox
-    Friend WithEvents ImplantCheckBox As CheckBox
-    Friend WithEvents MobileCheckBox As CheckBox
-    Friend WithEvents OrthoCheckBox As CheckBox
-    Friend WithEvents StrucCheckBox As CheckBox
-    Friend WithEvents NotesTextEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents BirthYSpinEdit As DevExpress.XtraEditors.SpinEdit
-    Friend WithEvents btnAdd As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents FlyoutPatientInfo As DevExpress.Utils.FlyoutPanel
-    Friend WithEvents FlyoutPanelControl1 As DevExpress.Utils.FlyoutPanelControl
+    Friend WithEvents txtPatientName As System.Windows.Forms.TextBox
     Friend WithEvents btnWhatsSend As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents txtWhats As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents lblWhats As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents cboPrefix As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents lblTxtTrts As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblTrts As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblTxtPays As DevExpress.XtraEditors.LabelControl

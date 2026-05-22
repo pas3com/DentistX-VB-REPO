@@ -71,8 +71,8 @@ Public Class FrmAddNewUser
         End If
 
         ' === 2. Hash password ===
-        Dim newSalt As Byte()
-        Dim newHash As Byte()
+        Dim newSalt As Byte() = Nothing
+        Dim newHash As Byte() = Nothing
         GeneratePasswordHash(TxtPassword.Text, newSalt, newHash)
 
         ' === 3. Determine GroupID ===

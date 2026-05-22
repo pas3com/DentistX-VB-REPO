@@ -709,6 +709,8 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
     Private PatientTreats As IEnumerable(Of Patient_Diagnosis)
     Dim clsToothTrtData As New Patient_DiagnosisDATA
     Public Sub LoadSnglTreat(patientId As Integer, toothNum As Byte)
+        If patientId <= 0 Then Return
+        If clsPatientData Is Nothing Then clsPatientData = New PatientDATA()
         ' Load patient data
         clsPatient = New Patient With {.PatientID = patientId}
         clsPatient = clsPatientData.Select_Record(clsPatient)
@@ -749,9 +751,8 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
             TrtSourceHelper.ClearAddedTrtsListBound(AddedTrtsList, originalAddedTrtsTable)
             JawTreatmentTreeHelper.LoadEmptyJawBackgroundTreatTree(TrtsTreeView, isKid, AllTrtNodes, fullTreeSnapshot, useDiagnosis:=True)
             txtSrchTrt.ResetText()
-            Flyout1.OwnerControl = Me
-            Flyout1.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-            Flyout1.Options.Location = New Point(JawPanel.Left + e.X, JawPanel.Top + e.Y)
+            If PatientID <= 0 Then Return
+            ComboFlyoutSearchHelper.ConfigureManualAnchoredFlyoutOnOwner(Flyout1, Me, New Point(JawPanel.Left + e.X, JawPanel.Top + e.Y), True)
             Flyout1.ShowPopup()
         ElseIf e.Button = MouseButtons.Left Then
             JawPanel.Focus()
@@ -838,6 +839,11 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
 
     ' Timer Tick: Check if the mouse is held long enough to apply maximum zoom
     Private Sub zoomTimer_Tick(sender As Object, e As EventArgs) Handles zoomTimer.Tick
+        If PatientID <= 0 Then Return
+        If slctdSVG Is Nothing OrElse slctdSVG.IsDisposed Then
+            zoomTimer.Stop()
+            Return
+        End If
         If (DateTime.Now - mouseDownTimeZoom).TotalMilliseconds >= zoomHoldDuration Then
             zoomTimer.Stop() ' Stop the timer to prevent multiple triggers
             isZooming = True ' Mark that zoom logic is being executed
@@ -853,6 +859,8 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
     End Sub
 
     Private Sub ApplyZoomZ(svgImageBox As DevExpress.XtraEditors.SvgImageBox)
+        If PatientID <= 0 Then Return
+        If svgImageBox Is Nothing OrElse svgImageBox.IsDisposed Then Return
         '' Create a new SvgImageBox for zooming
         zSvg.Visible = False
         zSvg.SvgImage = svgImageBox.SvgImage ' Copy the SVG image
@@ -1068,7 +1076,7 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
     Private Sub CommonMouseClickHandler(sender As Object, e As MouseEventArgs)
         JawPanel.Focus()
         If e.Button = MouseButtons.Right Then
-
+            If PatientID <= 0 Then Return
             ' Set the drag source
             DragSource = DirectCast(sender, SvgImageBox)
             Dim svg As SvgImageBox = CType(sender, SvgImageBox)
@@ -1082,12 +1090,9 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
                 baseName = svg.Name.Substring(0, svg.Name.Length - 4) ' Removes "Out", "Top", or similar
             End If
             Dim numberPart As String = svg.Name.Substring(svg.Name.Length - 1)
-            ' Apply the treatment to the specific SvgImageBox
             Dim toothNum As Byte = Convert.ToByte(svg.Tag)
             Dim toothName As String = $"{baseName}{numberPart}".ToUpper
-            Dim loc As Point = svg.Location
-            Dim toothID As Int16 = 0
-            toothID = ExtractDigit(svg.Name)
+            Dim toothID As Int16 = ExtractDigit(svg.Name)
             Dim targetCount As Integer = EnsureRightClickToothTracked(svg, toothNum)
             SetAddedTrtsListDataSource(PatientID, toothID, GetToothFullName(toothName))
             If targetCount <= 1 Then
@@ -1096,22 +1101,10 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
                 SetTrtsTreeMultiTeeth()
             End If
 
-            ' Same flyout positioning as AdultDiag: manual anchor, position by jaw quadrant (Ld/Lu/Rd/Ru).
-            ' Kid jaws use uppercase prefixes (e.g. LDOUTK6, LUTOPK4) so use case-insensitive match so all kid jaws get the flyout.
-            Flyout1.OwnerControl = Me
-            Flyout1.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-            If svg.Name.StartsWith("Ld", StringComparison.OrdinalIgnoreCase) Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X - Flyout1.Width, loc.Y + svg.Height - Flyout1.Height)
-            ElseIf svg.Name.StartsWith("Rd", StringComparison.OrdinalIgnoreCase) Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X + svg.Width, loc.Y + svg.Height - Flyout1.Height)
-            ElseIf svg.Name.StartsWith("Lu", StringComparison.OrdinalIgnoreCase) Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X - Flyout1.Width, loc.Y)
-            ElseIf svg.Name.StartsWith("Ru", StringComparison.OrdinalIgnoreCase) Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X + svg.Width, loc.Y)
-            End If
+            ComboFlyoutSearchHelper.ConfigureLegacyToothFlyout(Flyout1, Me, JawPanel, svg, StringComparison.OrdinalIgnoreCase)
 
             BackClr = Me.BackColor
-
+            Flyout1.BringToFront()
             Flyout1.ShowPopup()
 
             'Flyout1.ShowBeakForm()

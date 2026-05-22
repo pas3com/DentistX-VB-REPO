@@ -54,6 +54,8 @@ Public Class MainView3
             AppIcon = Me.Icon
             UpdateLanguageMenus()
             ToggleSwch.Checked = Not Eng
+            ' Hide Fluent shell during splash / DB / login so the user only sees those modals (avoids flashing main UI and reduces DX caption issues).
+            ApplyMainShellHiddenDuringAuth()
         Finally
             _suppressToggleSwchProgrammatic = False
             _suppressUseHdrCheckItemPersistence = False
@@ -357,10 +359,14 @@ Public Class MainView3
     Private _whatsCopySource As WhatsAppActivityLogRow
     Private _btnMsgCenterReloadTodayFromSql As SimpleButton
     Private _btnMsgCenterReloadRecentFromSql As SimpleButton
+    Private _btnMsgCenterOutboundOutbox As SimpleButton
     Private _whatsMsgCenterCountdownTimer As System.Windows.Forms.Timer
     Private _lastWhatsQueueEnrichUtc As DateTime
     Private _whatsQueueEnrichInFlight As Boolean
     Private _whatsMessageCenterDockShown As Boolean
+    Private _mainWindowStartupLayoutApplied As Boolean
+    Private _mainWindowClampInProgress As Boolean
+    Private _lastMainWindowState As FormWindowState = FormWindowState.Normal
     ''' <summary>Collapses expanded auto-hide dock panels when the user clicks outside them (see <see cref="ProcessDockAutoHideOutsideClickFilter"/>).</summary>
     Private _dockAutoHideOutsideClickFilter As IMessageFilter
 
@@ -376,6 +382,7 @@ Public Class MainView3
     ' Note: each registration is system-wide while this app runs; plain F-keys may override the same key in other apps.
 
     Private Const WM_HOTKEY As Integer = &H312
+    Private Const WM_EXITSIZEMOVE As Integer = &H232
     Private Const FinanceDashboardHotkeyId As Integer = &H7D00
     Private Const HotkeyIdTreat As Integer = &H7D01
     Private Const HotkeyIdOrtho As Integer = &H7D02
@@ -537,6 +544,7 @@ Public Class MainView3
 
     Private Sub MainView3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ApplyShellDockPanelsStartHidden()
+        UpdateMainWindowWorkingArea()
         AddHandler PatientEventManager.PatientChanged, AddressOf HandlePatientChanged
         If gallery IsNot Nothing Then
             AddHandler gallery.ItemClick, AddressOf Gallery_ItemClick
@@ -549,9 +557,42 @@ Public Class MainView3
         'btnSettings.Enabled = Perms.CanDo("Admins.ALl")
         NewSplash.ShowDialog(Me)
         'Splash1.ShowDialog(Me)
-        ' Ensure database connection before any database operations
-        EnsureDatabaseConnection()
+        ' Shell stays hidden (Opacity 0 from ctor) until RevealMainShellAfterAuth. Defer DB/login until after Load returns anyway — showing
+        ' FrmChooseConn / FrmLogin with owner Me from inside Load still triggers DevExpress v25.1 FluentDesignFormCheckSkinCaptionPainter NRE
+        ' (crash_20260506_135620, crash_20260507_104217).
+        BeginInvoke(New Action(AddressOf MainView3_CompleteStartupAfterLoad))
+        ' chkBackup = session override only: checked → interactive Backup() on exit; unchecked → respect My.Settings.BackupOnExit for silent backup.
+    End Sub
 
+    Private Sub MainView3_CompleteStartupAfterLoad()
+        If Me.IsDisposed Then Return
+        EnsureDatabaseConnection()
+        If Me.IsDisposed Then Return
+        MainView3_Load_ContinueAfterDatabaseConnection()
+        If Me.IsDisposed Then Return
+        RevealMainShellAfterAuth()
+    End Sub
+
+    Private Sub ApplyMainShellHiddenDuringAuth()
+        Try
+            ShowInTaskbar = False
+            Opacity = 0R
+        Catch
+        End Try
+    End Sub
+
+    Private Sub RevealMainShellAfterAuth()
+        Try
+            If IsDisposed Then Return
+            ShowInTaskbar = True
+            Opacity = 1R
+            Activate()
+        Catch
+        End Try
+    End Sub
+
+    Private Sub MainView3_Load_ContinueAfterDatabaseConnection()
+        If Me.IsDisposed Then Return
 
         ' Licensing and trial validation handled by CursorLicManager
 
@@ -629,7 +670,6 @@ Public Class MainView3
         InitializeCurrentPatientDock()
         _dockAutoHideOutsideClickFilter = New DockAutoHideOutsideClickFilter(Me)
         Application.AddMessageFilter(_dockAutoHideOutsideClickFilter)
-        ' chkBackup = session override only: checked → interactive Backup() on exit; unchecked → respect My.Settings.BackupOnExit for silent backup.
     End Sub
 
     Private _didInitializeLangCombo As Boolean
@@ -638,6 +678,21 @@ Public Class MainView3
         If _didInitializeLangCombo Then Return
         _didInitializeLangCombo = True
         InitializeLangCombo()
+    End Sub
+
+    Private Sub MainView3_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        UpdateMainWindowWorkingArea()
+        If WindowState <> _lastMainWindowState Then
+            _lastMainWindowState = WindowState
+            If WindowState = FormWindowState.Normal AndAlso IsHandleCreated Then
+                BeginInvoke(New MethodInvoker(AddressOf ClampMainWindowToWorkingArea))
+            End If
+        End If
+    End Sub
+
+    Private Sub MainView3_Move(sender As Object, e As EventArgs) Handles MyBase.Move
+        If _mainWindowClampInProgress Then Return
+        UpdateMainWindowWorkingArea()
     End Sub
 
     ''' <summary>Re-applies .resx strings and code-driven captions after <see cref="Module1.Eng"/> / UI culture changes (settings, no restart).</summary>
@@ -706,13 +761,16 @@ Public Class MainView3
                         Case HotkeyIdOrtho
                             BeginInvoke(Sub() OrthoButton_Click(OrthoButton, EventArgs.Empty))
                         Case HotkeyIdDiag
-                            BeginInvoke(Sub() MobileButton_Click(DiagButton, EventArgs.Empty))
+                            BeginInvoke(Sub() DiagButton_Click(DiagButton, EventArgs.Empty))
                     End Select
                 End If
                 Return
             End If
         End If
         MyBase.WndProc(m)
+        If m.Msg = WM_EXITSIZEMOVE AndAlso WindowState = FormWindowState.Normal AndAlso IsHandleCreated Then
+            BeginInvoke(New MethodInvoker(AddressOf ClampMainWindowToWorkingArea))
+        End If
     End Sub
 
     'Private Sub MainView3_Shown(sender As Object, e As EventArgs) Handles Me.Shown
@@ -1644,7 +1702,7 @@ Public Class MainView3
         End Try
     End Sub
 
-    Private Sub MobileButton_Click(sender As Object, e As EventArgs) Handles DiagButton.Click
+    Private Sub DiagButton_Click(sender As Object, e As EventArgs) Handles DiagButton.Click
         Try
             If Not FormAccessGate.TryEnterForm(Me, "DiagUserControl") Then Return
             _filter = "Diag"
@@ -1668,7 +1726,7 @@ Public Class MainView3
 
         Try
             If Not FormAccessGate.TryEnterForm(Me, "SchedulerFull") Then Return
-            FormManager.Instance.SwitchUserControl(GetType(SchedulerNew), "Appointments Scheduler")
+            FormManager.Instance.SwitchUserControl(GetType(ApptHostCtl), "Appointments Scheduler") ''FullWeekSched
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -1678,7 +1736,9 @@ Public Class MainView3
 
         Try
             If Not FormAccessGate.TryEnterForm(Me, "SchedulerFull") Then Return
-            ShowModernSchedulerForm()
+            'ShowModernSchedulerForm()
+            FormManager.Instance.SwitchUserControl(GetType(WeekSched), "Appointments Scheduler") 'SchedulerNew'FullWeekSched
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -1944,7 +2004,84 @@ Public Class MainView3
         MyBase.OnShown(e)
         RestorePalette()
         ShowSettings()
+        If Not _mainWindowStartupLayoutApplied AndAlso IsHandleCreated Then
+            BeginInvoke(New MethodInvoker(AddressOf ApplyMainWindowStartupLayout))
+        End If
     End Sub
+
+    Private Sub ApplyMainWindowStartupLayout()
+        If _mainWindowStartupLayoutApplied OrElse IsDisposed Then Return
+        _mainWindowStartupLayoutApplied = True
+
+        Dim workingArea = GetMainWindowWorkingArea()
+        UpdateMainWindowWorkingArea()
+
+        If WindowState = FormWindowState.Normal Then
+            Dim startupBounds = Bounds
+            If startupBounds.Width <= 0 OrElse startupBounds.Height <= 0 Then
+                startupBounds = New Rectangle(workingArea.Location,
+                                              New Size(Math.Min(1280, workingArea.Width),
+                                                       Math.Min(900, workingArea.Height)))
+            End If
+
+            startupBounds = ClampRectangleToWorkingArea(startupBounds, workingArea, MinimumSize)
+            startupBounds.X = workingArea.Left + Math.Max(0, (workingArea.Width - startupBounds.Width) \ 2)
+            startupBounds.Y = workingArea.Top + Math.Max(0, (workingArea.Height - startupBounds.Height) \ 2)
+            Bounds = startupBounds
+        End If
+
+        WindowState = FormWindowState.Maximized
+        _lastMainWindowState = WindowState
+    End Sub
+
+    Private Sub UpdateMainWindowWorkingArea()
+        If IsDisposed Then Return
+        MaximizedBounds = GetMainWindowWorkingArea()
+    End Sub
+
+    Private Sub ClampMainWindowToWorkingArea()
+        If _mainWindowClampInProgress OrElse IsDisposed OrElse WindowState <> FormWindowState.Normal Then Return
+
+        _mainWindowClampInProgress = True
+        Try
+            Dim workingArea = GetMainWindowWorkingArea()
+            MaximizedBounds = workingArea
+            Dim clamped = ClampRectangleToWorkingArea(Bounds, workingArea, MinimumSize)
+            If Bounds <> clamped Then
+                Bounds = clamped
+            End If
+        Finally
+            _mainWindowClampInProgress = False
+        End Try
+    End Sub
+
+    Private Function GetMainWindowWorkingArea() As Rectangle
+        Dim referenceBounds = If(WindowState = FormWindowState.Normal AndAlso Bounds.Width > 0 AndAlso Bounds.Height > 0,
+                                 Bounds,
+                                 RestoreBounds)
+        If referenceBounds.Width <= 0 OrElse referenceBounds.Height <= 0 Then
+            referenceBounds = New Rectangle(New Point(Math.Max(0, MousePosition.X), Math.Max(0, MousePosition.Y)), New Size(1, 1))
+        End If
+        Return Screen.FromRectangle(referenceBounds).WorkingArea
+    End Function
+
+    Private Shared Function ClampRectangleToWorkingArea(bounds As Rectangle, workingArea As Rectangle, minimumSize As Size) As Rectangle
+        Dim minWidth = Math.Max(320, minimumSize.Width)
+        Dim minHeight = Math.Max(240, minimumSize.Height)
+        Dim width = Math.Max(minWidth, Math.Min(bounds.Width, workingArea.Width))
+        Dim height = Math.Max(minHeight, Math.Min(bounds.Height, workingArea.Height))
+        Dim x = bounds.X
+        Dim y = bounds.Y
+
+        If x < workingArea.Left Then x = workingArea.Left
+        If y < workingArea.Top Then y = workingArea.Top
+        If x + width > workingArea.Right Then x = workingArea.Right - width
+        If y + height > workingArea.Bottom Then y = workingArea.Bottom - height
+        If x < workingArea.Left Then x = workingArea.Left
+        If y < workingArea.Top Then y = workingArea.Top
+
+        Return New Rectangle(x, y, width, height)
+    End Function
 
     Private Sub SavePalette()
         Dim settings = My.Settings
@@ -2056,34 +2193,39 @@ Public Class MainView3
     Private Sub bntLogInOUT_ItemClick(sender As Object, e As ItemClickEventArgs) Handles bntLogInOUT.ItemClick
         Select Case bntLogInOUT.Caption
             Case "Log IN"
-                FrmLogin.Icon = AppIcon
-                FrmLogin.ShowDialog(Me)
+                ApplyMainShellHiddenDuringAuth()
+                Try
+                    FrmLogin.Icon = AppIcon
+                    FrmLogin.ShowDialog(Me)
 
-                If CurrentUser IsNot Nothing Then
-                    If CurrentDoctor IsNot Nothing Then
-                        stUserNameTxt.Caption = $"User {CurrentUser.UsName} is associated with Doctor. {CurrentDoctor.DrName}"
+                    If CurrentUser IsNot Nothing Then
+                        If CurrentDoctor IsNot Nothing Then
+                            stUserNameTxt.Caption = $"User {CurrentUser.UsName} is associated with Doctor. {CurrentDoctor.DrName}"
+                        End If
+                        'stUserNameTxt.Caption = CurrentUser.UsName & " == " & CurrentDoctor.DrName CurrentEmp
+                        If CurrentSecretary IsNot Nothing Then
+                            stUserNameTxt.Caption = $"User {CurrentUser.UsName} is associated with Secretary. {CurrentSecretary.SecName}"
+                        End If
+                        If CurrentEmp IsNot Nothing Then
+                            stUserNameTxt.Caption = $"User {CurrentUser.UsName} is associated with Employee. {CurrentEmp.EmpName}"
+                        End If
+                        If CurrentDoctor Is Nothing AndAlso CurrentSecretary Is Nothing AndAlso CurrentEmp Is Nothing Then
+                            stUserNameTxt.Caption = CurrentUser.UsName & " == No Link"
+                        End If
+                        If CurrentDoctor Is Nothing AndAlso CurrentSecretary Is Nothing AndAlso CurrentEmp Is Nothing Then
+                            stUserNameTxt.Caption = CurrentUser.UsName & " == No Link"
+                        End If
                     End If
-                    'stUserNameTxt.Caption = CurrentUser.UsName & " == " & CurrentDoctor.DrName CurrentEmp
-                    If CurrentSecretary IsNot Nothing Then
-                        stUserNameTxt.Caption = $"User {CurrentUser.UsName} is associated with Secretary. {CurrentSecretary.SecName}"
+                    If currentPatient IsNot Nothing Then
+                        stPatientNameTxt.Caption = currentPatient.PatientName
+                    Else
+                        stPatientNameTxt.Caption = ""
                     End If
-                    If CurrentEmp IsNot Nothing Then
-                        stUserNameTxt.Caption = $"User {CurrentUser.UsName} is associated with Employee. {CurrentEmp.EmpName}"
-                    End If
-                    If CurrentDoctor Is Nothing AndAlso CurrentSecretary Is Nothing AndAlso CurrentEmp Is Nothing Then
-                        stUserNameTxt.Caption = CurrentUser.UsName & " == No Link"
-                    End If
-                    If CurrentDoctor Is Nothing AndAlso CurrentSecretary Is Nothing AndAlso CurrentEmp Is Nothing Then
-                        stUserNameTxt.Caption = CurrentUser.UsName & " == No Link"
-                    End If
-                End If
-                If currentPatient IsNot Nothing Then
-                    stPatientNameTxt.Caption = currentPatient.PatientName
-                Else
-                    stPatientNameTxt.Caption = ""
-                End If
 
-                bntLogInOUT.Caption = "Log Out"
+                    bntLogInOUT.Caption = "Log Out"
+                Finally
+                    RevealMainShellAfterAuth()
+                End Try
             Case "Log Out"
                 If ContainerA.Controls.Count > 0 Then
                     For Each ct As Control In ContainerA.Controls
@@ -2339,8 +2481,10 @@ Public Class MainView3
     End Sub
 
     Private Sub BtnListVendors_Click(sender As Object, e As EventArgs) Handles BtnListVendors.ItemClick
-        StockHubForm.Icon = GetIcon()
-        StockHubForm.ShowDialog(Me)
+        Using hub As New StockHubForm()
+            hub.Icon = GetIcon()
+            hub.ShowDialog(Me)
+        End Using
     End Sub
 
     Private Sub btnCheuqes_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btnCheuqes.ItemClick
@@ -2376,6 +2520,10 @@ Public Class MainView3
             MsgBox(ex.Message)
         End Try
     End Sub
+    Private Sub btnWhatsAppOutboundArchive_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btnWhatsAppOutboundArchive.ItemClick
+        FrmWhatsAppOutboundArchive.ShowArchive(Me)
+    End Sub
+
     Private Sub btnWhatsAppActivityLog_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btnWhatsAppActivityLog.ItemClick
         FrmWhatsAppActivityLog.ShowArchive(Me)
     End Sub
@@ -2420,9 +2568,10 @@ Public Class MainView3
     End Sub
     Private Sub btnStaffMange_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btnStaffMange.ItemClick
         Try
-            Dim F As New StaffHubForm
-            F.Icon = AppIcon
-            F.ShowDialog(Me)
+            Using hub As New StaffHubForm()
+                hub.Icon = AppIcon
+                hub.ShowDialog(Me)
+            End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -2465,19 +2614,12 @@ Public Class MainView3
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Snapshot auto-send uses its own off-screen <see cref="ApptHostCtl"/>, so the embedded scheduler view does not need to block it.
+    ''' Only modal/full-screen scheduler sessions defer work (shared UI suppression).
+    ''' </summary>
     Friend Function ShouldDeferSchedulerBackgroundWork() As Boolean
-        Return _modalSchedulerSessionDepth > 0 OrElse IsEmbeddedSchedulerHostActive()
-    End Function
-
-    Private Function IsEmbeddedSchedulerHostActive() As Boolean
-        Try
-            Dim ws = FormManager.Instance.CurrentForm
-            If ws Is Nothing OrElse ws.IsDisposed OrElse ws.BodyPanel Is Nothing OrElse ws.BodyPanel.Controls.Count = 0 Then Return False
-            Dim activeBody = ws.BodyPanel.Controls(0)
-            Return TypeOf activeBody Is ApptHostCtl OrElse TypeOf activeBody Is SchedulerNew
-        Catch
-            Return False
-        End Try
+        Return _modalSchedulerSessionDepth > 0
     End Function
 
     Private Sub EnterModalSchedulerSession()
@@ -2573,6 +2715,7 @@ Public Class MainView3
 
     Private Sub InitializeWhatsAppMessageCenter()
         EnsureMsgCenterReloadButtonCreated()
+        EnsureMsgCenterOutboundArchiveButtonCreated()
         ApplyMessageCenterLocalizedTextsAndFonts()
         lblMsgCenterTitle.AutoSizeMode = LabelAutoSizeMode.None
         lblMsgCenterTitle.Appearance.TextOptions.WordWrap = True
@@ -2598,7 +2741,7 @@ Public Class MainView3
 
     Private Async Sub WhatsMsgCenterCountdownTimer_Tick(sender As Object, e As EventArgs)
         If _whatsSessionStore.Count > 0 AndAlso Not _whatsQueueEnrichInFlight Then
-            If (DateTime.UtcNow - _lastWhatsQueueEnrichUtc).TotalSeconds >= 1.0R Then
+            If (DateTime.UtcNow - _lastWhatsQueueEnrichUtc).TotalSeconds >= 12.0R Then
                 _whatsQueueEnrichInFlight = True
                 _lastWhatsQueueEnrichUtc = DateTime.UtcNow
                 Try
@@ -2704,6 +2847,15 @@ Public Class MainView3
             _btnMsgCenterReloadRecentFromSql.Appearance.Options.UseFont = True
         End If
 
+        If _btnMsgCenterOutboundOutbox IsNot Nothing Then
+            _btnMsgCenterOutboundOutbox.Text = If(Eng, "Outbound outbox (SQL)…", "طابور الإرسال المحلي (SQL)…")
+            _btnMsgCenterOutboundOutbox.ToolTip = If(Eng,
+                "Opens dbo.WhatsAppOutboundMessage — the central send queue (reminders, snapshots, manual sends).",
+                "يفتح جدول dbo.WhatsAppOutboundMessage — طابور الإرسال الموحّد.")
+            _btnMsgCenterOutboundOutbox.Appearance.Font = btnFont
+            _btnMsgCenterOutboundOutbox.Appearance.Options.UseFont = True
+        End If
+
         txtMsgCenterSearch.Font = New Font("Calibri", 9.0F, FontStyle.Bold)
 
         If flowWhatsSessionFeed IsNot Nothing Then
@@ -2723,6 +2875,19 @@ Public Class MainView3
             MsgCenterToolbarPanel.Controls.Add(_btnMsgCenterReloadRecentFromSql)
             AddHandler _btnMsgCenterReloadRecentFromSql.Click, AddressOf BtnMsgCenterReloadRecentFromSql_Click
         End If
+    End Sub
+
+    Private Sub EnsureMsgCenterOutboundArchiveButtonCreated()
+        If MsgCenterToolbarPanel Is Nothing Then Return
+        If _btnMsgCenterOutboundOutbox Is Nothing Then
+            _btnMsgCenterOutboundOutbox = New SimpleButton With {.Name = "btnMsgCenterOutboundOutbox"}
+            MsgCenterToolbarPanel.Controls.Add(_btnMsgCenterOutboundOutbox)
+            AddHandler _btnMsgCenterOutboundOutbox.Click, AddressOf BtnMsgCenterOutboundArchive_Click
+        End If
+    End Sub
+
+    Private Sub BtnMsgCenterOutboundArchive_Click(sender As Object, e As EventArgs)
+        FrmWhatsAppOutboundArchive.ShowArchive(Me)
     End Sub
 
     Private Sub MsgCenterToolbarPanel_SizeChanged(sender As Object, e As EventArgs)
@@ -2759,6 +2924,10 @@ Public Class MainView3
         If _btnMsgCenterReloadTodayFromSql IsNot Nothing AndAlso _btnMsgCenterReloadRecentFromSql IsNot Nothing Then
             _btnMsgCenterReloadTodayFromSql.SetBounds(pad, y, colW, 26)
             _btnMsgCenterReloadRecentFromSql.SetBounds(pad + colW + gap, y, innerW - colW - gap - pad, 26)
+            y += 32
+        End If
+        If _btnMsgCenterOutboundOutbox IsNot Nothing Then
+            _btnMsgCenterOutboundOutbox.SetBounds(pad, y, innerW, 26)
             y += 32
         End If
         btnMsgCenterCopyRow.SetBounds(pad, y, innerW, 26)

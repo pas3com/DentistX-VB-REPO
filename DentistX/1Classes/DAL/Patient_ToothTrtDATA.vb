@@ -336,6 +336,17 @@ Public Class Patient_ToothTrtDATA
             Return If(connection.QuerySingleOrDefault(Of Integer?)(query, New With {.PatientID = patientID, .ToothNum = toothNum}), -1)
         End Using
     End Function
+
+    ''' <summary>True if this tooth has at least one LVL 4 (extraction) chart row.</summary>
+    Public Function HasExtractionLevel(patientID As Integer, toothNum As Byte) As Boolean
+        Const sql As String =
+            "SELECT CASE WHEN EXISTS (SELECT 1 FROM dbo.Patient_ToothTrt WHERE PatientID = @PatientID AND ToothNum = @ToothNum AND LVL = 4) " &
+            "THEN 1 ELSE 0 END"
+        Using connection As New SqlConnection(ConnectionString)
+            Dim n = connection.ExecuteScalar(Of Integer)(sql, New With {.PatientID = patientID, .ToothNum = toothNum})
+            Return n <> 0
+        End Using
+    End Function
     Public Function GetTreatLVLs(patientID As Integer, toothNum As Byte) As List(Of Byte)
         Dim query = "SELECT DISTINCT MAX([LVL]) FROM [Patient_ToothTrt] " &
                 "WHERE PatientID = @PatientID AND ToothNum = @ToothNum"

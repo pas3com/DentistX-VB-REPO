@@ -235,7 +235,7 @@ Module SaveDiagHelper
                         Dim MaxLvl As Integer = toothTrtData.GetTreatLVL(_toothTrt.PatientID, _toothTrt.ToothNum)
                         Dim currentLvl As Integer = _toothTrt.LVL
                         'check if treat is a normal one after high level one
-                        If (MaxLvl > 4 AndAlso currentLvl < 4) Then
+                        If (MaxLvl > 4 AndAlso currentLvl < 4) AndAlso Not TrtSourceHelper.AllowLowLevelTreatOnChartDespiteHighMaxLevel(_toothTrt.PatientID, _toothTrt.ToothNum, _toothTrt.Treat, True) Then
                             Dim msgEng As String = "You Cant Add a Normal Treat On High Level Treat...."
                             Dim msgAr As String = "لا يمكنك إضافة علاج عادي على علاج عالي المستوى...."
                             Dim msg As String = If(Eng, msgEng, msgAr)

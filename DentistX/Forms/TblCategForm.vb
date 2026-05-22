@@ -216,7 +216,7 @@ Partial Public Class TblCategForm
         ShowToolStripItems("Add")
 
         tbCategoryName.Select()
-        nudCategoryID.Text = clsDentistXData.getAutoID("New", "TblCategories")
+        nudCategoryID.Text = DentistXDATA.getAutoID("New", "TblCategories")
 
         Me.Cursor = System.Windows.Forms.Cursors.Default
     End Sub

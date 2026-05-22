@@ -1,5 +1,6 @@
 Imports System.Collections.Generic
 Imports System.Data.SqlClient
+Imports System.Globalization
 Imports System.IO
 Imports System.Linq
 Imports System.Threading.Tasks
@@ -17,7 +18,7 @@ Public Class ApptReminderScheduleService
         Public Property PatientID As Integer
         Public Property IntervalDays As Integer
         Public Property LastSentAt As DateTime?
-        ''' <summary>When Nothing, scheduled send uses global <see cref="Eng"/>.</summary>
+        ''' <summary>When Nothing, scheduled send uses Arabic until the user sets a language on the row.</summary>
         Public Property MessageEnglish As Boolean?
     End Class
 
@@ -88,13 +89,7 @@ Public Class ApptReminderScheduleService
         Dim clinicId As String = WhatsAppService.GetCurrentClinicId()
         If String.IsNullOrWhiteSpace(clinicId) Then Return 0
 
-        Dim connected = False
-        Try
-            Dim waService As New WhatsAppService()
-            connected = Await waService.GetConnectionStatusAsync(clinicId)
-        Catch
-        End Try
-        If Not connected Then Return 0
+        If Not Await WhatsAppService.TrySilentWhatsReconnectBackgroundAsync(clinicId).ConfigureAwait(False) Then Return 0
 
         Dim schedule = GetAllScheduled()
         If schedule.Count = 0 Then Return 0
@@ -135,7 +130,7 @@ Public Class ApptReminderScheduleService
             End Try
             If String.IsNullOrWhiteSpace(patientPhone) Then Continue For
 
-            Dim useEng = If(entry.MessageEnglish.HasValue, entry.MessageEnglish.Value, Eng)
+            Dim useEng = If(entry.MessageEnglish.HasValue, entry.MessageEnglish.Value, False)
             Dim msg As String = BuildAppointmentScheduleMessageForPatient(patientName, patientSex, useEng)
             If String.IsNullOrWhiteSpace(msg) Then Continue For
 
@@ -144,7 +139,8 @@ Public Class ApptReminderScheduleService
                     .Category = WhatsAppMessageCategories.AppointmentSchedule,
                     .PatientId = entry.PatientID,
                     .SourceHint = NameOf(ApptReminderScheduleService),
-                    .DisplayName = patientName
+                    .DisplayName = patientName,
+                    .IdempotencyKey = "SCHED|" & entry.PatientID.ToString(CultureInfo.InvariantCulture) & "|" & now.ToString("yyyyMMdd", CultureInfo.InvariantCulture)
                 }
                 Await waServiceSend.SendMessageAsync(clinicId, patientPhone, msg, "", ctx)
                 sentCount += 1

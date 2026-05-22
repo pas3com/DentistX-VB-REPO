@@ -138,7 +138,7 @@ Public NotInheritable Class ApptTwoHourReminderQueueRepository
     End Sub
 
     ''' <summary>After <see cref="AppointmentC"/> insert/update. Inserts/updates one row if start is far enough in the future (see <see cref="GetMinLeadHoursBeforeApptForQueue"/>); otherwise deletes queue row.</summary>
-    ''' <param name="reminderMessageEnglish">From editor RadioLang when saving; Nothing uses global Eng for 24h/2h preview text.</param>
+    ''' <param name="reminderMessageEnglish">From editor RadioLang when saving; Nothing builds Arabic 24h/2h preview text.</param>
     ''' <param name="include24HourReminder">When false, the 24h leg is not queued (send time cleared, status SkippedNotRequested).</param>
     ''' <param name="includeShortLeadReminder">When false, the short-lead (e.g. 2h) leg is not queued.</param>
     Public Shared Sub SyncFromAppointmentId(appointmentId As Integer, Optional reminderMessageEnglish As Boolean? = Nothing,

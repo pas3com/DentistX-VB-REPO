@@ -16,7 +16,7 @@ Public Class VisitCalendar
     ' Constants for layout
     Private Const labelWidth As Integer = 44
     Private Const labelHeight As Integer = 44
-    Private Const padding As Integer = 5
+    Private Shadows Const padding As Integer = 5
 
     ' Resize logic
     Private ReadOnly controlBoundsCache As New ConcurrentDictionary(Of Control, Rectangle)

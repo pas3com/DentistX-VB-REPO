@@ -254,9 +254,9 @@ Public Class DoctorsCombo
 
     Public Function GetDrID(drName As String) As Integer
         If String.IsNullOrWhiteSpace(drName) Then Return -1
-        Const sql As String = "SELECT DrID FROM Doctors WHERE DrName = @DrName"
+        Const sql As String = "SELECT TOP 1 DrID FROM Doctors WHERE DrName = @DrName ORDER BY DrID"
         Using conn As New SqlConnection(_connectionString)
-            Dim r As Integer? = conn.QuerySingleOrDefault(Of Integer?)(sql, New With {.DrName = drName})
+            Dim r As Integer? = conn.QueryFirstOrDefault(Of Integer?)(sql, New With {.DrName = drName})
             Return If(r.HasValue, r.Value, -1)
         End Using
     End Function

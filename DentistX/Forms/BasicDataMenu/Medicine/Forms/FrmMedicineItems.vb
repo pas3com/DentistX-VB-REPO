@@ -154,7 +154,7 @@ Partial Public Class FrmMedicineItems
      ClearRecord()
      ShowToolStripItems("Add")
      MedicineItemIDSpinEdit.Select
-     MedicineItemIDSpinEdit.Text = clsDentistXData.getAutoID("New", "MedicineItems")
+     MedicineItemIDSpinEdit.Text = DentistXDATA.getAutoID("New", "MedicineItems")
  End Sub
 
  Private Sub Edit()

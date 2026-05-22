@@ -76,6 +76,13 @@ Module StockModels
         Public Property UnitPrice As Decimal
         Public Property BatchNumber As String
         Public Property ExpirationDate As Date?
+
+        ''' <summary>Quantity × unit price in .NET (reports bind here; avoid fragile Qty*Price expressions).</summary>
+        Public ReadOnly Property LineTotal As Decimal
+            Get
+                Return CDec(Quantity) * UnitPrice
+            End Get
+        End Property
     End Class
 
     Public Class Payment

@@ -1,3 +1,4 @@
+Imports System.ComponentModel
 Imports DevExpress.XtraEditors
 
 Public Class StaffHubForm
@@ -6,13 +7,19 @@ Public Class StaffHubForm
     Private ReadOnly _defaultFont As Font = New Font("Calibri", 10, FontStyle.Bold)
 
     Public Sub New()
+        If LicenseManager.UsageMode = LicenseUsageMode.Runtime Then
+            StockUiLanguageScope.EnterArabicStockShell()
+        End If
         InitializeComponent()
         Text = If(Eng, "Staff Management", "إدارة الموظفين")
         StartPosition = FormStartPosition.CenterScreen
         Font = _defaultFont
-        If Not Eng Then
-            RightToLeft = RightToLeft.Yes
-            RightToLeftLayout = True
+    End Sub
+
+    Protected Overrides Sub OnFormClosed(e As FormClosedEventArgs)
+        MyBase.OnFormClosed(e)
+        If LicenseManager.UsageMode = LicenseUsageMode.Runtime Then
+            StockUiLanguageScope.LeaveArabicStockShell()
         End If
     End Sub
 

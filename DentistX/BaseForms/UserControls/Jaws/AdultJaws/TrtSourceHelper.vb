@@ -15,6 +15,57 @@ Public Class TrtSourceHelper
         "RCC TF", "RCO TF", "RCT (ELSE WHERE)", "REDO (ELSE WHERE-NERVE)", "RCF GI", "REDO AMALGAM", "REDO COMPOSITE", "REDO GI", "REDO (IN CLINIC)", "RCM TF"
     }
 
+    Private Shared _catalogRootTreatKeys As HashSet(Of String)
+    Private Shared ReadOnly _catalogRootTreatKeysLock As New Object
+
+    Private Shared Sub EnsureCatalogRootTreatKeysLoaded()
+        SyncLock _catalogRootTreatKeysLock
+            If _catalogRootTreatKeys IsNot Nothing Then Return
+            Dim setH As New HashSet(Of String)(StringComparer.OrdinalIgnoreCase)
+            For Each row In TblTRTSDATA.SelectAll()
+                If row Is Nothing OrElse String.IsNullOrWhiteSpace(row.Trt) Then Continue For
+                If Not String.Equals(If(row.TrtLoc, "").Trim(), "ROOT", StringComparison.OrdinalIgnoreCase) Then Continue For
+                Dim tr = row.Trt.Trim()
+                setH.Add(tr)
+                setH.Add(Helpers.GetFirstTreatmentPart(tr))
+            Next
+            _catalogRootTreatKeys = setH
+        End SyncLock
+    End Sub
+
+    Private Shared Function IsTrtLocRoot(trtLoc As String) As Boolean
+        Return String.Equals(If(trtLoc, "").Trim(), "ROOT", StringComparison.OrdinalIgnoreCase)
+    End Function
+
+    Private Shared Function MatchesBridgeNotExtractedAllowList(treatText As String) As Boolean
+        If String.IsNullOrWhiteSpace(treatText) Then Return False
+        Dim full = treatText.Trim().ToUpperInvariant()
+        If BridgeNotExtractedAllowedTrts.Any(Function(n) String.Equals(n, full, StringComparison.Ordinal)) Then Return True
+        Dim first = Helpers.GetFirstTreatmentPart(treatText).Trim().ToUpperInvariant()
+        Return BridgeNotExtractedAllowedTrts.Any(Function(n) String.Equals(n, first, StringComparison.Ordinal))
+    End Function
+
+    ''' <summary>True if TblTRTS marks this as root (TrtLoc ROOT) or legacy endo name list.</summary>
+    Public Shared Function IsCatalogRootTreat(treatText As String) As Boolean
+        If String.IsNullOrWhiteSpace(treatText) Then Return False
+        EnsureCatalogRootTreatKeysLoaded()
+        Dim full = treatText.Trim()
+        If _catalogRootTreatKeys.Contains(full) Then Return True
+        If _catalogRootTreatKeys.Contains(Helpers.GetFirstTreatmentPart(full)) Then Return True
+        Return MatchesBridgeNotExtractedAllowList(treatText)
+    End Function
+
+    ''' <summary>MaxLVL &gt; 4 with new LVL &lt; 4: allow only if treat is root/endo (not conservative) and tooth has no LVL-4 extraction on this chart.</summary>
+    Public Shared Function AllowLowLevelTreatOnChartDespiteHighMaxLevel(patientId As Integer, toothNum As Byte, treatText As String, diagnosisChart As Boolean) As Boolean
+        If Not IsCatalogRootTreat(treatText) Then Return False
+        If diagnosisChart Then
+            Dim d As New Patient_DiagnosisDATA()
+            Return Not d.HasExtractionLevel(patientId, toothNum)
+        End If
+        Dim t As New Patient_ToothTrtDATA()
+        Return Not t.HasExtractionLevel(patientId, toothNum)
+    End Function
+
     Private Shared ReadOnly CompleteDentureCatalogName As String = "COMPLETE DENTURE"
 
     ''' <summary>OTHER TREATS for empty jaw / full-mouth context (must exist in TblOtherTRT when that table is non-empty).</summary>
@@ -384,21 +435,21 @@ Public Class TrtSourceHelper
                                 r.Trt <> "ABUTMENT" AndAlso
                                 r.Trt <> "HEALING CAP") OrElse r.TrtGroup = "DENTURES")
             Case 5
-                q = q.Where(Function(r) ((r.TrtGroup = "EXTRACTION" OrElse r.Trt = "EXTRACTION + IMPLANT" OrElse r.TrtGroup = "BRIDGE" OrElse r.TrtLVL > currentToothLevel) AndAlso
+                q = q.Where(Function(r) ((r.TrtGroup = "EXTRACTION" OrElse r.Trt = "EXTRACTION + IMPLANT" OrElse r.TrtGroup = "BRIDGE" OrElse r.TrtLVL > currentToothLevel OrElse IsTrtLocRoot(r.TrtLoc)) AndAlso
                                 r.TrtGroup <> "CROWNS ON TOOTH" AndAlso
                                 r.TrtGroup <> "INDIRECT VENEERS" AndAlso
                                 r.TrtGroup <> "DIRECT VENEERS" AndAlso
                                 r.TrtGroup <> "CROWNS ON IMPLANT" AndAlso
                                 r.Trt <> "IMPLANT") OrElse r.TrtGroup = "DENTURES")
             Case 6
-                q = q.Where(Function(r) ((r.TrtGroup = "EXTRACTION" OrElse r.Trt = "EXTRACTION + IMPLANT" OrElse r.TrtGroup = "BRIDGE" OrElse r.TrtLVL >= currentToothLevel) AndAlso
+                q = q.Where(Function(r) ((r.TrtGroup = "EXTRACTION" OrElse r.Trt = "EXTRACTION + IMPLANT" OrElse r.TrtGroup = "BRIDGE" OrElse r.TrtLVL >= currentToothLevel OrElse IsTrtLocRoot(r.TrtLoc)) AndAlso
                                 r.TrtGroup <> "CROWNS ON TOOTH" AndAlso
                                 r.TrtGroup <> "INDIRECT VENEERS" AndAlso
                                 r.TrtGroup <> "DIRECT VENEERS" AndAlso
                                 r.TrtGroup <> "IMPLANT" AndAlso
                                 r.Trt <> "IMPLANT") OrElse r.TrtGroup = "DENTURES")
             Case 7
-                q = q.Where(Function(r) ((r.TrtGroup = "EXTRACTION" OrElse r.Trt = "EXTRACTION + IMPLANT" OrElse r.TrtGroup = "BRIDGE" OrElse r.TrtLVL = currentToothLevel) AndAlso
+                q = q.Where(Function(r) ((r.TrtGroup = "EXTRACTION" OrElse r.Trt = "EXTRACTION + IMPLANT" OrElse r.TrtGroup = "BRIDGE" OrElse r.TrtLVL = currentToothLevel OrElse IsTrtLocRoot(r.TrtLoc)) AndAlso
                                 r.TrtGroup <> "CROWNS ON TOOTH" AndAlso
                                 r.TrtGroup <> "IMPLANT" AndAlso
                                 r.TrtGroup <> "INDIRECT VENEERS" AndAlso
@@ -406,9 +457,9 @@ Public Class TrtSourceHelper
                                 r.TrtGroup <> "CROWNS ON IMPLANT" AndAlso
                                 r.Trt <> "IMPLANT") OrElse r.TrtGroup = "DENTURES")
             Case 8
-                ' Bridge level: allow EXTRACTION, EXTRACTION+IMPLANT, TrtLVL=8, or bridge-not-extracted list (Abscess drainage, Apexification, etc.)
-                q = q.Where(Function(r) (((r.TrtGroup = "EXTRACTION" OrElse r.Trt = "EXTRACTION + IMPLANT" OrElse r.TrtLVL = currentToothLevel) OrElse
-                                (r.Trt IsNot Nothing AndAlso BridgeNotExtractedAllowedTrts.Contains(r.Trt.Trim().ToUpperInvariant()))) AndAlso
+                ' Bridge level: extraction, bridge LVL, catalog TrtLoc ROOT, or legacy endo names.
+                q = q.Where(Function(r) ((r.TrtGroup = "EXTRACTION" OrElse r.Trt = "EXTRACTION + IMPLANT" OrElse r.TrtLVL = currentToothLevel OrElse IsTrtLocRoot(r.TrtLoc) OrElse
+                                (r.Trt IsNot Nothing AndAlso MatchesBridgeNotExtractedAllowList(r.Trt))) AndAlso
                                 r.TrtGroup <> "CROWNS ON TOOTH" AndAlso
                                 r.TrtGroup <> "IMPLANT" AndAlso
                                 r.TrtGroup <> "INDIRECT VENEERS" AndAlso
@@ -948,7 +999,12 @@ Public Class TrtSourceHelper
             ElseIf hasMinusOne AndAlso hasLevel4 AndAlso Not (hasLevel5 Or hasLevel6Plus) Then
                 query += " AND ([TrtGroup] = 'BRIDGE' OR [TrtGroup] = 'DENTURES')"
             ElseIf hasMinusOne AndAlso (hasLevel5 Or hasLevel6Plus) AndAlso Not hasLevel4 Then
-                query += " AND (([Trt] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT') OR [TrtGroup] = 'BRIDGE' OR [TrtGroup] = 'DENTURES')"
+                ' Bridge on at least one tooth but no extraction: include root/endo (same list as bridgeNotExtracted elsewhere), not only EXTRACTION/BRIDGE/DENTURES.
+                If bridgeNotExtracted Then
+                    query += " AND ((((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 5) OR [Trt] IN ('ABSCESS DRAINAGE', 'APEXIFICATION', 'APICECTOMY', 'EXTRACTION', 'RCM', 'RCC', 'RCO', 'REDO RCT', 'TF', 'RCC TF', 'RCO TF', 'RCT (ELSE WHERE)', 'REDO (ELSE WHERE-NERVE)', 'RCF GI', 'REDO AMALGAM', 'REDO COMPOSITE', 'REDO GI', 'REDO (IN CLINIC)', 'RCM TF') OR UPPER(LTRIM(RTRIM(ISNULL([TrtLoc],N'')))) = N'ROOT') AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
+                Else
+                    query += " AND (([Trt] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT') OR [TrtGroup] = 'BRIDGE' OR [TrtGroup] = 'DENTURES' OR UPPER(LTRIM(RTRIM(ISNULL([TrtLoc],N'')))) = N'ROOT')"
+                End If
             ElseIf hasLevel4 AndAlso (hasLevel5 Or hasLevel6Plus) AndAlso Not hasMinusOne Then
                 query += " AND ([TrtGroup] = 'BRIDGE' OR [TrtGroup] = 'DENTURES')"
             ElseIf hasMinusOne AndAlso Not hasLevel4 AndAlso Not hasLevel5 AndAlso Not hasLevel6Plus Then
@@ -957,19 +1013,19 @@ Public Class TrtSourceHelper
                 query += " AND (([TrtLVL] > 4 AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS' AND [TrtGroup] <> 'CROWNS ON IMPLANT' AND [Trt] <> 'EXTRACTION + IMPLANT' AND [Trt] <> 'ABUTMENT' AND [Trt] <> 'HEALING CAP') OR [TrtGroup] = 'DENTURES')"
             ElseIf hasLevel5 AndAlso Not hasMinusOne AndAlso Not hasLevel4 AndAlso Not hasLevel6Plus Then
                 query += " AND ((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR 
-                            [TrtGroup] = 'BRIDGE' OR [TrtGroup] = 'IMPLANT COMPONENT' OR [TrtLVL] = 5) AND [TrtGroup] <> 'CROWNS ON TOOTH' AND 
+                            [TrtGroup] = 'BRIDGE' OR [TrtGroup] = 'IMPLANT COMPONENT' OR [TrtLVL] = 5 OR UPPER(LTRIM(RTRIM(ISNULL([TrtLoc],N'')))) = N'ROOT') AND [TrtGroup] <> 'CROWNS ON TOOTH' AND 
                             [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT' OR [TrtGroup] = 'DENTURES')"
             ElseIf hasLevel6Plus AndAlso Not hasMinusOne AndAlso Not hasLevel4 AndAlso Not hasLevel5 Then
                 If bridgeNotExtracted Then
-                    query += " AND ((((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 6) OR [Trt] IN ('ABSCESS DRAINAGE', 'APEXIFICATION', 'APICECTOMY', 'EXTRACTION', 'RCM', 'RCC', 'RCO', 'REDO RCT', 'TF', 'RCC TF', 'RCO TF', 'RCT (ELSE WHERE)', 'REDO (ELSE WHERE-NERVE)', 'RCF GI', 'REDO AMALGAM', 'REDO COMPOSITE', 'REDO GI', 'REDO (IN CLINIC)', 'RCM TF')) AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
+                    query += " AND ((((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 6) OR [Trt] IN ('ABSCESS DRAINAGE', 'APEXIFICATION', 'APICECTOMY', 'EXTRACTION', 'RCM', 'RCC', 'RCO', 'REDO RCT', 'TF', 'RCC TF', 'RCO TF', 'RCT (ELSE WHERE)', 'REDO (ELSE WHERE-NERVE)', 'RCF GI', 'REDO AMALGAM', 'REDO COMPOSITE', 'REDO GI', 'REDO (IN CLINIC)', 'RCM TF') OR UPPER(LTRIM(RTRIM(ISNULL([TrtLoc],N'')))) = N'ROOT') AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
                 Else
-                    query += " AND (((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 6) AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
+                    query += " AND (((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 6 OR UPPER(LTRIM(RTRIM(ISNULL([TrtLoc],N'')))) = N'ROOT') AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
                 End If
             ElseIf hasLevel5 AndAlso hasLevel6Plus AndAlso Not hasMinusOne AndAlso Not hasLevel4 Then
                 If bridgeNotExtracted Then
-                    query += " AND ((((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 5) OR [Trt] IN ('ABSCESS DRAINAGE', 'APEXIFICATION', 'APICECTOMY', 'EXTRACTION', 'RCM', 'RCC', 'RCO', 'REDO RCT', 'TF', 'RCC TF', 'RCO TF', 'RCT (ELSE WHERE)', 'REDO (ELSE WHERE-NERVE)', 'RCF GI', 'REDO AMALGAM', 'REDO COMPOSITE', 'REDO GI', 'REDO (IN CLINIC)', 'RCM TF')) AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
+                    query += " AND ((((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 5) OR [Trt] IN ('ABSCESS DRAINAGE', 'APEXIFICATION', 'APICECTOMY', 'EXTRACTION', 'RCM', 'RCC', 'RCO', 'REDO RCT', 'TF', 'RCC TF', 'RCO TF', 'RCT (ELSE WHERE)', 'REDO (ELSE WHERE-NERVE)', 'RCF GI', 'REDO AMALGAM', 'REDO COMPOSITE', 'REDO GI', 'REDO (IN CLINIC)', 'RCM TF') OR UPPER(LTRIM(RTRIM(ISNULL([TrtLoc],N'')))) = N'ROOT') AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
                 Else
-                    query += " AND (((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 5) AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
+                    query += " AND (((([TrtGroup] = 'EXTRACTION' OR [Trt] = 'EXTRACTION + IMPLANT' OR [TrtGroup] = 'BRIDGE' OR [TrtLVL] >= 5 OR UPPER(LTRIM(RTRIM(ISNULL([TrtLoc],N'')))) = N'ROOT') AND [TrtGroup] <> 'CROWNS ON TOOTH' AND [TrtGroup] <> 'INDIRECT VENEERS' AND [TrtGroup] <> 'DIRECT VENEERS') AND [Trt] <> 'IMPLANT') OR [TrtGroup] = 'DENTURES')"
                 End If
             End If
 

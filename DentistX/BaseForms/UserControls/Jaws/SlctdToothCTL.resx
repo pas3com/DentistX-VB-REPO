@@ -511,7 +511,7 @@
     <value>SlctdToothTab</value>
   </data>
   <data name="&gt;&gt;ToothShapePage.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="SlctdToothTab.Size" type="System.Drawing.Size, System.Drawing">
     <value>1210, 363</value>
@@ -655,7 +655,7 @@
     <value>SlctdToothTab</value>
   </data>
   <data name="&gt;&gt;ToothTrtsPage.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;SlctdToothTab.Name" xml:space="preserve">
     <value>SlctdToothTab</value>

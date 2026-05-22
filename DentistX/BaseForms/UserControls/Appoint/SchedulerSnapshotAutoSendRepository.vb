@@ -30,7 +30,7 @@ Public NotInheritable Class SchedulerSnapshotAutoSendRepository
 
     Public Shared Function GetJobs() As IList(Of SchedulerSnapshotAutoSendJobRow)
         Const sql = "
-SELECT j.JobId, j.IsEnabled, j.SendTimeLocal, j.DaysOfWeekMask, j.MessageCaption, j.Notes, j.SendContentMode, j.CreatedAt, j.UpdatedAt,
+SELECT j.JobId, j.IsEnabled, j.SendTimeLocal, j.SendTimeLocal2, j.DaysOfWeekMask, j.MessageCaption, j.Notes, j.SendContentMode, j.CreatedAt, j.UpdatedAt,
        (SELECT COUNT(*) FROM dbo.SchedulerSnapshotAutoSendRecipient r WHERE r.JobId = j.JobId AND r.IsActive = 1) AS ActiveRecipientCount
 FROM dbo.SchedulerSnapshotAutoSendJob j
 ORDER BY j.JobId"
@@ -41,7 +41,7 @@ ORDER BY j.JobId"
 
     Public Shared Function GetJob(jobId As Integer) As SchedulerSnapshotAutoSendJobRow
         Const sql = "
-SELECT j.JobId, j.IsEnabled, j.SendTimeLocal, j.DaysOfWeekMask, j.MessageCaption, j.Notes, j.SendContentMode, j.CreatedAt, j.UpdatedAt,
+SELECT j.JobId, j.IsEnabled, j.SendTimeLocal, j.SendTimeLocal2, j.DaysOfWeekMask, j.MessageCaption, j.Notes, j.SendContentMode, j.CreatedAt, j.UpdatedAt,
        (SELECT COUNT(*) FROM dbo.SchedulerSnapshotAutoSendRecipient r WHERE r.JobId = j.JobId AND r.IsActive = 1) AS ActiveRecipientCount
 FROM dbo.SchedulerSnapshotAutoSendJob j
 WHERE j.JobId = @id"
@@ -52,8 +52,8 @@ WHERE j.JobId = @id"
 
     Public Shared Function InsertJob(row As SchedulerSnapshotAutoSendJobRow) As Integer
         Const sql = "
-INSERT INTO dbo.SchedulerSnapshotAutoSendJob (IsEnabled, SendTimeLocal, DaysOfWeekMask, MessageCaption, Notes, SendContentMode, UpdatedAt)
-VALUES (@IsEnabled, @SendTimeLocal, @DaysOfWeekMask, @MessageCaption, @Notes, @SendContentMode, SYSUTCDATETIME());
+INSERT INTO dbo.SchedulerSnapshotAutoSendJob (IsEnabled, SendTimeLocal, SendTimeLocal2, DaysOfWeekMask, MessageCaption, Notes, SendContentMode, UpdatedAt)
+VALUES (@IsEnabled, @SendTimeLocal, @SendTimeLocal2, @DaysOfWeekMask, @MessageCaption, @Notes, @SendContentMode, SYSUTCDATETIME());
 SELECT CAST(SCOPE_IDENTITY() AS INT);"
         Using cn1 = Cn()
             Return cn1.ExecuteScalar(Of Integer)(sql, row)
@@ -63,7 +63,7 @@ SELECT CAST(SCOPE_IDENTITY() AS INT);"
     Public Shared Sub UpdateJob(row As SchedulerSnapshotAutoSendJobRow)
         Const sql = "
 UPDATE dbo.SchedulerSnapshotAutoSendJob
-SET IsEnabled = @IsEnabled, SendTimeLocal = @SendTimeLocal, DaysOfWeekMask = @DaysOfWeekMask,
+SET IsEnabled = @IsEnabled, SendTimeLocal = @SendTimeLocal, SendTimeLocal2 = @SendTimeLocal2, DaysOfWeekMask = @DaysOfWeekMask,
     MessageCaption = @MessageCaption, Notes = @Notes, SendContentMode = @SendContentMode, UpdatedAt = SYSUTCDATETIME()
 WHERE JobId = @JobId"
         Using cn1 = Cn()
@@ -114,22 +114,28 @@ WHERE RecipientId = @RecipientId"
         End Using
     End Sub
 
-    ''' <summary>Called by the future daily snapshot poller after each send attempt.</summary>
+    ''' <summary>Called after each send attempt. When <paramref name="excludeFromDedupe"/> is True (manual test send success),
+    ''' <see cref="HasRecipientSentOnRunDate"/> ignores the row for that send slot so automatic send can still run the same calendar day.</summary>
+    ''' <param name="sendSlot">1 = first scheduled time, 2 = second (dedupe per slot per calendar day).</param>
     Public Shared Sub InsertLogEntry(jobId As Integer, recipientId As Long?, runDate As Date, status As String,
-                                     startedAt As DateTime, completedAt As DateTime?, errorMessage As String, mediaPath As String)
+                                     startedAt As DateTime, completedAt As DateTime?, errorMessage As String, mediaPath As String,
+                                     Optional excludeFromDedupe As Boolean = False,
+                                     Optional sendSlot As Byte = 1)
         Const sql = "
-INSERT INTO dbo.SchedulerSnapshotAutoSendLog (JobId, RecipientId, RunDate, Status, StartedAt, CompletedAt, ErrorMessage, MediaPath)
-VALUES (@JobId, @RecipientId, @RunDate, @Status, @StartedAt, @CompletedAt, @ErrorMessage, @MediaPath)"
+INSERT INTO dbo.SchedulerSnapshotAutoSendLog (JobId, RecipientId, RunDate, SendSlot, Status, StartedAt, CompletedAt, ErrorMessage, MediaPath, ExcludeFromDedupe)
+VALUES (@JobId, @RecipientId, @RunDate, @SendSlot, @Status, @StartedAt, @CompletedAt, @ErrorMessage, @MediaPath, @ExcludeFromDedupe)"
         Using cn1 = Cn()
             cn1.Execute(sql, New With {
                 .JobId = jobId,
                 .RecipientId = recipientId,
                 .RunDate = runDate,
+                .SendSlot = sendSlot,
                 .Status = status,
                 .StartedAt = startedAt,
                 .CompletedAt = completedAt,
                 .ErrorMessage = errorMessage,
-                .MediaPath = mediaPath
+                .MediaPath = mediaPath,
+                .ExcludeFromDedupe = excludeFromDedupe
             })
         End Using
     End Sub
@@ -138,7 +144,7 @@ VALUES (@JobId, @RecipientId, @RunDate, @Status, @StartedAt, @CompletedAt, @Erro
         If take < 1 Then take = 100
         If take > 2000 Then take = 2000
         Const sql = "
-SELECT TOP (@take) LogId, JobId, RecipientId, RunDate, Status, StartedAt, CompletedAt, ErrorMessage, MediaPath
+SELECT TOP (@take) LogId, JobId, RecipientId, RunDate, SendSlot, Status, StartedAt, CompletedAt, ErrorMessage, MediaPath, ExcludeFromDedupe
 FROM dbo.SchedulerSnapshotAutoSendLog
 WHERE JobId = @id
 ORDER BY StartedAt DESC"
@@ -147,19 +153,49 @@ ORDER BY StartedAt DESC"
         End Using
     End Function
 
-    ''' <summary>True if this recipient already has a successful send for this job on the given local calendar day.</summary>
-    Public Shared Function HasRecipientSentOnRunDate(jobId As Integer, recipientId As Long, runDate As Date) As Boolean
+    ''' <summary>True if this recipient already has a successful send for this job slot on the given local calendar day.</summary>
+    Public Shared Function HasRecipientSentOnRunDate(jobId As Integer, recipientId As Long, runDate As Date, sendSlot As Byte) As Boolean
         Const sql = "
 SELECT COUNT(1) FROM dbo.SchedulerSnapshotAutoSendLog
-WHERE JobId = @jobId AND RecipientId = @recipientId AND RunDate = @runDate AND Status = @sent"
+WHERE JobId = @jobId AND RecipientId = @recipientId AND RunDate = @runDate AND Status = @sent
+  AND ISNULL(ExcludeFromDedupe, 0) = 0 AND ISNULL(SendSlot, 1) = @sendSlot"
         Using cn1 = Cn()
             Dim n = cn1.ExecuteScalar(Of Integer)(sql, New With {
                 .jobId = jobId,
                 .recipientId = recipientId,
                 .runDate = runDate.Date,
-                .sent = LogStatusSent
+                .sent = LogStatusSent,
+                .sendSlot = sendSlot
             })
             Return n > 0
+        End Using
+    End Function
+
+    ''' <summary>Rows that count toward daily auto-send dedupe (Sent and not excluded).</summary>
+    Public Shared Function CountDedupeBlockingSentRows(jobId As Integer, runDate As Date) As Integer
+        Const sql = "
+SELECT COUNT(1) FROM dbo.SchedulerSnapshotAutoSendLog
+WHERE JobId = @jobId AND RunDate = @runDate AND Status = @sent AND ISNULL(ExcludeFromDedupe, 0) = 0"
+        Using cn1 = Cn()
+            Return cn1.ExecuteScalar(Of Integer)(sql, New With {
+                .jobId = jobId,
+                .runDate = runDate.Date,
+                .sent = LogStatusSent
+            })
+        End Using
+    End Function
+
+    ''' <summary>Successful manual test sends for the day (excluded from dedupe).</summary>
+    Public Shared Function CountSentExcludedFromDedupe(jobId As Integer, runDate As Date) As Integer
+        Const sql = "
+SELECT COUNT(1) FROM dbo.SchedulerSnapshotAutoSendLog
+WHERE JobId = @jobId AND RunDate = @runDate AND Status = @sent AND ISNULL(ExcludeFromDedupe, 0) <> 0"
+        Using cn1 = Cn()
+            Return cn1.ExecuteScalar(Of Integer)(sql, New With {
+                .jobId = jobId,
+                .runDate = runDate.Date,
+                .sent = LogStatusSent
+            })
         End Using
     End Function
 
@@ -202,6 +238,7 @@ Public Class SchedulerSnapshotAutoSendJobRow
     Public Property JobId As Integer
     Public Property IsEnabled As Boolean
     Public Property SendTimeLocal As TimeSpan
+    Public Property SendTimeLocal2 As TimeSpan?
     Public Property DaysOfWeekMask As Byte
     Public Property MessageCaption As String
     Public Property Notes As String
@@ -228,9 +265,12 @@ Public Class SchedulerSnapshotAutoSendLogRow
     Public Property JobId As Integer
     Public Property RecipientId As Long?
     Public Property RunDate As Date
+    Public Property SendSlot As Byte
     Public Property Status As String
     Public Property StartedAt As DateTime
     Public Property CompletedAt As DateTime?
     Public Property ErrorMessage As String
     Public Property MediaPath As String
+    ''' <summary>True when row was from manual test send — does not satisfy daily auto-send dedupe.</summary>
+    Public Property ExcludeFromDedupe As Boolean
 End Class

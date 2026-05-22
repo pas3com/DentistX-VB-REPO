@@ -118,626 +118,100 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>485, 417</value>
-  </data>
-  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RadioLink.Properties.Items" type="System.Int16, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="RadioLink.Properties.Items14" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 19</value>
-  </data>
-  <data name="BtnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 34</value>
-  </data>
-  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="RadioLink.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 233</value>
-  </data>
-  <data name="&gt;&gt;CboDoctor.Type" xml:space="preserve">
-    <value>DentistX.DoctorsCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="TxtPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;TxtConfirmPassword.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LabelControl4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="LabelControl4.Text" xml:space="preserve">
-    <value>Enter User Level</value>
-  </data>
-  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="CboUserLevel.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
-  </data>
-  <data name="&gt;&gt;CboUserLevel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CboSec.Type" xml:space="preserve">
-    <value>DentistX.SecretariesCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="CboUserLevel.Properties.Items2" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;LabelSec.Name" xml:space="preserve">
-    <value>LabelSec</value>
-  </data>
-  <data name="TxtPassword.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="CboSec.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;CboUserLevel.Name" xml:space="preserve">
-    <value>CboUserLevel</value>
-  </data>
-  <data name="RadioLink.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelControl5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="RadioLink.Properties.Items2" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 31</value>
-  </data>
-  <data name="CboUserLevel.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="BtnCancel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;LabelControl6.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="BtnCancel.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
-  </data>
-  <data name="CboUserLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 166</value>
-  </data>
-  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="TxtConfirmPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 116</value>
-  </data>
-  <data name="LabelSec.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 19</value>
-  </data>
-  <data name="&gt;&gt;CboEmps.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="CboUserGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="RadioLink.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;BtnSave.Name" xml:space="preserve">
-    <value>BtnSave</value>
-  </data>
-  <data name="RadioLink.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 24</value>
-  </data>
-  <data name="LabelEmp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="&gt;&gt;LabelSec.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="RadioLink.Properties.Items10" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CboEmps.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;LabelControl4.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;TxtUsername.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmAddNewUser</value>
-  </data>
-  <data name="TxtConfirmPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
-  </data>
-  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 19</value>
-  </data>
-  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 170</value>
-  </data>
-  <data name="TxtPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 78</value>
-  </data>
-  <data name="&gt;&gt;LabelControl5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelDoctor.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="RadioLink.Properties.Items15" type="System.Int16, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="LabelControl5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="CboUserGroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 199</value>
-  </data>
-  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="TxtUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
-  </data>
-  <data name="TxtConfirmPassword.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="CboUserLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
-  </data>
-  <data name="CboDoctor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 273</value>
-  </data>
-  <data name="TxtUsername.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;TxtConfirmPassword.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
-  </data>
-  <data name="LabelControl6.Text" xml:space="preserve">
-    <value>Link this User To</value>
-  </data>
-  <data name="&gt;&gt;BtnCancel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;LabelSec.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelControl4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="RadioLink.Properties.Items13" xml:space="preserve">
-    <value>Employee</value>
-  </data>
-  <data name="&gt;&gt;RadioLink.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;LabelControl5.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 19</value>
-  </data>
-  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 236</value>
-  </data>
-  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
-    <value>LabelControl1</value>
-  </data>
-  <data name="BtnSave.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="LabelDoctor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 19</value>
-  </data>
-  <data name="&gt;&gt;CboDoctor.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="LabelDoctor.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;LabelControl2.Name" xml:space="preserve">
-    <value>LabelControl2</value>
-  </data>
-  <data name="LabelControl6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="CboSec.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 274</value>
-  </data>
-  <data name="CboUserLevel.Properties.Items" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;CboUserLevel.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="LabelSec.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="LabelControl4.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
-    <value>LabelControl3</value>
   </data>
   <data name="BtnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>261, 347</value>
   </data>
-  <data name="TxtUsername.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="LabelControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="&gt;&gt;LabelDoctor.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;RadioLink.Name" xml:space="preserve">
-    <value>RadioLink</value>
-  </data>
-  <data name="CboSec.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="&gt;&gt;LabelControl4.Name" xml:space="preserve">
-    <value>LabelControl4</value>
-  </data>
-  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 83</value>
-  </data>
-  <data name="LabelEmp.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;LabelControl6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;RadioLink.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 19</value>
-  </data>
-  <data name="LabelSec.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;LabelControl6.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;CboEmps.Name" xml:space="preserve">
-    <value>CboEmps</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Add New User</value>
-  </data>
-  <data name="LabelControl6.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="TxtPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
-  </data>
-  <data name="CboDoctor.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TxtPassword.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;BtnSave.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="LabelControl1.Text" xml:space="preserve">
-    <value>Enter Password</value>
-  </data>
-  <data name="CboDoctor.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;LabelControl5.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="TxtUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 27</value>
-  </data>
-  <data name="LabelDoctor.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="CboUserGroup.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="BtnSave.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
-  </data>
-  <data name="CboEmps.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;CboEmps.Type" xml:space="preserve">
-    <value>DentistX.EmpsCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="BtnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;CboUserGroup.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="RadioLink.EditValue" type="System.Int16, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;CboEmps.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="LabelControl2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="LabelDoctor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 276</value>
-  </data>
-  <data name="LabelDoctor.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;LabelEmp.Name" xml:space="preserve">
-    <value>LabelEmp</value>
-  </data>
-  <data name="&gt;&gt;LabelControl5.Name" xml:space="preserve">
-    <value>LabelControl5</value>
-  </data>
-  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 19</value>
-  </data>
-  <data name="&gt;&gt;TxtPassword.Name" xml:space="preserve">
-    <value>TxtPassword</value>
-  </data>
-  <data name="&gt;&gt;CboUserGroup.Type" xml:space="preserve">
-    <value>DentistX.GroupsCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;BtnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelControl2.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="LabelSec.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="&gt;&gt;CboSec.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;TxtPassword.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="BtnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 347</value>
-  </data>
-  <data name="&gt;&gt;CboDoctor.Name" xml:space="preserve">
-    <value>CboDoctor</value>
-  </data>
-  <data name="BtnCancel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;CboUserLevel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 19</value>
-  </data>
-  <data name="&gt;&gt;BtnSave.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TxtUsername.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelControl4.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="BtnSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 34</value>
-  </data>
-  <data name="CboUserLevel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="LabelEmp.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="BtnSave.Text" xml:space="preserve">
-    <value>Add User</value>
-  </data>
-  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 202</value>
-  </data>
-  <data name="&gt;&gt;TxtConfirmPassword.Name" xml:space="preserve">
-    <value>TxtConfirmPassword</value>
-  </data>
-  <data name="LabelSec.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="TxtUsername.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="CboEmps.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 19</value>
-  </data>
-  <data name="&gt;&gt;CboUserGroup.Name" xml:space="preserve">
-    <value>CboUserGroup</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BtnCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="BtnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 34</value>
   </data>
-  <data name="CboEmps.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 274</value>
-  </data>
-  <data name="BtnSave.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="LabelEmp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 19</value>
-  </data>
-  <data name="&gt;&gt;LabelControl2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelEmp.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="CboSec.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="LabelSec.Text" xml:space="preserve">
-    <value>Associated Secretary</value>
-  </data>
-  <data name="LabelDoctor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="RadioLink.Properties.Items9" xml:space="preserve">
-    <value>Secretary</value>
-  </data>
-  <data name="RadioLink.Properties.Items8" type="System.Int16, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="LabelControl2.Text" xml:space="preserve">
-    <value>Enter User Name</value>
-  </data>
-  <data name="LabelEmp.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
-  </data>
-  <data name="RadioLink.Properties.Items5" xml:space="preserve">
-    <value>Doctor</value>
-  </data>
-  <data name="RadioLink.Properties.Items4" type="System.Int16, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="RadioLink.Properties.Items7" type="System.Int16, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="RadioLink.Properties.Items6" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="RadioLink.Properties.Items1" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="RadioLink.Properties.Items3" type="System.Int16, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;TxtUsername.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="LabelControl3.Text" xml:space="preserve">
-    <value>Confirm Password</value>
-  </data>
-  <data name="&gt;&gt;TxtUsername.Name" xml:space="preserve">
-    <value>TxtUsername</value>
-  </data>
-  <data name="CboUserLevel.Properties.Items3" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;BtnCancel.Name" xml:space="preserve">
-    <value>BtnCancel</value>
-  </data>
-  <data name="TxtConfirmPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;TxtPassword.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="RadioLink.Properties.Items11" type="System.Int16, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;LabelEmp.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;BtnSave.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="LabelControl5.Text" xml:space="preserve">
-    <value>Enter User Group</value>
-  </data>
-  <data name="&gt;&gt;TxtConfirmPassword.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="LabelEmp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 276</value>
-  </data>
-  <data name="&gt;&gt;CboSec.Name" xml:space="preserve">
-    <value>CboSec</value>
-  </data>
-  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelControl6.Name" xml:space="preserve">
-    <value>LabelControl6</value>
-  </data>
-  <data name="&gt;&gt;LabelDoctor.Name" xml:space="preserve">
-    <value>LabelDoctor</value>
-  </data>
-  <data name="CboDoctor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 25</value>
-  </data>
-  <data name="&gt;&gt;CboUserGroup.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CboSec.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelDoctor.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LabelSec.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;TxtPassword.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="CboUserLevel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="LabelControl6.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BtnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="BtnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="TxtConfirmPassword.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="&gt;&gt;BtnCancel.Name" xml:space="preserve">
+    <value>BtnCancel</value>
+  </data>
+  <data name="&gt;&gt;BtnCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnCancel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="LabelControl5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 202</value>
+  </data>
+  <data name="LabelControl5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="LabelEmp.Text" xml:space="preserve">
-    <value>Associated Employee</value>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 19</value>
+  </data>
+  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>Enter User Group</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Name" xml:space="preserve">
+    <value>LabelControl5</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelControl5.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 170</value>
+  </data>
+  <data name="LabelControl4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 19</value>
+  </data>
+  <data name="LabelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>Enter User Level</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Name" xml:space="preserve">
+    <value>LabelControl4</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelControl4.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
   </data>
   <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 121</value>
@@ -745,46 +219,566 @@
   <data name="LabelControl3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="LabelDoctor.Text" xml:space="preserve">
-    <value>Associated Doctor</value>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 19</value>
+  </data>
+  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 83</value>
+  </data>
+  <data name="LabelControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 19</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>Enter Password</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 31</value>
   </data>
   <data name="LabelControl2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="CboUserLevel.Properties.Items1" xml:space="preserve">
-    <value>2</value>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 19</value>
+  </data>
+  <data name="LabelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>Enter User Name</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Name" xml:space="preserve">
+    <value>LabelControl2</value>
   </data>
   <data name="&gt;&gt;LabelControl2.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="LabelSec.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 276</value>
+  <data name="&gt;&gt;LabelControl2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;BtnCancel.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="&gt;&gt;LabelControl2.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
-  <data name="&gt;&gt;LabelEmp.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="BtnSave.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;RadioLink.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="BtnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 347</value>
   </data>
   <data name="BtnSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="RadioLink.Properties.Items12" type="System.Int16, mscorlib">
-    <value>3</value>
+  <data name="BtnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 34</value>
   </data>
-  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="BtnSave.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="BtnSave.Text" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="&gt;&gt;BtnSave.Name" xml:space="preserve">
+    <value>BtnSave</value>
+  </data>
+  <data name="&gt;&gt;BtnSave.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;BtnSave.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnSave.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="TxtConfirmPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 116</value>
+  </data>
+  <data name="TxtConfirmPassword.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="TxtConfirmPassword.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;CboDoctor.Parent" xml:space="preserve">
+  <data name="TxtConfirmPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 26</value>
+  </data>
+  <data name="TxtConfirmPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;TxtConfirmPassword.Name" xml:space="preserve">
+    <value>TxtConfirmPassword</value>
+  </data>
+  <data name="&gt;&gt;TxtConfirmPassword.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TxtConfirmPassword.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TxtConfirmPassword.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="TxtPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 78</value>
+  </data>
+  <data name="TxtPassword.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="TxtPassword.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="TxtPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 26</value>
+  </data>
+  <data name="TxtPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;TxtPassword.Name" xml:space="preserve">
+    <value>TxtPassword</value>
+  </data>
+  <data name="&gt;&gt;TxtPassword.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TxtPassword.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TxtPassword.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="TxtUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 27</value>
+  </data>
+  <data name="TxtUsername.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="TxtUsername.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="TxtUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 26</value>
+  </data>
+  <data name="TxtUsername.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;TxtUsername.Name" xml:space="preserve">
+    <value>TxtUsername</value>
+  </data>
+  <data name="&gt;&gt;TxtUsername.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;TxtUsername.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TxtUsername.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="LabelDoctor.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelDoctor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 276</value>
+  </data>
+  <data name="LabelDoctor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="LabelDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 19</value>
+  </data>
+  <data name="LabelDoctor.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="LabelDoctor.Text" xml:space="preserve">
+    <value>Associated Doctor</value>
+  </data>
+  <data name="LabelDoctor.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;LabelDoctor.Name" xml:space="preserve">
+    <value>LabelDoctor</value>
+  </data>
+  <data name="&gt;&gt;LabelDoctor.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelDoctor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelDoctor.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="LabelSec.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelSec.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 276</value>
+  </data>
+  <data name="LabelSec.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="LabelSec.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 19</value>
+  </data>
+  <data name="LabelSec.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="LabelSec.Text" xml:space="preserve">
+    <value>Associated Secretary</value>
+  </data>
+  <data name="LabelSec.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;LabelSec.Name" xml:space="preserve">
+    <value>LabelSec</value>
+  </data>
+  <data name="&gt;&gt;LabelSec.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelSec.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelSec.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="CboUserLevel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 166</value>
+  </data>
+  <data name="CboUserLevel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="CboUserLevel.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="CboUserLevel.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="CboUserLevel.Properties.Items" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CboUserLevel.Properties.Items1" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="CboUserLevel.Properties.Items2" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CboUserLevel.Properties.Items3" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="CboUserLevel.Properties.Items4" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="CboUserLevel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 26</value>
+  </data>
+  <data name="CboUserLevel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;CboUserLevel.Name" xml:space="preserve">
+    <value>CboUserLevel</value>
+  </data>
+  <data name="&gt;&gt;CboUserLevel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;CboUserLevel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CboUserLevel.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="RadioLink.EditValue" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RadioLink.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 233</value>
+  </data>
+  <data name="RadioLink.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RadioLink.Properties.Items" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RadioLink.Properties.Items1" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="RadioLink.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioLink.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RadioLink.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="RadioLink.Properties.Items5" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="RadioLink.Properties.Items6" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioLink.Properties.Items7" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="RadioLink.Properties.Items8" type="System.Int16, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="RadioLink.Properties.Items9" xml:space="preserve">
+    <value>Secretary</value>
+  </data>
+  <data name="RadioLink.Properties.Items10" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioLink.Properties.Items11" type="System.Int16, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="RadioLink.Properties.Items12" type="System.Int16, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="RadioLink.Properties.Items13" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="RadioLink.Properties.Items14" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioLink.Properties.Items15" type="System.Int16, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="RadioLink.Size" type="System.Drawing.Size, System.Drawing">
+    <value>329, 24</value>
+  </data>
+  <data name="RadioLink.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;RadioLink.Name" xml:space="preserve">
+    <value>RadioLink</value>
+  </data>
+  <data name="&gt;&gt;RadioLink.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;RadioLink.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RadioLink.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LabelControl6.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 236</value>
+  </data>
+  <data name="LabelControl6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 19</value>
+  </data>
+  <data name="LabelControl6.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>Link this User To</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Name" xml:space="preserve">
+    <value>LabelControl6</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelControl6.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LabelEmp.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="LabelEmp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 276</value>
+  </data>
+  <data name="LabelEmp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="LabelEmp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 19</value>
+  </data>
+  <data name="LabelEmp.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="LabelEmp.Text" xml:space="preserve">
+    <value>Associated Employee</value>
+  </data>
+  <data name="LabelEmp.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;LabelEmp.Name" xml:space="preserve">
+    <value>LabelEmp</value>
+  </data>
+  <data name="&gt;&gt;LabelEmp.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelEmp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelEmp.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CboDoctor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 273</value>
+  </data>
+  <data name="CboDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 25</value>
+  </data>
+  <data name="CboDoctor.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="CboDoctor.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;CboDoctor.Name" xml:space="preserve">
+    <value>CboDoctor</value>
+  </data>
+  <data name="&gt;&gt;CboDoctor.Type" xml:space="preserve">
+    <value>DentistX.DoctorsCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;CboDoctor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CboDoctor.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="CboSec.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 274</value>
+  </data>
+  <data name="CboSec.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="CboSec.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="CboSec.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;CboSec.Name" xml:space="preserve">
+    <value>CboSec</value>
+  </data>
+  <data name="&gt;&gt;CboSec.Type" xml:space="preserve">
+    <value>DentistX.SecretariesCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;CboSec.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CboSec.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="CboUserGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 199</value>
+  </data>
+  <data name="CboUserGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 25</value>
+  </data>
+  <data name="CboUserGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;CboUserGroup.Name" xml:space="preserve">
+    <value>CboUserGroup</value>
+  </data>
+  <data name="&gt;&gt;CboUserGroup.Type" xml:space="preserve">
+    <value>DentistX.GroupsCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;CboUserGroup.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CboUserGroup.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="CboEmps.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 274</value>
+  </data>
+  <data name="CboEmps.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="CboEmps.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="CboEmps.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;CboEmps.Name" xml:space="preserve">
+    <value>CboEmps</value>
+  </data>
+  <data name="&gt;&gt;CboEmps.Type" xml:space="preserve">
+    <value>DentistX.EmpsCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;CboEmps.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CboEmps.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 19</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>485, 417</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Add New User</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmAddNewUser</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

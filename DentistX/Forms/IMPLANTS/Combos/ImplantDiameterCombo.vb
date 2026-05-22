@@ -263,7 +263,7 @@ Public Class ImplantDiameterCombo
     Public Function GetDiameterID(diameterMm As Decimal) As Integer
         Const sql As String = "SELECT DiameterID FROM ImplantDiameter WHERE DiameterMM = @DiameterMM"
         Using conn As New SqlConnection(_connectionString)
-            Dim result As Integer? = conn.QuerySingleOrDefault(Of Integer?)(sql, New With {.DiameterMM = diameterMm})
+            Dim result As Integer? = conn.QueryFirstOrDefault(Of Integer?)(sql, New With {.DiameterMM = diameterMm})
             Return If(result.HasValue, result.Value, -1)
         End Using
     End Function

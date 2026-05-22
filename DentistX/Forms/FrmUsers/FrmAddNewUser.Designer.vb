@@ -49,60 +49,58 @@ Partial Class FrmAddNewUser
         '
         'BtnCancel
         '
-        resources.ApplyResources(Me.BtnCancel, "BtnCancel")
         Me.BtnCancel.Appearance.Font = CType(resources.GetObject("BtnCancel.Appearance.Font"), System.Drawing.Font)
         Me.BtnCancel.Appearance.Options.UseFont = True
         Me.BtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.BtnCancel.ImageOptions.ImageKey = resources.GetString("BtnCancel.ImageOptions.ImageKey")
+        resources.ApplyResources(Me.BtnCancel, "BtnCancel")
         Me.BtnCancel.Name = "BtnCancel"
         '
         'LabelControl5
         '
-        resources.ApplyResources(Me.LabelControl5, "LabelControl5")
         Me.LabelControl5.Appearance.Font = CType(resources.GetObject("LabelControl5.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl5.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelControl5, "LabelControl5")
         Me.LabelControl5.Name = "LabelControl5"
         '
         'LabelControl4
         '
-        resources.ApplyResources(Me.LabelControl4, "LabelControl4")
         Me.LabelControl4.Appearance.Font = CType(resources.GetObject("LabelControl4.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl4.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelControl4, "LabelControl4")
         Me.LabelControl4.Name = "LabelControl4"
         '
         'LabelControl3
         '
-        resources.ApplyResources(Me.LabelControl3, "LabelControl3")
         Me.LabelControl3.Appearance.Font = CType(resources.GetObject("LabelControl3.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl3.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelControl3, "LabelControl3")
         Me.LabelControl3.Name = "LabelControl3"
         '
         'LabelControl1
         '
-        resources.ApplyResources(Me.LabelControl1, "LabelControl1")
         Me.LabelControl1.Appearance.Font = CType(resources.GetObject("LabelControl1.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl1.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelControl1, "LabelControl1")
         Me.LabelControl1.Name = "LabelControl1"
         '
         'LabelControl2
         '
-        resources.ApplyResources(Me.LabelControl2, "LabelControl2")
         Me.LabelControl2.Appearance.Font = CType(resources.GetObject("LabelControl2.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl2.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelControl2, "LabelControl2")
         Me.LabelControl2.Name = "LabelControl2"
         '
         'BtnSave
         '
-        resources.ApplyResources(Me.BtnSave, "BtnSave")
         Me.BtnSave.Appearance.Font = CType(resources.GetObject("BtnSave.Appearance.Font"), System.Drawing.Font)
         Me.BtnSave.Appearance.Options.UseFont = True
-        Me.BtnSave.ImageOptions.ImageKey = resources.GetString("BtnSave.ImageOptions.ImageKey")
+        resources.ApplyResources(Me.BtnSave, "BtnSave")
         Me.BtnSave.Name = "BtnSave"
         '
         'TxtConfirmPassword
         '
-        resources.ApplyResources(Me.TxtConfirmPassword, "TxtConfirmPassword")
         Me.TxtConfirmPassword.EnterMoveNextControl = True
+        resources.ApplyResources(Me.TxtConfirmPassword, "TxtConfirmPassword")
         Me.TxtConfirmPassword.Name = "TxtConfirmPassword"
         Me.TxtConfirmPassword.Properties.Appearance.Font = CType(resources.GetObject("TxtConfirmPassword.Properties.Appearance.Font"), System.Drawing.Font)
         Me.TxtConfirmPassword.Properties.Appearance.Options.UseFont = True
@@ -110,8 +108,8 @@ Partial Class FrmAddNewUser
         '
         'TxtPassword
         '
-        resources.ApplyResources(Me.TxtPassword, "TxtPassword")
         Me.TxtPassword.EnterMoveNextControl = True
+        resources.ApplyResources(Me.TxtPassword, "TxtPassword")
         Me.TxtPassword.Name = "TxtPassword"
         Me.TxtPassword.Properties.Appearance.Font = CType(resources.GetObject("TxtPassword.Properties.Appearance.Font"), System.Drawing.Font)
         Me.TxtPassword.Properties.Appearance.Options.UseFont = True
@@ -119,30 +117,30 @@ Partial Class FrmAddNewUser
         '
         'TxtUsername
         '
-        resources.ApplyResources(Me.TxtUsername, "TxtUsername")
         Me.TxtUsername.EnterMoveNextControl = True
+        resources.ApplyResources(Me.TxtUsername, "TxtUsername")
         Me.TxtUsername.Name = "TxtUsername"
         Me.TxtUsername.Properties.Appearance.Font = CType(resources.GetObject("TxtUsername.Properties.Appearance.Font"), System.Drawing.Font)
         Me.TxtUsername.Properties.Appearance.Options.UseFont = True
         '
         'LabelDoctor
         '
-        resources.ApplyResources(Me.LabelDoctor, "LabelDoctor")
         Me.LabelDoctor.Appearance.Font = CType(resources.GetObject("LabelDoctor.Appearance.Font"), System.Drawing.Font)
         Me.LabelDoctor.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelDoctor, "LabelDoctor")
         Me.LabelDoctor.Name = "LabelDoctor"
         '
         'LabelSec
         '
-        resources.ApplyResources(Me.LabelSec, "LabelSec")
         Me.LabelSec.Appearance.Font = CType(resources.GetObject("LabelSec.Appearance.Font"), System.Drawing.Font)
         Me.LabelSec.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelSec, "LabelSec")
         Me.LabelSec.Name = "LabelSec"
         '
         'CboUserLevel
         '
-        resources.ApplyResources(Me.CboUserLevel, "CboUserLevel")
         Me.CboUserLevel.EnterMoveNextControl = True
+        resources.ApplyResources(Me.CboUserLevel, "CboUserLevel")
         Me.CboUserLevel.Name = "CboUserLevel"
         Me.CboUserLevel.Properties.Appearance.Font = CType(resources.GetObject("CboUserLevel.Properties.Appearance.Font"), System.Drawing.Font)
         Me.CboUserLevel.Properties.Appearance.Options.UseFont = True
@@ -165,51 +163,63 @@ Partial Class FrmAddNewUser
         '
         'LabelControl6
         '
-        resources.ApplyResources(Me.LabelControl6, "LabelControl6")
         Me.LabelControl6.Appearance.Font = CType(resources.GetObject("LabelControl6.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl6.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelControl6, "LabelControl6")
         Me.LabelControl6.Name = "LabelControl6"
         '
         'LabelEmp
         '
-        resources.ApplyResources(Me.LabelEmp, "LabelEmp")
         Me.LabelEmp.Appearance.Font = CType(resources.GetObject("LabelEmp.Appearance.Font"), System.Drawing.Font)
         Me.LabelEmp.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.LabelEmp, "LabelEmp")
         Me.LabelEmp.Name = "LabelEmp"
         '
         'CboDoctor
         '
-        resources.ApplyResources(Me.CboDoctor, "CboDoctor")
-        Me.CboDoctor.DrID = 0
+        Me.CboDoctor.BtnAddVisible = True
+        Me.CboDoctor.BtnSearchVisible = True
+        Me.CboDoctor.DrID = 1
         Me.CboDoctor.DrName = Nothing
+        Me.CboDoctor.Filter = ""
+        resources.ApplyResources(Me.CboDoctor, "CboDoctor")
         Me.CboDoctor.Name = "CboDoctor"
         '
         'CboSec
         '
+        Me.CboSec.BtnAddVisible = True
+        Me.CboSec.BtnSearchVisible = True
+        Me.CboSec.Filter = ""
         resources.ApplyResources(Me.CboSec, "CboSec")
         Me.CboSec.Name = "CboSec"
-        Me.CboSec.SecID = 0
+        Me.CboSec.SecID = 1
         Me.CboSec.SecName = Nothing
         '
         'CboUserGroup
         '
-        resources.ApplyResources(Me.CboUserGroup, "CboUserGroup")
-        Me.CboUserGroup.GroupID = 0
+        Me.CboUserGroup.BtnAddVisible = True
+        Me.CboUserGroup.BtnSearchVisible = True
+        Me.CboUserGroup.Filter = ""
+        Me.CboUserGroup.GroupID = 1
         Me.CboUserGroup.GroupName = Nothing
+        resources.ApplyResources(Me.CboUserGroup, "CboUserGroup")
         Me.CboUserGroup.Name = "CboUserGroup"
         '
         'CboEmps
         '
-        resources.ApplyResources(Me.CboEmps, "CboEmps")
-        Me.CboEmps.EmpID = 0
+        Me.CboEmps.BtnAddVisible = True
+        Me.CboEmps.BtnSearchVisible = True
+        Me.CboEmps.EmpID = 1
         Me.CboEmps.EmpName = Nothing
+        Me.CboEmps.Filter = ""
+        resources.ApplyResources(Me.CboEmps, "CboEmps")
         Me.CboEmps.Name = "CboEmps"
         '
         'FrmAddNewUser
         '
         Me.AcceptButton = Me.BtnSave
-        resources.ApplyResources(Me, "$this")
         Me.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.BtnCancel
         Me.Controls.Add(Me.CboEmps)

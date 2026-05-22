@@ -144,7 +144,7 @@ Partial Public Class FrmTblOtherTRT
         ClearRecord()
         ShowToolStripItems("Add")
         TblOtherTrtIDSpinEdit.Select()
-        TblOtherTrtIDSpinEdit.Text = clsDentistXData.getAutoID("New", "TblOtherTRT")
+        TblOtherTrtIDSpinEdit.Text = DentistXDATA.getAutoID("New", "TblOtherTRT")
     End Sub
 
     Private Sub Edit()

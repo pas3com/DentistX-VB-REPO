@@ -49,7 +49,7 @@ Public Class ApptDataProvider
                 End If
             Next
 
-            bundle.Appointments = ApptTheme.OrderAppointmentsForDisplay(bundle.Appointments, bundle, linkedDoctorAtEnd:=True)
+            bundle.Appointments = ApptTheme.OrderAppointmentsForDisplay(bundle.Appointments, bundle, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
             Return bundle
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
@@ -79,7 +79,7 @@ Public Class ApptDataProvider
             For Each appointment In list
                 NormalizeAppointmentDate(appointment)
             Next
-            Return ApptTheme.OrderAppointmentsForDisplay(list, Function(id) _repo.GetDoctorName(id), linkedDoctorAtEnd:=True)
+            Return ApptTheme.OrderAppointmentsForDisplay(list, Function(id) _repo.GetDoctorName(id), linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
                                    "ApptDataProvider.LoadEdgeHintAppointments",

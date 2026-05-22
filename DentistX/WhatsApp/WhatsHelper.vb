@@ -479,16 +479,17 @@ Module WhatsHelper
     ''' Discount/Discount2, localized pay types in Arabic, cheque details, totals and balance (payments − net treatments).
     ''' </summary>
     Public Function BuildAccountingWhatsAppMessage(patientName As String,
-                                                   treatments As IEnumerable(Of Patient_Trts),
+                                                   displayTreatments As IEnumerable(Of Patient_Trts),
                                                    payments As IEnumerable(Of Patient_Pays),
                                                    excludeZeroValueTreatments As Boolean,
                                                    useArabic As Boolean,
                                                    Optional fullBody As Boolean = True,
-                                                   Optional patientSex As String = Nothing) As String
+                                                   Optional patientSex As String = Nothing,
+                                                   Optional allTreatmentsForTotals As IEnumerable(Of Patient_Trts) = Nothing) As String
         Dim firstClinic As Clinic = GetFirstClinicOrNothing()
         If firstClinic Is Nothing Then Return Nothing
 
-        Dim trts = If(treatments, Enumerable.Empty(Of Patient_Trts)()).ToList()
+        Dim trts = If(displayTreatments, Enumerable.Empty(Of Patient_Trts)()).ToList()
         If excludeZeroValueTreatments Then
             trts = trts.Where(Function(t) t.TrtValue > 0D).ToList()
         End If
@@ -534,10 +535,14 @@ Module WhatsHelper
             End If
         End If
 
-        If pays.Any() Then
+        ' Separate regular payments from returned cheques
+        Dim regularPays = pays.Where(Function(p) Not p.IsReturned.GetValueOrDefault()).ToList()
+        Dim returnedCheques = pays.Where(Function(p) p.IsReturned.GetValueOrDefault()).ToList()
+
+        If regularPays.Any() Then
             sb.AppendLine(If(useEng, "Payments:", "الدفعات:"))
             Dim payIdx = 1
-            For Each P In pays
+            For Each P In regularPays
                 Dim pType = LocalizePayTypeForAccountingWhatsApp(If(P.PayType, ""), useArabic)
                 Dim dt = FormatWhatsAppDateLongOrEmpty(P.PayDate, useEng)
                 Dim val = P.PayValue.ToString("N2")
@@ -551,41 +556,83 @@ Module WhatsHelper
                 sb.AppendLine()
                 payIdx += 1
             Next
+            sb.AppendLine()
+        End If
+
+        ' Returned cheques section (only if there are any)
+        If returnedCheques.Any() Then
+            sb.AppendLine(If(useEng, "Returned Cheques:", "الشيكات المرتجعة:"))
+            Dim retIdx = 1
+            For Each P In returnedCheques
+                Dim pType = LocalizePayTypeForAccountingWhatsApp(If(P.PayType, ""), useArabic)
+                Dim dt = FormatWhatsAppDateLongOrEmpty(P.PayDate, useEng)
+                Dim val = P.PayValue.ToString("N2")
+                sb.Append($"  {retIdx}. {pType}{sep}{dt}{sep}{If(useEng, "Value:", "المبلغ:")} {val}")
+                If Not String.IsNullOrWhiteSpace(P.ChqNumber) Then sb.Append($" {If(useEng, "Chq#:", "شيك رقم:")} {P.ChqNumber}")
+                If P.ChqDueDate.HasValue Then sb.Append($" {If(useEng, "Due:", "استحقاق:")} {FormatWhatsAppDateLong(P.ChqDueDate.Value, useEng)}")
+                If Not String.IsNullOrWhiteSpace(P.ChqBank) Then sb.Append($" {If(useEng, "Bank:", "البنك:")} {P.ChqBank}")
+                sb.AppendLine()
+                retIdx += 1
+            Next
+            sb.AppendLine()
         End If
 
         sb.AppendLine()
-        Dim totalDisc As Decimal = trts.Sum(Function(t) If(t.Discount.HasValue, t.Discount.Value, 0D))
-        Dim totalDisc2 As Decimal = trts.Sum(Function(t) If(t.Discount2.HasValue, t.Discount2.Value, 0D))
-        Dim totalTreats As Decimal = trts.Sum(Function(t) t.TrtValue - If(t.Discount.HasValue, t.Discount.Value, 0D) - If(t.Discount2.HasValue, t.Discount2.Value, 0D))
-        Dim totalPays As Decimal = pays.Sum(Function(p) p.PayValue)
-        Dim balance As Decimal = totalPays - totalTreats
+        Dim totalDisc As Decimal = allTreatmentsForTotals.Sum(Function(t) If(t.Discount.HasValue, t.Discount.Value, 0D))
+        Dim totalDisc2 As Decimal = allTreatmentsForTotals.Sum(Function(t) If(t.Discount2.HasValue, t.Discount2.Value, 0D))
+        Dim totalTreats As Decimal = displayTreatments.Sum(Function(t) t.TrtValue)
+        Dim netTreats As Decimal = totalTreats - totalDisc - totalDisc2
+        Dim totalRegularPays As Decimal = regularPays.Sum(Function(p) p.PayValue)
+        Dim totalReturned As Decimal = returnedCheques.Sum(Function(p) p.PayValue)
+        Dim totalAllPays As Decimal = totalRegularPays + totalReturned
+        Dim netPays As Decimal = totalRegularPays
+        ' Balance = regular payments - net treatments
+        ' (returned cheques are included in Total payments but don't affect balance since they weren't received)
+        Dim balance As Decimal = totalRegularPays - netTreats
+        Dim allDisc As Decimal = totalDisc + totalDisc2
         If useEng Then
             sb.AppendLine("Total treatments: " & totalTreats.ToString("N2"))
-            sb.AppendLine("Total payments: " & totalPays.ToString("N2"))
-            If totalDisc <> 0D Then
-                sb.AppendLine("Total discount: " & totalDisc.ToString("N2"))
-            End If
-            If totalDisc2 <> 0D Then
-                If totalDisc = 0D Then
-                    sb.AppendLine("Total discount: " & totalDisc2.ToString("N2"))
-                Else
-                    sb.AppendLine("Total discount 2: " & totalDisc2.ToString("N2"))
+            If totalDisc > 0D OrElse totalDisc2 > 0D Then
+                If totalDisc > 0D AndAlso totalDisc2 > 0D Then
+                    sb.AppendLine("Total discounts: " & allDisc.ToString("N2"))
+                    sb.AppendLine("  Discount: " & totalDisc.ToString("N2"))
+                    sb.AppendLine("  Discount2: " & totalDisc2.ToString("N2"))
+                    sb.AppendLine("Net treatments: " & netTreats.ToString("N2"))
+                ElseIf totalDisc > 0D Then
+                    sb.AppendLine("Total discounts: " & totalDisc.ToString("N2"))
+                    sb.AppendLine("Net treatments: " & netTreats.ToString("N2"))
+                ElseIf totalDisc2 > 0D Then
+                    sb.AppendLine("Total discounts: " & totalDisc2.ToString("N2"))
+                    sb.AppendLine("Net treatments: " & netTreats.ToString("N2"))
                 End If
+            End If
+            sb.AppendLine("Total payments: " & totalAllPays.ToString("N2"))
+            If totalReturned > 0D Then
+                sb.AppendLine("Returned cheques: " & totalReturned.ToString("N2"))
+                sb.AppendLine("Net payments: " & netPays.ToString("N2"))
             End If
             sb.AppendLine("Balance: " & balance.ToString("N2"))
         Else
             Dim rlm As Char = ChrW(&H200F)
             sb.AppendLine("إجمالي العلاجات: " & rlm & totalTreats.ToString("N2"))
-            sb.AppendLine("إجمالي الدفعات: " & rlm & totalPays.ToString("N2"))
-            If totalDisc <> 0D Then
-                sb.AppendLine("إجمالي الخصم: " & totalDisc.ToString("N2"))
-            End If
-            If totalDisc2 <> 0D Then
-                If totalDisc = 0D Then
-                    sb.AppendLine("إجمالي الخصم: " & totalDisc2.ToString("N2"))
-                Else
-                    sb.AppendLine("إجمالي خصم 2: " & totalDisc2.ToString("N2"))
+            If totalDisc > 0D OrElse totalDisc2 > 0D Then
+                If totalDisc > 0D AndAlso totalDisc2 > 0D Then
+                    sb.AppendLine("إجمالي الخصومات: " & rlm & allDisc.ToString("N2"))
+                    sb.AppendLine("  الخصم 1: " & rlm & totalDisc.ToString("N2"))
+                    sb.AppendLine("  الخصم 2: " & rlm & totalDisc2.ToString("N2"))
+                    sb.AppendLine("صافي العلاجات: " & rlm & netTreats.ToString("N2"))
+                ElseIf totalDisc > 0D Then
+                    sb.AppendLine("إجمالي الخصومات: " & rlm & totalDisc.ToString("N2"))
+                    sb.AppendLine("صافي العلاجات: " & rlm & netTreats.ToString("N2"))
+                ElseIf totalDisc2 > 0D Then
+                    sb.AppendLine("إجمالي الخصومات: " & rlm & totalDisc2.ToString("N2"))
+                    sb.AppendLine("صافي العلاجات: " & rlm & netTreats.ToString("N2"))
                 End If
+            End If
+            sb.AppendLine("إجمالي الدفعات: " & rlm & totalAllPays.ToString("N2"))
+            If totalReturned > 0D Then
+                sb.AppendLine("الشيكات المرتجعة: " & rlm & totalReturned.ToString("N2"))
+                sb.AppendLine("صافي الدفعات: " & rlm & netPays.ToString("N2"))
             End If
             sb.AppendLine("الرصيد: " & rlm & balance.ToString("N2"))
         End If
@@ -628,7 +675,7 @@ Module WhatsHelper
             Return If(useEng, "Mr.", "السيد")
         End If
         If sexRaw = "Female" OrElse sexRaw = "انثى" OrElse sexRaw = "أنثى" Then
-            Return If(useEng, "Ms.", "السيدة")
+            Return If(useEng, "Ms.\Mrs", "السيدة")
         End If
         Return ""
     End Function

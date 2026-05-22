@@ -1,12 +1,15 @@
 
 
 
-
+Imports System.Drawing
 Imports DevExpress.XtraEditors
 
 Module DiagHelper
 
     Public isItMobTreat As Boolean = False
+
+    ' Opaque warm beige ≈ midpoint of AntiqueWhite→Wheat diagonal (external diagnosis highlight); skips Svg BackgroundImage gradients.
+    Friend ReadOnly ExternalTreatSvgSolidApprox As Color = Color.FromArgb(248, 233, 204)
 
 #Region "TreatCode"
     Public Sub LoadTeethTreatsUsingTreatCode(cntrl As Control, svgExternalList As List(Of SvgImageBox),
@@ -44,7 +47,8 @@ Module DiagHelper
     End Sub
 
     Public Sub ProcessToothTreatments(svg As SvgImageBox, svgExternalList As List(Of SvgImageBox),
-                                        patientTreats As IEnumerable(Of Patient_Diagnosis))
+                                        patientTreats As IEnumerable(Of Patient_Diagnosis),
+                                        Optional useHeavySvgGradientBackground As Boolean = True)
         ClearSvgBackground(svg)
         Dim col As SvgImageItemCollection = svg.RootItems
         Dim toothNum As Byte = CByte(svg.Tag)
@@ -56,7 +60,7 @@ Module DiagHelper
         ResetSvgItemsVisibility(col)
         ' Handle special cases
 
-        HandleExternalTreatments(svg, svgExternalList, col, trtsList)
+        HandleExternalTreatments(svg, svgExternalList, col, trtsList, useHeavySvgGradientBackground)
         ' If no treatments, just show base tooth and exit
         If trtsList.Count = 0 Then
             ShowBaseTooth(col)
@@ -76,14 +80,19 @@ Module DiagHelper
         If baseTooth IsNot Nothing Then baseTooth.Visible = True
     End Sub
     Public Sub HandleExternalTreatments(svg As SvgImageBox, svgExternalList As List(Of SvgImageBox), col As SvgImageItemCollection,
-                                         trtsList As List(Of Patient_Diagnosis))
+                                         trtsList As List(Of Patient_Diagnosis), Optional useHeavySvgGradientBackground As Boolean = True)
         Dim externalTrts = trtsList.Where(Function(t) t.IsExternal.HasValue AndAlso t.IsExternal.Value = True).ToList()
         If externalTrts.Any() Then
-            ApplyGradientBackground(svg,
+            If useHeavySvgGradientBackground Then
+                ApplyGradientBackground(svg,
                              Color.AntiqueWhite,
                               Color.Wheat,
                               Drawing2D.LinearGradientMode.ForwardDiagonal,
                               128)
+            Else
+                ClearSvgBackground(svg)
+                svg.BackColor = ExternalTreatSvgSolidApprox
+            End If
             svgExternalList.Add(svg)
         End If
     End Sub
@@ -1111,6 +1120,28 @@ Module DiagHelper
         Next
         Return Nothing
     End Function
+
+#Region "DiagJawFlyoutCorners"
+    ''' <summary>Anchor corner for a manual flyout in JawPanel client space (combine with JawPanel.Left/Top for host-UC client coords).</summary>
+    Public Function DiagToothFlyoutCornerInJawClient(svg As SvgImageBox, flyoutWidth As Integer, flyoutHeight As Integer,
+                                                       namePrefixComparison As StringComparison) As Point
+        Dim loc As Point = svg.Location
+        Dim n As String = svg.Name
+        If n.StartsWith("Ld", namePrefixComparison) Then
+            Return New Point(loc.X - flyoutWidth, loc.Y + svg.Height - flyoutHeight)
+        End If
+        If n.StartsWith("Rd", namePrefixComparison) Then
+            Return New Point(loc.X + svg.Width, loc.Y + svg.Height - flyoutHeight)
+        End If
+        If n.StartsWith("Lu", namePrefixComparison) Then
+            Return New Point(loc.X - flyoutWidth, loc.Y)
+        End If
+        If n.StartsWith("Ru", namePrefixComparison) Then
+            Return New Point(loc.X + svg.Width, loc.Y)
+        End If
+        Return New Point(loc.X + svg.Width, loc.Y)
+    End Function
+#End Region
 
 End Module
 

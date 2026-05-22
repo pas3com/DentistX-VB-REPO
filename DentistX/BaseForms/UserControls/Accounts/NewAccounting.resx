@@ -265,7 +265,7 @@
     <value />
   </data>
   <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 55</value>
+    <value>229, 41</value>
   </data>
   <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 27</value>
@@ -295,7 +295,7 @@
     <value />
   </data>
   <data name="btnInvoiceGen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 55</value>
+    <value>229, 211</value>
   </data>
   <data name="btnInvoiceGen.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 27</value>
@@ -305,6 +305,9 @@
   </data>
   <data name="btnInvoiceGen.Text" xml:space="preserve">
     <value>Invoice</value>
+  </data>
+  <data name="btnInvoiceGen.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;btnInvoiceGen.Name" xml:space="preserve">
     <value>btnInvoiceGen</value>
@@ -325,7 +328,7 @@
     <value />
   </data>
   <data name="btnAddTreat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 18</value>
+    <value>20, 41</value>
   </data>
   <data name="btnAddTreat.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 27</value>
@@ -355,7 +358,7 @@
     <value />
   </data>
   <data name="btnEditTrt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 18</value>
+    <value>121, 41</value>
   </data>
   <data name="btnEditTrt.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 27</value>
@@ -385,10 +388,10 @@
     <value />
   </data>
   <data name="btnResetPatientAccount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 92</value>
+    <value>20, 74</value>
   </data>
   <data name="btnResetPatientAccount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 27</value>
+    <value>295, 27</value>
   </data>
   <data name="btnResetPatientAccount.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -502,6 +505,9 @@
   <data name="showAsChildChck.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
+  <data name="showAsChildChck.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;showAsChildChck.Name" xml:space="preserve">
     <value>showAsChildChck</value>
   </data>
@@ -566,15 +572,9 @@
     <value>Tooth Treats</value>
   </data>
   <data name="RadioFilter.Properties.Items6" type="System.Int16, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="RadioFilter.Properties.Items7" xml:space="preserve">
-    <value>Other Treats</value>
-  </data>
-  <data name="RadioFilter.Properties.Items8" type="System.Int16, mscorlib">
     <value>3</value>
   </data>
-  <data name="RadioFilter.Properties.Items9" xml:space="preserve">
+  <data name="RadioFilter.Properties.Items7" xml:space="preserve">
     <value>Ortho Treats</value>
   </data>
   <data name="RadioFilter.Size" type="System.Drawing.Size, System.Drawing">
@@ -1246,6 +1246,9 @@
   <data name="cboPayType.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
+  <data name="cboPayType.Properties.AppearanceDropDown.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
   <data name="cboPayType.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
     <value>Combo</value>
   </data>
@@ -1262,7 +1265,7 @@
     <value>Insurance</value>
   </data>
   <data name="cboPayType.Properties.Items4" xml:space="preserve">
-    <value>Credit Card</value>
+    <value>Credit Card (VISA Card)</value>
   </data>
   <data name="cboPayType.Properties.Items5" xml:space="preserve">
     <value>Transfer</value>
@@ -2787,7 +2790,7 @@
     <value>0</value>
   </data>
   <data name="lblBal.Text" xml:space="preserve">
-    <value>Final Balance For Patient :</value>
+    <value>0.0</value>
   </data>
   <data name="&gt;&gt;lblBal.Name" xml:space="preserve">
     <value>lblBal</value>
@@ -2844,7 +2847,7 @@
     <value>6</value>
   </data>
   <data name="lblTotalPays.Text" xml:space="preserve">
-    <value>Total Payments Value:</value>
+    <value>0.0</value>
   </data>
   <data name="&gt;&gt;lblTotalPays.Name" xml:space="preserve">
     <value>lblTotalPays</value>
@@ -2874,7 +2877,7 @@
     <value>4</value>
   </data>
   <data name="lblTotalDisc.Text" xml:space="preserve">
-    <value>Total Treatments  Value:</value>
+    <value>0.0</value>
   </data>
   <data name="&gt;&gt;lblTotalDisc.Name" xml:space="preserve">
     <value>lblTotalDisc</value>
@@ -2904,7 +2907,7 @@
     <value>2</value>
   </data>
   <data name="lblTotalTrts.Text" xml:space="preserve">
-    <value>Total Treatments  Value:</value>
+    <value>0.0</value>
   </data>
   <data name="&gt;&gt;lblTotalTrts.Name" xml:space="preserve">
     <value>lblTotalTrts</value>

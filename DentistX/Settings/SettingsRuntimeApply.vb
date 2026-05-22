@@ -4,7 +4,7 @@ Imports System.Threading
 Imports Infralution.Localization
 
 ''' <summary>
-''' Applies settings that normally run in <see cref="MyApplication.MyApplication_Startup"/> without restarting the app.
+''' Applies settings that normally run in <c>MyApplication_Startup</c> without restarting the app.
 ''' </summary>
 Friend Module SettingsRuntimeApply
 

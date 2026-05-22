@@ -149,7 +149,7 @@ Partial Public Class FrmImplantBrand
      ClearRecord()
      ShowToolStripItems("Add")
      BrandIDSpinEdit.Select
-     BrandIDSpinEdit.Text = clsDentistXData.getAutoID("New", "ImplantBrand")
+     BrandIDSpinEdit.Text = DentistXDATA.getAutoID("New", "ImplantBrand")
  End Sub
 
  Private Sub Edit()
@@ -196,7 +196,7 @@ Partial Public Class FrmImplantBrand
  Private Sub SetData(ByVal clsImplantBrand As ImplantBrand)
      With clsImplantBrand
         .BrandID = System.Convert.ToInt32(BrandIDSpinEdit.Value)
-        .BrandName = System.Convert.ToString(BrandNameTextEdit.Text)
+        .BrandName = System.Convert.ToString(BrandNameTextEdit.Text).Trim()
      End With
  End Sub
 
@@ -255,6 +255,13 @@ Partial Public Class FrmImplantBrand
         End If
         If BrandNameTextEdit.Text = "" Then
             MsgBox("BrandName is required.", MsgBoxStyle.OkOnly, "Entry Error")
+            BrandNameTextEdit.Select()
+            Return False
+        End If
+        Dim bn = Convert.ToString(BrandNameTextEdit.Text).Trim()
+        Dim excludeId As Integer? = If(EditMode, CInt(BrandIDSpinEdit.Value), Nothing)
+        If clsImplantBrandData.CountByBrandName(bn, excludeId) > 0 Then
+            MsgBox("This brand name already exists. Duplicate names are not allowed.", MsgBoxStyle.OkOnly, "Entry Error")
             BrandNameTextEdit.Select()
             Return False
         End If

@@ -38,11 +38,17 @@ Public Class AddNewTrtForm
         IsExternalchk.Checked = False
         loaded = False
         Me.Icon = AppIcon
+        Me.txtTrtPrice.Focus()
+        Me.txtTrtPrice.SelectAll()
     End Sub
     Public Sub New(ByVal clsToothTrt As List(Of Patient_ToothTrt), ByVal clsPatient As Patient)
         ' This call is required by the designer.
         InitializeComponent()
         Me.Icon = AppIcon
+        If clsToothTrt Is Nothing OrElse clsToothTrt.Count = 0 OrElse clsPatient Is Nothing Then
+            loaded = False
+            Return
+        End If
         loaded = False
         isPaidChck.Checked = False
         IsExternalchk.Checked = False
@@ -87,10 +93,16 @@ Public Class AddNewTrtForm
         loaded = True
         grpSpecialClrs.Visible = specialTrts.Contains(txtTreat.Text.ToUpper())
         TrtBS.DataSource = clsToothTrt.ToList
+        Me.txtTrtPrice.Focus()
+        Me.txtTrtPrice.SelectAll()
     End Sub
     Public Sub New(ByVal clsToothTrt As Patient_ToothTrt, ByVal clsPatient As Patient)
         InitializeComponent()
         Me.Icon = AppIcon
+        If clsToothTrt Is Nothing OrElse clsPatient Is Nothing Then
+            loaded = False
+            Return
+        End If
         loaded = False
         isPaidChck.Checked = False
         IsExternalchk.Checked = False
@@ -132,7 +144,7 @@ Public Class AddNewTrtForm
         isPaidChck.Checked = paid
         IsExternalchk.Checked = external
         loaded = True
-        If clsToothTrt.BorderColor.Length = 8 Then
+        If clsToothTrt.BorderColor IsNot Nothing AndAlso clsToothTrt.BorderColor.Length = 8 Then
             SetBrdrClrFromHex(clsToothTrt.FillColor)
         End If
         txtExtClinic.Text = clsToothTrt.ExternalClinicName
@@ -140,6 +152,8 @@ Public Class AddNewTrtForm
         grpSpecialClrs.Visible = specialTrts.Contains(txtTreat.Text.ToUpper())
 
         TrtBS.DataSource = clsToothTrt
+        Me.txtTrtPrice.Focus()
+        Me.txtTrtPrice.SelectAll()
     End Sub
     Private Function GetToothFullName(ByVal toothname As String) As String
         If String.IsNullOrEmpty(toothname) OrElse toothname.Length < 3 Then Return ""
@@ -169,6 +183,10 @@ Public Class AddNewTrtForm
         IntegerMoneyEditorFocus.AttachTextEditZeroEmptyElseSelectAll(txtPayValue)
         IntegerMoneyEditorFocus.ConfigureIntegerMoneyTextEdit(txtTrtPrice)
         IntegerMoneyEditorFocus.AttachTextEditZeroEmptyElseSelectAll(txtTrtPrice)
+        IntegerMoneyEditorFocus.WireIntegerMoneyFieldBinding(txtTrtPrice, TrtBS, "TrtValue")
+        IntegerMoneyEditorFocus.WireIntegerMoneyFieldBinding(txtPayValue, TrtBS, "PayValue")
+        Me.txtTrtPrice.Focus()
+        Me.txtTrtPrice.SelectAll()
     End Sub
 
     Private Sub NewTrtAddCTL_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
@@ -270,6 +288,8 @@ Public Class AddNewTrtForm
             End Try
         Finally
             _applyingTreatmentTypeIndex = False
+            Me.txtTrtPrice.Focus()
+            Me.txtTrtPrice.SelectAll()
         End Try
     End Sub
 
@@ -1050,7 +1070,7 @@ Public Class AddNewTrtForm
                         Dim MaxLvl As Integer = toothTrtData.GetTreatLVL(_toothTrt.PatientID, _toothTrt.ToothNum)
                         Dim currentLvl As Integer = _toothTrt.LVL
                         'check if treat is a normal one after high level one
-                        If (MaxLvl > 4 AndAlso currentLvl < 4) Then
+                        If (MaxLvl > 4 AndAlso currentLvl < 4) AndAlso Not TrtSourceHelper.AllowLowLevelTreatOnChartDespiteHighMaxLevel(_toothTrt.PatientID, _toothTrt.ToothNum, _toothTrt.Treat, False) Then
                             Dim msgEng As String = "You Cant Add a Normal Treat On High Level Treat...."
                             Dim msgAr As String = "لا يمكنك إضافة علاج عادي على علاج عالي المستوى...."
                             Dim msg As String = If(Eng, msgEng, msgAr)
@@ -1377,7 +1397,7 @@ Public Class AddNewTrtForm
     ''' On parse failure, all five fields are cleared.
     ''' </summary>
     Private Sub SetImplantFieldsFromTreat(treat As String)
-        Dim b As String, tn As String, sl As String, d As String, l As String
+        Dim b As String = "", tn As String = "", sl As String = "", d As String = "", l As String = ""
         If ImplantTreatBracketHelper.TryParseImplantBracketPayload(treat, b, tn, sl, d, l) Then
             ImpBrand = b
             ImpType = tn
@@ -1633,68 +1653,32 @@ Public Class AddNewTrtForm
         End If
     End Sub
     Private Sub txtPrice_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTrtPrice.KeyPress, txtPayValue.KeyPress
-        ' Allow control keys (Backspace, Delete, etc.)
-        If Char.IsControl(e.KeyChar) Then
-            Return
-        End If
-        ' Allow digits (0-9)
-        If Char.IsDigit(e.KeyChar) Then
-            Return
-        End If
-        ' Allow only ONE decimal point (for prices)
-        If e.KeyChar = "."c AndAlso Not txtTrtPrice.Text.Contains(".") Then
-            Return
-        End If
-        ' Block any other character
+        If Char.IsControl(e.KeyChar) Then Return
+        If Char.IsDigit(e.KeyChar) Then Return
         e.Handled = True
     End Sub
     Private Sub txtPrice_PreviewKeyDown(sender As Object, e As PreviewKeyDownEventArgs) Handles txtTrtPrice.PreviewKeyDown, txtPayValue.PreviewKeyDown
-        ' Allow Ctrl+V (paste) - We'll handle validation separately
-        If e.Control AndAlso e.KeyCode = Keys.V Then
-            Return
-        End If
-        ' Allow Backspace, Delete, Arrows, Tab
+        If e.Control AndAlso e.KeyCode = Keys.V Then Return
         If e.KeyCode = Keys.Back OrElse e.KeyCode = Keys.Delete OrElse
                        e.KeyCode = Keys.Left OrElse e.KeyCode = Keys.Right OrElse
-                       e.KeyCode = Keys.Tab Then
-            Return
-        End If
-        ' Allow numbers (0-9)
-        If e.KeyCode >= Keys.D0 AndAlso e.KeyCode <= Keys.D9 Then
-            Return
-        End If
-        ' Allow numpad numbers (0-9)
-        If e.KeyCode >= Keys.NumPad0 AndAlso e.KeyCode <= Keys.NumPad9 Then
-            Return
-        End If
-        ' Allow ONE decimal point (if needed)
-        If e.KeyCode = Keys.Decimal AndAlso Not txtTrtPrice.Text.Contains(".") Then
-            Return
-        End If
-        ' Block all other keys
+                       e.KeyCode = Keys.Tab Then Return
+        If e.KeyCode >= Keys.D0 AndAlso e.KeyCode <= Keys.D9 Then Return
+        If e.KeyCode >= Keys.NumPad0 AndAlso e.KeyCode <= Keys.NumPad9 Then Return
         e.IsInputKey = False
     End Sub
     Private Sub txtPrice_EditValueChanged(sender As Object, e As EventArgs) Handles txtTrtPrice.EditValueChanged, txtPayValue.EditValueChanged
-        ' Skip if empty
-        If String.IsNullOrEmpty(txtTrtPrice.Text) Then Return
-        ' Store cursor position
-        Dim cursorPos = txtTrtPrice.SelectionStart
-        ' Remove all non-numeric characters (except one decimal point)
-        Dim cleanedText As New System.Text.StringBuilder()
-        Dim hasDecimal As Boolean = False
-        For Each c As Char In txtTrtPrice.Text
-            If Char.IsDigit(c) Then
-                cleanedText.Append(c)
-            ElseIf c = "."c AndAlso Not hasDecimal Then
-                cleanedText.Append(c)
-                hasDecimal = True
-            End If
+        Dim ed = TryCast(sender, DevExpress.XtraEditors.TextEdit)
+        If ed Is Nothing Then Return
+        If String.IsNullOrEmpty(ed.Text) Then Return
+        Dim cursorPos = ed.SelectionStart
+        Dim cleaned As New System.Text.StringBuilder(ed.Text.Length)
+        For Each c As Char In ed.Text
+            If Char.IsDigit(c) Then cleaned.Append(c)
         Next
-        ' If text was modified (due to invalid pasted chars), update it
-        If cleanedText.ToString() <> txtTrtPrice.Text Then
-            txtTrtPrice.Text = cleanedText.ToString()
-            ' Restore cursor position (adjusting for removed characters)
-            txtTrtPrice.SelectionStart = Math.Min(cursorPos, txtTrtPrice.Text.Length)
+        Dim cleanedStr = cleaned.ToString()
+        If cleanedStr <> ed.Text Then
+            ed.Text = cleanedStr
+            ed.SelectionStart = Math.Min(cursorPos, ed.Text.Length)
         End If
     End Sub
 

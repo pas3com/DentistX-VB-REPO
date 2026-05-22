@@ -31,8 +31,8 @@ Public Class FrmAccountReminderSchedule
 
     Private Sub ApplyLanguageRadioFromGlobal()
         If RadioLang Is Nothing Then Return
-        RadioLang.SelectedIndex = If(Eng, 1, 0)
-        useEng = Eng
+        RadioLang.SelectedIndex = 0
+        useEng = False
     End Sub
 
     Private Sub RadioLang_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RadioLang.SelectedIndexChanged

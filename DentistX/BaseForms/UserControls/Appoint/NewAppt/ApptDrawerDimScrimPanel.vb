@@ -16,7 +16,7 @@ Friend MustInherit Class ApptDrawerDimScrimPanel
     Private Const HTCLIENT As Integer = 1
 
     ''' <summary>Soft relaxing blue scrim so the squeezed background stays calm instead of reading as dark/black.</summary>
-    Protected Shared ReadOnly ScrimBrushColor As Color = Color.FromArgb(104, 170, 206, 235)
+    Protected Shared ReadOnly ScrimBrushColor As Color = Color.FromArgb(5, 10, 6, 23) 'Color.FromArgb(255, 170, 206, 235)
 
     Private ReadOnly _onDismiss As Action
 
@@ -60,8 +60,15 @@ Friend MustInherit Class ApptDrawerDimScrimPanel
         End If
     End Sub
 
+    ''' <summary>Lets host views ignore the tail of the same click that opened a dialog (mouse-up lands on scrim).</summary>
+    Protected Overridable Function ShouldRaiseDismissFromClick(e As MouseEventArgs) As Boolean
+        Return True
+    End Function
+
     Protected Overrides Sub OnMouseClick(e As MouseEventArgs)
         MyBase.OnMouseClick(e)
+        If e.Button <> MouseButtons.Left Then Return
+        If Not ShouldRaiseDismissFromClick(e) Then Return
         If _onDismiss IsNot Nothing Then _onDismiss.Invoke()
     End Sub
 End Class

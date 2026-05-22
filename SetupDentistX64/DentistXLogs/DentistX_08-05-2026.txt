@@ -1,0 +1,44 @@
+08-05-2026 10:54:45: [Navigator3.Navigator3_Load] [Navigator3] Time spent: 0.02 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [InitializeDefaultTeethLayout] [AdultJaw] Time spent: 0.39 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [AdultJaw_New] [AdultJaw] Time spent: 0.39 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [LoadTeethTreats] [AdultJaw] Time spent: 0.01 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [LoadPatientTreats] [AdultJaw] Time spent: 0.01 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [LoadTeethTreats] [AdultJaw] Time spent: 0.00 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [LoadPatientTreats] [AdultJaw] Time spent: 0.00 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [LoadTeethTreats] [AdultJaw] Time spent: 0.00 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [LoadPatientTreats] [AdultJaw] Time spent: 0.00 seconds
+08-05-2026 10:54:45: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:45: [AdultJaw_Load] [AdultJaw] Time spent: 0.01 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadTeethTreats] [AdultJaw] Time spent: 0.18 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadPatientTreats] [AdultJaw] Time spent: 0.19 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadTeethTreats] [AdultJaw] Time spent: 0.17 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadPatientTreats] [AdultJaw] Time spent: 0.17 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadTeethTreats] [AdultJaw] Time spent: 0.17 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadPatientTreats] [AdultJaw] Time spent: 0.17 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadTeethTreats] [AdultJaw] Time spent: 0.14 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadPatientTreats] [AdultJaw] Time spent: 0.14 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadTeethTreats] [AdultJaw] Time spent: 0.14 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadPatientTreats] [AdultJaw] Time spent: 0.14 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadTeethTreats] [AdultJaw] Time spent: 0.14 seconds
+08-05-2026 10:54:46: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:54:46: [LoadPatientTreats] [AdultJaw] Time spent: 0.14 seconds
+08-05-2026 10:55:43: [Navigator3.InsertPatient] [Navigator3] 📌 InsertPatient took: 128.3164 ms
+08-05-2026 10:55:44: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:55:44: [LoadTeethTreats] [AdultJaw] Time spent: 0.12 seconds
+08-05-2026 10:55:44: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:55:44: [LoadPatientTreats] [AdultJaw] Time spent: 0.16 seconds
+08-05-2026 10:55:44: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:55:44: [LoadTeethTreats] [AdultJaw] Time spent: 0.12 seconds
+08-05-2026 10:55:44: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:55:44: [LoadPatientTreats] [AdultJaw] Time spent: 0.13 seconds
+08-05-2026 10:55:44: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:55:44: [LoadTeethTreats] [AdultJaw] Time spent: 0.12 seconds
+08-05-2026 10:55:44: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:55:44: [LoadPatientTreats] [AdultJaw] Time spent: 0.13 seconds
+08-05-2026 10:55:44: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:55:44: [LoadTeethTreats] [AdultJaw] Time spent: 0.12 seconds
+08-05-2026 10:55:44: [Helpers.LogTime] [UnknownControl] 08-05-2026 10:55:44: [LoadPatientTreats] [AdultJaw] Time spent: 0.13 seconds
+08-05-2026 11:06:15: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:06:15: [Public Sub New] [RxCTLNEW] Time spent: 0.04 seconds
+08-05-2026 11:29:07: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:07: [HandlePatientChanged] [RxCTLNEW] Time spent: 0.01 seconds
+08-05-2026 11:29:07: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:07: [HandlePatientChanged] [RxCTLNEW] Time spent: 0.01 seconds
+08-05-2026 11:29:07: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:07: [HandlePatientChanged] [RxCTLNEW] Time spent: 0.01 seconds
+08-05-2026 11:29:07: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:07: [InitializeDefaultTeethLayout] [AdultJaw] Time spent: 0.36 seconds
+08-05-2026 11:29:07: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:07: [AdultJaw_New] [AdultJaw] Time spent: 0.36 seconds
+08-05-2026 11:29:08: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:08: [LoadTeethTreats] [AdultJaw] Time spent: 0.00 seconds
+08-05-2026 11:29:08: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:08: [LoadPatientTreats] [AdultJaw] Time spent: 0.00 seconds
+08-05-2026 11:29:08: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:08: [LoadTeethTreats] [AdultJaw] Time spent: 0.00 seconds
+08-05-2026 11:29:08: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:08: [LoadPatientTreats] [AdultJaw] Time spent: 0.03 seconds
+08-05-2026 11:29:08: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:08: [LoadTeethTreats] [AdultJaw] Time spent: 0.00 seconds
+08-05-2026 11:29:08: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:08: [LoadPatientTreats] [AdultJaw] Time spent: 0.02 seconds
+08-05-2026 11:29:08: [Helpers.LogTime] [UnknownControl] 08-05-2026 11:29:08: [AdultJaw_Load] [AdultJaw] Time spent: 0.02 seconds

@@ -1,40 +1,10 @@
-Imports System.Collections.Concurrent
 Imports DevExpress.XtraGrid.Views.Base
 Imports Infragistics.Win.UltraWinGrid
 
 Public Class OrthoTreatingCTL
 
-
-
-#Region "Resize"
-    Private ReadOnly controlBoundsCache As New ConcurrentDictionary(Of Control, Rectangle)
-    Private Const OriginalPanelWidth As Integer = 1200 ', 600
-    Private Const OriginalPanelHeight As Integer = 600
-    Private ReadOnly originalPanelSize As New Size(OriginalPanelWidth, OriginalPanelHeight)
-    Private originaMelSize As Size
-    Private Sub StoreOriginalBounds(container As Control)
-        For Each ctrl As Control In container.Controls
-            controlBoundsCache.TryAdd(ctrl, ctrl.Bounds)
-            If ctrl.HasChildren Then StoreOriginalBounds(ctrl)
-        Next
-    End Sub
-    Private Sub ResizeControlsProportionally()
-        If controlBoundsCache.IsEmpty Then Return
-        Dim widthRatio = CSng(Me.Width) / OriginalPanelWidth
-        Dim heightRatio = CSng(Me.Height) / OriginalPanelHeight
-        For Each kvp In controlBoundsCache
-            kvp.Key.SetBounds(
-                CInt(kvp.Value.X * widthRatio),
-                CInt(kvp.Value.Y * heightRatio),
-                CInt(kvp.Value.Width * widthRatio),
-                CInt(kvp.Value.Height * heightRatio))
-        Next
-    End Sub
-    Private Sub OrthoTreatingCTL_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-        If controlBoundsCache.IsEmpty Then Return
-        ResizeControlsProportionally()
-    End Sub
-#End Region
+    ' Layout / resize: FullOrthoTreating.Resize walks this entire subtree (same 1200×600 baseline).
+    ' Do not proportional-scale children here — that doubles SetBounds and breaks layout when maximized.
 
     Dim stBite, stclass As String
     Dim CellStr As String = ""
@@ -50,12 +20,12 @@ Public Class OrthoTreatingCTL
     End Sub
 
     Private Sub OrthTreat_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        StoreOriginalBounds(Me)
         'PatientID = Qrs.FrstOrthID
         LoadData(PatientID)
         WorkDate.DateTime = Now
         SetupExtraToolTips()
         UpdateAddTreatButtonState()
+        OrthoEmbeddedChrome.ApplyToRoot(Me)
     End Sub
 
     Private Sub SetupExtraToolTips()
@@ -112,6 +82,41 @@ Public Class OrthoTreatingCTL
 
     Private _extraToolTip As New ToolTip()
     Private isAdded As Boolean = False
+
+    ''' <summary>All OrthoTrtDet rows for the loaded patient (all OrthoID). Grid shows a filtered copy for the current ortho.</summary>
+    Private _allPatientOrthoTrtDets As List(Of OrthoTrtDet) = New List(Of OrthoTrtDet)()
+
+    Private Function GetCurrentOrthoId() As Integer
+        Dim inf As OrthoInf = TryCast(OrthoInfBindingSource.Current, OrthoInf)
+        If inf IsNot Nothing AndAlso inf.OrthoID > 0 Then
+            Return inf.OrthoID
+        End If
+        Dim parsed As Integer
+        If Integer.TryParse(TextOrthoInfID.Text, parsed) AndAlso parsed > 0 Then
+            Return parsed
+        End If
+        Return 0
+    End Function
+
+    ''' <summary>Binds OrthoTrtDet grid to steps for <see cref="GetCurrentOrthoId"/> only.</summary>
+    Private Sub RefreshOrthoTrtDetGridSource()
+        If PatientID <= 0 Then
+            OrthoTrtDetBindingSource.DataSource = New List(Of OrthoTrtDet)()
+            Return
+        End If
+        Dim oid As Integer = GetCurrentOrthoId()
+        If oid <= 0 OrElse _allPatientOrthoTrtDets Is Nothing OrElse _allPatientOrthoTrtDets.Count = 0 Then
+            OrthoTrtDetBindingSource.DataSource = New List(Of OrthoTrtDet)()
+            Return
+        End If
+        Dim filtered As List(Of OrthoTrtDet) = _allPatientOrthoTrtDets.Where(Function(x) x.OrthoID = oid).ToList()
+        OrthoTrtDetBindingSource.DataSource = filtered
+    End Sub
+
+    Private Sub OrthoInfBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles OrthoInfBindingSource.CurrentChanged
+        RefreshOrthoTrtDetGridSource()
+        UpdateAddTreatButtonState()
+    End Sub
     Private Sub DataBind()
         If Not isAdded Then
             Me.WireImgTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OrthoTrtDetBindingSource, "WireImg", True))
@@ -161,12 +166,14 @@ Public Class OrthoTreatingCTL
             Dim measures = clsTblMeasureDATA.SelectAll().ToList()
             Dim wireTypes = clsTblWireTypeDATA.SelectAll().ToList()
 
-            ' Assign to binding sources if needed
+            _allPatientOrthoTrtDets = orthoSteps.ToList()
+
+            ' Assign to binding sources; ortho steps grid is filtered to current OrthoID (see RefreshOrthoTrtDetGridSource).
             OrthoTreatBindingSource.DataSource = orthoTreats
-            OrthoTrtDetBindingSource.DataSource = orthoSteps
-            OrthoTrtDetGrid.DataSource = OrthoTrtDetBindingSource
             OrthoInfBindingSource.DataSource = orthoInfs
             OrthoDiagBindingSource.DataSource = orthoDiags
+            RefreshOrthoTrtDetGridSource()
+            OrthoTrtDetGrid.DataSource = OrthoTrtDetBindingSource
             DataBind()
             ShowHide(PatientID)
             RefreshFinishUIState()
@@ -392,6 +399,12 @@ Public Class OrthoTreatingCTL
             Me.Validate()
             Me.OrthoTrtDetBindingSource.EndEdit()
 
+            Dim orthoId As Integer = GetCurrentOrthoId()
+            If PatientID <= 0 OrElse orthoId <= 0 Then
+                MsgBox(If(Eng, "No orthodontic record is selected; cannot save steps.", "لم يتم اختيار تقويم؛ تعذر حفظ الخطوات."))
+                Return
+            End If
+
             ' Build list of steps currently in the grid (after user may have deleted rows)
             Dim currentSteps As New List(Of OrthoTrtDet)
             For i As Integer = 0 To OrthoTrtDetBindingSource.Count - 1
@@ -400,29 +413,43 @@ Public Class OrthoTreatingCTL
             Next
             Dim currentDetIds As New HashSet(Of Integer)(currentSteps.Select(Function(x) x.DetID))
 
-            ' Delete from DB any step that was removed from the grid (navigator Delete),
-            ' but only for the current OrthoID.
-            Dim orthoId As Integer = 0
-            Integer.TryParse(TextOrthoInfID.Text, orthoId)
+            Dim deleteFailed As Integer = 0
+            Dim updateFailed As Integer = 0
+            Dim updateSkipped As Integer = 0
+
+            ' Delete from DB any step that was removed from the grid, for this OrthoID only.
             Dim dbSteps = clsOrthoTrtDetDATA.SelectAll().Where(Function(x) x.PatientID = PatientID AndAlso x.OrthoID = orthoId).ToList()
             For Each steps In dbSteps
                 If Not currentDetIds.Contains(steps.DetID) Then
-                    clsOrthoTrtDetDATA.Delete(New OrthoTrtDet With {.DetID = steps.DetID, .OrthoID = steps.OrthoID, .PatientID = steps.PatientID})
+                    If Not clsOrthoTrtDetDATA.Delete(New OrthoTrtDet With {.DetID = steps.DetID, .OrthoID = steps.OrthoID, .PatientID = steps.PatientID}) Then
+                        deleteFailed += 1
+                    End If
                 End If
             Next
 
-            ' Update in DB each step that is still in the grid (handles null current and all rows)
+            ' Update each step still in the grid
             For Each steps In currentSteps
                 If steps.DetID <> 0 Then
                     Dim original As OrthoTrtDet = clsOrthoTrtDetDATA.Select_Record(New OrthoTrtDet With {.DetID = steps.DetID, .OrthoID = steps.OrthoID, .PatientID = steps.PatientID})
-                    If original IsNot Nothing Then
-                        clsOrthoTrtDetDATA.Update(original, steps)
+                    If original Is Nothing Then
+                        updateSkipped += 1
+                    ElseIf Not clsOrthoTrtDetDATA.Update(original, steps) Then
+                        updateFailed += 1
                     End If
                 End If
             Next
 
             LoadData(PatientID)
-            MsgBox(If(Eng, "Steps saved successfully.", "تم حفظ الخطوات بنجاح."))
+
+            If deleteFailed = 0 AndAlso updateFailed = 0 AndAlso updateSkipped = 0 Then
+                MsgBox(If(Eng, "Steps saved successfully.", "تم حفظ الخطوات بنجاح."))
+            Else
+                Dim detailEn As String = $"Deletes failed: {deleteFailed}, updates failed: {updateFailed}, rows not matched: {updateSkipped}."
+                Dim detailAr As String = $"فشل حذف: {deleteFailed}، فشل تحديث: {updateFailed}، صفوف غير متطابقة: {updateSkipped}."
+                MsgBox(If(Eng,
+                          "Some step changes could not be saved. " & detailEn & " Check database permissions and row keys (DetID / OrthoID / PatientID).",
+                          "تعذر حفظ بعض التغييرات. " & detailAr))
+            End If
         Catch ex As SqlClient.SqlException
             MsgBox(ex.Message)
         End Try

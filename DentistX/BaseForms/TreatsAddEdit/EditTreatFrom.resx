@@ -169,9 +169,6 @@
   <data name="&gt;&gt;txtTrtID.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;lblPayValue.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="&gt;&gt;btCapRootClrDef.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
@@ -186,9 +183,6 @@
   </data>
   <data name="btnDelTrt.Location" type="System.Drawing.Point, System.Drawing">
     <value>446, 507</value>
-  </data>
-  <data name="&gt;&gt;grpSpecialClrs.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;LabelControl17.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -214,17 +208,8 @@
   <data name="btTrtClrDef.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
-  <data name="lblIsPaid.TabIndex" type="System.Int32, mscorlib">
-    <value>130</value>
-  </data>
   <data name="&gt;&gt;BindingNavigatorMoveFirstItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BindingNavigatorSeparator2.Name" xml:space="preserve">
-    <value>BindingNavigatorSeparator2</value>
-  </data>
-  <data name="BindingNavigatorCountItem.ToolTipText" xml:space="preserve">
-    <value>Total number of items</value>
   </data>
   <data name="isPaidChck.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 23</value>
@@ -250,14 +235,11 @@
   <data name="txtPatientName.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 10pt, style=Bold</value>
   </data>
-  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9pt, style=Bold</value>
+  <data name="&gt;&gt;LabelControl22.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="&gt;&gt;btnApply.Name" xml:space="preserve">
-    <value>btnApply</value>
-  </data>
-  <data name="LabelControl29.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 14</value>
+  <data name="dtTrtEnd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="grpSpecialClrs.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 263</value>
@@ -292,8 +274,8 @@
   <data name="clrFillColor.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="dtTrtEnd.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9pt, style=Bold</value>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;txtPayValue.Name" xml:space="preserve">
     <value>txtPayValue</value>
@@ -306,6 +288,9 @@
   </data>
   <data name="txtToothNum.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="&gt;&gt;ImplantSpecsLbl.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;IsExternalchk.Parent" xml:space="preserve">
     <value>GrpExtern</value>
@@ -358,6 +343,9 @@
   <data name="tbOpacity.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
+  <data name="tbOpacity.Properties.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
   <data name="&gt;&gt;capRootThick.Name" xml:space="preserve">
     <value>capRootThick</value>
   </data>
@@ -367,8 +355,8 @@
   <data name="LabelControl2.Text" xml:space="preserve">
     <value>Patient ID</value>
   </data>
-  <data name="btnDelTrt.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
+  <data name="IsExternalchk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 19</value>
   </data>
   <data name="&gt;&gt;BindingNavigatorCountItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -382,17 +370,11 @@
   <data name="LabelControl17.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="LabelControl27.Text" xml:space="preserve">
-    <value>IS Finished</value>
-  </data>
   <data name="&gt;&gt;LabelControl5.Name" xml:space="preserve">
     <value>LabelControl5</value>
   </data>
   <data name="txtTrtPlan.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 268</value>
-  </data>
-  <data name="tbThick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 26</value>
   </data>
   <data name="grpSpecialClrs.Location" type="System.Drawing.Point, System.Drawing">
     <value>711, 187</value>
@@ -403,14 +385,14 @@
   <data name="&gt;&gt;LabelControl20.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="cboTrtType.Properties.Items1" xml:space="preserve">
+    <value>Multiple Stage</value>
+  </data>
   <data name="&gt;&gt;lblPayNotes.Parent" xml:space="preserve">
     <value>GrpPays</value>
   </data>
   <data name="&gt;&gt;lblIsPaid.Name" xml:space="preserve">
     <value>lblIsPaid</value>
-  </data>
-  <data name="&gt;&gt;LabelControl17.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="&gt;&gt;LabelControl2.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -446,13 +428,10 @@
     <value />
   </data>
   <data name="cmbDiameter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>150, 25</value>
   </data>
   <data name="&gt;&gt;lblPayValue.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="LabelControl26.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
   </data>
   <data name="PanelControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>355, 220</value>
@@ -460,20 +439,17 @@
   <data name="LabelControl8.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
+  <data name="LabelControl9.Text" xml:space="preserve">
+    <value>Treatment</value>
+  </data>
   <data name="RootFillPick.Location" type="System.Drawing.Point, System.Drawing">
     <value>76, 104</value>
   </data>
   <data name="LabelControl7.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 14</value>
   </data>
-  <data name="dtTrtEnd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 20</value>
-  </data>
   <data name="&gt;&gt;dtTrtDate.Parent" xml:space="preserve">
     <value>GroupMain</value>
-  </data>
-  <data name="clrBorderColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
   </data>
   <data name="BindingNavigatorSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
@@ -511,9 +487,6 @@
   <data name="LabelControl13.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="dtTrtEnd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
   <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
     <value>446, 74</value>
   </data>
@@ -539,6 +512,9 @@
   </data>
   <data name="LabelControl28.Text" xml:space="preserve">
     <value>Border Thickness</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorAddNewItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="impCheck.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -585,14 +561,14 @@
   <data name="&gt;&gt;txtPatientID.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="cmbBrand.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="CapFillPick.EditValue" type="System.Drawing.Color, System.Drawing">
     <value />
   </data>
-  <data name="GroupHeader.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="lblIsPaid.TabIndex" type="System.Int32, mscorlib">
+    <value>130</value>
   </data>
   <data name="BindingNavigatorPositionItem.ToolTipText" xml:space="preserve">
     <value>Current position</value>
@@ -624,14 +600,14 @@
   <data name="PanelControl1.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
-  <data name="&gt;&gt;cmbBrand.Type" xml:space="preserve">
-    <value>DentistX.ImplantBrandCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;LabelControl6.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
   </data>
   <data name="&gt;&gt;RightGroup.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="txtTrtPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 30</value>
+    <value>111, 30</value>
   </data>
   <data name="&gt;&gt;txtToothNum.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -659,9 +635,6 @@
   </data>
   <data name="LabelControl12.Text" xml:space="preserve">
     <value>Treatment Type</value>
-  </data>
-  <data name="&gt;&gt;LabelControl28.Name" xml:space="preserve">
-    <value>LabelControl28</value>
   </data>
   <data name="&gt;&gt;btnSetCustmColor.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -720,14 +693,8 @@
   <data name="LabelControl22.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 77</value>
   </data>
-  <data name="&gt;&gt;ImpPopup.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PopupContainerEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;txtToothNum.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="LabelControl15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 15</value>
   </data>
   <data name="&gt;&gt;lblTrtPrice.Name" xml:space="preserve">
     <value>lblTrtPrice</value>
@@ -738,8 +705,8 @@
   <data name="lblIsPaid.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 10pt, style=Bold</value>
   </data>
-  <data name="LabelControl20.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="&gt;&gt;txtTrtNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="txtTrtID.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -768,14 +735,8 @@
   <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
     <value>btnCancel</value>
   </data>
-  <data name="LabelControl20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 14</value>
-  </data>
   <data name="&gt;&gt;txtPatientName.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="btTrtClrDef.Text" xml:space="preserve">
-    <value>Default Color</value>
   </data>
   <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
@@ -785,6 +746,9 @@
   </data>
   <data name="&gt;&gt;txtToothName.Name" xml:space="preserve">
     <value>txtToothName</value>
+  </data>
+  <data name="btnSelect.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="txtPayValue.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -816,14 +780,23 @@
   <data name="&gt;&gt;LabelControl28.Parent" xml:space="preserve">
     <value>grpSpecialClrs</value>
   </data>
+  <data name="&gt;&gt;lblIsExternal.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="CapFillPick.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;lblExtClinic.Parent" xml:space="preserve">
+    <value>GrpExtern</value>
   </data>
   <data name="&gt;&gt;clrFillColor.Parent" xml:space="preserve">
     <value>PanelControl1</value>
   </data>
   <data name="BindingNavigatorMovePreviousItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
+  </data>
+  <data name="&gt;&gt;LabelControl11.Name" xml:space="preserve">
+    <value>LabelControl11</value>
   </data>
   <data name="&gt;&gt;ResultLbl.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -846,20 +819,14 @@
   <data name="&gt;&gt;GrpPays.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9pt, style=Bold</value>
-  </data>
-  <data name="capRootThick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 26</value>
-  </data>
   <data name="&gt;&gt;LabelControl11.Parent" xml:space="preserve">
     <value>ImpContainer</value>
   </data>
   <data name="&gt;&gt;LabelControl27.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="btnApply.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 223</value>
+  <data name="&gt;&gt;btCapRootClrDef.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="RootFillPick.EditValue" type="System.Drawing.Color, System.Drawing">
     <value />
@@ -882,20 +849,17 @@
   <data name="&gt;&gt;ImplantSpecsLbl.Parent" xml:space="preserve">
     <value>GroupMain</value>
   </data>
-  <data name="ImplantSpecsLbl.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9pt, style=Bold</value>
-  </data>
   <data name="GrpExtern.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 377</value>
   </data>
-  <data name="btnCancelImp.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;LabelControl22.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="GroupHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;txtTrtPrice.Parent" xml:space="preserve">
     <value>GrpPays</value>
+  </data>
+  <data name="&gt;&gt;btnApply.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;txtToothName.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -939,6 +903,9 @@
   <data name="LabelControl15.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="lblPayNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 15</value>
+  </data>
   <data name="&gt;&gt;txtTrtPrice.Name" xml:space="preserve">
     <value>txtTrtPrice</value>
   </data>
@@ -953,9 +920,6 @@
   </data>
   <data name="&gt;&gt;IsExternalchk.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="dtTrtEnd.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
   </data>
   <data name="IsExternalchk.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 25</value>
@@ -974,6 +938,9 @@
   </data>
   <data name="&gt;&gt;txtTrtDetails.ZOrder" xml:space="preserve">
     <value>14</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Patient Name</value>
   </data>
   <data name="txtPayValue.EditValue" xml:space="preserve">
     <value>0</value>
@@ -1026,20 +993,17 @@
   <data name="&gt;&gt;txtToothNum.Name" xml:space="preserve">
     <value>txtToothNum</value>
   </data>
-  <data name="&gt;&gt;GrpExtern.Parent" xml:space="preserve">
-    <value>RightGroup</value>
-  </data>
   <data name="dtTrtEnd.EditValue" type="System.DateTime, mscorlib">
     <value>12/14/2024 19:16:21</value>
   </data>
   <data name="CapFillPick.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;LabelControl29.Name" xml:space="preserve">
-    <value>LabelControl29</value>
+  <data name="&gt;&gt;txtExtClinic.Name" xml:space="preserve">
+    <value>txtExtClinic</value>
   </data>
-  <data name="&gt;&gt;ImpContainer.Parent" xml:space="preserve">
-    <value>GroupMain</value>
+  <data name="btnSaveTrt.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;BindingNavigatorDeleteItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1056,6 +1020,16 @@
   <data name="LabelControl6.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
+  <data name="&gt;&gt;LabelControl20.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;BindingNavigatorSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="impCheck.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
   <data name="LabelControl22.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
   </data>
@@ -1068,8 +1042,8 @@
   <data name="LabelControl9.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;LabelControl26.Name" xml:space="preserve">
-    <value>LabelControl26</value>
+  <data name="&gt;&gt;btnApply.Name" xml:space="preserve">
+    <value>btnApply</value>
   </data>
   <data name="&gt;&gt;GroupMain.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1082,9 +1056,6 @@
   </data>
   <data name="btnCancel.ImageOptions.ImageKey" xml:space="preserve">
     <value />
-  </data>
-  <data name="btnDelTrt.Text" xml:space="preserve">
-    <value>Delete</value>
   </data>
   <data name="&gt;&gt;capOpacity.Parent" xml:space="preserve">
     <value>grpSpecialClrs</value>
@@ -1104,6 +1075,9 @@
   <data name="&gt;&gt;txtTreat.Parent" xml:space="preserve">
     <value>GroupMain</value>
   </data>
+  <data name="dtTrtDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
   <data name="LabelControl13.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 14</value>
   </data>
@@ -1119,9 +1093,6 @@
   <data name="&gt;&gt;cmbBrand.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;RightGroup.Name" xml:space="preserve">
-    <value>RightGroup</value>
-  </data>
   <data name="&gt;&gt;tbThick.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
@@ -1134,17 +1105,14 @@
   <data name="LabelControl21.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 14</value>
   </data>
-  <data name="&gt;&gt;LabelControl6.Parent" xml:space="preserve">
-    <value>GroupHeader</value>
-  </data>
-  <data name="&gt;&gt;grpSpecialClrs.Name" xml:space="preserve">
-    <value>grpSpecialClrs</value>
+  <data name="&gt;&gt;BindingNavigatorMovePreviousItem.Name" xml:space="preserve">
+    <value>BindingNavigatorMovePreviousItem</value>
   </data>
   <data name="LabelControl10.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="IsExternalchk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 19</value>
+  <data name="&gt;&gt;LabelControl28.Name" xml:space="preserve">
+    <value>LabelControl28</value>
   </data>
   <data name="cmbDesign.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
@@ -1166,9 +1134,6 @@
   </data>
   <data name="&gt;&gt;LabelControl7.ZOrder" xml:space="preserve">
     <value>19</value>
-  </data>
-  <data name="RightGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>359, 457</value>
   </data>
   <data name="&gt;&gt;GrpExtern.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -1193,6 +1158,9 @@
   </data>
   <data name="&gt;&gt;txtTrtPlan.ZOrder" xml:space="preserve">
     <value>15</value>
+  </data>
+  <data name="txtTrtDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 77</value>
   </data>
   <data name="&gt;&gt;txtPatientName.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -1242,9 +1210,6 @@
   <data name="txtPayNotes.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 110</value>
   </data>
-  <data name="&gt;&gt;lblIsExternal.Parent" xml:space="preserve">
-    <value>GrpExtern</value>
-  </data>
   <data name="&gt;&gt;lblIsExternal.Name" xml:space="preserve">
     <value>lblIsExternal</value>
   </data>
@@ -1253,6 +1218,9 @@
   </data>
   <data name="&gt;&gt;txtPayValue.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="IsExternalchk.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
   </data>
   <data name="&gt;&gt;lblPayValue.Parent" xml:space="preserve">
     <value>GrpPays</value>
@@ -1266,9 +1234,6 @@
   <data name="lblExtClinic.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 19</value>
   </data>
-  <data name="LabelControl16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 99</value>
-  </data>
   <data name="PanelControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1277,6 +1242,9 @@
   </data>
   <data name="&gt;&gt;btTrtClrDef.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="ceFinish.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
   </data>
   <data name="btnSetCustmColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 23</value>
@@ -1287,6 +1255,9 @@
   <data name="LabelControl29.TabIndex" type="System.Int32, mscorlib">
     <value>142</value>
   </data>
+  <data name="impCheck.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
   <data name="txtTrtNotes.Size" type="System.Drawing.Size, System.Drawing">
     <value>430, 65</value>
   </data>
@@ -1294,13 +1265,13 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="cmbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>150, 25</value>
   </data>
   <data name="&gt;&gt;BindingNavigatorSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtPayValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 26</value>
+    <value>111, 26</value>
   </data>
   <data name="txtToothNum.Location" type="System.Drawing.Point, System.Drawing">
     <value>533, 70</value>
@@ -1317,8 +1288,8 @@
   <data name="&gt;&gt;LabelControl29.Parent" xml:space="preserve">
     <value>grpSpecialClrs</value>
   </data>
-  <data name="ImpPopup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 242</value>
+  <data name="&gt;&gt;LabelControl14.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="LabelControl13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -1341,17 +1312,17 @@
   <data name="ImpContainer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="LabelControl15.Text" xml:space="preserve">
-    <value>Type</value>
+  <data name="LabelControl12.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="impCheck.Properties.DisplayValueChecked" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;cmbBrand.Type" xml:space="preserve">
+    <value>DentistX.ImplantBrandCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="GrpExtern.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="LabelControl29.Text" xml:space="preserve">
+    <value>Opacity</value>
   </data>
-  <data name="LabelControl25.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 82</value>
+  <data name="&gt;&gt;dtTrtDate.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="&gt;&gt;LabelControl8.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -1359,8 +1330,11 @@
   <data name="&gt;&gt;LabelControl4.Parent" xml:space="preserve">
     <value>GroupHeader</value>
   </data>
-  <data name="btCapRootClrDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 23</value>
+  <data name="txtTrtDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 352</value>
+  </data>
+  <data name="&gt;&gt;cmbDiameter.Parent" xml:space="preserve">
+    <value>ImpContainer</value>
   </data>
   <data name="LabelControl9.Location" type="System.Drawing.Point, System.Drawing">
     <value>34, 195</value>
@@ -1368,14 +1342,20 @@
   <data name="LabelControl1.Text" xml:space="preserve">
     <value>Treat Plan</value>
   </data>
+  <data name="&gt;&gt;btnDelTrt.Name" xml:space="preserve">
+    <value>btnDelTrt</value>
+  </data>
   <data name="&gt;&gt;lblIsPaid.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btTrtClrDef.ToolTip" xml:space="preserve">
+    <value>Reset To Default</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1360, 610</value>
+  <data name="&gt;&gt;BindingNavigatorSeparator2.Name" xml:space="preserve">
+    <value>BindingNavigatorSeparator2</value>
   </data>
   <data name="GroupMain.Size" type="System.Drawing.Size, System.Drawing">
     <value>1360, 610</value>
@@ -1425,14 +1405,14 @@
   <data name="&gt;&gt;clrBorderColor.Parent" xml:space="preserve">
     <value>PanelControl1</value>
   </data>
+  <data name="LabelControl27.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
+  </data>
   <data name="cmbType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>150, 25</value>
   </data>
   <data name="RootFillPick.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 20</value>
-  </data>
-  <data name="LabelControl16.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
   </data>
   <data name="&gt;&gt;LabelControl12.Name" xml:space="preserve">
     <value>LabelControl12</value>
@@ -1445,6 +1425,9 @@
   </data>
   <data name="LabelControl11.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
   </data>
   <data name="dtTrtDate.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
@@ -1467,9 +1450,6 @@
   <data name="LabelControl5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
   </data>
-  <data name="GrpExtern.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 78</value>
-  </data>
   <data name="&gt;&gt;capRootThick.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
@@ -1479,8 +1459,8 @@
   <data name="&gt;&gt;cboTrtType.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;txtExtClinic.Name" xml:space="preserve">
-    <value>txtExtClinic</value>
+  <data name="&gt;&gt;txtExtClinic.Parent" xml:space="preserve">
+    <value>GrpExtern</value>
   </data>
   <data name="clrBorderColor.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
@@ -1488,17 +1468,11 @@
   <data name="GrpPays.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 242</value>
   </data>
-  <data name="&gt;&gt;GroupMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="LabelControl28.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
   <data name="&gt;&gt;cmbDiameter.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="tbThick.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 131</value>
   </data>
   <data name="&gt;&gt;tbOpacity.Name" xml:space="preserve">
     <value>tbOpacity</value>
@@ -1524,8 +1498,8 @@
   <data name="&gt;&gt;LabelControl14.Name" xml:space="preserve">
     <value>LabelControl14</value>
   </data>
-  <data name="&gt;&gt;txtExtClinic.Parent" xml:space="preserve">
-    <value>GrpExtern</value>
+  <data name="txtPayValue.Properties.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="BindingNavigator1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
@@ -1554,8 +1528,8 @@
   <data name="IsExternalchk.Properties.DisplayValueGrayed" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;lblExtClinic.Parent" xml:space="preserve">
-    <value>GrpExtern</value>
+  <data name="btnCancelImp.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="lblExtClinic.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 48</value>
@@ -1568,6 +1542,9 @@
   </data>
   <data name="txtToothNum.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="ImpPopup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 242</value>
   </data>
   <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 14</value>
@@ -1629,12 +1606,6 @@
   <data name="ImpContainer.Location" type="System.Drawing.Point, System.Drawing">
     <value>31, 208</value>
   </data>
-  <data name="btnSelect.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;LabelControl10.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;lblPayNotes.Name" xml:space="preserve">
     <value>lblPayNotes</value>
   </data>
@@ -1671,6 +1642,9 @@
   <data name="&gt;&gt;txtTreat.ZOrder" xml:space="preserve">
     <value>21</value>
   </data>
+  <data name="capRootThick.EditValue" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="lblTrtPrice.Text" xml:space="preserve">
     <value>Treat Price</value>
   </data>
@@ -1700,9 +1674,6 @@
   </data>
   <data name="ImpPopup.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
     <value>Combo</value>
-  </data>
-  <data name="&gt;&gt;txtTrtPlan.Name" xml:space="preserve">
-    <value>txtTrtPlan</value>
   </data>
   <data name="&gt;&gt;BindingNavigator1.Parent" xml:space="preserve">
     <value>GroupMain</value>
@@ -1740,14 +1711,17 @@
   <data name="LabelControl21.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
+  <data name="&gt;&gt;LabelControl27.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
   <data name="txtExtClinic.TabIndex" type="System.Int32, mscorlib">
     <value>131</value>
   </data>
   <data name="&gt;&gt;btnApply.Parent" xml:space="preserve">
     <value>grpSpecialClrs</value>
   </data>
-  <data name="LabelControl5.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="isPaidChck.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;dtTrtEnd.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -1764,11 +1738,8 @@
   <data name="&gt;&gt;LabelControl11.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;LabelControl11.Name" xml:space="preserve">
-    <value>LabelControl11</value>
-  </data>
-  <data name="&gt;&gt;BindingNavigatorMoveNextItem.Name" xml:space="preserve">
-    <value>BindingNavigatorMoveNextItem</value>
+  <data name="LabelControl15.Text" xml:space="preserve">
+    <value>Type</value>
   </data>
   <data name="dtTrtDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 168</value>
@@ -1794,9 +1765,6 @@
   <data name="&gt;&gt;lblIsPaid.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;LabelControl14.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="cboTrtType.EditValue" xml:space="preserve">
     <value>One Stage</value>
   </data>
@@ -1815,9 +1783,8 @@
   <data name="RightGroup.TabIndex" type="System.Int32, mscorlib">
     <value>141</value>
   </data>
-  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="impCheck.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
-    <value>Default</value>
+  <data name="LabelControl29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 14</value>
   </data>
   <data name="btnSaveTrt.ImageOptions.ImageKey" xml:space="preserve">
     <value />
@@ -1833,6 +1800,9 @@
   </data>
   <data name="&gt;&gt;LabelControl7.Name" xml:space="preserve">
     <value>LabelControl7</value>
+  </data>
+  <data name="btnDelTrt.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;ImpPopup.Parent" xml:space="preserve">
     <value>GroupMain</value>
@@ -1864,6 +1834,9 @@
   <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 14</value>
   </data>
+  <data name="&gt;&gt;txtTrtID.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
+  </data>
   <data name="txtExtClinic.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 22</value>
   </data>
@@ -1881,6 +1854,9 @@
   </data>
   <data name="&gt;&gt;txtTrtDetails.Parent" xml:space="preserve">
     <value>GroupMain</value>
+  </data>
+  <data name="&gt;&gt;LabelControl12.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="txtTrtID.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 10pt, style=Bold</value>
@@ -1919,6 +1895,9 @@
   <data name="isPaidChck.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;txtTrtDetails.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
@@ -1946,11 +1925,8 @@
   <data name="LabelControl15.Location" type="System.Drawing.Point, System.Drawing">
     <value>49, 61</value>
   </data>
-  <data name="&gt;&gt;LabelControl14.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;LabelControl27.Parent" xml:space="preserve">
-    <value>PanelControl1</value>
+  <data name="LabelControl26.TabIndex" type="System.Int32, mscorlib">
+    <value>137</value>
   </data>
   <data name="&gt;&gt;btnDelTrt.Parent" xml:space="preserve">
     <value>GroupMain</value>
@@ -1961,14 +1937,8 @@
   <data name="&gt;&gt;txtPayNotes.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="LabelControl26.TabIndex" type="System.Int32, mscorlib">
-    <value>137</value>
-  </data>
   <data name="clrBorderColor.EditValue" type="System.Drawing.Color, System.Drawing">
     <value />
-  </data>
-  <data name="&gt;&gt;lblPayValue.Name" xml:space="preserve">
-    <value>lblPayValue</value>
   </data>
   <data name="btTrtClrDef.ImageOptions.ImageKey" xml:space="preserve">
     <value />
@@ -1978,6 +1948,9 @@
   </data>
   <data name="&gt;&gt;clrFillColor.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="&gt;&gt;LabelControl22.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;LabelControl29.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1997,23 +1970,23 @@
   <data name="txtPayNotes.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 20</value>
   </data>
+  <data name="&gt;&gt;LabelControl16.Parent" xml:space="preserve">
+    <value>ImpContainer</value>
+  </data>
   <data name="&gt;&gt;BindingNavigatorMovePreviousItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LabelControl29.Text" xml:space="preserve">
-    <value>Opacity</value>
-  </data>
-  <data name="RootFillPick.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
   </data>
   <data name="&gt;&gt;GrpExtern.Name" xml:space="preserve">
     <value>GrpExtern</value>
   </data>
-  <data name="&gt;&gt;LabelControl16.Parent" xml:space="preserve">
-    <value>ImpContainer</value>
+  <data name="&gt;&gt;LabelControl10.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;txtPayNotes.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl26.Name" xml:space="preserve">
+    <value>LabelControl26</value>
   </data>
   <data name="ResultLbl.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -2024,8 +1997,8 @@
   <data name="LabelControl14.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;LabelControl26.Parent" xml:space="preserve">
-    <value>grpSpecialClrs</value>
+  <data name="btnSaveTrt.Text" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="&gt;&gt;clrFillColor.Name" xml:space="preserve">
     <value>clrFillColor</value>
@@ -2041,6 +2014,9 @@
   </data>
   <data name="&gt;&gt;btnSelect.Name" xml:space="preserve">
     <value>btnSelect</value>
+  </data>
+  <data name="&gt;&gt;LabelControl8.Name" xml:space="preserve">
+    <value>LabelControl8</value>
   </data>
   <data name="txtTrtPrice.Properties.NullText" xml:space="preserve">
     <value>0</value>
@@ -2084,6 +2060,9 @@
   <data name="&gt;&gt;GroupHeader.Parent" xml:space="preserve">
     <value>GroupMain</value>
   </data>
+  <data name="&gt;&gt;LabelControl18.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="dtTrtEnd.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2108,8 +2087,8 @@
   <data name="LabelControl11.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;btnApply.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
   </data>
   <data name="impCheck.Properties.Caption" xml:space="preserve">
     <value>Add Implant Specs ??</value>
@@ -2123,14 +2102,17 @@
   <data name="&gt;&gt;cmbType.Parent" xml:space="preserve">
     <value>ImpContainer</value>
   </data>
+  <data name="&gt;&gt;LabelControl18.Name" xml:space="preserve">
+    <value>LabelControl18</value>
+  </data>
   <data name="IsExternalchk.Properties.DisplayValueChecked" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;capOpacity.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;cmbDiameter.Parent" xml:space="preserve">
-    <value>ImpContainer</value>
+  <data name="BindingNavigatorCountItem.ToolTipText" xml:space="preserve">
+    <value>Total number of items</value>
   </data>
   <data name="&gt;&gt;LabelControl17.Name" xml:space="preserve">
     <value>LabelControl17</value>
@@ -2144,11 +2126,20 @@
   <data name="&gt;&gt;LabelControl13.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="&gt;&gt;LabelControl14.Parent" xml:space="preserve">
+    <value>PanelControl1</value>
+  </data>
   <data name="LabelControl26.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;btnDelTrt.Name" xml:space="preserve">
-    <value>btnDelTrt</value>
+  <data name="&gt;&gt;lblPayValue.Name" xml:space="preserve">
+    <value>lblPayValue</value>
+  </data>
+  <data name="txtPatientID.EditValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtPatientName.Parent" xml:space="preserve">
+    <value>GroupHeader</value>
   </data>
   <data name="&gt;&gt;lblPayNotes.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -2159,8 +2150,8 @@
   <data name="&gt;&gt;GrpExtern.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="btnSelect.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="capRootThick.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 26</value>
   </data>
   <data name="&gt;&gt;dtTrtDate.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -2174,23 +2165,23 @@
   <data name="LabelControl16.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="RightGroup.Text" xml:space="preserve">
-    <value>Additional Info And Colors</value>
-  </data>
   <data name="cmbDesign.Properties.Items" xml:space="preserve">
     <value>Slim</value>
   </data>
-  <data name="LabelControl3.Text" xml:space="preserve">
-    <value>Patient Name</value>
+  <data name="dtTrtEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 20</value>
+  </data>
+  <data name="&gt;&gt;txtToothName.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;cmbLength.Name" xml:space="preserve">
     <value>cmbLength</value>
   </data>
-  <data name="capRootThick.EditValue" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 610</value>
   </data>
-  <data name="&gt;&gt;BindingNavigatorAddNewItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btTrtClrDef.Text" xml:space="preserve">
+    <value>Default Color</value>
   </data>
   <data name="GrpPays.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -2211,7 +2202,7 @@
     <value>PanelControl1</value>
   </data>
   <data name="cmbBrand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>150, 25</value>
   </data>
   <data name="grpSpecialClrs.TabIndex" type="System.Int32, mscorlib">
     <value>140</value>
@@ -2225,14 +2216,17 @@
   <data name="ResultLbl.Text" xml:space="preserve">
     <value>Design</value>
   </data>
+  <data name="lblIsExternal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 27</value>
+  </data>
   <data name="&gt;&gt;LabelControl4.Name" xml:space="preserve">
     <value>LabelControl4</value>
   </data>
   <data name="txtTrtPrice.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="IsExternalchk.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
-    <value>Default</value>
+  <data name="&gt;&gt;BindingNavigatorMoveNextItem.Name" xml:space="preserve">
+    <value>BindingNavigatorMoveNextItem</value>
   </data>
   <data name="BindingNavigatorMovePreviousItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2270,14 +2264,11 @@
   <data name="RootFillPick.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="&gt;&gt;PanelControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="btnDelTrt.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="&gt;&gt;LabelControl20.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="txtTrtDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 77</value>
+  <data name="&gt;&gt;ImpContainer.Parent" xml:space="preserve">
+    <value>GroupMain</value>
   </data>
   <data name="capRootThick.Properties.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
     <value>Horizontal</value>
@@ -2303,8 +2294,8 @@
   <data name="LabelControl16.Text" xml:space="preserve">
     <value>Design</value>
   </data>
-  <data name="&gt;&gt;ImplantSpecsLbl.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="LabelControl16.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;txtTrtNotes.Parent" xml:space="preserve">
     <value>GroupMain</value>
@@ -2330,6 +2321,9 @@
   <data name="&gt;&gt;cmbType.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;BindingNavigatorMoveFirstItem.Name" xml:space="preserve">
+    <value>BindingNavigatorMoveFirstItem</value>
+  </data>
   <data name="&gt;&gt;btCapRootClrDef.Name" xml:space="preserve">
     <value>btCapRootClrDef</value>
   </data>
@@ -2345,6 +2339,9 @@
   <data name="&gt;&gt;cmbLength.Type" xml:space="preserve">
     <value>DentistX.ImplantLengthCombo, DentistX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="GrpExtern.Text" xml:space="preserve">
+    <value>Extrenal Treatment</value>
+  </data>
   <data name="cmbBrand.Location" type="System.Drawing.Point, System.Drawing">
     <value>84, 18</value>
   </data>
@@ -2354,14 +2351,11 @@
   <data name="impCheck.Properties.DisplayValueGrayed" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;BindingNavigatorSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="LabelControl27.Text" xml:space="preserve">
+    <value>IS Finished</value>
   </data>
   <data name="cboTrtType.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
-    <value>LabelControl1</value>
   </data>
   <data name="IsExternalchk.TabIndex" type="System.Int32, mscorlib">
     <value>130</value>
@@ -2369,8 +2363,8 @@
   <data name="txtPatientName.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="txtToothNum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 22</value>
+  <data name="&gt;&gt;RightGroup.Name" xml:space="preserve">
+    <value>RightGroup</value>
   </data>
   <data name="&gt;&gt;CapFillPick.Name" xml:space="preserve">
     <value>CapFillPick</value>
@@ -2381,6 +2375,9 @@
   <data name="LabelControl18.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 15</value>
   </data>
+  <data name="CapFillPick.TabIndex" type="System.Int32, mscorlib">
+    <value>136</value>
+  </data>
   <data name="txtToothNum.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
@@ -2390,17 +2387,23 @@
   <data name="txtPayValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
+  <data name="cboTrtType.Properties.Items" xml:space="preserve">
+    <value>One Stage</value>
+  </data>
   <data name="clrFillColor.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
   </data>
-  <data name="GroupMain.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
+  <data name="RootFillPick.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
   </data>
   <data name="&gt;&gt;lblExtClinic.Name" xml:space="preserve">
     <value>lblExtClinic</value>
   </data>
   <data name="&gt;&gt;CapFillPick.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;cmbDesign.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2414,11 +2417,11 @@
   <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
     <value>20</value>
   </data>
-  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="LabelControl20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 14</value>
   </data>
-  <data name="LabelControl12.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;lblPayValue.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="LabelControl22.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 14</value>
@@ -2429,20 +2432,17 @@
   <data name="GroupHeader.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;txtExtClinic.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="LabelControl25.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9pt, style=Bold</value>
   </data>
   <data name="GrpPays.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="&gt;&gt;txtToothName.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="LabelControl15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 15</value>
   </data>
-  <data name="GrpExtern.Text" xml:space="preserve">
-    <value>Extrenal Treatment</value>
+  <data name="&gt;&gt;PanelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;btnSaveTrt.Name" xml:space="preserve">
     <value>btnSaveTrt</value>
@@ -2462,8 +2462,8 @@
   <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 14</value>
   </data>
-  <data name="txtTrtDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 352</value>
+  <data name="&gt;&gt;LabelControl26.Parent" xml:space="preserve">
+    <value>grpSpecialClrs</value>
   </data>
   <data name="&gt;&gt;LabelControl6.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -2471,14 +2471,20 @@
   <data name="cmbDiameter.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="btCapRootClrDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 23</value>
+  </data>
   <data name="LabelControl8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
+  </data>
+  <data name="txtToothNum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 22</value>
   </data>
   <data name="&gt;&gt;LabelControl22.Name" xml:space="preserve">
     <value>LabelControl22</value>
   </data>
-  <data name="&gt;&gt;LabelControl12.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="RightGroup.Text" xml:space="preserve">
+    <value>Additional Info And Colors</value>
   </data>
   <data name="RightGroup.Location" type="System.Drawing.Point, System.Drawing">
     <value>999, 126</value>
@@ -2486,11 +2492,11 @@
   <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>34, 299</value>
   </data>
-  <data name="&gt;&gt;txtTrtNotes.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;LabelControl17.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="tbOpacity.Properties.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
+  <data name="&gt;&gt;GroupMain.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="impCheck.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt, style=Bold</value>
@@ -2504,8 +2510,8 @@
   <data name="grpSpecialClrs.Text" xml:space="preserve">
     <value>Special Treats Colors</value>
   </data>
-  <data name="btTrtClrDef.ToolTip" xml:space="preserve">
-    <value>Reset To Default</value>
+  <data name="btnSelect.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;LabelControl8.Parent" xml:space="preserve">
     <value>PanelControl1</value>
@@ -2513,14 +2519,8 @@
   <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
     <value>449, 42</value>
   </data>
-  <data name="cmbDiameter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 19</value>
-  </data>
-  <data name="lblPayNotes.TabIndex" type="System.Int32, mscorlib">
-    <value>128</value>
-  </data>
-  <data name="&gt;&gt;LabelControl22.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;grpSpecialClrs.Name" xml:space="preserve">
+    <value>grpSpecialClrs</value>
   </data>
   <data name="&gt;&gt;btnSetCustmColor.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -2545,26 +2545,23 @@
   <data name="btnSaveTrt.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="lblIsExternal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 27</value>
+  <data name="&gt;&gt;LabelControl14.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;ImplantSpecsLbl.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="BindingNavigatorAddNewItem.Text" xml:space="preserve">
-    <value>Add new</value>
-  </data>
   <data name="BindingNavigatorMoveFirstItem.Text" xml:space="preserve">
     <value>Move first</value>
   </data>
-  <data name="&gt;&gt;txtTrtID.Parent" xml:space="preserve">
-    <value>GroupHeader</value>
+  <data name="lblPayNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>128</value>
   </data>
-  <data name="btnSaveTrt.Text" xml:space="preserve">
-    <value>Save</value>
+  <data name="RightGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>359, 457</value>
   </data>
-  <data name="&gt;&gt;LabelControl8.Name" xml:space="preserve">
-    <value>LabelControl8</value>
+  <data name="LabelControl25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 82</value>
   </data>
   <data name="BindingNavigatorMoveLastItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -2593,11 +2590,11 @@
   <data name="&gt;&gt;btCapRootClrDef.Parent" xml:space="preserve">
     <value>grpSpecialClrs</value>
   </data>
-  <data name="isPaidChck.Properties.DisplayValueUnchecked" xml:space="preserve">
-    <value />
+  <data name="tbThick.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 26</value>
   </data>
-  <data name="&gt;&gt;cmbDesign.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="&gt;&gt;txtExtClinic.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;lblExtClinic.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -2605,26 +2602,23 @@
   <data name="&gt;&gt;BindingNavigator1.Name" xml:space="preserve">
     <value>BindingNavigator1</value>
   </data>
-  <data name="BindingNavigatorPositionItem.AccessibleName" xml:space="preserve">
-    <value>Position</value>
-  </data>
   <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;txtPatientName.Parent" xml:space="preserve">
-    <value>GroupHeader</value>
+  <data name="LabelControl16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 99</value>
   </data>
-  <data name="&gt;&gt;BindingNavigatorMoveFirstItem.Name" xml:space="preserve">
-    <value>BindingNavigatorMoveFirstItem</value>
+  <data name="LabelControl20.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
-  <data name="cboTrtType.Properties.Items" xml:space="preserve">
-    <value>One Stage</value>
+  <data name="&gt;&gt;txtTrtPlan.Name" xml:space="preserve">
+    <value>txtTrtPlan</value>
   </data>
   <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
     <value>GroupHeader</value>
   </data>
-  <data name="&gt;&gt;LabelControl18.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;lblIsExternal.Parent" xml:space="preserve">
+    <value>GrpExtern</value>
   </data>
   <data name="&gt;&gt;LabelControl8.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -2632,8 +2626,8 @@
   <data name="&gt;&gt;txtTreat.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="LabelControl27.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9pt, style=Bold</value>
+  <data name="tbThick.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 131</value>
   </data>
   <data name="btnSaveTrt.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -2653,26 +2647,26 @@
   <data name="cmbLength.Location" type="System.Drawing.Point, System.Drawing">
     <value>314, 54</value>
   </data>
-  <data name="&gt;&gt;LabelControl14.Parent" xml:space="preserve">
-    <value>PanelControl1</value>
+  <data name="btnApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 223</value>
   </data>
   <data name="lblPayNotes.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 112</value>
   </data>
-  <data name="cboTrtType.Properties.Items1" xml:space="preserve">
-    <value>Multiple Stage</value>
+  <data name="&gt;&gt;grpSpecialClrs.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;btCapRootClrDef.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;LabelControl29.Name" xml:space="preserve">
+    <value>LabelControl29</value>
   </data>
   <data name="LabelControl17.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
-    <value>LabelControl3</value>
+  <data name="cmbDiameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 19</value>
   </data>
-  <data name="dtTrtDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
+  <data name="LabelControl4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;BindingNavigatorSeparator.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2683,11 +2677,11 @@
   <data name="&gt;&gt;LabelControl16.Name" xml:space="preserve">
     <value>LabelControl16</value>
   </data>
-  <data name="LabelControl9.Text" xml:space="preserve">
-    <value>Treatment</value>
+  <data name="GrpExtern.Size" type="System.Drawing.Size, System.Drawing">
+    <value>355, 78</value>
   </data>
-  <data name="ceFinish.Properties.DisplayValueGrayed" xml:space="preserve">
-    <value />
+  <data name="BindingNavigatorPositionItem.AccessibleName" xml:space="preserve">
+    <value>Position</value>
   </data>
   <data name="dtTrtDate.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2698,14 +2692,14 @@
   <data name="LabelControl21.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 105</value>
   </data>
-  <data name="txtPayValue.Properties.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="GroupMain.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;LabelControl7.Parent" xml:space="preserve">
     <value>GroupMain</value>
   </data>
-  <data name="&gt;&gt;lblIsExternal.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="GrpExtern.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="BindingNavigatorSeparator.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
@@ -2725,8 +2719,11 @@
   <data name="ceFinish.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
-  <data name="lblPayNotes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 15</value>
+  <data name="cmbBrand.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="dtTrtEnd.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
   </data>
   <data name="tbOpacity.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 26</value>
@@ -2734,8 +2731,8 @@
   <data name="LabelControl6.Text" xml:space="preserve">
     <value>Treat ID</value>
   </data>
-  <data name="txtPatientID.EditValue" xml:space="preserve">
-    <value />
+  <data name="dtTrtEnd.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
   </data>
   <data name="&gt;&gt;btnCancelImp.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -2743,17 +2740,17 @@
   <data name="LabelControl12.Location" type="System.Drawing.Point, System.Drawing">
     <value>34, 140</value>
   </data>
-  <data name="&gt;&gt;LabelControl28.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="ImplantSpecsLbl.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;LabelControl13.Parent" xml:space="preserve">
     <value>PanelControl1</value>
   </data>
-  <data name="btnSaveTrt.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
   </data>
-  <data name="&gt;&gt;dtTrtDate.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="clrBorderColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="LabelControl27.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 14</value>
@@ -2770,8 +2767,8 @@
   <data name="&gt;&gt;LabelControl5.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;LabelControl18.Name" xml:space="preserve">
-    <value>LabelControl18</value>
+  <data name="&gt;&gt;GrpExtern.Parent" xml:space="preserve">
+    <value>RightGroup</value>
   </data>
   <data name="BindingNavigatorMoveNextItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2791,8 +2788,8 @@
   <data name="&gt;&gt;BindingNavigatorAddNewItem.Name" xml:space="preserve">
     <value>BindingNavigatorAddNewItem</value>
   </data>
-  <data name="CapFillPick.TabIndex" type="System.Int32, mscorlib">
-    <value>136</value>
+  <data name="BindingNavigatorAddNewItem.Text" xml:space="preserve">
+    <value>Add new</value>
   </data>
   <data name="&gt;&gt;btnSelect.Parent" xml:space="preserve">
     <value>ImpContainer</value>
@@ -2818,8 +2815,8 @@
   <data name="BindingNavigatorSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
   </data>
-  <data name="BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="LabelControl26.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="clrFillColor.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
     <value>Combo</value>
@@ -2833,11 +2830,14 @@
   <data name="LabelControl12.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 14</value>
   </data>
-  <data name="&gt;&gt;BindingNavigatorMovePreviousItem.Name" xml:space="preserve">
-    <value>BindingNavigatorMovePreviousItem</value>
+  <data name="&gt;&gt;ImpPopup.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PopupContainerEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="LabelControl26.Text" xml:space="preserve">
     <value>Root Color</value>
+  </data>
+  <data name="&gt;&gt;LabelControl28.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="lblTrtPrice.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2845,13 +2845,13 @@
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <metadata name="BindingNavigator1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>97, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="TrtBS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="BindingNavigator1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>97, 17</value>
   </metadata>
 </root>

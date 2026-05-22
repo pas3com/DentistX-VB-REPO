@@ -1065,8 +1065,7 @@ Partial Public Class SupplierInvoice
         'xrCellLineTotal
         '
         Me.xrCellLineTotal.Dpi = 254.0!
-        Me.xrCellLineTotal.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull([Quantity]), 0, [Quantity]) * Iif(IsNull([UnitPrice]), 0, [UnitPrice])" &
-                    "")})
+        Me.xrCellLineTotal.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[LineTotal]")})
         Me.xrCellLineTotal.Font = New DevExpress.Drawing.DXFont("Calibri", 9.0!, DevExpress.Drawing.DXFontStyle.Bold)
         Me.xrCellLineTotal.Name = "xrCellLineTotal"
         Me.xrCellLineTotal.StyleName = "styleDetail"

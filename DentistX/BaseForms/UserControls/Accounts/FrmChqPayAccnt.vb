@@ -372,6 +372,31 @@ Public Class FrmChqPayAccnt
         IntegerMoneyEditorFocus.AttachTextEditZeroEmptyElseSelectAll(PayValue, txtChqValue)
     End Sub
 
+    ''' <summary>WinForms activates the default control after <see cref="Load"/>; DevExpress layout can also steal focus — defer until first shown.</summary>
+    Private Sub FrmChqPayAccnt_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        BeginInvoke(New MethodInvoker(AddressOf ApplyDeferredInitialAmountFieldFocus))
+    End Sub
+
+    Private Sub ApplyDeferredInitialAmountFieldFocus()
+        Try
+            Dim te = TryGetInitialAmountTextEdit()
+            If te Is Nothing OrElse te.IsDisposed OrElse Not te.Visible OrElse Not te.Enabled Then Return
+            ActiveControl = te
+            te.Focus()
+            If te.ContainsFocus Then te.SelectAll()
+        Catch
+        End Try
+    End Sub
+
+    ''' <summary>Cheque amounts are edited in <see cref="txtChqValue"/>; other pay types use <see cref="PayValue"/>.</summary>
+    Private Function TryGetInitialAmountTextEdit() As DevExpress.XtraEditors.TextEdit
+        If String.Compare(_payType, "Cheque", StringComparison.OrdinalIgnoreCase) = 0 AndAlso txtChqValue IsNot Nothing Then
+            If Not txtChqValue.Properties.ReadOnly AndAlso txtChqValue.Visible Then Return txtChqValue
+        End If
+        If PayValue IsNot Nothing AndAlso Not PayValue.Properties.ReadOnly AndAlso PayValue.Visible Then Return PayValue
+        Return Nothing
+    End Function
+
     Private Sub ConfigureChequeSideRadio()
         If lblChequeScanSide Is Nothing OrElse radioChequeImageSide Is Nothing Then Return
         lblChequeScanSide.Text = If(Eng, "Cheque scan side:", "جانب مسح الشيك:")

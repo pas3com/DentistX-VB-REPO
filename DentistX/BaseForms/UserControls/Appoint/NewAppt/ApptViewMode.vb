@@ -1,6 +1,7 @@
 Imports System
 Imports System.Collections.Generic
 Imports System.Drawing
+Imports System.Globalization
 Imports System.Linq
 Imports System.Reflection
 Imports System.Windows.Forms
@@ -189,6 +190,7 @@ Public Class ApptState
         VisibleStatus = Nothing
         VisibleReason = Nothing
         DoctorFilterId = Nothing
+        OrderByDoctorId = Nothing
         PatientFilterId = Nothing
         PatientOnlyMode = False
         FilterStartDate = Date.Today.AddMonths(-1)
@@ -210,6 +212,8 @@ Public Class ApptState
     Public Property UseBoldAppointments As Boolean
     Public Property UseLargeAppointments As Boolean
     Public Property DoctorFilterId As Integer?
+    ''' <summary>When set, appointments (and doctor columns) for this doctor are ordered first; persisted as <c>My.Settings.ApptModuleOrderByDoctorId</c>. When <see langword="Nothing"/>, use logged-in / linked doctor rule only.</summary>
+    Public Property OrderByDoctorId As Integer?
     Public Property PatientFilterId As Integer?
     Public Property VisibleReason As String
     Public Property VisibleStatus As String
@@ -247,6 +251,21 @@ Public Class ApptViewRequest
     Public Property PendingScrollAppointment As AppointmentC
     ''' <summary>Long-press before <c>DoDragDrop</c> on week cards (<see cref="SchedulerNew.DragHoldTimeMs"/>).</summary>
     Public Property DragHoldTimeMs As Integer = 750
+
+    ''' <summary>Host: same as main toolbar previous period (day/week/month), not appointment-edge jump.</summary>
+    Public Property NavigateDatePrevious As Action
+    ''' <summary>Host: same as main toolbar next period.</summary>
+    Public Property NavigateDateNext As Action
+    ''' <summary>Host: jump to previous appointment edge (same as main header prev-appt).</summary>
+    Public Property NavigateAppointmentPrevious As Action
+    ''' <summary>Host: jump to next appointment edge (same as main header next-appt).</summary>
+    Public Property NavigateAppointmentNext As Action
+    ''' <summary>Host: toggles expanded schedule body (hides main <see cref="ApptHeaderCtl"/> band).</summary>
+    Public Property ToggleBodyWorkspaceExpand As Action
+    ''' <summary>Host: opens new appointment like toolbar add.</summary>
+    Public Property QuickAddAppointment As Action
+    ''' <summary>Host: reflects expand button glyph when bound.</summary>
+    Public Property IsBodyWorkspaceExpanded As Boolean
 End Class
 
 Public Interface IApptViewCtl
@@ -258,7 +277,7 @@ Public Class ApptInteractionHub
     Public Event AppointmentClicked As Action(Of AppointmentC)
     Public Event AppointmentDoubleClicked As Action(Of AppointmentC)
     Public Event EmptyDateInvoked As Action(Of DateTime)
-    ''' <summary>English <paramref name="statusKey"/> (Pending, Running, …) and chip color from <see cref="GetStandardAppointmentStatusColors"/>.</summary>
+    ''' <summary>English status key (Pending, Running, …) and chip color from <see cref="GetStandardAppointmentStatusColors"/>.</summary>
     Public Event AppointmentStatusChangeRequested As Action(Of AppointmentC, String, Color)
     Public Event WeekColumnAppointmentDrop As Action(Of AppointmentC, DateTime, DateTime)
     ''' <summary>New start/end times (usually same day, different slots or resized).</summary>
@@ -468,6 +487,47 @@ Public Module ApptTheme
         Return appearance
     End Function
 
+    ''' <summary>Matches <see cref="ApptCard.ApplyStatusAppearanceW"/> for reuse in classic <see cref="SchedulerNew"/> day cards.</summary>
+    Public Sub StyleApptCardStatusLabelForAppointment(strip As ApptCardStatusLabel, appt As AppointmentC, doctorColor As Color, Optional state As ApptState = Nothing)
+        If strip Is Nothing OrElse appt Is Nothing Then Return
+        Dim vm As New ApptCardVm With {
+            .Appointment = appt,
+            .PatientName = "",
+            .DoctorInfo = New ApptDoctorInfo With {.DrID = appt.DrID, .DrName = "", .DrColor = doctorColor}
+        }
+        Dim appearance = BuildDefaultCardAppearance(vm, state)
+        Dim st = appearance.StatusStyle
+        strip.Text = GetAppointmentStatusDisplayText(appt)
+        strip.Visible = st.Visible AndAlso Not String.IsNullOrWhiteSpace(strip.Text)
+        If Not strip.Visible Then Return
+        strip.Font = st.CreateFont()
+        strip.ForeColor = st.ForeColor
+        Dim bg = st.BackColor
+        If bg.A = 0 OrElse bg = Color.Transparent Then
+            bg = Color.FromArgb(103, 114, 229)
+        End If
+        strip.BackColor = bg
+        strip.BorderColor = ControlPaint.Dark(bg, 0.08F)
+        strip.TextDirection = If(Eng, ApptCardStatusLabel.StatusTextDirection.BottomToTop, ApptCardStatusLabel.StatusTextDirection.TopToBottom)
+        strip.RightToLeft = If(Eng, RightToLeft.No, RightToLeft.Yes)
+    End Sub
+
+    ''' <summary>Same measure as <see cref="ApptCard"/> status column width.</summary>
+    Public Function MeasureApptCardStatusColumnWidth(statusText As String, font As Font) As Integer
+        If String.IsNullOrWhiteSpace(statusText) OrElse font Is Nothing Then Return 28
+        Dim m = 0
+        For Each ch In statusText.Trim()
+            m = Math.Max(m, TextRenderer.MeasureText(ch.ToString(), font).Width)
+        Next
+        Dim byHeight = CInt(Math.Ceiling(font.GetHeight())) + 8
+        Return Math.Max(26, Math.Max(m, byHeight) + 10)
+    End Function
+
+    ''' <summary>Minimum strip height so <see cref="ApptCardStatusLabel"/> vertical text stays one line.</summary>
+    Public Function MeasureApptCardStatusStripMinimumHeight(statusText As String, font As Font, stripWidth As Integer, Optional dpiY As Single = 96.0F) As Integer
+        Return ApptCardStatusLabel.MeasureMinimumStripHeight(statusText, font, stripWidth, dpiY)
+    End Function
+
     Public Function BuildBoundCardViewModel(appointment As AppointmentC,
                                             data As ApptDataBundle,
                                             state As ApptState,
@@ -507,13 +567,16 @@ Public Module ApptTheme
     End Function
 
     Public Function FormatTimeRange(startValue As DateTime, endValue As DateTime, use24Hour As Boolean) As String
-        Dim formatText = If(use24Hour, "HH:mm", "hh:mm tt")
-        Return $"{startValue.ToString(formatText)} - {endValue.ToString(formatText)}"
+        Return $"{FormatAppointmentTime(startValue, use24Hour)} - {FormatAppointmentTime(endValue, use24Hour)}"
     End Function
 
     Public Function FormatAppointmentTime(value As DateTime, use24Hour As Boolean) As String
-        Dim formatText = If(use24Hour, "HH:mm", "hh:mm tt")
-        Return value.ToString(formatText)
+        If use24Hour Then
+            Return value.ToString("HH:mm", CultureInfo.InvariantCulture)
+        End If
+        Dim timePart = value.ToString("h:mm", CultureInfo.InvariantCulture)
+        Dim suffix = If(value.Hour < 12, "AM", "PM")
+        Return timePart & " " & suffix
     End Function
 
     Public Function GetWeekStartSaturday(value As DateTime) As DateTime
@@ -566,7 +629,7 @@ Public Module ApptTheme
         Return $"{startDate:dd MMM} - {endDate:dd MMM yyyy}"
     End Function
 
-    ''' <summary>Month line for range caption (<see cref="lblRange"/> month view).</summary>
+    ''' <summary>Month line for range caption (<c>lblRange</c> month view).</summary>
     Public Function FormatCaptionMonthTitle(monthStart As Date) As String
         Return monthStart.ToString("MMMM yyyy")
     End Function
@@ -574,6 +637,23 @@ Public Module ApptTheme
     ''' <summary>Full day line for range caption (day view).</summary>
     Public Function FormatCaptionDayFull(d As Date) As String
         Return d.ToString("dddd, dd MMM yyyy")
+    End Function
+
+    ''' <summary>Date segment of a day column header — same pattern as <see cref="SchedulerNew"/> week / month-week day boxes (<c>ddd dd MMM</c>).</summary>
+    Public Function FormatSchedulerStyleDayColumnTitle(day As Date) As String
+        Return day.ToString("ddd dd MMM")
+    End Function
+
+    ''' <summary>Parenthesized appointment count — matches <see cref="SchedulerNew"/> localized week column / month-week labels.</summary>
+    Public Function FormatSchedulerStyleDayColumnApptCountParens(apptCount As Integer) As String
+        Return If(Eng,
+            $"({apptCount} appt{If(apptCount <> 1, "s", "")})",
+            $"({apptCount} موعد{If(apptCount > 10 OrElse apptCount = 0, "", "اً")})")
+    End Function
+
+    ''' <summary>Single-line day box header: <c>ddd dd MMM · (N appts)</c> — same as classic <see cref="SchedulerNew"/> day column labels.</summary>
+    Public Function FormatSchedulerStyleDayColumnHeaderOneLine(day As Date, apptCount As Integer) As String
+        Return $"{day:ddd dd MMM} · " & FormatSchedulerStyleDayColumnApptCountParens(apptCount)
     End Function
 
     ''' <summary>Same filter dimensions as <see cref="ApptDataProvider.Load"/> / <c>AppointmentCRepository.GetFiltered</c> (patient, doctor, reason contains, status equals).</summary>
@@ -653,7 +733,7 @@ Public Module ApptTheme
     End Function
 
 #Region "Appointment display order (linked admin doctor, other doctors by name, then by time)"
-    ''' <summary>Same rules as <see cref="ResolveCurrentLinkedDoctorId"/> in <see cref="SchedulerNew"/>: <see cref="PasswordSecurity.CurrentDoctor"/>, <see cref="PasswordSecurity.CurrentUser"/>.<see langword="DrID"/>, <see cref="PasswordSecurity.LoggedInDoctorID"/>.</summary>
+    ''' <summary>Same rules as <c>ResolveCurrentLinkedDoctorId</c> in <see cref="SchedulerNew"/>: <see cref="PasswordSecurity.CurrentDoctor"/>, <see cref="PasswordSecurity.CurrentUser"/>.<see langword="DrID"/>, <see cref="PasswordSecurity.LoggedInDoctorID"/>.</summary>
     Public Function ResolveDisplayLinkedDrId() As Integer
         Try
             If PasswordSecurity.CurrentDoctor IsNot Nothing AndAlso PasswordSecurity.CurrentDoctor.DrID > 0 Then
@@ -686,12 +766,20 @@ Public Module ApptTheme
         Return If(linkedDoctorAtEnd, 1, 0)
     End Function
 
-    ''' <summary>Top-to-bottom: by default the linked (admin) doctor first (scheduler); set <paramref name="linkedDoctorAtEnd"/> to put that doctor last (new Appt module week/day views).</summary>
-    Public Function OrderAppointmentsForDisplay(source As IEnumerable(Of AppointmentC), getDoctorName As Func(Of Integer, String), Optional linkedDoctorAtEnd As Boolean = False) As List(Of AppointmentC)
-        If source Is Nothing Then Return New List(Of AppointmentC)()
+    ''' <summary>When <paramref name="orderFirstDoctorId"/> is set (&gt;0), that doctor sorts first; otherwise same linked-doctor rule as before.</summary>
+    Private Function AppointmentPrimaryDoctorSortRank(drId As Integer, orderFirstDoctorId As Integer?, linkedDoctorAtEnd As Boolean) As Integer
+        If orderFirstDoctorId.HasValue AndAlso orderFirstDoctorId.Value > 0 Then
+            Return If(drId = orderFirstDoctorId.Value, 0, 1)
+        End If
         Dim linked = ResolveDisplayLinkedDrId()
+        Return LinkedVsOthersSortKey(linked > 0 AndAlso drId = linked, linkedDoctorAtEnd)
+    End Function
+
+    ''' <summary>Top-to-bottom: by default the linked (admin) doctor first (scheduler); set <paramref name="linkedDoctorAtEnd"/> to put that doctor last (new Appt module week/day views). Within each doctor, earliest <see cref="AppointmentC.StartDateTime"/> first.</summary>
+    Public Function OrderAppointmentsForDisplay(source As IEnumerable(Of AppointmentC), getDoctorName As Func(Of Integer, String), Optional linkedDoctorAtEnd As Boolean = False, Optional orderFirstDoctorId As Integer? = Nothing) As List(Of AppointmentC)
+        If source Is Nothing Then Return New List(Of AppointmentC)()
         Return source.
-            OrderBy(Function(a) LinkedVsOthersSortKey(linked > 0 AndAlso a.DrID = linked, linkedDoctorAtEnd)).
+            OrderBy(Function(a) AppointmentPrimaryDoctorSortRank(a.DrID, orderFirstDoctorId, linkedDoctorAtEnd)).
             ThenBy(Function(a) SafeDisplayDoctorName(getDoctorName, a.DrID)).
             ThenBy(Function(a) a.StartDateTime).
             ThenBy(Function(a) a.EndDateTime).
@@ -699,31 +787,71 @@ Public Module ApptTheme
     End Function
 
     ''' <summary>Top-to-bottom: by default the linked (admin) doctor first; set <paramref name="linkedDoctorAtEnd"/> to put that doctor last (new Appt module).</summary>
-    Public Function OrderAppointmentsForDisplay(source As IEnumerable(Of AppointmentC), data As ApptDataBundle, Optional linkedDoctorAtEnd As Boolean = False) As List(Of AppointmentC)
+    Public Function OrderAppointmentsForDisplay(source As IEnumerable(Of AppointmentC), data As ApptDataBundle, Optional linkedDoctorAtEnd As Boolean = False, Optional orderFirstDoctorId As Integer? = Nothing) As List(Of AppointmentC)
         If data Is Nothing Then
             If source Is Nothing Then Return New List(Of AppointmentC)()
-            Return source.OrderBy(Function(a) a.StartDateTime).ToList()
+            Return OrderAppointmentsForDisplay(source, Function(id) "Doctor " & id, linkedDoctorAtEnd, orderFirstDoctorId)
         End If
-        Return OrderAppointmentsForDisplay(source, Function(id) data.ResolveDoctor(id).DrName, linkedDoctorAtEnd)
+        Return OrderAppointmentsForDisplay(source, Function(id) data.ResolveDoctor(id).DrName, linkedDoctorAtEnd, orderFirstDoctorId)
+    End Function
+
+    ''' <summary>
+    ''' Week view, one calendar day: partition by <see cref="AppointmentC.DrID"/>.
+    ''' Doctors with two or more appointments form a <em>group</em> (kept together, sorted by start time within the doctor).
+    ''' Doctors with exactly one appointment are <em>solo</em> units.
+    ''' Sort units by preferred / linked doctor, then earliest start in the unit; when that ties, <em>group before solo</em>; then doctor display name, <see cref="AppointmentC.DrID"/>.
+    ''' Within each doctor unit, appointments are earliest <see cref="AppointmentC.StartDateTime"/> first.
+    ''' When every doctor has at most one appointment, all units are solo and the list is chronological by start time.
+    ''' </summary>
+    Public Function OrderAppointmentsForWeekDayGroupsAndSolos(source As IEnumerable(Of AppointmentC), getDoctorName As Func(Of Integer, String), Optional orderFirstDoctorId As Integer? = Nothing) As List(Of AppointmentC)
+        If source Is Nothing Then Return New List(Of AppointmentC)()
+        Dim materialized = source.ToList()
+        If materialized.Count = 0 Then Return New List(Of AppointmentC)()
+        Dim byDr = materialized.GroupBy(Function(a) a.DrID).ToList()
+        Dim unitWrappers = byDr.Select(Function(g)
+                                           Dim items = g.OrderBy(Function(a) a.StartDateTime).ThenBy(Function(a) a.EndDateTime).ThenBy(Function(a) a.AppointmentID).ToList()
+                                           Return New With {
+                                               .Items = items,
+                                               .MinStart = items(0).StartDateTime,
+                                               .IsGroup = items.Count >= 2,
+                                               .DrId = g.Key
+                                           }
+                                       End Function).ToList()
+        Return unitWrappers.
+            OrderBy(Function(u) AppointmentPrimaryDoctorSortRank(u.DrId, orderFirstDoctorId, True)).
+            ThenBy(Function(u) u.MinStart).
+            ThenByDescending(Function(u) u.IsGroup).
+            ThenBy(Function(u) SafeDisplayDoctorName(getDoctorName, u.DrId)).
+            ThenBy(Function(u) u.DrId).
+            SelectMany(Function(u) u.Items).
+            ToList()
+    End Function
+
+    ''' <summary>Same as <see cref="OrderAppointmentsForWeekDayGroupsAndSolos(IEnumerable(Of AppointmentC), Func(Of Integer, String))"/> using the data bundle for doctor names.</summary>
+    Public Function OrderAppointmentsForWeekDayGroupsAndSolos(source As IEnumerable(Of AppointmentC), data As ApptDataBundle, Optional orderFirstDoctorId As Integer? = Nothing) As List(Of AppointmentC)
+        If data Is Nothing Then
+            If source Is Nothing Then Return New List(Of AppointmentC)()
+            Return OrderAppointmentsForWeekDayGroupsAndSolos(source, Function(id) "Doctor " & id, orderFirstDoctorId)
+        End If
+        Return OrderAppointmentsForWeekDayGroupsAndSolos(source, Function(id) data.ResolveDoctor(id).DrName, orderFirstDoctorId)
     End Function
 
     ''' <summary>Doctor columns: by default linked doctor first; set <paramref name="linkedDoctorAtEnd"/> to put that column last (new Appt module).</summary>
-    Public Function OrderDoctorColumnIdsForDisplay(drIds As IEnumerable(Of Integer), getDoctorName As Func(Of Integer, String), Optional linkedDoctorAtEnd As Boolean = False) As List(Of Integer)
+    Public Function OrderDoctorColumnIdsForDisplay(drIds As IEnumerable(Of Integer), getDoctorName As Func(Of Integer, String), Optional linkedDoctorAtEnd As Boolean = False, Optional orderFirstDoctorId As Integer? = Nothing) As List(Of Integer)
         If drIds Is Nothing Then Return New List(Of Integer)()
-        Dim linked = ResolveDisplayLinkedDrId()
         Return drIds.Distinct().
-            OrderBy(Function(id) LinkedVsOthersSortKey(linked > 0 AndAlso id = linked, linkedDoctorAtEnd)).
+            OrderBy(Function(id) AppointmentPrimaryDoctorSortRank(id, orderFirstDoctorId, linkedDoctorAtEnd)).
             ThenBy(Function(id) SafeDisplayDoctorName(getDoctorName, id)).
             ToList()
     End Function
 
     ''' <summary>Doctor columns: by default linked doctor first; set <paramref name="linkedDoctorAtEnd"/> to put that column last (new Appt module).</summary>
-    Public Function OrderDoctorColumnIdsForDisplay(drIds As IEnumerable(Of Integer), data As ApptDataBundle, Optional linkedDoctorAtEnd As Boolean = False) As List(Of Integer)
+    Public Function OrderDoctorColumnIdsForDisplay(drIds As IEnumerable(Of Integer), data As ApptDataBundle, Optional linkedDoctorAtEnd As Boolean = False, Optional orderFirstDoctorId As Integer? = Nothing) As List(Of Integer)
         If data Is Nothing Then
             If drIds Is Nothing Then Return New List(Of Integer)()
             Return drIds.Distinct().OrderBy(Function(x) x).ToList()
         End If
-        Return OrderDoctorColumnIdsForDisplay(drIds, Function(id) data.ResolveDoctor(id).DrName, linkedDoctorAtEnd)
+        Return OrderDoctorColumnIdsForDisplay(drIds, Function(id) data.ResolveDoctor(id).DrName, linkedDoctorAtEnd, orderFirstDoctorId)
     End Function
 #End Region
 End Module

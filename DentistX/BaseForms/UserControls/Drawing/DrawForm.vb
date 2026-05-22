@@ -2293,7 +2293,7 @@ Partial Public Class DrawForm
 
     Property SavedImage As Image
 
-    ''' <summary>Full path of the file written by Save && Close (auto-named patient image).</summary>
+    ''' <summary>Full path of the file written by Save and Close (auto-named patient image).</summary>
     Property SavedFilePath As String
 
     Private Function TryParsePatientIdFromOpenedPath(fullPath As String, ByRef patientId As Integer) As Boolean

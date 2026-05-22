@@ -3,8 +3,8 @@ Imports DevExpress.Utils
 Imports DevExpress.XtraEditors
 
 ''' <summary>
-''' Runtime strings for <see cref="FlyoutPanel"/> (Flyout1) on jaw user controls: button panel plus embedded
-''' search row, multi-tooth group, and external-treat options. Jaw SVG surfaces stay English-only; uses <see cref="Eng"/>.
+''' Runtime strings for jaw treatment popups: DevExpress <see cref="FlyoutPanel"/> (Flyout1) and embedded
+''' <c>FlyMenu</c> panel controls. Jaw SVG surfaces stay English-only; uses <see cref="Eng"/>.
 ''' </summary>
 Public Module JawFlyoutLocalization
 
@@ -58,8 +58,50 @@ Public Module JawFlyoutLocalization
         End If
 
         LocalizeFlyoutContents(flyout)
+        KeepTreatmentsTreeLtr(flyout)
+    End Sub
+
+    ''' <summary>Same strings/RTL as <see cref="ApplyJawTreatmentsFlyoutLanguage"/> for AdultJaw embedded <c>FlyMenu</c>.</summary>
+    Public Sub ApplyJawTreatmentsFlyMenuLanguage(flyMenu As Control)
+        If flyMenu Is Nothing Then Return
+
+        flyMenu.RightToLeft = RightToLeft.No
+        ApplyRightToLeftToFlyMenuClientArea(flyMenu, rtlContent:=Not Eng)
+
+        Dim btnTree = TryCast(FindControlRecursive(flyMenu, "btnTrtView"), SimpleButton)
+        Dim btnEdit = TryCast(FindControlRecursive(flyMenu, "btnEditTrts"), SimpleButton)
+        Dim btnEditMulti = TryCast(FindControlRecursive(flyMenu, "btnEditMultiTrts"), SimpleButton)
+        If btnTree IsNot Nothing Then
+            btnTree.Text = If(Eng, "Tree view", "عرض العلاجات")
+        End If
+        If btnEdit IsNot Nothing Then
+            btnEdit.Text = If(Eng, "Edit", "تعديل العلاجات")
+        End If
+        If btnEditMulti IsNot Nothing Then
+            btnEditMulti.Text = If(Eng, "Bulk edit", "تعديل جماعي")
+        End If
+
+        LocalizeFlyoutContents(flyMenu)
+        KeepTreatmentsTreeLtr(flyMenu)
+    End Sub
+
+    ''' <summary>Delete caption on <c>btnDelTrts</c> when FlyMenu opens (multi vs single tooth).</summary>
+    Public Sub SetJawFlyMenuDeleteButtonCaption(btnDelTrts As SimpleButton, multiSelectedTeeth As Boolean)
+        If btnDelTrts Is Nothing Then Return
+        If Eng Then
+            btnDelTrts.Text = If(multiSelectedTeeth,
+                "Delete all (teeth)",
+                "Delete From (tooth)")
+        Else
+            btnDelTrts.Text = If(multiSelectedTeeth,
+                "حذف من الأسنان المحددة",
+                "حذف من السن المحدد")
+        End If
+    End Sub
+
+    Private Sub KeepTreatmentsTreeLtr(root As Control)
         ' RTL on the panel breaks WinForms TreeView expansion/display; keep the tree LTR so first level under TREATS always shows.
-        Dim tv = TryCast(FindControlRecursive(flyout, "TrtsTreeView"), TreeView)
+        Dim tv = TryCast(FindControlRecursive(root, "TrtsTreeView"), TreeView)
         If tv IsNot Nothing Then
             tv.RightToLeft = RightToLeft.No
             tv.RightToLeftLayout = False
@@ -94,6 +136,17 @@ Public Module JawFlyoutLocalization
         If trts IsNot Nothing Then trts.RightToLeft = rl
     End Sub
 
+    ''' <summary>RTL for FlyMenu search + multi-tooth strip; button row stays LTR (same idea as flyout button panel).</summary>
+    Private Sub ApplyRightToLeftToFlyMenuClientArea(flyMenu As Control, rtlContent As Boolean)
+        Dim rl = If(rtlContent, RightToLeft.Yes, RightToLeft.No)
+        Dim srch = FindControlRecursive(flyMenu, "SrchPanel")
+        If srch IsNot Nothing Then srch.RightToLeft = rl
+        Dim grpMulti = FindControlRecursive(flyMenu, "grpSlctdTeeth")
+        If grpMulti IsNot Nothing Then grpMulti.RightToLeft = rl
+        Dim buttons = FindControlRecursive(flyMenu, "ButtonsPane")
+        If buttons IsNot Nothing Then buttons.RightToLeft = RightToLeft.No
+    End Sub
+
     Private Sub LocalizeFlyoutContents(flyout As Control)
         Dim txtSrch = TryCast(FindControlRecursive(flyout, "txtSrchTrt"), TextEdit)
         If txtSrch IsNot Nothing Then
@@ -120,7 +173,7 @@ Public Module JawFlyoutLocalization
             grpMulti.Text = If(Eng, EnMultiTeethGroup, ArMultiTeethGroup)
         End If
 
-        Dim grpExt = TryCast(FindControlRecursive(flyout, "GroupControl1"), GroupControl)
+        Dim grpExt = TryCast(FindExternalTreatGroup(flyout), GroupControl)
         If grpExt IsNot Nothing Then
             grpExt.Text = If(Eng, EnExternalGroup, ArExternalGroup)
             Dim setLbl = FindSetTeethAsLabel(grpExt)
@@ -152,6 +205,13 @@ Public Module JawFlyoutLocalization
             If t = EnSomewhereElse OrElse String.IsNullOrEmpty(t) Then txtExt.EditValue = ArSomewhereElse
         End If
     End Sub
+
+    ''' <summary>AdultJaw FlyMenu uses <c>IsExternalGroup</c>; other jaws use <c>GroupControl1</c>.</summary>
+    Private Function FindExternalTreatGroup(root As Control) As Control
+        Dim grp = FindControlRecursive(root, "IsExternalGroup")
+        If grp IsNot Nothing Then Return grp
+        Return FindControlRecursive(root, "GroupControl1")
+    End Function
 
     Private Function FindControlRecursive(parent As Control, name As String) As Control
         For Each child As Control In parent.Controls

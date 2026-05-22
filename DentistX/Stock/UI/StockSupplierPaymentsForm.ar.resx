@@ -117,9 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SplitterCtl.Panel1.Text" xml:space="preserve">
+    <value>اللوحة 1</value>
+  </data>
+  <data name="SplitterCtl.Panel2.Text" xml:space="preserve">
+    <value>اللوحة 2</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>527, 19</value>
+    <value>560, 12</value>
   </data>
   <data name="lblSupplier.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 15</value>
@@ -128,10 +134,167 @@
     <value>المورد</value>
   </data>
   <data name="_cmbSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>203, 16</value>
+    <value>239, 8</value>
+  </data>
+  <data name="lblOpenInvoicesSum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 12</value>
+  </data>
+  <data name="lblOpenInvoices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 12</value>
+  </data>
+  <data name="lblOpenInvoices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 15</value>
+  </data>
+  <data name="lblOpenInvoices.Text" xml:space="preserve">
+    <value>إجمالي الفواتير المفتوحة:</value>
+  </data>
+  <data name="lblPaymentsSum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 40</value>
+  </data>
+  <data name="lblPayments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 40</value>
+  </data>
+  <data name="lblPayments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 15</value>
+  </data>
+  <data name="lblPayments.Text" xml:space="preserve">
+    <value>إجمالي المدفوعات:</value>
+  </data>
+  <data name="_btnEditPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 113</value>
+  </data>
+  <data name="_btnEditPay.Text" xml:space="preserve">
+    <value>تعديل الدفعة</value>
+  </data>
+  <data name="ChqGridPage.Text" xml:space="preserve">
+    <value>دفع بالشيكات</value>
+  </data>
+  <data name="ScannedPage.Text" xml:space="preserve">
+    <value>ملفات ممسوحة ضوئياً</value>
+  </data>
+  <data name="AttachedPage.Text" xml:space="preserve">
+    <value>الملفات المرفقة</value>
+  </data>
+  <data name="ChkDrive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 95</value>
+  </data>
+  <data name="ChkDrive.Properties.Caption" xml:space="preserve">
+    <value>استخدام التخزين السحابي</value>
+  </data>
+  <data name="ChkDrive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 19</value>
+  </data>
+  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 120</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>استعراض</value>
+  </data>
+  <data name="btnScan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 120</value>
+  </data>
+  <data name="btnScan.Text" xml:space="preserve">
+    <value>مسح ضوئي</value>
+  </data>
+  <data name="btnResetChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 34</value>
+  </data>
+  <data name="btnResetChqs.Text" xml:space="preserve">
+    <value>مسح الحقول</value>
+  </data>
+  <data name="btnScanAndPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>197, 120</value>
+  </data>
+  <data name="btnScanAndPay.Text" xml:space="preserve">
+    <value>مسح ودفع</value>
+  </data>
+  <data name="dtChqDueDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 28</value>
+  </data>
+  <data name="LabelControl18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>251, 32</value>
+  </data>
+  <data name="LabelControl18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 15</value>
+  </data>
+  <data name="LabelControl18.Text" xml:space="preserve">
+    <value>تاريخ الاستحقاق:</value>
+  </data>
+  <data name="LabelControl19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>251, 59</value>
+  </data>
+  <data name="LabelControl19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 15</value>
+  </data>
+  <data name="LabelControl19.Text" xml:space="preserve">
+    <value>قيمة الشيك:</value>
+  </data>
+  <data name="txtChqValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 55</value>
+  </data>
+  <data name="txtChqBank.Location" type="System.Drawing.Point, System.Drawing">
+    <value>344, 111</value>
+  </data>
+  <data name="txtChqNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>344, 83</value>
+  </data>
+  <data name="LabelControl15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>504, 87</value>
+  </data>
+  <data name="LabelControl15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
+  </data>
+  <data name="LabelControl15.Text" xml:space="preserve">
+    <value>رقم الشيك:</value>
+  </data>
+  <data name="LabelControl17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>504, 115</value>
+  </data>
+  <data name="LabelControl17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="LabelControl17.Text" xml:space="preserve">
+    <value>بنك الشيك:</value>
+  </data>
+  <data name="txtChqOwner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>344, 28</value>
+  </data>
+  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 59</value>
+  </data>
+  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 15</value>
+  </data>
+  <data name="LabelControl14.Text" xml:space="preserve">
+    <value>رقم الحساب:</value>
+  </data>
+  <data name="txtAccountNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>344, 55</value>
+  </data>
+  <data name="LabelControl16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 32</value>
+  </data>
+  <data name="LabelControl16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 15</value>
+  </data>
+  <data name="LabelControl16.Text" xml:space="preserve">
+    <value>صاحب الشيك:</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GroupCheques.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="GroupCheques.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="GroupCheques.Size" type="System.Drawing.Size, System.Drawing">
+    <value>580, 169</value>
+  </data>
+  <data name="GroupCheques.Text" xml:space="preserve">
+    <value>بيانات الشيك</value>
   </data>
   <data name="lblAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>671, 27</value>
+    <value>709, 16</value>
   </data>
   <data name="lblAmount.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 15</value>
@@ -140,13 +303,13 @@
     <value>المبلغ</value>
   </data>
   <data name="_spinAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>558, 23</value>
+    <value>606, 12</value>
   </data>
   <data name="_spinAmount.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 22</value>
   </data>
   <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 27</value>
+    <value>714, 45</value>
   </data>
   <data name="lblDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 15</value>
@@ -155,13 +318,10 @@
     <value>التاريخ</value>
   </data>
   <data name="_datePayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>384, 23</value>
-  </data>
-  <data name="_datePayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 22</value>
+    <value>606, 41</value>
   </data>
   <data name="lblMethod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>332, 27</value>
+    <value>713, 73</value>
   </data>
   <data name="lblMethod.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 15</value>
@@ -170,33 +330,20 @@
     <value>الطريقة</value>
   </data>
   <data name="_cmbMethod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>235, 23</value>
+    <value>606, 69</value>
   </data>
   <data name="_cmbMethod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 22</value>
-  </data>
-  <data name="lblRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>171, 27</value>
-  </data>
-  <data name="lblRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 15</value>
-  </data>
-  <data name="lblRef.Text" xml:space="preserve">
-    <value>المرجع</value>
-  </data>
-  <data name="_txtRef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 23</value>
-  </data>
-  <data name="_txtRef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 22</value>
+    <value>94, 22</value>
   </data>
   <data name="_btnPay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 67</value>
+    <value>606, 122</value>
+  </data>
+  <data name="_btnPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 31</value>
   </data>
   <data name="_btnPay.Text" xml:space="preserve">
     <value>إضافة دفعة</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>

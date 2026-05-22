@@ -147,7 +147,7 @@ Partial Public Class FrmImpression
      ClearRecord()
      ShowToolStripItems("Add")
      ImprIDSpinEdit.Select
-     ImprIDSpinEdit.Text = clsDentistXData.getAutoID("New", "Impression")
+     ImprIDSpinEdit.Text = DentistXDATA.getAutoID("New", "Impression")
  End Sub
 
  Private Sub Edit()

@@ -1,0 +1,76 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-05-03 12:31:09Z
+Local: 2026-05-03 15:31:09Z
+Machine: PASCAL-2021
+User: PASCAL-2021\Pascal
+[ClinicNameEn]: Dr Imad Abatly Clinic
+[ClinicNameAr]: Dr Imad Abatly
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: True
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX_64\DentistX.exe
+App base directory: C:\Pascal\DentistX_64\
+Working directory: C:\Pascal\DentistX_64
+Crash log directory: C:\Pascal\DentistX_64\crash_logs
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (4):
+  - DentistX.MainView3 | DentistX Trial Version
+  - DevExpress.XtraEditors.Popup.PopupDateEditForm | 
+  - DentistX.EditTreatFrom | EditTreatFrom
+  - [ACTIVE] DevExpress.XtraEditors.Popup.PopupContainerForm | 
+
+--- Last opened UI (session) ---
+Last form (Shown/visible at hook): DentistX.EditTreatFrom | Text=EditTreatFrom
+  At (UTC): 2026-05-03 12:31:00Z
+Last user control (last became visible): DentistX.ImplantBrandCombo | Name=cmbBrand | ParentForm=DevExpress.XtraEditors.Popup.PopupContainerForm / 
+  At (UTC): 2026-05-03 12:31:09Z
+
+--- UI context (best effort) ---
+Thread: ManagedId=1, Name=(default), UI=STA
+ActiveForm: DevExpress.XtraEditors.Popup.PopupContainerForm | Text=
+Focused control (leaf): DentistX.ImplantBrandCombo | Name=cmbBrand; Text=
+  Parent[0]: DevExpress.XtraEditors.PopupContainerControl | Name=ImpContainer; Text=
+  Parent[1]: DevExpress.XtraEditors.Popup.PopupContainerForm | Name=(unnamed); Text=
+
+--- Exception detail ---
+--- Level 0 ---
+Type: System.InvalidOperationException
+Message: Sequence contains more than one element
+HResult: 0x80131509
+TargetSite: System.Linq.Enumerable.SingleOrDefault
+Source: System.Core
+Stack:
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.QueryRowImpl[T](IDbConnection cnn, Row row, CommandDefinition& command, Type effectiveType) in /_/Dapper/SqlMapper.cs:line 1291
+   at Dapper.SqlMapper.QuerySingleOrDefault[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 899
+   at DentistX.ImplantTypeCombo.GetTypeID(String typeName)
+   at DentistX.ImplantTypeCombo.SetSelectedTypeID(String typeName)
+   at DentistX.EditTreatFrom.FillCombos()
+   at DentistX.EditTreatFrom.SetImplantFieldsFromTreat(String treat)
+   at DentistX.EditTreatFrom.TryApplyImplantCombosFromTreat(String treat)
+   at DentistX.EditTreatFrom.ApplyImplantWhenPopupOpens()
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+
+--- Full ToString() (includes inners) ---
+System.InvalidOperationException: Sequence contains more than one element
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.QueryRowImpl[T](IDbConnection cnn, Row row, CommandDefinition& command, Type effectiveType) in /_/Dapper/SqlMapper.cs:line 1291
+   at Dapper.SqlMapper.QuerySingleOrDefault[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 899
+   at DentistX.ImplantTypeCombo.GetTypeID(String typeName)
+   at DentistX.ImplantTypeCombo.SetSelectedTypeID(String typeName)
+   at DentistX.EditTreatFrom.FillCombos()
+   at DentistX.EditTreatFrom.SetImplantFieldsFromTreat(String treat)
+   at DentistX.EditTreatFrom.TryApplyImplantCombosFromTreat(String treat)
+   at DentistX.EditTreatFrom.ApplyImplantWhenPopupOpens()
+   at System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbacks()

@@ -1,0 +1,66 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-05-12 09:19:45Z
+Local: 2026-05-12 12:19:45Z
+Machine: DESKTOP-D1L0T4D
+User: DESKTOP-D1L0T4D\User
+[ClinicNameEn]: DR. MALEK CLINIC
+[ClinicNameAr]: عيادة الدكتور مالك عبد الواحد
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: True
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX_64\DentistX.exe
+App base directory: C:\Pascal\DentistX_64\
+Working directory: C:\Pascal\DentistX_64
+Crash log directory: C:\Pascal\DentistX_64\crash_logs
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (1):
+  - DentistX.WaitForm1 | Form1
+
+--- Last opened UI (session) ---
+Last form (Shown/visible at hook): DevExpress.XtraEditors.Popup.PopupLookUpEditForm | Text=
+  At (UTC): 2026-05-12 09:11:49Z
+Last user control (last became visible): DentistX.PatientCombo | Name=patientCombo | ParentForm=DentistX.FrmLabSendWhats / Lab WhatsApp Message Send
+  At (UTC): 2026-05-12 09:11:46Z
+
+--- UI context (best effort) ---
+Thread: ManagedId=1, Name=(default), UI=STA
+ActiveForm: (none — modal dialog, splash, or focus outside app)
+
+--- Exception detail ---
+--- Level 0 ---
+Type: System.NullReferenceException
+Message: Object reference not set to an instance of an object.
+HResult: 0x80004003
+TargetSite: DentistX.PatientDATA.GetPatient_Notes
+Source: DentistX
+Stack:
+   at DentistX.PatientDATA.GetPatient_Notes(Patient clsPatient)
+   at DentistX.CtlNotes.LoadData(Int32 patientID)
+   at DentistX.CtlNotes.LoadPatientData(Int32 patientId)
+   at DentistX.CtlNotes.IPatientAwareUserControl_LoadPatientData(Int32 patientId)
+   at DentistX.BasePatientWorkspace.LoadPatientData(Patient patient)
+   at DentistX.BasePatientWorkspace.HandlePatientChanged(Object sender, PatientChangedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at DentistX.PatientEventManager.RaisePatientChanged(Patient newPatient, Boolean ShoKid, Boolean force)
+   at DentistX.Navigator3.FirePatientChangedForCurrent(Boolean suppressBroadcast)
+   at DentistX.Navigator3.OnSearchLeaveHideTimerTick(Object sender, EventArgs e)
+   at System.Windows.Forms.Timer.OnTick(EventArgs e)
+   at System.Windows.Forms.Timer.TimerNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+--- Full ToString() (includes inners) ---
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at DentistX.PatientDATA.GetPatient_Notes(Patient clsPatient)
+   at DentistX.CtlNotes.LoadData(Int32 patientID)
+   at DentistX.CtlNotes.LoadPatientData(Int32 patientId)
+   at DentistX.CtlNotes.IPatientAwareUserControl_LoadPatientData(Int32 patientId)
+   at DentistX.BasePatientWorkspace.LoadPatientData(Patient patient)
+   at DentistX.BasePatientWorkspace.HandlePatientChanged(Object sender, PatientChangedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at DentistX.PatientEventManager.RaisePatientChanged(Patient newPatient, Boolean ShoKid, Boolean force)
+   at DentistX.Navigator3.FirePatientChangedForCurrent(Boolean suppressBroadcast)
+   at DentistX.Navigator3.OnSearchLeaveHideTimerTick(Object sender, EventArgs e)
+   at System.Windows.Forms.Timer.OnTick(EventArgs e)
+   at System.Windows.Forms.Timer.TimerNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

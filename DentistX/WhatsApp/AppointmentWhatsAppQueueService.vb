@@ -17,10 +17,11 @@ Public NotInheritable Class AppointmentWhatsAppQueueService
     Public Shared Sub InitializeAtApplicationStartup()
         ApptWhatsAppReminderBackgroundPoller.EnsureStarted()
         ApptWhatsAppReminderBackgroundPoller.RequestImmediatePoll()
+        WhatsAppOutboundDispatchService.EnsureStarted()
     End Sub
 
     ''' <summary>Call after AppointmentC is committed with a valid id. Inserts/updates queue row when start is far enough in the future (short lead from My.Settings.ShortReminder + buffer).</summary>
-    ''' <param name="reminderMessageEnglish">RadioLang from editor: English=True, Arabic=False. Nothing = use global Eng for preview text.</param>
+    ''' <param name="reminderMessageEnglish">RadioLang from editor: English=True, Arabic=False. Nothing = Arabic preview text.</param>
     ''' <param name="include24HourReminder">False = do not queue the 24h leg.</param>
     ''' <param name="includeShortLeadReminder">False = do not queue the short-lead (e.g. 2h) leg.</param>
     Public Shared Sub NotifyAppointmentSaved(appointmentId As Integer, Optional reminderMessageEnglish As Boolean? = Nothing,

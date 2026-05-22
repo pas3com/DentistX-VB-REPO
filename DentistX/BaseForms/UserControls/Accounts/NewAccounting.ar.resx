@@ -117,31 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MainSplit.CaptionImageOptions.ImageKey" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TrtSplit.CaptionImageOptions.ImageKey" xml:space="preserve">
-    <value />
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkFullDetail.Location" type="System.Drawing.Point, System.Drawing">
     <value>223, 200</value>
   </data>
   <data name="chkFullDetail.Properties.Caption" xml:space="preserve">
     <value>تضمين العلاجات في الرسالة</value>
-  </data>
-  <data name="chkFullDetail.Properties.DisplayValueChecked" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkFullDetail.Properties.DisplayValueGrayed" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkFullDetail.Properties.DisplayValueUnchecked" xml:space="preserve">
-    <value />
-  </data>
-  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="chkFullDetail.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
-    <value>Default</value>
   </data>
   <data name="chkFullDetail.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 19</value>
@@ -156,7 +137,7 @@
     <value>لغة الرسالة</value>
   </data>
   <data name="RadioLang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>171, 165</value>
+    <value>171, 164</value>
   </data>
   <data name="RadioLang.Properties.Items1" xml:space="preserve">
     <value>عربي</value>
@@ -171,7 +152,7 @@
     <value />
   </data>
   <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 45</value>
+    <value>92, 12</value>
   </data>
   <data name="btnPrint.Text" xml:space="preserve">
     <value>طباعة</value>
@@ -180,7 +161,7 @@
     <value />
   </data>
   <data name="btnInvoiceGen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 45</value>
+    <value>92, 223</value>
   </data>
   <data name="btnInvoiceGen.Text" xml:space="preserve">
     <value>فاتورة</value>
@@ -201,7 +182,10 @@
     <value />
   </data>
   <data name="btnResetPatientAccount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 78</value>
+    <value>92, 45</value>
+  </data>
+  <data name="btnResetPatientAccount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 27</value>
   </data>
   <data name="btnResetPatientAccount.Text" xml:space="preserve">
     <value>تصفير حساب المريض</value>
@@ -227,18 +211,6 @@
   <data name="showAsChildChck.Properties.Caption" xml:space="preserve">
     <value>إظهار جميع الدفعات</value>
   </data>
-  <data name="showAsChildChck.Properties.DisplayValueChecked" xml:space="preserve">
-    <value />
-  </data>
-  <data name="showAsChildChck.Properties.DisplayValueGrayed" xml:space="preserve">
-    <value />
-  </data>
-  <data name="showAsChildChck.Properties.DisplayValueUnchecked" xml:space="preserve">
-    <value />
-  </data>
-  <data name="showAsChildChck.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
-    <value>Default</value>
-  </data>
   <data name="showAsChildChck.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 19</value>
   </data>
@@ -249,30 +221,15 @@
     <value>علاجات سنية</value>
   </data>
   <data name="RadioFilter.Properties.Items7" xml:space="preserve">
-    <value>علاجات اخرى</value>
-  </data>
-  <data name="RadioFilter.Properties.Items9" xml:space="preserve">
     <value>علاجات التقويم</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Patient_TrtsGridControl.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="Patient_TrtsGridControl.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="Patient_TrtsGridControl.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
     <value>Default</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Patient_TrtsGridControl.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Patient_TrtsGridControl.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Patient_TrtsGridControl.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="Patient_TrtsGridControl.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Tile</value>
@@ -295,22 +252,13 @@
   <data name="Patient_TrtsGridControl.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Inherit</value>
   </data>
-  <data name="Patient_TrtsGridControl.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
   <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="Patient_TrtsGridControl.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
     <value>Center</value>
   </data>
-  <data name="Patient_TrtsGridControl.EmbeddedNavigator.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="Patient_TrtsGridControl.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
     <value>None</value>
-  </data>
-  <data name="Patient_TrtsGridControl.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
-    <value />
   </data>
   <data name="colRowNum.Caption" xml:space="preserve">
     <value>الرقم</value>
@@ -374,9 +322,6 @@
   </data>
   <data name="colDiscount2.Caption" xml:space="preserve">
     <value>خصم ثاني</value>
-  </data>
-  <data name="colDiscount2.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
   </data>
   <data name="colDiscountType.Caption" xml:space="preserve">
     <value>نوع الخصم</value>
@@ -469,9 +414,6 @@
   <data name="btnTrtDel.Text" xml:space="preserve">
     <value>حذف علاج</value>
   </data>
-  <data name="PaysSplit.CaptionImageOptions.ImageKey" xml:space="preserve">
-    <value />
-  </data>
   <data name="SidePanel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>409, 0</value>
   </data>
@@ -486,9 +428,6 @@
   </data>
   <data name="btnBrowse.Text" xml:space="preserve">
     <value>إستعراض</value>
-  </data>
-  <data name="btnEditPay.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
   </data>
   <data name="btnEditPay.Location" type="System.Drawing.Point, System.Drawing">
     <value>92, 96</value>
@@ -515,7 +454,7 @@
     <value>تأمين</value>
   </data>
   <data name="cboPayType.Properties.Items4" xml:space="preserve">
-    <value>بطاقة ائتمان</value>
+    <value>بطاقة ائتمان (فيزا كارد)</value>
   </data>
   <data name="cboPayType.Properties.Items5" xml:space="preserve">
     <value>تحويل بنكي</value>
@@ -553,35 +492,11 @@
   <data name="SidePanel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>409, 250</value>
   </data>
-  <data name="AllPaysGrid.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="AllPaysGrid.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="AllPaysGrid.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="AllPaysGrid.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="AllPaysGrid.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="AllPaysGrid.EmbeddedNavigator.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AllPaysGrid.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
-    <value />
-  </data>
   <data name="colRowNum3.Caption" xml:space="preserve">
     <value>الرقم</value>
   </data>
   <data name="GridColumn3.Caption" xml:space="preserve">
     <value>نوع الدفعة</value>
-  </data>
-  <data name="GridColumn3.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
   </data>
   <data name="GridColumn4.Caption" xml:space="preserve">
     <value>رقم المريض</value>
@@ -591,6 +506,9 @@
   </data>
   <data name="GridColumn6.Caption" xml:space="preserve">
     <value>تاريخ الدفعة</value>
+  </data>
+  <data name="GridColumn13.Caption" xml:space="preserve">
+    <value>مستلم الدفعة</value>
   </data>
   <data name="GridColumn7.Caption" xml:space="preserve">
     <value>ملاحظات</value>
@@ -610,29 +528,14 @@
   <data name="GridColumn12.Caption" xml:space="preserve">
     <value>صاحب الشيك</value>
   </data>
-  <data name="GridColumn13.Caption" xml:space="preserve">
-    <value>مستلم الدفعة</value>
-  </data>
   <data name="AllPaysPage.Text" xml:space="preserve">
     <value>جميع الدفعات</value>
-  </data>
-  <data name="Patient_PaysGridControl.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="Patient_PaysGridControl.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="Patient_PaysGridControl.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
     <value>Default</value>
   </data>
   <data name="Patient_PaysGridControl.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
-  </data>
-  <data name="Patient_PaysGridControl.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Patient_PaysGridControl.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="Patient_PaysGridControl.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Tile</value>
@@ -643,20 +546,11 @@
   <data name="Patient_PaysGridControl.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Inherit</value>
   </data>
-  <data name="Patient_PaysGridControl.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
   <data name="Patient_PaysGridControl.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
     <value>Center</value>
   </data>
-  <data name="Patient_PaysGridControl.EmbeddedNavigator.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="Patient_PaysGridControl.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
     <value>None</value>
-  </data>
-  <data name="Patient_PaysGridControl.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
-    <value />
   </data>
   <data name="colRowNum1.Caption" xml:space="preserve">
     <value>الرقم</value>
@@ -672,9 +566,6 @@
   </data>
   <data name="colPayType.Caption" xml:space="preserve">
     <value>نوع الدفعة</value>
-  </data>
-  <data name="colPayType.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
   </data>
   <data name="colPatientID1.ImageOptions.ImageKey" xml:space="preserve">
     <value />
@@ -703,23 +594,11 @@
   <data name="CashGridPage.Text" xml:space="preserve">
     <value>الدفعات النقدية</value>
   </data>
-  <data name="ChqsPayGrid.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="ChqsPayGrid.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
   <data name="ChqsPayGrid.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
     <value>Default</value>
   </data>
   <data name="ChqsPayGrid.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
-  </data>
-  <data name="ChqsPayGrid.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ChqsPayGrid.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="ChqsPayGrid.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Tile</value>
@@ -730,20 +609,11 @@
   <data name="ChqsPayGrid.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Inherit</value>
   </data>
-  <data name="ChqsPayGrid.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
   <data name="ChqsPayGrid.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
     <value>Center</value>
   </data>
-  <data name="ChqsPayGrid.EmbeddedNavigator.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="ChqsPayGrid.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
     <value>None</value>
-  </data>
-  <data name="ChqsPayGrid.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
-    <value />
   </data>
   <data name="colRowNum2.Caption" xml:space="preserve">
     <value>الرقم</value>
@@ -756,9 +626,6 @@
   </data>
   <data name="colPayTypeChq.Caption" xml:space="preserve">
     <value>نوع الدفعة</value>
-  </data>
-  <data name="colPayTypeChq.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
   </data>
   <data name="colChqPatientID.Caption" xml:space="preserve">
     <value>رقم المريض</value>
@@ -826,23 +693,11 @@
   <data name="AttachedPage.Text" xml:space="preserve">
     <value>الملفات المرفقة</value>
   </data>
-  <data name="GridAttached.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="GridAttached.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
   <data name="GridAttached.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
     <value>Default</value>
   </data>
   <data name="GridAttached.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
-  </data>
-  <data name="GridAttached.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="GridAttached.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="GridAttached.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Tile</value>
@@ -850,20 +705,11 @@
   <data name="GridAttached.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Inherit</value>
   </data>
-  <data name="GridAttached.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
   <data name="GridAttached.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
     <value>Center</value>
   </data>
-  <data name="GridAttached.EmbeddedNavigator.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="GridAttached.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
     <value>None</value>
-  </data>
-  <data name="GridAttached.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
-    <value />
   </data>
   <data name="FileInfoPage.Text" xml:space="preserve">
     <value>معلومات الملفات</value>

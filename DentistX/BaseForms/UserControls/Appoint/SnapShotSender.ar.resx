@@ -117,30 +117,101 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="splitMain.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridJobs.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridJobs.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridJobs.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="gridJobs.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridJobs.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridJobs.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="gridJobs.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
   <data name="colJobId.Caption" xml:space="preserve">
     <value>رقم</value>
+  </data>
+  <data name="colJobId.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="colJobEnabled.Caption" xml:space="preserve">
     <value>تشغيل</value>
   </data>
+  <data name="colJobEnabled.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colJobTime.Caption" xml:space="preserve">
     <value>الوقت</value>
+  </data>
+  <data name="colJobTime.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="colJobDays.Caption" xml:space="preserve">
     <value>أيام</value>
   </data>
+  <data name="colJobDays.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colJobRecipCount.Caption" xml:space="preserve">
     <value>عدد</value>
+  </data>
+  <data name="colJobRecipCount.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="colJobCaption.Caption" xml:space="preserve">
     <value>عنوان</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="colJobCaption.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnNewJob.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="btnNewJob.Location" type="System.Drawing.Point, System.Drawing">
     <value>1063, 7</value>
   </data>
   <data name="btnNewJob.Text" xml:space="preserve">
     <value>مهمة جديدة</value>
+  </data>
+  <data name="btnDeleteJob.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="btnDeleteJob.Location" type="System.Drawing.Point, System.Drawing">
     <value>947, 7</value>
@@ -148,35 +219,104 @@
   <data name="btnDeleteJob.Text" xml:space="preserve">
     <value>حذف المهمة</value>
   </data>
+  <data name="btnRefreshJobs.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="btnRefreshJobs.Location" type="System.Drawing.Point, System.Drawing">
     <value>831, 7</value>
   </data>
   <data name="btnRefreshJobs.Text" xml:space="preserve">
     <value>تحديث</value>
   </data>
+  <data name="gridRecipients.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="gridRecipients.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colRecId.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colRecSource.Caption" xml:space="preserve">
     <value>المصدر</value>
+  </data>
+  <data name="colRecSource.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="colRecPk.Caption" xml:space="preserve">
     <value>المعرّف</value>
   </data>
+  <data name="colRecPk.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colRecName.Caption" xml:space="preserve">
     <value>الاسم</value>
+  </data>
+  <data name="colRecName.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="colRecPrefix.Caption" xml:space="preserve">
     <value>بادئة</value>
   </data>
+  <data name="colRecPrefix.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colRecLocal.Caption" xml:space="preserve">
     <value>محلي</value>
   </data>
+  <data name="colRecLocal.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colRecActive.Caption" xml:space="preserve">
     <value>نشط</value>
+  </data>
+  <data name="colRecActive.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnRemoveRecipient.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="btnRemoveRecipient.Location" type="System.Drawing.Point, System.Drawing">
     <value>39, 8</value>
   </data>
   <data name="btnRemoveRecipient.Text" xml:space="preserve">
     <value>إزالة</value>
+  </data>
+  <data name="btnAddRecipient.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="btnAddRecipient.Location" type="System.Drawing.Point, System.Drawing">
     <value>166, 8</value>
@@ -208,11 +348,17 @@
   <data name="lblSourceType.Text" xml:space="preserve">
     <value>المصدر</value>
   </data>
+  <data name="btnTestSend.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="btnTestSend.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 13</value>
   </data>
   <data name="btnTestSend.Text" xml:space="preserve">
     <value>إرسال تجريبي الآن</value>
+  </data>
+  <data name="btnSaveJob.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="btnSaveJob.Location" type="System.Drawing.Point, System.Drawing">
     <value>32, 13</value>
@@ -220,8 +366,17 @@
   <data name="btnSaveJob.Text" xml:space="preserve">
     <value>حفظ المهمة</value>
   </data>
+  <data name="lblSendContent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1044, 139</value>
+  </data>
+  <data name="lblSendContent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 15</value>
+  </data>
+  <data name="lblSendContent.Text" xml:space="preserve">
+    <value>إرسال كـُــــ</value>
+  </data>
   <data name="lblCaption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1033, 107</value>
+    <value>1035, 169</value>
   </data>
   <data name="lblCaption.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 15</value>
@@ -229,8 +384,11 @@
   <data name="lblCaption.Text" xml:space="preserve">
     <value>عنوان الرسالة</value>
   </data>
+  <data name="txtJobNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 200</value>
+  </data>
   <data name="lblJobNotes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1062, 141</value>
+    <value>1050, 203</value>
   </data>
   <data name="lblJobNotes.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 15</value>
@@ -250,6 +408,36 @@
   <data name="lblDays.Text" xml:space="preserve">
     <value>أيام الأسبوع</value>
   </data>
+  <data name="chkSecondSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>377, 24</value>
+  </data>
+  <data name="chkSecondSend.Properties.Caption" xml:space="preserve">
+    <value>الإرسال (الثاني) مفعّل</value>
+  </data>
+  <data name="chkSecondSend.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkSecondSend.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkSecondSend.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkSecondSend.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="timeSend2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>591, 25</value>
+  </data>
+  <data name="lblSendTime2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>717, 28</value>
+  </data>
+  <data name="lblSendTime2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 15</value>
+  </data>
+  <data name="lblSendTime2.Text" xml:space="preserve">
+    <value>وقت الإرسال (الثاني)</value>
+  </data>
   <data name="timeSend.Location" type="System.Drawing.Point, System.Drawing">
     <value>915, 25</value>
   </data>
@@ -268,29 +456,110 @@
   <data name="chkJobEnabled.Properties.Caption" xml:space="preserve">
     <value>مفعّل</value>
   </data>
+  <data name="chkJobEnabled.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkJobEnabled.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkJobEnabled.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkJobEnabled.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
   <data name="tabSetup.Text" xml:space="preserve">
     <value>المهمة والمستلمون</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridLog.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridLog.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridLog.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridLog.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="gridLog.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colLogId.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="colRunDate.Caption" xml:space="preserve">
     <value>اليوم</value>
   </data>
+  <data name="colRunDate.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="colSendSlot.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colStatus.Caption" xml:space="preserve">
     <value>الحالة</value>
+  </data>
+  <data name="colStatus.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="colStarted.Caption" xml:space="preserve">
     <value>البداية</value>
   </data>
+  <data name="colStarted.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colCompleted.Caption" xml:space="preserve">
     <value>النهاية</value>
+  </data>
+  <data name="colCompleted.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="colLogRecip.Caption" xml:space="preserve">
     <value>مستلم</value>
   </data>
+  <data name="colLogRecip.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colErr.Caption" xml:space="preserve">
     <value>خطأ</value>
   </data>
+  <data name="colErr.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="colMedia.Caption" xml:space="preserve">
     <value>ملف</value>
+  </data>
+  <data name="colMedia.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnRefreshLog.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="btnRefreshLog.Text" xml:space="preserve">
     <value>تحديث السجل</value>
@@ -298,14 +567,15 @@
   <data name="tabHistory.Text" xml:space="preserve">
     <value>سجل الإرسال</value>
   </data>
+  <data name="btnClose.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
   <data name="btnClose.Text" xml:space="preserve">
     <value>إغلاق</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>

@@ -152,7 +152,7 @@ Partial Public Class FrmMedicineShape
      ClearRecord()
      ShowToolStripItems("Add")
      ShapeIDSpinEdit.Select
-     ShapeIDSpinEdit.Text = clsDentistXData.getAutoID("New", "MedicineShape")
+     ShapeIDSpinEdit.Text = DentistXDATA.getAutoID("New", "MedicineShape")
  End Sub
 
  Private Sub Edit()

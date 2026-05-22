@@ -176,6 +176,24 @@ Public Class ArrowLable
         End Set
     End Property
 
+    ''' <summary>
+    ''' LTR: PREV wing points left (‹), NEXT points right (›). RTL (Arabic UI): invert so PREV points right and NEXT points left.
+    ''' </summary>
+    Public Shared Sub ApplyReadingOrderToEdgePair(prevHint As ArrowLable, nextHint As ArrowLable, leftToRightUi As Boolean)
+        If prevHint Is Nothing OrElse nextHint Is Nothing Then Return
+        If leftToRightUi Then
+            prevHint.ShowLeftTriangle = True
+            prevHint.ShowRightTriangle = False
+            nextHint.ShowLeftTriangle = False
+            nextHint.ShowRightTriangle = True
+        Else
+            prevHint.ShowLeftTriangle = False
+            prevHint.ShowRightTriangle = True
+            nextHint.ShowLeftTriangle = True
+            nextHint.ShowRightTriangle = False
+        End If
+    End Sub
+
     <Category("Action"), Description("Raised when the arrow label is clicked.")>
     Public Event ArrowClicked As EventHandler(Of MouseEventArgs)
 

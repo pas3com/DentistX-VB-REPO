@@ -1,0 +1,72 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-05-10 06:54:39Z
+Local: 2026-05-10 09:54:39Z
+Machine: PASCAL-2021
+User: PASCAL-2021\Pascal
+[ClinicNameEn]: Dr Imad Abatly Clinic
+[ClinicNameAr]: Dr Imad Abatly
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: True
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX_64\DentistX.exe
+App base directory: C:\Pascal\DentistX_64\
+Working directory: C:\Pascal\DentistX_64
+Crash log directory: C:\Pascal\DentistX_64\crash_logs
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (2):
+  - [ACTIVE] DentistX.MainView3 | DentistX Trial Version
+  - DevExpress.Utils.SuperToolTipWindow | 
+
+--- Last opened UI (session) ---
+Last form (Shown/visible at hook): DevExpress.Utils.SuperToolTipWindow | Text=
+  At (UTC): 2026-05-10 06:54:25Z
+Last user control (last became visible): DentistX.HlthCombo | Name=CboHealth | ParentForm=DevExpress.Utils.FlyoutPanelToolForm / 
+  At (UTC): 2026-05-10 06:53:51Z
+
+--- UI context (best effort) ---
+Thread: ManagedId=1, Name=(default), UI=STA
+ActiveForm: DentistX.MainView3 | Text=DentistX Trial Version
+Focused control (leaf): DentistX.BasePatientWorkspace | Name=BasePatientWorkspace; Text=
+  Parent[0]: DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer | Name=ContainerA; Text=
+  Parent[1]: DentistX.MainView3 | Name=MainView3; Text=DentistX Trial Version
+
+--- Exception detail ---
+--- Level 0 ---
+Type: System.ArgumentException
+Message: Control does not support transparent background colors.
+HResult: 0x80070057
+TargetSite: System.Windows.Forms.Control.set_BackColor
+Source: System.Windows.Forms
+Stack:
+   at System.Windows.Forms.Control.set_BackColor(Color value)
+   at System.Windows.Forms.TextBoxBase.set_BackColor(Color value)
+   at DentistX.Helpers.ApplyCtlGradientBackground(Control Ctl, Color startColor, Color endColor, LinearGradientMode gradientMode, Int32 opacity)
+   at DentistX.Navigator3.OnPatientSelected(Patient newPatient, Boolean showkid, Boolean force)
+   at DentistX.Navigator3.UpdatePatientDisplay(Patient patient)
+   at DentistX.Navigator3.btnAdultChart_CheckedChanged(Object sender, EventArgs e)
+   at DevExpress.XtraEditors.CheckButton.RaiseCheckedChanged()
+   at DevExpress.XtraEditors.CheckButton.OnMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at DevExpress.XtraEditors.XtraControl.WndProc(Message& m)
+   at DevExpress.Utils.Controls.ControlBase.BaseWndProc(Message& m)
+   at DevExpress.XtraEditors.BaseControl.WndProc(Message& msg)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+--- Full ToString() (includes inners) ---
+System.ArgumentException: Control does not support transparent background colors.
+   at System.Windows.Forms.Control.set_BackColor(Color value)
+   at System.Windows.Forms.TextBoxBase.set_BackColor(Color value)
+   at DentistX.Helpers.ApplyCtlGradientBackground(Control Ctl, Color startColor, Color endColor, LinearGradientMode gradientMode, Int32 opacity)
+   at DentistX.Navigator3.OnPatientSelected(Patient newPatient, Boolean showkid, Boolean force)
+   at DentistX.Navigator3.UpdatePatientDisplay(Patient patient)
+   at DentistX.Navigator3.btnAdultChart_CheckedChanged(Object sender, EventArgs e)
+   at DevExpress.XtraEditors.CheckButton.RaiseCheckedChanged()
+   at DevExpress.XtraEditors.CheckButton.OnMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at DevExpress.XtraEditors.XtraControl.WndProc(Message& m)
+   at DevExpress.Utils.Controls.ControlBase.BaseWndProc(Message& m)
+   at DevExpress.XtraEditors.BaseControl.WndProc(Message& msg)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

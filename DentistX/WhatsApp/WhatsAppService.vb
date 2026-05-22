@@ -11,6 +11,12 @@ Imports System.Threading.Tasks
 Imports System.Windows.Forms
 
 Public Class WhatsAppService
+    ''' <summary>Reduces outbound GET /status traffic (can stress the gateway and correlate with flaky sessions).</summary>
+    Private Shared ReadOnly GatewayStatusGate As New Object()
+    Private Shared _gatewayStatusClinicNorm As String
+    Private Shared _gatewayStatusUtc As DateTime = DateTime.MinValue
+    Private Shared _gatewayStatusConnected As Boolean
+
     ' Base URL for WhatsApp API (without trailing path)
     Private ReadOnly _baseUrl As String = "https://whatsapp-sender-api.dentistx.net"
     'Private ReadOnly _apiUrl As String = "https://whatsapp-sender-api.dentistx.net/api/gateway/whatsapp/send"
@@ -49,8 +55,11 @@ Public Class WhatsAppService
     End Sub
 
     ''' <summary>
-    ''' Call before manual sends (e.g. btnWhatsSend): verifies a clinic exists and the gateway reports WhatsApp as connected.
-    ''' If disconnected, opens <see cref="WhatsAppForm"/> for QR/connect, then re-checks. Returns False if still not connected.
+    ''' Call before manual sends: verifies clinic exists and gateway reports WhatsApp connected.
+    ''' When disconnected, briefly shows a wait dialog while silently retrying (same API sequence as
+    ''' <see cref="WhatsAppForm"/> refresh: status, optional <see cref="ConnectAsync"/>, QR endpoint ping, repeat).
+    ''' If still disconnected, opens <see cref="WhatsAppForm"/> for QR/connect, then re-checks.
+    ''' Returns False if still not connected.
     ''' </summary>
     Public Shared Async Function EnsureWhatsAppConnectedOrNotifyAsync(Optional owner As IWin32Window = Nothing) As Task(Of Boolean)
         Dim clinicId = GetCurrentClinicId()
@@ -61,13 +70,16 @@ Public Class WhatsAppService
         End If
         Try
             Dim wa As New WhatsAppService()
-            If Await wa.GetConnectionStatusAsync(clinicId).ConfigureAwait(True) Then Return True
+            If Await wa.GetConnectionStatusAsync(clinicId, bypassStatusThrottle:=True).ConfigureAwait(True) Then Return True
         Catch
         End Try
+
+        If Await TryEnsureWhatsConnectedSilentAsync(owner, clinicId).ConfigureAwait(True) Then Return True
+
         ShowWhatsAppConnectionForm(owner)
         Try
             Dim wa2 As New WhatsAppService()
-            If Await wa2.GetConnectionStatusAsync(clinicId).ConfigureAwait(True) Then Return True
+            If Await wa2.GetConnectionStatusAsync(clinicId, bypassStatusThrottle:=True).ConfigureAwait(True) Then Return True
         Catch
         End Try
         MessageBox.Show(owner,
@@ -75,6 +87,104 @@ Public Class WhatsAppService
                            "واتساب لا يزال غير متصل. استخدم تبويب الاتصال لمسح رمز الاستجابة ثم أعد محاولة الإرسال."),
                         If(Eng, "WhatsApp", "واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Return False
+    End Function
+
+    ''' <summary>
+    ''' Shows the short wait dialog and runs the same silent reconnect attempts as <see cref="EnsureWhatsAppConnectedOrNotifyAsync"/>,
+    ''' without opening another <see cref="WhatsAppForm"/> (avoids nested modals when sending from inside that form).
+    ''' </summary>
+    Public Shared Async Function TryEnsureWhatsConnectedSilentAsync(owner As IWin32Window, clinicId As String) As Task(Of Boolean)
+        If String.IsNullOrWhiteSpace(clinicId) Then Return False
+        Dim waitShell As Form = Nothing
+        Try
+            waitShell = CreateWhatsReconnectWaitShell(owner)
+            waitShell.Show(owner)
+            Dim waSilent As New WhatsAppService()
+            Return Await TrySilentWhatsReconnectAsync(waSilent, clinicId, attemptCount:=3, delayBetweenMs:=1200, captureUiContext:=True).ConfigureAwait(True)
+        Finally
+            If waitShell IsNot Nothing AndAlso Not waitShell.IsDisposed Then
+                waitShell.Close()
+                waitShell.Dispose()
+            End If
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' No UI: same reconnect attempts as interactive flows (for timers, queues, schedules). Does not open <see cref="WhatsAppForm"/>.
+    ''' </summary>
+    Public Shared Async Function TrySilentWhatsReconnectBackgroundAsync(clinicId As String) As Task(Of Boolean)
+        If String.IsNullOrWhiteSpace(clinicId) Then Return False
+        Dim wa As New WhatsAppService()
+        Try
+            If Await wa.GetConnectionStatusAsync(clinicId, bypassStatusThrottle:=False).ConfigureAwait(False) Then Return True
+        Catch
+        End Try
+        Return Await TrySilentWhatsReconnectAsync(wa, clinicId, attemptCount:=3, delayBetweenMs:=1200, captureUiContext:=False).ConfigureAwait(False)
+    End Function
+
+    ''' <summary>
+    ''' Mirrors <see cref="WhatsAppForm.BtnRefresh_Click"/> when disconnected: poll status, ping QR endpoint (<see cref="GetQrCodeAsync"/>),
+    ''' and on the first attempt calls <see cref="ConnectAsync"/> like <see cref="WhatsAppForm.BtnStartConnection_Click"/>.
+    ''' <paramref name="captureUiContext"/> True when invoked from UI async handlers (wait shell already visible).
+    ''' </summary>
+    Private Shared Async Function TrySilentWhatsReconnectAsync(wa As WhatsAppService, clinicId As String, attemptCount As Integer, delayBetweenMs As Integer, Optional captureUiContext As Boolean = True) As Task(Of Boolean)
+        Dim syn As Boolean = captureUiContext
+        For attempt As Integer = 1 To attemptCount
+            Try
+                If Await wa.GetConnectionStatusAsync(clinicId, bypassStatusThrottle:=True).ConfigureAwait(syn) Then Return True
+            Catch
+            End Try
+
+            If attempt = 1 Then
+                Try
+                    Await wa.ConnectAsync(clinicId).ConfigureAwait(syn)
+                Catch
+                End Try
+            End If
+
+            Try
+                Await wa.GetQrCodeAsync(clinicId).ConfigureAwait(syn)
+            Catch
+            End Try
+
+            Try
+                If Await wa.GetConnectionStatusAsync(clinicId, bypassStatusThrottle:=True).ConfigureAwait(syn) Then Return True
+            Catch
+            End Try
+
+            If attempt < attemptCount Then
+                Await Task.Delay(delayBetweenMs).ConfigureAwait(syn)
+            End If
+        Next
+
+        Try
+            Return Await wa.GetConnectionStatusAsync(clinicId, bypassStatusThrottle:=True).ConfigureAwait(syn)
+        Catch
+            Return False
+        End Try
+    End Function
+
+    Private Shared Function CreateWhatsReconnectWaitShell(owner As IWin32Window) As Form
+        Dim f As New Form()
+        f.SuspendLayout()
+        f.FormBorderStyle = FormBorderStyle.FixedDialog
+        f.ControlBox = False
+        f.ShowInTaskbar = False
+        f.StartPosition = If(owner IsNot Nothing, FormStartPosition.CenterParent, FormStartPosition.CenterScreen)
+        f.ClientSize = New Size(440, 110)
+        f.Text = If(Eng, "WhatsApp", "واتساب")
+        Dim lbl As New Label With {
+            .Dock = DockStyle.Fill,
+            .TextAlign = ContentAlignment.MiddleCenter,
+            .Font = New Font("Calibri", 10.0F, FontStyle.Bold),
+            .Text = If(Eng, "Checking WhatsApp connection, please wait...", "جاري التحقق من اتصال واتساب، يرجى الانتظار...")
+        }
+        f.Controls.Add(lbl)
+        f.ResumeLayout(False)
+        Dim ctlOwner = TryCast(owner, Control)
+        Dim host = If(ctlOwner IsNot Nothing, ctlOwner.FindForm(), Nothing)
+        If host IsNot Nothing AndAlso host.Icon IsNot Nothing Then f.Icon = host.Icon
+        Return f
     End Function
 
     Public Sub New()
@@ -150,6 +260,7 @@ Public Class WhatsAppService
     ''' </summary>
     Public Async Function ConnectAsync(clinicId As String) As Task(Of Boolean)
         If String.IsNullOrWhiteSpace(clinicId) Then Return False
+        InvalidateGatewayConnectionStatus()
         Try
             Dim url = $"{_baseUrl}/connect/{Uri.EscapeDataString(clinicId)}"
             Dim response = Await _httpClient.GetAsync(url)
@@ -179,32 +290,68 @@ Public Class WhatsAppService
             Using doc = JsonDocument.Parse(json)
                 Dim root = doc.RootElement
                 Dim success As JsonElement
-                Return root.TryGetProperty("success", success) AndAlso success.GetBoolean()
+                Dim ok = root.TryGetProperty("success", success) AndAlso success.GetBoolean()
+                If ok Then InvalidateGatewayConnectionStatus()
+                Return ok
             End Using
         Catch
             Return False
         End Try
     End Function
 
+    Public Shared Sub InvalidateGatewayConnectionStatus()
+        SyncLock GatewayStatusGate
+            _gatewayStatusClinicNorm = Nothing
+            _gatewayStatusUtc = DateTime.MinValue
+        End SyncLock
+    End Sub
+
     ''' <summary>
     ''' Get connection status (GET /api/whatsapp/status/:clinicId). Returns True if connected.
+    ''' When <paramref name="bypassStatusThrottle"/> is False, repeats within a short TTL return a cached result to reduce gateway churn.
     ''' </summary>
-    Public Async Function GetConnectionStatusAsync(clinicId As String) As Task(Of Boolean)
+    Public Async Function GetConnectionStatusAsync(clinicId As String, Optional bypassStatusThrottle As Boolean = False) As Task(Of Boolean)
         If String.IsNullOrWhiteSpace(clinicId) Then Return False
+        Dim key = clinicId.Trim()
+        Dim nowUtc = DateTime.UtcNow
+        Dim cacheTtl As Double
+        If Not bypassStatusThrottle Then
+            SyncLock GatewayStatusGate
+                If _gatewayStatusClinicNorm IsNot Nothing AndAlso String.Equals(key, _gatewayStatusClinicNorm, StringComparison.Ordinal) AndAlso
+                    _gatewayStatusUtc <> DateTime.MinValue Then
+                    cacheTtl = If(_gatewayStatusConnected, 20.0R, 5.0R)
+                    Dim age = (nowUtc - _gatewayStatusUtc).TotalSeconds
+                    If age >= 0.0R AndAlso age < cacheTtl Then
+                        Return _gatewayStatusConnected
+                    End If
+                End If
+            End SyncLock
+        End If
+
+        Dim result As Boolean = False
         Try
-            Dim url = $"{_baseUrl}/api/gateway/whatsapp/status/{Uri.EscapeDataString(clinicId)}"
+            Dim url = $"{_baseUrl}/api/gateway/whatsapp/status/{Uri.EscapeDataString(key)}"
             Dim response = Await _httpClient.GetAsync(url)
             Dim json = Await response.Content.ReadAsStringAsync()
-            If Not response.IsSuccessStatusCode Then Return False
-            Using doc = JsonDocument.Parse(json)
-                Dim root = doc.RootElement
-                Dim connected As JsonElement
-                If root.TryGetProperty("connected", connected) Then Return connected.GetBoolean()
-            End Using
+            If Not response.IsSuccessStatusCode Then
+                result = False
+            Else
+                Using doc = JsonDocument.Parse(json)
+                    Dim root = doc.RootElement
+                    Dim connected As JsonElement
+                    If root.TryGetProperty("connected", connected) Then result = connected.GetBoolean()
+                End Using
+            End If
         Catch
-            ' ignore
+            result = False
         End Try
-        Return False
+
+        SyncLock GatewayStatusGate
+            _gatewayStatusClinicNorm = key
+            _gatewayStatusUtc = DateTime.UtcNow
+            _gatewayStatusConnected = result
+        End SyncLock
+        Return result
     End Function
 
     ''' <summary>
@@ -225,6 +372,16 @@ Public Class WhatsAppService
                 msg = "{" & Path.GetFileName(filePath) & "}"
             Else
                 Throw New Exception("لا يمكن إرسال رسالة فارغة عبر واتساب.")
+            End If
+        End If
+
+        If WhatsAppOutboundRepository.IsOutboundInfrastructureReady() AndAlso
+            Not (context IsNot Nothing AndAlso context.BypassOutboundQueue) Then
+            Dim enq = WhatsAppOutboundRepository.TryEnqueueUnifiedFromSendIntent(
+                clinicSafe, numberSafe, msg, If(hasFile, filePath, ""), context, cat)
+            If enq.BlockDirectGatewaySend Then
+                If enq.ShouldRequestImmediateDispatch Then WhatsAppOutboundDispatchService.RequestImmediateDispatch()
+                Return BuildLocalOutboundEnqueueResponseJson(enq)
             End If
         End If
 
@@ -388,6 +545,100 @@ Public Class WhatsAppService
             Return False
         Catch
             Return False
+        End Try
+    End Function
+
+    Private Shared Function JsonOptionalDateTimeUtc(el As JsonElement) As DateTime?
+        Select Case el.ValueKind
+            Case JsonValueKind.Null, JsonValueKind.Undefined
+                Return Nothing
+            Case JsonValueKind.String
+                Dim s = el.GetString()
+                If String.IsNullOrWhiteSpace(s) Then Return Nothing
+                Dim dt As DateTime
+                If DateTime.TryParse(s, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, dt) Then
+                    Return dt
+                End If
+                Return Nothing
+            Case Else
+                Return Nothing
+        End Select
+    End Function
+
+    Private Shared Function JsonGetBoolLoose(el As JsonElement, Optional defaultValue As Boolean = False) As Boolean
+        Select Case el.ValueKind
+            Case JsonValueKind.True
+                Return True
+            Case JsonValueKind.False
+                Return False
+            Case JsonValueKind.String
+                Dim s = If(el.GetString(), "").Trim()
+                If s.Length = 0 Then Return defaultValue
+                Dim b As Boolean
+                If Boolean.TryParse(s, b) Then Return b
+                Dim n As Integer
+                If Integer.TryParse(s, n) Then Return n <> 0
+                Return defaultValue
+            Case JsonValueKind.Number
+                Return el.GetInt64() <> 0L
+            Case Else
+                Return defaultValue
+        End Select
+    End Function
+
+    Private Shared Sub TryFillArchiveItem(item As JsonElement, row As WhatsAppArchiveItem)
+        If item.ValueKind <> JsonValueKind.Object OrElse row Is Nothing Then Return
+        Dim v As JsonElement
+        If item.TryGetProperty("id", v) Then row.Id = JsonOptionalString(v)
+        If String.IsNullOrWhiteSpace(row.Id) AndAlso item.TryGetProperty("messageId", v) Then row.Id = JsonOptionalString(v)
+        If item.TryGetProperty("targetNumber", v) Then row.TargetNumber = JsonOptionalString(v)
+        If String.IsNullOrWhiteSpace(row.TargetNumber) AndAlso item.TryGetProperty("number", v) Then row.TargetNumber = JsonOptionalString(v)
+        If item.TryGetProperty("messageText", v) Then row.MessageText = JsonOptionalString(v)
+        If String.IsNullOrWhiteSpace(row.MessageText) AndAlso item.TryGetProperty("message", v) Then row.MessageText = JsonOptionalString(v)
+        If item.TryGetProperty("hasAttachment", v) Then row.HasAttachment = JsonGetBoolLoose(v, False)
+        If item.TryGetProperty("status", v) Then row.Status = JsonOptionalString(v)
+        If item.TryGetProperty("errorMessage", v) Then row.ErrorMessage = JsonOptionalString(v)
+        If String.IsNullOrWhiteSpace(row.ErrorMessage) AndAlso item.TryGetProperty("error", v) Then row.ErrorMessage = JsonOptionalString(v)
+        If item.TryGetProperty("createdAt", v) Then row.CreatedAtUtc = JsonOptionalDateTimeUtc(v)
+        If item.TryGetProperty("lastUpdatedAt", v) Then row.LastUpdatedAtUtc = JsonOptionalDateTimeUtc(v)
+    End Sub
+
+    ''' <summary>
+    ''' Gateway delivery archive (GET /api/whatsapp-archive/:clinicId, optional ?number= international digits).
+    ''' Returns HTTP success flag, parsed rows, and error body or exception text when HTTP fails.
+    ''' </summary>
+    Public Async Function TryGetWhatsappArchiveAsync(clinicId As String, Optional filterNumber As String = Nothing) As Task(Of (HttpOk As Boolean, Items As List(Of WhatsAppArchiveItem), ErrorDetail As String))
+        Dim result As New List(Of WhatsAppArchiveItem)
+        If String.IsNullOrWhiteSpace(clinicId) Then Return (False, result, Nothing)
+        Try
+            Dim url = $"{_baseUrl}/api/whatsapp-archive/{Uri.EscapeDataString(clinicId.Trim())}"
+            Dim num = If(filterNumber, "").Trim()
+            If num.Length > 0 Then url &= "?number=" & Uri.EscapeDataString(num)
+            Dim response = Await _httpClient.GetAsync(url)
+            Dim json = Await response.Content.ReadAsStringAsync()
+            If Not response.IsSuccessStatusCode Then
+                Return (False, result, $"HTTP {CInt(response.StatusCode)}: {json}")
+            End If
+            Using doc = JsonDocument.Parse(json)
+                Dim root = doc.RootElement
+                Dim arr As JsonElement
+                If root.ValueKind = JsonValueKind.Array Then
+                    arr = root
+                ElseIf root.TryGetProperty("items", arr) AndAlso arr.ValueKind = JsonValueKind.Array Then
+                ElseIf root.TryGetProperty("messages", arr) AndAlso arr.ValueKind = JsonValueKind.Array Then
+                ElseIf root.TryGetProperty("data", arr) AndAlso arr.ValueKind = JsonValueKind.Array Then
+                Else
+                    Return (True, result, Nothing)
+                End If
+                For Each el In arr.EnumerateArray()
+                    Dim row As New WhatsAppArchiveItem()
+                    TryFillArchiveItem(el, row)
+                    result.Add(row)
+                Next
+            End Using
+            Return (True, result, Nothing)
+        Catch ex As Exception
+            Return (False, result, ex.Message)
         End Try
     End Function
 
@@ -689,7 +940,72 @@ Public Class WhatsAppService
         Return pending.FirstOrDefault(Function(p) p IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(p.JobId) AndAlso String.Equals(p.JobId.Trim(), jid, StringComparison.OrdinalIgnoreCase))
     End Function
 
+    Private Shared Function BuildLocalOutboundEnqueueResponseJson(enq As WhatsAppOutboundUnifiedEnqueueResult) As String
+        If Not String.IsNullOrWhiteSpace(enq.TerminalPriorStatus) Then
+            Return JsonSerializer.Serialize(New Dictionary(Of String, Object) From {
+                {"dentistXOutboundTerminalDedup", True},
+                {"priorOutboundStatus", enq.TerminalPriorStatus}
+            })
+        End If
+        Dim d As New Dictionary(Of String, Object) From {
+            {"dentistXOutboundQueued", True},
+            {"dentistXOutboundMessageId", enq.InsertedMessageId},
+            {"dentistXOutboundLiveDuplicate", enq.IsLiveDuplicate}
+        }
+        If enq.CorrelationId.HasValue Then d("correlationId") = enq.CorrelationId.Value.ToString("D")
+        Return JsonSerializer.Serialize(d)
+    End Function
+
+    ''' <summary>Parses synthetic JSON returned when a send was absorbed by dbo.WhatsAppOutboundMessage (see <see cref="SendMessageAsync"/>).</summary>
+    Public Shared Function TryInterpretOutboundSendResponse(responseJson As String, ByRef into As WhatsAppOutboundSendInterpretation) As Boolean
+        into = New WhatsAppOutboundSendInterpretation()
+        If String.IsNullOrWhiteSpace(responseJson) Then Return False
+        Dim raw = responseJson.Trim()
+        If raw.Length > 0 AndAlso raw(0) = ChrW(&HFEFF) Then raw = raw.Substring(1).Trim()
+        Dim start = raw.IndexOf("{"c)
+        If start < 0 Then Return False
+        raw = raw.Substring(start)
+        Try
+            Using doc = JsonDocument.Parse(raw)
+                Dim root = doc.RootElement
+                Dim el As JsonElement
+                If root.TryGetProperty("dentistXOutboundTerminalDedup", el) AndAlso el.ValueKind = JsonValueKind.True Then
+                    into.HadLocalOutboxSemantics = True
+                    Dim ps As JsonElement
+                    If root.TryGetProperty("priorOutboundStatus", ps) AndAlso ps.ValueKind = JsonValueKind.String Then
+                        into.TerminalPriorStatus = If(ps.GetString(), "").Trim()
+                    End If
+                    Return True
+                End If
+                If root.TryGetProperty("dentistXOutboundQueued", el) AndAlso el.ValueKind = JsonValueKind.True Then
+                    into.HadLocalOutboxSemantics = True
+                    into.WasQueuedOrLiveDuplicate = True
+                    Dim mid As JsonElement
+                    If root.TryGetProperty("dentistXOutboundMessageId", mid) AndAlso mid.ValueKind = JsonValueKind.Number Then
+                        into.OutboundMessageId = mid.GetInt64()
+                    End If
+                    Dim ld As JsonElement
+                    If root.TryGetProperty("dentistXOutboundLiveDuplicate", ld) AndAlso ld.ValueKind = JsonValueKind.True Then
+                        into.LiveDuplicate = True
+                    End If
+                    Return True
+                End If
+            End Using
+        Catch
+        End Try
+        Return False
+    End Function
+
 End Class
+
+''' <summary>Populated when <see cref="WhatsAppService.TryInterpretOutboundSendResponse"/> recognises local-outbox handshake JSON.</summary>
+Public Structure WhatsAppOutboundSendInterpretation
+    Public HadLocalOutboxSemantics As Boolean
+    Public WasQueuedOrLiveDuplicate As Boolean
+    Public TerminalPriorStatus As String
+    Public OutboundMessageId As Long
+    Public LiveDuplicate As Boolean
+End Structure
 
 ''' <summary>Item from GET /api/whatsapp/queue/:clinicId</summary>
 Public Class PendingMessageItem

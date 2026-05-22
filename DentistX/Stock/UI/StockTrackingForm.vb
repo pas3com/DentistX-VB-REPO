@@ -3,8 +3,6 @@ Imports DevExpress.XtraGrid
 Imports DevExpress.XtraGrid.Views.Grid
 Imports DevExpress.XtraTab
 Imports System.Linq
-Imports Stock.DAL
-Imports Stock.Models
 
 Public Class StockTrackingForm
     Inherits XtraForm

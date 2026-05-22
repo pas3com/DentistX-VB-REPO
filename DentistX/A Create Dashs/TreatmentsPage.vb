@@ -652,8 +652,7 @@ Public Class TreatmentsPage
             diagram.AxisX.Label.Angle = -45
             diagram.AxisY.Title.Text = If(Eng, "Count", "العدد")
             diagram.AxisY.Title.Visibility = True
-            diagram.AxisY.NumericOptions.Format = NumericFormat.Number
-            diagram.AxisY.NumericOptions.Precision = 0
+            diagram.AxisY.Label.TextPattern = "{V:0}"
         End If
         ' Add series to chart
         chartTreatmentTypes.Series.Add(series)

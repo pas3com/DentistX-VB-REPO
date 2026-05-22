@@ -505,8 +505,7 @@ Partial Public Class rptSupplierInvoice
         'xrTableCellLineTotal
         '
         Me.xrTableCellLineTotal.Dpi = 254.0!
-        Me.xrTableCellLineTotal.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull([Quantity]), 0, [Quantity]) * Iif(IsNull([UnitPrice]), 0, [UnitPrice])" &
-                    "")})
+        Me.xrTableCellLineTotal.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[LineTotal]")})
         Me.xrTableCellLineTotal.Name = "xrTableCellLineTotal"
         Me.xrTableCellLineTotal.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         Me.xrTableCellLineTotal.TextFormatString = "{0:n2}"

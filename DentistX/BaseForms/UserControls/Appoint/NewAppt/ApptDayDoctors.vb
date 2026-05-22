@@ -34,7 +34,8 @@ Public Class ApptDayDoctors
     Private Const CanvasTopPadPx As Integer = 6
     Private Const DoctorHeaderPx As Integer = 30
     Private Const SnapMinutes As Integer = 15
-    Private Const MainHeaderHeightPx As Integer = 46
+    ''' <summary>Single header row: checkbox + schedule strip (same height as band).</summary>
+    Private Const CombinedDoctorsHeaderHeightPx As Integer = 52
 
     ''' <summary>Vertical scale: pixels per minute (~1.85 → ~55px per 30 minutes).</summary>
     Private ReadOnly _pxPerMinute As Single = 1.85F
@@ -54,6 +55,11 @@ Public Class ApptDayDoctors
     ''' <summary>Left-to-right doctor column order for the current day — used for drag/drop hit testing.</summary>
     Private _dayColumnDoctorIds As List(Of Integer)
     Private _chkShowAllDoctors As CheckEdit
+    Private ReadOnly _scheduleChrome As New ApptScheduleViewHeaderStrip() With {
+        .ShowCaption = True,
+        .SuppressBuiltInRangeCaption = True,
+        .BackColor = Color.Transparent
+    }
 
     ' --- Drag/Resize State ---
     Private _dragSourceCard As ApptCardCtl
@@ -79,8 +85,8 @@ Public Class ApptDayDoctors
         DoubleBuffered = True
 
         _headerBand = New Panel With {
-            .Dock = DockStyle.Top,
-            .Height = MainHeaderHeightPx,
+            .Dock = DockStyle.Fill,
+            .Height = CombinedDoctorsHeaderHeightPx,
             .BackColor = HeaderWash
         }
 
@@ -98,18 +104,31 @@ Public Class ApptDayDoctors
         }
         _scrollHost.Controls.Add(_canvas)
 
-        Controls.Add(_scrollHost)
-        Controls.Add(_headerBand)
+        Dim shell As New TableLayoutPanel With {
+            .Dock = DockStyle.Fill,
+            .ColumnCount = 1,
+            .RowCount = 2,
+            .BackColor = WorkAreaWash,
+            .Margin = Padding.Empty,
+            .Padding = Padding.Empty
+        }
+        shell.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
+        shell.RowStyles.Add(New RowStyle(SizeType.Absolute, CSng(CombinedDoctorsHeaderHeightPx)))
+        shell.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
+        shell.Controls.Add(_headerBand, 0, 0)
+        shell.Controls.Add(_scrollHost, 0, 1)
+        Controls.Add(shell)
 
         AddHandler _headerBand.Paint, AddressOf HeaderBand_Paint
-        AddHandler _headerBand.Resize, Sub(s, a) _headerBand.Invalidate()
+        AddHandler _headerBand.Layout, AddressOf HeaderBand_Layout
+        AddHandler _headerBand.Resize, AddressOf HeaderBand_Resize
         AddHandler _scrollHost.Resize, AddressOf ScrollHost_Resize
         
         AddHandler _holdTimer.Tick, AddressOf HoldTimer_Tick
 
         _chkShowAllDoctors = New CheckEdit With {
             .Anchor = AnchorStyles.Top Or AnchorStyles.Left,
-            .Location = New Point(8, (MainHeaderHeightPx - 22) \ 2),
+            .Location = New Point(8, (CombinedDoctorsHeaderHeightPx - 22) \ 2),
             .AutoSize = True
         }
         _chkShowAllDoctors.Properties.AutoWidth = True
@@ -117,6 +136,7 @@ Public Class ApptDayDoctors
                                                         If _canvas IsNot Nothing Then RenderDay()
                                                     End Sub
         _headerBand.Controls.Add(_chkShowAllDoctors)
+        _headerBand.Controls.Add(_scheduleChrome)
         _chkShowAllDoctors.BringToFront()
 
         AddHandler _canvas.DragEnter, AddressOf Canvas_DragEnter
@@ -355,49 +375,24 @@ Public Class ApptDayDoctors
         _canvas.Invalidate()
     End Sub
 
+    Private Sub HeaderBand_Resize(sender As Object, e As EventArgs)
+        If _headerBand IsNot Nothing Then _headerBand.Invalidate()
+    End Sub
+
+    Private Sub HeaderBand_Layout(sender As Object, e As LayoutEventArgs)
+        If _headerBand Is Nothing OrElse _scheduleChrome Is Nothing OrElse _chkShowAllDoctors Is Nothing Then Return
+        Dim padR = 8
+        Dim gapAfterCheck = 8
+        Dim x0 = _chkShowAllDoctors.Left + _chkShowAllDoctors.Width + gapAfterCheck
+        Dim h = _headerBand.ClientSize.Height
+        Dim w = Math.Max(1, _headerBand.ClientSize.Width - x0 - padR)
+        _scheduleChrome.SetBounds(x0, 0, w, h)
+    End Sub
+
     Private Sub HeaderBand_Paint(sender As Object, e As PaintEventArgs)
         Dim g = e.Graphics
         Using pSep As New Pen(Color.FromArgb(200, 210, 224), 2)
             g.DrawLine(pSep, 12, _headerBand.Height - 1, Math.Max(12, _headerBand.Width - 12), _headerBand.Height - 1)
-        End Using
-
-        Using f10 = CreateCalibriFont(10.0F, FontStyle.Bold)
-        Using f14 = CreateCalibriFont(14.0F, FontStyle.Bold)
-            Dim lead = If(_headerWeekdayLead, "")
-            Dim core = If(_headerDateCore, "")
-            Dim tail = If(_headerMetaTail, "")
-            Dim colLead = Color.FromArgb(72, 82, 98)
-            Dim colCore = Color.FromArgb(28, 38, 54)
-            Dim colTail = Color.FromArgb(95, 105, 125)
-
-            Dim pad = 4
-            Dim szL = TextRenderer.MeasureText(lead, f10)
-            Dim szC = TextRenderer.MeasureText(core, f14)
-            Dim szT = TextRenderer.MeasureText(tail, f10)
-            Dim total = szL.Width + If(String.IsNullOrEmpty(lead), 0, pad) + szC.Width + If(String.IsNullOrEmpty(tail), 0, pad) + szT.Width
-            Dim checkReserve = 0
-            If _chkShowAllDoctors IsNot Nothing AndAlso _chkShowAllDoctors.Visible Then
-                checkReserve = _chkShowAllDoctors.Width + 24
-            End If
-            Dim xStart = checkReserve + Math.Max(0, (_headerBand.Width - checkReserve - 8 - total) \ 2)
-            If xStart < checkReserve + 4 Then xStart = checkReserve + 4
-
-            Dim rBandH = _headerBand.Height - 2
-            Dim flags = TextFormatFlags.Left Or TextFormatFlags.VerticalCenter Or TextFormatFlags.SingleLine Or TextFormatFlags.NoPadding
-            If _headerRtl Then flags = flags Or TextFormatFlags.RightToLeft
-
-            If Not String.IsNullOrEmpty(lead) Then
-                TextRenderer.DrawText(g, lead, f10, New Rectangle(xStart, 0, szL.Width + 1, rBandH), colLead, flags)
-                xStart += szL.Width + pad
-            End If
-            If Not String.IsNullOrEmpty(core) Then
-                TextRenderer.DrawText(g, core, f14, New Rectangle(xStart, 0, szC.Width + 1, rBandH), colCore, flags)
-                xStart += szC.Width + pad
-            End If
-            If Not String.IsNullOrEmpty(tail) Then
-                TextRenderer.DrawText(g, tail, f10, New Rectangle(xStart, 0, szT.Width + 2, rBandH), colTail, flags)
-            End If
-        End Using
         End Using
     End Sub
 
@@ -411,6 +406,7 @@ Public Class ApptDayDoctors
     Public Sub BindData(request As ApptViewRequest) Implements IApptViewCtl.BindData
         Try
             _request = request
+            _scheduleChrome.Apply(request)
             RenderDay()
             If request IsNot Nothing Then TryScrollToAppointment(request.PendingScrollAppointment)
         Catch ex As Exception
@@ -444,12 +440,12 @@ Public Class ApptDayDoctors
             Return New List(Of Integer) From {state.DoctorFilterId.Value}
         End If
         If _chkShowAllDoctors IsNot Nothing AndAlso _chkShowAllDoctors.Checked AndAlso data.DoctorInfos IsNot Nothing AndAlso data.DoctorInfos.Count > 0 Then
-            Dim withAppt = ApptTheme.OrderDoctorColumnIdsForDisplay(dayAppts.Select(Function(a) a.DrID).Distinct(), data, linkedDoctorAtEnd:=True)
+            Dim withAppt = ApptTheme.OrderDoctorColumnIdsForDisplay(dayAppts.Select(Function(a) a.DrID).Distinct(), data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
             Dim withSet As New HashSet(Of Integer)(withAppt)
-            Dim without = ApptTheme.OrderDoctorColumnIdsForDisplay(data.DoctorInfos.Keys.Where(Function(id) Not withSet.Contains(id)), data, linkedDoctorAtEnd:=True)
+            Dim without = ApptTheme.OrderDoctorColumnIdsForDisplay(data.DoctorInfos.Keys.Where(Function(id) Not withSet.Contains(id)), data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
             Return withAppt.Concat(without).ToList()
         End If
-        Return ApptTheme.OrderDoctorColumnIdsForDisplay(groups.Select(Function(g) g.Key), data, linkedDoctorAtEnd:=True)
+        Return ApptTheme.OrderDoctorColumnIdsForDisplay(groups.Select(Function(g) g.Key), data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
     End Function
 
     Private Sub RenderDay()
@@ -463,6 +459,8 @@ Public Class ApptDayDoctors
                 _headerMetaTail = ""
                 _dayColumnDoctorIds = Nothing
                 ResetTimelineCanvasModel()
+                _scheduleChrome.SetCaptionTextOneLine("")
+                _scheduleChrome.RightToLeft = RightToLeft.No
                 _headerBand.Invalidate()
                 _canvas.Invalidate()
                 Return
@@ -486,6 +484,8 @@ Public Class ApptDayDoctors
             _headerWeekdayLead = day.ToString("dddd") & ", "
             _headerDateCore = day.ToString("dd MMM yyyy")
             _headerMetaTail = " · " & meta
+            _scheduleChrome.SetCaptionTextOneLine(_headerWeekdayLead & _headerDateCore & _headerMetaTail)
+            _scheduleChrome.RightToLeft = If(_headerRtl, RightToLeft.Yes, RightToLeft.No)
             _headerBand.Invalidate()
 
             Dim workStart = day.Add(state.WorkStartTime)
@@ -497,12 +497,12 @@ Public Class ApptDayDoctors
             _chkShowAllDoctors.Enabled = Not filteredDoctor
 
             Dim byDr = dayApptsAll.GroupBy(Function(a) a.DrID).ToDictionary(Function(g) g.Key, Function(g) g)
-            Dim gKeys = ApptTheme.OrderDoctorColumnIdsForDisplay(byDr.Keys, data, linkedDoctorAtEnd:=True)
+            Dim gKeys = ApptTheme.OrderDoctorColumnIdsForDisplay(byDr.Keys, data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
             Dim groups = gKeys.Select(Function(k) byDr(k)).ToList()
             If filteredDoctor Then
                 Dim fid = state.DoctorFilterId.Value
                 Dim byDrF = dayApptsAll.Where(Function(a) a.DrID = fid).GroupBy(Function(a) a.DrID).ToDictionary(Function(g) g.Key, Function(g) g)
-                gKeys = ApptTheme.OrderDoctorColumnIdsForDisplay(byDrF.Keys, data, linkedDoctorAtEnd:=True)
+                gKeys = ApptTheme.OrderDoctorColumnIdsForDisplay(byDrF.Keys, data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
                 groups = gKeys.Select(Function(k) byDrF(k)).ToList()
             End If
 
@@ -698,6 +698,8 @@ Public Class ApptDayDoctors
                 End If
                 If _headerBand IsNot Nothing Then
                     RemoveHandler _headerBand.Paint, AddressOf HeaderBand_Paint
+                    RemoveHandler _headerBand.Layout, AddressOf HeaderBand_Layout
+                    RemoveHandler _headerBand.Resize, AddressOf HeaderBand_Resize
                 End If
             Catch ex As Exception
                 ApptErrorHelper.Report(ex, "ApptDayDoctors.Dispose.EventHandlers", showUser:=False)

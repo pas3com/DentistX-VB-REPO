@@ -49,22 +49,26 @@ Partial Class SnapShotSender
         Me.panelJobFields = New DevExpress.XtraEditors.PanelControl()
         Me.btnTestSend = New DevExpress.XtraEditors.SimpleButton()
         Me.btnSaveJob = New DevExpress.XtraEditors.SimpleButton()
+        Me.rgSendContent = New DevExpress.XtraEditors.RadioGroup()
+        Me.lblSendContent = New DevExpress.XtraEditors.LabelControl()
         Me.memoCaption = New DevExpress.XtraEditors.MemoEdit()
         Me.lblCaption = New DevExpress.XtraEditors.LabelControl()
         Me.txtJobNotes = New DevExpress.XtraEditors.TextEdit()
         Me.lblJobNotes = New DevExpress.XtraEditors.LabelControl()
         Me.flowDays = New System.Windows.Forms.FlowLayoutPanel()
         Me.lblDays = New DevExpress.XtraEditors.LabelControl()
+        Me.chkSecondSend = New DevExpress.XtraEditors.CheckEdit()
+        Me.timeSend2 = New DevExpress.XtraEditors.TimeEdit()
+        Me.lblSendTime2 = New DevExpress.XtraEditors.LabelControl()
         Me.timeSend = New DevExpress.XtraEditors.TimeEdit()
         Me.lblSendTime = New DevExpress.XtraEditors.LabelControl()
         Me.chkJobEnabled = New DevExpress.XtraEditors.CheckEdit()
-        Me.lblSendContent = New DevExpress.XtraEditors.LabelControl()
-        Me.rgSendContent = New DevExpress.XtraEditors.RadioGroup()
         Me.tabHistory = New DevExpress.XtraTab.XtraTabPage()
         Me.gridLog = New DevExpress.XtraGrid.GridControl()
         Me.viewLog = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colLogId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colRunDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colSendSlot = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colStarted = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colCompleted = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -93,11 +97,13 @@ Partial Class SnapShotSender
         CType(Me.cboSourceType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.panelJobFields, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelJobFields.SuspendLayout()
+        CType(Me.rgSendContent.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.memoCaption.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtJobNotes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkSecondSend.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.timeSend2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.timeSend.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkJobEnabled.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.rgSendContent.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabHistory.SuspendLayout()
         CType(Me.gridLog, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.viewLog, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -175,9 +181,10 @@ Partial Class SnapShotSender
         'colJobTime
         '
         resources.ApplyResources(Me.colJobTime, "colJobTime")
-        Me.colJobTime.FieldName = "SendTimeLocal"
+        Me.colJobTime.FieldName = "JobTimesDisplay"
         Me.colJobTime.ImageOptions.ImageKey = resources.GetString("colJobTime.ImageOptions.ImageKey")
         Me.colJobTime.Name = "colJobTime"
+        Me.colJobTime.UnboundDataType = GetType(String)
         '
         'colJobDays
         '
@@ -404,6 +411,9 @@ Partial Class SnapShotSender
         Me.panelJobFields.Controls.Add(Me.lblJobNotes)
         Me.panelJobFields.Controls.Add(Me.flowDays)
         Me.panelJobFields.Controls.Add(Me.lblDays)
+        Me.panelJobFields.Controls.Add(Me.chkSecondSend)
+        Me.panelJobFields.Controls.Add(Me.timeSend2)
+        Me.panelJobFields.Controls.Add(Me.lblSendTime2)
         Me.panelJobFields.Controls.Add(Me.timeSend)
         Me.panelJobFields.Controls.Add(Me.lblSendTime)
         Me.panelJobFields.Controls.Add(Me.chkJobEnabled)
@@ -424,6 +434,22 @@ Partial Class SnapShotSender
         Me.btnSaveJob.Appearance.Options.UseFont = True
         Me.btnSaveJob.ImageOptions.ImageKey = resources.GetString("btnSaveJob.ImageOptions.ImageKey")
         Me.btnSaveJob.Name = "btnSaveJob"
+        '
+        'rgSendContent
+        '
+        resources.ApplyResources(Me.rgSendContent, "rgSendContent")
+        Me.rgSendContent.Name = "rgSendContent"
+        Me.rgSendContent.Properties.Appearance.Font = CType(resources.GetObject("rgSendContent.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.rgSendContent.Properties.Appearance.Options.UseFont = True
+        Me.rgSendContent.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.rgSendContent.TabStop = False
+        '
+        'lblSendContent
+        '
+        resources.ApplyResources(Me.lblSendContent, "lblSendContent")
+        Me.lblSendContent.Appearance.Font = CType(resources.GetObject("lblSendContent.Appearance.Font"), System.Drawing.Font)
+        Me.lblSendContent.Appearance.Options.UseFont = True
+        Me.lblSendContent.Name = "lblSendContent"
         '
         'memoCaption
         '
@@ -465,6 +491,33 @@ Partial Class SnapShotSender
         Me.lblDays.Appearance.Options.UseFont = True
         Me.lblDays.Name = "lblDays"
         '
+        'chkSecondSend
+        '
+        resources.ApplyResources(Me.chkSecondSend, "chkSecondSend")
+        Me.chkSecondSend.Name = "chkSecondSend"
+        Me.chkSecondSend.Properties.Appearance.Font = CType(resources.GetObject("chkSecondSend.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.chkSecondSend.Properties.Appearance.Options.UseFont = True
+        Me.chkSecondSend.Properties.Caption = resources.GetString("chkSecondSend.Properties.Caption")
+        Me.chkSecondSend.Properties.DisplayValueChecked = resources.GetString("chkSecondSend.Properties.DisplayValueChecked")
+        Me.chkSecondSend.Properties.DisplayValueGrayed = resources.GetString("chkSecondSend.Properties.DisplayValueGrayed")
+        Me.chkSecondSend.Properties.DisplayValueUnchecked = resources.GetString("chkSecondSend.Properties.DisplayValueUnchecked")
+        Me.chkSecondSend.Properties.GlyphVerticalAlignment = CType(resources.GetObject("chkSecondSend.Properties.GlyphVerticalAlignment"), DevExpress.Utils.VertAlignment)
+        '
+        'timeSend2
+        '
+        resources.ApplyResources(Me.timeSend2, "timeSend2")
+        Me.timeSend2.Name = "timeSend2"
+        Me.timeSend2.Properties.Appearance.Font = CType(resources.GetObject("timeSend2.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.timeSend2.Properties.Appearance.Options.UseFont = True
+        Me.timeSend2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("timeSend2.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
+        '
+        'lblSendTime2
+        '
+        resources.ApplyResources(Me.lblSendTime2, "lblSendTime2")
+        Me.lblSendTime2.Appearance.Font = CType(resources.GetObject("lblSendTime2.Appearance.Font"), System.Drawing.Font)
+        Me.lblSendTime2.Appearance.Options.UseFont = True
+        Me.lblSendTime2.Name = "lblSendTime2"
+        '
         'timeSend
         '
         resources.ApplyResources(Me.timeSend, "timeSend")
@@ -491,26 +544,6 @@ Partial Class SnapShotSender
         Me.chkJobEnabled.Properties.DisplayValueGrayed = resources.GetString("chkJobEnabled.Properties.DisplayValueGrayed")
         Me.chkJobEnabled.Properties.DisplayValueUnchecked = resources.GetString("chkJobEnabled.Properties.DisplayValueUnchecked")
         Me.chkJobEnabled.Properties.GlyphVerticalAlignment = CType(resources.GetObject("chkJobEnabled.Properties.GlyphVerticalAlignment"), DevExpress.Utils.VertAlignment)
-        '
-        'lblSendContent
-        '
-        Me.lblSendContent.Appearance.Font = CType(resources.GetObject("lblCaption.Appearance.Font"), System.Drawing.Font)
-        Me.lblSendContent.Appearance.Options.UseFont = True
-        Me.lblSendContent.Location = New System.Drawing.Point(14, 94)
-        Me.lblSendContent.Name = "lblSendContent"
-        Me.lblSendContent.Size = New System.Drawing.Size(100, 15)
-        Me.lblSendContent.Text = "Send as"
-        '
-        'rgSendContent
-        '
-        Me.rgSendContent.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.rgSendContent.Location = New System.Drawing.Point(120, 90)
-        Me.rgSendContent.Name = "rgSendContent"
-        Me.rgSendContent.Properties.Appearance.Font = CType(resources.GetObject("lblCaption.Appearance.Font"), System.Drawing.Font)
-        Me.rgSendContent.Properties.Appearance.Options.UseFont = True
-        Me.rgSendContent.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.rgSendContent.Size = New System.Drawing.Size(900, 32)
-        Me.rgSendContent.TabStop = False
         '
         'tabHistory
         '
@@ -546,7 +579,7 @@ Partial Class SnapShotSender
         Me.viewLog.Appearance.HeaderPanel.Options.UseFont = True
         Me.viewLog.Appearance.Row.Font = CType(resources.GetObject("viewLog.Appearance.Row.Font"), System.Drawing.Font)
         Me.viewLog.Appearance.Row.Options.UseFont = True
-        Me.viewLog.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colLogId, Me.colRunDate, Me.colStatus, Me.colStarted, Me.colCompleted, Me.colLogRecip, Me.colErr, Me.colMedia})
+        Me.viewLog.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colLogId, Me.colRunDate, Me.colSendSlot, Me.colStatus, Me.colStarted, Me.colCompleted, Me.colLogRecip, Me.colErr, Me.colMedia})
         Me.viewLog.GridControl = Me.gridLog
         Me.viewLog.Name = "viewLog"
         Me.viewLog.OptionsBehavior.AutoPopulateColumns = False
@@ -566,6 +599,13 @@ Partial Class SnapShotSender
         Me.colRunDate.FieldName = "RunDate"
         Me.colRunDate.ImageOptions.ImageKey = resources.GetString("colRunDate.ImageOptions.ImageKey")
         Me.colRunDate.Name = "colRunDate"
+        '
+        'colSendSlot
+        '
+        resources.ApplyResources(Me.colSendSlot, "colSendSlot")
+        Me.colSendSlot.FieldName = "SendSlot"
+        Me.colSendSlot.ImageOptions.ImageKey = resources.GetString("colSendSlot.ImageOptions.ImageKey")
+        Me.colSendSlot.Name = "colSendSlot"
         '
         'colStatus
         '
@@ -654,11 +694,13 @@ Partial Class SnapShotSender
         CType(Me.panelJobFields, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelJobFields.ResumeLayout(False)
         Me.panelJobFields.PerformLayout()
+        CType(Me.rgSendContent.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.memoCaption.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtJobNotes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkSecondSend.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.timeSend2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.timeSend.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkJobEnabled.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.rgSendContent.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabHistory.ResumeLayout(False)
         CType(Me.gridLog, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.viewLog, System.ComponentModel.ISupportInitialize).EndInit()
@@ -692,6 +734,9 @@ Partial Class SnapShotSender
     Friend WithEvents lblDays As DevExpress.XtraEditors.LabelControl
     Friend WithEvents timeSend As DevExpress.XtraEditors.TimeEdit
     Friend WithEvents lblSendTime As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents chkSecondSend As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents timeSend2 As DevExpress.XtraEditors.TimeEdit
+    Friend WithEvents lblSendTime2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents chkJobEnabled As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents lblSendContent As DevExpress.XtraEditors.LabelControl
     Friend WithEvents rgSendContent As DevExpress.XtraEditors.RadioGroup
@@ -717,6 +762,7 @@ Partial Class SnapShotSender
     Friend WithEvents viewLog As DevExpress.XtraGrid.Views.Grid.GridView
     Friend colLogId As DevExpress.XtraGrid.Columns.GridColumn
     Friend colRunDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend colSendSlot As DevExpress.XtraGrid.Columns.GridColumn
     Friend colStatus As DevExpress.XtraGrid.Columns.GridColumn
     Friend colStarted As DevExpress.XtraGrid.Columns.GridColumn
     Friend colCompleted As DevExpress.XtraGrid.Columns.GridColumn

@@ -28,6 +28,7 @@ Public Class DayControl
     Private ToolTipController1 As New ToolTipController()
 
     Public Sub New()
+        InitializeComponent()
         Me.Controls.Add(VisitPanel)
         Me.Controls.Add(AddButton)
         Me.Controls.Add(DayNumLabel)

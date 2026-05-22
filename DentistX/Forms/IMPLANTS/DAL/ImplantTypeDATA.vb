@@ -28,6 +28,18 @@ Imports Dapper
 			End Using
 		End Function
 
+		''' <summary>Count rows with the same logical name (trimmed). Optionally exclude one TypeID when editing.</summary>
+		Public Function CountByTypeName(typeName As String, Optional excludeTypeId As Integer? = Nothing) As Integer
+			If String.IsNullOrWhiteSpace(typeName) Then Return 0
+			Dim trimmed = typeName.Trim()
+			Using conn As New SqlConnection(ConnectionString)
+				conn.Open()
+				Const sql As String =
+					"SELECT COUNT(*) FROM ImplantType WHERE LTRIM(RTRIM(TypeName)) = @TypeName AND (@ExcludeTypeId IS NULL OR TypeID <> @ExcludeTypeId)"
+				Return CInt(conn.ExecuteScalar(Of Integer)(sql, New With {.TypeName = trimmed, .ExcludeTypeId = excludeTypeId}))
+			End Using
+		End Function
+
 		Public Function Add(ByVal clsImplantType As ImplantType) As Boolean
 			Dim RowsAffected As Integer=0
 			Using conn As New SqlConnection(ConnectionString)
@@ -39,10 +51,9 @@ Imports Dapper
 
 		Public Function Update(oldImplantType As ImplantType, newImplantType As ImplantType) As Boolean
 			Using conn As New SqlConnection(ConnectionString)
-			    Dim parameters = New With { 
-					.NewTypeName = newImplantType.TypeName, .OldTypeName = oldImplantType.TypeName, .NewIsSlim = newImplantType.IsSlim, .OldIsSlim = oldImplantType.IsSlim
-										  }
-			    Dim affectedRows As Integer = conn.Execute("UPDATE [ImplantType] SET [TypeName] = @NewTypeName, [IsSlim] = @NewIsSlim WHERE [TypeName] = @OldTypeName AND [IsSlim] = @OldIsSlim", parameters)
+			    Dim affectedRows As Integer = conn.Execute(
+					"UPDATE [ImplantType] SET [TypeName] = @NewTypeName, [IsSlim] = @NewIsSlim WHERE [TypeID] = @TypeID",
+					New With {.NewTypeName = newImplantType.TypeName, .NewIsSlim = newImplantType.IsSlim, .TypeID = oldImplantType.TypeID})
 			    Return affectedRows > 0
 			End Using
 		End Function

@@ -271,7 +271,7 @@ Public Class SchedulerNew
     Private _statusContextMenu As ContextMenuStrip
     Private _statusContextMenuFont As Font
     Private _statusContextMenuAppointment As AppointmentC
-    Private _statusContextMenuLabel As Label
+    Private _statusContextMenuLabel As Control
     Private _statusContextMenuColors As Dictionary(Of String, Color)
     Private _legendOptionHandlersWired As Boolean
     Private ReadOnly _viewNavBack As New Stack(Of ViewMode)
@@ -314,8 +314,12 @@ Public Class SchedulerNew
     Public Property WorkStartTime As TimeSpan = TimeSpan.FromHours(8)
     Public Property WorkEndTime As TimeSpan = TimeSpan.FromHours(16)
     Public Property Use24HourFormat As Boolean = False
-    ''' <summary>Start/end on appointment cards, chips, and list rows always use 12-hour clock. Time-axis slot labels still follow <see cref="Use24HourFormat"/>.</summary>
-    Private Const AppointmentCardTimeFormat As String = "hh:mm tt"
+
+    ''' <summary>Start/end clock on appointment cards, chips, exports, and list rows (matches <see cref="Use24HourFormat"/>).</summary>
+    Private Function AppointmentCardTimeFormatString() As String
+        Return If(Use24HourFormat, "HH:mm", "hh:mm tt")
+    End Function
+
     ''' <summary>
     ''' When false (default), Add opens only if <see cref="CurrentPatient"/> is set (patient workspace / main form).
     ''' When true, Add still prefills from current patient if available; otherwise opens the editor with PatientID 0 so the user picks a patient in the dialog (e.g. <see cref="FrmSchedulerFull"/> modal).
@@ -2839,7 +2843,7 @@ Public Class SchedulerNew
     End Function
 
     Private Function BuildDoctorFlowAppointmentCardText(ap As AppointmentC, patientName As String) As String
-        Dim appointmentText = $"{ap.StartDateTime.ToString(AppointmentCardTimeFormat)}-{ap.EndDateTime.ToString(AppointmentCardTimeFormat)}" & vbCrLf & patientName
+        Dim appointmentText = $"{ap.StartDateTime.ToString(AppointmentCardTimeFormatString())}-{ap.EndDateTime.ToString(AppointmentCardTimeFormatString())}" & vbCrLf & patientName
         AppendReasonThenNotesIfEnabled(appointmentText, ap)
         Return appointmentText
     End Function
@@ -3375,6 +3379,7 @@ Public Class SchedulerNew
             _bodyNextHintHost.Controls.Add(_dayNextHint)
             _dayNextHint.BringToFront()
         End If
+        If _dayPrevHint IsNot Nothing AndAlso _dayNextHint IsNot Nothing Then ArrowLable.ApplyReadingOrderToEdgePair(_dayPrevHint, _dayNextHint, Eng)
         PositionDayEdgeHints()
     End Sub
     Private Sub PositionDayEdgeHints()
@@ -3395,6 +3400,7 @@ Public Class SchedulerNew
         If _dayAppointmentCForHints Is Nothing OrElse _dayAppointmentCForHints.Count = 0 Then Return
         _dayPrevHint.Text = If(Eng, "PREV", "السابق")
         _dayNextHint.Text = If(Eng, "NEXT", "التالي")
+        ArrowLable.ApplyReadingOrderToEdgePair(_dayPrevHint, _dayNextHint, Eng)
         Dim currentDate = _renderDay.Date
         Dim prevDate = _dayAppointmentCForHints.
             Select(Function(ap) ap.AppDate.Date).
@@ -3699,7 +3705,7 @@ Public Class SchedulerNew
                                 Dim doctorName = getDoctorName(ap.DrID)
                                 Dim reasonNotesInline = FormatDayCardReasonNotesInline(ap)
                                 Dim reasonNotesMulti = FormatDayCardReasonNotesMultiline(ap)
-                                Dim timeFormat As String = AppointmentCardTimeFormat
+                                Dim timeFormat As String = AppointmentCardTimeFormatString()
                                 Dim cardBodyText As String
                                 If durationMins <= 45 Then
                                     If String.IsNullOrEmpty(reasonNotesInline) Then
@@ -3754,7 +3760,7 @@ Public Class SchedulerNew
         Const headerRowH As Integer = 40
         Const minDoctorColW As Integer = 72
         Const titleBarH As Integer = 44
-        ''' <summary>Pixels between the title band and the grid (visual breathing room in the PNG).</summary>
+        ' Pixels between the title band and the grid (visual breathing room in the PNG).
         Const titleToGridGap As Integer = 8
         Dim day = _currentDate.Date
 
@@ -3946,7 +3952,7 @@ Public Class SchedulerNew
                         g.DrawLine(pGrid, timeColW, y0, timeColW, y0 + gridTop + totalGridHeight)
                     End Using
 
-                    Dim timeFormat As String = AppointmentCardTimeFormat
+                    Dim timeFormat As String = AppointmentCardTimeFormatString()
                     ' Appointment chips: measured rows so reason cannot cover period (same snapGridFont as grid).
                     Using fmtBody As New StringFormat() With {.Alignment = StringAlignment.Near, .LineAlignment = StringAlignment.Near, .Trimming = StringTrimming.EllipsisCharacter},
                       fmtSt As New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center, .Trimming = StringTrimming.EllipsisCharacter}
@@ -4581,6 +4587,7 @@ Public Class SchedulerNew
             _bodyNextHintHost.Controls.Add(_weekNextHint)
             _weekNextHint.BringToFront()
         End If
+        If _weekPrevHint IsNot Nothing AndAlso _weekNextHint IsNot Nothing Then ArrowLable.ApplyReadingOrderToEdgePair(_weekPrevHint, _weekNextHint, Eng)
         PositionWeekEdgeHints()
     End Sub
     Private Sub PositionWeekEdgeHints()
@@ -4607,6 +4614,7 @@ Public Class SchedulerNew
         End If
         _weekPrevHint.Text = If(Eng, "PREV", "السابق")
         _weekNextHint.Text = If(Eng, "NEXT", "التالي")
+        ArrowLable.ApplyReadingOrderToEdgePair(_weekPrevHint, _weekNextHint, Eng)
         Dim currentStart = currentWeekStart.Date
         Dim endExclusive = currentStart.AddDays(daysInWeek)
         ' Use StartDateTime.Date (same as week column filter in RenderCurrentWeek*Days), not AppDate — DB AppDate can disagree or be unset.
@@ -4637,6 +4645,7 @@ Public Class SchedulerNew
         End If
         _weekPrevHint.Text = MakeVerticalHintText(If(Eng, "PREV", "السابق"))
         _weekNextHint.Text = MakeVerticalHintText(If(Eng, "NEXT", "التالي"))
+        ArrowLable.ApplyReadingOrderToEdgePair(_weekPrevHint, _weekNextHint, Eng)
         Dim hintDays = _weekAppointmentCForHints.Select(Function(ap) ap.StartDateTime.Date)
         Dim prevDate = hintDays.Where(Function(d) d < rangeStart.Date).OrderByDescending(Function(d) d).FirstOrDefault()
         Dim nextDate = hintDays.Where(Function(d) d >= rangeEndExclusive.Date).OrderBy(Function(d) d).FirstOrDefault()
@@ -4714,6 +4723,7 @@ Public Class SchedulerNew
             _bodyNextHintHost.Controls.Add(_monthNextHint)
             _monthNextHint.BringToFront()
         End If
+        If _monthPrevHint IsNot Nothing AndAlso _monthNextHint IsNot Nothing Then ArrowLable.ApplyReadingOrderToEdgePair(_monthPrevHint, _monthNextHint, Eng)
         PositionMonthEdgeHints()
     End Sub
     Private Sub PositionMonthEdgeHints()
@@ -4734,6 +4744,7 @@ Public Class SchedulerNew
         If _monthAppointmentCForHints Is Nothing OrElse _monthAppointmentCForHints.Count = 0 Then Return
         _monthPrevHint.Text = If(Eng, "PREV", "السابق")
         _monthNextHint.Text = If(Eng, "NEXT", "التالي")
+        ArrowLable.ApplyReadingOrderToEdgePair(_monthPrevHint, _monthNextHint, Eng)
         Dim startOfMonth = New DateTime(currentMonthStart.Year, currentMonthStart.Month, 1)
         Dim endExclusive = startOfMonth.AddMonths(1)
         Dim prevDate = _monthAppointmentCForHints.
@@ -4875,7 +4886,7 @@ Public Class SchedulerNew
         Dim timeDiff As TimeSpan = selectedAppointment.EndDateTime - selectedAppointment.StartDateTime
         Dim originalDiff As TimeSpan = originalEndTime - originalStartTime
         Dim timeChange As TimeSpan = timeDiff - originalDiff
-        Dim timeFormat As String = AppointmentCardTimeFormat
+        Dim timeFormat As String = AppointmentCardTimeFormatString()
         Dim infoText As String = $"Start: {selectedAppointment.StartDateTime.ToString(timeFormat)}" & vbCrLf &
                                $"End: {selectedAppointment.EndDateTime.ToString(timeFormat)}" & vbCrLf &
                                $"Duration: {timeDiff:%h}h {timeDiff:%m}m"
@@ -5189,36 +5200,58 @@ Public Class SchedulerNew
             Dim prevAppt As AppointmentC = If(i > 0, dayAppts(i - 1), Nothing)
             Dim nextAppt As AppointmentC = If(i < dayAppts.Count - 1, dayAppts(i + 1), Nothing)
             Dim doctorColor As Color = getDoctorColor(ap.DrID)
-                ' Clamp within working hours
-                Dim startTime = If(ap.StartDateTime.TimeOfDay < TimeSpan.FromHours(_startHour),
+            ' Clamp within working hours
+            Dim startTime = If(ap.StartDateTime.TimeOfDay < TimeSpan.FromHours(_startHour),
                        day.AddHours(_startHour), ap.StartDateTime)
-                Dim endTime = If(ap.EndDateTime.TimeOfDay > TimeSpan.FromHours(_endHour),
+            Dim endTime = If(ap.EndDateTime.TimeOfDay > TimeSpan.FromHours(_endHour),
                      day.AddHours(_endHour), ap.EndDateTime)
-                If endTime <= startTime Then endTime = startTime.AddMinutes(1)
-                Dim durationMins As Double = (endTime - startTime).TotalMinutes
-                Dim startOffsetMins As Double = (startTime - day.Date.AddHours(_startHour)).TotalMinutes
-                ' Pixel mapping
-                Dim pixelsPerMinute As Double = _slotHeight / 30.0
-                Dim topPixels As Integer = CInt(startOffsetMins * pixelsPerMinute) + headerTop + 28
-                Dim heightPx As Integer = Math.Max(20, CInt(durationMins * pixelsPerMinute) + 1)
+            If endTime <= startTime Then endTime = startTime.AddMinutes(1)
+            Dim durationMins As Double = (endTime - startTime).TotalMinutes
+            Dim startOffsetMins As Double = (startTime - day.Date.AddHours(_startHour)).TotalMinutes
+            ' Pixel mapping
+            Dim pixelsPerMinute As Double = _slotHeight / 30.0
+            Dim topPixels As Integer = CInt(startOffsetMins * pixelsPerMinute) + headerTop + 28
+            Dim heightPx As Integer = Math.Max(20, CInt(durationMins * pixelsPerMinute) + 1)
 
-                pixelsPerMinute = _slotHeight / 30.0
-                currentDay = day
-                workingStartHour = _startHour
-                Dim placement = If(placements.ContainsKey(ap),
+            pixelsPerMinute = _slotHeight / 30.0
+            currentDay = day
+            workingStartHour = _startHour
+            Dim placement = If(placements.ContainsKey(ap),
                     placements(ap),
                     New SchedulerDayOverlapPlacement With {.LaneIndex = 0, .LaneCount = 1})
-                Dim laneCount = Math.Max(1, placement.LaneCount)
-                Dim usableWidth = Math.Max(48, slotWidth - (slotOuterGapPx * 2) - ((laneCount - 1) * overlapLaneGapPx))
-                Dim cardWidth As Integer = Math.Max(60, usableWidth \ laneCount)
-                Dim cardLeft As Integer = baseLeft + slotOuterGapPx + placement.LaneIndex * (cardWidth + overlapLaneGapPx)
-                Dim cardPadding As Integer = 6
-                Dim cardHeight As Integer = heightPx - (cardPadding * 2)
-                If cardHeight < 26 Then cardHeight = 26
-                Dim cardTop As Integer = topPixels + cardPadding
+            Dim laneCount = Math.Max(1, placement.LaneCount)
+            Dim usableWidth = Math.Max(48, slotWidth - (slotOuterGapPx * 2) - ((laneCount - 1) * overlapLaneGapPx))
+            Dim cardWidth As Integer = Math.Max(60, usableWidth \ laneCount)
+            Dim cardLeft As Integer = baseLeft + slotOuterGapPx + placement.LaneIndex * (cardWidth + overlapLaneGapPx)
+            Dim cardPadding As Integer = 6
+            Dim cardHeight As Integer = heightPx - (cardPadding * 2)
+            If cardHeight < 26 Then cardHeight = 26
+            ' Status strip minimum height so vertical status text does not wrap (e.g. "Completed")
+            Dim lblStatus As New ApptCardStatusLabel With {
+                    .Dock = DockStyle.Right,
+                    .AutoSize = False,
+                    .Margin = New Padding(0),
+                    .Tag = ap,
+                    .TextAlign = ContentAlignment.MiddleCenter
+                }
+            ApptTheme.StyleApptCardStatusLabelForAppointment(lblStatus, ap, doctorColor, Nothing)
+            lblStatus.Width = If(lblStatus.Visible,
+                    Math.Max(26, Math.Min(72, ApptTheme.MeasureApptCardStatusColumnWidth(lblStatus.Text, lblStatus.Font))),
+                    0)
+            If lblStatus.Visible Then
+                Dim dpiYStrip As Single = 96.0F
+                Try
+                    dpiYStrip = CSng(DeviceDpi)
+                Catch
+                End Try
+                Dim mhStrip = ApptCardStatusLabel.MeasureMinimumStripHeight(lblStatus.Text, lblStatus.Font, lblStatus.Width, dpiYStrip)
+                cardHeight = Math.Max(cardHeight, Math.Max(26, mhStrip))
+            End If
 
-                ' card panel with modern soft background
-                Dim card As New Panel With {
+            Dim cardTop As Integer = topPixels + cardPadding
+
+            ' card panel with modern soft background
+            Dim card As New Panel With {
                     .AllowDrop = False,
                     .BackColor = doctorColor,
                     .BorderStyle = BorderStyle.Fixed3D,
@@ -5229,39 +5262,39 @@ Public Class SchedulerNew
                     .Cursor = Cursors.Hand,
                     .Tag = ap
                 }
-                '' Spacing between overlapping appts
-                'Dim rowSpacing As Integer = 4
-                'Dim yOffset As Integer = topPixels + (rowIndex * rowSpacing)
-                'Dim leftPx As Integer = baseLeft + doctorIndex * doctorWidth
-                '' --- Create appointment card (existing code) ...
-                'Dim card As New Panel With {
-                '    .AllowDrop = False,
-                '    .BackColor = doctorColor,
-                '    .BorderStyle = BorderStyle.FixedSingle,
-                '    .Width = doctorWidth - 8,
-                '    .Height = heightPx,
-                '    .Left = leftPx,
-                '    .Top = yOffset,
-                '    .Tag = ap,
-                '    .Cursor = Cursors.Hand
-                '}
-                ' Create top and bottom grips for resizing
-                Dim gripHeight As Integer = 6
-                Dim gripTop As New Panel With {
+            '' Spacing between overlapping appts
+            'Dim rowSpacing As Integer = 4
+            'Dim yOffset As Integer = topPixels + (rowIndex * rowSpacing)
+            'Dim leftPx As Integer = baseLeft + doctorIndex * doctorWidth
+            '' --- Create appointment card (existing code) ...
+            'Dim card As New Panel With {
+            '    .AllowDrop = False,
+            '    .BackColor = doctorColor,
+            '    .BorderStyle = BorderStyle.FixedSingle,
+            '    .Width = doctorWidth - 8,
+            '    .Height = heightPx,
+            '    .Left = leftPx,
+            '    .Top = yOffset,
+            '    .Tag = ap,
+            '    .Cursor = Cursors.Hand
+            '}
+            ' Create top and bottom grips for resizing
+            Dim gripHeight As Integer = 6
+            Dim gripTop As New Panel With {
                             .Height = gripHeight,
                             .Dock = DockStyle.Top,
                             .Cursor = Cursors.SizeNS,
                             .BackColor = Color.FromArgb(100, Color.Black), ' transparent-ish; adjust if you want
                             .Tag = "GripTop"
                         }
-                Dim gripBottom As New Panel With {
+            Dim gripBottom As New Panel With {
                     .Height = gripHeight,
                     .Dock = DockStyle.Bottom,
                     .Cursor = Cursors.SizeNS,
                     .BackColor = Color.FromArgb(100, Color.Black),
                     .Tag = "GripBottom"
                 }
-                Dim gripRight As New Panel With {
+            Dim gripRight As New Panel With {
                             .Height = cardHeight,
                             .Width = Math.Max(14, Math.Min(40, Math.Max(14, cardWidth \ 3))),
                             .Dock = DockStyle.Right,
@@ -5269,78 +5302,62 @@ Public Class SchedulerNew
                             .BackColor = Color.FromArgb(100, Color.Blue), ' transparent-ish; adjust if you want
                             .Tag = "GripTop"
                         }
-                ' Add grips before info so they are hit-testable
-                gripRight.Controls.Add(gripTop)
-                gripRight.Controls.Add(gripBottom)
-                gripTop.BringToFront()
-                gripBottom.BringToFront()
-                card.Controls.Add(gripRight)
-                ' Add mouse handlers to card and grips
-                AddHandler card.MouseDown, AddressOf Card_MouseDown
-                AddHandler card.MouseMove, AddressOf Card_MouseMove
-                AddHandler card.MouseUp, AddressOf Card_MouseUp
-                AddHandler card.MouseLeave, AddressOf Card_MouseLeave
-                ' Mouse interactions
-                AddHandler gripTop.MouseDown, AddressOf Grip_MouseDown
-                AddHandler gripTop.MouseMove, AddressOf Grip_MouseMove
-                AddHandler gripTop.MouseUp, AddressOf Grip_MouseUp
+            ' Add grips before info so they are hit-testable
+            gripRight.Controls.Add(gripTop)
+            gripRight.Controls.Add(gripBottom)
+            gripTop.BringToFront()
+            gripBottom.BringToFront()
+            card.Controls.Add(gripRight)
+            ' Add mouse handlers to card and grips
+            AddHandler card.MouseDown, AddressOf Card_MouseDown
+            AddHandler card.MouseMove, AddressOf Card_MouseMove
+            AddHandler card.MouseUp, AddressOf Card_MouseUp
+            AddHandler card.MouseLeave, AddressOf Card_MouseLeave
+            ' Mouse interactions
+            AddHandler gripTop.MouseDown, AddressOf Grip_MouseDown
+            AddHandler gripTop.MouseMove, AddressOf Grip_MouseMove
+            AddHandler gripTop.MouseUp, AddressOf Grip_MouseUp
 
-                AddHandler gripBottom.MouseDown, AddressOf Grip_MouseDown
-                AddHandler gripBottom.MouseMove, AddressOf Grip_MouseMove
-                AddHandler gripBottom.MouseUp, AddressOf Grip_MouseUp
-                ' Info label
-                Dim patientName = getPatientName(ap.PatientID)
-                Dim doctorName = getDoctorName(ap.DrID)
-                Dim reasonNotesInline = FormatDayCardReasonNotesInline(ap)
-                Dim reasonNotesMulti = FormatDayCardReasonNotesMultiline(ap)
-                Dim timeFormat As String = AppointmentCardTimeFormat
-                Dim lblInfo As New Label With {
+            AddHandler gripBottom.MouseDown, AddressOf Grip_MouseDown
+            AddHandler gripBottom.MouseMove, AddressOf Grip_MouseMove
+            AddHandler gripBottom.MouseUp, AddressOf Grip_MouseUp
+            ' Info label
+            Dim patientName = getPatientName(ap.PatientID)
+            Dim doctorName = getDoctorName(ap.DrID)
+            Dim reasonNotesInline = FormatDayCardReasonNotesInline(ap)
+            Dim reasonNotesMulti = FormatDayCardReasonNotesMultiline(ap)
+            Dim timeFormat As String = AppointmentCardTimeFormatString()
+            Dim lblInfo As New Label With {
                 .Dock = DockStyle.Fill,
                 .TextAlign = ContentAlignment.MiddleLeft,
                 .Padding = New Padding(4),
                 .Tag = ap,
                 .Font = GetAppointmentFont()
             }
-                If durationMins <= 45 Then
-                    If String.IsNullOrEmpty(reasonNotesInline) Then
-                        lblInfo.Text = $"{ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)} | {patientName} | Dr. {doctorName}"
-                    Else
-                        lblInfo.Text = $"{ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)} | {patientName} | {reasonNotesInline} | Dr. {doctorName}"
-                    End If
+            If durationMins <= 45 Then
+                If String.IsNullOrEmpty(reasonNotesInline) Then
+                    lblInfo.Text = $"{ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)} | {patientName} | Dr. {doctorName}"
                 Else
-                    If String.IsNullOrEmpty(reasonNotesMulti) Then
-                        lblInfo.Text = $"{ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}" & vbCrLf &
+                    lblInfo.Text = $"{ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)} | {patientName} | {reasonNotesInline} | Dr. {doctorName}"
+                End If
+            Else
+                If String.IsNullOrEmpty(reasonNotesMulti) Then
+                    lblInfo.Text = $"{ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}" & vbCrLf &
                            $"{patientName}" & vbCrLf & $" Dr. {doctorName}"
-                    Else
-                        lblInfo.Text = $"{ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}" & vbCrLf &
+                Else
+                    lblInfo.Text = $"{ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}" & vbCrLf &
                            $"{patientName}" & vbCrLf &
                            $"{reasonNotesMulti}" & vbCrLf & $" Dr. {doctorName}"
-                    End If
                 End If
-                ' --- Status Label ---
-                Dim statusColWidth As Integer = Math.Max(28, Math.Min(70, Math.Max(28, cardWidth \ 3)))
-                Dim lblStatus As New Label With {
-                                                .AutoSize = False,
-                                                .Width = statusColWidth,
-                                                .Dock = DockStyle.Right,
-                                                .TextAlign = ContentAlignment.MiddleCenter,
-                                                .Font = GetAppointmentFont(),
-                                                .Tag = ap,
-                                                .Text = GetStatusText(ap),
-                                                .ForeColor = Color.Black,
-                                                .BackColor = If(statusColors.ContainsKey(ap.Status),
-                                                                statusColors(ap.Status),
-                                                                Color.LightGray),
-                                                .Margin = New Padding(0)
-                                                }
-                AddHandler lblInfo.MouseDown, Sub(s, e) ForwardMouseDownToCard(card, DirectCast(s, Control), e)
-                AddHandler lblInfo.MouseMove, Sub(s, e) ForwardMouseMoveToCard(card, DirectCast(s, Control), e)
-                AddHandler lblInfo.MouseUp, Sub(s, e) ForwardMouseUpToCard(card, DirectCast(s, Control), e)
-                AddHandler lblStatus.MouseDown, Sub(s, e) ForwardMouseDownToCard(card, DirectCast(s, Control), e)
-                AddHandler lblStatus.MouseMove, Sub(s, e) ForwardMouseMoveToCard(card, DirectCast(s, Control), e)
-                AddHandler lblStatus.MouseUp, Sub(s, e) ForwardMouseUpToCard(card, DirectCast(s, Control), e)
-                If prevAppt IsNot Nothing Then
-                    Dim navPrev As New Label With {
+            End If
+            AddHandler lblInfo.MouseDown, Sub(s, e) ForwardMouseDownToCard(card, DirectCast(s, Control), e)
+            AddHandler lblInfo.MouseMove, Sub(s, e) ForwardMouseMoveToCard(card, DirectCast(s, Control), e)
+            AddHandler lblInfo.MouseUp, Sub(s, e) ForwardMouseUpToCard(card, DirectCast(s, Control), e)
+            AddHandler lblStatus.MouseDown, Sub(s, e) ForwardMouseDownToCard(card, DirectCast(s, Control), e)
+            AddHandler lblStatus.MouseMove, Sub(s, e) ForwardMouseMoveToCard(card, DirectCast(s, Control), e)
+            AddHandler lblStatus.MouseUp, Sub(s, e) ForwardMouseUpToCard(card, DirectCast(s, Control), e)
+            If prevAppt IsNot Nothing Then
+                Dim navPrev As New Label With {
                         .AutoSize = False,
                         .Width = 16,
                         .Dock = DockStyle.Left,
@@ -5350,14 +5367,14 @@ Public Class SchedulerNew
                         .BackColor = Color.FromArgb(90, Color.Black),
                         .Cursor = Cursors.Hand
                     }
-                    AddHandler navPrev.Click, Sub(sender As Object, e As EventArgs)
-                                                  ScrollToAppointment(prevAppt, scrollPanel)
-                                              End Sub
-                    card.Controls.Add(navPrev)
-                    navPrev.BringToFront()
-                End If
-                If nextAppt IsNot Nothing Then
-                    Dim navNext As New Label With {
+                AddHandler navPrev.Click, Sub(sender As Object, e As EventArgs)
+                                              ScrollToAppointment(prevAppt, scrollPanel)
+                                          End Sub
+                card.Controls.Add(navPrev)
+                navPrev.BringToFront()
+            End If
+            If nextAppt IsNot Nothing Then
+                Dim navNext As New Label With {
                         .AutoSize = False,
                         .Width = 16,
                         .Dock = DockStyle.Right,
@@ -5367,33 +5384,34 @@ Public Class SchedulerNew
                         .BackColor = Color.FromArgb(90, Color.Black),
                         .Cursor = Cursors.Hand
                     }
-                    AddHandler navNext.Click, Sub(sender As Object, e As EventArgs)
-                                                  ScrollToAppointment(nextAppt, scrollPanel)
-                                              End Sub
-                    card.Controls.Add(navNext)
-                    navNext.BringToFront()
-                End If
-                AddHandler lblStatus.MouseClick, Sub(sender As Object, e As MouseEventArgs)
-                                                     Dim lab = DirectCast(sender, Label)
-                                                     ShowAppointmentStatusContextMenu(lab, DirectCast(lab.Tag, AppointmentC), statusColors, e, lab)
-                                                 End Sub
+                AddHandler navNext.Click, Sub(sender As Object, e As EventArgs)
+                                              ScrollToAppointment(nextAppt, scrollPanel)
+                                          End Sub
+                card.Controls.Add(navNext)
+                navNext.BringToFront()
+            End If
+            AddHandler lblStatus.MouseUp, Sub(sender As Object, e As MouseEventArgs)
+                                              If e.Button <> MouseButtons.Right Then Return
+                                              Dim chip = DirectCast(sender, Control)
+                                              ShowAppointmentStatusContextMenu(chip, DirectCast(chip.Tag, AppointmentC), statusColors, e, chip)
+                                          End Sub
 
-                ' Add status label to the right side of the card
-                card.Controls.Add(lblStatus)
-                lblStatus.BringToFront()
-                card.Controls.Add(lblInfo)
-                lblInfo.BringToFront()
-                ' Tooltip
-                dayToolTip.SetToolTip(card, If(Eng, $"Doctor: {doctorName}{vbCrLf}Patient: {patientName}{vbCrLf}Reason: {If(ap.Reason, "")}{vbCrLf}Notes: {If(ap.Notes, "")}{vbCrLf}Time: {ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}",
+            ' Add status label to the right side of the card
+            card.Controls.Add(lblStatus)
+            lblStatus.BringToFront()
+            card.Controls.Add(lblInfo)
+            lblInfo.BringToFront()
+            ' Tooltip
+            dayToolTip.SetToolTip(card, If(Eng, $"Doctor: {doctorName}{vbCrLf}Patient: {patientName}{vbCrLf}Reason: {If(ap.Reason, "")}{vbCrLf}Notes: {If(ap.Notes, "")}{vbCrLf}Time: {ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}",
                 $"الطبيب: {doctorName}{vbCrLf}المريض: {patientName}{vbCrLf}السبب: {If(ap.Reason, "")}{vbCrLf}ملاحظات: {If(ap.Notes, "")}{vbCrLf}الوقت: {ap.StartDateTime.ToString(timeFormat)} - {ap.EndDateTime.ToString(timeFormat)}"))
-                ' --- Events' Appointment double-click event
-                AddHandler lblInfo.DoubleClick, Sub(s, e)
-                                                    Dim lbl = DirectCast(s, Label)
-                                                    Dim appt = DirectCast(lbl.Tag, AppointmentC)
-                                                    OpenAppointmentEditor(appt, False)
-                                                End Sub
-                pnlSlots.Controls.Add(card)
-                card.BringToFront()
+            ' --- Events' Appointment double-click event
+            AddHandler lblInfo.DoubleClick, Sub(s, e)
+                                                Dim lbl = DirectCast(s, Label)
+                                                Dim appt = DirectCast(lbl.Tag, AppointmentC)
+                                                OpenAppointmentEditor(appt, False)
+                                            End Sub
+            pnlSlots.Controls.Add(card)
+            card.BringToFront()
         Next
         scrollPanel.Controls.Add(pnlSlots)
         ClearSchedulerBodyContent()
@@ -5506,7 +5524,6 @@ Public Class SchedulerNew
         Return
         Const headerRowH As Integer = 40
         Const timeColW As Integer = 72
-        Const minDoctorColW As Integer = 72
         Dim statusColors As New Dictionary(Of String, Color) From {
             {"Pending", Color.LightGoldenrodYellow},
             {"Running", Color.LightSkyBlue},
@@ -5754,7 +5771,7 @@ Public Class SchedulerNew
                 Dim cardLeft As Integer = colLeft + (colW - cardWidth) \ 2
                 Dim cardTop As Integer = yOffset + cardPadding
 
-                Dim timeFormat As String = AppointmentCardTimeFormat
+                Dim timeFormat As String = AppointmentCardTimeFormatString()
                 Dim periodText = $"{ap.StartDateTime.ToString(timeFormat)} – {ap.EndDateTime.ToString(timeFormat)}"
                 Dim reasonText = If(String.IsNullOrWhiteSpace(ap.Reason), If(Eng, "(no reason)", "(لا سبب)"), ap.Reason.Trim())
                 Dim patientName = getPatientName(ap.PatientID)
@@ -6066,7 +6083,7 @@ Public Class SchedulerNew
             Next
 
             Dim appointmentFontTl As Font = GetAppointmentFont()
-            Dim timeFormatTl As String = AppointmentCardTimeFormat
+            Dim timeFormatTl As String = AppointmentCardTimeFormatString()
             Dim rowHeights As New List(Of Integer)()
             Dim rowAdvanceHeights As New List(Of Integer)()
             For rowIdxH As Integer = 0 To stackRows.Count - 1
@@ -6600,6 +6617,7 @@ Public Class SchedulerNew
             _bodyNextHintHost.Controls.Add(_tlNextHint)
             _tlNextHint.BringToFront()
         End If
+        If _tlPrevHint IsNot Nothing AndAlso _tlNextHint IsNot Nothing Then ArrowLable.ApplyReadingOrderToEdgePair(_tlPrevHint, _tlNextHint, Eng)
         PositionTimelineEdgeHints()
     End Sub
 
@@ -6622,6 +6640,7 @@ Public Class SchedulerNew
         If _tlAppointmentCForHints Is Nothing OrElse _tlAppointmentCForHints.Count = 0 Then Return
         _tlPrevHint.Text = If(Eng, "PREV", "السابق")
         _tlNextHint.Text = If(Eng, "NEXT", "التالي")
+        ArrowLable.ApplyReadingOrderToEdgePair(_tlPrevHint, _tlNextHint, Eng)
 
         Dim currentStart = currentWeekStart.Date
         Dim endExclusive = currentStart.AddDays(7)
@@ -6929,7 +6948,6 @@ Public Class SchedulerNew
 
                 Dim labelSpacing As Integer = 4
                 Dim padding As Integer = 6
-                Dim statusWidth As Integer = 60
                 Dim appointmentFont As Font = GetAppointmentFont()
 
                 ' Doctor card - centered in doctorsFlow with proper margins
@@ -6979,18 +6997,38 @@ Public Class SchedulerNew
                 Dim yPos As Integer = 0
                 For Each appointment In doctorAppts
                     Dim patientName = getPatientName(appointment.PatientID)
-                    Dim appointmentText = $"{appointment.StartDateTime.ToString(AppointmentCardTimeFormat)}-{appointment.EndDateTime.ToString(AppointmentCardTimeFormat)}" & vbCrLf & patientName
+                    Dim appointmentText = $"{appointment.StartDateTime.ToString(AppointmentCardTimeFormatString())}-{appointment.EndDateTime.ToString(AppointmentCardTimeFormatString())}" & vbCrLf & patientName
                     AppendReasonThenNotesIfEnabled(appointmentText, appointment)
 
                     ' Alternate between lighter and darker colors for visual interest
                     Dim labelColor As Color = If(doctorAppts.IndexOf(appointment) Mod 2 = 0, lighterColor, darkerColor)
 
+                    ' --- Status strip (same control/theme as day view / ApptWeekCtl) ---
+                    Dim lblStatus As New ApptCardStatusLabel With {
+                        .AutoSize = False,
+                        .Tag = appointment,
+                        .TextAlign = ContentAlignment.MiddleCenter
+                    }
+                    ApptTheme.StyleApptCardStatusLabelForAppointment(lblStatus, appointment, doctorColor, Nothing)
+                    Dim stripW As Integer = If(lblStatus.Visible,
+                        Math.Max(26, Math.Min(72, ApptTheme.MeasureApptCardStatusColumnWidth(lblStatus.Text, lblStatus.Font))),
+                        0)
+
                     ' Appointment label - centered in AppointmentC panel
-                    Dim labelWidth As Integer = Math.Max(80, AppointmentCPanel.Width - statusWidth - 6)
+                    Dim labelWidth As Integer = Math.Max(80, AppointmentCPanel.Width - stripW - 6)
                     Dim labelHeight As Integer = MeasureWrappedLabelHeight(appointmentText, appointmentFont, labelWidth)
+                    If stripW > 0 Then
+                        Dim dpiYStrip As Single = 96.0F
+                        Try
+                            dpiYStrip = CSng(DeviceDpi)
+                        Catch
+                        End Try
+                        Dim mhStrip = ApptCardStatusLabel.MeasureMinimumStripHeight(lblStatus.Text, lblStatus.Font, stripW, dpiYStrip)
+                        labelHeight = Math.Max(labelHeight, mhStrip + 2)
+                    End If
                     Dim appointmentLabel As New Label With {
                                                 .Text = appointmentText,
-                                                .Size = New Size(labelWidth, labelHeight), ' Leave space for status label
+                                                .Size = New Size(labelWidth, labelHeight), ' Leave space for status strip
                                                 .Location = New Point(2, yPos), ' Centered with small margin
                                                 .Font = appointmentFont,
                                                 .TextAlign = ContentAlignment.TopLeft,
@@ -7036,30 +7074,18 @@ Public Class SchedulerNew
 
                     AppointmentCPanel.Controls.Add(appointmentLabel)
                     ' Tooltip
-                    Dim timeFormat As String = AppointmentCardTimeFormat
+                    Dim timeFormat As String = AppointmentCardTimeFormatString()
                     weekToolTip.SetToolTip(appointmentLabel, If(Eng, $"Doctor: {doctorName}{vbCrLf}Patient: {patientName}{vbCrLf}Reason: {If(appointment.Reason, "")}{vbCrLf}Notes: {If(appointment.Notes, "")}{vbCrLf}Time: {appointment.StartDateTime.ToString(timeFormat)} - {appointment.EndDateTime.ToString(timeFormat)}",
                 $"الطبيب: {doctorName}{vbCrLf}المريض: {patientName}{vbCrLf}السبب: {If(appointment.Reason, "")}{vbCrLf}ملاحظات: {If(appointment.Notes, "")}{vbCrLf}الوقت: {appointment.StartDateTime.ToString(timeFormat)} - {appointment.EndDateTime.ToString(timeFormat)}"))
 
-                    ' --- Status Label (same font as appointment body / time line) ---
-                    Dim lblStatus As New Label With {
-                                    .AutoSize = False,
-                                    .Width = statusWidth,
-                                    .Height = appointmentLabel.Height - 2,
-                                    .TextAlign = ContentAlignment.MiddleCenter,
-                                    .Font = appointmentFont,
-                                    .Tag = appointment,
-                                    .Text = GetStatusText(appointment),
-                                    .ForeColor = Color.Black,
-                                    .BackColor = If(statusColors.ContainsKey(appointment.Status),
-                                                    statusColors(appointment.Status),
-                                                    Color.LightGray),
-                                    .Location = New Point(appointmentLabel.Right + 2, appointmentLabel.Top + 1)
-                                }
-                    AddHandler lblStatus.MouseClick, Sub(sender As Object, e As MouseEventArgs)
-                                                         Dim lab = DirectCast(sender, Label)
-                                                         ShowAppointmentStatusContextMenu(lab, appointment, statusColors, e, lab)
-                                                     End Sub
-                    ' Bring to front so it's visible on top
+                    lblStatus.Width = stripW
+                    lblStatus.Height = Math.Max(1, appointmentLabel.Height - 2)
+                    lblStatus.Location = New Point(appointmentLabel.Right + 2, appointmentLabel.Top + 1)
+                    AddHandler lblStatus.MouseUp, Sub(sender As Object, e As MouseEventArgs)
+                                                      If e.Button <> MouseButtons.Right Then Return
+                                                      Dim chip = DirectCast(sender, Control)
+                                                      ShowAppointmentStatusContextMenu(chip, appointment, statusColors, e, chip)
+                                                  End Sub
                     AppointmentCPanel.Controls.Add(lblStatus)
                     lblStatus.BringToFront()
                     yPos += labelHeight + labelSpacing
@@ -7458,7 +7484,6 @@ Public Class SchedulerNew
 
                 Dim labelSpacing As Integer = 4
                 Dim padding As Integer = 6
-                Dim statusWidth As Integer = 60
                 Dim appointmentFont As Font = GetAppointmentFont()
 
                 ' Doctor card - centered in doctorsFlow with proper margins
@@ -7507,18 +7532,38 @@ Public Class SchedulerNew
                 Dim yPos As Integer = 0
                 For Each appointment In doctorAppts
                     Dim patientName = getPatientName(appointment.PatientID)
-                    Dim appointmentText = $"{appointment.StartDateTime.ToString(AppointmentCardTimeFormat)}-{appointment.EndDateTime.ToString(AppointmentCardTimeFormat)}" & vbCrLf & patientName
+                    Dim appointmentText = $"{appointment.StartDateTime.ToString(AppointmentCardTimeFormatString())}-{appointment.EndDateTime.ToString(AppointmentCardTimeFormatString())}" & vbCrLf & patientName
                     AppendReasonThenNotesIfEnabled(appointmentText, appointment)
 
                     ' Alternate between lighter and darker colors for visual interest
                     Dim labelColor As Color = If(doctorAppts.IndexOf(appointment) Mod 2 = 0, lighterColor, darkerColor)
 
+                    ' --- Status strip (same control/theme as day view / ApptWeekCtl) ---
+                    Dim lblStatus As New ApptCardStatusLabel With {
+                        .AutoSize = False,
+                        .Tag = appointment,
+                        .TextAlign = ContentAlignment.MiddleCenter
+                    }
+                    ApptTheme.StyleApptCardStatusLabelForAppointment(lblStatus, appointment, doctorColor, Nothing)
+                    Dim stripW As Integer = If(lblStatus.Visible,
+                        Math.Max(26, Math.Min(72, ApptTheme.MeasureApptCardStatusColumnWidth(lblStatus.Text, lblStatus.Font))),
+                        0)
+
                     ' Appointment label - centered in AppointmentC panel
-                    Dim labelWidth As Integer = Math.Max(80, AppointmentCPanel.Width - statusWidth - 6)
+                    Dim labelWidth As Integer = Math.Max(80, AppointmentCPanel.Width - stripW - 6)
                     Dim labelHeight As Integer = MeasureWrappedLabelHeight(appointmentText, appointmentFont, labelWidth)
+                    If stripW > 0 Then
+                        Dim dpiYStrip As Single = 96.0F
+                        Try
+                            dpiYStrip = CSng(DeviceDpi)
+                        Catch
+                        End Try
+                        Dim mhStrip = ApptCardStatusLabel.MeasureMinimumStripHeight(lblStatus.Text, lblStatus.Font, stripW, dpiYStrip)
+                        labelHeight = Math.Max(labelHeight, mhStrip + 2)
+                    End If
                     Dim appointmentLabel As New Label With {
                     .Text = appointmentText,
-                    .Size = New Size(labelWidth, labelHeight), ' Leave space for status label
+                    .Size = New Size(labelWidth, labelHeight), ' Leave space for status strip
                     .Location = New Point(2, yPos), ' Centered with small margin
                     .Font = appointmentFont,
                     .TextAlign = If(Eng, ContentAlignment.TopLeft, ContentAlignment.TopRight),
@@ -7567,37 +7612,22 @@ Public Class SchedulerNew
 
                     AppointmentCPanel.Controls.Add(appointmentLabel)
                     ' Tooltip
-                    Dim timeFormat As String = AppointmentCardTimeFormat
+                    Dim timeFormat As String = AppointmentCardTimeFormatString()
                     weekToolTip.SetToolTip(appointmentLabel, If(Eng, $"Doctor: {doctorName}{vbCrLf}Patient: {patientName}{vbCrLf}Reason: {If(appointment.Reason, "")}{vbCrLf}Notes: {If(appointment.Notes, "")}{vbCrLf}Time: {appointment.StartDateTime.ToString(timeFormat)} - {appointment.EndDateTime.ToString(timeFormat)}",
                 $"الطبيب: {doctorName}{vbCrLf}المريض: {patientName}{vbCrLf}السبب: {If(appointment.Reason, "")}{vbCrLf}ملاحظات: {If(appointment.Notes, "")}{vbCrLf}الوقت: {appointment.StartDateTime.ToString(timeFormat)} - {appointment.EndDateTime.ToString(timeFormat)}"))
 
-                    ' --- Status Label (same font as appointment body / time line) ---
-                    Dim lblStatus As New Label With {
-                                    .AutoSize = False,
-                                    .Width = statusWidth,
-                                    .Height = appointmentLabel.Height - 2,
-                                    .TextAlign = ContentAlignment.MiddleCenter,
-                                    .Font = appointmentFont,
-                                    .Tag = appointment,
-                                    .Text = GetStatusText(appointment),
-                                    .ForeColor = Color.Black,
-                                    .BackColor = If(statusColors.ContainsKey(appointment.Status),
-                                                    statusColors(appointment.Status),
-                                                    Color.LightGray),
-                                    .Location = New Point(appointmentLabel.Right + 2, appointmentLabel.Top + 1)
-                                }
+                    lblStatus.Width = stripW
+                    lblStatus.Height = Math.Max(1, appointmentLabel.Height - 2)
                     lblStatus.Location = New Point(appointmentLabel.Right + 2, appointmentLabel.Top + 1)
+                    AddHandler lblStatus.MouseUp, Sub(sender As Object, e As MouseEventArgs)
+                                                      If e.Button <> MouseButtons.Right Then Return
+                                                      Dim chip = DirectCast(sender, Control)
+                                                      ShowAppointmentStatusContextMenu(chip, appointment, statusColors, e, chip)
+                                                  End Sub
 
-                    AddHandler lblStatus.MouseClick, Sub(sender As Object, e As MouseEventArgs)
-                                                         Dim lab = DirectCast(sender, Label)
-                                                         ShowAppointmentStatusContextMenu(lab, appointment, statusColors, e, lab)
-                                                     End Sub
-
-                    ' Bring to front so it's visible on top
                     AppointmentCPanel.Controls.Add(lblStatus)
                     appointmentLabel.BringToFront()
                     lblStatus.BringToFront()
-
 
                     yPos += labelHeight + labelSpacing
                 Next
@@ -7733,7 +7763,7 @@ Public Class SchedulerNew
     End Sub
 
     ''' <param name="statusLabel">When set (week/day status chip), updates label in place; otherwise refreshes via LoadAndRender (month views).</param>
-    Private Sub ShowAppointmentStatusContextMenu(host As Control, appt As AppointmentC, statusColors As Dictionary(Of String, Color), e As MouseEventArgs, Optional statusLabel As Label = Nothing)
+    Private Sub ShowAppointmentStatusContextMenu(host As Control, appt As AppointmentC, statusColors As Dictionary(Of String, Color), e As MouseEventArgs, Optional statusLabel As Control = Nothing)
         If e.Button <> MouseButtons.Right Then Return
         If appt Is Nothing OrElse host Is Nothing Then Return
         EnsureSchedulerTransientUiHelpers()
@@ -7779,11 +7809,22 @@ Public Class SchedulerNew
         UpdateAppointmentCtatus(_statusContextMenuAppointment, command, _statusContextMenuColors(command), _statusContextMenuLabel)
     End Sub
 
-    Private Sub UpdateAppointmentCtatus(appt As AppointmentC, newStatus As String, color As Color, Optional statusLabel As Label = Nothing)
+    Private Sub UpdateAppointmentCtatus(appt As AppointmentC, newStatus As String, color As Color, Optional statusChip As Control = Nothing)
         appt.Status = newStatus
-        If statusLabel IsNot Nothing Then
-            statusLabel.Text = GetStatusText(appt)
-            statusLabel.BackColor = color
+        If statusChip IsNot Nothing Then
+            Dim strip = TryCast(statusChip, ApptCardStatusLabel)
+            If strip IsNot Nothing Then
+                ApptTheme.StyleApptCardStatusLabelForAppointment(strip, appt, getDoctorColor(appt.DrID), Nothing)
+                strip.Width = If(strip.Visible,
+                    Math.Max(26, Math.Min(72, ApptTheme.MeasureApptCardStatusColumnWidth(strip.Text, strip.Font))),
+                    0)
+            Else
+                Dim lbl = TryCast(statusChip, Label)
+                If lbl IsNot Nothing Then
+                    lbl.Text = GetStatusText(appt)
+                    lbl.BackColor = color
+                End If
+            End If
         End If
 
         Try
@@ -7796,7 +7837,7 @@ Public Class SchedulerNew
                             $"تم تحديث الحالة إلى {statusMsg}"),
                             If(Eng, "Success", "نجاح"),
                             MessageBoxButtons.OK, MessageBoxIcon.Information)
-            If statusLabel Is Nothing Then
+            If statusChip Is Nothing Then
                 InvalidateFullAppointmentCache()
                 LoadAndRender()
             End If
@@ -8070,7 +8111,7 @@ Public Class SchedulerNew
                 Dim items As New List(Of ApptItem)
                 For Each ap In dayAppts
                     Dim patientName = getPatientName(ap.PatientID)
-                    Dim display = $"{ap.StartDateTime.ToString(AppointmentCardTimeFormat)} - {patientName} "
+                    Dim display = $"{ap.StartDateTime.ToString(AppointmentCardTimeFormatString())} - {patientName} "
                     Dim ai As New ApptItem(ap, display)
                     items.Add(ai)
                     lst.Items.Add(ai)
@@ -8210,7 +8251,7 @@ Public Class SchedulerNew
                                                      item = DirectCast(e.Data.GetData(GetType(ApptItem)), ApptItem)
                                                  ElseIf e.Data.GetDataPresent(GetType(AppointmentC)) Then
                                                      Dim apc = DirectCast(e.Data.GetData(GetType(AppointmentC)), AppointmentC)
-                                                     item = New ApptItem(apc, $"{apc.StartDateTime.ToString(AppointmentCardTimeFormat)} - {getPatientName(apc.PatientID)}")
+                                                     item = New ApptItem(apc, $"{apc.StartDateTime.ToString(AppointmentCardTimeFormatString())} - {getPatientName(apc.PatientID)}")
                                                  End If
 
                                                  If item Is Nothing Then Return
@@ -8249,7 +8290,7 @@ Public Class SchedulerNew
                 Dim preview = String.Join(vbCrLf, dayAppts.Take(3).Select(Function(a)
                                                                               Dim d = FormatMonthPreviewReasonNotes(a)
                                                                               Dim mid = If(String.IsNullOrWhiteSpace(d), "", $" - {d}")
-                                                                              Return $"{a.StartDateTime.ToString(AppointmentCardTimeFormat)} {getPatientName(a.PatientID)}{mid} - {a.Status}"
+                                                                              Return $"{a.StartDateTime.ToString(AppointmentCardTimeFormatString())} {getPatientName(a.PatientID)}{mid} - {a.Status}"
                                                                           End Function))
                 If String.IsNullOrWhiteSpace(preview) Then preview = If(Eng, "No AppointmentC", "لا توجد مواعيد")
                 monthWeekToolTip.SetToolTip(lblDay, preview)
@@ -8568,7 +8609,7 @@ Public Class SchedulerNew
 
                 If Eng Then
                     ' For English: Normal order (Time, Patient, Doctor, Details, Delete)
-                    item = New ListViewItem($"{appt.StartDateTime.ToString(AppointmentCardTimeFormat)} - {appt.EndDateTime.ToString(AppointmentCardTimeFormat)}", groupHeader)
+                    item = New ListViewItem($"{appt.StartDateTime.ToString(AppointmentCardTimeFormatString())} - {appt.EndDateTime.ToString(AppointmentCardTimeFormatString())}", groupHeader)
                     item.SubItems.Add(getPatientName(appt.PatientID))
                     item.SubItems.Add(doctorName)
                     item.SubItems.Add(appt.Notes)
@@ -8576,7 +8617,7 @@ Public Class SchedulerNew
                 Else
                     ' For Arabic: The ListView will display RTL, but we still add in the same logical order
                     ' The text will appear reversed visually due to RTL
-                    item = New ListViewItem($"{appt.StartDateTime.ToString(AppointmentCardTimeFormat)} - {appt.EndDateTime.ToString(AppointmentCardTimeFormat)}", groupHeader)
+                    item = New ListViewItem($"{appt.StartDateTime.ToString(AppointmentCardTimeFormatString())} - {appt.EndDateTime.ToString(AppointmentCardTimeFormatString())}", groupHeader)
                     item.SubItems.Add(getPatientName(appt.PatientID))
                     item.SubItems.Add(doctorName)
                     item.SubItems.Add(appt.Notes)
@@ -8816,11 +8857,9 @@ Public Class SchedulerNew
         AddHandler btnAdd.Click,
         Sub()
             Dim newAppt As New AppointmentC
-            Dim editor As New AppointCEditorForm(newAppt, True)
+            Dim editor As New AppointCEditorForm(newAppt, isNew:=True, setAppt:=True)
             If editor.ShowDialog() = DialogResult.OK Then
-                _AppointmentC.Add(newAppt)
-                InvalidateFullAppointmentCache()
-                LoadAndRender()
+                AddAppointment(editor.AppointmentC, editor.ReminderMessageEnglish)
                 frm.Close()
             End If
         End Sub
@@ -8929,7 +8968,7 @@ Public Class SchedulerNew
                 Dim item As ListViewItem
                 If Eng Then
                     ' Columns: Time, Patient, Doctor, Details, Delete (SubItem indices 0..4)
-                    item = New ListViewItem($"{appt.StartDateTime.ToString(AppointmentCardTimeFormat)} - {appt.EndDateTime.ToString(AppointmentCardTimeFormat)}", groupHeader)
+                    item = New ListViewItem($"{appt.StartDateTime.ToString(AppointmentCardTimeFormatString())} - {appt.EndDateTime.ToString(AppointmentCardTimeFormatString())}", groupHeader)
                     item.SubItems.Add(PatientName)
                     item.SubItems.Add(doctorName)
                     item.SubItems.Add(If(appt.Notes, ""))
@@ -8940,7 +8979,7 @@ Public Class SchedulerNew
                     item.SubItems.Add(If(appt.Notes, ""))
                     item.SubItems.Add(doctorName)
                     item.SubItems.Add(PatientName)
-                    item.SubItems.Add($"{appt.StartDateTime.ToString(AppointmentCardTimeFormat)} - {appt.EndDateTime.ToString(AppointmentCardTimeFormat)}")
+                    item.SubItems.Add($"{appt.StartDateTime.ToString(AppointmentCardTimeFormatString())} - {appt.EndDateTime.ToString(AppointmentCardTimeFormatString())}")
                 End If
 
                 item.Tag = appt
@@ -9279,11 +9318,9 @@ Public Class SchedulerNew
         AddHandler btnAdd.Click,
             Sub()
                 Dim newAppt As New AppointmentC
-                Dim editor As New AppointCEditorForm(newAppt, True)
+                Dim editor As New AppointCEditorForm(newAppt, isNew:=True, setAppt:=True)
                 If editor.ShowDialog() = DialogResult.OK Then
-                    _AppointmentC.Add(newAppt)
-                    InvalidateFullAppointmentCache()
-                    LoadAndRender()
+                    AddAppointment(editor.AppointmentC, editor.ReminderMessageEnglish)
                     frm.Close()
                 End If
             End Sub
@@ -9399,7 +9436,7 @@ Public Class SchedulerNew
             list.Groups.Add(groupHeader)
 
             For Each appt In ApptTheme.OrderAppointmentsForDisplay(grp, getDoctorName)
-                Dim item As New ListViewItem($"{appt.StartDateTime.ToString(AppointmentCardTimeFormat)} - {appt.EndDateTime.ToString(AppointmentCardTimeFormat)}", groupHeader)
+                Dim item As New ListViewItem($"{appt.StartDateTime.ToString(AppointmentCardTimeFormatString())} - {appt.EndDateTime.ToString(AppointmentCardTimeFormatString())}", groupHeader)
                 item.SubItems.Add(getPatientName(appt.PatientID))
                 item.SubItems.Add(getDoctorName(appt.DrID))
                 item.SubItems.Add(appt.Notes)
@@ -9495,11 +9532,9 @@ Public Class SchedulerNew
         AddHandler btnAdd.Click,
         Sub()
             Dim newAppt As New AppointmentC
-            Dim editor As New AppointCEditorForm(newAppt, True)
+            Dim editor As New AppointCEditorForm(newAppt, isNew:=True, setAppt:=True)
             If editor.ShowDialog() = DialogResult.OK Then
-                _AppointmentC.Add(newAppt)
-                InvalidateFullAppointmentCache()
-                LoadAndRender()
+                AddAppointment(editor.AppointmentC, editor.ReminderMessageEnglish)
                 frm.Close()
             End If
         End Sub
@@ -9635,20 +9670,19 @@ Public Class SchedulerNew
 
 #Region "═══ 15. CRUD OPERATIONS ═══"
     Private Sub OpenAppointmentEditor(appt As AppointmentC, Optional isNew As Boolean = False)
-        Using frm As New AppointCEditorForm(appt, isNew)
+        Using frm As New AppointCEditorForm(appt, isNew, setAppt:=True)
             frm.apptDate.EditValue = appt.AppDate
 
-            ' Show dialog; if user clicks OK, persist and refresh
             If frm.ShowDialog() = DialogResult.OK Then
                 Try
-                    ' assume repository Update handles full update
-                    UpdateAppointment(frm.AppointmentC, frm.ReminderMessageEnglish)
-                    LoadAndRender()
+                    If isNew Then
+                        AddAppointment(frm.AppointmentC, frm.ReminderMessageEnglish)
+                    Else
+                        UpdateAppointment(frm.AppointmentC, frm.ReminderMessageEnglish)
+                    End If
                 Catch ex As Exception
                     MessageBox.Show("Failed to save appointment: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
-            Else
-                ' Optionally do nothing
             End If
         End Using
     End Sub
@@ -10405,7 +10439,20 @@ Public Class SchedulerNew
         End Try
     End Sub
 
-
+    Private Sub btnLabs_Click(sender As Object, e As EventArgs) Handles btnLabs.Click
+        Try
+            Using F As New FrmLabSendWhats
+                F.ShowDialog(Me)
+            End Using
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.btnLabs_Click",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not open the lab WhatsApp window.",
+                                   arabicMessage:="تعذر فتح نافذة واتساب المختبر.")
+        End Try
+    End Sub
 End Class
 
 ''' <summary>Preview for <see cref="SchedulerNew"/> snapshot: Save, WhatsApp, or Cancel. Takes ownership of the preview image.</summary>

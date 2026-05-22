@@ -576,7 +576,7 @@ Partial Class OpenNewOrthCTL
         resources.ApplyResources(Me.RadioPrevOrth, "RadioPrevOrth")
         Me.RadioPrevOrth.EnterMoveNextControl = True
         Me.RadioPrevOrth.Name = "RadioPrevOrth"
-        Me.RadioPrevOrth.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RadioPrevOrth.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.RadioPrevOrth.Properties.Appearance.Font = CType(resources.GetObject("RadioPrevOrth.Properties.Appearance.Font"), System.Drawing.Font)
         Me.RadioPrevOrth.Properties.Appearance.Options.UseBackColor = True
         Me.RadioPrevOrth.Properties.Appearance.Options.UseFont = True
@@ -588,7 +588,7 @@ Partial Class OpenNewOrthCTL
         resources.ApplyResources(Me.RadioCusin, "RadioCusin")
         Me.RadioCusin.EnterMoveNextControl = True
         Me.RadioCusin.Name = "RadioCusin"
-        Me.RadioCusin.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RadioCusin.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.RadioCusin.Properties.Appearance.Font = CType(resources.GetObject("RadioCusin.Properties.Appearance.Font"), System.Drawing.Font)
         Me.RadioCusin.Properties.Appearance.Options.UseBackColor = True
         Me.RadioCusin.Properties.Appearance.Options.UseFont = True
@@ -600,7 +600,7 @@ Partial Class OpenNewOrthCTL
         resources.ApplyResources(Me.RadioThroat, "RadioThroat")
         Me.RadioThroat.EnterMoveNextControl = True
         Me.RadioThroat.Name = "RadioThroat"
-        Me.RadioThroat.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RadioThroat.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.RadioThroat.Properties.Appearance.Font = CType(resources.GetObject("RadioThroat.Properties.Appearance.Font"), System.Drawing.Font)
         Me.RadioThroat.Properties.Appearance.Options.UseBackColor = True
         Me.RadioThroat.Properties.Appearance.Options.UseFont = True
@@ -612,7 +612,7 @@ Partial Class OpenNewOrthCTL
         resources.ApplyResources(Me.RadioLips, "RadioLips")
         Me.RadioLips.EnterMoveNextControl = True
         Me.RadioLips.Name = "RadioLips"
-        Me.RadioLips.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RadioLips.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.RadioLips.Properties.Appearance.Font = CType(resources.GetObject("RadioLips.Properties.Appearance.Font"), System.Drawing.Font)
         Me.RadioLips.Properties.Appearance.Options.UseBackColor = True
         Me.RadioLips.Properties.Appearance.Options.UseFont = True

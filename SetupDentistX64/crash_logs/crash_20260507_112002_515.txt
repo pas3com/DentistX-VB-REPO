@@ -1,0 +1,91 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-05-07 08:20:02Z
+Local: 2026-05-07 11:20:02Z
+Machine: PASCAL-2021
+User: PASCAL-2021\Pascal
+[ClinicNameEn]: Dr Imad Abatly Clinic
+[ClinicNameAr]: Dr Imad Abatly
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: True
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX_64\DentistX.exe
+App base directory: C:\Pascal\DentistX_64\
+Working directory: C:\Pascal\DentistX_64
+Crash log directory: C:\Pascal\DentistX_64\crash_logs
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (2):
+  - DentistX.MainView3 | DentistX Trial Version
+  - [ACTIVE] DentistX.FrmDoctors | Doctors
+
+--- Last opened UI (session) ---
+Last form (Shown/visible at hook): DevExpress.Utils.SuperToolTipWindow | Text=
+  At (UTC): 2026-05-07 08:19:30Z
+Last user control (last became visible): DentistX.DoctorsCombo | Name=DoctorsCombo1 | ParentForm=DentistX.AppointCEditorForm / Add Appointment
+  At (UTC): 2026-05-07 08:13:04Z
+
+--- UI context (best effort) ---
+Thread: ManagedId=1, Name=(default), UI=STA
+ActiveForm: DentistX.FrmDoctors | Text=Doctors
+Focused control (leaf): DevExpress.XtraEditors.SimpleButton | Name=btnDel; Text=Apply Delete
+  Parent[0]: DevExpress.XtraEditors.SplitGroupPanel | Name=(unnamed); Text=
+  Parent[1]: DevExpress.XtraEditors.SplitContainerControl | Name=Splitter1; Text=
+  Parent[2]: DentistX.FrmDoctors | Name=FrmDoctors; Text=Doctors
+
+--- Exception detail ---
+--- Level 0 ---
+Type: System.Data.SqlClient.SqlException
+Message: The DELETE statement conflicted with the REFERENCE constraint "FK_AppointmentC_Doctors". The conflict occurred in database "DentistX", table "dbo.AppointmentC", column 'DrID'.
+The statement has been terminated.
+HResult: 0x80131904
+TargetSite: System.Data.SqlClient.SqlConnection.OnError
+Source: .Net SqlClient Data Provider
+Stack:
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) in /_/Dapper/SqlMapper.cs:line 2965
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 656
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 527
+   at DentistX.DoctorsDATA.Delete(Doctors clsDoctors)
+   at DentistX.FrmDoctors.DeleteRecord()
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at DevExpress.XtraEditors.XtraControl.WndProc(Message& m)
+   at DevExpress.Utils.Controls.ControlBase.BaseWndProc(Message& m)
+   at DevExpress.XtraEditors.BaseControl.WndProc(Message& msg)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+--- Full ToString() (includes inners) ---
+System.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_AppointmentC_Doctors". The conflict occurred in database "DentistX", table "dbo.AppointmentC", column 'DrID'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) in /_/Dapper/SqlMapper.cs:line 2965
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 656
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 527
+   at DentistX.DoctorsDATA.Delete(Doctors clsDoctors)
+   at DentistX.FrmDoctors.DeleteRecord()
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at DevExpress.XtraEditors.XtraControl.WndProc(Message& m)
+   at DevExpress.Utils.Controls.ControlBase.BaseWndProc(Message& m)
+   at DevExpress.XtraEditors.BaseControl.WndProc(Message& msg)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ClientConnectionId:1116e098-edfe-49ad-a74f-b9edf72d6412
+Error Number:547,State:0,Class:16

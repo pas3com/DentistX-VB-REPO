@@ -1047,85 +1047,10 @@ Public Class MainView1
     Private Sub Backup(ByVal e As CancelEventArgs)
         Try
             SavePalette()
-            Dim backupDirectory As String = "C:\BACKUPFOLDER"
-            Dim backupFileName As String = GetBackupFileName("DentistX")
-            Dim backupFilePath As String = IO.Path.Combine(backupDirectory, backupFileName)
-
-            IO.Directory.CreateDirectory(backupDirectory)
-
-            If DbT = "Srvr" Then
-                BackupDatabase("Data Source=.;Initial Catalog=Master;Integrated Security=SSPI;", "DentistX", backupFilePath, e)
-            ElseIf DbT = "Lcl" Then
-                BackupDatabase("Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=Master;Integrated Security=True", "[C:\Pascal\DentistX\DBase\DentistX.mdf]", backupFilePath, e)
-            ElseIf DbT = "Lcl2012" Then
-                BackupDatabase("Data Source=(LocalDB)\v11.0;Initial Catalog=Master;Integrated Security=True", "[C:\Pascal\DentistX\DBase012\DentistX.mdf]", backupFilePath, e)
-            End If
-
+            BackupModule.Backup(e, Me)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
-
-    Private Function GetBackupFileName(databaseName As String) As String
-        Dim timestamp As String = Format(Now, "dd-MM-yyyy-hh-mm-tt")
-        Return $"{databaseName}-{timestamp}.bak"
-    End Function
-
-    Private Sub BackupDatabase(connectionString As String, databaseName As String, backupFilePath As String, e As CancelEventArgs)
-        Using sqlConnection As New SqlClient.SqlConnection(connectionString)
-            Using cmd As New SqlClient.SqlCommand()
-                cmd.CommandType = CommandType.Text
-                cmd.Connection = sqlConnection
-
-                If sqlConnection.State = ConnectionState.Open Then sqlConnection.Close()
-                sqlConnection.Open()
-                Me.Cursor = Cursors.WaitCursor
-
-                Try
-                    cmd.CommandText = $"backup database {databaseName} to disk=@PATHFILE with init"
-                    cmd.Parameters.Add("@PATHFILE", SqlDbType.NVarChar, 500).Value = backupFilePath
-                    cmd.ExecuteNonQuery()
-
-                    ShowBackupSuccessMessage(e)
-                    CheckFiles()
-
-                Catch ex As SqlClient.SqlException
-                    ShowBackupFailureMessage()
-                    MsgBox(ex.Message)
-                Finally
-                    Me.Cursor = Cursors.Default
-                End Try
-            End Using
-        End Using
-    End Sub
-
-    Private Sub ShowBackupSuccessMessage(e As CancelEventArgs)
-        Dim message As String = If(Eng, "A Backup Of Data Base Has Been Created In This Path", "تم انشاء نسخة احتياطية في هذا المسار")
-        Dim caption As String = If(Eng, "Backup Data Base", "انشاء نسخة احتياطية")
-        MessageBox.Show($"{message} {vbCrLf}{vbCrLf}C:\BACKUPFOLDER", caption, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2)
-        e.Cancel = False
-    End Sub
-
-    Private Sub ShowBackupFailureMessage()
-        Dim message As String = If(Eng, "Backup Data Base Has Failed..", "فشل انشاء نسخة احتياطية..")
-        Dim caption As String = If(Eng, "Backup Data Base", "انشاء نسخة احتياطية")
-        MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2)
-    End Sub
-
-    Private Sub CheckFiles()
-        Dim folderPath As String = "C:\BACKUPFOLDER"
-        If IO.Directory.Exists(folderPath) Then
-            DeleteOldestFiles(folderPath, 10, "*.bak")
-        End If
-    End Sub
-
-    Public Sub DeleteOldestFiles(folderPath As String, filesToKeep As Integer, Optional searchPattern As String = "*.bak")
-        Dim folder As New IO.DirectoryInfo(folderPath)
-        Dim files = folder.GetFiles(searchPattern).OrderByDescending(Function(fi) fi.CreationTime)
-
-        For Each file As IO.FileInfo In files.Skip(filesToKeep)
-            file.Delete()
-        Next
     End Sub
 
     Private Sub btnSettings_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btnSettings.ItemClick

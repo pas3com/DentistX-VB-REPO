@@ -302,7 +302,7 @@ Partial Class StockDashboardForm
 
     Friend WithEvents panelTop As DevExpress.XtraEditors.PanelControl
     Friend WithEvents overviewPanel As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents layout As TableLayoutPanel
+    Friend Shadows WithEvents layout As TableLayoutPanel
     Friend WithEvents panelLow As DevExpress.XtraEditors.PanelControl
     Friend WithEvents titleLow As DevExpress.XtraEditors.LabelControl
     Friend WithEvents panelExp As DevExpress.XtraEditors.PanelControl

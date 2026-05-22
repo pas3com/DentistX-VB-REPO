@@ -1,0 +1,15 @@
+﻿=== DentistX diagnostic log ===
+Context: ApptHostCtl.ResourceSnapshot
+Utc: 2026-04-30 17:28:30Z
+Local: 2026-04-30 20:28:30Z
+Machine: PASCAL-2021
+User: PASCAL-2021\Pascal
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: True
+CLR: 4.0.30319.42000
+App base directory: C:\Pascal\DentistX_64\
+Working directory: C:\Pascal\DentistX_64
+Crash log directory: C:\Pascal\DentistX_64\crash_logs
+
+--- Message ---
+after-dispose-cleanup; USER=837; GDI=150; POPUPS=0; OPEN_FORMS=2; CURRENT_VIEW=(none)

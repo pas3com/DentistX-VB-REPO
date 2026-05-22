@@ -167,7 +167,7 @@ Partial Class LineItemEditForm
     Friend WithEvents _spinQty As DevExpress.XtraEditors.TextEdit
     Friend WithEvents _spinPrice As DevExpress.XtraEditors.TextEdit
     Friend WithEvents _dateExp As DevExpress.XtraEditors.DateEdit
-    Friend WithEvents layout As TableLayoutPanel
+    Friend Shadows WithEvents layout As TableLayoutPanel
     Friend WithEvents lblProduct As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblQty As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblPrice As DevExpress.XtraEditors.LabelControl

@@ -9,17 +9,11 @@ Public Class AppointmentTwoHourReminderService
         ApptTwoHourReminderQueueRepository.FinalizeOverduePendingLegs()
         Dim rawClinicId As String = WhatsAppService.GetCurrentClinicId()
 
-        Dim connected = False
-        If Not String.IsNullOrWhiteSpace(rawClinicId) Then
-            Try
-                Dim wa As New WhatsAppService()
-                connected = Await wa.GetConnectionStatusAsync(rawClinicId)
-            Catch
-            End Try
-        End If
-        If connected Then
-            Await ApptWhatsAppReminderQueueProcessor.ProcessDueRemindersAsync(rawClinicId, result)
-        End If
+        Await ApptWhatsAppReminderQueueProcessor.ProcessDueRemindersAsync(rawClinicId, result)
+        Try
+            Await WhatsAppOutboundDispatchService.FlushOutstandingAsync(result, DateTime.UtcNow.AddSeconds(26), Nothing).ConfigureAwait(False)
+        Catch
+        End Try
         Return result
     End Function
 
@@ -27,10 +21,10 @@ Public Class AppointmentTwoHourReminderService
     Public Shared Sub EnqueueTwoHourCandidates(clinicId As String)
     End Sub
 
-    ''' <summary>~2h leg message: same clinic/title/salutation/header rules as manual appointment WhatsApp; title includes urgency (≈N hours).</summary>
+    ''' <summary>~2h leg message: same clinic/title/salutation/header rules as manual appointment WhatsApp; title includes urgency (≈N hours). <paramref name="messageEnglish"/> when set; otherwise Arabic until the user picks English.</summary>
     Public Shared Function BuildTwoHourReminderBody(appt As AppointmentReminderDto, Optional messageEnglish As Boolean? = Nothing) As String
         If appt Is Nothing Then Return ""
-        Dim useE = If(messageEnglish.HasValue, messageEnglish.Value, Eng)
+        Dim useE = If(messageEnglish.HasValue, messageEnglish.Value, False)
         Dim hRaw = ApptTwoHourReminderQueueRepository.GetShortReminderHours()
         Dim hrs = CInt(Math.Floor(hRaw))
         If hrs < 1 Then hrs = 1

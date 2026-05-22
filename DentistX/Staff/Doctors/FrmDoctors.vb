@@ -1,4 +1,5 @@
 Imports System.ComponentModel
+Imports System.Data.SqlClient
 Imports DevExpress.XtraBars
 Imports System.ComponentModel.DataAnnotations
 Imports DevExpress.XtraGrid.Views.Base
@@ -299,8 +300,43 @@ Partial Public Class FrmDoctors
         clsDoctors.DrID = System.Convert.ToInt32(dgView.GetRowCellDisplayText(Row, colDrID))
         Dim result As DialogResult = MessageBox.Show("Are you sure? Delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
+            Dim apCount = clsDoctorsData.CountAppointmentCForDoctor(clsDoctors.DrID)
+            If apCount > 0 Then
+                MessageBox.Show(
+                    If(Eng, $"Cannot delete this doctor: {apCount} appointment(s) still reference them. Remove or change the doctor on those appointments first.",
+                       $"لا يمكن حذف الطبيب: ما زال هناك {apCount} موعد مرتبط به. أزل الطبيب من المواعيد أو غيّره أولاً."),
+                    If(Eng, "Cannot delete", "تعذر الحذف"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+            Dim userCount = clsDoctorsData.CountUsersLinkedToDoctor(clsDoctors.DrID)
+            If userCount > 0 Then
+                MessageBox.Show(
+                    If(Eng, $"Cannot delete this doctor: {userCount} user account(s) are linked to them. Unlink or reassign those users first.",
+                       $"لا يمكن حذف الطبيب: ما زال هناك {userCount} مستخدم مرتبط به. افصل الارتباط أو عيّن طبيباً آخر."),
+                    If(Eng, "Cannot delete", "تعذر الحذف"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
             Dim bSuccess As Boolean
-            bSuccess = clsDoctorsData.Delete(clsDoctors)
+            Try
+                bSuccess = clsDoctorsData.Delete(clsDoctors)
+            Catch ex As SqlException
+                If ex.Number = 547 Then
+                    MessageBox.Show(
+                        If(Eng, "Cannot delete this doctor: the record is still referenced elsewhere in the database." & Environment.NewLine & ex.Message,
+                           "لا يمكن حذف الطبيب: السجل ما زال مستخدماً في قاعدة البيانات." & Environment.NewLine & ex.Message),
+                        If(Eng, "Cannot delete", "تعذر الحذف"),
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Else
+                    MessageBox.Show(ex.Message, If(Eng, "Database error", "خطأ في قاعدة البيانات"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+                Return
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, If(Eng, "Error", "خطأ"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End Try
             If bSuccess = True Then
                 GoBack_To_Grid()
             Else

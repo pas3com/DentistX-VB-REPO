@@ -12,7 +12,7 @@ Public Class VisitCalendarDayControlOld
     ' Constants for layout
     Private Const labelWidth As Integer = 100
     Private Const labelHeight As Integer = 100
-    Private Const padding As Integer = 5
+    Private Shadows Const padding As Integer = 5
     Public Sub New()
         InitializeComponent()
         SetupControl()

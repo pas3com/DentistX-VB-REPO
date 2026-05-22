@@ -3,7 +3,6 @@ Imports DevExpress.XtraCharts
 Imports DevExpress.XtraTab
 Imports System.Linq
 Imports System.Threading.Tasks
-Imports StockDAL
 
 Public Class StockDashboardForm
         Inherits XtraForm

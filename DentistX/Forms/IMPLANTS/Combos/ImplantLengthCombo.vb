@@ -263,7 +263,7 @@ Public Class ImplantLengthCombo
     Public Function GetLengthID(lengthMm As Decimal) As Integer
         Const sql As String = "SELECT LengthID FROM ImplantLength WHERE LengthMM = @LengthMM"
         Using conn As New SqlConnection(_connectionString)
-            Dim result As Integer? = conn.QuerySingleOrDefault(Of Integer?)(sql, New With {.LengthMM = lengthMm})
+            Dim result As Integer? = conn.QueryFirstOrDefault(Of Integer?)(sql, New With {.LengthMM = lengthMm})
             Return If(result.HasValue, result.Value, -1)
         End Using
     End Function

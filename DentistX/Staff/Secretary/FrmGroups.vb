@@ -147,7 +147,7 @@ Partial Public Class FrmGroups
      ClearRecord()
      ShowToolStripItems("Add")
      GroupIDSpinEdit.Select
-     GroupIDSpinEdit.Text = clsDentistXData.getAutoID("New", "Groups")
+     GroupIDSpinEdit.Text = DentistXDATA.getAutoID("New", "Groups")
  End Sub
 
  Private Sub Edit()

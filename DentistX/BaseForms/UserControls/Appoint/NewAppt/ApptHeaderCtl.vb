@@ -16,27 +16,18 @@ Imports System.Windows.Forms
 Imports Dapper
 Imports DevExpress.Utils.Layout
 Imports DevExpress.Utils
+Imports DevExpress.Utils.Win
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Controls
 
 Public Class ApptHeaderCtl
 
     Private _syncing As Boolean
+    Private _syncingFilterCombos As Boolean
     Private ReadOnly _doctorInfos As New List(Of ApptDoctorInfo)()
 
-    Private Const DoctorFilterSlimScrollHeight As Integer = 8
-    Private Shared ReadOnly _filtersBaseR0 As Single = 36.53F
-    Private Shared ReadOnly _filtersBaseR1 As Single = 32.65F
-    Private Shared ReadOnly _filtersBaseR2 As Single = 29.82F
-    Private Const FiltersDoctorRowBoostTakeFromNeighbor As Single = 2.0F
-
-    Private _doctorFilterSlimScroll As DevExpress.XtraEditors.HScrollBar
-    Private _doctorFilterSlimScrollWired As Boolean
-    Private _doctorFilterCompactionBaseCaptured As Boolean
-    Private _doctorFilterBasePanelPadding As Padding
-    Private _doctorFilterBaseFlowPadding As Padding
-    Private ReadOnly _doctorFilterButtonBaseMargins As New Dictionary(Of String, Padding)(StringComparer.OrdinalIgnoreCase)
-    Private _filtersDoctorRowBoostActive As Boolean
+    Private Shared ReadOnly FlyoutCardLabelColorEditUiFont As New Font("Calibri", 10.0F, FontStyle.Bold)
+    Private Shared _apptNavArrowLeftImage As Image
 
     Private _headerToolbarButtonHeightHooked As Boolean
     Private _headerToolbarRelayoutPending As Boolean
@@ -46,6 +37,8 @@ Public Class ApptHeaderCtl
 
     Public Event PrevRequested As Action
     Public Event NextRequested As Action
+    Public Event PrevApptRequested As Action
+    Public Event NextApptRequested As Action
     Public Event TodayRequested As Action
     Public Event AddRequested As Action
     Public Event WeekSnapshotRequested As Action
@@ -55,6 +48,8 @@ Public Class ApptHeaderCtl
     Public Event AllPatientsRequested As Action
     Public Event ThisPatientRequested As Action
     Public Event DoctorFilterChanged As Action(Of Integer?)
+    ''' <summary>Prefer this doctor first when sorting appointments / columns (persisted); <see langword="Nothing"/> restores linked-user default ordering.</summary>
+    Public Event OrderByDoctorChanged As Action(Of Integer?)
     Public Event StatusFilterChanged As Action(Of String)
     Public Event IncludeReasonChanged As Action(Of Boolean)
     Public Event FontProfileChanged As Action(Of Boolean, Boolean)
@@ -65,6 +60,8 @@ Public Class ApptHeaderCtl
     Public Event ApptCardTimeColorsChanged As Action(Of Color, Color)
     ''' <summary>Fired when patient name / reason / notes label colors change; host persists and refreshes cards.</summary>
     Public Event ApptCardLabelColorsChanged As Action(Of Color, Color, Color)
+    ''' <summary>Fired after <see cref="grpFilters"/> show/hide; host adjusts the chrome row so the schedule body expands/contracts.</summary>
+    Public Event FilterStripVisibilityChanged(filtersVisible As Boolean)
 
     Private _cardPatientNameColor As Color
     Private _cardReasonColor As Color
@@ -76,18 +73,16 @@ Public Class ApptHeaderCtl
             Dock = DockStyle.Fill
             cmbView.Properties.Items.Clear()
             InitializeComboValues()
+            InitializeFilterCombos()
             LocalizeStaticText()
-            pnlDoctorFilterScroll.AutoScroll = False
-            WireDoctorSlotButtons()
             WireEvents()
             AddHandler Resize, AddressOf Header_Resize
-            AddHandler pnlDoctorFilterScroll.Resize, AddressOf DoctorFilterScrollPanel_Resize
-            AdjustDoctorFilterScrollExtent()
             pnlHeader.AutoScroll = True
             legendPanel.AutoScroll = True
             InitializeApptCardTimeColorPickersFromSettings()
             InitializeApptCardLabelColorCacheFromSettings()
             InitializeViewNavButtons()
+            InitializeApptNavButtons()
             InitializeWeekSnapshotButton()
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
@@ -108,6 +103,28 @@ Public Class ApptHeaderCtl
             ApptErrorHelper.Report(ex, "ApptHeaderCtl.UpdateViewNavButtonVisibility", showUser:=False)
         End Try
     End Sub
+
+    ''' <summary>Enables header appointment jump buttons when filtered PREV/NEXT targets exist.</summary>
+    Public Sub UpdateApptNavButtonVisibility(prevAvailable As Boolean, nextAvailable As Boolean)
+        Try
+            If btnPrevAppt IsNot Nothing Then btnPrevAppt.Enabled = prevAvailable
+            If btnNextAppt IsNot Nothing Then btnNextAppt.Enabled = nextAvailable
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptHeaderCtl.UpdateApptNavButtonVisibility", showUser:=False)
+        End Try
+    End Sub
+
+    ''' <summary>Same as <see cref="btnOptions"/> — used by <see cref="ApptHostCtl"/> schedule context menu.</summary>
+    Public Sub ToggleFilterStrip()
+        BtnOptions_Click(btnOptions, EventArgs.Empty)
+    End Sub
+
+    ''' <summary>Doctor/patient/status filter strip (<see cref="grpFilters"/>) visibility; drives host chrome row height in <see cref="ApptHostCtl"/>.</summary>
+    Public ReadOnly Property FiltersStripVisible As Boolean
+        Get
+            Return grpFilters IsNot Nothing AndAlso grpFilters.Visible
+        End Get
+    End Property
 
     ''' <summary>Updates the view combo without recording view history (used for Prev/Next view and host <see cref="ApptHostCtl.SetView"/>).</summary>
     Public Sub SyncViewComboToState(state As ApptState)
@@ -139,8 +156,9 @@ Public Class ApptHeaderCtl
             SelectComboValue(cmbView, state.CurrentView)
             ApplyDoctorLegend(If(data Is Nothing, Nothing, data.DoctorInfos.Values))
             RefreshPatientButtons(state, hasCurrentPatient)
-            RefreshStatusButtons(state)
-            RefreshDoctorButtons(state)
+            SyncStatusCombo(state)
+            SyncDoctorCombo(state)
+            SyncFirstDoctorCombo(state)
             RefreshCountChips()
             If startColor IsNot Nothing Then startColor.EditValue = state.ApptCardStartTimeColor
             If endColor IsNot Nothing Then endColor.EditValue = state.ApptCardEndTimeColor
@@ -148,6 +166,7 @@ Public Class ApptHeaderCtl
             _cardPatientNameColor = state.ApptCardPatientNameColor
             _cardReasonColor = state.ApptCardReasonColor
             _cardNotesColor = state.ApptCardNotesColor
+            SyncFlyoutApptCardLabelPickersSuppressEvents()
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
                                    "ApptHeaderCtl.ApplyState",
@@ -172,15 +191,8 @@ Public Class ApptHeaderCtl
     End Sub
 
     Private Sub LocalizeStaticText()
-        btnFilterDoctor0.Text = If(Eng, "All Doctors", "كل الاطباء")
         btnAllPatients.Text = If(Eng, "All Patients", "كل المرضى")
         btnThisPatient.Text = If(Eng, "This Patient", "هذا المريض")
-        btnAllReasons.Text = If(Eng, "All Reasons", "كل الأسباب")
-        btnPending.Text = If(Eng, "Pending", "قيد الانتظار")
-        btnRunning.Text = If(Eng, "Running", "قيد التنفيذ")
-        btnCompleted.Text = If(Eng, "Completed", "منجز")
-        btnCanceled.Text = If(Eng, "Canceled", "ملغى")
-        btnPostponed.Text = If(Eng, "Postponed", "مؤجل")
         lblPatients.Text = If(Eng, "Patients", "المرضى")
         lblDoc.Text = If(Eng, "Doctors", "الاطباء")
         lblOptions.Text = If(Eng, "Options", "خيارات")
@@ -199,11 +211,25 @@ Public Class ApptHeaderCtl
         btnAdd.Text = If(Eng, "Add", "اضافة")
         btnPrev.Text = If(Eng, "Prev", "السابق")
         btnNext.Text = If(Eng, "Next", "التالي")
+        SyncApptNavButtonVisuals()
         btnToday.Text = If(Eng, "Today", "اليوم")
-        LabelControl1.Text = If(Eng, "Go To", "اذهب الى")
+        LabelControl2.Text = If(Eng, "Go To", "اذهب الى")
         If btnLabelsColors IsNot Nothing Then
             btnLabelsColors.Text = If(Eng, "Label colors", "ألوان التسميات")
         End If
+        If lbl_Patient IsNot Nothing Then lbl_Patient.Text = If(Eng, "Patient name", "اسم المريض")
+        If lbl_Reason IsNot Nothing Then lbl_Reason.Text = If(Eng, "Reason", "السبب")
+        If lbl_Notes IsNot Nothing Then lbl_Notes.Text = If(Eng, "Notes", "الملاحظات")
+        If btnMoreScheduleOpts IsNot Nothing Then
+            btnMoreScheduleOpts.Text = If(Eng, "Schedule options…", "خيارات الجدولة…")
+            btnMoreScheduleOpts.ToolTip = If(Eng, "Working hours, colors, fonts, notes", "ساعات العمل، الألوان، الخط، الملاحظات")
+        End If
+        If cmbFirstDoctor IsNot Nothing Then
+            cmbFirstDoctor.ToolTip = If(Eng,
+                "Show this doctor's appointments first in each day column (week, timeline, doctors day).",
+                "عرض مواعيد هذا الطبيب أولا في عمود كل يوم (الأسبوع، الخط الزمني، يوم الأطباء).")
+        End If
+        SyncFiltersToggleUi()
         ApplyLegendChipColors(lblApptsCount, Color.HotPink, Color.White)
         ApplyLegendChipColors(lblCount, Color.HotPink, Color.White)
         ApplySectionChipColors(lblPatients)
@@ -215,10 +241,40 @@ Public Class ApptHeaderCtl
         legendPanel.RightToLeft = If(Eng, RightToLeft.No, RightToLeft.Yes)
         grpFilters.Text = If(Eng, "Filter Tools", "أدوات التصفية")
         legendPanel.Text = If(Eng, "Filters", "تصفية")
-        If flpDoctorFilterButtons IsNot Nothing Then
-            flpDoctorFilterButtons.RightToLeft = legendPanel.RightToLeft
-            flpDoctorFilterButtons.FlowDirection = If(legendPanel.RightToLeft = RightToLeft.Yes, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
-        End If
+        If grpFilters IsNot Nothing Then grpFilters.RightToLeft = legendPanel.RightToLeft
+        If filtersTable IsNot Nothing Then filtersTable.RightToLeft = legendPanel.RightToLeft
+        If pnlHeaderToolbarFlow IsNot Nothing Then pnlHeaderToolbarFlow.RightToLeft = legendPanel.RightToLeft
+        RebuildStatusComboItems()
+    End Sub
+
+    ''' <summary>Toolbar control: toggles visibility of <see cref="grpFilters"/>.</summary>
+    Private Sub SyncFiltersToggleUi()
+        If btnOptions Is Nothing OrElse grpFilters Is Nothing Then Return
+        Dim expanded = grpFilters.Visible
+        btnOptions.Text = If(Eng,
+            If(expanded, "Hide filters ▲", "Show filters ▼"),
+            If(expanded, "إخفاء التصفية ▲", "إظهار التصفية ▼"))
+        btnOptions.ToolTip = If(Eng,
+            If(expanded, "Hide doctor / patient / status filter bar", "Show doctor / patient / status filter bar"),
+            If(expanded, "إخفاء شريط التصفية", "إظهار شريط التصفية"))
+    End Sub
+
+    Private Sub BtnOptions_Click(sender As Object, e As EventArgs) Handles btnOptions.Click
+        SafeRaiseHeaderAction(
+            "ApptHeaderCtl.BtnOptions_Click",
+            Sub()
+                If grpFilters Is Nothing Then Return
+                grpFilters.Visible = Not grpFilters.Visible
+                If Not grpFilters.Visible AndAlso flyoutScheduleOptions IsNot Nothing Then
+                    Try
+                        flyoutScheduleOptions.HidePopup(False)
+                    Catch
+                    End Try
+                End If
+                SyncFiltersToggleUi()
+                RefreshLegendFiltersLayout()
+                RaiseEvent FilterStripVisibilityChanged(grpFilters.Visible)
+            End Sub)
     End Sub
 
     Private Sub RefreshCountChips()
@@ -232,94 +288,184 @@ Public Class ApptHeaderCtl
         StyleFilterChip(btnThisPatient, sel = 1, hasCurrentPatient, Color.FromArgb(255, 220, 188))
     End Sub
 
-    Private Sub RefreshStatusButtons(state As ApptState)
-        Dim buttons = {btnAllReasons, btnPending, btnRunning, btnCompleted, btnCanceled, btnPostponed}
-        Dim sel = 0
-        Select Case NormalizeStatus(state.VisibleStatus)
-            Case "Pending" : sel = 1
-            Case "Running" : sel = 2
-            Case "Completed" : sel = 3
-            Case "Canceled" : sel = 4
-            Case "Postponed" : sel = 5
-        End Select
-
-        For i = 0 To buttons.Length - 1
-            StyleFilterChip(buttons(i), sel = i, True, ReasonIdleColor(i))
-        Next
+    Private Sub InitializeFilterCombos()
+        RebuildStatusComboItems()
     End Sub
 
-    Private Sub RefreshDoctorButtons(state As ApptState)
-        StyleFilterChip(btnFilterDoctor0, Not state.DoctorFilterId.HasValue, True, Color.FromArgb(200, 230, 200))
-        For i = 0 To _doctorInfos.Count - 1
-            Dim doctor = _doctorInfos(i)
-            Dim btn = DoctorSlotButton(i + 1)
-            StyleFilterChip(btn, state.DoctorFilterId.HasValue AndAlso state.DoctorFilterId.Value = doctor.DrID, btn.Enabled, doctor.DrColor)
+    Private Sub RebuildStatusComboItems()
+        If cmbStatusFilter Is Nothing Then Return
+        Dim prev As String = Nothing
+        Dim hadPrev As Boolean = False
+        Dim curSel = TryCast(cmbStatusFilter.SelectedItem, ComboValueItem(Of String))
+        If curSel IsNot Nothing Then
+            prev = curSel.Value
+            hadPrev = True
+        End If
+        _syncingFilterCombos = True
+        Try
+            cmbStatusFilter.Properties.Items.Clear()
+            cmbStatusFilter.Properties.Items.Add(New ComboValueItem(Of String)(Nothing, If(Eng, "All statuses", "كل الحالات")))
+            cmbStatusFilter.Properties.Items.Add(New ComboValueItem(Of String)("Pending", If(Eng, "Pending", "قيد الانتظار")))
+            cmbStatusFilter.Properties.Items.Add(New ComboValueItem(Of String)("Running", If(Eng, "Running", "قيد التنفيذ")))
+            cmbStatusFilter.Properties.Items.Add(New ComboValueItem(Of String)("Completed", If(Eng, "Completed", "منجز")))
+            cmbStatusFilter.Properties.Items.Add(New ComboValueItem(Of String)("Canceled", If(Eng, "Canceled", "ملغى")))
+            cmbStatusFilter.Properties.Items.Add(New ComboValueItem(Of String)("Postponed", If(Eng, "Postponed", "مؤجل")))
+            If hadPrev Then
+                SelectComboStringKey(cmbStatusFilter, prev)
+            ElseIf cmbStatusFilter.Properties.Items.Count > 0 Then
+                cmbStatusFilter.SelectedIndex = 0
+            End If
+        Finally
+            _syncingFilterCombos = False
+        End Try
+    End Sub
+
+
+    Private Sub SyncStatusCombo(state As ApptState)
+        If cmbStatusFilter Is Nothing Then Return
+        Dim key As String = Nothing
+        Dim ns = NormalizeStatus(state.VisibleStatus)
+        If Not String.IsNullOrEmpty(ns) Then key = ns
+        _syncingFilterCombos = True
+        Try
+            SelectComboStringKey(cmbStatusFilter, key)
+        Finally
+            _syncingFilterCombos = False
+        End Try
+    End Sub
+
+    Private Sub SyncDoctorCombo(state As ApptState)
+        If cmbDoctorFilter Is Nothing Then Return
+        If cmbDoctorFilter.Properties.Items.Count = 0 Then Return
+        _syncingFilterCombos = True
+        Try
+            If Not state.DoctorFilterId.HasValue Then
+                cmbDoctorFilter.SelectedIndex = 0
+                Return
+            End If
+            Dim id = state.DoctorFilterId.Value
+            For i = 0 To cmbDoctorFilter.Properties.Items.Count - 1
+                Dim it = TryCast(cmbDoctorFilter.Properties.Items(i), ComboValueItem(Of Integer?))
+                If it Is Nothing Then Continue For
+                If it.Value.HasValue AndAlso it.Value.Value = id Then
+                    cmbDoctorFilter.SelectedIndex = i
+                    Exit For
+                End If
+            Next
+        Finally
+            _syncingFilterCombos = False
+        End Try
+    End Sub
+
+    Private Sub SyncFirstDoctorCombo(state As ApptState)
+        If cmbFirstDoctor Is Nothing Then Return
+        If cmbFirstDoctor.Properties.Items.Count = 0 Then Return
+        _syncingFilterCombos = True
+        Try
+            If state Is Nothing OrElse Not state.OrderByDoctorId.HasValue OrElse state.OrderByDoctorId.Value <= 0 Then
+                cmbFirstDoctor.SelectedIndex = 0
+                Return
+            End If
+            Dim id = state.OrderByDoctorId.Value
+            For i = 0 To cmbFirstDoctor.Properties.Items.Count - 1
+                Dim it = TryCast(cmbFirstDoctor.Properties.Items(i), ComboValueItem(Of Integer?))
+                If it Is Nothing Then Continue For
+                If it.Value.HasValue AndAlso it.Value.Value = id Then
+                    cmbFirstDoctor.SelectedIndex = i
+                    Exit For
+                End If
+            Next
+        Finally
+            _syncingFilterCombos = False
+        End Try
+    End Sub
+
+    Private Shared Sub SelectComboStringKey(combo As ComboBoxEdit, key As String)
+        If combo Is Nothing Then Return
+        For i = 0 To combo.Properties.Items.Count - 1
+            Dim item = TryCast(combo.Properties.Items(i), ComboValueItem(Of String))
+            If item Is Nothing Then Continue For
+            If key Is Nothing Then
+                If item.Value Is Nothing Then
+                    combo.SelectedIndex = i
+                    Exit Sub
+                End If
+            ElseIf item.Value IsNot Nothing AndAlso String.Equals(item.Value, key, StringComparison.OrdinalIgnoreCase) Then
+                combo.SelectedIndex = i
+                Exit Sub
+            End If
         Next
+        If combo.Properties.Items.Count > 0 Then combo.SelectedIndex = 0
     End Sub
 
     Private Sub ApplyDoctorLegend(doctors As IEnumerable(Of ApptDoctorInfo))
         _doctorInfos.Clear()
-        For slot = 1 To 8
-            Dim b = DoctorSlotButton(slot)
-            b.Tag = Nothing
-            b.Text = String.Empty
-            b.Enabled = False
-            StyleFilterChip(b, False, False, Color.WhiteSmoke)
-        Next
-
-        If doctors Is Nothing Then
-            AdjustDoctorFilterScrollExtent()
-            Return
+        If cmbDoctorFilter Is Nothing Then Return
+        Dim prevId As Integer?
+        If Not _syncing Then
+            Dim cur = TryCast(cmbDoctorFilter.SelectedItem, ComboValueItem(Of Integer?))
+            If cur IsNot Nothing Then prevId = cur.Value
         End If
 
-        Dim ordered = doctors.OrderBy(Function(d) d.DrName).Take(8).ToList()
-        For i = 0 To ordered.Count - 1
-            Dim doctor = ordered(i)
-            _doctorInfos.Add(doctor)
-            Dim b = DoctorSlotButton(i + 1)
-            b.Text = doctor.DrName
-            b.Tag = doctor.DrID
-            b.Enabled = True
-        Next
-        AdjustDoctorFilterScrollExtent()
-    End Sub
+        _syncingFilterCombos = True
+        Try
+            cmbDoctorFilter.Properties.Items.Clear()
+            cmbDoctorFilter.Properties.Items.Add(New ComboValueItem(Of Integer?)(Nothing, If(Eng, "All doctors", "كل الاطباء")))
+            If cmbFirstDoctor IsNot Nothing Then
+                cmbFirstDoctor.Properties.Items.Clear()
+                cmbFirstDoctor.Properties.Items.Add(New ComboValueItem(Of Integer?)(Nothing, If(Eng, "Default (logged-in doctor)", "الافتراضي (طبيب الدخول)")))
+            End If
+            If doctors Is Nothing Then
+                cmbDoctorFilter.SelectedIndex = 0
+                If cmbFirstDoctor IsNot Nothing Then cmbFirstDoctor.SelectedIndex = 0
+                Return
+            End If
 
-    Private Function DoctorSlotButton(slot As Integer) As SimpleButton
-        Select Case slot
-            Case 1 : Return btnFilterDoctor1
-            Case 2 : Return btnFilterDoctor2
-            Case 3 : Return btnFilterDoctor3
-            Case 4 : Return btnFilterDoctor4
-            Case 5 : Return btnFilterDoctor5
-            Case 6 : Return btnFilterDoctor6
-            Case 7 : Return btnFilterDoctor7
-            Case 8 : Return btnFilterDoctor8
-            Case Else : Throw New ArgumentOutOfRangeException(NameOf(slot))
-        End Select
-    End Function
+            Dim ordered = doctors.OrderBy(Function(d) d.DrName).ToList()
+            For Each doctor In ordered
+                _doctorInfos.Add(doctor)
+                cmbDoctorFilter.Properties.Items.Add(New ComboValueItem(Of Integer?)(doctor.DrID, doctor.DrName))
+                If cmbFirstDoctor IsNot Nothing Then
+                    cmbFirstDoctor.Properties.Items.Add(New ComboValueItem(Of Integer?)(doctor.DrID, doctor.DrName))
+                End If
+            Next
 
-    Private Sub WireDoctorSlotButtons()
-        For slot = 1 To 8
-            AddHandler DoctorSlotButton(slot).Click, AddressOf DoctorFilterButton_Click
-        Next
+            Dim idx As Integer = 0
+            If prevId.HasValue Then
+                For i = 0 To cmbDoctorFilter.Properties.Items.Count - 1
+                    Dim it = TryCast(cmbDoctorFilter.Properties.Items(i), ComboValueItem(Of Integer?))
+                    If it Is Nothing OrElse Not it.Value.HasValue Then Continue For
+                    If it.Value.Value = prevId.Value Then
+                        idx = i
+                        Exit For
+                    End If
+                Next
+            End If
+            If idx >= 0 AndAlso idx < cmbDoctorFilter.Properties.Items.Count Then cmbDoctorFilter.SelectedIndex = idx
+        Finally
+            _syncingFilterCombos = False
+        End Try
     End Sub
 
     Private Sub WireEvents()
         AddHandler btnPrev.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.PrevRequested", Sub() RaiseEvent PrevRequested())
         AddHandler btnNext.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.NextRequested", Sub() RaiseEvent NextRequested())
+        If btnPrevAppt IsNot Nothing Then
+            AddHandler btnPrevAppt.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.PrevApptRequested", Sub() RaiseEvent PrevApptRequested())
+        End If
+        If btnNextAppt IsNot Nothing Then
+            AddHandler btnNextAppt.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.NextApptRequested", Sub() RaiseEvent NextApptRequested())
+        End If
         AddHandler btnToday.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.TodayRequested", Sub() RaiseEvent TodayRequested())
         AddHandler btnAdd.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.AddRequested", Sub() RaiseEvent AddRequested())
         AddHandler btnPrevView.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.PrevViewRequested", Sub() RaiseEvent PrevViewRequested())
         AddHandler btnNextView.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.NextViewRequested", Sub() RaiseEvent NextViewRequested())
         AddHandler btnAllPatients.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.AllPatientsRequested", Sub() If Not _syncing Then RaiseEvent AllPatientsRequested())
         AddHandler btnThisPatient.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.ThisPatientRequested", Sub() If Not _syncing Then RaiseEvent ThisPatientRequested())
-        AddHandler btnFilterDoctor0.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.DoctorFilterChanged.All", Sub() If Not _syncing Then RaiseEvent DoctorFilterChanged(Nothing))
-        AddHandler btnAllReasons.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.All", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged(Nothing))
-        AddHandler btnPending.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Pending", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Pending"))
-        AddHandler btnRunning.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Running", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Running"))
-        AddHandler btnCompleted.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Completed", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Completed"))
-        AddHandler btnCanceled.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Canceled", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Canceled"))
-        AddHandler btnPostponed.Click, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.StatusFilterChanged.Postponed", Sub() If Not _syncing Then RaiseEvent StatusFilterChanged("Postponed"))
+        If cmbDoctorFilter IsNot Nothing Then AddHandler cmbDoctorFilter.SelectedIndexChanged, AddressOf CmbDoctorFilter_SelectedIndexChanged
+        If cmbFirstDoctor IsNot Nothing Then AddHandler cmbFirstDoctor.SelectedIndexChanged, AddressOf CmbFirstDoctor_SelectedIndexChanged
+        If cmbStatusFilter IsNot Nothing Then AddHandler cmbStatusFilter.SelectedIndexChanged, AddressOf CmbStatusFilter_SelectedIndexChanged
+        If btnMoreScheduleOpts IsNot Nothing Then AddHandler btnMoreScheduleOpts.Click, AddressOf BtnMoreScheduleOpts_Click
         AddHandler chkUse24.CheckedChanged, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.Use24Changed", Sub() If Not _syncing Then RaiseEvent Use24Changed(chkUse24.Checked))
         AddHandler gotoDate.EditValueChanged, Sub() SafeRaiseHeaderAction("ApptHeaderCtl.CurrentDateChanged", Sub() If Not _syncing AndAlso gotoDate.EditValue IsNot Nothing Then RaiseEvent CurrentDateChanged(Convert.ToDateTime(gotoDate.EditValue)))
         AddHandler cmbView.SelectedIndexChanged, AddressOf CmbView_SelectedIndexChanged
@@ -331,6 +477,9 @@ Public Class ApptHeaderCtl
         If startColor IsNot Nothing Then AddHandler startColor.EditValueChanged, AddressOf ApptCardTimeColorPickers_EditValueChanged
         If endColor IsNot Nothing Then AddHandler endColor.EditValueChanged, AddressOf ApptCardTimeColorPickers_EditValueChanged
         If btnLabelsColors IsNot Nothing Then AddHandler btnLabelsColors.Click, AddressOf BtnLabelsColors_Click
+        If color_Patient IsNot Nothing Then AddHandler color_Patient.EditValueChanged, AddressOf FlyoutApptCardLabelColors_EditValueChanged
+        If color_Reason IsNot Nothing Then AddHandler color_Reason.EditValueChanged, AddressOf FlyoutApptCardLabelColors_EditValueChanged
+        If color_Notes IsNot Nothing Then AddHandler color_Notes.EditValueChanged, AddressOf FlyoutApptCardLabelColors_EditValueChanged
     End Sub
 
     Private Sub SafeRaiseHeaderAction(context As String, action As Action)
@@ -351,6 +500,41 @@ Public Class ApptHeaderCtl
         If btnPrevView IsNot Nothing Then btnPrevView.Visible = False
         If btnNextView IsNot Nothing Then btnNextView.Visible = False
     End Sub
+
+    Private Sub InitializeApptNavButtons()
+        If btnPrevAppt IsNot Nothing Then btnPrevAppt.Enabled = False
+        If btnNextAppt IsNot Nothing Then btnNextAppt.Enabled = False
+        SyncApptNavButtonVisuals()
+    End Sub
+
+    Private Sub SyncApptNavButtonVisuals()
+        If btnPrevAppt Is Nothing AndAlso btnNextAppt Is Nothing Then Return
+
+        Dim rightArrow = Global.DentistX.My.Resources.Resources.tbtnArrowRight16
+        Dim leftArrow = ApptNavArrowLeftImage(rightArrow)
+
+        If btnPrevAppt IsNot Nothing Then
+            btnPrevAppt.Text = String.Empty
+            btnPrevAppt.ImageOptions.Location = ImageLocation.MiddleCenter
+            btnPrevAppt.ImageOptions.Image = If(Eng, leftArrow, rightArrow)
+            btnPrevAppt.ToolTip = If(Eng, "Previous appointment (filtered)", "الموعد السابق (بعد التصفية)")
+        End If
+        If btnNextAppt IsNot Nothing Then
+            btnNextAppt.Text = String.Empty
+            btnNextAppt.ImageOptions.Location = ImageLocation.MiddleCenter
+            btnNextAppt.ImageOptions.Image = If(Eng, rightArrow, leftArrow)
+            btnNextAppt.ToolTip = If(Eng, "Next appointment (filtered)", "الموعد التالي (بعد التصفية)")
+        End If
+    End Sub
+
+    Private Shared Function ApptNavArrowLeftImage(rightArrow As Image) As Image
+        If rightArrow Is Nothing Then Return Nothing
+        If _apptNavArrowLeftImage IsNot Nothing Then Return _apptNavArrowLeftImage
+        Dim mirrored = DirectCast(DirectCast(rightArrow, Bitmap).Clone(), Bitmap)
+        mirrored.RotateFlip(RotateFlipType.RotateNoneFlipX)
+        _apptNavArrowLeftImage = mirrored
+        Return _apptNavArrowLeftImage
+    End Function
 
     ''' <summary>Same as <see cref="SchedulerNew.InitializeWeekSnapshotButton"/>.</summary>
     Private Sub InitializeWeekSnapshotButton()
@@ -384,29 +568,65 @@ Public Class ApptHeaderCtl
         _cardPatientNameColor = My.Settings.ApptModuleCardPatientNameColor
         _cardReasonColor = My.Settings.ApptModuleCardReasonColor
         _cardNotesColor = My.Settings.ApptModuleCardNotesColor
+        ConfigureFlyoutApptCardLabelColorEdits()
+        SyncFlyoutApptCardLabelPickersSuppressEvents()
+    End Sub
+
+    ''' <summary>Matches <see cref="ApptCardLabelColorsDialog"/> color-edit setup for the flyout (<c>color_Patient</c> …).</summary>
+    Private Sub ConfigureFlyoutApptCardLabelColorEdits()
+        ConfigureFlyoutSingleApptCardLabelColorEdit(color_Patient)
+        ConfigureFlyoutSingleApptCardLabelColorEdit(color_Reason)
+        ConfigureFlyoutSingleApptCardLabelColorEdit(color_Notes)
+    End Sub
+
+    Private Shared Sub ConfigureFlyoutSingleApptCardLabelColorEdit(edit As ColorEdit)
+        If edit Is Nothing Then Return
+        CType(edit.Properties, ISupportInitialize).BeginInit()
+        Try
+            edit.Properties.Appearance.Font = FlyoutCardLabelColorEditUiFont
+            edit.Properties.Appearance.Options.UseFont = True
+            edit.Properties.ColorDialogType = DevExpress.XtraEditors.Popup.ColorDialogType.Advanced
+            edit.Properties.Buttons.Clear()
+            edit.Properties.Buttons.Add(New EditorButton(ButtonPredefines.Combo))
+        Finally
+            CType(edit.Properties, ISupportInitialize).EndInit()
+        End Try
+    End Sub
+
+    Private Sub SyncFlyoutApptCardLabelPickersSuppressEvents()
+        If color_Patient Is Nothing AndAlso color_Reason Is Nothing AndAlso color_Notes Is Nothing Then Return
+        _syncing = True
+        Try
+            If color_Patient IsNot Nothing Then color_Patient.EditValue = _cardPatientNameColor
+            If color_Reason IsNot Nothing Then color_Reason.EditValue = _cardReasonColor
+            If color_Notes IsNot Nothing Then color_Notes.EditValue = _cardNotesColor
+        Finally
+            _syncing = False
+        End Try
     End Sub
 
     Private Sub BtnLabelsColors_Click(sender As Object, e As EventArgs)
-        Try
-            If _syncing Then Return
-            Using dlg As New ApptCardLabelColorsDialog(_cardPatientNameColor, _cardReasonColor, _cardNotesColor)
-                If dlg.ShowDialog(Me) <> DialogResult.OK Then Return
-                _cardPatientNameColor = dlg.ResultPatientNameColor
-                _cardReasonColor = dlg.ResultReasonColor
-                _cardNotesColor = dlg.ResultNotesColor
-                RaiseEvent ApptCardLabelColorsChanged(
-                    dlg.ResultPatientNameColor,
-                    dlg.ResultReasonColor,
-                    dlg.ResultNotesColor)
-            End Using
-        Catch ex As Exception
-            ApptErrorHelper.Report(ex,
-                                   "ApptHeaderCtl.BtnLabelsColors_Click",
-                                   showUser:=True,
-                                   owner:=Me,
-                                   englishMessage:="Could not update appointment label colors.",
-                                   arabicMessage:="تعذر تحديث ألوان تسميات الموعد.")
-        End Try
+        'Try
+        '    If _syncing Then Return
+        '    Using dlg As New ApptCardLabelColorsDialog(_cardPatientNameColor, _cardReasonColor, _cardNotesColor)
+        '        If dlg.ShowDialog(Me) <> DialogResult.OK Then Return
+        '        _cardPatientNameColor = dlg.ResultPatientNameColor
+        '        _cardReasonColor = dlg.ResultReasonColor
+        '        _cardNotesColor = dlg.ResultNotesColor
+        '        SyncFlyoutApptCardLabelPickersSuppressEvents()
+        '        RaiseEvent ApptCardLabelColorsChanged(
+        '            dlg.ResultPatientNameColor,
+        '            dlg.ResultReasonColor,
+        '            dlg.ResultNotesColor)
+        '    End Using
+        'Catch ex As Exception
+        '    ApptErrorHelper.Report(ex,
+        '                           "ApptHeaderCtl.BtnLabelsColors_Click",
+        '                           showUser:=True,
+        '                           owner:=Me,
+        '                           englishMessage:="Could not update appointment label colors.",
+        '                           arabicMessage:="تعذر تحديث ألوان تسميات الموعد.")
+        'End Try
     End Sub
 
     Private Sub ApptCardTimeColorPickers_EditValueChanged(sender As Object, e As EventArgs)
@@ -423,6 +643,26 @@ Public Class ApptHeaderCtl
                                    owner:=Me,
                                    englishMessage:="Could not update appointment time colors.",
                                    arabicMessage:="تعذر تحديث ألوان وقت الموعد.")
+        End Try
+    End Sub
+
+    Private Sub FlyoutApptCardLabelColors_EditValueChanged(sender As Object, e As EventArgs)
+        Try
+            If _syncing Then Return
+            Dim p = ColorFromPicker(color_Patient, _cardPatientNameColor)
+            Dim r = ColorFromPicker(color_Reason, _cardReasonColor)
+            Dim n = ColorFromPicker(color_Notes, _cardNotesColor)
+            _cardPatientNameColor = p
+            _cardReasonColor = r
+            _cardNotesColor = n
+            RaiseEvent ApptCardLabelColorsChanged(p, r, n)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.FlyoutApptCardLabelColors_EditValueChanged",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not update appointment card label colors.",
+                                   arabicMessage:="تعذر تحديث ألوان تسميات الموعد.")
         End Try
     End Sub
 
@@ -489,15 +729,15 @@ Public Class ApptHeaderCtl
         End Try
     End Sub
 
-    Private Sub DoctorFilterButton_Click(sender As Object, e As EventArgs)
+    Private Sub CmbDoctorFilter_SelectedIndexChanged(sender As Object, e As EventArgs)
         Try
-            If _syncing Then Return
-            Dim btn = TryCast(sender, SimpleButton)
-            If btn Is Nothing OrElse btn.Tag Is Nothing Then Return
-            RaiseEvent DoctorFilterChanged(CInt(btn.Tag))
+            If _syncing OrElse _syncingFilterCombos Then Return
+            Dim item = TryCast(cmbDoctorFilter.SelectedItem, ComboValueItem(Of Integer?))
+            If item Is Nothing Then Return
+            RaiseEvent DoctorFilterChanged(item.Value)
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
-                                   "ApptHeaderCtl.DoctorFilterButton_Click",
+                                   "ApptHeaderCtl.CmbDoctorFilter_SelectedIndexChanged",
                                    showUser:=True,
                                    owner:=Me,
                                    englishMessage:="Could not apply the doctor filter.",
@@ -505,10 +745,76 @@ Public Class ApptHeaderCtl
         End Try
     End Sub
 
+    Private Sub CmbFirstDoctor_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Try
+            If _syncing OrElse _syncingFilterCombos Then Return
+            If cmbFirstDoctor Is Nothing Then Return
+            Dim item = TryCast(cmbFirstDoctor.SelectedItem, ComboValueItem(Of Integer?))
+            If item Is Nothing Then Return
+            RaiseEvent OrderByDoctorChanged(item.Value)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.CmbFirstDoctor_SelectedIndexChanged",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not apply preferred doctor ordering.",
+                                   arabicMessage:="تعذر تطبيق ترتيب الطبيب.")
+        End Try
+    End Sub
+
+    Private Sub CmbStatusFilter_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Try
+            If _syncing OrElse _syncingFilterCombos Then Return
+            Dim item = TryCast(cmbStatusFilter.SelectedItem, ComboValueItem(Of String))
+            If item Is Nothing Then Return
+            RaiseEvent StatusFilterChanged(item.Value)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.CmbStatusFilter_SelectedIndexChanged",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not apply the status filter.",
+                                   arabicMessage:="تعذر تطبيق فلتر الحالة.")
+        End Try
+    End Sub
+
+    Private Sub BtnMoreScheduleOpts_Click(sender As Object, e As EventArgs)
+        SafeRaiseHeaderAction("ApptHeaderCtl.BtnMoreScheduleOpts_Click", AddressOf ShowScheduleOptionsFlyout)
+    End Sub
+
+    Private Sub ShowScheduleOptionsFlyout()
+        Try
+            If flyoutScheduleOptions Is Nothing OrElse grpFilters Is Nothing OrElse btnMoreScheduleOpts Is Nothing Then Return
+            If Not IsHandleCreated Then Return
+            BeginInvoke(Sub()
+                            Try
+                                If IsDisposed Then Return
+                                flyoutScheduleOptions.OwnerControl = grpFilters
+                                flyoutScheduleOptions.Options.AnimationType = PopupToolWindowAnimation.Slide
+                                flyoutScheduleOptions.Options.AnchorType = PopupToolWindowAnchor.Manual
+                                Dim loc = grpFilters.PointToClient(btnMoreScheduleOpts.PointToScreen(Point.Empty))
+                                If Eng Then
+                                    flyoutScheduleOptions.Options.Location = New Point(loc.X, loc.Y + btnMoreScheduleOpts.Height + 4)
+                                Else
+                                    flyoutScheduleOptions.Options.Location = New Point(loc.X - flyoutScheduleOptions.Width + btnMoreScheduleOpts.Width, loc.Y + btnMoreScheduleOpts.Height + 4)
+                                End If
+                                flyoutScheduleOptions.ShowPopup()
+                            Catch ex As Exception
+                                ApptErrorHelper.Report(ex, "ApptHeaderCtl.ShowScheduleOptionsFlyout.Deferred", showUser:=False)
+                            End Try
+                        End Sub)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex,
+                                   "ApptHeaderCtl.ShowScheduleOptionsFlyout",
+                                   showUser:=True,
+                                   owner:=Me,
+                                   englishMessage:="Could not open schedule options.",
+                                   arabicMessage:="تعذر فتح خيارات الجدولة.")
+        End Try
+    End Sub
+
     Private Sub Header_Resize(sender As Object, e As EventArgs)
-        AdjustDoctorFilterScrollExtent()
         RefreshLegendFiltersLayout()
-        'ScheduleHeaderToolbarRelayout()
     End Sub
 
     ''' <summary>Mirrors SchedulerNew.ResizeControlsProportionally tail: docked grpFilters/filtersTable must relayout via TablePanel, not SetBounds.</summary>
@@ -565,175 +871,6 @@ Public Class ApptHeaderCtl
     End Sub
 
 
-    Private Sub DoctorFilterScrollPanel_Resize(sender As Object, e As EventArgs)
-        PositionDoctorFilterSlimScroll()
-        AdjustDoctorFilterScrollExtent()
-    End Sub
-
-    Private Sub EnsureDoctorFilterCompactionBaseCaptured()
-        If _doctorFilterCompactionBaseCaptured Then Return
-        If pnlDoctorFilterScroll Is Nothing OrElse flpDoctorFilterButtons Is Nothing Then Return
-        _doctorFilterBasePanelPadding = pnlDoctorFilterScroll.Padding
-        _doctorFilterBaseFlowPadding = flpDoctorFilterButtons.Padding
-        For Each c As Control In flpDoctorFilterButtons.Controls
-            Dim sb = TryCast(c, SimpleButton)
-            If sb Is Nothing Then Continue For
-            If Not _doctorFilterButtonBaseMargins.ContainsKey(sb.Name) Then
-                _doctorFilterButtonBaseMargins(sb.Name) = sb.Margin
-            End If
-        Next
-        _doctorFilterCompactionBaseCaptured = True
-    End Sub
-
-    Private Sub ApplyDoctorFilterVerticalCompaction(compact As Boolean)
-        If pnlDoctorFilterScroll Is Nothing OrElse flpDoctorFilterButtons Is Nothing Then Return
-        EnsureDoctorFilterCompactionBaseCaptured()
-        If Not _doctorFilterCompactionBaseCaptured Then Return
-
-        If compact Then
-            pnlDoctorFilterScroll.Padding = New Padding(_doctorFilterBasePanelPadding.Left, 0, _doctorFilterBasePanelPadding.Right, 0)
-            flpDoctorFilterButtons.Padding = New Padding(_doctorFilterBaseFlowPadding.Left, 0, _doctorFilterBaseFlowPadding.Right, 0)
-        Else
-            pnlDoctorFilterScroll.Padding = _doctorFilterBasePanelPadding
-            flpDoctorFilterButtons.Padding = _doctorFilterBaseFlowPadding
-        End If
-
-        For Each c As Control In flpDoctorFilterButtons.Controls
-            Dim sb = TryCast(c, SimpleButton)
-            If sb Is Nothing Then Continue For
-            If Not _doctorFilterButtonBaseMargins.ContainsKey(sb.Name) Then
-                _doctorFilterButtonBaseMargins(sb.Name) = sb.Margin
-            End If
-            Dim baseMargin = _doctorFilterButtonBaseMargins(sb.Name)
-            sb.Margin = If(compact, New Padding(baseMargin.Left, 0, baseMargin.Right, 0), baseMargin)
-        Next
-    End Sub
-
-    Private Sub EnsureDoctorFilterSlimScroll()
-        If pnlDoctorFilterScroll Is Nothing Then Return
-        pnlDoctorFilterScroll.AutoScroll = False
-        If _doctorFilterSlimScroll Is Nothing OrElse _doctorFilterSlimScroll.IsDisposed Then
-            _doctorFilterSlimScroll = New DevExpress.XtraEditors.HScrollBar With {
-                .Name = "doctorFilterSlimScroll",
-                .Height = DoctorFilterSlimScrollHeight,
-                .Visible = False,
-                .SmallChange = 24,
-                .LargeChange = 120,
-                .Minimum = 0,
-                .Value = 0
-            }
-            pnlDoctorFilterScroll.Controls.Add(_doctorFilterSlimScroll)
-            _doctorFilterSlimScroll.BringToFront()
-        End If
-        If Not _doctorFilterSlimScrollWired Then
-            AddHandler _doctorFilterSlimScroll.Scroll, AddressOf DoctorFilterSlimScroll_Scroll
-            _doctorFilterSlimScrollWired = True
-        End If
-        PositionDoctorFilterSlimScroll()
-    End Sub
-
-    Private Sub PositionDoctorFilterSlimScroll()
-        If pnlDoctorFilterScroll Is Nothing OrElse _doctorFilterSlimScroll Is Nothing Then Return
-        Dim cw = Math.Max(1, pnlDoctorFilterScroll.ClientSize.Width)
-        Dim ch = Math.Max(1, pnlDoctorFilterScroll.ClientSize.Height)
-        Dim h = Math.Min(DoctorFilterSlimScrollHeight, ch)
-        _doctorFilterSlimScroll.SetBounds(0, Math.Max(0, ch - h), cw, h)
-    End Sub
-
-    Private Sub DoctorFilterSlimScroll_Scroll(sender As Object, e As ScrollEventArgs)
-        If flpDoctorFilterButtons Is Nothing OrElse _doctorFilterSlimScroll Is Nothing Then Return
-        flpDoctorFilterButtons.Left = -_doctorFilterSlimScroll.Value
-    End Sub
-
-    Private Sub ApplyFiltersTableDoctorRowBoost(needsHorizontalScroll As Boolean)
-        If filtersTable Is Nothing OrElse filtersTable.Rows.Count < 3 Then Return
-        Dim take = FiltersDoctorRowBoostTakeFromNeighbor
-        If needsHorizontalScroll Then
-            If Not _filtersDoctorRowBoostActive Then
-                filtersTable.Rows(0).Height = Math.Max(8.0F, _filtersBaseR0 - take)
-                filtersTable.Rows(1).Height = _filtersBaseR1 + 2.0F * take
-                filtersTable.Rows(2).Height = Math.Max(8.0F, _filtersBaseR2 - take)
-                _filtersDoctorRowBoostActive = True
-            End If
-        Else
-            If _filtersDoctorRowBoostActive Then
-                filtersTable.Rows(0).Height = _filtersBaseR0
-                filtersTable.Rows(1).Height = _filtersBaseR1
-                filtersTable.Rows(2).Height = _filtersBaseR2
-                _filtersDoctorRowBoostActive = False
-            End If
-        End If
-    End Sub
-
-    Private Sub SyncDoctorStripButtonHeights(scrollReserve As Integer)
-        If pnlDoctorFilterScroll Is Nothing OrElse flpDoctorFilterButtons Is Nothing Then Return
-        Dim ch = Math.Max(1, pnlDoctorFilterScroll.ClientSize.Height - scrollReserve)
-        Dim h = Math.Max(22, ch - 2)
-        For slot = 1 To 8
-            Dim btn = DoctorSlotButton(slot)
-            If Not btn.Enabled Then Continue For
-            btn.Height = Math.Max(22, h - 4)
-            btn.MinimumSize = New Size(72, btn.Height)
-        Next
-    End Sub
-
-    Private Sub AdjustDoctorFilterScrollExtent()
-        If pnlDoctorFilterScroll Is Nothing OrElse flpDoctorFilterButtons Is Nothing Then Return
-        EnsureDoctorFilterSlimScroll()
-
-        Dim needH As Boolean
-        SyncDoctorStripButtonHeights(0)
-        flpDoctorFilterButtons.PerformLayout()
-        Dim prefW = flpDoctorFilterButtons.PreferredSize.Width
-        Dim cw = Math.Max(1, pnlDoctorFilterScroll.ClientSize.Width)
-        needH = prefW > cw
-
-        SyncDoctorStripButtonHeights(If(needH, DoctorFilterSlimScrollHeight, 0))
-        flpDoctorFilterButtons.PerformLayout()
-        prefW = flpDoctorFilterButtons.PreferredSize.Width
-        cw = Math.Max(1, pnlDoctorFilterScroll.ClientSize.Width)
-        needH = prefW > cw
-
-        ApplyDoctorFilterVerticalCompaction(needH)
-        flpDoctorFilterButtons.PerformLayout()
-        prefW = flpDoctorFilterButtons.PreferredSize.Width
-        cw = Math.Max(1, pnlDoctorFilterScroll.ClientSize.Width)
-        needH = prefW > cw
-        ApplyDoctorFilterVerticalCompaction(needH)
-
-        ApplyFiltersTableDoctorRowBoost(needH)
-
-        If needH AndAlso filtersTable IsNot Nothing Then
-            filtersTable.PerformLayout()
-            If grpFilters IsNot Nothing Then grpFilters.PerformLayout()
-            pnlDoctorFilterScroll.PerformLayout()
-            SyncDoctorStripButtonHeights(DoctorFilterSlimScrollHeight)
-            flpDoctorFilterButtons.PerformLayout()
-            prefW = flpDoctorFilterButtons.PreferredSize.Width
-            cw = Math.Max(1, pnlDoctorFilterScroll.ClientSize.Width)
-        End If
-
-        cw = Math.Max(1, pnlDoctorFilterScroll.ClientSize.Width)
-        PositionDoctorFilterSlimScroll()
-        Dim swVisible = needH AndAlso _doctorFilterSlimScroll IsNot Nothing
-        Dim maxOffset = Math.Max(0, prefW - cw)
-        If _doctorFilterSlimScroll IsNot Nothing Then
-            If swVisible Then
-                _doctorFilterSlimScroll.Visible = True
-                _doctorFilterSlimScroll.LargeChange = Math.Max(1, cw)
-                _doctorFilterSlimScroll.SmallChange = Math.Max(1, Math.Min(64, cw \ 8))
-                _doctorFilterSlimScroll.Minimum = 0
-                _doctorFilterSlimScroll.Maximum = maxOffset + _doctorFilterSlimScroll.LargeChange - 1
-                If _doctorFilterSlimScroll.Value > maxOffset Then _doctorFilterSlimScroll.Value = maxOffset
-            Else
-                _doctorFilterSlimScroll.Value = 0
-                _doctorFilterSlimScroll.Visible = False
-            End If
-        End If
-        flpDoctorFilterButtons.Left = If(_doctorFilterSlimScroll Is Nothing, 0, -_doctorFilterSlimScroll.Value)
-        flpDoctorFilterButtons.Top = 0
-        flpDoctorFilterButtons.Width = Math.Max(prefW, cw)
-    End Sub
 
     Private Sub ApplyLegendChipColors(lc As LabelControl, back As Color, fore As Color)
         lc.Appearance.BackColor = back
@@ -777,18 +914,6 @@ Public Class ApptHeaderCtl
     Private Shared Function FilterContrastFore(back As Color) As Color
         Dim lum = (0.299F * back.R + 0.587F * back.G + 0.114F * back.B) / 255.0F
         Return If(lum < 0.45F, Color.White, Color.Black)
-    End Function
-
-    Private Shared Function ReasonIdleColor(index As Integer) As Color
-        Select Case index
-            Case 0 : Return Color.PaleTurquoise
-            Case 1 : Return Color.LightGoldenrodYellow
-            Case 2 : Return Color.LightSkyBlue
-            Case 3 : Return Color.LightGreen
-            Case 4 : Return Color.LightCoral
-            Case 5 : Return Color.LightGray
-            Case Else : Return Color.WhiteSmoke
-        End Select
     End Function
 
     Private Shared Function NormalizeStatus(value As String) As String
@@ -908,6 +1033,10 @@ Public Class ApptHeaderCtl
     Private Sub btnLabs_Click(sender As Object, e As EventArgs) Handles btnLabs.Click
         Try
             Using F As New FrmLabSendWhats
+                Dim patientId = TryGetScheduleCurrentPatientId()
+                If patientId.HasValue AndAlso patientId.Value > 0 Then
+                    F.patientCombo.SetCurrentPatientName(patientId.Value)
+                End If
                 F.ShowDialog(Me)
             End Using
         Catch ex As Exception
@@ -919,4 +1048,34 @@ Public Class ApptHeaderCtl
                                    arabicMessage:="تعذر فتح نافذة واتساب المختبر.")
         End Try
     End Sub
+
+    ''' <summary>
+    ''' Resolves patient for lab WhatsApp: schedule <see cref="ApptHostCtl.CurrentPatient"/>,
+    ''' then open patient workspace (<see cref="FormManager.GetCurrentPatient"/>),
+    ''' then schedule single-patient filter <see cref="ApptHostCtl.FilterPatientId"/> when set without a loaded <c>CurrentPatient</c>.
+    ''' </summary>
+    Private Function TryGetScheduleCurrentPatientId() As Integer?
+        Dim host = TryFindApptHostAncestor(Me)
+        If host IsNot Nothing AndAlso host.CurrentPatient IsNot Nothing AndAlso host.CurrentPatient.PatientID > 0 Then
+            Return host.CurrentPatient.PatientID
+        End If
+        If FormManager.Instance IsNot Nothing AndAlso FormManager.Instance.IsBasePatientFormOpen Then
+            Dim p = FormManager.Instance.GetCurrentPatient()
+            If p IsNot Nothing AndAlso p.PatientID > 0 Then Return p.PatientID
+        End If
+        If host IsNot Nothing AndAlso host.FilterPatientId.HasValue AndAlso host.FilterPatientId.Value > 0 Then
+            Return host.FilterPatientId.Value
+        End If
+        Return Nothing
+    End Function
+
+    Private Shared Function TryFindApptHostAncestor(start As Control) As ApptHostCtl
+        Dim c As Control = start
+        While c IsNot Nothing
+            Dim host = TryCast(c, ApptHostCtl)
+            If host IsNot Nothing Then Return host
+            c = c.Parent
+        End While
+        Return Nothing
+    End Function
 End Class

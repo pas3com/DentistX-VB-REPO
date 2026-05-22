@@ -1,0 +1,93 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-05-12 13:47:28Z
+Local: 2026-05-12 16:47:28Z
+Machine: DESKTOP-JOJ0JDU
+User: DESKTOP-JOJ0JDU\Carestream Dental
+[ClinicNameEn]: DR. MALEK CLINIC
+[ClinicNameAr]: عيادة الدكتور مالك عبد الواحد
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: False
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX\DentistX.exe
+App base directory: C:\Pascal\DentistX\
+Working directory: C:\Pascal\DentistX
+Crash log directory: C:\Pascal\DentistX\crash_logs
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (13):
+  - [ACTIVE] DentistX.MainView3 | DentistX Trial Version
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.XtraEditors.Popup.TouchPopupDateEditForm | 
+  - DevExpress.XtraEditors.Popup.TouchPopupDateEditForm | 
+  - DevExpress.XtraEditors.Popup.TouchPopupDateEditForm | 
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.XtraEditors.Popup.TouchPopupDateEditForm | 
+  - DevExpress.XtraEditors.Popup.PopupDateEditForm | 
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+
+--- UI context (best effort) ---
+Thread: ManagedId=1, Name=(default), UI=STA
+ActiveForm: DentistX.MainView3 | Text=DentistX Trial Version
+Focused control (leaf): DevExpress.XtraBars.Navigation.AccordionControl | Name=MainAccordion; Text=
+  Parent[0]: DentistX.MainView3 | Name=MainView3; Text=DentistX Trial Version
+
+--- Exception detail ---
+--- Level 0 ---
+Type: System.ComponentModel.Win32Exception
+Message: Error creating window handle.
+HResult: 0x80004005
+NativeErrorCode: 1158
+TargetSite: System.Windows.Forms.NativeWindow.CreateHandle
+Source: System.Windows.Forms
+Stack:
+   at System.Windows.Forms.NativeWindow.CreateHandle(CreateParams cp)
+   at System.Windows.Forms.Timer.TimerNativeWindow.EnsureHandle()
+   at System.Windows.Forms.Timer.TimerNativeWindow.StartTimer(Int32 interval)
+   at System.Windows.Forms.Timer.set_Enabled(Boolean value)
+   at System.Windows.Forms.Timer.Start()
+   at DevExpress.XtraEditors.Internal.FloatingScrollbarBase.RestartAutoHideTimer()
+   at DevExpress.XtraEditors.Internal.FloatingScrollbarBase.OnScrollChanged()
+   at DevExpress.XtraEditors.ScrollTouchBase.OnScrollChanged(Boolean isMouseMoveUpdate)
+   at DevExpress.XtraEditors.ScrollTouchBase.OnActionCore(ScrollNotifyAction action)
+   at DevExpress.XtraEditors.ScrollBarBase.OnAction(ScrollNotifyAction action)
+   at DevExpress.XtraBars.Navigation.AccordionControlViewInfo.NotifyScrollBars(ScrollNotifyAction action)
+   at DevExpress.XtraBars.Navigation.AccordionControlHandler.OnMouseMove(MouseEventArgs e)
+   at DevExpress.XtraBars.Navigation.AccordionControl.OnMouseMove(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseMove(Message& m)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at DevExpress.XtraEditors.XtraControl.WndProc(Message& m)
+   at DevExpress.Utils.Controls.ControlBase.BaseWndProc(Message& m)
+   at DevExpress.XtraEditors.BaseControl.WndProc(Message& msg)
+   at DevExpress.XtraBars.Navigation.AccordionControl.WndProc(Message& msg)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+--- Full ToString() (includes inners) ---
+System.ComponentModel.Win32Exception (0x80004005): Error creating window handle.
+   at System.Windows.Forms.NativeWindow.CreateHandle(CreateParams cp)
+   at System.Windows.Forms.Timer.TimerNativeWindow.EnsureHandle()
+   at System.Windows.Forms.Timer.TimerNativeWindow.StartTimer(Int32 interval)
+   at System.Windows.Forms.Timer.set_Enabled(Boolean value)
+   at System.Windows.Forms.Timer.Start()
+   at DevExpress.XtraEditors.Internal.FloatingScrollbarBase.RestartAutoHideTimer()
+   at DevExpress.XtraEditors.Internal.FloatingScrollbarBase.OnScrollChanged()
+   at DevExpress.XtraEditors.ScrollTouchBase.OnScrollChanged(Boolean isMouseMoveUpdate)
+   at DevExpress.XtraEditors.ScrollTouchBase.OnActionCore(ScrollNotifyAction action)
+   at DevExpress.XtraEditors.ScrollBarBase.OnAction(ScrollNotifyAction action)
+   at DevExpress.XtraBars.Navigation.AccordionControlViewInfo.NotifyScrollBars(ScrollNotifyAction action)
+   at DevExpress.XtraBars.Navigation.AccordionControlHandler.OnMouseMove(MouseEventArgs e)
+   at DevExpress.XtraBars.Navigation.AccordionControl.OnMouseMove(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseMove(Message& m)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at DevExpress.XtraEditors.XtraControl.WndProc(Message& m)
+   at DevExpress.Utils.Controls.ControlBase.BaseWndProc(Message& m)
+   at DevExpress.XtraEditors.BaseControl.WndProc(Message& msg)
+   at DevExpress.XtraBars.Navigation.AccordionControl.WndProc(Message& msg)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

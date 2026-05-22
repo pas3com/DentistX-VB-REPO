@@ -221,16 +221,17 @@ Public Class FrmPatientAccnt
         Using conn As New SqlConnection(DentistXDATA.GetConnection.ConnectionString)
             conn.Open()
             trts = conn.Query(Of Patient_Trts)(
-                "SELECT * FROM Patient_Trts WHERE PatientID=@ID AND TrtDate >= @From AND TrtDate <= @To",
+                "SELECT TrtID, PatientID, ToothTrtID, OrthoID, OtherTrtID, Detail, TrtDate, TrtValue, IsMultiTooth, Discount, Discount2, DiscountType FROM Patient_Trts WHERE PatientID=@ID AND TrtDate >= @From AND TrtDate <= @To",
                 New With {.ID = _patient.PatientID, .From = fromDate, .To = toDate}).ToList()
             pays = conn.Query(Of Patient_Pays)(
-                "SELECT * FROM Patient_Pays WHERE PatientID=@ID AND PayDate >= @From AND PayDate <= @To",
+                "SELECT [PayID],[TrtID],[PatientID],[PayValue],[PayDate],[Notes],[PayType],[ChqOwner],[AccountNumber],[ChqNumber],[ChqDueDate],[ChqBank],[IsCashed],[InsuranceCompany],[InsuranceNotes],[IsForward],[ForwardFromTo],[ReceivedBy],[IsReturned] FROM Patient_Pays WHERE PatientID=@ID AND PayDate >= @From AND PayDate <= @To",
                 New With {.ID = _patient.PatientID, .From = fromDate, .To = toDate}).ToList()
         End Using
 
         Dim includeZeroTrts = chkIncludeZeroTrts.Checked
         If Not includeZeroTrts Then
-            trts = trts.Where(Function(t) t.TrtValue > 0D).ToList()
+            ' Only exclude treatments with zero value AND zero discounts (don't exclude if there are discounts)
+            trts = trts.Where(Function(t) t.TrtValue > 0D OrElse t.Discount.GetValueOrDefault() > 0D OrElse t.Discount2.GetValueOrDefault() > 0D).ToList()
         End If
 
         Dim showTrts As Boolean = True
@@ -251,6 +252,12 @@ Public Class FrmPatientAccnt
                     extra = If(Eng,
                                "Disc: " & t.Discount.Value.ToString("N2"),
                                "خصم: " & t.Discount.Value.ToString("N2"))
+                End If
+                If t.Discount2.HasValue AndAlso t.Discount2.Value <> 0D Then
+                    If extra <> "" Then extra &= " "
+                    extra &= If(Eng,
+                               "Disc2: " & t.Discount2.Value.ToString("N2"),
+                               "خصم 2: " & t.Discount2.Value.ToString("N2"))
                 End If
                 _rows.Add(New AccountRow With {
                     .Send = False,
@@ -354,11 +361,178 @@ Public Class FrmPatientAccnt
     End Sub
 
     Private Sub BtnSendAllAccnt_Click(sender As Object, e As EventArgs) Handles BtnSendAllAccnt.Click
+        If _patient Is Nothing OrElse _patient.PatientID <= 0 Then Return
+
+        ' Load all treatments and payments without date filter (include all discount fields like NewAccounting)
+        Dim allTrts As List(Of Patient_Trts)
+        Dim allPays As List(Of Patient_Pays)
+
+        Using conn As New SqlConnection(DentistXDATA.GetConnection.ConnectionString)
+            conn.Open()
+            allTrts = conn.Query(Of Patient_Trts)(
+                "SELECT TrtID, PatientID, ToothTrtID, OrthoID, OtherTrtID, Detail, TrtDate, TrtValue, IsMultiTooth, Discount, Discount2, DiscountType FROM dbo.Patient_Trts WHERE PatientID = @PatientID ORDER BY TrtDate DESC",
+                New With {.PatientID = _patient.PatientID}).ToList()
+            allPays = conn.Query(Of Patient_Pays)(
+                "SELECT [PayID],[TrtID],[PatientID],[PayValue],[PayDate],[Notes],[PayType],[ChqOwner],[AccountNumber],[ChqNumber],[ChqDueDate],[ChqBank],[IsCashed],[InsuranceCompany],[InsuranceNotes],[IsForward],[ForwardFromTo],[ReceivedBy],[IsReturned] FROM dbo.Patient_Pays WHERE PatientID = @PatientID ORDER BY PayDate DESC, PayID DESC",
+                New With {.PatientID = _patient.PatientID}).ToList()
+        End Using
+
+        Dim includeZeroTrts = chkIncludeZeroTrts.Checked
+        ' Keep allTrts for totals calculation, create filtered version for display
+        Dim displayTrts = allTrts
+        If Not includeZeroTrts Then
+            ' Only exclude treatments with zero value AND zero discounts (don't exclude if there are discounts)
+            displayTrts = allTrts.Where(Function(t) t.TrtValue > 0D OrElse t.Discount.GetValueOrDefault() > 0D OrElse t.Discount2.GetValueOrDefault() > 0D).ToList()
+        End If
+
+        ' Debug: Check Discount2 values
+        Dim debugDisc = allTrts.Sum(Function(t) If(t.Discount.HasValue, t.Discount.Value, 0D))
+        Dim debugDisc2 = allTrts.Sum(Function(t) If(t.Discount2.HasValue, t.Discount2.Value, 0D))
+        Dim debugReturned = allPays.Where(Function(p) p.IsReturned.GetValueOrDefault()).Count()
+        System.Diagnostics.Debug.WriteLine($"Discount: {debugDisc}, Discount2: {debugDisc2}, Returned cheques: {debugReturned}")
+
+        ' Send all treatments and payments directly with proper returned cheque handling
+        ' Pass full allTrts for totals, displayTrts for display
+        SendAllAccountMessage(allTrts, allPays, displayTrts)
+    End Sub
+
+    Private Sub btnSelectAll_Click(sender As Object, e As EventArgs) Handles btnSelectAll.Click
         For Each r In _rows
             r.Send = True
         Next
         gvAccnt.RefreshData()
-        BtnSendMessage_Click(sender, e)
+    End Sub
+
+    Private Sub btnSelectNone_Click(sender As Object, e As EventArgs) Handles btnSelectNone.Click
+        For Each r In _rows
+            r.Send = False
+        Next
+        gvAccnt.RefreshData()
+    End Sub
+
+    Private Async Sub SendAccountMessage(trts As List(Of Patient_Trts), pays As List(Of Patient_Pays))
+        Dim number As String = If(lblWhats.Text, "").Trim()
+        If String.IsNullOrWhiteSpace(number) Then
+            MessageBox.Show("أدخل رقم الجوال.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtWhats.Focus()
+            Return
+        End If
+
+        If _patient Is Nothing OrElse _patient.PatientID <= 0 Then
+            MessageBox.Show("لا يوجد مريض محدد.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If trts.Count = 0 AndAlso pays.Count = 0 Then
+            MessageBox.Show("اختر عناصر من الحساب لإرسالها.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        SavePatientWhatsToDatabaseIfDirty()
+
+        BtnSendMessage.Enabled = False
+        _suppressAutoWhatsSave = True
+        Try
+            If Not Await WhatsAppService.EnsureWhatsAppConnectedOrNotifyAsync(Me) Then Return
+            Dim clinicId As String = WhatsAppService.GetCurrentClinicId()
+            Dim waService As New WhatsAppService()
+
+            Dim msg As String = WhatsHelper.BuildAccountingWhatsAppMessage(
+                _patient.PatientName,
+                trts,
+                pays,
+                excludeZeroValueTreatments:=Not chkIncludeZeroTrts.Checked,
+                useArabic:=Not useEng,
+                chkFullDetail.Checked,
+                patientSex:=_patient.Sex)
+
+            If String.IsNullOrWhiteSpace(msg) Then
+                MessageBox.Show("لا توجد بيانات كافية لإرسالها.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
+
+            Dim ctx As New WhatsAppSendContext With {
+                .Category = WhatsAppMessageCategories.PatientAccount,
+                .PatientId = _patient.PatientID,
+                .DisplayName = _patient.PatientName,
+                .SourceHint = NameOf(FrmPatientAccnt),
+                .RevealMessageCenter = True
+            }
+            Await waService.SendMessageAsync(clinicId, number, msg, "", ctx)
+
+            MessageBox.Show("تم وضع ملخص الحساب في طابور الإرسال.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "خطأ في الإرسال", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            _suppressAutoWhatsSave = False
+            BtnSendMessage.Enabled = True
+            SyncWhatsBindingsFromPatient()
+        End Try
+    End Sub
+
+    Private Async Sub SendAllAccountMessage(allTrts As List(Of Patient_Trts), pays As List(Of Patient_Pays), Optional displayTrts As List(Of Patient_Trts) = Nothing)
+        Dim number As String = If(lblWhats.Text, "").Trim()
+        If String.IsNullOrWhiteSpace(number) Then
+            MessageBox.Show("أدخل رقم الجوال.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtWhats.Focus()
+            Return
+        End If
+
+        If _patient Is Nothing OrElse _patient.PatientID <= 0 Then
+            MessageBox.Show("لا يوجد مريض محدد.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If displayTrts Is Nothing Then displayTrts = allTrts
+
+        If allTrts.Count = 0 AndAlso pays.Count = 0 Then
+            MessageBox.Show("لا توجد بيانات حساب لإرسالها.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        SavePatientWhatsToDatabaseIfDirty()
+
+        BtnSendAllAccnt.Enabled = False
+        _suppressAutoWhatsSave = True
+        Try
+            If Not Await WhatsAppService.EnsureWhatsAppConnectedOrNotifyAsync(Me) Then Return
+            Dim clinicId As String = WhatsAppService.GetCurrentClinicId()
+            Dim waService As New WhatsAppService()
+
+            ' Build message using all payments (WhatsHelper now handles returned cheques internally)
+            ' Pass displayTrts for display, allTrts for totals calculation
+            Dim msg As String = WhatsHelper.BuildAccountingWhatsAppMessage(
+                _patient.PatientName,
+                displayTrts,
+                pays,
+                excludeZeroValueTreatments:=False, ' Already filtered
+                useArabic:=Not useEng,
+                fullBody:=True,
+                patientSex:=_patient.Sex,
+                allTreatmentsForTotals:=allTrts)
+
+            If String.IsNullOrWhiteSpace(msg) Then
+                MessageBox.Show("لا توجد بيانات كافية لإرسالها.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
+
+            Dim ctx As New WhatsAppSendContext With {
+                .Category = WhatsAppMessageCategories.PatientAccount,
+                .PatientId = _patient.PatientID,
+                .DisplayName = _patient.PatientName,
+                .SourceHint = NameOf(FrmPatientAccnt),
+                .RevealMessageCenter = True
+            }
+            Await waService.SendMessageAsync(clinicId, number, msg, "", ctx)
+
+            MessageBox.Show("تم وضع ملخص الحساب الكامل في طابور الإرسال.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "خطأ في الإرسال", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            _suppressAutoWhatsSave = False
+            BtnSendAllAccnt.Enabled = True
+            SyncWhatsBindingsFromPatient()
+        End Try
     End Sub
 
     Private Sub cboPrefix_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboPrefix.SelectedIndexChanged

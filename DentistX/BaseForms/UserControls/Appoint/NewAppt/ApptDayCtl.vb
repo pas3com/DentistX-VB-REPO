@@ -18,7 +18,8 @@ Public Class ApptDayCtl
     Private Const SlotHeightPx As Integer = 60
     Private Const TimeGutterPx As Integer = 70
     Private Const MinDoctorColPx As Integer = 140
-    Private Const GridOriginY As Integer = 44
+    ''' <summary>Vertical offset of slot grid inside <see cref="_content"/> (date banner moved to <see cref="_scheduleHeader"/>).</summary>
+    Private Const SlotGridTopPx As Integer = 0
     Private Const DoctorStripHeightPx As Integer = 28
     Private Const CardInsetPx As Integer = 6
     Private Const OverlapLanePx As Integer = 6
@@ -26,8 +27,7 @@ Public Class ApptDayCtl
     Private _request As ApptViewRequest
     Private _scrollHost As Panel
     Private _content As Panel
-    Private _banner As Panel
-    Private _lblBanner As Label
+    Private ReadOnly _scheduleHeader As New ApptScheduleViewHeaderStrip() With {.Dock = DockStyle.Top}
 
     ' --- Drag/Resize State ---
     Private _dragSourceCard As ApptCardCtl
@@ -84,21 +84,6 @@ Public Class ApptDayCtl
         AddHandler _content.Paint, AddressOf Content_Paint
         _scrollHost.Controls.Add(_content)
 
-        _banner = New Panel With {
-            .Height = GridOriginY,
-            .BackColor = Color.FromArgb(248, 250, 252),
-            .RightToLeft = RightToLeft.No
-        }
-        _lblBanner = New Label With {
-            .AutoSize = False,
-            .Dock = DockStyle.Fill,
-            .TextAlign = ContentAlignment.MiddleCenter,
-            .Font = CreateCalibriFont(11.0F, FontStyle.Bold),
-            .ForeColor = Color.FromArgb(38, 48, 64),
-            .BackColor = Color.Transparent
-        }
-        _banner.Controls.Add(_lblBanner)
-
         _scrollResizeDebounce = New Timer() With {.Enabled = False, .Interval = 28}
         AddHandler _scrollResizeDebounce.Tick, AddressOf ScrollResizeDebounce_Tick
         AddHandler _holdTimer.Tick, AddressOf HoldTimer_Tick
@@ -109,6 +94,8 @@ Public Class ApptDayCtl
 
         RightToLeft = RightToLeft.No
         Controls.Add(_scrollHost)
+        _scrollHost.Dock = DockStyle.Fill
+        Controls.Add(_scheduleHeader)
         AddHandler _scrollHost.Resize, AddressOf ScrollHost_Resize
     End Sub
 
@@ -116,6 +103,7 @@ Public Class ApptDayCtl
 
     Public Sub BindData(request As ApptViewRequest) Implements IApptViewCtl.BindData
         _request = request
+        _scheduleHeader.Apply(request)
         RenderTimeline()
         If request IsNot Nothing Then TryScrollToAppointment(request.PendingScrollAppointment)
     End Sub
@@ -221,7 +209,7 @@ Public Class ApptDayCtl
         _content.SuspendLayout()
         Try
             DisposeChildControls(_content)
-            if _request Is Nothing OrElse _request.State Is Nothing OrElse _request.Data Is Nothing Then Return
+            If _request Is Nothing OrElse _request.State Is Nothing OrElse _request.Data Is Nothing Then Return
 
             Dim state = _request.State
             Dim data = _request.Data
@@ -241,12 +229,8 @@ Public Class ApptDayCtl
             Dim totalSlots = Math.Max(1, CInt(Math.Ceiling(totalMin / 30.0R)))
 
             _pxPerMin = CSng(SlotHeightPx / 30.0F)
-            Dim cardGridTop = GridOriginY
+            Dim cardGridTop = SlotGridTopPx
             Dim gridPixelHeight = totalSlots * SlotHeightPx
-
-            _lblBanner.Text = FormatCaptionDayFull(day)
-            _banner.SetBounds(0, 0, dayW, GridOriginY)
-            _content.Controls.Add(_banner)
 
             Dim dayApptsAll = If(data.Appointments, New List(Of AppointmentC)()).Where(
                 Function(a) ApptTheme.AppointmentCalendarDayInInclusiveRange(a, day, day) AndAlso
@@ -255,7 +239,7 @@ Public Class ApptDayCtl
                 Dim fid = state.DoctorFilterId.Value
                 dayApptsAll = dayApptsAll.Where(Function(a) a.DrID = fid).ToList()
             End If
-            Dim visibleAppts = ApptTheme.OrderAppointmentsForDisplay(dayApptsAll, data, linkedDoctorAtEnd:=True)
+            Dim visibleAppts = ApptTheme.OrderAppointmentsForDisplay(dayApptsAll, data, linkedDoctorAtEnd:=True, orderFirstDoctorId:=state.OrderByDoctorId)
 
             Dim contentH = cardGridTop + gridPixelHeight + 8
             Dim baseLeft = TimeGutterPx
@@ -268,7 +252,7 @@ Public Class ApptDayCtl
                     .Height = SlotHeightPx,
                     .Width = dayW,
                     .Left = 0,
-                    .Top = GridOriginY + i * SlotHeightPx,
+                    .Top = SlotGridTopPx + i * SlotHeightPx,
                     .BorderStyle = BorderStyle.FixedSingle,
                     .Tag = slotStart,
                     .BackColor = Color.Transparent
@@ -423,7 +407,7 @@ Public Class ApptDayCtl
         Dim startMinTotal = CInt(_request.State.WorkStartTime.TotalMinutes)
         Dim snapStart = (startMinTotal \ 30) * 30
         Dim gridStart = day.AddMinutes(snapStart)
-        Dim cardGridTop = GridOriginY
+        Dim cardGridTop = SlotGridTopPx
 
         ' Calculate exact visual Y/H for "smooth motion" feel
         Dim visualDiffY = CSng(diffY)
@@ -528,7 +512,7 @@ Public Class ApptDayCtl
         If Not e.Data.GetDataPresent("Appointment") Then Return
         
         Dim pt = _content.PointToClient(New Point(e.X, e.Y))
-        Dim cardGridTop = GridOriginY
+        Dim cardGridTop = SlotGridTopPx
         
         If pt.Y < cardGridTop OrElse pt.X < TimeGutterPx Then
             _dragTargetTime = DateTime.MinValue

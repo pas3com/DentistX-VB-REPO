@@ -152,7 +152,7 @@ Partial Public Class FrmLabMsgSubject
      ClearRecord()
      ShowToolStripItems("Add")
      LabMsgSubjectIDSpinEdit.Select
-     LabMsgSubjectIDSpinEdit.Text = clsDentistXData.getAutoID("New", "LabMsgSubject")
+     LabMsgSubjectIDSpinEdit.Text = DentistXDATA.getAutoID("New", "LabMsgSubject")
  End Sub
 
  Private Sub Edit()

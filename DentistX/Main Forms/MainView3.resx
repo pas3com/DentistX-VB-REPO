@@ -455,6 +455,15 @@
   <data name="btnCsiImage.Text" xml:space="preserve">
     <value>CSI Imaging</value>
   </data>
+  <data name="btnOLdScheduler.Appearance.Default.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnOLdScheduler.Appearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnOLdScheduler.Text" xml:space="preserve">
+    <value>Old Scheduler</value>
+  </data>
   <data name="PatientsButton.Appearance.Default.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
@@ -611,9 +620,6 @@
   </data>
   <data name="VendorsButton.Appearance.Default.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="btnOLdScheduler.Text" xml:space="preserve">
-    <value>Old Scheduler</value>
   </data>
   <data name="VendorsButton.Hint" xml:space="preserve">
     <value>Vendors</value>
@@ -3361,6 +3367,12 @@
   <data name="btnWhatsAppActivityLog.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
+  <data name="btnWhatsAppOutboundArchive.Caption" xml:space="preserve">
+    <value>Outbound outbox</value>
+  </data>
+  <data name="btnWhatsAppOutboundArchive.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
   <data name="btnApptsReminder.Caption" xml:space="preserve">
     <value>Auto reminder queue (24h / 2h)</value>
   </data>
@@ -3686,6 +3698,12 @@
   <data name="&gt;&gt;AccordionControlSeparator15.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlSeparator, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;btnOLdScheduler.Name" xml:space="preserve">
+    <value>btnOLdScheduler</value>
+  </data>
+  <data name="&gt;&gt;btnOLdScheduler.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;PatientsButton.Name" xml:space="preserve">
     <value>PatientsButton</value>
   </data>
@@ -3774,12 +3792,6 @@
     <value>VendorsButton</value>
   </data>
   <data name="&gt;&gt;VendorsButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnOLdScheduler.Name" xml:space="preserve">
-    <value>btnOLdScheduler</value>
-  </data>
-  <data name="&gt;&gt;btnOLdScheduler.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;MainMenu.Name" xml:space="preserve">
@@ -4056,6 +4068,12 @@
     <value>btnWhatsAppActivityLog</value>
   </data>
   <data name="&gt;&gt;btnWhatsAppActivityLog.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsAppOutboundArchive.Name" xml:space="preserve">
+    <value>btnWhatsAppOutboundArchive</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsAppOutboundArchive.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;btnApptsReminder.Name" xml:space="preserve">

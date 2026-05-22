@@ -1497,13 +1497,13 @@ Namespace MainDSTableAdapters
                 " [Treat] IS NULL) OR ([Treat] = @Original_Treat)) AND ((@IsNull_Implant = 1 AND "& _ 
                 "[Implant] IS NULL) OR ([Implant] = @Original_Implant)) AND ((@IsNull_Mobile = 1 "& _ 
                 "AND [Mobile] IS NULL) OR ([Mobile] = @Original_Mobile)) AND ((@IsNull_Ortho = 1 "& _ 
-                "AND [Ortho] IS NULL) OR ([Ortho] = @Original_Ortho)) AND ((@IsNull_Diag = 1 AND"& _ 
-                " [Diag] IS NULL) OR ([Diag] = @Original_Diag)) AND ((@IsNull_Struc = 1 AND"& _ 
-                " [Struc] IS NULL) OR ([Struc] = @Original_Struc)) AND ((@IsNull_Notes = 1 AND [N"& _ 
-                "otes] IS NULL) OR ([Notes] = @Original_Notes)) AND ((@IsNull_BirthY = 1 AND [Bir"& _ 
-                "thY] IS NULL) OR ([BirthY] = @Original_BirthY)) AND ((@IsNull_CreatedBy = 1 AND "& _ 
-                "[CreatedBy] IS NULL) OR ([CreatedBy] = @Original_CreatedBy)) AND ((@IsNull_Creat"& _ 
-                "eDate = 1 AND [CreateDate] IS NULL) OR ([CreateDate] = @Original_CreateDate)))"
+                "AND [Ortho] IS NULL) OR ([Ortho] = @Original_Ortho)) AND ((@IsNull_Diag = 1 AND "& _ 
+                "[Diag] IS NULL) OR ([Diag] = @Original_Diag)) AND ((@IsNull_Struc = 1 AND [Struc"& _ 
+                "] IS NULL) OR ([Struc] = @Original_Struc)) AND ((@IsNull_Notes = 1 AND [Notes] I"& _ 
+                "S NULL) OR ([Notes] = @Original_Notes)) AND ((@IsNull_BirthY = 1 AND [BirthY] IS"& _ 
+                " NULL) OR ([BirthY] = @Original_BirthY)) AND ((@IsNull_CreatedBy = 1 AND [Create"& _ 
+                "dBy] IS NULL) OR ([CreatedBy] = @Original_CreatedBy)) AND ((@IsNull_CreateDate ="& _ 
+                " 1 AND [CreateDate] IS NULL) OR ([CreateDate] = @Original_CreateDate)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PatientID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PatientID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PatientName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PatientName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -1568,30 +1568,30 @@ Namespace MainDSTableAdapters
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Patient] SET [PatientName] = @PatientName, [PatientNumber] = @Patie"& _ 
                 "ntNumber, [Sex] = @Sex, [Age] = @Age, [StillKid] = @StillKid, [Phone] = @Phone, "& _ 
                 "[Address] = @Address, [Health] = @Health, [Treat] = @Treat, [Implant] = @Implant"& _ 
-                ", [Mobile] = @Mobile, [Ortho] = @Ortho, [Diag] = @Diag, [Struc] = @Struc, [Notes] = @Notes, [Bir"& _ 
-                "thY] = @BirthY, [CreatedBy] = @CreatedBy, [CreateDate] = @CreateDate WHERE (([Pa"& _ 
-                "tientID] = @Original_PatientID) AND ([PatientName] = @Original_PatientName) AND "& _ 
-                "((@IsNull_PatientNumber = 1 AND [PatientNumber] IS NULL) OR ([PatientNumber] = @"& _ 
-                "Original_PatientNumber)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @O"& _ 
-                "riginal_Sex)) AND ((@IsNull_Age = 1 AND [Age] IS NULL) OR ([Age] = @Original_Age"& _ 
-                ")) AND ((@IsNull_StillKid = 1 AND [StillKid] IS NULL) OR ([StillKid] = @Original"& _ 
-                "_StillKid)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original"& _ 
-                "_Phone)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Origi"& _ 
-                "nal_Address)) AND ((@IsNull_Health = 1 AND [Health] IS NULL) OR ([Health] = @Ori"& _ 
-                "ginal_Health)) AND ((@IsNull_Treat = 1 AND [Treat] IS NULL) OR ([Treat] = @Origi"& _ 
-                "nal_Treat)) AND ((@IsNull_Implant = 1 AND [Implant] IS NULL) OR ([Implant] = @Or"& _ 
-                "iginal_Implant)) AND ((@IsNull_Mobile = 1 AND [Mobile] IS NULL) OR ([Mobile] = @"& _ 
-                "Original_Mobile)) AND ((@IsNull_Ortho = 1 AND [Ortho] IS NULL) OR ([Ortho] = @Or"& _ 
-                "iginal_Ortho)) AND ((@IsNull_Diag = 1 AND [Diag] IS NULL) OR ([Diag] = @Original"& _ 
-                "_Diag)) AND ((@IsNull_Struc = 1 AND [Struc] IS NULL) OR ([Struc] = @Origi"& _ 
-                "nal_Struc)) AND ((@IsNull_Notes = 1 AND [Notes] IS NULL) OR ([Notes] = @Original"& _ 
-                "_Notes)) AND ((@IsNull_BirthY = 1 AND [BirthY] IS NULL) OR ([BirthY] = @Original"& _ 
-                "_BirthY)) AND ((@IsNull_CreatedBy = 1 AND [CreatedBy] IS NULL) OR ([CreatedBy] ="& _ 
-                " @Original_CreatedBy)) AND ((@IsNull_CreateDate = 1 AND [CreateDate] IS NULL) OR"& _ 
-                " ([CreateDate] = @Original_CreateDate)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT PatientID, PatientName, Patien"& _ 
-                "tNumber, Sex, Age, StillKid, Phone, Address, Health, Treat, Implant, Mobile, Ort"& _ 
-                "ho, Diag, Struc, Notes, BirthY, CreatedBy, CreateDate FROM Patient WHERE (PatientID = "& _ 
-                "@PatientID)"
+                ", [Mobile] = @Mobile, [Ortho] = @Ortho, [Diag] = @Diag, [Struc] = @Struc, [Notes"& _ 
+                "] = @Notes, [BirthY] = @BirthY, [CreatedBy] = @CreatedBy, [CreateDate] = @Create"& _ 
+                "Date WHERE (([PatientID] = @Original_PatientID) AND ([PatientName] = @Original_P"& _ 
+                "atientName) AND ((@IsNull_PatientNumber = 1 AND [PatientNumber] IS NULL) OR ([Pa"& _ 
+                "tientNumber] = @Original_PatientNumber)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL"& _ 
+                ") OR ([Sex] = @Original_Sex)) AND ((@IsNull_Age = 1 AND [Age] IS NULL) OR ([Age]"& _ 
+                " = @Original_Age)) AND ((@IsNull_StillKid = 1 AND [StillKid] IS NULL) OR ([Still"& _ 
+                "Kid] = @Original_StillKid)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Ph"& _ 
+                "one] = @Original_Phone)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([A"& _ 
+                "ddress] = @Original_Address)) AND ((@IsNull_Health = 1 AND [Health] IS NULL) OR "& _ 
+                "([Health] = @Original_Health)) AND ((@IsNull_Treat = 1 AND [Treat] IS NULL) OR ("& _ 
+                "[Treat] = @Original_Treat)) AND ((@IsNull_Implant = 1 AND [Implant] IS NULL) OR "& _ 
+                "([Implant] = @Original_Implant)) AND ((@IsNull_Mobile = 1 AND [Mobile] IS NULL) "& _ 
+                "OR ([Mobile] = @Original_Mobile)) AND ((@IsNull_Ortho = 1 AND [Ortho] IS NULL) O"& _ 
+                "R ([Ortho] = @Original_Ortho)) AND ((@IsNull_Diag = 1 AND [Diag] IS NULL) OR ([D"& _ 
+                "iag] = @Original_Diag)) AND ((@IsNull_Struc = 1 AND [Struc] IS NULL) OR ([Struc]"& _ 
+                " = @Original_Struc)) AND ((@IsNull_Notes = 1 AND [Notes] IS NULL) OR ([Notes] = "& _ 
+                "@Original_Notes)) AND ((@IsNull_BirthY = 1 AND [BirthY] IS NULL) OR ([BirthY] = "& _ 
+                "@Original_BirthY)) AND ((@IsNull_CreatedBy = 1 AND [CreatedBy] IS NULL) OR ([Cre"& _ 
+                "atedBy] = @Original_CreatedBy)) AND ((@IsNull_CreateDate = 1 AND [CreateDate] IS"& _ 
+                " NULL) OR ([CreateDate] = @Original_CreateDate)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT PatientID, PatientNam"& _ 
+                "e, PatientNumber, Sex, Age, StillKid, Phone, Address, Health, Treat, Implant, Mo"& _ 
+                "bile, Ortho, Diag, Struc, Notes, BirthY, CreatedBy, CreateDate FROM Patient WHER"& _ 
+                "E (PatientID = @PatientID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PatientName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNumber", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PatientNumber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1664,8 +1664,8 @@ Namespace MainDSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT PatientID, PatientName, PatientNumber, Sex, Age, StillKid, Phone, Address,"& _ 
-                " Health, Treat, Implant, Mobile, Ortho, Diag, Struc, Notes, BirthY, CreatedBy, CreateD"& _ 
-                "ate FROM dbo.Patient"
+                " Health, Treat, Implant, Mobile, Ortho, Diag, Struc, Notes, BirthY, CreatedBy, C"& _ 
+                "reateDate FROM dbo.Patient"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

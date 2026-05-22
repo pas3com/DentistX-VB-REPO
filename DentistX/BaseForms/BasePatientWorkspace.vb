@@ -11,6 +11,22 @@ Imports DevExpress.XtraEditors.Controls
 Public Class BasePatientWorkspace
     Inherits DevExpress.XtraEditors.XtraUserControl
 
+    ''' <summary>Treat/default module body tint (cool blue-gray).</summary>
+    Friend Shared ReadOnly WorkspaceShellBack As Color = Color.FromArgb(227, 239, 255)
+
+    ''' <summary>Orthodontics module: very light lilac frosting (distinct from Treat blue and Diag mint).</summary>
+    Friend Shared ReadOnly OrthoModuleShellBack As Color = Color.FromArgb(244, 240, 252)'FromArgb(227, 239, 255))
+
+    ''' <summary>Diagnostics module only: soft muted mint so Treat vs Diag read clearly at a glance.</summary>
+    Friend Shared ReadOnly DiagModuleShellBack As Color = Color.FromArgb(238, 245, 241)
+
+    Friend Shared Function ShellBackForFormType(formType As String) As Color
+        If String.IsNullOrWhiteSpace(formType) Then Return WorkspaceShellBack
+        If formType.Equals("Diag", StringComparison.OrdinalIgnoreCase) Then Return DiagModuleShellBack
+        If formType.Equals("Ortho", StringComparison.OrdinalIgnoreCase) Then Return OrthoModuleShellBack
+        Return WorkspaceShellBack
+    End Function
+
     Public Property Current_Patient As Patient
     Public Property HeaderPanel As Panel
     Public Property BodyPanel As Panel
@@ -63,7 +79,7 @@ Public Class BasePatientWorkspace
     End Sub
 
     Private Sub BuildTitleBar()
-        Dim titleBack = Color.Transparent 'Color.FromArgb(45, 45, 48)
+        Dim titleBack = ShellBackForFormType(FormType)
         _titleBarNormalBack = titleBack
         _titleBarNormalFore = Color.Gainsboro
 
@@ -184,13 +200,17 @@ Public Class BasePatientWorkspace
     End Sub
 
     Private Sub CreateLayout(filterTarget As String)
-        HeaderPanel = New Panel With {.Dock = DockStyle.Top, .Height = 70}
+        ' Opaque shell so MainView3.ContainerA (FluentDesignFormContainer) acrylic/gradient does not show through
+        ' transparent bodies (e.g. DiagUserControl).
+        Dim shell = ShellBackForFormType(filterTarget)
+        HeaderPanel = New Panel With {.Dock = DockStyle.Top, .Height = 70, .BackColor = shell}
         ' UseHdrTestModHeader True = menu &quot;old&quot; style -> Navigator2 (replaced HdrTestMod). False = &quot;new&quot; style -> Navigator.
 
         hdr = New Navigator3(filterTarget) With {.Dock = DockStyle.Fill, .BorderStyle = BorderStyle.Fixed3D}
 
         HeaderPanel.Controls.Add(CType(hdr, Control))
-        BodyPanel = New WorkspaceDoubleBufferedPanel With {.Dock = DockStyle.Fill}
+        BodyPanel = New WorkspaceDoubleBufferedPanel With {.Dock = DockStyle.Fill, .BackColor = shell}
+        Me.BackColor = shell
         Me.Controls.Add(BodyPanel)
         Me.Controls.Add(HeaderPanel)
     End Sub
@@ -276,6 +296,23 @@ Public Class BasePatientWorkspace
                                    End If
                                End Sub)
             End If
+            SyncWorkspaceShellChrome()
+        End If
+    End Sub
+
+    ''' <summary>Title strip, header dock, and body dock follow module shell tint (Treat / Ortho / Diag).</summary>
+    Private Sub SyncWorkspaceShellChrome()
+        Dim back = ShellBackForFormType(FormType)
+        If BodyPanel IsNot Nothing AndAlso Not BodyPanel.IsDisposed Then BodyPanel.BackColor = back
+        If HeaderPanel IsNot Nothing AndAlso Not HeaderPanel.IsDisposed Then HeaderPanel.BackColor = back
+        If Not IsDisposed Then Me.BackColor = back
+        If _titleBar IsNot Nothing AndAlso Not _titleBar.IsDisposed Then
+            _titleBar.BackColor = back
+            _titleBarNormalBack = back
+        End If
+        If _closeButton IsNot Nothing AndAlso Not _closeButton.IsDisposed Then
+            _closeButton.Appearance.BackColor = back
+            _closeButton.Appearance.Options.UseBackColor = True
         End If
     End Sub
 

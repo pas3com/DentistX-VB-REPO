@@ -22,6 +22,7 @@ CREATE TABLE dbo.SchedulerSnapshotAutoSendJob (
     JobId            INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
     IsEnabled        BIT NOT NULL CONSTRAINT DF_SSAJ_Enabled DEFAULT (1),
     SendTimeLocal    TIME(0) NOT NULL,
+    SendTimeLocal2   TIME(0) NULL,
     /* Bitmask: Mon=1, Tue=2, Wed=4, Thu=8, Fri=16, Sat=32, Sun=64. 127 = every day. Weekdays only = 31. */
     DaysOfWeekMask   TINYINT NOT NULL CONSTRAINT DF_SSAJ_Days DEFAULT (31),
     MessageCaption   NVARCHAR(500) NULL,
@@ -55,11 +56,13 @@ CREATE TABLE dbo.SchedulerSnapshotAutoSendLog (
     /* No FK to Recipient: avoids SQL Server multiple-CASCADE paths (Job deletes cascade to Log and Recipient). */
     RecipientId     BIGINT NULL,
     RunDate         DATE NOT NULL,
+    SendSlot        TINYINT NOT NULL CONSTRAINT DF_SSAL_SendSlot DEFAULT (1),
     Status          NVARCHAR(30) NOT NULL,
     StartedAt       DATETIME2(0) NOT NULL,
     CompletedAt     DATETIME2(0) NULL,
     ErrorMessage    NVARCHAR(1000) NULL,
     MediaPath       NVARCHAR(500) NULL,
+    ExcludeFromDedupe BIT NOT NULL CONSTRAINT DF_SSAL_ExcludeFromDedupe DEFAULT (0),
     CONSTRAINT FK_SSAL_Job FOREIGN KEY (JobId) REFERENCES dbo.SchedulerSnapshotAutoSendJob (JobId) ON DELETE CASCADE
 );
 

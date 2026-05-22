@@ -1,8 +1,7 @@
 Imports System.Diagnostics
 Imports System.Windows.Forms
 
-''' <summary>Programmer-only: Ctrl+Shift+Alt+F12 when LicenseDevResetEnabled + LicenseDevResetSecret are set in App.config.</summary>
-
+' Programmer-only: Ctrl+Shift+Alt+F12 when LicenseDevResetEnabled + LicenseDevResetSecret are set in App.config.
 ''' <summary>
 ''' Shown when DentistX.lic is missing, corrupted, or out of sync with local license data.
 ''' Also used in fatal mode when trial.dat is missing but DB or DentistX.lic still exists.

@@ -156,7 +156,7 @@ Partial Public Class FrmDrWorkPay
      ClearRecord()
      ShowToolStripItems("Add")
      WorkPayIDSpinEdit.Select
-     WorkPayIDSpinEdit.Text = clsDentistXData.getAutoID("New", "DrWorkPay")
+     WorkPayIDSpinEdit.Text = DentistXDATA.getAutoID("New", "DrWorkPay")
  End Sub
 
  Private Sub Edit()

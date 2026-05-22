@@ -326,9 +326,10 @@ Public Class PatientCombo
         If String.IsNullOrWhiteSpace(PatientName) Then
             Return -1
         End If
-        Const sql As String = "SELECT PatientID FROM Patient WHERE PatientName = @PatientName"
+        ' Duplicate PatientName rows exist in some DBs; SingleOrDefault throws InvalidOperationException.
+        Const sql As String = "SELECT TOP 1 PatientID FROM Patient WHERE PatientName = @PatientName ORDER BY PatientID"
         Using conn As New SqlConnection(_connectionString)
-            Dim result As Integer? = conn.QuerySingleOrDefault(Of Integer?)(sql, New With {.PatientName = PatientName})
+            Dim result As Integer? = conn.QueryFirstOrDefault(Of Integer?)(sql, New With {.PatientName = PatientName})
             Return If(result.HasValue, result.Value, -1)
         End Using
     End Function

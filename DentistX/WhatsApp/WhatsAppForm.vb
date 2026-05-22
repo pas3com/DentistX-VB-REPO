@@ -1,10 +1,17 @@
 Imports System.Drawing
 Imports System.IO
 Imports System.Linq
+Imports System.Text
 Imports System.Threading
 Imports System.Threading.Tasks
 Imports System.ComponentModel
+Imports System.Windows.Forms
 Imports DevExpress.XtraEditors
+Imports DevExpress.XtraGrid
+Imports DevExpress.XtraGrid.Columns
+Imports DevExpress.XtraGrid.Views.Base
+Imports DevExpress.XtraGrid.Views.Grid
+Imports DevExpress.XtraTab
 
 Public Class WhatsAppForm
     Private _service As WhatsAppService
@@ -15,7 +22,18 @@ Public Class WhatsAppForm
     Private _clinicDisplayName As String = ""
     Private _queueBinding As BindingList(Of PendingMessageItem)
     Private _failedBinding As BindingList(Of FailedMessageItem)
+    Private _archiveBinding As BindingList(Of WhatsAppArchiveItem)
+    Private _tabArchive As XtraTabPage
+    Private _gridArchive As GridControl
+    Private _viewArchive As GridView
+    Private _lblArchiveFilter As LabelControl
+    Private _txtArchiveNumberFilter As TextEdit
+    ''' <summary>Digit-only substring for client-side archive grid filter (matches any row whose number contains these digits).</summary>
+    Private _archiveNumberFilterDigits As String = ""
+    Private _btnArchiveRefresh As SimpleButton
+    Private _btnArchiveRetryFailed As SimpleButton
     Private _repoQueueDelete As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
+    Private _btnOutboundPending As SimpleButton
 
     ''' <summary>
     ''' Clinic ID (Guid from Clinic table) used for QR and status API calls.
@@ -34,16 +52,18 @@ Public Class WhatsAppForm
         InitializeComponent()
         _service = New WhatsAppService()
         _statusTimer = New System.Windows.Forms.Timer()
-        _statusTimer.Interval = 3000
+        _statusTimer.Interval = 5000
         AddHandler _statusTimer.Tick, AddressOf StatusTimer_Tick
-        _queueRefreshTimer = New System.Windows.Forms.Timer With {.Interval = 1000}
+        _queueRefreshTimer = New System.Windows.Forms.Timer With {.Interval = 5000}
         AddHandler _queueRefreshTimer.Tick, AddressOf QueueRefreshTimer_Tick
         _queueBinding = New BindingList(Of PendingMessageItem)
         _failedBinding = New BindingList(Of FailedMessageItem)
+        _archiveBinding = New BindingList(Of WhatsAppArchiveItem)
         GridQueue.DataSource = _queueBinding
         GridFailed.DataSource = _failedBinding
         ConfigureQueueColumns()
         ConfigureFailedColumns()
+        BuildArchiveTab()
         AddHandler TabControl.SelectedPageChanged, AddressOf TabControl_SelectedPageChanged
         AddHandler BtnRefreshQueue.Click, AddressOf BtnRefreshQueue_Click
         AddHandler BtnDeleteFromQueue.Click, AddressOf BtnDeleteFromQueue_Click
@@ -53,15 +73,160 @@ Public Class WhatsAppForm
         AddHandler TxtSendFile.Properties.ButtonClick, AddressOf TxtSendFile_ButtonClick
         AddHandler BtnDisconnect.Click, AddressOf BtnDisconnect_Click
         AddHandler btnRefresh.Click, AddressOf BtnRefresh_Click
+        AttachOutboundPendingButton()
+    End Sub
+
+    Private Sub BuildArchiveTab()
+        _tabArchive = New XtraTabPage() With {
+            .Name = "TabArchive",
+            .Text = If(Eng, "Server archive", "أرشيف الخادم"),
+                        .Padding = New Padding(0)}
+
+        Dim bottom As New DevExpress.XtraEditors.PanelControl With {
+            .Dock = DockStyle.Bottom,
+            .Height = 44,
+            .BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder}
+
+        _lblArchiveFilter = New LabelControl With {
+            .Location = New Point(8, 12),
+            .AutoSizeMode = LabelAutoSizeMode.Horizontal,
+            .Font = New Font("Calibri", 10, FontStyle.Bold),
+            .Text = If(Eng, "Number filter (optional):", "تصفية الرقم (اختياري):")}
+        _txtArchiveNumberFilter = New TextEdit With {.Location = New Point(168, 8), .Size = New Size(220, 24)}
+        _btnArchiveRefresh = New SimpleButton With {
+            .Text = If(Eng, "Refresh", "تحديث"),
+            .Location = New Point(396, 6),
+             .Font = New Font("Calibri", 10, FontStyle.Bold),
+            .Size = New Size(96, 28)}
+        _btnArchiveRetryFailed = New SimpleButton With {
+            .Text = If(Eng, "Retry all failed", "إعادة كل الفاشلة"),
+            .Location = New Point(498, 6),
+             .Font = New Font("Calibri", 10, FontStyle.Bold),
+            .Size = New Size(180, 28)}
+        bottom.Controls.AddRange({_lblArchiveFilter, _txtArchiveNumberFilter, _btnArchiveRefresh, _btnArchiveRetryFailed})
+
+        _gridArchive = New GridControl With {.Dock = DockStyle.Fill}
+        _viewArchive = New GridView(_gridArchive)
+        _gridArchive.MainView = _viewArchive
+        _gridArchive.ViewCollection.Add(_viewArchive)
+        _viewArchive.OptionsBehavior.Editable = False
+        _viewArchive.OptionsView.ShowGroupPanel = False
+        _viewArchive.Appearance.HeaderPanel.Font = New Font("Calibri", 10, FontStyle.Bold)
+        _viewArchive.Appearance.Row.Font = New Font("Calibri", 10, FontStyle.Bold)
+        _gridArchive.DataSource = _archiveBinding
+        ConfigureArchiveColumns()
 
 
+        _tabArchive.Controls.Add(_gridArchive)
+        _tabArchive.Controls.Add(bottom)
+        TabControl.TabPages.Insert(3, _tabArchive)
+        AddHandler _btnArchiveRefresh.Click, AddressOf BtnArchiveRefresh_Click
+        AddHandler _btnArchiveRetryFailed.Click, AddressOf BtnArchiveRetryFailed_Click
+        AddHandler _viewArchive.DoubleClick, AddressOf ViewArchive_DoubleClick
+        AddHandler _viewArchive.CustomRowFilter, AddressOf ViewArchive_CustomRowFilter
+        AddHandler _txtArchiveNumberFilter.TextChanged, AddressOf TxtArchiveNumberFilter_TextChanged
+        AddHandler _txtArchiveNumberFilter.KeyDown, Async Sub(s As Object, e As KeyEventArgs)
+                                                        If e.KeyCode = Keys.Enter Then
+                                                            e.Handled = True
+                                                            Await LoadArchiveAsync()
+                                                        End If
+                                                    End Sub
+    End Sub
+
+    Private Shared Function ArchiveNumberDigitsOnly(s As String) As String
+        If String.IsNullOrEmpty(s) Then Return ""
+        Dim sb As New StringBuilder(s.Length)
+        For Each ch In s
+            If Char.IsDigit(ch) Then sb.Append(ch)
+        Next
+        Return sb.ToString()
+    End Function
+
+    Private Sub SyncArchiveNumberFilterFromText()
+        _archiveNumberFilterDigits = ArchiveNumberDigitsOnly(If(_txtArchiveNumberFilter IsNot Nothing, _txtArchiveNumberFilter.Text, ""))
+    End Sub
+
+    Private Sub TxtArchiveNumberFilter_TextChanged(sender As Object, e As EventArgs)
+        SyncArchiveNumberFilterFromText()
+        If _viewArchive IsNot Nothing Then _viewArchive.RefreshData()
+    End Sub
+
+    Private Sub ViewArchive_CustomRowFilter(sender As Object, e As RowFilterEventArgs)
+        If String.IsNullOrEmpty(_archiveNumberFilterDigits) Then
+            e.Handled = False
+            Return
+        End If
+        If e.ListSourceRow < 0 Then
+            e.Visible = True
+            e.Handled = True
+            Return
+        End If
+        Dim view = TryCast(sender, GridView)
+        If view Is Nothing Then
+            e.Handled = False
+            Return
+        End If
+        Dim row = TryCast(view.GetRow(e.ListSourceRow), WhatsAppArchiveItem)
+        If row Is Nothing Then
+            e.Visible = False
+            e.Handled = True
+            Return
+        End If
+        Dim hay = ArchiveNumberDigitsOnly(If(row.TargetNumber, ""))
+        e.Visible = hay.IndexOf(_archiveNumberFilterDigits, StringComparison.Ordinal) >= 0
+        e.Handled = True
+    End Sub
+
+    Private Sub ConfigureArchiveColumns()
+        _viewArchive.Columns.Clear()
+        Dim mk = Sub(field As String, caption As String)
+                     _viewArchive.Columns.Add(New GridColumn With {.FieldName = field, .Caption = caption, .Visible = True})
+                 End Sub
+        If Eng Then
+            mk(NameOf(WhatsAppArchiveItem.CreatedAtUtc), "Created (UTC)")
+            mk(NameOf(WhatsAppArchiveItem.LastUpdatedAtUtc), "Updated (UTC)")
+            mk(NameOf(WhatsAppArchiveItem.Status), "Status")
+            mk(NameOf(WhatsAppArchiveItem.TargetNumber), "Number")
+            mk(NameOf(WhatsAppArchiveItem.HasAttachment), "Attachment")
+            mk(NameOf(WhatsAppArchiveItem.Id), "Id")
+            mk(NameOf(WhatsAppArchiveItem.MessageText), "Message")
+            mk(NameOf(WhatsAppArchiveItem.ErrorMessage), "Error")
+        Else
+            mk(NameOf(WhatsAppArchiveItem.CreatedAtUtc), "وقت الإنشاء UTC")
+            mk(NameOf(WhatsAppArchiveItem.LastUpdatedAtUtc), "آخر تحديث UTC")
+            mk(NameOf(WhatsAppArchiveItem.Status), "الحالة")
+            mk(NameOf(WhatsAppArchiveItem.TargetNumber), "الرقم")
+            mk(NameOf(WhatsAppArchiveItem.HasAttachment), "مرفق")
+            mk(NameOf(WhatsAppArchiveItem.Id), "المعرف")
+            mk(NameOf(WhatsAppArchiveItem.MessageText), "الرسالة")
+            mk(NameOf(WhatsAppArchiveItem.ErrorMessage), "الخطأ")
+        End If
+        _viewArchive.BestFitColumns()
+    End Sub
+
+    Private Sub AttachOutboundPendingButton()
+        _btnOutboundPending = New SimpleButton With {
+            .Text = If(Eng, "Pending (local DB)…", "معلّقة (محلي)…")}
+        _btnOutboundPending.Size = BtnSendMessage.Size
+        Dim p = BtnSendMessage.Location
+        _btnOutboundPending.Location = New Point(Math.Max(8, p.X - _btnOutboundPending.Width - 10), p.Y)
+        AddHandler _btnOutboundPending.Click, AddressOf BtnOutboundPendingLocal_Click
+        TabSend.Controls.Add(_btnOutboundPending)
+    End Sub
+
+    Private Sub BtnOutboundPendingLocal_Click(sender As Object, e As EventArgs)
+        Dim c = ClinicId.Trim()
+        If String.IsNullOrWhiteSpace(c) Then c = WhatsAppService.GetCurrentClinicId()
+        Using frm As New FrmWhatsOutboundPending(c)
+            frm.ShowDialog(Me)
+        End Using
     End Sub
 
     Private Async Sub BtnRefresh_Click(sender As Object, e As EventArgs)
         If String.IsNullOrWhiteSpace(ClinicId) Then Return
         btnRefresh.Enabled = False
         Try
-            Dim connected = Await _service.GetConnectionStatusAsync(ClinicId)
+            Dim connected = Await _service.GetConnectionStatusAsync(ClinicId, bypassStatusThrottle:=True)
             If connected Then
                 _statusTimer.Stop()
                 PanelQr.Visible = False
@@ -127,7 +292,10 @@ Public Class WhatsAppForm
         End If
         BtnSendMessage.Enabled = False
         Try
-            Dim connected = Await _service.GetConnectionStatusAsync(ClinicId)
+            Dim connected = Await _service.GetConnectionStatusAsync(ClinicId, bypassStatusThrottle:=True)
+            If Not connected Then
+                connected = Await WhatsAppService.TryEnsureWhatsConnectedSilentAsync(Me, ClinicId).ConfigureAwait(True)
+            End If
             If Not connected Then
                 TabControl.SelectedTabPage = TabConnection
                 PanelSuccess.Visible = False
@@ -141,13 +309,32 @@ Public Class WhatsAppForm
                     If(Eng, "WhatsApp", "واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return
             End If
+
             Dim ctx As New WhatsAppSendContext With {
                 .Category = WhatsAppMessageCategories.ManualSend,
                 .SourceHint = NameOf(WhatsAppForm),
                 .RevealMessageCenter = True
             }
-            Await _service.SendMessageAsync(ClinicId, number, message, filePath, ctx)
-            MessageBox.Show("تم وضع الرسالة في الطابور.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim resp = Await _service.SendMessageAsync(ClinicId, number, message, filePath, ctx)
+
+            Dim intr As WhatsAppOutboundSendInterpretation = Nothing
+            If WhatsAppService.TryInterpretOutboundSendResponse(resp, intr) AndAlso intr.HadLocalOutboxSemantics Then
+                If Not String.IsNullOrWhiteSpace(intr.TerminalPriorStatus) Then
+                    MessageBox.Show(
+                        If(Eng,
+                           "This outbound send was skipped because an identical logical send already completed in the database.",
+                           "تم تخطي الإرسال لأنه سبق وأن اكتمل نفس المعرف المنطقي في الطابُر المحلي."),
+                        If(Eng, "WhatsApp", "واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show(
+                        If(Eng,
+                           "Queued locally. It sends in the background when WhatsApp connects. Use Pending (local DB) to cancel before send.",
+                           "تم الطابَر محليًا. سيُرسَل في الخلفية عند اتصال واتساب. استخدم زر المعقّبة المحلي لإلغاء الإرسال قبل التنفيذ."),
+                        If(Eng, "WhatsApp", "واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            Else
+                MessageBox.Show("تم وضع الرسالة في الطابور.", "إرسال", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
             TxtSendMessage.Text = ""
             TxtSendFile.Text = ""
         Catch ex As Exception
@@ -222,6 +409,7 @@ Public Class WhatsAppForm
             _queueRefreshTimer.Stop()
         End If
         If e.Page Is TabFailed Then Await LoadFailedAsync()
+        If e.Page Is _tabArchive Then Await LoadArchiveAsync()
     End Sub
 
     Private Async Sub BtnRefreshQueue_Click(sender As Object, e As EventArgs)
@@ -268,6 +456,78 @@ Public Class WhatsAppForm
             MessageBox.Show(ex.Message, "الرسائل الفاشلة", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Function
+
+    Private Async Function LoadArchiveAsync(Optional suppressErrors As Boolean = False) As Task
+        If String.IsNullOrWhiteSpace(ClinicId) Then Return
+        Try
+            ' Full list from gateway; number box filters client-side (partial digit match while typing).
+            Dim res = Await _service.TryGetWhatsappArchiveAsync(ClinicId, filterNumber:=Nothing)
+            _archiveBinding.Clear()
+            If res.HttpOk Then
+                For Each row In res.Items
+                    _archiveBinding.Add(row)
+                Next
+            ElseIf Not suppressErrors Then
+                Dim msg = If(String.IsNullOrWhiteSpace(res.ErrorDetail), If(Eng, "Archive request failed.", "فشل طلب الأرشيف."), res.ErrorDetail)
+                MessageBox.Show(msg, If(Eng, "WhatsApp archive", "أرشيف واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            If Not suppressErrors Then MessageBox.Show(ex.Message, If(Eng, "WhatsApp archive", "أرشيف واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+        SyncArchiveNumberFilterFromText()
+        If _viewArchive IsNot Nothing Then _viewArchive.RefreshData()
+    End Function
+
+    Private Async Sub BtnArchiveRefresh_Click(sender As Object, e As EventArgs)
+        _btnArchiveRefresh.Enabled = False
+        Try
+            Await LoadArchiveAsync()
+        Finally
+            _btnArchiveRefresh.Enabled = True
+        End Try
+    End Sub
+
+    Private Async Sub BtnArchiveRetryFailed_Click(sender As Object, e As EventArgs)
+        If String.IsNullOrWhiteSpace(ClinicId) Then Return
+        _btnArchiveRetryFailed.Enabled = False
+        Try
+            Dim count = Await _service.RetryFailedAsync(ClinicId)
+            If count >= 0 Then
+                MessageBox.Show(If(Eng, $"Retried {count} message(s).", $"تمت إعادة المحاولة لـ {count} رسالة."),
+                                If(Eng, "Retry", "إعادة المحاولة"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Await LoadArchiveAsync()
+            Else
+                MessageBox.Show(If(Eng, "Retry request failed.", "فشل طلب إعادة الإرسال."),
+                                If(Eng, "WhatsApp archive", "أرشيف واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, If(Eng, "WhatsApp", "واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            _btnArchiveRetryFailed.Enabled = True
+        End Try
+    End Sub
+
+    Private Sub ViewArchive_DoubleClick(sender As Object, e As EventArgs)
+        Dim h = _viewArchive.FocusedRowHandle
+        If h < 0 Then Return
+        Dim row = TryCast(_viewArchive.GetRow(h), WhatsAppArchiveItem)
+        If row Is Nothing Then Return
+        Dim sb As New StringBuilder()
+        sb.AppendLine(If(Eng, "Gateway archive message", "رسالة من أرشيف الخادم"))
+        sb.AppendLine("Id: " & If(row.Id, ""))
+        sb.AppendLine(If(Eng, "Status: ", "الحالة: ") & If(row.Status, ""))
+        sb.AppendLine(If(Eng, "Number: ", "الرقم: ") & If(row.TargetNumber, ""))
+        sb.AppendLine(If(Eng, "Attachment: ", "مرفق: ") & row.HasAttachment.ToString())
+        If row.CreatedAtUtc.HasValue Then sb.AppendLine(If(Eng, "Created (UTC): ", "الإنشاء UTC: ") & row.CreatedAtUtc.Value.ToString("yyyy-MM-dd HH:mm:ss"))
+        If row.LastUpdatedAtUtc.HasValue Then sb.AppendLine(If(Eng, "Updated (UTC): ", "التحديث UTC: ") & row.LastUpdatedAtUtc.Value.ToString("yyyy-MM-dd HH:mm:ss"))
+        sb.AppendLine()
+        sb.AppendLine(If(Eng, "Message:", "الرسالة:"))
+        sb.AppendLine(If(row.MessageText, ""))
+        sb.AppendLine()
+        sb.AppendLine(If(Eng, "Error:", "الخطأ:"))
+        sb.AppendLine(If(row.ErrorMessage, ""))
+        MessageBox.Show(sb.ToString(), If(Eng, "WhatsApp archive", "أرشيف واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 
     Private Async Sub BtnDeleteFromQueue_Click(sender As Object, e As EventArgs)
         If String.IsNullOrWhiteSpace(ClinicId) Then Return
@@ -360,7 +620,7 @@ Public Class WhatsAppForm
     Private Async Sub StatusTimer_Tick(sender As Object, e As EventArgs)
         If String.IsNullOrWhiteSpace(ClinicId) Then Return
         Try
-            Dim connected = Await _service.GetConnectionStatusAsync(ClinicId)
+            Dim connected = Await _service.GetConnectionStatusAsync(ClinicId, bypassStatusThrottle:=False)
             If connected AndAlso IsHandleCreated Then
                 BeginInvoke(New Action(Sub()
                                            _statusTimer.Stop()

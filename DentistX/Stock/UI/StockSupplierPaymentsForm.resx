@@ -117,335 +117,1127 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="SplitterCtl.CaptionImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="SplitterCtl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SplitterCtl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="scannedFilesList.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="scannedFilesList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="scannedFilesList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="scannedFilesList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 535</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="scannedFilesList.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;scannedFilesList.Name" xml:space="preserve">
-    <value>scannedFilesList</value>
-  </data>
-  <data name="&gt;&gt;scannedFilesList.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;scannedFilesList.Parent" xml:space="preserve">
-    <value>SplitterCtl.Panel1</value>
-  </data>
-  <data name="&gt;&gt;scannedFilesList.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="SplitterCtl.Panel1.Text" xml:space="preserve">
-    <value>Panel1</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Panel1.Name" xml:space="preserve">
-    <value>SplitterCtl.Panel1</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Panel1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Panel1.Parent" xml:space="preserve">
-    <value>SplitterCtl</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="scanPreview.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="scanPreview.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="scanPreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>476, 535</value>
-  </data>
-  <data name="scanPreview.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;scanPreview.Name" xml:space="preserve">
-    <value>scanPreview</value>
-  </data>
-  <data name="&gt;&gt;scanPreview.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;scanPreview.Parent" xml:space="preserve">
-    <value>SplitterCtl.Panel2</value>
-  </data>
-  <data name="&gt;&gt;scanPreview.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="SplitterCtl.Panel2.Text" xml:space="preserve">
-    <value>Panel2</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Panel2.Name" xml:space="preserve">
-    <value>SplitterCtl.Panel2</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Panel2.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Panel2.Parent" xml:space="preserve">
-    <value>SplitterCtl</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="SplitterCtl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>745, 535</value>
-  </data>
-  <data name="SplitterCtl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Name" xml:space="preserve">
-    <value>SplitterCtl</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.Parent" xml:space="preserve">
-    <value>ScannedPage</value>
-  </data>
-  <data name="&gt;&gt;SplitterCtl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="split.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="split.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="split.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_gridInvoices.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="_gridInvoices.EmbeddedNavigator.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_gridInvoices.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 63</value>
-  </data>
-  <data name="_viewInvoices.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_viewInvoices.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_gridInvoices.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_gridInvoices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 673</value>
-  </data>
-  <data name="_gridInvoices.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_gridInvoices.Name" xml:space="preserve">
-    <value>_gridInvoices</value>
-  </data>
-  <data name="&gt;&gt;_gridInvoices.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;_gridInvoices.Parent" xml:space="preserve">
-    <value>split.Panel1</value>
-  </data>
-  <data name="&gt;&gt;_gridInvoices.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblSupplier.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="lblSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 36</value>
-  </data>
-  <data name="lblSupplier.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="lblSupplier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 15</value>
-  </data>
-  <data name="lblSupplier.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="lblSupplier.Text" xml:space="preserve">
-    <value>Supplier</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.Name" xml:space="preserve">
-    <value>lblSupplier</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.Parent" xml:space="preserve">
-    <value>filterPanel</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_cmbSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="_cmbSupplier.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_cmbSupplier.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_cmbSupplier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 22</value>
-  </data>
-  <data name="_cmbSupplier.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_cmbSupplier.Name" xml:space="preserve">
-    <value>_cmbSupplier</value>
-  </data>
-  <data name="&gt;&gt;_cmbSupplier.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;_cmbSupplier.Parent" xml:space="preserve">
-    <value>filterPanel</value>
-  </data>
-  <data name="&gt;&gt;_cmbSupplier.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblOpenInvoicesSum.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="lblOpenInvoicesSum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>502, 15</value>
-  </data>
-  <data name="lblOpenInvoicesSum.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="lblOpenInvoicesSum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 15</value>
-  </data>
-  <data name="lblOpenInvoicesSum.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblOpenInvoicesSum.Text" xml:space="preserve">
-    <value> 0.00</value>
-  </data>
-  <data name="&gt;&gt;lblOpenInvoicesSum.Name" xml:space="preserve">
-    <value>lblOpenInvoicesSum</value>
-  </data>
-  <data name="&gt;&gt;lblOpenInvoicesSum.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblOpenInvoicesSum.Parent" xml:space="preserve">
-    <value>filterPanel</value>
-  </data>
-  <data name="&gt;&gt;lblOpenInvoicesSum.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblOpenInvoices.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="lblOpenInvoices.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 15</value>
-  </data>
-  <data name="lblOpenInvoices.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="lblOpenInvoices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 15</value>
-  </data>
-  <data name="lblOpenInvoices.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lblOpenInvoices.Text" xml:space="preserve">
-    <value>Open invoices total:</value>
-  </data>
-  <data name="&gt;&gt;lblOpenInvoices.Name" xml:space="preserve">
-    <value>lblOpenInvoices</value>
-  </data>
-  <data name="&gt;&gt;lblOpenInvoices.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblOpenInvoices.Parent" xml:space="preserve">
-    <value>filterPanel</value>
-  </data>
-  <data name="&gt;&gt;lblOpenInvoices.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lblPaymentsSum.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="lblPaymentsSum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>502, 40</value>
-  </data>
-  <data name="lblPaymentsSum.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="lblPaymentsSum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 15</value>
-  </data>
-  <data name="lblPaymentsSum.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lblPaymentsSum.Text" xml:space="preserve">
-    <value>0.00</value>
-  </data>
-  <data name="&gt;&gt;lblPaymentsSum.Name" xml:space="preserve">
-    <value>lblPaymentsSum</value>
-  </data>
   <data name="&gt;&gt;lblPaymentsSum.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;lblPaymentsSum.Parent" xml:space="preserve">
-    <value>filterPanel</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblOpenInvoicesSum.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;lblPaymentsSum.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;LabelControl19.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="lblPayments.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="lblAmount.Text" xml:space="preserve">
+    <value>Amount</value>
   </data>
-  <data name="lblPayments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 40</value>
+  <data name="&gt;&gt;split.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="lblPayments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="btnScan.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="lblPayments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 15</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="GridAttached.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl15.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="lblPayments.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="lblPayments.Text" xml:space="preserve">
-    <value>Payments total:</value>
+  <data name="LabelControl18.Text" xml:space="preserve">
+    <value>Due Date :</value>
   </data>
-  <data name="&gt;&gt;lblPayments.Name" xml:space="preserve">
-    <value>lblPayments</value>
+  <data name="&gt;&gt;payPanel.Name" xml:space="preserve">
+    <value>payPanel</value>
+  </data>
+  <data name="&gt;&gt;lblAmount.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 15</value>
+  </data>
+  <data name="ScannedPage.Text" xml:space="preserve">
+    <value>Scanned Files</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;lblMethod.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.Name" xml:space="preserve">
+    <value>LabelControl19</value>
+  </data>
+  <data name="&gt;&gt;dtChqDueDate.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_cmbMethod.Properties.Items3" xml:space="preserve">
+    <value>CreditCard</value>
+  </data>
+  <data name="_cmbSupplier.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ChkDrive.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl18.Name" xml:space="preserve">
+    <value>LabelControl18</value>
+  </data>
+  <data name="&gt;&gt;txtChqValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="AttachedPage.Text" xml:space="preserve">
+    <value>Attached Files</value>
+  </data>
+  <data name="&gt;&gt;txtChqValue.Name" xml:space="preserve">
+    <value>txtChqValue</value>
+  </data>
+  <data name="btnResetChqs.Text" xml:space="preserve">
+    <value>Reset Fields</value>
+  </data>
+  <data name="LabelControl16.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="scannedFilesList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl17.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_gridPayments.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="GroupCheques.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_btnPay.Parent" xml:space="preserve">
+    <value>payPanel</value>
+  </data>
+  <data name="&gt;&gt;_cmbMethod.Name" xml:space="preserve">
+    <value>_cmbMethod</value>
+  </data>
+  <data name="&gt;&gt;_cmbMethod.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtChqBank.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtChqOwner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 31</value>
+  </data>
+  <data name="txtChqBank.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 115</value>
+  </data>
+  <data name="SplitterCtl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;ChqGridPage.Name" xml:space="preserve">
+    <value>ChqGridPage</value>
+  </data>
+  <data name="lblSupplier.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtChqValue.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtChqNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="&gt;&gt;GridAttached.Parent" xml:space="preserve">
+    <value>AttachedPage</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GridAttached.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;scannedFilesList.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblPaymentsSum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 40</value>
+  </data>
+  <data name="btnScan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 31</value>
+  </data>
+  <data name="&gt;&gt;txtChqNumber.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="LabelControl15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 15</value>
+  </data>
+  <data name="lblOpenInvoicesSum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 15</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="GridAttached.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;_gridInvoices.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblMethod.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="LabelControl15.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="LabelControl17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 119</value>
+  </data>
+  <data name="scannedFilesList.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblSupplier.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;btnScan.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;GroupCheques.Name" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="txtAccountNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="_cmbMethod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 22</value>
+  </data>
+  <data name="scanPreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>476, 535</value>
+  </data>
+  <data name="txtChqNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;_viewInvoices.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Panel2.Parent" xml:space="preserve">
+    <value>SplitterCtl</value>
+  </data>
+  <data name="&gt;&gt;btnScanAndPay.Name" xml:space="preserve">
+    <value>btnScanAndPay</value>
+  </data>
+  <data name="txtChqBank.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblOpenInvoicesSum.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ScannedPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;lblPaymentsSum.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="LabelControl16.Text" xml:space="preserve">
+    <value>Cheque Owner :</value>
+  </data>
+  <data name="btnBrowse.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridAttached.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ChkDrive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 19</value>
+  </data>
+  <data name="lblOpenInvoicesSum.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="&gt;&gt;lblDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;_gridPayments.Parent" xml:space="preserve">
+    <value>ChqGridPage</value>
+  </data>
+  <data name="&gt;&gt;btnScan.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="&gt;&gt;_btnPay.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="split.CaptionImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;split.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;payPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnResetChqs.Name" xml:space="preserve">
+    <value>btnResetChqs</value>
+  </data>
+  <data name="dtChqDueDate.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;_cmbSupplier.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnResetChqs.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="btnBrowse.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="lblOpenInvoices.Text" xml:space="preserve">
+    <value>Open invoices total:</value>
+  </data>
+  <data name="_btnEditPay.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lblDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="split.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;btnResetChqs.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;split.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_viewPayments.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 15</value>
+  </data>
+  <data name="&gt;&gt;_spinAmount.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;scannedFilesList.Parent" xml:space="preserve">
+    <value>SplitterCtl.Panel1</value>
+  </data>
+  <data name="&gt;&gt;_gridPayments.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="split.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 736</value>
+  </data>
+  <data name="txtChqValue.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl18.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="&gt;&gt;lblPaymentsSum.Name" xml:space="preserve">
+    <value>lblPaymentsSum</value>
+  </data>
+  <data name="&gt;&gt;txtChqNumber.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="txtAccountNumber.Properties.NullValuePrompt" xml:space="preserve">
+    <value>0000000000</value>
+  </data>
+  <data name="_gridPayments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="_spinAmount.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblSupplier.Name" xml:space="preserve">
+    <value>lblSupplier</value>
+  </data>
+  <data name="lblPaymentsSum.Text" xml:space="preserve">
+    <value>0.00</value>
+  </data>
+  <data name="GridTabControl.AppearancePage.Header.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;scannedFilesList.Name" xml:space="preserve">
+    <value>scannedFilesList</value>
+  </data>
+  <data name="&gt;&gt;GridTabControl.Name" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="lblOpenInvoicesSum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 15</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="LabelControl18.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="_btnPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 96</value>
+  </data>
+  <data name="SplitterCtl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>745, 535</value>
+  </data>
+  <data name="&gt;&gt;lblPaymentsSum.Parent" xml:space="preserve">
+    <value>filterPanel</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtChqValue.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="GroupCheques.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="_cmbMethod.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 68</value>
+  </data>
+  <data name="txtAccountNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 59</value>
+  </data>
+  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 31</value>
+  </data>
+  <data name="LabelControl15.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="_datePayment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="filterPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabelControl19.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ChkDrive.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="_datePayment.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="GroupCheques.Text" xml:space="preserve">
+    <value>Cheques Info</value>
+  </data>
+  <data name="btnScanAndPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 31</value>
+  </data>
+  <data name="&gt;&gt;_btnEditPay.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dtChqDueDate.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="LabelControl14.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;GridTabControl.Parent" xml:space="preserve">
+    <value>split.Panel2</value>
+  </data>
+  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 15</value>
+  </data>
+  <data name="&gt;&gt;_cmbMethod.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;split.Panel2.Name" xml:space="preserve">
+    <value>split.Panel2</value>
+  </data>
+  <data name="&gt;&gt;dtChqDueDate.Name" xml:space="preserve">
+    <value>dtChqDueDate</value>
+  </data>
+  <data name="_btnEditPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 133</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;_cmbSupplier.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="payPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;LabelControl16.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnScanAndPay.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="_btnPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtChqValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>374, 59</value>
+  </data>
+  <data name="&gt;&gt;LabelControl17.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="lblOpenInvoices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 15</value>
+  </data>
+  <data name="&gt;&gt;GridAttached.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;_cmbMethod.Parent" xml:space="preserve">
+    <value>payPanel</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SplitterCtl.CaptionImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtChqValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="LabelControl17.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lblSupplier.Text" xml:space="preserve">
+    <value>Supplier</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="scanPreview.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Name" xml:space="preserve">
+    <value>SplitterCtl</value>
+  </data>
+  <data name="_btnEditPay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;txtAccountNumber.Name" xml:space="preserve">
+    <value>txtAccountNumber</value>
+  </data>
+  <data name="&gt;&gt;LabelControl16.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="_datePayment.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="btnScanAndPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>459, 106</value>
   </data>
   <data name="&gt;&gt;lblPayments.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;lblPayments.Parent" xml:space="preserve">
+  <data name="ChkDrive.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="_spinAmount.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="lblSupplier.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl17.Name" xml:space="preserve">
+    <value>LabelControl17</value>
+  </data>
+  <data name="ScannedPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>745, 535</value>
+  </data>
+  <data name="txtAccountNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LabelControl17.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="GridAttached.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_gridInvoices.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;LabelControl16.Name" xml:space="preserve">
+    <value>LabelControl16</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="LabelControl19.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Supplier Payments</value>
+  </data>
+  <data name="_btnEditPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 31</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;ScannedPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnScan.Name" xml:space="preserve">
+    <value>btnScan</value>
+  </data>
+  <data name="_datePayment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 22</value>
+  </data>
+  <data name="&gt;&gt;_gridInvoices.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_gridPayments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>745, 535</value>
+  </data>
+  <data name="&gt;&gt;lblOpenInvoices.Parent" xml:space="preserve">
     <value>filterPanel</value>
+  </data>
+  <data name="SplitterCtl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblPaymentsSum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 15</value>
+  </data>
+  <data name="GridTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 173</value>
+  </data>
+  <data name="&gt;&gt;txtAccountNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;_datePayment.Parent" xml:space="preserve">
+    <value>payPanel</value>
+  </data>
+  <data name="&gt;&gt;split.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl17.Text" xml:space="preserve">
+    <value>Cheque Bank :</value>
+  </data>
+  <data name="payPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;split.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblOpenInvoices.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ChkDrive.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="filterPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;lblAmount.Name" xml:space="preserve">
+    <value>lblAmount</value>
+  </data>
+  <data name="lblSupplier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 15</value>
+  </data>
+  <data name="&gt;&gt;btnScan.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblOpenInvoicesSum.Parent" xml:space="preserve">
+    <value>filterPanel</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="LabelControl14.Text" xml:space="preserve">
+    <value>Account Number :</value>
+  </data>
+  <data name="&gt;&gt;ScannedPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnScanAndPay.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;txtChqBank.Name" xml:space="preserve">
+    <value>txtChqBank</value>
+  </data>
+  <data name="split.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 736</value>
+  </data>
+  <data name="GroupCheques.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 2</value>
+  </data>
+  <data name="lblAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 15</value>
+  </data>
+  <data name="_datePayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>57, 40</value>
+  </data>
+  <data name="_gridInvoices.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblOpenInvoices.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblSupplier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 36</value>
+  </data>
+  <data name="GridTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl15.Name" xml:space="preserve">
+    <value>LabelControl15</value>
+  </data>
+  <data name="_btnPay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="scannedFilesList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblMethod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="&gt;&gt;txtChqOwner.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="_btnPay.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblPaymentsSum.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_gridPayments.Name" xml:space="preserve">
+    <value>_gridPayments</value>
+  </data>
+  <data name="&gt;&gt;LabelControl14.Name" xml:space="preserve">
+    <value>LabelControl14</value>
+  </data>
+  <data name="lblPaymentsSum.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Panel2.Name" xml:space="preserve">
+    <value>SplitterCtl.Panel2</value>
+  </data>
+  <data name="&gt;&gt;dtChqDueDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;filterPanel.Name" xml:space="preserve">
+    <value>filterPanel</value>
+  </data>
+  <data name="&gt;&gt;LabelControl15.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="GridAttached.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
+    <value>btnBrowse</value>
+  </data>
+  <data name="ChkDrive.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;scanPreview.Parent" xml:space="preserve">
+    <value>SplitterCtl.Panel2</value>
+  </data>
+  <data name="SplitterCtl.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl18.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lblSupplier.Parent" xml:space="preserve">
+    <value>filterPanel</value>
+  </data>
+  <data name="txtChqNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 87</value>
+  </data>
+  <data name="&gt;&gt;_gridPayments.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="_cmbMethod.Properties.Items" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="_gridInvoices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>604, 673</value>
+  </data>
+  <data name="&gt;&gt;GridTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblMethod.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 69</value>
+  </data>
+  <data name="txtChqBank.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;split.Panel1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SplitterCtl.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;LabelControl18.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnResetChqs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 31</value>
+  </data>
+  <data name="&gt;&gt;ChkDrive.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="&gt;&gt;txtChqBank.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="_cmbMethod.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="_gridPayments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;lblSupplier.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Panel1.Parent" xml:space="preserve">
+    <value>SplitterCtl</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;scannedFilesList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_cmbSupplier.Parent" xml:space="preserve">
+    <value>filterPanel</value>
+  </data>
+  <data name="LabelControl15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 91</value>
+  </data>
+  <data name="&gt;&gt;lblDate.Name" xml:space="preserve">
+    <value>lblDate</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblPayments.Text" xml:space="preserve">
+    <value>Payments total:</value>
+  </data>
+  <data name="&gt;&gt;txtAccountNumber.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="&gt;&gt;_btnEditPay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblAmount.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="payPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;txtChqOwner.Name" xml:space="preserve">
+    <value>txtChqOwner</value>
+  </data>
+  <data name="&gt;&gt;lblMethod.Parent" xml:space="preserve">
+    <value>payPanel</value>
+  </data>
+  <data name="LabelControl18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 15</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;_btnPay.Name" xml:space="preserve">
+    <value>_btnPay</value>
+  </data>
+  <data name="&gt;&gt;_spinAmount.Parent" xml:space="preserve">
+    <value>payPanel</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;AttachedPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dtChqDueDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="_viewPayments.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnScan.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="payPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>750, 173</value>
+  </data>
+  <data name="&gt;&gt;lblOpenInvoices.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblMethod.Name" xml:space="preserve">
+    <value>lblMethod</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnResetChqs.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnBrowse.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="&gt;&gt;scanPreview.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ChqGridPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ScannedPage.Name" xml:space="preserve">
+    <value>ScannedPage</value>
+  </data>
+  <data name="ChkDrive.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;GridAttached.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_cmbMethod.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LabelControl19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 63</value>
+  </data>
+  <data name="txtChqValue.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="GroupCheques.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="AttachedPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>745, 535</value>
+  </data>
+  <data name="btnResetChqs.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="_cmbMethod.Properties.Items1" xml:space="preserve">
+    <value>Cheque</value>
+  </data>
+  <data name="&gt;&gt;_viewPayments.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_btnPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 31</value>
+  </data>
+  <data name="&gt;&gt;txtChqOwner.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>StockSupplierPaymentsForm</value>
+  </data>
+  <data name="_btnEditPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblDate.Parent" xml:space="preserve">
+    <value>payPanel</value>
+  </data>
+  <data name="&gt;&gt;txtAccountNumber.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LabelControl14.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblPayments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;GroupCheques.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="GridAttached.Size" type="System.Drawing.Size, System.Drawing">
+    <value>745, 535</value>
+  </data>
+  <data name="btnResetChqs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 27</value>
+  </data>
+  <data name="&gt;&gt;lblOpenInvoices.Name" xml:space="preserve">
+    <value>lblOpenInvoices</value>
+  </data>
+  <data name="&gt;&gt;_btnEditPay.Name" xml:space="preserve">
+    <value>_btnEditPay</value>
+  </data>
+  <data name="&gt;&gt;lblSupplier.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_btnEditPay.Parent" xml:space="preserve">
+    <value>ChqGridPage</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="_cmbSupplier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="txtAccountNumber.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnScan.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="lblPayments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 15</value>
+  </data>
+  <data name="&gt;&gt;_gridInvoices.Name" xml:space="preserve">
+    <value>_gridInvoices</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Panel1.Name" xml:space="preserve">
+    <value>SplitterCtl.Panel1</value>
+  </data>
+  <data name="lblDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 15</value>
+  </data>
+  <data name="btnScan.Text" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="&gt;&gt;split.Panel1.Name" xml:space="preserve">
+    <value>split.Panel1</value>
+  </data>
+  <data name="&gt;&gt;scanPreview.Name" xml:space="preserve">
+    <value>scanPreview</value>
+  </data>
+  <data name="&gt;&gt;_gridInvoices.Parent" xml:space="preserve">
+    <value>split.Panel1</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Parent" xml:space="preserve">
+    <value>ScannedPage</value>
+  </data>
+  <data name="dtChqDueDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;_datePayment.Name" xml:space="preserve">
+    <value>_datePayment</value>
+  </data>
+  <data name="&gt;&gt;btnScanAndPay.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;GridAttached.Name" xml:space="preserve">
+    <value>GridAttached</value>
+  </data>
+  <data name="&gt;&gt;lblOpenInvoicesSum.Name" xml:space="preserve">
+    <value>lblOpenInvoicesSum</value>
+  </data>
+  <data name="ChqGridPage.Text" xml:space="preserve">
+    <value>Cheques Payment</value>
+  </data>
+  <data name="&gt;&gt;lblMethod.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="payPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="lblAmount.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;ChkDrive.Name" xml:space="preserve">
+    <value>ChkDrive</value>
+  </data>
+  <data name="lblDate.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="LabelControl16.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnScanAndPay.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="LabelControl19.Text" xml:space="preserve">
+    <value>Cheque Value :</value>
+  </data>
+  <data name="_btnPay.Text" xml:space="preserve">
+    <value>Add Payment</value>
+  </data>
+  <data name="txtChqNumber.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblOpenInvoices.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="lblPaymentsSum.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="ChkDrive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>459, 87</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="LabelControl18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 35</value>
+  </data>
+  <data name="&gt;&gt;_datePayment.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ChqGridPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>745, 535</value>
+  </data>
+  <data name="&gt;&gt;AttachedPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="&gt;&gt;filterPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_cmbSupplier.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="lblDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="scannedFilesList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="LabelControl16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 35</value>
+  </data>
+  <data name="&gt;&gt;txtChqValue.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_spinAmount.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;lblPayments.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -453,731 +1245,143 @@
   <data name="filterPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="filterPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="filterPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="filterPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 63</value>
-  </data>
-  <data name="filterPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;filterPanel.Name" xml:space="preserve">
-    <value>filterPanel</value>
-  </data>
-  <data name="&gt;&gt;filterPanel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;filterPanel.Parent" xml:space="preserve">
-    <value>split.Panel1</value>
-  </data>
-  <data name="&gt;&gt;filterPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;split.Panel1.Name" xml:space="preserve">
-    <value>split.Panel1</value>
-  </data>
-  <data name="&gt;&gt;split.Panel1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;split.Panel1.Parent" xml:space="preserve">
-    <value>split</value>
-  </data>
-  <data name="&gt;&gt;split.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="GridTabControl.AppearancePage.Header.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="GridTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="GridTabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 173</value>
-  </data>
-  <data name="_gridPayments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="_gridPayments.EmbeddedNavigator.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_gridPayments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="_viewPayments.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_viewPayments.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_gridPayments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_gridPayments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>745, 535</value>
-  </data>
-  <data name="_gridPayments.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_gridPayments.Name" xml:space="preserve">
-    <value>_gridPayments</value>
-  </data>
-  <data name="&gt;&gt;_gridPayments.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;_gridPayments.Parent" xml:space="preserve">
-    <value>ChqGridPage</value>
-  </data>
-  <data name="&gt;&gt;_gridPayments.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ChqGridPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>745, 535</value>
-  </data>
-  <data name="ChqGridPage.Text" xml:space="preserve">
-    <value>Cheques Payment</value>
-  </data>
-  <data name="&gt;&gt;ChqGridPage.Name" xml:space="preserve">
-    <value>ChqGridPage</value>
-  </data>
-  <data name="&gt;&gt;ChqGridPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;ChqGridPage.Parent" xml:space="preserve">
-    <value>GridTabControl</value>
-  </data>
-  <data name="&gt;&gt;ChqGridPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="GridTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>750, 563</value>
-  </data>
-  <data name="GridTabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="ScannedPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>745, 535</value>
-  </data>
-  <data name="ScannedPage.Text" xml:space="preserve">
-    <value>Scanned Files</value>
-  </data>
-  <data name="&gt;&gt;ScannedPage.Name" xml:space="preserve">
-    <value>ScannedPage</value>
-  </data>
-  <data name="&gt;&gt;ScannedPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;ScannedPage.Parent" xml:space="preserve">
-    <value>GridTabControl</value>
-  </data>
-  <data name="&gt;&gt;ScannedPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="GridAttached.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="GridAttached.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
-    <value>True</value>
-  </data>
-  <data name="GridAttached.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="GridAttached.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="GridAttached.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="GridAttached.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
-    <value>None</value>
-  </data>
-  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="GridAttached.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
-    <value>Application</value>
-  </data>
-  <data name="GridAttached.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="GridAttached.Size" type="System.Drawing.Size, System.Drawing">
-    <value>745, 535</value>
-  </data>
-  <data name="GridAttached.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;GridAttached.Name" xml:space="preserve">
-    <value>GridAttached</value>
-  </data>
-  <data name="&gt;&gt;GridAttached.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;GridAttached.Parent" xml:space="preserve">
-    <value>AttachedPage</value>
-  </data>
-  <data name="&gt;&gt;GridAttached.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="AttachedPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>745, 535</value>
-  </data>
-  <data name="AttachedPage.Text" xml:space="preserve">
-    <value>Attached Files</value>
-  </data>
-  <data name="&gt;&gt;AttachedPage.Name" xml:space="preserve">
-    <value>AttachedPage</value>
-  </data>
-  <data name="&gt;&gt;AttachedPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;AttachedPage.Parent" xml:space="preserve">
-    <value>GridTabControl</value>
-  </data>
-  <data name="&gt;&gt;AttachedPage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;GridTabControl.Name" xml:space="preserve">
-    <value>GridTabControl</value>
-  </data>
-  <data name="&gt;&gt;GridTabControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;GridTabControl.Parent" xml:space="preserve">
-    <value>split.Panel2</value>
-  </data>
-  <data name="&gt;&gt;GridTabControl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="GroupCheques.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="ChkDrive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>459, 87</value>
-  </data>
-  <data name="ChkDrive.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="ChkDrive.Properties.Caption" xml:space="preserve">
-    <value>Use Drive</value>
-  </data>
-  <data name="ChkDrive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 19</value>
-  </data>
-  <data name="ChkDrive.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;ChkDrive.Name" xml:space="preserve">
-    <value>ChkDrive</value>
-  </data>
-  <data name="&gt;&gt;ChkDrive.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;ChkDrive.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;ChkDrive.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnBrowse.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="btnBrowse.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>305, 106</value>
-  </data>
-  <data name="btnBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 31</value>
-  </data>
-  <data name="btnBrowse.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="btnBrowse.Text" xml:space="preserve">
-    <value>Browse</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Name" xml:space="preserve">
-    <value>btnBrowse</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;btnBrowse.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnScan.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="btnScan.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="btnScan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 106</value>
-  </data>
-  <data name="btnScan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 31</value>
-  </data>
-  <data name="btnScan.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="btnScan.Text" xml:space="preserve">
-    <value>Scan</value>
-  </data>
-  <data name="&gt;&gt;btnScan.Name" xml:space="preserve">
-    <value>btnScan</value>
-  </data>
-  <data name="&gt;&gt;btnScan.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnScan.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;btnScan.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnResetChqs.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="btnResetChqs.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="btnResetChqs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 27</value>
-  </data>
-  <data name="btnResetChqs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 31</value>
-  </data>
-  <data name="btnResetChqs.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;LabelControl16.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="btnResetChqs.Text" xml:space="preserve">
-    <value>Reset Fields</value>
+  <data name="_viewInvoices.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;btnResetChqs.Name" xml:space="preserve">
-    <value>btnResetChqs</value>
-  </data>
-  <data name="&gt;&gt;btnResetChqs.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnResetChqs.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;btnResetChqs.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnScanAndPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="btnScanAndPay.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="btnScanAndPay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>459, 106</value>
-  </data>
-  <data name="btnScanAndPay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 31</value>
-  </data>
-  <data name="btnScanAndPay.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btnScanAndPay.Text" xml:space="preserve">
-    <value>Scan And Pay</value>
-  </data>
-  <data name="&gt;&gt;btnScanAndPay.Name" xml:space="preserve">
-    <value>btnScanAndPay</value>
-  </data>
-  <data name="&gt;&gt;btnScanAndPay.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnScanAndPay.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;btnScanAndPay.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;ViewAttached.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="dtChqDueDate.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="dtChqDueDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>374, 31</value>
-  </data>
-  <data name="dtChqDueDate.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="dtChqDueDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
-  </data>
-  <data name="dtChqDueDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
-  </data>
-  <data name="dtChqDueDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="dtChqDueDate.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;dtChqDueDate.Name" xml:space="preserve">
-    <value>dtChqDueDate</value>
-  </data>
-  <data name="&gt;&gt;dtChqDueDate.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;dtChqDueDate.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;dtChqDueDate.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="LabelControl18.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelControl18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 35</value>
-  </data>
-  <data name="LabelControl18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 15</value>
-  </data>
-  <data name="LabelControl18.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="LabelControl18.Text" xml:space="preserve">
-    <value>Due Date :</value>
-  </data>
-  <data name="&gt;&gt;LabelControl18.Name" xml:space="preserve">
-    <value>LabelControl18</value>
-  </data>
-  <data name="&gt;&gt;LabelControl18.Type" xml:space="preserve">
+  <data name="&gt;&gt;LabelControl14.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;LabelControl18.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
+  <data name="_gridPayments.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
-  <data name="&gt;&gt;LabelControl18.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;split.Panel2.Parent" xml:space="preserve">
+    <value>split</value>
   </data>
-  <data name="LabelControl19.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelControl19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 63</value>
-  </data>
-  <data name="LabelControl19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 15</value>
-  </data>
-  <data name="LabelControl19.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="LabelControl19.Text" xml:space="preserve">
-    <value>Cheque Value :</value>
-  </data>
-  <data name="&gt;&gt;LabelControl19.Name" xml:space="preserve">
-    <value>LabelControl19</value>
-  </data>
-  <data name="&gt;&gt;LabelControl19.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;LabelControl19.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;LabelControl19.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="txtChqValue.EditValue" type="System.Decimal, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtChqValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>374, 59</value>
-  </data>
-  <data name="txtChqValue.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="txtChqValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="txtChqValue.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;txtChqValue.Name" xml:space="preserve">
-    <value>txtChqValue</value>
-  </data>
-  <data name="&gt;&gt;txtChqValue.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txtChqValue.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;txtChqValue.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="txtChqBank.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 115</value>
-  </data>
-  <data name="txtChqBank.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="txtChqBank.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="txtChqBank.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;txtChqBank.Name" xml:space="preserve">
-    <value>txtChqBank</value>
-  </data>
-  <data name="&gt;&gt;txtChqBank.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txtChqBank.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
+  <data name="_gridPayments.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
   </data>
   <data name="&gt;&gt;txtChqBank.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="txtChqNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 87</value>
+  <data name="btnScanAndPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
   </data>
-  <data name="txtChqNumber.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="_cmbMethod.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;split.Panel1.Parent" xml:space="preserve">
+    <value>split</value>
+  </data>
+  <data name="&gt;&gt;ChqGridPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;filterPanel.Parent" xml:space="preserve">
+    <value>split.Panel1</value>
+  </data>
+  <data name="&gt;&gt;lblPayments.Name" xml:space="preserve">
+    <value>lblPayments</value>
+  </data>
+  <data name="ChkDrive.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ChkDrive.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_cmbSupplier.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="txtChqNumber.Properties.NullValuePrompt" xml:space="preserve">
-    <value>0000000000</value>
+  <data name="_gridInvoices.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
   </data>
-  <data name="txtChqNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+  <data name="lblOpenInvoicesSum.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
-  <data name="txtChqNumber.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="_gridPayments.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
   </data>
-  <data name="&gt;&gt;txtChqNumber.Name" xml:space="preserve">
-    <value>txtChqNumber</value>
+  <data name="&gt;&gt;scanPreview.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;txtChqNumber.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="GridAttached.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;txtChqNumber.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
+  <data name="&gt;&gt;_viewPayments.Name" xml:space="preserve">
+    <value>_viewPayments</value>
   </data>
-  <data name="&gt;&gt;txtChqNumber.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="split.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="LabelControl15.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="&gt;&gt;AttachedPage.Name" xml:space="preserve">
+    <value>AttachedPage</value>
   </data>
-  <data name="LabelControl15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 91</value>
+  <data name="&gt;&gt;_spinAmount.Name" xml:space="preserve">
+    <value>_spinAmount</value>
   </data>
-  <data name="LabelControl15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 15</value>
+  <data name="GridTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="LabelControl15.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="_gridInvoices.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnScanAndPay.Text" xml:space="preserve">
+    <value>Scan And Pay</value>
+  </data>
+  <data name="lblMethod.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="&gt;&gt;payPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="LabelControl15.Text" xml:space="preserve">
     <value>Cheque Number :</value>
   </data>
-  <data name="&gt;&gt;LabelControl15.Name" xml:space="preserve">
-    <value>LabelControl15</value>
-  </data>
-  <data name="&gt;&gt;LabelControl15.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;LabelControl15.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnScanAndPay.Parent" xml:space="preserve">
     <value>GroupCheques</value>
   </data>
-  <data name="&gt;&gt;LabelControl15.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="LabelControl17.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelControl17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 119</value>
-  </data>
-  <data name="LabelControl17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 15</value>
-  </data>
-  <data name="LabelControl17.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="LabelControl17.Text" xml:space="preserve">
-    <value>Cheque Bank :</value>
-  </data>
-  <data name="&gt;&gt;LabelControl17.Name" xml:space="preserve">
-    <value>LabelControl17</value>
-  </data>
-  <data name="&gt;&gt;LabelControl17.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;LabelControl17.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dtChqDueDate.Parent" xml:space="preserve">
     <value>GroupCheques</value>
   </data>
-  <data name="&gt;&gt;LabelControl17.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;filterPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="txtChqOwner.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 31</value>
-  </data>
-  <data name="txtChqOwner.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="&gt;&gt;lblOpenInvoicesSum.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="txtChqOwner.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 22</value>
   </data>
-  <data name="txtChqOwner.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;GroupCheques.Parent" xml:space="preserve">
+    <value>payPanel</value>
   </data>
-  <data name="&gt;&gt;txtChqOwner.Name" xml:space="preserve">
-    <value>txtChqOwner</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
-  <data name="&gt;&gt;txtChqOwner.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;AttachedPage.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;txtChqOwner.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;txtChqOwner.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="LabelControl14.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 63</value>
-  </data>
-  <data name="LabelControl14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 15</value>
-  </data>
-  <data name="LabelControl14.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="LabelControl14.Text" xml:space="preserve">
-    <value>Account Number :</value>
-  </data>
-  <data name="&gt;&gt;LabelControl14.Name" xml:space="preserve">
-    <value>LabelControl14</value>
-  </data>
-  <data name="&gt;&gt;LabelControl14.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;LabelControl14.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;LabelControl14.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="txtAccountNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 59</value>
-  </data>
-  <data name="txtAccountNumber.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="txtAccountNumber.Properties.NullValuePrompt" xml:space="preserve">
-    <value>0000000000</value>
-  </data>
-  <data name="txtAccountNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="txtAccountNumber.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;txtAccountNumber.Name" xml:space="preserve">
-    <value>txtAccountNumber</value>
-  </data>
-  <data name="&gt;&gt;txtAccountNumber.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txtAccountNumber.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;txtAccountNumber.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="LabelControl16.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelControl16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 35</value>
-  </data>
-  <data name="LabelControl16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 15</value>
-  </data>
-  <data name="LabelControl16.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="LabelControl16.Text" xml:space="preserve">
-    <value>Cheque Owner :</value>
-  </data>
-  <data name="&gt;&gt;LabelControl16.Name" xml:space="preserve">
-    <value>LabelControl16</value>
-  </data>
-  <data name="&gt;&gt;LabelControl16.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;LabelControl16.Parent" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;LabelControl16.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="GroupCheques.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="GroupCheques.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 2</value>
+  <data name="_datePayment.EditValue" type="System.DateTime, mscorlib">
+    <value>2026-03-05</value>
   </data>
   <data name="GroupCheques.Size" type="System.Drawing.Size, System.Drawing">
     <value>587, 169</value>
   </data>
-  <data name="GroupCheques.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="GroupCheques.Text" xml:space="preserve">
-    <value>Cheques Info</value>
-  </data>
-  <data name="&gt;&gt;GroupCheques.Name" xml:space="preserve">
-    <value>GroupCheques</value>
-  </data>
-  <data name="&gt;&gt;GroupCheques.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;GroupCheques.Parent" xml:space="preserve">
-    <value>payPanel</value>
-  </data>
-  <data name="&gt;&gt;GroupCheques.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblAmount.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="lblAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 15</value>
-  </data>
-  <data name="lblAmount.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="lblAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 15</value>
-  </data>
-  <data name="lblAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblAmount.Text" xml:space="preserve">
-    <value>Amount</value>
-  </data>
-  <data name="&gt;&gt;lblAmount.Name" xml:space="preserve">
-    <value>lblAmount</value>
-  </data>
-  <data name="&gt;&gt;lblAmount.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;lblAmount.Parent" xml:space="preserve">
     <value>payPanel</value>
+  </data>
+  <data name="&gt;&gt;split.Name" xml:space="preserve">
+    <value>split</value>
+  </data>
+  <data name="_cmbSupplier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 22</value>
   </data>
   <data name="&gt;&gt;lblAmount.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1185,328 +1389,244 @@
   <data name="_spinAmount.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
-  <data name="_spinAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 12</value>
-  </data>
-  <data name="_spinAmount.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_spinAmount.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_spinAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 22</value>
-  </data>
-  <data name="_spinAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_spinAmount.Name" xml:space="preserve">
-    <value>_spinAmount</value>
-  </data>
-  <data name="&gt;&gt;_spinAmount.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;_spinAmount.Parent" xml:space="preserve">
-    <value>payPanel</value>
-  </data>
-  <data name="&gt;&gt;_spinAmount.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblDate.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 48</value>
-  </data>
-  <data name="lblDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="lblDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 15</value>
-  </data>
-  <data name="lblDate.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblDate.Text" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="&gt;&gt;lblDate.Name" xml:space="preserve">
-    <value>lblDate</value>
-  </data>
-  <data name="&gt;&gt;lblDate.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblDate.Parent" xml:space="preserve">
-    <value>payPanel</value>
-  </data>
-  <data name="&gt;&gt;lblDate.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="_datePayment.EditValue" type="System.DateTime, mscorlib">
-    <value>2026-03-05</value>
-  </data>
-  <data name="_datePayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 40</value>
-  </data>
-  <data name="_datePayment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_datePayment.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_datePayment.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+  <data name="dtChqDueDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
     <value>Combo</value>
   </data>
-  <data name="_datePayment.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
+  <data name="&gt;&gt;LabelControl17.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
   </data>
-  <data name="_datePayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 22</value>
-  </data>
-  <data name="_datePayment.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_datePayment.Name" xml:space="preserve">
-    <value>_datePayment</value>
-  </data>
-  <data name="&gt;&gt;_datePayment.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;_datePayment.Parent" xml:space="preserve">
-    <value>payPanel</value>
-  </data>
-  <data name="&gt;&gt;_datePayment.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lblMethod.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="lblMethod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 69</value>
-  </data>
-  <data name="lblMethod.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="lblMethod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 15</value>
-  </data>
-  <data name="lblMethod.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lblMethod.Text" xml:space="preserve">
-    <value>Method</value>
-  </data>
-  <data name="&gt;&gt;lblMethod.Name" xml:space="preserve">
-    <value>lblMethod</value>
-  </data>
-  <data name="&gt;&gt;lblMethod.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblMethod.Parent" xml:space="preserve">
-    <value>payPanel</value>
-  </data>
-  <data name="&gt;&gt;lblMethod.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="_cmbMethod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>59, 68</value>
-  </data>
-  <data name="_cmbMethod.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_cmbMethod.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_cmbMethod.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
-  </data>
-  <data name="_cmbMethod.Properties.Items" xml:space="preserve">
-    <value>Cash</value>
-  </data>
-  <data name="_cmbMethod.Properties.Items1" xml:space="preserve">
-    <value>Cheque</value>
-  </data>
-  <data name="_cmbMethod.Properties.Items2" xml:space="preserve">
-    <value>BankTransfer</value>
-  </data>
-  <data name="_cmbMethod.Properties.Items3" xml:space="preserve">
-    <value>CreditCard</value>
-  </data>
-  <data name="_cmbMethod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 22</value>
-  </data>
-  <data name="_cmbMethod.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;_cmbMethod.Name" xml:space="preserve">
-    <value>_cmbMethod</value>
-  </data>
-  <data name="&gt;&gt;_cmbMethod.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;_cmbMethod.Parent" xml:space="preserve">
-    <value>payPanel</value>
-  </data>
-  <data name="&gt;&gt;_cmbMethod.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="_btnEditPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_btnEditPay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>59, 133</value>
-  </data>
-  <data name="_btnEditPay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_btnEditPay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 31</value>
-  </data>
-  <data name="_btnEditPay.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="_btnEditPay.Text" xml:space="preserve">
-    <value>Edit Payment</value>
-  </data>
-  <data name="&gt;&gt;_btnEditPay.Name" xml:space="preserve">
-    <value>_btnEditPay</value>
-  </data>
-  <data name="&gt;&gt;_btnEditPay.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;_btnEditPay.Parent" xml:space="preserve">
-    <value>payPanel</value>
-  </data>
-  <data name="&gt;&gt;_btnEditPay.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="_btnPay.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="_btnPay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>59, 96</value>
-  </data>
-  <data name="_btnPay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="_btnPay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 31</value>
-  </data>
-  <data name="_btnPay.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="_btnPay.Text" xml:space="preserve">
-    <value>Add Payment</value>
-  </data>
-  <data name="&gt;&gt;_btnPay.Name" xml:space="preserve">
-    <value>_btnPay</value>
+  <data name="filterPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;_btnPay.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;_btnPay.Parent" xml:space="preserve">
-    <value>payPanel</value>
+  <data name="_gridInvoices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 63</value>
   </data>
-  <data name="&gt;&gt;_btnPay.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="_datePayment.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
   </data>
-  <data name="payPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;txtChqOwner.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="payPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="GridTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>750, 563</value>
   </data>
-  <data name="payPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+  <data name="lblMethod.Text" xml:space="preserve">
+    <value>Method</value>
   </data>
-  <data name="payPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>750, 173</value>
+  <data name="&gt;&gt;LabelControl19.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="payPanel.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;split.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;payPanel.Name" xml:space="preserve">
-    <value>payPanel</value>
+  <data name="&gt;&gt;_cmbSupplier.Name" xml:space="preserve">
+    <value>_cmbSupplier</value>
   </data>
-  <data name="&gt;&gt;payPanel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;lblPayments.Parent" xml:space="preserve">
+    <value>filterPanel</value>
   </data>
-  <data name="&gt;&gt;payPanel.Parent" xml:space="preserve">
-    <value>split.Panel2</value>
+  <data name="LabelControl19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 15</value>
   </data>
-  <data name="&gt;&gt;payPanel.ZOrder" xml:space="preserve">
+  <data name="btnResetChqs.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="_gridInvoices.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;split.Panel2.Name" xml:space="preserve">
-    <value>split.Panel2</value>
+  <data name="lblDate.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;split.Panel2.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;GridTabControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;split.Panel2.Parent" xml:space="preserve">
-    <value>split</value>
-  </data>
-  <data name="&gt;&gt;split.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="split.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1360, 736</value>
-  </data>
-  <data name="split.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;split.Name" xml:space="preserve">
-    <value>split</value>
-  </data>
-  <data name="&gt;&gt;split.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;split.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;split.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1360, 736</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Supplier Payments</value>
-  </data>
-  <data name="&gt;&gt;_viewInvoices.Name" xml:space="preserve">
-    <value>_viewInvoices</value>
-  </data>
-  <data name="&gt;&gt;_viewInvoices.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;_viewPayments.Name" xml:space="preserve">
-    <value>_viewPayments</value>
-  </data>
-  <data name="&gt;&gt;_viewPayments.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="lblMethod.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;ViewAttached.Name" xml:space="preserve">
     <value>ViewAttached</value>
   </data>
-  <data name="&gt;&gt;ViewAttached.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="_cmbMethod.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>StockSupplierPaymentsForm</value>
+  <data name="&gt;&gt;SplitterCtl.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_btnEditPay.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;GroupCheques.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="&gt;&gt;txtChqNumber.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="txtChqOwner.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelControl16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 15</value>
+  </data>
+  <data name="&gt;&gt;btnBrowse.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="_cmbMethod.Properties.Items2" xml:space="preserve">
+    <value>BankTransfer</value>
+  </data>
+  <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 48</value>
+  </data>
+  <data name="lblOpenInvoices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 15</value>
+  </data>
+  <data name="_viewInvoices.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblAmount.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>305, 106</value>
+  </data>
+  <data name="ChkDrive.Properties.Caption" xml:space="preserve">
+    <value>Use Drive</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="SplitterCtl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;payPanel.Parent" xml:space="preserve">
+    <value>split.Panel2</value>
+  </data>
+  <data name="_btnPay.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="_datePayment.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;SplitterCtl.Panel2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SplitGroupPanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>Application</value>
+  </data>
+  <data name="&gt;&gt;_viewInvoices.Name" xml:space="preserve">
+    <value>_viewInvoices</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="lblOpenInvoices.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="split.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="GridAttached.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="scanPreview.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;_spinAmount.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_gridInvoices.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelControl15.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="filterPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>604, 63</value>
+  </data>
+  <data name="&gt;&gt;LabelControl19.Parent" xml:space="preserve">
+    <value>GroupCheques</value>
+  </data>
+  <data name="&gt;&gt;btnResetChqs.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnScan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>382, 106</value>
+  </data>
+  <data name="dtChqDueDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>374, 31</value>
+  </data>
+  <data name="lblPayments.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="_spinAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>57, 12</value>
+  </data>
+  <data name="&gt;&gt;ChqGridPage.Parent" xml:space="preserve">
+    <value>GridTabControl</value>
+  </data>
+  <data name="_gridPayments.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblPayments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 40</value>
+  </data>
+  <data name="_btnEditPay.Text" xml:space="preserve">
+    <value>Edit Payment</value>
+  </data>
+  <data name="&gt;&gt;_datePayment.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl18.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="scannedFilesList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 535</value>
+  </data>
+  <data name="&gt;&gt;txtChqNumber.Name" xml:space="preserve">
+    <value>txtChqNumber</value>
+  </data>
+  <data name="txtChqBank.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="_spinAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 22</value>
+  </data>
+  <data name="txtChqOwner.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblDate.Text" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="_gridPayments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="scanPreview.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="LabelControl14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 63</value>
+  </data>
+  <data name="lblOpenInvoicesSum.Text" xml:space="preserve">
+    <value> 0.00</value>
+  </data>
+  <data name="txtChqNumber.Properties.NullValuePrompt" xml:space="preserve">
+    <value>0000000000</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

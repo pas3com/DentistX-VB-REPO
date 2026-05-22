@@ -32,6 +32,7 @@ Partial Class SchedulerNew
         Me.tblFilterDoctors = New DevExpress.Utils.Layout.TablePanel()
         Me.btnFilterDoctor0 = New DevExpress.XtraEditors.SimpleButton()
         Me.pnlDoctorFilterScroll = New DevExpress.XtraEditors.XtraScrollableControl()
+        Me.btnLabs = New DevExpress.XtraEditors.SimpleButton()
         Me.flpDoctorFilterButtons = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnFilterDoctor1 = New DevExpress.XtraEditors.SimpleButton()
         Me.btnFilterDoctor2 = New DevExpress.XtraEditors.SimpleButton()
@@ -173,13 +174,16 @@ Partial Class SchedulerNew
         '
         'filtersTable
         '
-        Me.filtersTable.Columns.AddRange(New DevExpress.Utils.Layout.TablePanelColumn() {New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 58.1!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 45.14!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 46.76!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!)})
+        Me.filtersTable.Columns.AddRange(New DevExpress.Utils.Layout.TablePanelColumn() {New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 58.1!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 45.14!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 46.76!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!), New DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50.0!)})
+        Me.filtersTable.Controls.Add(Me.btnLabs)
         Me.filtersTable.Controls.Add(Me.pnlFilterDoctors)
+        Me.filtersTable.Controls.Add(Me.btnAdd)
         Me.filtersTable.Controls.Add(Me.lblStartTime)
         Me.filtersTable.Controls.Add(Me.pnlFilterReasons)
         Me.filtersTable.Controls.Add(Me.dtStartTime)
         Me.filtersTable.Controls.Add(Me.pnlFilterPatients)
         Me.filtersTable.Controls.Add(Me.includeReasonCheck)
+        Me.filtersTable.Controls.Add(Me.btnWeekSnapshot)
         Me.filtersTable.Controls.Add(Me.lblPatients)
         Me.filtersTable.Controls.Add(Me.btnNextView)
         Me.filtersTable.Controls.Add(Me.btnPrevView)
@@ -199,7 +203,7 @@ Partial Class SchedulerNew
         'pnlFilterDoctors
         '
         Me.pnlFilterDoctors.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.filtersTable.SetColumn(Me.pnlFilterDoctors, 2)
+        Me.filtersTable.SetColumn(Me.pnlFilterDoctors, 3)
         Me.filtersTable.SetColumnSpan(Me.pnlFilterDoctors, 9)
         Me.pnlFilterDoctors.Controls.Add(Me.tblFilterDoctors)
         resources.ApplyResources(Me.pnlFilterDoctors, "pnlFilterDoctors")
@@ -233,6 +237,15 @@ Partial Class SchedulerNew
         Me.pnlDoctorFilterScroll.Controls.Add(Me.flpDoctorFilterButtons)
         Me.pnlDoctorFilterScroll.Name = "pnlDoctorFilterScroll"
         Me.tblFilterDoctors.SetRow(Me.pnlDoctorFilterScroll, 0)
+        '
+        'btnLabs
+        '
+        Me.btnLabs.Appearance.Font = CType(resources.GetObject("btnLabs.Appearance.Font"), System.Drawing.Font)
+        Me.btnLabs.Appearance.Options.UseFont = True
+        Me.filtersTable.SetColumn(Me.btnLabs, 1)
+        resources.ApplyResources(Me.btnLabs, "btnLabs")
+        Me.btnLabs.Name = "btnLabs"
+        Me.filtersTable.SetRow(Me.btnLabs, 2)
         '
         'flpDoctorFilterButtons
         '
@@ -325,7 +338,7 @@ Partial Class SchedulerNew
         Me.lblStartTime.Appearance.Options.UseFont = True
         Me.lblStartTime.Appearance.Options.UseTextOptions = True
         Me.lblStartTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.filtersTable.SetColumn(Me.lblStartTime, 5)
+        Me.filtersTable.SetColumn(Me.lblStartTime, 6)
         resources.ApplyResources(Me.lblStartTime, "lblStartTime")
         Me.lblStartTime.Name = "lblStartTime"
         Me.filtersTable.SetRow(Me.lblStartTime, 2)
@@ -333,7 +346,7 @@ Partial Class SchedulerNew
         'pnlFilterReasons
         '
         Me.pnlFilterReasons.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.filtersTable.SetColumn(Me.pnlFilterReasons, 5)
+        Me.filtersTable.SetColumn(Me.pnlFilterReasons, 6)
         Me.filtersTable.SetColumnSpan(Me.pnlFilterReasons, 6)
         Me.pnlFilterReasons.Controls.Add(Me.tblFilterReasons)
         resources.ApplyResources(Me.pnlFilterReasons, "pnlFilterReasons")
@@ -421,7 +434,7 @@ Partial Class SchedulerNew
         '
         'dtStartTime
         '
-        Me.filtersTable.SetColumn(Me.dtStartTime, 6)
+        Me.filtersTable.SetColumn(Me.dtStartTime, 7)
         resources.ApplyResources(Me.dtStartTime, "dtStartTime")
         Me.dtStartTime.Name = "dtStartTime"
         Me.dtStartTime.Properties.Appearance.Font = CType(resources.GetObject("dtStartTime.Properties.Appearance.Font"), System.Drawing.Font)
@@ -445,7 +458,7 @@ Partial Class SchedulerNew
         'pnlFilterPatients
         '
         Me.pnlFilterPatients.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.filtersTable.SetColumn(Me.pnlFilterPatients, 2)
+        Me.filtersTable.SetColumn(Me.pnlFilterPatients, 3)
         Me.filtersTable.SetColumnSpan(Me.pnlFilterPatients, 2)
         Me.pnlFilterPatients.Controls.Add(Me.tblFilterPatients)
         resources.ApplyResources(Me.pnlFilterPatients, "pnlFilterPatients")
@@ -485,7 +498,7 @@ Partial Class SchedulerNew
         '
         'includeReasonCheck
         '
-        Me.filtersTable.SetColumn(Me.includeReasonCheck, 2)
+        Me.filtersTable.SetColumn(Me.includeReasonCheck, 3)
         resources.ApplyResources(Me.includeReasonCheck, "includeReasonCheck")
         Me.includeReasonCheck.Name = "includeReasonCheck"
         Me.includeReasonCheck.Properties.Appearance.Font = CType(resources.GetObject("includeReasonCheck.Properties.Appearance.Font"), System.Drawing.Font)
@@ -505,7 +518,7 @@ Partial Class SchedulerNew
         Me.lblPatients.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         resources.ApplyResources(Me.lblPatients, "lblPatients")
         Me.lblPatients.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
-        Me.filtersTable.SetColumn(Me.lblPatients, 1)
+        Me.filtersTable.SetColumn(Me.lblPatients, 2)
         Me.lblPatients.LineVisible = True
         Me.lblPatients.Name = "lblPatients"
         Me.filtersTable.SetRow(Me.lblPatients, 0)
@@ -515,7 +528,7 @@ Partial Class SchedulerNew
         resources.ApplyResources(Me.btnNextView, "btnNextView")
         Me.btnNextView.Appearance.Font = CType(resources.GetObject("btnNextView.Appearance.Font"), System.Drawing.Font)
         Me.btnNextView.Appearance.Options.UseFont = True
-        Me.filtersTable.SetColumn(Me.btnNextView, 11)
+        Me.filtersTable.SetColumn(Me.btnNextView, 12)
         Me.btnNextView.Name = "btnNextView"
         Me.filtersTable.SetRow(Me.btnNextView, 1)
         Me.filtersTable.SetRowSpan(Me.btnNextView, 2)
@@ -542,7 +555,7 @@ Partial Class SchedulerNew
         Me.lblDoc.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         resources.ApplyResources(Me.lblDoc, "lblDoc")
         Me.lblDoc.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
-        Me.filtersTable.SetColumn(Me.lblDoc, 1)
+        Me.filtersTable.SetColumn(Me.lblDoc, 2)
         Me.lblDoc.LineVisible = True
         Me.lblDoc.Name = "lblDoc"
         Me.filtersTable.SetRow(Me.lblDoc, 1)
@@ -559,7 +572,7 @@ Partial Class SchedulerNew
         Me.lblOptions.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         resources.ApplyResources(Me.lblOptions, "lblOptions")
         Me.lblOptions.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
-        Me.filtersTable.SetColumn(Me.lblOptions, 1)
+        Me.filtersTable.SetColumn(Me.lblOptions, 2)
         Me.lblOptions.LineVisible = True
         Me.lblOptions.Name = "lblOptions"
         Me.filtersTable.SetRow(Me.lblOptions, 2)
@@ -575,7 +588,7 @@ Partial Class SchedulerNew
         Me.lblStatusFilter.Appearance.Options.UseTextOptions = True
         Me.lblStatusFilter.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.lblStatusFilter.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
-        Me.filtersTable.SetColumn(Me.lblStatusFilter, 4)
+        Me.filtersTable.SetColumn(Me.lblStatusFilter, 5)
         resources.ApplyResources(Me.lblStatusFilter, "lblStatusFilter")
         Me.lblStatusFilter.LineVisible = True
         Me.lblStatusFilter.Name = "lblStatusFilter"
@@ -583,7 +596,7 @@ Partial Class SchedulerNew
         '
         'boldFontCheck
         '
-        Me.filtersTable.SetColumn(Me.boldFontCheck, 3)
+        Me.filtersTable.SetColumn(Me.boldFontCheck, 4)
         resources.ApplyResources(Me.boldFontCheck, "boldFontCheck")
         Me.boldFontCheck.Name = "boldFontCheck"
         Me.boldFontCheck.Properties.Appearance.Font = CType(resources.GetObject("boldFontCheck.Properties.Appearance.Font"), System.Drawing.Font)
@@ -593,7 +606,7 @@ Partial Class SchedulerNew
         '
         'sizeFontCheck
         '
-        Me.filtersTable.SetColumn(Me.sizeFontCheck, 4)
+        Me.filtersTable.SetColumn(Me.sizeFontCheck, 5)
         resources.ApplyResources(Me.sizeFontCheck, "sizeFontCheck")
         Me.sizeFontCheck.Name = "sizeFontCheck"
         Me.sizeFontCheck.Properties.Appearance.Font = CType(resources.GetObject("sizeFontCheck.Properties.Appearance.Font"), System.Drawing.Font)
@@ -609,7 +622,7 @@ Partial Class SchedulerNew
         Me.lblApptsCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         resources.ApplyResources(Me.lblApptsCount, "lblApptsCount")
         Me.lblApptsCount.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
-        Me.filtersTable.SetColumn(Me.lblApptsCount, 9)
+        Me.filtersTable.SetColumn(Me.lblApptsCount, 10)
         Me.lblApptsCount.Name = "lblApptsCount"
         Me.filtersTable.SetRow(Me.lblApptsCount, 2)
         '
@@ -619,14 +632,14 @@ Partial Class SchedulerNew
         Me.lblCount.Appearance.Options.UseFont = True
         Me.lblCount.Appearance.Options.UseTextOptions = True
         Me.lblCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.filtersTable.SetColumn(Me.lblCount, 10)
+        Me.filtersTable.SetColumn(Me.lblCount, 11)
         resources.ApplyResources(Me.lblCount, "lblCount")
         Me.lblCount.Name = "lblCount"
         Me.filtersTable.SetRow(Me.lblCount, 2)
         '
         'dtEndTime
         '
-        Me.filtersTable.SetColumn(Me.dtEndTime, 8)
+        Me.filtersTable.SetColumn(Me.dtEndTime, 9)
         resources.ApplyResources(Me.dtEndTime, "dtEndTime")
         Me.dtEndTime.Name = "dtEndTime"
         Me.dtEndTime.Properties.Appearance.Font = CType(resources.GetObject("dtEndTime.Properties.Appearance.Font"), System.Drawing.Font)
@@ -653,7 +666,7 @@ Partial Class SchedulerNew
         Me.lblEndTime.Appearance.Options.UseFont = True
         Me.lblEndTime.Appearance.Options.UseTextOptions = True
         Me.lblEndTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.filtersTable.SetColumn(Me.lblEndTime, 7)
+        Me.filtersTable.SetColumn(Me.lblEndTime, 8)
         resources.ApplyResources(Me.lblEndTime, "lblEndTime")
         Me.lblEndTime.Name = "lblEndTime"
         Me.filtersTable.SetRow(Me.lblEndTime, 2)
@@ -707,14 +720,12 @@ Partial Class SchedulerNew
         resources.ApplyResources(Me.pnlHeaderToolbarFlow, "pnlHeaderToolbarFlow")
         Me.pnlHeaderToolbarFlow.BackColor = System.Drawing.Color.Transparent
         Me.pnlHeaderToolbarFlow.Controls.Add(Me.chkUse24)
-        Me.pnlHeaderToolbarFlow.Controls.Add(Me.btnAdd)
         Me.pnlHeaderToolbarFlow.Controls.Add(Me.btnPrev)
         Me.pnlHeaderToolbarFlow.Controls.Add(Me.cmbView)
         Me.pnlHeaderToolbarFlow.Controls.Add(Me.btnNext)
         Me.pnlHeaderToolbarFlow.Controls.Add(Me.btnToday)
         Me.pnlHeaderToolbarFlow.Controls.Add(Me.LabelControl1)
         Me.pnlHeaderToolbarFlow.Controls.Add(Me.gotoDate)
-        Me.pnlHeaderToolbarFlow.Controls.Add(Me.btnWeekSnapshot)
         Me.pnlHeaderToolbarFlow.Name = "pnlHeaderToolbarFlow"
         '
         'chkUse24
@@ -729,8 +740,12 @@ Partial Class SchedulerNew
         '
         resources.ApplyResources(Me.btnAdd, "btnAdd")
         Me.btnAdd.Appearance.Font = CType(resources.GetObject("btnAdd.Appearance.Font"), System.Drawing.Font)
+        Me.btnAdd.Appearance.ForeColor = System.Drawing.Color.Red
         Me.btnAdd.Appearance.Options.UseFont = True
+        Me.btnAdd.Appearance.Options.UseForeColor = True
+        Me.filtersTable.SetColumn(Me.btnAdd, 1)
         Me.btnAdd.Name = "btnAdd"
+        Me.filtersTable.SetRow(Me.btnAdd, 0)
         '
         'btnPrev
         '
@@ -780,8 +795,10 @@ Partial Class SchedulerNew
         '
         Me.btnWeekSnapshot.Appearance.Font = CType(resources.GetObject("btnWeekSnapshot.Appearance.Font"), System.Drawing.Font)
         Me.btnWeekSnapshot.Appearance.Options.UseFont = True
+        Me.filtersTable.SetColumn(Me.btnWeekSnapshot, 1)
         resources.ApplyResources(Me.btnWeekSnapshot, "btnWeekSnapshot")
         Me.btnWeekSnapshot.Name = "btnWeekSnapshot"
+        Me.filtersTable.SetRow(Me.btnWeekSnapshot, 1)
         '
         'pnlHeaderRight
         '
@@ -929,4 +946,5 @@ Partial Class SchedulerNew
     Friend WithEvents btnFilterDoctor6 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnFilterDoctor7 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnFilterDoctor8 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnLabs As DevExpress.XtraEditors.SimpleButton
 End Class

@@ -64,7 +64,7 @@ Module ModuleImages
 
     ''' <summary>Max dimension (width or height) when loading large images to avoid OOM. Used for thumbnails and preview.</summary>
     Public Const LoadImageMaxDimension As Integer = 256
-    ''' <summary>Max file size (bytes) to attempt load; larger files return Nothing to avoid OOM. ~25 MB.</summary>
+    ' Max file size (bytes) to attempt load; larger files return Nothing to avoid OOM. ~25 MB.
     'Public Const LoadImageMaxFileSizeBytes As Long = 25 * 1024 * 1024
 
     ''' <summary>Load image from file and scale down if larger than maxDimension. Never throws. Returns Nothing on OOM, invalid image, file in use, or error. Uses FileShare.ReadWrite so file is not locked. Caller must dispose.</summary>

@@ -214,8 +214,13 @@ Public Class CityCombo
     End Sub
 
     Private Sub btnAddCity_Click(sender As Object, e As EventArgs) Handles BtnAddCity.Click
-        Frm_TblCities.Icon = MainView3.Icon
-        Frm_TblCities.ShowDialog()
+        ComboFlyoutSearchHelper.RaiseBeforeMaintenanceModalDialog()
+        ComboFlyoutSearchHelper.HideFlyoutIfOpen(Flyout1)
+        Dim owner = ComboFlyoutSearchHelper.TryGetApplicationShellForm()
+        Using frm As New Frm_TblCities()
+            If owner IsNot Nothing AndAlso owner.Icon IsNot Nothing Then frm.Icon = owner.Icon
+            frm.ShowDialog(owner)
+        End Using
         BindCities()
     End Sub
 

@@ -23,25 +23,38 @@ Public Class OrthoTreatDATA
 
 	Public Function Select_Record(ByVal clsOrthoTreat As OrthoTreat) As OrthoTreat
 		Using conn As New SqlConnection(ConnectionString)
-			Dim sql As String = "Select * FROM OrthoTreat WHERE TreatID = @TreatID AND  PatientID = @PatientID And OrthoID = @OrthoID"
-			Return conn.QuerySingleOrDefault(Of OrthoTreat)(sql, New With {.TreatID = clsOrthoTreat.TreatID, .PatientID = clsOrthoTreat.PatientID, .OrthoID = clsOrthoTreat.OrthoID})
+			Dim sql As String = "SELECT * FROM OrthoTreat WHERE TreatID = @TreatID AND PatientID = @PatientID"
+			Return conn.QuerySingleOrDefault(Of OrthoTreat)(sql, New With {.TreatID = clsOrthoTreat.TreatID, .PatientID = clsOrthoTreat.PatientID})
 		End Using
+	End Function
+
+	Private Shared Function EffectiveOrthoIdForTreat(patientId As Integer, orthoId As Integer) As Integer
+		If orthoId > 0 Then Return orthoId
+		Return OrthoInfDATA.ResolveDefaultOrthoIdForPatient(patientId)
+	End Function
+
+	Private Shared Function EffectiveOrthoIdForTreatUpdate(oldT As OrthoTreat, newT As OrthoTreat) As Integer
+		If newT.OrthoID > 0 Then Return newT.OrthoID
+		If oldT IsNot Nothing AndAlso oldT.OrthoID > 0 Then Return oldT.OrthoID
+		Return OrthoInfDATA.ResolveDefaultOrthoIdForPatient(newT.PatientID)
 	End Function
 
 	Public Function Add(ByVal clsOrthoTreat As OrthoTreat) As Boolean
 		Dim RowsAffected As Integer = 0
+		Dim orthoId As Integer = EffectiveOrthoIdForTreat(clsOrthoTreat.PatientID, clsOrthoTreat.OrthoID)
 		Using conn As New SqlConnection(ConnectionString)
 			Dim sql As String = "INSERT INTO OrthoTreat (PatientID, OrthoID, DiagID, BeginDate, OrthoType, ExtraUL, ExtraLL, ExtraUR, ExtraLR, FixerType, BraketType) VALUES (@PatientID, @OrthoID, @DiagID, @BeginDate, @OrthoType, @ExtraUL, @ExtraLL, @ExtraUR, @ExtraLR, @FixerType, @BraketType)"
-			RowsAffected = conn.Execute(sql, New With {.PatientID = clsOrthoTreat.PatientID, .OrthoID = clsOrthoTreat.OrthoID, .DiagID = clsOrthoTreat.DiagID, .BeginDate = clsOrthoTreat.BeginDate, .OrthoType = clsOrthoTreat.OrthoType, .ExtraUL = clsOrthoTreat.ExtraUL, .ExtraLL = clsOrthoTreat.ExtraLL, .ExtraUR = clsOrthoTreat.ExtraUR, .ExtraLR = clsOrthoTreat.ExtraLR, .FixerType = clsOrthoTreat.FixerType, .BraketType = clsOrthoTreat.BraketType})
+			RowsAffected = conn.Execute(sql, New With {.PatientID = clsOrthoTreat.PatientID, .OrthoID = orthoId, .DiagID = clsOrthoTreat.DiagID, .BeginDate = clsOrthoTreat.BeginDate, .OrthoType = clsOrthoTreat.OrthoType, .ExtraUL = clsOrthoTreat.ExtraUL, .ExtraLL = clsOrthoTreat.ExtraLL, .ExtraUR = clsOrthoTreat.ExtraUR, .ExtraLR = clsOrthoTreat.ExtraLR, .FixerType = clsOrthoTreat.FixerType, .BraketType = clsOrthoTreat.BraketType})
 			Return RowsAffected > 0
 		End Using
 	End Function
 
 	Public Function AddFull(ByVal clsOrthoTreat As OrthoTreat) As Boolean
 		Dim RowsAffected As Integer = 0
+		Dim orthoId As Integer = EffectiveOrthoIdForTreat(clsOrthoTreat.PatientID, clsOrthoTreat.OrthoID)
 		Using conn As New SqlConnection(ConnectionString)
 			Dim sql As String = "INSERT INTO OrthoTreat (PatientID, OrthoID, BeginDate, OrthoType, ExtraUL, ExtraLL, ExtraUR, ExtraLR, FixerDate, FixerType, BraketType, FinishDate) VALUES (@PatientID, @OrthoID, @BeginDate, @OrthoType, @ExtraUL, @ExtraLL, @ExtraUR, @ExtraLR, @FixerDate, @FixerType, @BraketType, @FinishDate)"
-			RowsAffected = conn.Execute(sql, New With {.PatientID = clsOrthoTreat.PatientID, .OrthoID = clsOrthoTreat.OrthoID, .BeginDate = clsOrthoTreat.BeginDate, .OrthoType = clsOrthoTreat.OrthoType, .ExtraUL = clsOrthoTreat.ExtraUL, .ExtraLL = clsOrthoTreat.ExtraLL, .ExtraUR = clsOrthoTreat.ExtraUR, .ExtraLR = clsOrthoTreat.ExtraLR, .FixerDate = clsOrthoTreat.FixerDate, .FixerType = clsOrthoTreat.FixerType, .BraketType = clsOrthoTreat.BraketType, .FinishDate = clsOrthoTreat.FinishDate})
+			RowsAffected = conn.Execute(sql, New With {.PatientID = clsOrthoTreat.PatientID, .OrthoID = orthoId, .BeginDate = clsOrthoTreat.BeginDate, .OrthoType = clsOrthoTreat.OrthoType, .ExtraUL = clsOrthoTreat.ExtraUL, .ExtraLL = clsOrthoTreat.ExtraLL, .ExtraUR = clsOrthoTreat.ExtraUR, .ExtraLR = clsOrthoTreat.ExtraLR, .FixerDate = clsOrthoTreat.FixerDate, .FixerType = clsOrthoTreat.FixerType, .BraketType = clsOrthoTreat.BraketType, .FinishDate = clsOrthoTreat.FinishDate})
 			Return RowsAffected > 0
 		End Using
 	End Function
@@ -54,12 +67,13 @@ Public Class OrthoTreatDATA
 	''' </summary>
 	Public Function AddForOrthoTreating(ByVal clsOrthoTreat As OrthoTreat) As Boolean
 		Dim rowsAffected As Integer = 0
+		Dim orthoId As Integer = EffectiveOrthoIdForTreat(clsOrthoTreat.PatientID, clsOrthoTreat.OrthoID)
 		Using conn As New SqlConnection(ConnectionString)
 			Dim sql As String = "INSERT INTO OrthoTreat (PatientID, OrthoID, BeginDate, OrthoType, ExtraUL, ExtraLL, ExtraUR, ExtraLR, FixerType, BraketType) " &
 								"VALUES (@PatientID, @OrthoID, @BeginDate, @OrthoType, @ExtraUL, @ExtraLL, @ExtraUR, @ExtraLR, @FixerType, @BraketType)"
 			rowsAffected = conn.Execute(sql, New With {
 				.PatientID = clsOrthoTreat.PatientID,
-				.OrthoID = clsOrthoTreat.OrthoID,
+				.OrthoID = orthoId,
 				.BeginDate = clsOrthoTreat.BeginDate,
 				.OrthoType = clsOrthoTreat.OrthoType,
 				.ExtraUL = clsOrthoTreat.ExtraUL,
@@ -77,10 +91,11 @@ Public Class OrthoTreatDATA
 
 	Public Function Update(oldOrthoTreat As OrthoTreat, newOrthoTreat As OrthoTreat) As Boolean
 		Using conn As New SqlConnection(ConnectionString)
+			Dim newOrthoId As Integer = EffectiveOrthoIdForTreatUpdate(oldOrthoTreat, newOrthoTreat)
 			Dim parameters = New With {
-					.NewPatientID = newOrthoTreat.PatientID, .OldPatientID = oldOrthoTreat.PatientID, .NewOrthoID = newOrthoTreat.OrthoID, .OldOrthoID = oldOrthoTreat.OrthoID, .OldTreatID = oldOrthoTreat.TreatID, .NewBeginDate = newOrthoTreat.BeginDate, .OldBeginDate = oldOrthoTreat.BeginDate, .NewOrthoType = newOrthoTreat.OrthoType, .OldOrthoType = oldOrthoTreat.OrthoType, .NewExtraUL = newOrthoTreat.ExtraUL, .OldExtraUL = oldOrthoTreat.ExtraUL, .NewExtraLL = newOrthoTreat.ExtraLL, .OldExtraLL = oldOrthoTreat.ExtraLL, .NewExtraUR = newOrthoTreat.ExtraUR, .OldExtraUR = oldOrthoTreat.ExtraUR, .NewExtraLR = newOrthoTreat.ExtraLR, .OldExtraLR = oldOrthoTreat.ExtraLR, .NewFixerDate = newOrthoTreat.FixerDate, .OldFixerDate = oldOrthoTreat.FixerDate, .NewFixerType = newOrthoTreat.FixerType, .OldFixerType = oldOrthoTreat.FixerType, .NewBraketType = newOrthoTreat.BraketType, .OldBraketType = oldOrthoTreat.BraketType, .NewFinishDate = newOrthoTreat.FinishDate, .OldFinishDate = oldOrthoTreat.FinishDate
+					.NewPatientID = newOrthoTreat.PatientID, .OldPatientID = oldOrthoTreat.PatientID, .NewOrthoID = newOrthoId, .OldOrthoID = oldOrthoTreat.OrthoID, .OldTreatID = oldOrthoTreat.TreatID, .NewBeginDate = newOrthoTreat.BeginDate, .OldBeginDate = oldOrthoTreat.BeginDate, .NewOrthoType = newOrthoTreat.OrthoType, .OldOrthoType = oldOrthoTreat.OrthoType, .NewExtraUL = newOrthoTreat.ExtraUL, .OldExtraUL = oldOrthoTreat.ExtraUL, .NewExtraLL = newOrthoTreat.ExtraLL, .OldExtraLL = oldOrthoTreat.ExtraLL, .NewExtraUR = newOrthoTreat.ExtraUR, .OldExtraUR = oldOrthoTreat.ExtraUR, .NewExtraLR = newOrthoTreat.ExtraLR, .OldExtraLR = oldOrthoTreat.ExtraLR, .NewFixerDate = newOrthoTreat.FixerDate, .OldFixerDate = oldOrthoTreat.FixerDate, .NewFixerType = newOrthoTreat.FixerType, .OldFixerType = oldOrthoTreat.FixerType, .NewBraketType = newOrthoTreat.BraketType, .OldBraketType = oldOrthoTreat.BraketType, .NewFinishDate = newOrthoTreat.FinishDate, .OldFinishDate = oldOrthoTreat.FinishDate
 										  }
-			Dim affectedRows As Integer = conn.Execute("UPDATE [OrthoTreat] SET [PatientID] = @NewPatientID, [OrthoID] = @NewOrthoID, [BeginDate] = @NewBeginDate, [OrthoType] = @NewOrthoType, [ExtraUL] = @NewExtraUL, [ExtraLL] = @NewExtraLL, [ExtraUR] = @NewExtraUR, [ExtraLR] = @NewExtraLR, [FixerDate] = @NewFixerDate, [FixerType] = @NewFixerType, [BraketType] = @NewBraketType, [FinishDate] = @NewFinishDate WHERE [TreatID] = @OldTreatID AND [OrthoID] = @OldOrthoID AND [PatientID] = @OldPatientID", parameters)
+			Dim affectedRows As Integer = conn.Execute("UPDATE [OrthoTreat] SET [PatientID] = @NewPatientID, [OrthoID] = @NewOrthoID, [BeginDate] = @NewBeginDate, [OrthoType] = @NewOrthoType, [ExtraUL] = @NewExtraUL, [ExtraLL] = @NewExtraLL, [ExtraUR] = @NewExtraUR, [ExtraLR] = @NewExtraLR, [FixerDate] = @NewFixerDate, [FixerType] = @NewFixerType, [BraketType] = @NewBraketType, [FinishDate] = @NewFinishDate WHERE [TreatID] = @OldTreatID AND [PatientID] = @OldPatientID AND ISNULL([OrthoID], 0) = ISNULL(@OldOrthoID, 0)", parameters)
 			Return affectedRows > 0
 		End Using
 	End Function
@@ -88,7 +103,7 @@ Public Class OrthoTreatDATA
 	Public Function Delete(ByVal clsOrthoTreat As OrthoTreat) As Boolean
 		Dim deleteStatement As String =
 			"DELETE FROM [OrthoTreat] 
-			WHERE TreatID = @TreatID AND OrthoID = @OrthoID AND PatientID = @PatientID"
+			WHERE TreatID = @TreatID AND PatientID = @PatientID AND ISNULL(OrthoID, 0) = ISNULL(@OrthoID, 0)"
 		Using connection As SqlConnection = DentistXDATA.GetConnection()
 			connection.Open()
 			Dim affectedRows As Integer = connection.Execute(deleteStatement, New With {.TreatID = clsOrthoTreat.TreatID, .OrthoID = clsOrthoTreat.OrthoID, .PatientID = clsOrthoTreat.PatientID})

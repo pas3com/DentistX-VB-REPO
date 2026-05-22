@@ -269,6 +269,22 @@ Public Class OrthoInfDATA
     End Function
 
 
+    ''' <summary>
+    ''' When OrthoTreat / OrthoTrtDet are saved with OrthoID 0 or unset, map to an episode key from OrthoInf.
+    ''' Uses the latest episode by TreatDate (then OrthoID) so legacy single-episode data and new multi-episode rows behave predictably.
+    ''' Returns 0 if the patient has no OrthoInf row.
+    ''' </summary>
+    Public Shared Function ResolveDefaultOrthoIdForPatient(patientId As Integer) As Integer
+        If patientId <= 0 Then Return 0
+        Dim cs As String = DentistXDATA.GetConnection.ConnectionString
+        Using conn As New SqlConnection(cs)
+            conn.Open()
+            Const sql As String = "SELECT TOP 1 OrthoID FROM dbo.OrthoInf WHERE PatientID = @PatientID ORDER BY TreatDate DESC, OrthoID DESC"
+            Dim id = conn.QuerySingleOrDefault(Of Integer?)(sql, New With {.PatientID = patientId})
+            Return If(id.HasValue, id.Value, 0)
+        End Using
+    End Function
+
     'Methods to get parents and childs
     Public Function GetPatient(ByVal PatientID As Integer) As Patient
         Dim parent As Patient = Nothing

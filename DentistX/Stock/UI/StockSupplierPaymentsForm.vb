@@ -1003,7 +1003,7 @@ Public Class StockSupplierPaymentsForm
         End Try
     End Sub
 
-    Private Async Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
+    Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
         Dim inv = TryCast(_viewInvoices.GetFocusedRow(), BuyInvoice)
         If inv Is Nothing Then
             XtraMessageBox.Show(Me, If(Eng, "Select an invoice first.", "يرجى اختيار فاتورة أولا."), If(Eng, "Cheques", "الشيكات"), MessageBoxButtons.OK, MessageBoxIcon.Warning)

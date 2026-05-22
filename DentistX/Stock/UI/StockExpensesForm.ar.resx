@@ -130,18 +130,6 @@
   <data name="_cmbCategory.Location" type="System.Drawing.Point, System.Drawing">
     <value>912, 58</value>
   </data>
-  <data name="lblSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>832, 62</value>
-  </data>
-  <data name="lblSupplier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 15</value>
-  </data>
-  <data name="lblSupplier.Text" xml:space="preserve">
-    <value>المورد</value>
-  </data>
-  <data name="_cmbSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>644, 58</value>
-  </data>
   <data name="lblAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>551, 62</value>
   </data>

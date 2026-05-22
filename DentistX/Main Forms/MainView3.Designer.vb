@@ -54,6 +54,7 @@ Partial Class MainView3
         Me.AccordionControlSeparator11 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         Me.btnCsiImage = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlSeparator15 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
+        Me.btnOLdScheduler = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.PatientsButton = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.btnListPatients = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.btnPatientsDebts = New DevExpress.XtraBars.Navigation.AccordionControlElement()
@@ -69,7 +70,6 @@ Partial Class MainView3
         Me.btnRecieveOrder = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.btnLabPay = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.VendorsButton = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.btnOLdScheduler = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.FluentDesignFormControl1 = New DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl()
         Me.MainMenu = New DevExpress.XtraBars.BarSubItem()
         Me.DBaseMnu = New DevExpress.XtraBars.BarSubItem()
@@ -117,6 +117,7 @@ Partial Class MainView3
         Me.btnAccountWhats = New DevExpress.XtraBars.BarButtonItem()
         Me.btnAccountReminder = New DevExpress.XtraBars.BarButtonItem()
         Me.btnWhatsAppActivityLog = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnWhatsAppOutboundArchive = New DevExpress.XtraBars.BarButtonItem()
         Me.btnApptsReminder = New DevExpress.XtraBars.BarButtonItem()
         Me.spinShortReminder = New DevExpress.XtraBars.BarEditItem()
         Me.RepositoryItemSpinEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit()
@@ -298,10 +299,10 @@ Partial Class MainView3
         '
         Me.MainAccordion.DistanceBetweenRootGroups = 3
         resources.ApplyResources(Me.MainAccordion, "MainAccordion")
-        Me.MainAccordion.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.ClinicButton, Me.AccordionControlSeparator3, Me.AuxButton, Me.AccordionControlSeparator10, Me.AccordionControlSeparator11, Me.btnCsiImage, Me.PatientsButton, Me.AccordionControlSeparator12, Me.DoctorsButton, Me.AccordionControlSeparator13, Me.LaboratoriesButton, Me.VendorsButton})
+        Me.MainAccordion.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.ClinicButton, Me.AccordionControlSeparator3, Me.AuxButton, Me.AccordionControlSeparator10, Me.AccordionControlSeparator11, Me.btnCsiImage, Me.btnOLdScheduler, Me.PatientsButton, Me.AccordionControlSeparator12, Me.DoctorsButton, Me.AccordionControlSeparator13, Me.LaboratoriesButton, Me.VendorsButton})
         Me.MainAccordion.Name = "MainAccordion"
         Me.MainAccordion.OptionsHamburgerMenu.HighlightRootElements = DevExpress.Utils.DefaultBoolean.[True]
-        Me.MainAccordion.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent
+        Me.MainAccordion.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch
         Me.MainAccordion.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always
         Me.MainAccordion.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu
         '
@@ -462,6 +463,17 @@ Partial Class MainView3
         Me.AccordionControlSeparator15.Name = "AccordionControlSeparator15"
         Me.AccordionControlSeparator15.Visible = False
         '
+        'btnOLdScheduler
+        '
+        Me.btnOLdScheduler.Appearance.Default.Font = CType(resources.GetObject("btnOLdScheduler.Appearance.Default.Font"), System.Drawing.Font)
+        Me.btnOLdScheduler.Appearance.Default.Options.UseFont = True
+        Me.btnOLdScheduler.Appearance.Normal.Font = CType(resources.GetObject("btnOLdScheduler.Appearance.Normal.Font"), System.Drawing.Font)
+        Me.btnOLdScheduler.Appearance.Normal.Options.UseFont = True
+        Me.btnOLdScheduler.ImageOptions.SvgImage = Global.DentistX.My.Resources.Resources.bo_scheduler
+        Me.btnOLdScheduler.Name = "btnOLdScheduler"
+        Me.btnOLdScheduler.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        resources.ApplyResources(Me.btnOLdScheduler, "btnOLdScheduler")
+        '
         'PatientsButton
         '
         Me.PatientsButton.Appearance.Default.Font = CType(resources.GetObject("PatientsButton.Appearance.Default.Font"), System.Drawing.Font)
@@ -577,21 +589,14 @@ Partial Class MainView3
         '
         Me.VendorsButton.Appearance.Default.Font = CType(resources.GetObject("VendorsButton.Appearance.Default.Font"), System.Drawing.Font)
         Me.VendorsButton.Appearance.Default.Options.UseFont = True
-        Me.VendorsButton.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.btnOLdScheduler})
         Me.VendorsButton.Expanded = True
         resources.ApplyResources(Me.VendorsButton, "VendorsButton")
         Me.VendorsButton.Name = "VendorsButton"
         '
-        'btnOLdScheduler
-        '
-        Me.btnOLdScheduler.Name = "btnOLdScheduler"
-        Me.btnOLdScheduler.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        resources.ApplyResources(Me.btnOLdScheduler, "btnOLdScheduler")
-        '
         'FluentDesignFormControl1
         '
         Me.FluentDesignFormControl1.FluentDesignForm = Me
-        Me.FluentDesignFormControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu, Me.DBaseMnu, Me.ListChckConnMnu, Me.ListBackupMnu, Me.SkinDropDownButtonItem1, Me.ListRestoreMnu, Me.SettingsMnu, Me.ListSettingsMnu, Me.ExitMnu, Me.btnMnuExit, Me.BasicDataMenu, Me.CitiesMnu, Me.HealthMnu, Me.TreatsMnu, Me.WireTypeMnu, Me.WireMeasureMnu, Me.VisitTypeMnu, Me.RxDetailsMnu, Me.ListCitiesMnu, Me.ListHealthMnu, Me.ListTreatsMnu, Me.ListWireTypeMnu, Me.ListWireMeasureMnu, Me.ListVisitTypeMnu, Me.ListRxDetailsMnu, Me.ListUserMngmntMnu, Me.ListUsersMnu, Me.ListAddNewUsrGrpMnu, Me.ListPermissionMnu, Me.ListChangePassMnu, Me.LstRestPassMnu, Me.bntLogInOUT, Me.UseHdrCheckItem, Me.BtnDashCreate, Me.BtnFinancePass, Me.btnAbout, Me.BtnMedic, Me.btnRxFly, Me.btnClinicInfo, Me.HelperBarSub, Me.btnCheuqes, Me.TodayButton, Me.btnSettings, Me.BtnListVendors, Me.btnWhatsApp, Me.btnApptSend, Me.btnAccountWhats, Me.btnAccountReminder, Me.btnWhatsAppActivityLog, Me.BarWhats, Me.btnStaffMange, Me.btnApptsReminder, Me.btnLast10Patients, Me.spinShortReminder, Me.btnScheduler, Me.ToggleSwch, Me.langCombo, Me.btnSnapshotSender})
+        Me.FluentDesignFormControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu, Me.DBaseMnu, Me.ListChckConnMnu, Me.ListBackupMnu, Me.SkinDropDownButtonItem1, Me.ListRestoreMnu, Me.SettingsMnu, Me.ListSettingsMnu, Me.ExitMnu, Me.btnMnuExit, Me.BasicDataMenu, Me.CitiesMnu, Me.HealthMnu, Me.TreatsMnu, Me.WireTypeMnu, Me.WireMeasureMnu, Me.VisitTypeMnu, Me.RxDetailsMnu, Me.ListCitiesMnu, Me.ListHealthMnu, Me.ListTreatsMnu, Me.ListWireTypeMnu, Me.ListWireMeasureMnu, Me.ListVisitTypeMnu, Me.ListRxDetailsMnu, Me.ListUserMngmntMnu, Me.ListUsersMnu, Me.ListAddNewUsrGrpMnu, Me.ListPermissionMnu, Me.ListChangePassMnu, Me.LstRestPassMnu, Me.bntLogInOUT, Me.UseHdrCheckItem, Me.BtnDashCreate, Me.BtnFinancePass, Me.btnAbout, Me.BtnMedic, Me.btnRxFly, Me.btnClinicInfo, Me.HelperBarSub, Me.btnCheuqes, Me.TodayButton, Me.btnSettings, Me.BtnListVendors, Me.btnWhatsApp, Me.btnApptSend, Me.btnAccountWhats, Me.btnAccountReminder, Me.btnWhatsAppActivityLog, Me.btnWhatsAppOutboundArchive, Me.BarWhats, Me.btnStaffMange, Me.btnApptsReminder, Me.btnLast10Patients, Me.spinShortReminder, Me.btnScheduler, Me.ToggleSwch, Me.langCombo, Me.btnSnapshotSender})
         resources.ApplyResources(Me.FluentDesignFormControl1, "FluentDesignFormControl1")
         Me.FluentDesignFormControl1.Manager = Me.FluentFormDefaultManager1
         Me.FluentDesignFormControl1.Name = "FluentDesignFormControl1"
@@ -1014,7 +1019,7 @@ Partial Class MainView3
         Me.BarWhats.Id = 54
         Me.BarWhats.ItemAppearance.Normal.Font = CType(resources.GetObject("BarWhats.ItemAppearance.Normal.Font"), System.Drawing.Font)
         Me.BarWhats.ItemAppearance.Normal.Options.UseFont = True
-        Me.BarWhats.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.btnWhatsApp), New DevExpress.XtraBars.LinkPersistInfo(Me.btnApptSend), New DevExpress.XtraBars.LinkPersistInfo(Me.btnAccountWhats), New DevExpress.XtraBars.LinkPersistInfo(Me.btnAccountReminder), New DevExpress.XtraBars.LinkPersistInfo(Me.btnWhatsAppActivityLog), New DevExpress.XtraBars.LinkPersistInfo(Me.btnApptsReminder), New DevExpress.XtraBars.LinkPersistInfo(Me.spinShortReminder)})
+        Me.BarWhats.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.btnWhatsApp), New DevExpress.XtraBars.LinkPersistInfo(Me.btnApptSend), New DevExpress.XtraBars.LinkPersistInfo(Me.btnAccountWhats), New DevExpress.XtraBars.LinkPersistInfo(Me.btnAccountReminder), New DevExpress.XtraBars.LinkPersistInfo(Me.btnWhatsAppActivityLog), New DevExpress.XtraBars.LinkPersistInfo(Me.btnWhatsAppOutboundArchive), New DevExpress.XtraBars.LinkPersistInfo(Me.btnApptsReminder), New DevExpress.XtraBars.LinkPersistInfo(Me.spinShortReminder)})
         Me.BarWhats.Name = "BarWhats"
         '
         'btnWhatsApp
@@ -1056,6 +1061,14 @@ Partial Class MainView3
         Me.btnWhatsAppActivityLog.ItemAppearance.Normal.Font = CType(resources.GetObject("btnWhatsAppActivityLog.ItemAppearance.Normal.Font"), System.Drawing.Font)
         Me.btnWhatsAppActivityLog.ItemAppearance.Normal.Options.UseFont = True
         Me.btnWhatsAppActivityLog.Name = "btnWhatsAppActivityLog"
+        '
+        'btnWhatsAppOutboundArchive
+        '
+        resources.ApplyResources(Me.btnWhatsAppOutboundArchive, "btnWhatsAppOutboundArchive")
+        Me.btnWhatsAppOutboundArchive.Id = 68
+        Me.btnWhatsAppOutboundArchive.ItemAppearance.Normal.Font = CType(resources.GetObject("btnWhatsAppOutboundArchive.ItemAppearance.Normal.Font"), System.Drawing.Font)
+        Me.btnWhatsAppOutboundArchive.ItemAppearance.Normal.Options.UseFont = True
+        Me.btnWhatsAppOutboundArchive.Name = "btnWhatsAppOutboundArchive"
         '
         'btnApptsReminder
         '
@@ -1181,8 +1194,8 @@ Partial Class MainView3
         '
         Me.FluentFormDefaultManager1.DockWindowTabFont = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FluentFormDefaultManager1.Form = Me
-        Me.FluentFormDefaultManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu, Me.DBaseMnu, Me.ListChckConnMnu, Me.ListBackupMnu, Me.SkinDropDownButtonItem1, Me.ListRestoreMnu, Me.SettingsMnu, Me.ListSettingsMnu, Me.ExitMnu, Me.btnMnuExit, Me.BasicDataMenu, Me.CitiesMnu, Me.HealthMnu, Me.TreatsMnu, Me.WireTypeMnu, Me.WireMeasureMnu, Me.VisitTypeMnu, Me.RxDetailsMnu, Me.ListCitiesMnu, Me.ListHealthMnu, Me.ListTreatsMnu, Me.ListWireTypeMnu, Me.ListWireMeasureMnu, Me.ListVisitTypeMnu, Me.ListRxDetailsMnu, Me.ListUserMngmntMnu, Me.ListUsersMnu, Me.ListAddNewUsrGrpMnu, Me.ListPermissionMnu, Me.ListChangePassMnu, Me.LstRestPassMnu, Me.bntLogInOUT, Me.UseHdrCheckItem, Me.BtnDashCreate, Me.BtnFinancePass, Me.btnAbout, Me.BtnMedic, Me.btnRxFly, Me.btnClinicInfo, Me.HelperBarSub, Me.btnCheuqes, Me.TodayButton, Me.btnSettings, Me.BtnListVendors, Me.btnWhatsApp, Me.btnApptSend, Me.btnAccountWhats, Me.btnAccountReminder, Me.btnWhatsAppActivityLog, Me.BarWhats, Me.btnStaffMange, Me.btnApptsReminder, Me.btnLast10Patients, Me.spinShortReminder, Me.btnScheduler, Me.ToggleSwch, Me.langCombo, Me.btnSnapshotSender})
-        Me.FluentFormDefaultManager1.MaxItemId = 68
+        Me.FluentFormDefaultManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu, Me.DBaseMnu, Me.ListChckConnMnu, Me.ListBackupMnu, Me.SkinDropDownButtonItem1, Me.ListRestoreMnu, Me.SettingsMnu, Me.ListSettingsMnu, Me.ExitMnu, Me.btnMnuExit, Me.BasicDataMenu, Me.CitiesMnu, Me.HealthMnu, Me.TreatsMnu, Me.WireTypeMnu, Me.WireMeasureMnu, Me.VisitTypeMnu, Me.RxDetailsMnu, Me.ListCitiesMnu, Me.ListHealthMnu, Me.ListTreatsMnu, Me.ListWireTypeMnu, Me.ListWireMeasureMnu, Me.ListVisitTypeMnu, Me.ListRxDetailsMnu, Me.ListUserMngmntMnu, Me.ListUsersMnu, Me.ListAddNewUsrGrpMnu, Me.ListPermissionMnu, Me.ListChangePassMnu, Me.LstRestPassMnu, Me.bntLogInOUT, Me.UseHdrCheckItem, Me.BtnDashCreate, Me.BtnFinancePass, Me.btnAbout, Me.BtnMedic, Me.btnRxFly, Me.btnClinicInfo, Me.HelperBarSub, Me.btnCheuqes, Me.TodayButton, Me.btnSettings, Me.BtnListVendors, Me.btnWhatsApp, Me.btnApptSend, Me.btnAccountWhats, Me.btnAccountReminder, Me.btnWhatsAppActivityLog, Me.btnWhatsAppOutboundArchive, Me.BarWhats, Me.btnStaffMange, Me.btnApptsReminder, Me.btnLast10Patients, Me.spinShortReminder, Me.btnScheduler, Me.ToggleSwch, Me.langCombo, Me.btnSnapshotSender})
+        Me.FluentFormDefaultManager1.MaxItemId = 69
         Me.FluentFormDefaultManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemHypertextLabel1, Me.RepositoryItemSpinEdit1, Me.RepositoryItemTextEdit1, Me.langComboItems})
         Me.FluentFormDefaultManager1.ShowFullMenus = True
         '
@@ -2214,6 +2227,7 @@ Partial Class MainView3
     Friend WithEvents btnAccountWhats As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnAccountReminder As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnWhatsAppActivityLog As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnWhatsAppOutboundArchive As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarWhats As DevExpress.XtraBars.BarSubItem
     Friend WithEvents btnStaffMange As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnApptsReminder As DevExpress.XtraBars.BarButtonItem

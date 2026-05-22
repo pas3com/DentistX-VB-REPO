@@ -28,6 +28,17 @@ Imports Dapper
 			End Using
 		End Function
 
+		Public Function CountByBrandName(brandName As String, Optional excludeBrandId As Integer? = Nothing) As Integer
+			If String.IsNullOrWhiteSpace(brandName) Then Return 0
+			Dim trimmed = brandName.Trim()
+			Using conn As New SqlConnection(ConnectionString)
+				conn.Open()
+				Const sql As String =
+					"SELECT COUNT(*) FROM ImplantBrand WHERE LTRIM(RTRIM(BrandName)) = @BrandName AND (@ExcludeBrandId IS NULL OR BrandID <> @ExcludeBrandId)"
+				Return CInt(conn.ExecuteScalar(Of Integer)(sql, New With {.BrandName = trimmed, .ExcludeBrandId = excludeBrandId}))
+			End Using
+		End Function
+
 		Public Function Add(ByVal clsImplantBrand As ImplantBrand) As Boolean
 			Dim RowsAffected As Integer=0
 			Using conn As New SqlConnection(ConnectionString)
@@ -39,10 +50,9 @@ Imports Dapper
 
 		Public Function Update(oldImplantBrand As ImplantBrand, newImplantBrand As ImplantBrand) As Boolean
 			Using conn As New SqlConnection(ConnectionString)
-			    Dim parameters = New With { 
-					.NewBrandName = newImplantBrand.BrandName, .OldBrandName = oldImplantBrand.BrandName
-										  }
-			    Dim affectedRows As Integer = conn.Execute("UPDATE [ImplantBrand] SET [BrandName] = @NewBrandName WHERE [BrandName] = @OldBrandName", parameters)
+			    Dim affectedRows As Integer = conn.Execute(
+					"UPDATE [ImplantBrand] SET [BrandName] = @NewBrandName WHERE [BrandID] = @BrandID",
+					New With {.NewBrandName = newImplantBrand.BrandName, .BrandID = oldImplantBrand.BrandID})
 			    Return affectedRows > 0
 			End Using
 		End Function

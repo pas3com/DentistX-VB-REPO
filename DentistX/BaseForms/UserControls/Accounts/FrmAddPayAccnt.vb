@@ -13,6 +13,21 @@ Public Class FrmAddPayAccnt
         IntegerMoneyEditorFocus.ConfigureIntegerMoneyTextEdit(PayValue)
         IntegerMoneyEditorFocus.AttachTextEditZeroEmptyElseSelectAll(PayValue)
     End Sub
+
+    ''' <summary>Default button / DevExpress layout can steal focus after <see cref="Load"/> — defer like <see cref="FrmChqPayAccnt"/>.</summary>
+    Private Sub FrmAddPayAccnt_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        BeginInvoke(New MethodInvoker(AddressOf ApplyDeferredPayValueFocus))
+    End Sub
+
+    Private Sub ApplyDeferredPayValueFocus()
+        Try
+            If PayValue Is Nothing OrElse PayValue.IsDisposed OrElse Not PayValue.Visible OrElse Not PayValue.Enabled OrElse PayValue.Properties.ReadOnly Then Return
+            ActiveControl = PayValue
+            PayValue.Focus()
+            If PayValue.ContainsFocus Then PayValue.SelectAll()
+        Catch
+        End Try
+    End Sub
     ''' <summary>Load form for adding a new Cash payment for the given treatment. Call before ShowDialog.</summary>
     Public Sub LoadForAdd(patientId As Integer, trtId As Integer, treatDetail As String)
         _patientId = patientId

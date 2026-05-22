@@ -25,6 +25,7 @@ Public Class CtlNotes
     End Sub
 
     Public Sub LoadPatientData(patientId As Integer)
+        SyncCurrentPatientFromForm(patientId)
         LoadData(patientId)
     End Sub
 
@@ -191,14 +192,29 @@ Public Class CtlNotes
     End Property
 
     Public Sub LoadData(ByVal patientID As Integer)
-        If CurrentPatient Is Nothing Then Exit Sub
         Try
             Me.SuspendLayout()
 
             If Patient_NotesBindingSource Is Nothing Then
                 Patient_NotesBindingSource = New BindingSource
             End If
-            clsPatient = clsPatientData.Select_RecordByID(patientID) 'New Patient With {.PatientID = patientID} '
+
+            If patientID <= 0 Then
+                Patient_NotesBindingSource.DataSource = New List(Of Patient_Notes)()
+                NotesGrid.DataSource = Patient_NotesBindingSource
+                Return
+            End If
+
+            clsPatient = If(CurrentPatient IsNot Nothing AndAlso CurrentPatient.PatientID = patientID,
+                            CurrentPatient,
+                            clsPatientData.Select_RecordByID(patientID))
+            If clsPatient Is Nothing Then
+                Patient_NotesBindingSource.DataSource = New List(Of Patient_Notes)()
+                NotesGrid.DataSource = Patient_NotesBindingSource
+                Return
+            End If
+
+            CurrentPatient = clsPatient
             clsPatientNotes = clsPatientData.GetPatient_Notes(clsPatient)
             Patient_NotesBindingSource.DataSource = clsPatientNotes.ToList
             NotesGroup.Text = "جدول ملاحظات المريض " & clsPatient.PatientName

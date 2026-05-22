@@ -26,6 +26,7 @@ Public Class DayControlNew
     Public Event VisitLabelClicked(visit As VisitSummary)
 
     Public Sub New()
+        InitializeComponent()
         Me.Width = 100
         Me.Height = 100
         Me.BackColor = Color.White

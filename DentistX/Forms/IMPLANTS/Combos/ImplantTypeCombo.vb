@@ -261,7 +261,7 @@ Public Class ImplantTypeCombo
         If String.IsNullOrWhiteSpace(typeName) Then Return -1
         Const sql As String = "SELECT TypeID FROM ImplantType WHERE TypeName = @TypeName"
         Using conn As New SqlConnection(_connectionString)
-            Dim result As Integer? = conn.QuerySingleOrDefault(Of Integer?)(sql, New With {.TypeName = typeName})
+            Dim result As Integer? = conn.QueryFirstOrDefault(Of Integer?)(sql, New With {.TypeName = typeName})
             Return If(result.HasValue, result.Value, -1)
         End Using
     End Function

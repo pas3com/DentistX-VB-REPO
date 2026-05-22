@@ -28,6 +28,15 @@ Imports Dapper
 			End Using
 		End Function
 
+		Public Function CountByDiameterMM(diameterMm As Decimal, Optional excludeDiameterId As Integer? = Nothing) As Integer
+			Using conn As New SqlConnection(ConnectionString)
+				conn.Open()
+				Const sql As String =
+					"SELECT COUNT(*) FROM ImplantDiameter WHERE DiameterMM = @DiameterMM AND (@ExcludeDiameterId IS NULL OR DiameterID <> @ExcludeDiameterId)"
+				Return CInt(conn.ExecuteScalar(Of Integer)(sql, New With {.DiameterMM = diameterMm, .ExcludeDiameterId = excludeDiameterId}))
+			End Using
+		End Function
+
 		Public Function Add(ByVal clsImplantDiameter As ImplantDiameter) As Boolean
 			Dim RowsAffected As Integer=0
 			Using conn As New SqlConnection(ConnectionString)
@@ -39,10 +48,9 @@ Imports Dapper
 
 		Public Function Update(oldImplantDiameter As ImplantDiameter, newImplantDiameter As ImplantDiameter) As Boolean
 			Using conn As New SqlConnection(ConnectionString)
-			    Dim parameters = New With { 
-					.NewDiameterMM = newImplantDiameter.DiameterMM, .OldDiameterMM = oldImplantDiameter.DiameterMM
-										  }
-			    Dim affectedRows As Integer = conn.Execute("UPDATE [ImplantDiameter] SET [DiameterMM] = @NewDiameterMM WHERE [DiameterMM] = @OldDiameterMM", parameters)
+			    Dim affectedRows As Integer = conn.Execute(
+					"UPDATE [ImplantDiameter] SET [DiameterMM] = @NewDiameterMM WHERE [DiameterID] = @DiameterID",
+					New With {.NewDiameterMM = newImplantDiameter.DiameterMM, .DiameterID = oldImplantDiameter.DiameterID})
 			    Return affectedRows > 0
 			End Using
 		End Function

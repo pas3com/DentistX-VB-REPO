@@ -150,7 +150,7 @@ Partial Public Class FrmMedicineDoze
      ClearRecord()
      ShowToolStripItems("Add")
      DozeIDSpinEdit.Select
-     DozeIDSpinEdit.Text = clsDentistXData.getAutoID("New", "MedicineDoze")
+     DozeIDSpinEdit.Text = DentistXDATA.getAutoID("New", "MedicineDoze")
  End Sub
 
  Private Sub Edit()

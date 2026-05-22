@@ -105,6 +105,14 @@ Public Class FrmWhatsAppActivityLog
         }
         ApplySimpleButtonFont(btnNext)
 
+        Dim btnOutbound As New SimpleButton With {
+            .Text = If(Eng, "Outbox queue…", "طابور الإرسال…"),
+            .Location = New Point(962, 22),
+            .Size = New Size(130, 26)
+        }
+        ApplySimpleButtonFont(btnOutbound)
+        AddHandler btnOutbound.Click, Sub(s, e) FrmWhatsAppOutboundArchive.ShowArchive(Me)
+
         _lblPage = New LabelControl With {
             .Text = "",
             .Location = New Point(8, 54),
@@ -139,7 +147,7 @@ Public Class FrmWhatsAppActivityLog
                                            End If
                                        End Sub
 
-        _topPanel.Controls.AddRange({lblSearch, _txtSearch, btnSearch, btnRefresh, _chkFail, lblRows, _cboPageSize, btnPrev, btnNext, _lblPage, _lblStorage})
+        _topPanel.Controls.AddRange({lblSearch, _txtSearch, btnSearch, btnRefresh, _chkFail, lblRows, _cboPageSize, btnPrev, btnNext, btnOutbound, _lblPage, _lblStorage})
 
         _grid.Dock = DockStyle.Fill
         _grid.Font = LogUiFont

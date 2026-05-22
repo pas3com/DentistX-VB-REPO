@@ -11,7 +11,7 @@
     <AssemblyName>DentistX</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -31,6 +31,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -41,7 +42,7 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>WindowsApp1.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,DV2001</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -52,7 +53,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>WindowsApp1.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,DV2001</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -82,7 +83,7 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Debug\</OutputPath>
     <DocumentationFile>WindowsApp1.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,DV2001</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
@@ -91,7 +92,7 @@
     <OutputPath>bin\x64\Release\</OutputPath>
     <DocumentationFile>WindowsApp1.xml</DocumentationFile>
     <Optimize>true</Optimize>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,DV2001</NoWarn>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
@@ -101,9 +102,6 @@
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.1.66\lib\net461\Dapper.dll</HintPath>
-    </Reference>
-    <Reference Include="DentistXLicense">
-      <HintPath>..\..\DentistXLicense\bin\Debug\DentistXLicense.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Charts.v25.1.Core, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -676,6 +674,12 @@
     <Compile Include="Backup\FrmDrive.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BaseForms\TreatsAddEdit\EditMultiTreatFrom.Designer.vb">
+      <DependentUpon>EditMultiTreatFrom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForms\TreatsAddEdit\EditMultiTreatFrom.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptCard.Designer.vb">
       <DependentUpon>ApptCard.vb</DependentUpon>
     </Compile>
@@ -686,6 +690,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptErrorHelper.vb" />
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\FullWeekSched.Designer.vb">
+      <DependentUpon>FullWeekSched.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\FullWeekSched.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptHeaderCtl.Designer.vb">
       <DependentUpon>ApptHeaderCtl.vb</DependentUpon>
     </Compile>
@@ -710,12 +720,15 @@
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\HtmlCard.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\WeekSched.Designer.vb">
+      <DependentUpon>WeekSched.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\WeekSched.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\SchedulerSnapshotShared.vb" />
     <Compile Include="BaseForms\UserControls\Appoint\WeekSnapshotHtmlExport.vb" />
     <Compile Include="BaseForms\UserControls\Appoint\ApptSnapshotHtmlBuilder.vb" />
-    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptCardLabelColorsDialog.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\SchedulerNew.Designer.vb">
       <DependentUpon>SchedulerNew.vb</DependentUpon>
     </Compile>
@@ -736,6 +749,9 @@
     <Compile Include="BaseForms\UserControls\Drawing\DicomViewerFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BaseForms\UserControls\Navigator\NavigatorPatientFilters.vb" />
+    <Compile Include="BaseForms\UserControls\Navigator\NavigatorPatientListState.vb" />
+    <Compile Include="BaseForms\UserControls\Navigator\NavigatorSearchUiCoordinator.vb" />
     <Compile Include="BaseForms\UserControls\Navigator\Navigator3.Designer.vb">
       <DependentUpon>Navigator3.vb</DependentUpon>
     </Compile>
@@ -773,12 +789,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WhatsApp\SchedulerSnapshotAutoSendService.vb" />
-    <Compile Include="BaseForms\UserControls\Appoint\WeekSnapshotPreviewForm.Designer.vb">
-      <DependentUpon>WeekSnapshotPreviewForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="BaseForms\UserControls\Appoint\WeekSnapshotPreviewForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="WhatsApp\SchedulerSnapshotSnapLog.vb" />
     <Compile Include="BaseForms\UserControls\Navigator\FrmTblOtherTRT.Designer.vb">
       <DependentUpon>FrmTblOtherTRT.vb</DependentUpon>
     </Compile>
@@ -792,16 +803,11 @@
     <Compile Include="Settings\FrmNewSettings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SettingsCompat.vb" />
     <Compile Include="Settings\SettingsRuntimeApply.vb" />
     <Compile Include="Settings\RuntimeUiLanguage.vb" />
     <Compile Include="BaseForms\IToothClickable.vb" />
     <Compile Include="BaseForms\IJawControl.vb" />
-    <Compile Include="BaseForms\TreatsAddEdit\AddNewTreatForm .Designer.vb">
-      <DependentUpon>AddNewTreatForm .vb</DependentUpon>
-    </Compile>
-    <Compile Include="BaseForms\TreatsAddEdit\AddNewTreatForm .vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="WhatsApp\FrmAccountReminderSchedule.Designer.vb">
       <DependentUpon>FrmAccountReminderSchedule.vb</DependentUpon>
     </Compile>
@@ -1052,10 +1058,10 @@
     <Compile Include="BaseForms\UserControls\Invoices\New Reports\FinancialReport.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BaseForms\UserControls\Invoices\Report\FrmClinic.Designer.vb">
+    <Compile Include="Forms\BasicDataMenu\FrmClinic.Designer.vb">
       <DependentUpon>FrmClinic.vb</DependentUpon>
     </Compile>
-    <Compile Include="BaseForms\UserControls\Invoices\Report\FrmClinic.vb">
+    <Compile Include="Forms\BasicDataMenu\FrmClinic.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BaseForms\UserControls\Invoices\Report\frmReportViewer.Designer.vb">
@@ -1412,6 +1418,19 @@
     </Compile>
     <Compile Include="WhatsApp\WhatsAppMessageCategories.vb" />
     <Compile Include="WhatsApp\WhatsHelper.vb" />
+    <Compile Include="WhatsApp\WhatsAppOutboundDispatchService.vb" />
+    <Compile Include="WhatsApp\WhatsAppOutboundMessageRow.vb" />
+    <Compile Include="WhatsApp\WhatsAppOutboundArchivePageResult.vb" />
+    <Compile Include="WhatsApp\WhatsAppOutboundArchiveRow.vb" />
+    <Compile Include="WhatsApp\WhatsAppOutboundPendingCasualRow.vb" />
+    <Compile Include="WhatsApp\FrmWhatsAppOutboundArchive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WhatsApp\WhatsAppOutboundRepository.vb" />
+    <Compile Include="WhatsApp\WhatsAppOutboundStatuses.vb" />
+    <Compile Include="WhatsApp\FrmWhatsOutboundPending.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WhatsApp\PatientWhatsControlsBinder.vb" />
     <Compile Include="Staff\Employee\FrmEmp.Designer.vb">
       <DependentUpon>FrmEmp.vb</DependentUpon>
@@ -1461,6 +1480,7 @@
     <Compile Include="WhatsApp\WhatsAppForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="WhatsApp\WhatsAppArchiveItem.vb" />
     <Compile Include="WhatsApp\WhatsAppService.vb" />
     <Compile Include="WhatsApp\WhatsAppSendContext.vb" />
     <Compile Include="WhatsApp\WhatsAppActivityLogRow.vb" />
@@ -1682,12 +1702,6 @@
     <Compile Include="Forms\IMPLANTS\Forms\FrmImplantType.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseForms\TreatsAddEdit\DelTreatFrom1.Designer.vb">
-      <DependentUpon>DelTreatFrom1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="BaseForms\TreatsAddEdit\DelTreatFrom1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="BaseForms\TreatsAddEdit\DoubleConfirmDialog.Designer.vb">
       <DependentUpon>DoubleConfirmDialog.vb</DependentUpon>
     </Compile>
@@ -1833,12 +1847,44 @@
     </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptDataProvider.vb" />
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptViewMode.vb" />
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptScheduleViewHeaderStrip.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptHostCtl.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptViewFactory.vb" />
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptWeekCtl.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptWeekCtl.WeekDayColumnController.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptWeekCtl.Snapshot.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptWeekCtl.Columns.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptWeekCtl.Chrome.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptWeekCtl.Render.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptWeekCtl.DragDrop.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptWeekCtl.Input.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\AppointmentCardPool.vb" />
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\WeekColumnRenderMode.vb" />
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\WeekDayCompactApptStrip.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\NewAppt\WeekDayDrawerHosts.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="BaseForms\UserControls\Appoint\NewAppt\ApptDayCtl.vb">
       <SubType>UserControl</SubType>
@@ -2241,6 +2287,7 @@
     <Compile Include="BaseForms\UserControls\Ortho\OpenNewOrthCTL.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="BaseForms\UserControls\Ortho\OrthoEmbeddedChrome.vb" />
     <Compile Include="BaseForms\UserControls\Jaws\KidJaws\KidLowerJaw.Designer.vb">
       <DependentUpon>KidLowerJaw.vb</DependentUpon>
     </Compile>
@@ -2645,11 +2692,26 @@
     <EmbeddedResource Include="Backup\FrmDrive.resx">
       <DependentUpon>FrmDrive.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\TreatsAddEdit\EditMultiTreatFrom.ar.resx">
+      <DependentUpon>EditMultiTreatFrom.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\TreatsAddEdit\EditMultiTreatFrom.en.resx">
+      <DependentUpon>EditMultiTreatFrom.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\TreatsAddEdit\EditMultiTreatFrom.resx">
+      <DependentUpon>EditMultiTreatFrom.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\ApptCard.resx">
       <DependentUpon>ApptCard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\ApptCardLabelColorsDialog.resx">
-      <DependentUpon>ApptCardLabelColorsDialog.vb</DependentUpon>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FullWeekSched.ar.resx">
+      <DependentUpon>FullWeekSched.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FullWeekSched.en.resx">
+      <DependentUpon>FullWeekSched.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\FullWeekSched.resx">
+      <DependentUpon>FullWeekSched.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\ApptHeaderCtl.ar.resx">
       <DependentUpon>ApptHeaderCtl.vb</DependentUpon>
@@ -2681,6 +2743,15 @@
     <EmbeddedResource Include="BaseForms\UserControls\Appoint\NewAppt\HtmlCard.resx">
       <DependentUpon>HtmlCard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\WeekSched.ar.resx">
+      <DependentUpon>WeekSched.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\WeekSched.en.resx">
+      <DependentUpon>WeekSched.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\UserControls\Appoint\WeekSched.resx">
+      <DependentUpon>WeekSched.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Appoint\SchedulerNew.ar.resx">
       <DependentUpon>SchedulerNew.vb</DependentUpon>
     </EmbeddedResource>
@@ -2695,9 +2766,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Appoint\SnapShotSender.resx">
       <DependentUpon>SnapShotSender.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\UserControls\Appoint\WeekSnapshotPreviewForm.resx">
-      <DependentUpon>WeekSnapshotPreviewForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Drawing\DicomViewerFrm.ar.resx">
       <DependentUpon>DicomViewerFrm.vb</DependentUpon>
@@ -2716,6 +2784,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Drawing\Thumb\ThumbGalleryViewer.resx">
       <DependentUpon>ThumbGalleryViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicDataMenu\FrmClinic.ar.resx">
+      <DependentUpon>FrmClinic.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicDataMenu\FrmClinic.en.resx">
+      <DependentUpon>FrmClinic.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Navigator\FrmTblOtherTRT.ar.resx">
       <DependentUpon>FrmTblOtherTRT.vb</DependentUpon>
@@ -2758,16 +2832,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\BasePatientWorkspace.ar.resx">
       <DependentUpon>BasePatientWorkspace.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\TreatsAddEdit\AddNewTreatForm .ar.resx">
-      <DependentUpon>AddNewTreatForm .vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\TreatsAddEdit\AddNewTreatForm .en.resx">
-      <DependentUpon>AddNewTreatForm .vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\TreatsAddEdit\AddNewTreatForm .resx">
-      <DependentUpon>AddNewTreatForm .vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Security\FrmUserFormAccess.resx">
       <DependentUpon>FrmUserFormAccess.vb</DependentUpon>
@@ -3046,7 +3110,7 @@
     <EmbeddedResource Include="BaseForms\UserControls\Invoices\New Reports\FinancialReport.resx">
       <DependentUpon>FinancialReport.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\UserControls\Invoices\Report\FrmClinic.resx">
+    <EmbeddedResource Include="Forms\BasicDataMenu\FrmClinic.resx">
       <DependentUpon>FrmClinic.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Invoices\Report\frmReportViewer.resx">
@@ -3066,6 +3130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\UserControls\Jaws\AdultJaws\AdultJawNewCode.resx">
       <DependentUpon>AdultJawNewCode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WhatsApp\FrmWhatsOutboundPending.resx">
+      <DependentUpon>FrmWhatsOutboundPending.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WhatsApp\Navigator\FrmPatientAccnt.ar.resx">
       <DependentUpon>FrmPatientAccnt.vb</DependentUpon>
@@ -3730,15 +3797,6 @@
     <EmbeddedResource Include="BaseForms\UserControls\Jaws\SlctdToothCTL.en.resx">
       <DependentUpon>SlctdToothCTL.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\TreatsAddEdit\DelTreatFrom1.ar.resx">
-      <DependentUpon>DelTreatFrom1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\TreatsAddEdit\DelTreatFrom1.en.resx">
-      <DependentUpon>DelTreatFrom1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BaseForms\TreatsAddEdit\DelTreatFrom1.resx">
-      <DependentUpon>DelTreatFrom1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\TreatsAddEdit\DoubleConfirmDialog.ar.resx">
       <DependentUpon>DoubleConfirmDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -4356,6 +4414,10 @@
       <Project>{527f21c5-06dd-491e-9ab6-78678c03dc4e}</Project>
       <Name>AppResources</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DentistXLicense\DentistXLicense.vbproj">
+      <Project>{16a12c4e-30d6-43b1-a4bb-b8525d040451}</Project>
+      <Name>DentistXLicense</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SvgResources\SvgResources.vbproj">
       <Project>{a3baece4-35c0-43c8-93e7-ea2b94e684ff}</Project>
       <Name>SvgResources</Name>
@@ -4417,6 +4479,7 @@
     <Content Include="Libs\Infralution.Localization.dll" />
     <Content Include="Libs\MonthCalendar.dll" />
     <Content Include="Libs\opendicom-sharp.dll" />
+    <None Include="Resources\moveup_16x16.png" />
     <None Include="Resources\zoom_16x16.png" />
     <None Include="Resources\viewmergeddata_16x16.png" />
     <None Include="Resources\combo_btn_search_16.bmp" />
@@ -4431,6 +4494,7 @@
     <None Include="Resources\Cheuqe.svg" />
     <None Include="Resources\Cheuqe.png" />
     <None Include="Resources\cancel_16x16.png" />
+    <None Include="Resources\bo_scheduler.svg" />
     <Content Include="Resources\csh.png" />
     <Content Include="Resources\DentistX.ico" />
     <Content Include="Resources\DentistXLogo.jpg" />
@@ -4466,6 +4530,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <ItemGroup>
     <Compile Include="Stock\Models\StockModels.vb" />
+    <Compile Include="Stock\StockUiLanguageScope.vb" />
     <Compile Include="Stock\DAL\StockRepositories.vb" />
     <Compile Include="Stock\BLL\StockServices.vb" />
     <Compile Include="Stock\UI\StockSuppliersForm.vb">

@@ -1,0 +1,58 @@
+﻿=== DentistX crash log ===
+Title: Application.ThreadException (UI thread)
+Utc: 2026-04-30 13:05:49Z
+Local: 2026-04-30 16:05:49Z
+Machine: PASCAL-2021
+User: PASCAL-2021\Pascal
+[ClinicNameEn]: Dr Imad Abatly Clinic
+[ClinicNameAr]: Dr Imad Abatly
+OS: Microsoft Windows NT 6.2.9200.0
+64-bit OS: True, 64-bit process: True
+CLR: 4.0.30319.42000
+Process: C:\Pascal\DentistX_64\DentistX.exe
+App base directory: C:\Pascal\DentistX_64\
+Working directory: C:\Pascal\DentistX_64
+Crash log directory: C:\Pascal\DentistX_64\crash_logs
+Main form: DentistX.MainView3 — DentistX Trial Version
+Open forms (4):
+  - [ACTIVE] DentistX.MainView3 | DentistX Trial Version
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.XtraEditors.Popup.ComboBoxPopupListBoxForm | 
+  - DevExpress.Utils.FlyoutPanelToolForm | 
+
+--- Last opened UI (session) ---
+Last form (Shown/visible at hook): DevExpress.Utils.FlyoutPanelToolForm | Text=
+  At (UTC): 2026-04-30 13:05:44Z
+Last user control (last became visible): DevExpress.Utils.FlyoutPanel | Name=Flyout1 | ParentForm=DevExpress.Utils.FlyoutPanelToolForm / 
+  At (UTC): 2026-04-30 13:05:44Z
+
+--- UI context (best effort) ---
+Thread: ManagedId=1, Name=(default), UI=STA
+ActiveForm: DentistX.MainView3 | Text=DentistX Trial Version
+Focused control (leaf): DentistX.BasePatientWorkspace | Name=BasePatientWorkspace; Text=
+  Parent[0]: DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer | Name=ContainerA; Text=
+  Parent[1]: DentistX.MainView3 | Name=MainView3; Text=DentistX Trial Version
+
+--- Exception detail ---
+--- Level 0 ---
+Type: System.NullReferenceException
+Message: Object reference not set to an instance of an object.
+HResult: 0x80004003
+TargetSite: DentistX.AddNewTrtForm..ctor
+Source: DentistX
+Stack:
+   at DentistX.AddNewTrtForm..ctor(Patient_ToothTrt clsToothTrt, Patient clsPatient)
+   at DentistX.AdultJaw.SaveTrt(Boolean mode, List`1 toothTrtList)
+   at DentistX.AdultJaw.TreeView_NodeMouseDoubleClick(Object sender, TreeNodeMouseClickEventArgs e)
+   at System.Windows.Forms.TreeView.OnNodeMouseDoubleClick(TreeNodeMouseClickEventArgs e)
+   at System.Windows.Forms.TreeView.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+--- Full ToString() (includes inners) ---
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at DentistX.AddNewTrtForm..ctor(Patient_ToothTrt clsToothTrt, Patient clsPatient)
+   at DentistX.AdultJaw.SaveTrt(Boolean mode, List`1 toothTrtList)
+   at DentistX.AdultJaw.TreeView_NodeMouseDoubleClick(Object sender, TreeNodeMouseClickEventArgs e)
+   at System.Windows.Forms.TreeView.OnNodeMouseDoubleClick(TreeNodeMouseClickEventArgs e)
+   at System.Windows.Forms.TreeView.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

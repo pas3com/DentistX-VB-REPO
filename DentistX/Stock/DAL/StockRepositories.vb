@@ -323,7 +323,8 @@ Module StockDAL
 
         Public Function GetByInvoice(invoiceId As Integer) As IEnumerable(Of BuyInvoiceLineItem)
             Dim sql = "
-                SELECT li.*, p.ProductName
+                SELECT li.LineItemID, li.InvoiceID, li.ProductID, li.Quantity, li.UnitPrice,
+                       li.BatchNumber, li.ExpirationDate, p.ProductName
                 FROM BuyInvoiceLineItems li
                 JOIN Products p ON li.ProductID = p.ProductID
                 WHERE li.InvoiceID=@InvoiceID"

@@ -51,7 +51,7 @@ Public Class FrmCrop
 
     Property CroppedImage As Image
 
-    ''' <summary>Full path written when Apply & Exit auto-saves a patient folder image.</summary>
+    ''' <summary>Full path written when Apply and Exit auto-saves a patient folder image.</summary>
     Property SavedFilePath As String
 
 #Region "Image Cropping"

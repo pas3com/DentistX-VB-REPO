@@ -17,7 +17,7 @@ Public Class AccountReminderScheduleService
         Public Property PatientID As Integer
         Public Property IntervalDays As Integer
         Public Property LastSentAt As DateTime?
-        ''' <summary>When Nothing, scheduled send uses global <see cref="Eng"/>.</summary>
+        ''' <summary>When Nothing, scheduled send uses Arabic until the user sets a language on the row.</summary>
         Public Property MessageEnglish As Boolean?
     End Class
 
@@ -89,13 +89,7 @@ Public Class AccountReminderScheduleService
         Dim clinicId As String = WhatsAppService.GetCurrentClinicId()
         If String.IsNullOrWhiteSpace(clinicId) Then Return result
 
-        Dim connected = False
-        Try
-            Dim waService As New WhatsAppService()
-            connected = Await waService.GetConnectionStatusAsync(clinicId)
-        Catch
-        End Try
-        If Not connected Then Return result
+        If Not Await WhatsAppService.TrySilentWhatsReconnectBackgroundAsync(clinicId).ConfigureAwait(False) Then Return result
 
         Dim schedule = GetAllScheduled()
         If schedule.Count = 0 Then Return result
@@ -132,7 +126,7 @@ Public Class AccountReminderScheduleService
             End Try
             If String.IsNullOrWhiteSpace(patientPhone) Then Continue For
 
-            Dim useEng = If(entry.MessageEnglish.HasValue, entry.MessageEnglish.Value, Eng)
+            Dim useEng = If(entry.MessageEnglish.HasValue, entry.MessageEnglish.Value, False)
             Dim ok = Await AccountingWhatsAppService.SendAccountForPatientAsync(entry.PatientID, patientName, patientPhone, useEng)
             If ok Then
                 result.SentCount += 1

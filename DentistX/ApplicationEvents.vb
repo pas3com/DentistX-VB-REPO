@@ -77,13 +77,25 @@ Namespace My
             Return bestPath
         End Function
 
-        Private Shared Function BuildCrashReportSentSignature(fullPath As String) As String
+        Friend Shared Function BuildCrashReportSentSignature(fullPath As String) As String
             Try
                 Return fullPath & "|" & File.GetLastWriteTimeUtc(fullPath).Ticks.ToString(CultureInfo.InvariantCulture)
             Catch
                 Return Nothing
             End Try
         End Function
+
+        Friend Shared Sub TryPersistLastCrashWhatsReportSignature(signature As String)
+            If String.IsNullOrWhiteSpace(signature) Then Return
+            SyncLock CrashWhatsSendLock
+                My.Settings.LastCrashWhatsReportSignature = signature
+                My.Settings.Save()
+            End SyncLock
+        End Sub
+
+        Friend Shared Sub TryPersistCrashSignatureAfterOutboundSend(fullAttachmentPath As String)
+            TryPersistLastCrashWhatsReportSignature(BuildCrashReportSentSignature(fullAttachmentPath))
+        End Sub
 
         ''' <summary>Runs on a thread-pool worker. Uses synchronous wait instead of Async in this partial class to avoid known vbc crashes.</summary>
         Private Shared Sub TrySendLatestCrashReportViaWhatsApp()
@@ -109,29 +121,37 @@ Namespace My
             Dim wa As New WhatsAppService()
             Dim connected As Boolean = False
             Try
-                connected = wa.GetConnectionStatusAsync(clinicId).ConfigureAwait(False).GetAwaiter().GetResult()
+                connected = WhatsAppService.TrySilentWhatsReconnectBackgroundAsync(clinicId).ConfigureAwait(False).GetAwaiter().GetResult()
             Catch
                 Return
             End Try
             If Not connected Then Return
 
             Dim caption = "DentistX crash report — " & Environment.MachineName & " — " & Path.GetFileName(newest)
+            Dim idem = WhatsAppOutboundRepository.BuildCrashReportOutboundIdempotencyKey(newest)
             Dim ctx As New WhatsAppSendContext With {
                 .Category = WhatsAppMessageCategories.CrashReport,
                 .SourceHint = "CrashReportStartup",
                 .RevealMessageCenter = False,
-                .SuppressUiFeedback = True
+                .SuppressUiFeedback = True,
+                .IdempotencyKey = idem
             }
             Try
-                wa.SendMessageAsync(clinicId, CrashReportWhatsRecipient, caption, newest, ctx).ConfigureAwait(False).GetAwaiter().GetResult()
+                Dim resp = wa.SendMessageAsync(clinicId, CrashReportWhatsRecipient, caption, newest, ctx).ConfigureAwait(False).GetAwaiter().GetResult()
+                Dim intr As WhatsAppOutboundSendInterpretation = Nothing
+                If WhatsAppService.TryInterpretOutboundSendResponse(resp, intr) Then
+                    If Not String.IsNullOrWhiteSpace(intr.TerminalPriorStatus) Then
+                        If String.Equals(intr.TerminalPriorStatus, WhatsAppOutboundStatuses.Sent, StringComparison.OrdinalIgnoreCase) Then
+                            TryPersistLastCrashWhatsReportSignature(sig)
+                        End If
+                        Return
+                    End If
+                    Return
+                End If
+                TryPersistLastCrashWhatsReportSignature(sig)
             Catch
                 Return
             End Try
-
-            SyncLock CrashWhatsSendLock
-                My.Settings.LastCrashWhatsReportSignature = sig
-                My.Settings.Save()
-            End SyncLock
         End Sub
 
         Private Sub QueueLatestCrashReportWhatsUploadIfNeeded()
@@ -214,6 +234,8 @@ Namespace My
         Private Shared ReadOnly TrackedFormsLock As New Object()
         Private Shared ReadOnly TrackedForms As New HashSet(Of Form)()
         Private Shared ReadOnly WiredUserControls As New HashSet(Of UserControl)()
+        Private Shared _lastDevExpressPopupSweepUtc As DateTime = DateTime.MinValue
+        Private Shared ReadOnly DevExpressPopupSweepInterval As TimeSpan = TimeSpan.FromSeconds(20)
 
         Private Shared Function SummarizeForm(f As Form) As String
             If f Is Nothing Then Return "(null)"
@@ -337,8 +359,36 @@ Namespace My
                         AttachFormTracking(f)
                     End If
                 Next
+                TryReclaimIdleDevExpressPopups()
             Catch
             End Try
+        End Sub
+
+        ''' <summary>Closes hidden DevExpress editor/tooltip shells left in <see cref="Application.OpenForms"/> so USER handle quota is not exhausted (Win32 1158).</summary>
+        Private Shared Sub TryReclaimIdleDevExpressPopups()
+            Dim nowUtc = DateTime.UtcNow
+            If nowUtc - _lastDevExpressPopupSweepUtc < DevExpressPopupSweepInterval Then Return
+            _lastDevExpressPopupSweepUtc = nowUtc
+
+            Dim active = Form.ActiveForm
+            Dim main = TryCast(System.Windows.Forms.Application.OpenForms.Cast(Of Form)().FirstOrDefault(Function(f) TypeOf f Is MainView3), Form)
+
+            For Each f As Form In System.Windows.Forms.Application.OpenForms
+                If f Is Nothing OrElse f.IsDisposed Then Continue For
+                If ReferenceEquals(f, active) OrElse ReferenceEquals(f, main) Then Continue For
+                If TypeOf f Is WaitForm1 Then Continue For
+
+                Dim typeName = f.GetType().FullName
+                If String.IsNullOrEmpty(typeName) OrElse Not typeName.StartsWith("DevExpress.", StringComparison.Ordinal) Then Continue For
+                If f.Modal Then Continue For
+                If f.Visible AndAlso f.ContainsFocus Then Continue For
+
+                Try
+                    f.Hide()
+                    f.Close()
+                Catch
+                End Try
+            Next
         End Sub
 
         Private Shared Sub AppendLastOpenedFormAndUserControl(sb As StringBuilder)
@@ -692,14 +742,21 @@ Namespace My
             e.ExitApplication = True
         End Sub
 
-        ''' <summary>Win32 ERROR_NO_MORE_USER_HANDLES (1158) while DevExpress tooltip/timer creates a native window — safe to continue.</summary>
+        ''' <summary>Win32 ERROR_NO_MORE_USER_HANDLES (1158) while DevExpress tooltip/scrollbar/timer creates a native window — safe to continue.</summary>
         Private Shared Function IsRecoverableNoUserHandlesTooltipFailure(ex As Exception) As Boolean
             Dim w32 = TryCast(ex, Win32Exception)
             If w32 Is Nothing Then Return False
             If w32.NativeErrorCode <> 1158 Then Return False
             Dim stack = If(ex.StackTrace, String.Empty)
-            Return stack.IndexOf("ToolTipController", StringComparison.OrdinalIgnoreCase) >= 0 OrElse
-                stack.IndexOf("TimerNativeWindow", StringComparison.OrdinalIgnoreCase) >= 0
+            If stack.IndexOf("ToolTipController", StringComparison.OrdinalIgnoreCase) >= 0 OrElse
+                stack.IndexOf("TimerNativeWindow", StringComparison.OrdinalIgnoreCase) >= 0 OrElse
+                stack.IndexOf("FloatingScrollbarBase", StringComparison.OrdinalIgnoreCase) >= 0 OrElse
+                stack.IndexOf("RestartAutoHideTimer", StringComparison.OrdinalIgnoreCase) >= 0 OrElse
+                stack.IndexOf("NativeWindow.CreateHandle", StringComparison.OrdinalIgnoreCase) >= 0 Then
+                Return True
+            End If
+            Dim msg = If(ex.Message, String.Empty)
+            Return msg.IndexOf("window handle", StringComparison.OrdinalIgnoreCase) >= 0
         End Function
     End Class
 End Namespace

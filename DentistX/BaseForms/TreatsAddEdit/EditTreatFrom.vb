@@ -170,6 +170,8 @@ Public Class EditTreatFrom
         IntegerMoneyEditorFocus.AttachTextEditZeroEmptyElseSelectAll(txtPayValue)
         IntegerMoneyEditorFocus.ConfigureIntegerMoneyTextEdit(txtTrtPrice)
         IntegerMoneyEditorFocus.AttachTextEditZeroEmptyElseSelectAll(txtTrtPrice)
+        IntegerMoneyEditorFocus.WireIntegerMoneyFieldBinding(txtTrtPrice, TrtBS, "TrtValue")
+        IntegerMoneyEditorFocus.WireIntegerMoneyFieldBinding(txtPayValue, TrtBS, "PayValue")
     End Sub
 
     Private Sub EditTreatFrom_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
@@ -231,6 +233,8 @@ Public Class EditTreatFrom
             End Try
         Finally
             _applyingTreatmentTypeIndex = False
+            Me.txtTrtPrice.Focus()
+            Me.txtTrtPrice.SelectAll()
         End Try
     End Sub
 
@@ -996,7 +1000,7 @@ Public Class EditTreatFrom
     ''' On parse failure, all five fields are cleared.
     ''' </summary>
     Private Sub SetImplantFieldsFromTreat(treat As String)
-        Dim b As String, tn As String, sl As String, d As String, l As String
+        Dim b As String = "", tn As String = "", sl As String = "", d As String = "", l As String = ""
         If ImplantTreatBracketHelper.TryParseImplantBracketPayload(treat, b, tn, sl, d, l) Then
             ImpBrand = b
             ImpType = tn
@@ -1013,12 +1017,15 @@ Public Class EditTreatFrom
         End If
     End Sub
     Private Sub FillCombos()
-        cmbBrand.SetSelectedBrandID(ImpBrand)
-        cmbType.SetSelectedTypeID(ImpType)
-        cmbDiameter.SetSelectedDiameterID(ImpDmm)
-        cmbLength.SetSelectedLengthID(ImpLmm)
-        cmbDesign.SelectedItem = Slim
-        SetResult()
+        Try
+            cmbBrand.SetSelectedBrandID(ImpBrand)
+            cmbType.SetSelectedTypeID(ImpType)
+            cmbDiameter.SetSelectedDiameterID(ImpDmm)
+            cmbLength.SetSelectedLengthID(ImpLmm)
+            cmbDesign.SelectedItem = Slim
+            SetResult()
+        Catch
+        End Try
     End Sub
     Private Sub ApplyImplantSetResultFromCombosLikeSelection()
         If cmbBrand Is Nothing OrElse cmbType Is Nothing OrElse cmbDiameter Is Nothing OrElse cmbLength Is Nothing OrElse cmbDesign Is Nothing Then Return

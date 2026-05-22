@@ -2,29 +2,76 @@ Imports System.Collections.Concurrent
 Imports System.ComponentModel
 Imports System.Data
 Imports System.Data.SqlClient
+Imports System.Diagnostics
 Imports System.Drawing
-Imports System.Globalization
 Imports System.Linq
-Imports System.Text
-Imports System.Text.RegularExpressions
 Imports System.Threading
 Imports System.Threading.Tasks
 Imports System.Windows.Forms
 Imports Dapper
 Imports DentistX
+Imports DevExpress.Utils
 Imports DevExpress.XtraBars.Docking2010.Views.WindowsUI
 Imports DevExpress.XtraEditors
 
 Public Class Navigator3
     Implements IPatientHeaderControl
 
+    Private Sub NotifyNonFatal(titleEn As String, titleAr As String, messageEn As String, messageAr As String, Optional ex As Exception = Nothing, Optional icon As MessageBoxIcon = MessageBoxIcon.Warning)
+        Dim text = If(Eng, messageEn, messageAr)
+        If ex IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(ex.Message) Then
+            text &= vbCrLf & vbCrLf & ex.Message
+        End If
+        Dim caption = If(Eng, titleEn, titleAr)
+        Dim iconLocal = icon
+        Dim show As New Action(Sub()
+                                   Try
+                                       MessageBox.Show(text, caption, MessageBoxButtons.OK, iconLocal)
+                                   Catch
+                                   End Try
+                               End Sub)
+        If Me.IsDisposed Then
+            show()
+            Return
+        End If
+        Try
+            If Me.IsHandleCreated AndAlso Me.InvokeRequired Then
+                Me.BeginInvoke(show)
+                Return
+            End If
+        Catch
+        End Try
+        Dim top = TryCast(Me.TopLevelControl, Control)
+        Try
+            If top IsNot Nothing AndAlso top.IsHandleCreated AndAlso top.InvokeRequired Then
+                top.BeginInvoke(show)
+                Return
+            End If
+        Catch
+        End Try
+        show()
+    End Sub
+
 #Region "PatientSearch"
 
-    Public Shared ReadOnly PatientFilterAll As String = "ALL"
-    Public Shared ReadOnly PatientFilterTreat As String = "Treat"
-    Public Shared ReadOnly PatientFilterOrtho As String = "Ortho"
-    Public Shared ReadOnly PatientFilterDiag As String = "Diag"
-    Public Shared ReadOnly PatientFilterMobile As String = "Mobile"
+    Public Shared ReadOnly PatientFilterAll As String = NavigatorPatientFilters.PatientFilterAll
+    Public Shared ReadOnly PatientFilterTreat As String = NavigatorPatientFilters.PatientFilterTreat
+    Public Shared ReadOnly PatientFilterOrtho As String = NavigatorPatientFilters.PatientFilterOrtho
+    Public Shared ReadOnly PatientFilterDiag As String = NavigatorPatientFilters.PatientFilterDiag
+    Public Shared ReadOnly PatientFilterMobile As String = NavigatorPatientFilters.PatientFilterMobile
+
+    Private ReadOnly _listState As NavigatorPatientListState
+    Private ReadOnly _searchCoordinator As NavigatorSearchUiCoordinator
+
+    ''' <summary>
+    ''' Full patient list from the last in-memory reload (<c>SELECT * FROM Patient</c> path). Not narrowed by Treat/Ortho/Diag/Mobile.
+    ''' Same list instance the navigator mutates on insert/update/delete — treat as read-only from other types unless you own sync.
+    ''' </summary>
+    Friend ReadOnly Property AllPatientsSnapshot As List(Of Patient)
+        Get
+            Return _listState.AllPatients
+        End Get
+    End Property
 
     Private _CurrentPatientID As Integer
     Public Property PatientID As Integer
@@ -48,10 +95,6 @@ Public Class Navigator3
         End Set
     End Property
 
-    ''' <summary>Full list for current filter (ALL/Treat/Ortho/Diag/Mobile). Search filters this into _bindingPatients.</summary>
-    Private _filteredPatients As List(Of Patient)
-    Private _searchTimer As System.Windows.Forms.Timer
-    Private Const SearchDebounceMs As Integer = 120
     ''' <summary>Single search box: avoid reacting when we set text programmatically after picking a suggestion.</summary>
     Private _suppressSearchText As Boolean
     ''' <summary>Suggestion list parented directly to the top-level Form (sibling of the workspace body).
@@ -65,6 +108,8 @@ Public Class Navigator3
     Private _searchLeaveHideTimer As System.Windows.Forms.Timer
     ''' <summary>Skip one SelectAll after Escape from list or after committing a suggestion (Focus/Enter would otherwise select all).</summary>
     Private _ignoreSearchSelectAllOnce As Boolean
+    ''' <summary>After focus enters the search box, the first left <see cref="Control.MouseClick"/> selects all text; later clicks allow normal caret/selection. Double-click always selects all.</summary>
+    Private _patientSearchSelectAllOnFirstLeftClick As Boolean = True
     ''' <summary>Set before PatientBS.Position changes inside RefreshBindingListFromFiltered so PositionChanged can skip global PatientChanged (avoids LoadPatientData stealing focus while typing).</summary>
     Private _pendingSuppressPatientBroadcast As Boolean
     ''' <summary>After a non-major module switch, first user keystroke promotes search scope to ALL.</summary>
@@ -74,79 +119,50 @@ Public Class Navigator3
     ''' <summary>Patients currently shown in the suggestion popup (may differ from <see cref="_bindingPatients"/> when the binding list is left empty after load).</summary>
     Private _lastSuggestionPatients As List(Of Patient)
 
-    ''' <summary>Matches MainView3 <c>UseHdrCheckItem</c>: checked (new header) → park after load; unchecked (old header) → bind list and select first patient.</summary>
+    Private _resizeCoalesceTimer As System.Windows.Forms.Timer
+    Private Const ResizeCoalesceMs As Integer = 48
+    ''' <summary>Dismiss suggestion list on mouse down anywhere in navigator header outside search/dropdown/▼.</summary>
+    Private _patientSuggestionHeaderClickFilter As PatientSuggestionHeaderClickFilter
+
+    ''' <summary>Chart kid vs adult (automatic): age in (2,11) same as suggestion marker "K". Used everywhere instead of diverging rules.</summary>
+    Private Shared Function NavigatorAutoKidFromPatient(p As Patient) As Boolean
+        If p Is Nothing Then Return False
+        Dim a = p.Age.GetValueOrDefault(0)
+        Return a > 2 AndAlso a < 11
+    End Function
+
+    ''' <summary>Matches <see cref="BasePatientWorkspace.UseHdrTestModHeader"/>: False ("new" header / Navigator3 style) → park after load with empty binding;
+    ''' True ("old" style) → fill binding and select first row.</summary>
     Private Function ShouldParkNoCurrentPatientAfterBackgroundLoad() As Boolean
         Return Not BasePatientWorkspace.UseHdrTestModHeader
     End Function
 
-    ''' <summary>Apply filter to _allPatients and refresh PatientBS list.</summary>
-    ''' <param name="parkNoCurrentPatient">When True, keep <see cref="_bindingPatients"/> empty so <see cref="PatientBS"/> has no current row (.NET <see cref="BindingSource"/> forces <c>Position = 0</c> whenever the list is non-empty, so “park at -1” is done by not binding rows yet).</param>
-    Private Sub ApplyFilter(Optional parkNoCurrentPatient As Boolean = False)
-        If _allPatients Is Nothing Then Return
-        ' DB columns are nullable; treat NULL as False (do not use "= True" on Nullable — can throw).
-        Select Case _Target
-            Case PatientFilterTreat
-                _filteredPatients = _allPatients.Where(Function(p) p.Treat.GetValueOrDefault(False)).ToList()
-            Case PatientFilterOrtho
-                _filteredPatients = _allPatients.Where(Function(p) p.Ortho.GetValueOrDefault(False)).ToList()
-            Case PatientFilterDiag
-                _filteredPatients = _allPatients.Where(Function(p) p.Diag.GetValueOrDefault(False)).ToList()
-            Case PatientFilterMobile
-                _filteredPatients = _allPatients.Where(Function(p) p.Mobile.GetValueOrDefault(False)).ToList()
-            Case Else
-                _filteredPatients = New List(Of Patient)(_allPatients)
-        End Select
-        ' Same rule as OnSearchTimerTick: non-empty search text must not broadcast PatientChanged (e.g. when
-        ' background patient load finishes and ApplyFilter runs while the user is already typing — otherwise
-        ' workspace LoadPatientData steals focus from the search box after the first character).
+    ''' <summary>Workspace category filter (ALL / Treat / …). Backed by <see cref="NavigatorPatientListState"/>.</summary>
+    Public Property _Target As String
+        Get
+            Return _listState.CategoryTarget
+        End Get
+        Set(value As String)
+            _listState.CategoryTarget = value
+        End Set
+    End Property
+
+    Private Sub ApplyFilter(Optional parkNoCurrentPatient As Boolean = False, Optional suppressPatientBroadcast As Boolean = False, Optional selectPatientIdAfterRefresh As Integer? = Nothing)
+        _listState.RebuildFilteredFromAll()
         Dim raw = If(txtPatientName Is Nothing, "", txtPatientName.Text).Trim()
-        RefreshBindingListFromFiltered(If(txtPatientName Is Nothing, "", txtPatientName.Text), suppressPatientBroadcast:=raw.Length > 0, parkNoCurrentPatient:=parkNoCurrentPatient)
+        Dim suppressBroadcast = suppressPatientBroadcast OrElse raw.Length > 0
+        RefreshBindingListFromFiltered(If(txtPatientName Is Nothing, "", txtPatientName.Text), suppressPatientBroadcast:=suppressBroadcast, parkNoCurrentPatient:=parkNoCurrentPatient, selectPatientIdAfterRefresh:=selectPatientIdAfterRefresh)
         UpdateNavigationControls()
     End Sub
 
-    ''' <summary>Patients matching category filter plus optional search text (same rules as <see cref="RefreshBindingListFromFiltered"/>).</summary>
     Private Function BuildSearchFilteredPatientList(Optional searchText As String = Nothing) As List(Of Patient)
-        Dim result As New List(Of Patient)()
-        If _filteredPatients Is Nothing Then Return result
-        Dim source As IEnumerable(Of Patient) = _filteredPatients
-
-        Dim raw As String
-        If searchText IsNot Nothing Then
-            raw = searchText.Trim()
-        ElseIf txtPatientName IsNot Nothing Then
-            raw = If(txtPatientName.Text, "").Trim()
-        Else
-            raw = ""
-        End If
-
-        Dim idDigits = Regex.Replace(raw, "\D", "")
-        Dim nameQ = Regex.Replace(raw, "\d", "").Trim()
-
-        If idDigits.Length > 0 Then
-            source = source.Where(Function(p) Not String.IsNullOrEmpty(p.PatientNumber) AndAlso
-                p.PatientNumber.EndsWith(idDigits, StringComparison.OrdinalIgnoreCase))
-        End If
-
-        If nameQ.Length > 0 Then
-            source = source.Where(Function(p) NameMatchesSearch(If(p.PatientName, ""), nameQ, 1))
-        End If
-
-        result.AddRange(source)
-        Return result
+        Return _listState.BuildSearchFilteredPatientList(explicitSearchText:=searchText, fallbackBoxText:=If(txtPatientName Is Nothing, "", If(txtPatientName.Text, "")))
     End Function
 
-    ''' <summary>Copy _filteredPatients into _bindingPatients using one query string: letters filter name (contains); digits filter file # (suffix). Updates pos/count.</summary>
-    ''' <param name="suppressPatientBroadcast">When True, update header only — do not raise PatientChanged (prevents workspace LoadPatientData / body controls from stealing focus while user types in search).</param>
-    ''' <param name="parkNoCurrentPatient">When True, clear <see cref="_bindingPatients"/> only (no rows) so there is no current patient until the user searches or picks from the list.</param>
-    ''' <param name="selectPatientIdAfterRefresh">When set, after refill move to that patient in one step (avoids briefly selecting the first row when committing a suggestion).</param>
     Private Sub RefreshBindingListFromFiltered(Optional searchText As String = Nothing, Optional suppressPatientBroadcast As Boolean = False, Optional parkNoCurrentPatient As Boolean = False, Optional selectPatientIdAfterRefresh As Integer? = Nothing)
-        If _filteredPatients Is Nothing OrElse _bindingPatients Is Nothing Then Return
+        If _listState.FilteredPatients Is Nothing OrElse _bindingPatients Is Nothing Then Return
         Dim sourceList = BuildSearchFilteredPatientList(searchText)
 
-        ' CRITICAL: set the suppress flag BEFORE any mutation. ResetBindings below fires ListChanged(Reset),
-        ' which PatientBS turns into PositionChanged -> FirePatientChangedForCurrent. If the flag is still
-        ' False at that point, PatientChanged is broadcast -> workspace LoadPatientData -> focus is stolen
-        ' from the search box after the very first letter.
         _pendingSuppressPatientBroadcast = suppressPatientBroadcast
         Try
             _bindingPatients.RaiseListChangedEvents = False
@@ -168,119 +184,68 @@ Public Class Navigator3
                 For i = 0 To _bindingPatients.Count - 1
                     If _bindingPatients(i).PatientID = selectPatientIdAfterRefresh.Value Then newPos = i : Exit For
                 Next
-                If newPos < 0 Then newPos = 0
             Else
                 newPos = 0
             End If
             PatientBS.Position = newPos
-            ' BindingSource may not raise PositionChanged when position stays the same; still refresh header.
             If oldPos = newPos Then
                 FirePatientChangedForCurrent(suppressPatientBroadcast)
             End If
         Finally
             _pendingSuppressPatientBroadcast = False
         End Try
+        _listState.UpdateParkIntentAfterRefresh(parkNoCurrentPatient, _bindingPatients.Count)
         UpdateSearchResultsButtonVisibility()
         UpdateNavigationControls()
     End Sub
-
-    Private Shared Function NormalizePatientSearchText(value As String) As String
-        If String.IsNullOrWhiteSpace(value) Then Return ""
-
-        Dim raw As String = value.Trim().Normalize(NormalizationForm.FormKC)
-        Dim sb As New StringBuilder(raw.Length)
-        Dim prevWasSpace As Boolean = False
-
-        For Each ch As Char In raw
-            Dim mapped As String = Nothing
-            Select Case ch
-                Case ChrW(&H622), ChrW(&H623), ChrW(&H625), ChrW(&H671) ' alef variants
-                    mapped = ChrW(&H627)
-                Case ChrW(&H624) ' waw with hamza
-                    mapped = ChrW(&H648)
-                Case ChrW(&H626), ChrW(&H649), ChrW(&H6CC) ' yaa variants
-                    mapped = ChrW(&H64A)
-                Case ChrW(&H6A9) ' Persian keheh -> Arabic kaf
-                    mapped = ChrW(&H643)
-                Case ChrW(&H640), ChrW(&H200C), ChrW(&H200D), ChrW(&H200E), ChrW(&H200F) ' tatweel / joiners / direction marks
-                    Continue For
-            End Select
-
-            Dim cat As UnicodeCategory = CharUnicodeInfo.GetUnicodeCategory(ch)
-            If cat = UnicodeCategory.NonSpacingMark OrElse
-               cat = UnicodeCategory.SpacingCombiningMark OrElse
-               cat = UnicodeCategory.EnclosingMark Then
-                Continue For
-            End If
-
-            Dim outText As String = If(mapped, ch.ToString())
-            For Each outCh As Char In outText
-                If Char.IsWhiteSpace(outCh) Then
-                    If Not prevWasSpace Then
-                        sb.Append(" "c)
-                        prevWasSpace = True
-                    End If
-                Else
-                    sb.Append(outCh)
-                    prevWasSpace = False
-                End If
-            Next
-        Next
-
-        Return sb.ToString().Trim()
-    End Function
-
-    ''' <summary>Search mode: 0 = first (StartsWith), 1 = any (contains), 2 = last (EndsWith). Unified box uses contains (1) for name text.</summary>
-    Private Shared Function NameMatchesSearch(name As String, q As String, searchMethod As Integer) As Boolean
-        Dim normalizedName As String = NormalizePatientSearchText(name)
-        Dim normalizedQuery As String = NormalizePatientSearchText(q)
-        If String.IsNullOrEmpty(normalizedName) OrElse String.IsNullOrEmpty(normalizedQuery) Then Return False
-
-        Select Case searchMethod
-            Case 0
-                Return normalizedName.StartsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase)
-            Case 1
-                Return normalizedName.IndexOf(normalizedQuery, StringComparison.OrdinalIgnoreCase) >= 0
-            Case 2
-                Return normalizedName.EndsWith(normalizedQuery, StringComparison.OrdinalIgnoreCase)
-            Case Else
-                Return normalizedName.IndexOf(normalizedQuery, StringComparison.OrdinalIgnoreCase) >= 0
-        End Select
-    End Function
-
-    Private Shared Function IsMajorNavigatorFilterTarget(filterTarget As String) As Boolean
-        If String.IsNullOrWhiteSpace(filterTarget) Then Return True
-        Return String.Equals(filterTarget, PatientFilterAll, StringComparison.OrdinalIgnoreCase) OrElse
-               String.Equals(filterTarget, PatientFilterTreat, StringComparison.OrdinalIgnoreCase) OrElse
-               String.Equals(filterTarget, PatientFilterOrtho, StringComparison.OrdinalIgnoreCase) OrElse
-               String.Equals(filterTarget, PatientFilterDiag, StringComparison.OrdinalIgnoreCase) OrElse
-               String.Equals(filterTarget, PatientFilterMobile, StringComparison.OrdinalIgnoreCase)
-    End Function
 
     Private Function HasActiveSearchQuery() As Boolean
         Return txtPatientName IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(If(txtPatientName.Text, ""))
     End Function
 
+    Private Sub ClearCommittedSuggestionSearchContext()
+        _searchCoordinator.ClearCommittedSuggestionSearchContext()
+    End Sub
+
+    Private Function ShouldUseCommittedSuggestionSearchContext(forceShow As Boolean) As Boolean
+        Return _searchCoordinator.ShouldUseCommittedSuggestionSearchContext(forceShow, If(txtPatientName Is Nothing, "", If(txtPatientName.Text, "")))
+    End Function
+
     Public Sub UpdateFilterTarget(filterTarget As String, Optional passedPatient As Patient = Nothing) Implements IPatientHeaderControl.UpdateFilterTarget
         Dim requestedTarget = If(String.IsNullOrEmpty(filterTarget), PatientFilterAll, filterTarget)
-        If IsMajorNavigatorFilterTarget(requestedTarget) Then
+        If NavigatorPatientListState.IsMajorNavigatorFilterTarget(requestedTarget) Then
             Dim isSameMajorTarget As Boolean = String.Equals(_Target, requestedTarget, StringComparison.OrdinalIgnoreCase)
             Dim hasActiveQuery As Boolean = HasActiveSearchQuery()
             _promoteSearchScopeToAllOnNextUserType = False
             If Not (isSameMajorTarget AndAlso hasActiveQuery) Then
+                Dim majorTargetChanged = Not String.Equals(_Target, requestedTarget, StringComparison.OrdinalIgnoreCase)
                 _Target = requestedTarget
-                ApplyFilter()
+                Dim parkAfterSwitch = ShouldParkNoCurrentPatientAfterBackgroundLoad() AndAlso Not hasActiveQuery AndAlso majorTargetChanged
+                ApplyFilter(parkNoCurrentPatient:=parkAfterSwitch)
             End If
         Else
-            ' Keep current filtered list while switching body modules (Visits/Accounts/Images...).
-            ' If user starts a new search after this, switch scope to ALL on first keystroke.
-            _promoteSearchScopeToAllOnNextUserType = True
+            ' Neutral modules (Accounts / Visits / Images / Notes / …): do not keep Treat/Ortho/Diag/Mobile narrowing.
+            ' Previously we only set _promoteSearchScopeToAllOnNextUserType, so Ortho→Accounts still searched 300 rows.
+            _promoteSearchScopeToAllOnNextUserType = False
+            Dim hasActiveQuery = HasActiveSearchQuery()
+            Dim notAlreadyAll = Not String.Equals(_listState.CategoryTarget, NavigatorPatientFilters.PatientFilterAll, StringComparison.OrdinalIgnoreCase)
+            If notAlreadyAll Then
+                Dim cur = TryCast(PatientBS.Current, Patient)
+                Dim hadSelection = cur IsNot Nothing AndAlso PatientBS.Position >= 0
+                _Target = NavigatorPatientFilters.PatientFilterAll
+                If hadSelection Then
+                    _listState.ParkBindingEmptyUntilUserQuery = False
+                    ApplyFilter(parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=cur.PatientID)
+                Else
+                    Dim parkAfter = ShouldParkNoCurrentPatientAfterBackgroundLoad() AndAlso Not hasActiveQuery
+                    ApplyFilter(parkNoCurrentPatient:=parkAfter)
+                End If
+            End If
         End If
-        ' When an active search is already narrowing the list, preserve the current search context
-        ' and avoid re-focusing to passedPatient during module switches.
         Dim preserveSearchContext As Boolean = HasActiveSearchQuery()
         If passedPatient IsNot Nothing AndAlso Not preserveSearchContext Then
-            If _bindingPatients.Count = 0 AndAlso _filteredPatients IsNot Nothing Then
+            _listState.ParkBindingEmptyUntilUserQuery = False
+            If _bindingPatients.Count = 0 AndAlso _listState.FilteredPatients IsNot Nothing Then
                 RefreshBindingListFromFiltered(Nothing, suppressPatientBroadcast:=False, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=passedPatient.PatientID)
             Else
                 For i As Integer = 0 To _bindingPatients.Count - 1
@@ -293,31 +258,80 @@ Public Class Navigator3
                 Next
             End If
         End If
+
+        RefreshNavigatorShellChromeForCurrentTarget(passedPatient)
+    End Sub
+
+    Private Sub RefreshNavigatorShellChromeForCurrentTarget(Optional passedPatient As Patient = Nothing)
+        Dim p = If(passedPatient IsNot Nothing, passedPatient, _currentPatient)
+        If InvokeRequired Then
+            BeginInvoke(New MethodInvoker(Sub() ApplyNavigatorShellStyleForTarget(p)))
+        Else
+            ApplyNavigatorShellStyleForTarget(p)
+        End If
+    End Sub
+
+    ''' <summary>Side1 / search name field tint for Treat, Ortho, Mobile, Diag. Call when module target changes, not only on patient selection.</summary>
+    Private Sub ApplyNavigatorShellStyleForTarget(Optional patientOverride As Patient = Nothing)
+        If Side1 Is Nothing OrElse txtPatientName Is Nothing Then Return
+        Dim p As Patient = If(patientOverride IsNot Nothing, patientOverride, _currentPatient)
+
+        Select Case _Target
+            Case "Treat"
+                ResetControlBackground(Side1)
+                Side1.BackColor = Color.Transparent
+                ResetControlBackground(txtPatientName)
+                txtPatientName.BackColor = SystemColors.Window
+                If p IsNot Nothing AndAlso p.Diag.GetValueOrDefault(False) Then
+                    ResetControlBackground(txtPatientName)
+                    txtPatientName.BackColor = Color.FromArgb(220, 245, 255)
+                End If
+            Case "Ortho"
+                ResetControlBackground(Side1)
+                Side1.BackColor = BasePatientWorkspace.OrthoModuleShellBack
+                ResetControlBackground(txtPatientName)
+                txtPatientName.BackColor = SystemColors.Window
+            Case "Mobile"
+                ResetControlBackground(Side1)
+                Side1.BackColor = Color.FromArgb(255, 232, 240)
+                ResetControlBackground(txtPatientName)
+                txtPatientName.BackColor = SystemColors.Window
+            Case "Diag"
+                ResetControlBackground(Side1)
+                Side1.BackColor = BasePatientWorkspace.DiagModuleShellBack
+                ResetControlBackground(txtPatientName)
+                txtPatientName.BackColor = SystemColors.Window
+            Case Else
+                ResetControlBackground(Side1)
+                Side1.BackColor = Color.Transparent
+                ResetControlBackground(txtPatientName)
+                txtPatientName.BackColor = SystemColors.Window
+        End Select
     End Sub
 
     Private Sub txtPatientName_TextChanged(sender As Object, e As EventArgs) Handles txtPatientName.TextChanged
         If _suppressSearchText Then Return
+        ClearCommittedSuggestionSearchContext()
         If _promoteSearchScopeToAllOnNextUserType Then
             _promoteSearchScopeToAllOnNextUserType = False
             _Target = PatientFilterAll
             ApplyFilter()
         End If
-        If _searchTimer Is Nothing Then
-            _searchTimer = New System.Windows.Forms.Timer With {.Interval = SearchDebounceMs}
-            AddHandler _searchTimer.Tick, AddressOf OnSearchTimerTick
-        End If
-        _searchTimer.Stop()
-        _searchTimer.Start()
+        _searchCoordinator.ScheduleDebouncedSearch()
     End Sub
 
-    Private Sub OnSearchTimerTick(sender As Object, e As EventArgs)
-        _searchTimer.Stop()
+    Private Sub OnSearchDebouncedTick(sender As Object, e As EventArgs)
         Dim raw = If(txtPatientName Is Nothing, "", txtPatientName.Text).Trim()
-        ' While query text is non-empty, do not broadcast PatientChanged — workspace LoadPatientData steals focus from the search box.
+        If _listState.ParkBindingEmptyUntilUserQuery AndAlso raw.Length = 0 Then
+            RefreshBindingListFromFiltered(If(txtPatientName Is Nothing, "", txtPatientName.Text), suppressPatientBroadcast:=True, parkNoCurrentPatient:=True)
+            HidePatientSuggestions()
+            UpdateSearchResultsButtonVisibility()
+            UpdateNavigationControls()
+            Return
+        End If
+        If raw.Length > 0 Then _listState.ParkBindingEmptyUntilUserQuery = False
         Dim suppressBroadcast = raw.Length > 0
         RefreshBindingListFromFiltered(If(txtPatientName Is Nothing, "", txtPatientName.Text), suppressPatientBroadcast:=suppressBroadcast)
-        ' Google-like incremental popup: show suggestions live as the user types. The suggestion form is
-        ' non-activating (ShowWithoutActivation + WS_EX_NOACTIVATE), so focus stays in the search box.
         UpdateAndShowPatientSuggestions()
         UpdateSearchResultsButtonVisibility()
     End Sub
@@ -343,7 +357,12 @@ Public Class Navigator3
 
     Private Sub UpdateSearchResultsButtonVisibility()
         If txtPatientName Is Nothing OrElse _showResultsButton Is Nothing Then Return
-        Dim hasResults As Boolean = BuildSearchFilteredPatientList(If(txtPatientName Is Nothing, "", txtPatientName.Text)).Count > 0
+        Dim hasResults As Boolean
+        If ShouldUseCommittedSuggestionSearchContext(True) Then
+            hasResults = _searchCoordinator.LastCommittedSearchPatients.Count > 0
+        Else
+            hasResults = BuildSearchFilteredPatientList(If(txtPatientName Is Nothing, "", txtPatientName.Text)).Count > 0
+        End If
         _showResultsButton.Visible = hasResults
         If _showResultsButton.Visible Then
             PositionSearchResultsButton()
@@ -373,6 +392,7 @@ Public Class Navigator3
         _suggestionHostForm = host
         _suggestionList = New ListBox With {
             .BorderStyle = BorderStyle.FixedSingle,
+            .DrawMode = Windows.Forms.DrawMode.OwnerDrawFixed,
             .TabStop = False,
             .IntegralHeight = False,
             .Visible = False
@@ -385,23 +405,133 @@ Public Class Navigator3
         ' Sibling of Navigator3 inside the top-level Form. Because it lives in the same window there is no
         ' activation/focus transfer when it becomes visible — typing in txtPatientName is never interrupted.
         host.Controls.Add(_suggestionList)
+        AddHandler _suggestionList.DrawItem, AddressOf PatientSuggestion_DrawItem
         AddHandler _suggestionList.MouseDown, AddressOf PatientSuggestion_MouseDown
         AddHandler _suggestionList.KeyDown, AddressOf PatientSuggestion_KeyDown
+        EnsurePatientSuggestionHeaderDismissFilter()
         _suggestionUiReady = True
+    End Sub
+
+    Private Sub EnsurePatientSuggestionHeaderDismissFilter()
+        If _patientSuggestionHeaderClickFilter IsNot Nothing Then Return
+        _patientSuggestionHeaderClickFilter = New PatientSuggestionHeaderClickFilter(Me)
+        Application.AddMessageFilter(_patientSuggestionHeaderClickFilter)
+    End Sub
+
+    Private Sub RemovePatientSuggestionHeaderDismissFilter()
+        If _patientSuggestionHeaderClickFilter Is Nothing Then Return
+        Try
+            Application.RemoveMessageFilter(_patientSuggestionHeaderClickFilter)
+        Catch ex As Exception
+            NotifyNonFatal("Navigator", "التنقل",
+                "The application could not detach the patient search click handler. If clicks feel wrong after closing this window, restart the program.",
+                "تعذر فصل معالج نقرات البحث عن المريض. إذا استمرت مشكلة في النقر بعد إغلاق هذه النافذة، أعد تشغيل البرنامج.",
+                ex)
+        End Try
+        _patientSuggestionHeaderClickFilter = Nothing
+    End Sub
+
+    ''' <summary>When suggestions are visible, a mouse click anywhere outside search box / list / ▼ (and flyout panel) hides the dropdown.</summary>
+    Friend Sub TryDismissPatientSuggestionsFromHeaderMouse(ByRef m As Message)
+        Const WM_LBUTTONDOWN As Integer = &H201
+        Const WM_RBUTTONDOWN As Integer = &H204
+        If m.Msg <> WM_LBUTTONDOWN AndAlso m.Msg <> WM_RBUTTONDOWN Then Return
+        If IsDisposed OrElse Not IsHandleCreated Then Return
+        If _suggestionList Is Nothing OrElse Not _suggestionList.Visible Then Return
+        Dim pt = Control.MousePosition
+        If PatientSuggestionDismissMouseExempt(pt) Then Return
+        HidePatientSuggestions()
+    End Sub
+
+    Private Function PatientSuggestionDismissMouseExempt(screenPt As Point) As Boolean
+        If ScreenRectContainsControl(txtPatientName, screenPt) Then Return True
+        If ScreenRectContainsControl(_suggestionList, screenPt) Then Return True
+        If ScreenRectContainsControl(btnSearchResults, screenPt) Then Return True
+        If FlyoutPatientInfoDismissExempt(screenPt) Then Return True
+        Return False
+    End Function
+
+    Private Function FlyoutPatientInfoDismissExempt(screenPt As Point) As Boolean
+        'If FlyoutPatientInfo Is Nothing OrElse FlyoutPatientInfo.IsDisposed OrElse Not FlyoutPatientInfo.Visible Then Return False
+        'Try
+        '    Return ScreenRectContainsControl(FlyoutPatientInfo, screenPt)
+        'Catch ex As Exception
+        '    ' No user dialog: runs on every application-wide mouse message; returning False is safe.
+        '    Return False
+        'End Try
+    End Function
+
+    Private Shared Function ScreenRectContainsControl(ctl As Control, screenPt As Point) As Boolean
+        If ctl Is Nothing OrElse Not ctl.IsHandleCreated OrElse Not ctl.Visible Then Return False
+        Try
+            Return ctl.RectangleToScreen(New Rectangle(0, 0, ctl.Width, ctl.Height)).Contains(screenPt)
+        Catch ex As Exception
+            ' No user dialog: hot path for hit-testing during suggestion dismissal.
+            Return False
+        End Try
+    End Function
+
+    Private Shared Function IsKidSuggestionPatient(p As Patient) As Boolean
+        Return NavigatorAutoKidFromPatient(p)
+    End Function
+
+    Private Shared Function GetPatientSuggestionAgeMarker(p As Patient) As String
+        Return If(IsKidSuggestionPatient(p), "K", "A")
+    End Function
+
+    Private Shared Function GetPatientSuggestionColor(p As Patient) As Color
+        Return If(IsKidSuggestionPatient(p), Color.Red, Color.Blue)
+    End Function
+
+    ''' <summary>Matches search suggestion list: kid when age is between 3 and 10 → red; otherwise blue; no patient → default text color.</summary>
+    Private Sub ApplyPopupPatientAgeForeColor(Optional p As Patient = Nothing)
+        If PopupPatient Is Nothing Then Return
+        PopupPatient.Properties.Appearance.Options.UseForeColor = True
+        If p Is Nothing Then
+            PopupPatient.Properties.Appearance.ForeColor = SystemColors.ControlText
+        Else
+            PopupPatient.Properties.Appearance.ForeColor = GetPatientSuggestionColor(p)
+        End If
     End Sub
 
     Private Shared Function FormatPatientSuggestionLine(p As Patient) As String
         If p Is Nothing Then Return ""
         Dim namePart = If(p.PatientName, "").Trim()
         Dim numPart = If(p.PatientNumber, "").Trim()
-        If numPart.Length > 0 Then Return namePart & "    [#" & numPart & "]"
-        Return namePart
+        Dim markerPart = "    " & GetPatientSuggestionAgeMarker(p)
+        If numPart.Length > 0 Then Return namePart '& "    [#" & numPart & "]" & markerPart
+        Return namePart '& markerPart
     End Function
+
+    Private Sub PatientSuggestion_DrawItem(sender As Object, e As DrawItemEventArgs)
+        If e.Index < 0 OrElse _suggestionList Is Nothing OrElse e.Index >= _suggestionList.Items.Count Then Return
+
+        e.DrawBackground()
+
+        Dim p As Patient = Nothing
+        If _lastSuggestionPatients IsNot Nothing AndAlso e.Index < _lastSuggestionPatients.Count Then
+            p = _lastSuggestionPatients(e.Index)
+        End If
+
+        Dim text = If(_suggestionList.Items(e.Index), "").ToString()
+        Dim textColor = GetPatientSuggestionColor(p)
+        Dim flags = TextFormatFlags.VerticalCenter Or TextFormatFlags.EndEllipsis
+        If _suggestionList.RightToLeft = RightToLeft.Yes Then flags = flags Or TextFormatFlags.RightToLeft
+        TextRenderer.DrawText(e.Graphics, text, e.Font, e.Bounds, textColor, flags)
+
+        e.DrawFocusRectangle()
+    End Sub
 
     Private Sub UpdateAndShowPatientSuggestions(Optional forceShow As Boolean = False)
         If txtPatientName Is Nothing Then Return
         Dim q = If(txtPatientName.Text, "").Trim()
-        Dim displayList = BuildSearchFilteredPatientList(If(txtPatientName Is Nothing, "", txtPatientName.Text))
+        Dim displayList As List(Of Patient)
+        If ShouldUseCommittedSuggestionSearchContext(forceShow) Then
+            q = If(_searchCoordinator.LastCommittedSearchText, "").Trim()
+            displayList = New List(Of Patient)(_searchCoordinator.LastCommittedSearchPatients)
+        Else
+            displayList = BuildSearchFilteredPatientList(If(txtPatientName Is Nothing, "", txtPatientName.Text))
+        End If
         If (Not forceShow AndAlso q.Length = 0) OrElse displayList.Count = 0 Then
             HidePatientSuggestions()
             Return
@@ -434,17 +564,29 @@ Public Class Navigator3
         Dim w As Integer = Math.Max(1, Math.Abs(hostRightBottom.X - hostLeftBottom.X))
         _suggestionList.Size = New Size(w, h)
         _suggestionList.Location = New Point(x, y)
+        _suggestionList.Enabled = True
         _suggestionList.BringToFront()
         If Not _suggestionList.Visible Then
             _suggestionList.Visible = True
         End If
     End Sub
 
-    Private Sub HidePatientSuggestions()
+    Private Sub HardHideSuggestionOverlay()
         _lastSuggestionPatients = Nothing
-        If _suggestionList IsNot Nothing AndAlso _suggestionList.Visible Then
+        If _suggestionList Is Nothing Then Return
+        Try
             _suggestionList.Visible = False
-        End If
+            _suggestionList.Enabled = False
+            _suggestionList.Size = New Size(1, 1)
+            If _suggestionHostForm IsNot Nothing AndAlso Not _suggestionHostForm.IsDisposed Then
+                _suggestionList.SendToBack()
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub HidePatientSuggestions()
+        HardHideSuggestionOverlay()
     End Sub
 
     Private Sub ShowResultsButton_Click(sender As Object, e As EventArgs) Handles btnSearchResults.Click
@@ -455,8 +597,9 @@ Public Class Navigator3
 
     Private Sub ClearPatientSearchBox()
         If txtPatientName Is Nothing Then Return
-        If _searchTimer IsNot Nothing Then _searchTimer.Stop()
+        _searchCoordinator.StopDebouncedSearch()
         HidePatientSuggestions()
+        ClearCommittedSuggestionSearchContext()
         _suppressSearchText = True
         Try
             txtPatientName.Text = ""
@@ -485,6 +628,7 @@ Public Class Navigator3
             e.SuppressKeyPress = True
             HidePatientSuggestions()
             _ignoreSearchSelectAllOnce = True
+            _patientSearchSelectAllOnFirstLeftClick = False
             txtPatientName.Focus()
             BeginInvoke(New Action(Sub()
                                        BeginInvoke(New Action(Sub() _ignoreSearchSelectAllOnce = False))
@@ -506,10 +650,17 @@ Public Class Navigator3
     End Function
 
     Private Sub CommitSuggestionAt(index As Integer)
+        _listState.ParkBindingEmptyUntilUserQuery = False
         Dim p = ResolveSuggestionPatientAt(index)
         If p Is Nothing Then Return
-        RefreshBindingListFromFiltered(If(txtPatientName Is Nothing, "", txtPatientName.Text), suppressPatientBroadcast:=False, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=p.PatientID)
+        Dim useCommittedContext = ShouldUseCommittedSuggestionSearchContext(True) AndAlso _lastSuggestionPatients IsNot Nothing
+        Dim searchText = If(useCommittedContext, If(_searchCoordinator.LastCommittedSearchText, ""), If(txtPatientName Is Nothing, "", txtPatientName.Text))
+        Dim searchPatients = If(useCommittedContext, New List(Of Patient)(_lastSuggestionPatients), BuildSearchFilteredPatientList(searchText))
+        RefreshBindingListFromFiltered(searchText, suppressPatientBroadcast:=False, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=p.PatientID)
         HidePatientSuggestions()
+        _searchCoordinator.LastCommittedSearchText = searchText
+        _searchCoordinator.LastCommittedSearchPatients = searchPatients
+        _searchCoordinator.LastCommittedSuggestionPatientName = If(p.PatientName, "")
         _suppressSearchText = True
         Try
             txtPatientName.Text = If(p.PatientName, "")
@@ -517,6 +668,7 @@ Public Class Navigator3
             _suppressSearchText = False
         End Try
         _ignoreSearchSelectAllOnce = True
+        _patientSearchSelectAllOnFirstLeftClick = False
         txtPatientName.Focus()
         BeginInvoke(New Action(Sub()
                                    BeginInvoke(New Action(Sub() _ignoreSearchSelectAllOnce = False))
@@ -564,6 +716,7 @@ Public Class Navigator3
         If Me.IsDisposed OrElse Not Me.IsHandleCreated Then Return
         If txtPatientName IsNot Nothing AndAlso txtPatientName.ContainsFocus Then Return
         If _suggestionList IsNot Nothing AndAlso _suggestionList.Focused Then Return
+        'If FlyoutPatientInfo IsNot Nothing AndAlso FlyoutPatientInfo.Visible Then Return
         HidePatientSuggestions()
         ' User really left the search field; sync workspace to current patient (typing suppressed PatientChanged).
         FirePatientChangedForCurrent(False)
@@ -583,7 +736,10 @@ Public Class Navigator3
             LabelAge.Text = ""
             LabelBal.Text = "0.0"
             LabelBal.ForeColor = Color.Black
-            If PopupPatient IsNot Nothing Then PopupPatient.Text = ""
+            If PopupPatient IsNot Nothing Then
+                PopupPatient.Text = ""
+                ApplyPopupPatientAgeForeColor(Nothing)
+            End If
             If Not suppressBroadcast Then
                 PatientEventManager.RaisePatientChanged(Nothing, False, False)
             End If
@@ -624,7 +780,7 @@ Public Class Navigator3
     Public Sub SetCurrentPatientName(patientID As Integer)
         Me.PatientID = patientID
         If _bindingPatients Is Nothing Then Return
-        If _bindingPatients.Count = 0 AndAlso _filteredPatients IsNot Nothing Then
+        If _bindingPatients.Count = 0 AndAlso _listState.FilteredPatients IsNot Nothing Then
             RefreshBindingListFromFiltered(Nothing, suppressPatientBroadcast:=False, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=patientID)
             Return
         End If
@@ -637,7 +793,7 @@ Public Class Navigator3
         PatientID = GetPatientID(patientName)
         If _bindingPatients Is Nothing Then Return
         If PatientID <= 0 Then Return
-        If _bindingPatients.Count = 0 AndAlso _filteredPatients IsNot Nothing Then
+        If _bindingPatients.Count = 0 AndAlso _listState.FilteredPatients IsNot Nothing Then
             RefreshBindingListFromFiltered(Nothing, suppressPatientBroadcast:=False, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=PatientID)
             Return
         End If
@@ -655,8 +811,8 @@ Public Class Navigator3
     Private _patientData As New PatientDATA
     ''' <summary>True when popup was opened via btNewPatient (add mode); false when opened via PopupPatient (edit).</summary>
     Private _popupOpeningForAdd As Boolean = False
-    Public _Target As String = "Treat"
-    Friend _allPatients As List(Of Patient)
+    ''' <summary>After FlyoutPanel paints, move focus to PatientNameTextEdit (ShowPopup steals focus from pre-flyout Focus calls).</summary>
+    Private _focusPatientNameEditWhenFlyoutShown As Boolean = False
     Friend _bindingPatients As BindingList(Of Patient)
     Private _Navigator3PatientsLoadStarted As Boolean
 
@@ -669,26 +825,77 @@ Public Class Navigator3
 
     Public Sub New()
         InitializeComponent()
+        _listState = New NavigatorPatientListState()
+        _searchCoordinator = New NavigatorSearchUiCoordinator()
+        AddHandler _searchCoordinator.DebouncedTick, AddressOf OnSearchDebouncedTick
         SetImgs()
         StoreOriginalBounds(Me)
-        _allPatients = New List(Of Patient)()
-        _Target = PatientFilterAll
         _bindingPatients = New BindingList(Of Patient)()
         PatientBS.DataSource = _bindingPatients
         BindPatientHeaderLabels()
         ApplyFilter()
+        WireNavigatorLifetimeHooks()
     End Sub
 
     Public Sub New(ByVal filterTarget As String)
         InitializeComponent()
+        _listState = New NavigatorPatientListState(If(String.IsNullOrEmpty(filterTarget), PatientFilterAll, filterTarget))
+        _searchCoordinator = New NavigatorSearchUiCoordinator()
+        AddHandler _searchCoordinator.DebouncedTick, AddressOf OnSearchDebouncedTick
         SetImgs()
         StoreOriginalBounds(Me)
-        _allPatients = New List(Of Patient)()
-        _Target = If(String.IsNullOrEmpty(filterTarget), PatientFilterAll, filterTarget)
         _bindingPatients = New BindingList(Of Patient)()
         PatientBS.DataSource = _bindingPatients
         BindPatientHeaderLabels()
         ApplyFilter()
+        WireNavigatorLifetimeHooks()
+    End Sub
+
+    Private Sub WireNavigatorLifetimeHooks()
+        AddHandler Me.Disposed, AddressOf OnNavigatorDisposed
+    End Sub
+
+    Private Sub OnNavigatorDisposed(sender As Object, e As EventArgs)
+        RemoveHandler Me.Disposed, AddressOf OnNavigatorDisposed
+        Try
+            RemoveHandler ComboFlyoutSearchHelper.BeforeMaintenanceModalDialog, AddressOf OnBeforeMaintenanceModalDialogFromCombo
+        Catch
+        End Try
+        TeardownAuxiliaryTimers()
+    End Sub
+
+    ''' <summary>Hide patient flyout synchronously before Frm_TblCities / Frm_Health (or similar) ShowDialog from nested combos.</summary>
+    Private Sub OnBeforeMaintenanceModalDialogFromCombo(sender As Object, e As EventArgs)
+        If Me.IsDisposed OrElse Not Me.IsHandleCreated Then Return
+        HardHideSuggestionOverlay()
+        HidePatientFlyoutSafe(suppressUserMessageOnError:=True)
+    End Sub
+
+    Private Sub TeardownAuxiliaryTimers()
+        Try
+            If _searchCoordinator IsNot Nothing Then
+                RemoveHandler _searchCoordinator.DebouncedTick, AddressOf OnSearchDebouncedTick
+                _searchCoordinator.Dispose()
+            End If
+            If _searchLeaveHideTimer IsNot Nothing Then
+                _searchLeaveHideTimer.Stop()
+                RemoveHandler _searchLeaveHideTimer.Tick, AddressOf OnSearchLeaveHideTimerTick
+                _searchLeaveHideTimer.Dispose()
+                _searchLeaveHideTimer = Nothing
+            End If
+            If _resizeCoalesceTimer IsNot Nothing Then
+                _resizeCoalesceTimer.Stop()
+                RemoveHandler _resizeCoalesceTimer.Tick, AddressOf OnResizeCoalesceTick
+                _resizeCoalesceTimer.Dispose()
+                _resizeCoalesceTimer = Nothing
+            End If
+            RemovePatientSuggestionHeaderDismissFilter()
+        Catch ex As Exception
+            NotifyNonFatal("Navigator", "التنقل",
+                "Patient search timers could not shut down cleanly. You can keep working; if search or buttons misbehave, close the patient workspace or restart the program.",
+                "تعذر إيقاف مؤقتات البحث عن المريض بشكل كامل. يمكنك المتابعة؛ إذا تعطّل البحث أو الأزرار، أغلق مساحة المريض أو أعد تشغيل البرنامج.",
+                ex)
+        End Try
     End Sub
 
     ''' <summary>Bind the header value labels (patient name, sum of treats, sum of pays) to PatientBS.
@@ -725,9 +932,23 @@ Public Class Navigator3
                 BeginInvoke(Sub()
                                 If Me.IsDisposed Then Return
                                 Me.UseWaitCursor = False
-                                If t.IsFaulted OrElse t.Result Is Nothing Then Return
-                                _allPatients.Clear()
-                                _allPatients.AddRange(t.Result)
+                                If t.IsFaulted Then
+                                    Dim ex = t.Exception?.GetBaseException()
+                                    NotifyNonFatal("Patient list", "قائمة المرضى",
+                                        "The patient list could not be loaded from the database. Search and navigation may be incomplete until you restart the program or try again.",
+                                        "تعذر تحميل قائمة المرضى من قاعدة البيانات. قد يبقى البحث والتنقل ناقصاً حتى تعيد التشغيل أو تحاول مرة أخرى.",
+                                        ex, MessageBoxIcon.Error)
+                                    Return
+                                End If
+                                If t.Result Is Nothing Then
+                                    NotifyNonFatal("Patient list", "قائمة المرضى",
+                                        "No patient data was returned while loading the list. Check your database connection and try again.",
+                                        "لم تُرجع أي بيانات مرضى أثناء التحميل. تحقق من الاتصال بقاعدة البيانات وحاول مرة أخرى.",
+                                        Nothing, MessageBoxIcon.Warning)
+                                    Return
+                                End If
+                                _listState.AllPatients.Clear()
+                                _listState.AllPatients.AddRange(t.Result)
                                 ApplyFilter(parkNoCurrentPatient:=ShouldParkNoCurrentPatientAfterBackgroundLoad())
                             End Sub)
             End Sub, TaskScheduler.Default)
@@ -735,6 +956,7 @@ Public Class Navigator3
     Private Sub Navigator3_Load(sender As Object, e As EventArgs) Handles Me.Load
         btnResetKid.Visible = False
         EnsurePatientSuggestionUi()
+        EnsurePatientSuggestionHeaderDismissFilter()
         EnsureSearchResultsButton()
         suppressToggleEvent = True
         ' Store original size of MPanel
@@ -772,12 +994,12 @@ Public Class Navigator3
         suppressToggleEvent = False
         'AddHandler PopupPatient.Popup, AddressOf PopupPatient_Popup
         txtPatientName.Focus()
-        txtPatientName.Select()
         UpdateSearchResultsButtonVisibility()
         sw.Stop()
         LogToFile("Time spent: " & sw.Elapsed.TotalSeconds.ToString("F2") & " seconds", Me)
         StartNavigator3PatientsBackgroundLoad()
-
+        AddHandler ComboFlyoutSearchHelper.BeforeMaintenanceModalDialog, AddressOf OnBeforeMaintenanceModalDialogFromCombo
+        txtPatientName.Visible = True
     End Sub
 
 
@@ -814,6 +1036,7 @@ Public Class Navigator3
             LabelAge.Text = patient.Age.ToString()
             ' LabelBal is bound to PatientBS "Balance"; avoid LoadBal/GetBalance here — second EXEC PatientBalance per nav.
             PopupPatient.Text = patient.PatientName
+            ApplyPopupPatientAgeForeColor(patient)
         End If
     End Sub
     ''' <summary>Update Kid/chart state and UI only (IsKidLabel, btnAdultChart, btnResetKid). Does not touch txtPatientName or other bound controls.</summary>
@@ -826,7 +1049,7 @@ Public Class Navigator3
             IsKidLabel.Text = If(Eng, lblEn, lblAr)
             btnResetKid.Visible = True
         Else
-            Kid = If(patient.Age() < 11 AndAlso patient.Age() > 2, True, False)
+            Kid = NavigatorAutoKidFromPatient(patient)
             Dim lblEn As String = If(Kid, "Kid", "Adult")
             Dim lblAr As String = If(Kid, "طفل", "بالغ")
             IsKidLabel.Text = If(Eng, lblEn, lblAr)
@@ -858,6 +1081,10 @@ Public Class Navigator3
     Private Sub OnPatientSelected(ByVal newPatient As Patient, ByVal Optional showkid As Boolean = False, ByVal Optional force As Boolean = False)
         If newPatient Is Nothing Then
             ClearBoundControls()
+            If PopupPatient IsNot Nothing Then
+                PopupPatient.Text = ""
+                ApplyPopupPatientAgeForeColor(Nothing)
+            End If
             Exit Sub
         End If
         Dim sw As New Stopwatch
@@ -878,7 +1105,7 @@ Public Class Navigator3
         Else
             ' Automatic age-based selection
             ' In auto mode, use age-based selection
-            Kid = If(newPatient.Age() < 11 AndAlso newPatient.Age() > 2, True, False)
+            Kid = NavigatorAutoKidFromPatient(newPatient)
             Dim lblEn As String = If(Kid, "Kid", "Adult")
             Dim lblAr As String = If(Kid, "طفل", "بالغ")
             IsKidLabel.Text = If(Eng, lblEn, lblAr)
@@ -900,40 +1127,8 @@ Public Class Navigator3
         _currentPatient.IsGrid = Grid
         _currentPatient.IsFull = Not btnAdultChart.Checked
         PopupPatient.Text = newPatient.PatientName
-        Select Case _Target
-            Case "Treat"
-                ResetControlBackground(Side1)
-                Side1.BackColor = Color.Transparent
-                ResetControlBackground(txtPatientName)
-                txtPatientName.BackColor = Color.Transparent
-                If _currentPatient.Diag.GetValueOrDefault(False) Then
-                    ApplyCtlGradientBackground(txtPatientName, Color.LightCyan, Color.Cyan,
-                                           gradientMode:=Drawing2D.LinearGradientMode.ForwardDiagonal, 200)
-
-                    'Else
-                    '    ResetControlBackground(txtPatientName)
-                    '    txtPatientName.BackColor = Color.Transparent
-                End If
-            Case "Ortho"
-                ResetControlBackground(Side1)
-                Side1.BackColor = Color.Transparent
-                ResetControlBackground(txtPatientName)
-                txtPatientName.BackColor = Color.Transparent
-            Case "Mobile"
-
-                ApplyCtlGradientBackground(Side1, Color.LightPink, Color.Pink,
-                                           gradientMode:=Drawing2D.LinearGradientMode.ForwardDiagonal, 200)
-                ResetControlBackground(txtPatientName)
-                txtPatientName.BackColor = Color.Transparent
-            Case "Diag"
-
-                ApplyCtlGradientBackground(Side1,
-                                             Color.AliceBlue,
-                                              Color.Blue,
-                                              Drawing2D.LinearGradientMode.ForwardDiagonal, 128)
-                ApplyCtlGradientBackground(txtPatientName, Color.LightCyan, Color.Cyan,
-                                           gradientMode:=Drawing2D.LinearGradientMode.ForwardDiagonal, 200)
-        End Select
+        ApplyPopupPatientAgeForeColor(newPatient)
+        ApplyNavigatorShellStyleForTarget(newPatient)
 
         ' Raise the event so TreatsUserControl and others get patient + IsKid (adult/kid chart)
         PatientEventManager.RaisePatientChanged(newPatient, Kid, force)
@@ -951,8 +1146,8 @@ Public Class Navigator3
         Dim displayCount As Integer
         If PatientBS.Count > 0 Then
             displayCount = PatientBS.Count
-        ElseIf _filteredPatients IsNot Nothing Then
-            displayCount = _filteredPatients.Count
+        ElseIf _listState.FilteredPatients IsNot Nothing Then
+            displayCount = _listState.FilteredPatients.Count
         Else
             displayCount = 0
         End If
@@ -963,6 +1158,10 @@ Public Class Navigator3
     Private Sub PatientBS_PositionChanged(sender As Object, e As EventArgs) Handles PatientBS.PositionChanged
         UpdateNavigationControls()
         FirePatientChangedForCurrent(_pendingSuppressPatientBroadcast)
+    End Sub
+
+    Private Sub PatientBS_CurrentChanged(sender As Object, e As EventArgs) Handles PatientBS.CurrentChanged
+        ApplyPopupPatientAgeForeColor(TryCast(PatientBS.Current, Patient))
     End Sub
 
     Private Sub btnFirst_Click(sender As Object, e As EventArgs) Handles btnFirst.Click
@@ -999,7 +1198,10 @@ Public Class Navigator3
             If foundPosition >= 0 Then
                 PatientBS.Position = foundPosition
             Else
-                Debug.WriteLine($"Warning: Patient {patient.PatientID} not found in PatientBS")
+                NotifyNonFatal("Patient list", "قائمة المرضى",
+                    $"The selected patient (ID {patient.PatientID}) is not in the current filtered list. Use search or change the filter, then try again.",
+                    $"المريض المحدد (رقم {patient.PatientID}) ليس في القائمة المصفاة الحالية. استخدم البحث أو غيّر التصفية ثم أعد المحاولة.",
+                    Nothing, MessageBoxIcon.Information)
             End If
         End If
     End Sub
@@ -1024,83 +1226,275 @@ Public Class Navigator3
 
 
     '------------------------------------
+    ''' <summary>Forces PatientBS-bound financial labels to re-query Balance / TotalTreatments / TotalPayments.
+    ''' <see cref="Patient"/> clears its cache in <see cref="Patient.RefreshComputedProperties"/> but does not
+    ''' implement INotifyPropertyChanged, so bindings do not refresh by themselves.</summary>
+    Private Sub RefreshFinancialHeaderBindingsReadValues()
+        For Each lbl As Control In {LabelBal, lblTrts, lblPays}
+            If lbl Is Nothing Then Continue For
+            For Each b As Binding In lbl.DataBindings
+                b.ReadValue()
+            Next
+        Next
+    End Sub
+
     Public Sub LoadBal(ByVal PatientId As Integer) Implements IPatientHeaderControl.LoadBal
 
         Try
             If _currentPatient Is Nothing Then Return
-            Dim d As Double
-            If _currentPatient.PatientID = PatientId Then
+            Dim samePatient = _currentPatient.PatientID = PatientId
+            If samePatient Then
                 _currentPatient.RefreshComputedProperties()
-                d = _currentPatient.Balance
+                RefreshFinancialHeaderBindingsReadValues()
             Else
-                d = _currentPatient.GetBalance(PatientId)
-            End If
-            Me.LabelBal.Text = d.ToString("###0.0")
-            If d < 0 Then
-                Me.LabelBal.ForeColor = Color.Red
-            ElseIf d > 0 Then
-                Me.LabelBal.ForeColor = Color.Blue
-            Else
-                Me.LabelBal.ForeColor = Color.Black
+                Dim d = _currentPatient.GetBalance(PatientId)
+                Me.LabelBal.Text = d.ToString("###0.0")
+                If d < 0 Then
+                    Me.LabelBal.ForeColor = Color.Red
+                ElseIf d > 0 Then
+                    Me.LabelBal.ForeColor = Color.Blue
+                Else
+                    Me.LabelBal.ForeColor = Color.Black
+                End If
             End If
         Catch ex As System.Data.SqlClient.SqlException
-            MsgBox(ex.Message)
+            NotifyNonFatal("Balance", "الرصيد",
+                "The patient balance could not be read from the database.",
+                "تعذر قراءة رصيد المريض من قاعدة البيانات.",
+                ex, MessageBoxIcon.Warning)
+        Catch ex As Exception
+            NotifyNonFatal("Balance", "الرصيد",
+                "The patient balance could not be updated.",
+                "تعذر تحديث رصيد المريض.",
+                ex, MessageBoxIcon.Warning)
         End Try
     End Sub
 
 
 #Region "PatientHdrControls"
 
-    Private Sub ShowFly()
-        FlyoutPatientInfo.OwnerControl = Me
-        FlyoutPatientInfo.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-        FlyoutPatientInfo.Options.Location = New System.Drawing.Point(299, 74)
-        FlyoutPatientInfo.ShowPopup()
+    Private Function GetTypedNameForNewPatient() As String
+        If txtPatientName Is Nothing Then Return ""
+
+        Dim typedName As String = If(txtPatientName.Text, "").Trim()
+        If typedName.Length = 0 Then Return ""
+
+        Dim normalizedTyped As String = NavigatorPatientListState.NormalizePatientSearchText(typedName)
+        Dim exactMatchSavedName As Boolean =
+            _listState.AllPatients IsNot Nothing AndAlso
+            _listState.AllPatients.Any(Function(p) String.Equals(
+                NavigatorPatientListState.NormalizePatientSearchText(If(p.PatientName, "")),
+                normalizedTyped,
+                StringComparison.OrdinalIgnoreCase))
+
+        ' Never seed the flyout with a full name identical to one already on file.
+        If exactMatchSavedName Then Return ""
+
+        Dim currentSearchRows = BuildSearchFilteredPatientList(typedName)
+        ' Prefill whenever the current typed text yields no selectable rows. Do not rely on PatientBS here:
+        ' the debounce timer may not have rebuilt it yet when the user clicks Add New immediately after typing.
+        If currentSearchRows.Count = 0 Then Return typedName
+
+        Return ""
+    End Function
+
+    Private Sub FocusPatientNameTextEdit()
+        If Me.IsDisposed OrElse Not Me.IsHandleCreated Then Return
+        'If PatientNameTextEdit Is Nothing OrElse PatientNameTextEdit.IsDisposed Then Return
+
+        Try
+            'PatientNameTextEdit.Focus()
+            'PatientNameTextEdit.Select()
+            'PatientNameTextEdit.SelectionStart = If(PatientNameTextEdit.Text, "").Length
+            'PatientNameTextEdit.SelectionLength = 0
+        Catch ex As Exception
+            Try
+                'PatientNameTextEdit.Focus()
+                'PatientNameTextEdit.Select()
+            Catch ex2 As Exception
+                NotifyNonFatal("Patient details", "بيانات المريض",
+                    "The patient name field could not receive focus. Click inside the name field and try again.",
+                    "تعذر نقل التركيز إلى حقل الاسم. انقر داخل حقل الاسم وحاول مرة أخرى.",
+                    ex2, MessageBoxIcon.Information)
+            End Try
+        End Try
     End Sub
 
-    Private Sub btnAddPatient_Click(sender As Object, e As EventArgs) Handles btNewPatient.Click
-        _popupOpeningForAdd = True
+    Private Sub RestoreNewPatientFlyoutFromSearch()
         ClearFormForNewPatient()
-        ' Prefill name from search box only for explicit Add — do not sync on every keystroke (avoids ghost name when opening edit with 0 matches).
-        If txtCount.Text = "0" AndAlso txtPatientName.Text.Trim().Length > 0 Then
-            PatientNameTextEdit.Text = If(txtPatientName Is Nothing, "", txtPatientName.Text).Trim()
-        Else
-            PatientNameTextEdit.Text = ""
-        End If
-
-        'PopupPatient.ShowPopup()
-        ShowFly()
+        'PatientNameTextEdit.Text = GetTypedNameForNewPatient()
     End Sub
+
+    Private Sub ShowFly(Optional focusPatientNameEditWhenShown As Boolean = False,
+                        Optional ownerAnchor As Control = Nothing)
+        ' Always close an existing flyout before ShowPopup; mixed HideBeakForm/HidePopup paths across the app
+        ' otherwise leave the panel half-attached and subsequent opens may fail until the flyout is reset.
+        HidePatientFlyoutSafe(suppressUserMessageOnError:=True)
+        HardHideSuggestionOverlay()
+        If Me.IsDisposed Then
+            NotifyNonFatal("Patient details", "بيانات المريض",
+                "The patient header is no longer available. Close the patient workspace and open it again.",
+                "رأس المريض لم يعد متاحاً. أغلق مساحة المريض وأعد فتحها.",
+                Nothing, MessageBoxIcon.Information)
+            Return
+        End If
+        If Not Me.IsHandleCreated Then
+            Try
+                Me.CreateControl()
+            Catch ex As Exception
+                NotifyNonFatal("Patient details", "بيانات المريض",
+                    "The patient header could not finish loading. Close the patient workspace and try again.",
+                    "تعذر إكمال تحميل رأس المريض. أغلق مساحة المريض وحاول مرة أخرى.",
+                    ex, MessageBoxIcon.Warning)
+                Return
+            End Try
+        End If
+        If Not Me.IsHandleCreated Then
+            NotifyNonFatal("Patient details", "بيانات المريض",
+                "The patient header is still initializing. Wait a moment, then click Add or the patient name again.",
+                "رأس المريض ما زال يُهيأ. انتظر لحظة ثم انقر إضافة أو اسم المريض مرة أخرى.",
+                Nothing, MessageBoxIcon.Information)
+            Return
+        End If
+        'If FlyoutPatientInfo Is Nothing OrElse FlyoutPatientInfo.IsDisposed Then
+        '    NotifyNonFatal("Patient details", "بيانات المريض",
+        '        "The patient details panel is not available. Close the patient workspace and open it again, or restart the program.",
+        '        "لوحة بيانات المريض غير متاحة. أغلق مساحة المريض وأعد فتحها، أو أعد تشغيل البرنامج.",
+        '        Nothing, MessageBoxIcon.Warning)
+        '    Return
+        'End If
+
+        Dim focusAfter As Boolean = focusPatientNameEditWhenShown
+        ' Defer ShowPopup one message so nested FlyoutPanelToolForm / combo popups (e.g. HlthCombo) can finish teardown;
+        ' immediate Show after HidePopup(True) has caused ObjectDisposedException on FlyoutPanel (crash_20260507_120635).
+        Dim showWork As New Action(
+            Sub()
+                'If Me.IsDisposed OrElse FlyoutPatientInfo Is Nothing OrElse FlyoutPatientInfo.IsDisposed Then
+                '    NotifyNonFatal("Patient details", "بيانات المريض",
+                '        "The patient details panel became unavailable while opening. Close the workspace or restart the program, then try again.",
+                '        "أصبحت لوحة بيانات المريض غير متاحة أثناء الفتح. أغلق المساحة أو أعد تشغيل البرنامج ثم حاول مرة أخرى.",
+                '        Nothing, MessageBoxIcon.Warning)
+                '    Return
+                'End If
+                'Try
+                '    ' Only Fade and Slide exist in this DX enum; Slide avoids PopupToolWindowFadeAnimationProvider (see crash_20260507_120635).
+                '    FlyoutPatientInfo.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Slide
+                '    FlyoutPatientInfo.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
+                '    ' Anchor the popup to the top-level shell (not Navigator3). When OwnerControl is this UC, nested modal
+                '    ' dialogs owned by MainView can tear down the flyout HWND and leave FlyoutPatientInfo disposed.
+                '    Dim shell = TryCast(Me.TopLevelControl, Control)
+                '    If shell IsNot Nothing AndAlso Not Object.ReferenceEquals(shell, Me) Then
+                '        FlyoutPatientInfo.OwnerControl = shell
+                '        Dim desiredNavPt As New System.Drawing.Point(299, 74)
+                '        Dim screenPt = Me.PointToScreen(desiredNavPt)
+                '        FlyoutPatientInfo.Options.Location = shell.PointToClient(screenPt)
+                '    Else
+                '        FlyoutPatientInfo.OwnerControl = Me
+                '        FlyoutPatientInfo.Options.Location = New System.Drawing.Point(299, 74)
+                '    End If
+                '    _focusPatientNameEditWhenFlyoutShown = focusAfter
+                '    FlyoutPatientInfo.ShowPopup()
+                'Catch ex As ObjectDisposedException
+                '    NotifyNonFatal("Patient details", "بيانات المريض",
+                '        "The patient details window was closed while opening. Close any open patient dialogs and click Add or the patient name again.",
+                '        "أُغلقت نافذة بيانات المريض أثناء الفتح. أغلق أي نوافذ مريض مفتوحة ثم انقر إضافة أو اسم المريض مرة أخرى.",
+                '        ex, MessageBoxIcon.Warning)
+                'Catch ex As Exception
+                '    NotifyNonFatal("Patient details", "بيانات المريض",
+                '        "The patient details window could not be shown.",
+                '        "تعذر إظهار نافذة بيانات المريض.",
+                '        ex, MessageBoxIcon.Warning)
+                'End Try
+            End Sub)
+        If Me.IsHandleCreated AndAlso Me.InvokeRequired Then
+            Me.BeginInvoke(showWork)
+        Else
+            showWork()
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Closes the patient flyout. Prefer <see cref="HidePopup(Boolean)"/> with <c>immediate:=False</c> so the panel host is not torn down
+    ''' in a state where the next <c>ShowPopup</c> throws <see cref="ObjectDisposedException"/> after nested tool windows close.
+    ''' Animated/duplicate-hide issues are swallowed by Try/Catch.
+    ''' </summary>
+    Private Sub HidePatientFlyoutSafe(Optional suppressUserMessageOnError As Boolean = False)
+        'Try
+        '    If FlyoutPatientInfo Is Nothing OrElse FlyoutPatientInfo.IsDisposed Then Return
+        '    FlyoutPatientInfo.HidePopup(False)
+        'Catch ex As Exception
+        '    If suppressUserMessageOnError Then Return
+        '    NotifyNonFatal("Patient details", "بيانات المريض",
+        '        "The patient details window could not be closed cleanly. If it still appears or buttons stop responding, switch to another screen and back, or restart the program.",
+        '        "تعذر إغلاق نافذة بيانات المريض بشكل صحيح. إذا بقيت النافذة أو توقفت الأزرار عن الاستجابة، انتقل إلى شاشة أخرى ثم عد، أو أعد تشغيل البرنامج.",
+        '        ex, MessageBoxIcon.Information)
+        'End Try
+    End Sub
+
+    ''' <summary>
+    ''' Tear down patient flyout + search suggestions before swapping workspace body or re-showing the flyout.
+    ''' Prevents DevExpress FlyoutPanel / peek window state where <see cref="ShowPopup"/> becomes a no-op and header clicks appear "dead" (no exception).
+    ''' </summary>
+    Friend Sub PrepareForEmbeddedBodySwitch()
+        HardHideSuggestionOverlay()
+        HidePatientFlyoutSafe(suppressUserMessageOnError:=True)
+        _popupOpeningForAdd = False
+    End Sub
+
+    Private Sub FlyoutPatientInfo_Showing(sender As Object, e As FlyoutPanelEventArgs)
+        If Not _focusPatientNameEditWhenFlyoutShown Then Return
+        _focusPatientNameEditWhenFlyoutShown = False
+        BeginInvoke(New Action(Sub() FocusPatientNameTextEdit()))
+    End Sub
+
+    Private Sub btNewPatient_Click(sender As Object, e As EventArgs) Handles btNewPatient.Click
+        HardHideSuggestionOverlay()
+        ComboFlyoutSearchHelper.RaiseBeforeMaintenanceModalDialog()
+        _popupOpeningForAdd = False
+        Dim filterToken As String = If(String.Equals(_Target, PatientFilterAll, StringComparison.OrdinalIgnoreCase), "", _Target)
+        Dim owner As Form = ComboFlyoutSearchHelper.TryGetApplicationShellForm()
+        If owner Is Nothing Then owner = TryCast(Me.TopLevelControl, Form)
+        Try
+            Using f As New PatientAddEditForm(filterToken)
+                If f.ShowDialog(owner) = DialogResult.OK AndAlso f.LastInsertedPatient IsNot Nothing Then
+                    MergeInsertedPatientIntoNavigator(f.LastInsertedPatient)
+                End If
+            End Using
+        Finally
+            ComboFlyoutSearchHelper.RaiseAfterMaintenanceModalDialog()
+        End Try
+    End Sub
+
     ''' <summary>Clear flyout patient fields (name, demographics, filters) without changing header title or Add/Update mode.</summary>
     Private Sub ClearPopupPatientDetailFields()
-        PatientIDEdit.EditValue = 0
-        PatientNameTextEdit.Text = ""
-        SexTextBox.Text = ""
-        AgeSpinEdit.EditValue = 25
-        PhoneTextEdit.Text = ""
-        AddressTextEdit.Text = ""
-        HealthTextBox.Text = ""
-        NotesTextEdit.Text = ""
-        BirthYSpinEdit.EditValue = Now.Year - 25
-        CboCity.CboCity.SelectedIndex = -1
-        CboHealth.CboHealth.SelectedIndex = -1
-        If lblPNum IsNot Nothing Then lblPNum.Text = ""
-        TreatCheckBox.Checked = (_Target = PatientFilterTreat)
-        ImplantCheckBox.Checked = (_Target = "Implant")
-        MobileCheckBox.Checked = (_Target = PatientFilterMobile)
-        OrthoCheckBox.Checked = (_Target = PatientFilterOrtho)
-        DiagCheck.Checked = (_Target = PatientFilterDiag)
-        StrucCheckBox.Checked = False
-        txtWhats.Text = ""
-        cboPrefix.SelectedIndex = -1
+        'PatientIDEdit.EditValue = 0
+        'PatientNameTextEdit.Text = ""
+        'SexTextBox.Text = ""
+        'AgeSpinEdit.EditValue = 25
+        'PhoneTextEdit.Text = ""
+        'AddressTextEdit.Text = ""
+        'HealthTextBox.Text = ""
+        'NotesTextEdit.Text = ""
+        'BirthYSpinEdit.EditValue = Now.Year - 25
+        'CboCity.CboCity.SelectedIndex = -1
+        'CboHealth.CboHealth.SelectedIndex = -1
+        'If lblPNum IsNot Nothing Then lblPNum.Text = ""
+        'TreatCheckBox.Checked = (_Target = PatientFilterTreat)
+        'ImplantCheckBox.Checked = (_Target = "Implant")
+        'MobileCheckBox.Checked = (_Target = PatientFilterMobile)
+        'OrthoCheckBox.Checked = (_Target = PatientFilterOrtho)
+        'DiagCheck.Checked = (_Target = PatientFilterDiag)
+        'StrucCheckBox.Checked = False
+        'txtWhats.Text = ""
+        'cboPrefix.SelectedIndex = -1
     End Sub
     ''' <summary>Clear popup form so Save/Update button will perform Insert (new patient).</summary>
     Private Sub ClearFormForNewPatient()
-        grpPatientInfo.Text = If(Eng, "Add New Patient", "إضافة مريض جديد")
-        btnAdd.Visible = True
-        btnUpdatePatient.Enabled = False
-        btnDeletePatient.Enabled = False
-        ClearPopupPatientDetailFields()
+        'grpPatientInfo.Text = If(Eng, "Add New Patient", "إضافة مريض جديد")
+        'btnAdd.Visible = True
+        'btnUpdatePatient.Enabled = False
+        'btnDeletePatient.Enabled = False
+        'ClearPopupPatientDetailFields()
     End Sub
 
     Private Sub RefreshBoundControls()
@@ -1110,31 +1504,47 @@ Public Class Navigator3
             End If
         Next
     End Sub
-    Private Sub PopupPatient_Click(sender As Object, e As EventArgs) Handles PopupPatient.Click
-        FlyoutPatientInfo.OwnerControl = PopupPatient
-        If _popupOpeningForAdd Then
-            ClearFormForNewPatient()
-        Else
-            Dim cur As Patient = TryCast(PatientBS.Current, Patient)
-            If cur Is Nothing OrElse PatientBS.Position < 0 Then
-                ' No row in the filtered list (e.g. search matched nothing): do not open the flyout — avoids empty Save/Delete/Update.
-                MessageBox.Show(
-                    If(Eng,
-                       "No patient is selected. Choose a patient from the list or adjust your search.",
-                       "لا يوجد مريض محدد. اختر مريضاً من القائمة أو عدّل البحث."),
-                    If(Eng, "Patient", "المريض"),
-                    MessageBoxButtons.OK, MessageBoxIcon.Information)
-                _popupOpeningForAdd = False
-                Return
-            End If
-            grpPatientInfo.Text = If(Eng, "Patient Info", "بيانات المريض")
-            If btnAdd IsNot Nothing Then btnAdd.Visible = False
-            btnUpdatePatient.Enabled = True
-            btnDeletePatient.Enabled = True
-            LoadCurrentPatientIntoPopup()
+    Private Sub OpenPopupPatientFlyout()
+        HardHideSuggestionOverlay()
+        If _popupOpeningForAdd Then _popupOpeningForAdd = False
+        Dim cur As Patient = TryCast(PatientBS.Current, Patient)
+        If cur Is Nothing Then cur = _currentPatient
+        If cur Is Nothing OrElse cur.PatientID <= 0 Then
+            MessageBox.Show(
+                If(Eng,
+                   "No patient is selected. Choose a patient from the list or adjust your search.",
+                   "لا يوجد مريض محدد. اختر مريضاً من القائمة أو عدّل البحث."),
+                If(Eng, "Patient", "المريض"),
+                MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
         End If
-        _popupOpeningForAdd = False
-        ShowFly()
+        _currentPatient = cur
+        ComboFlyoutSearchHelper.RaiseBeforeMaintenanceModalDialog()
+        Dim owner As Form = ComboFlyoutSearchHelper.TryGetApplicationShellForm()
+        If owner Is Nothing Then owner = TryCast(Me.TopLevelControl, Form)
+        Try
+            Using infoForm As New PatientInfoForm(cur.PatientID)
+                If infoForm.ShowDialog(owner) <> DialogResult.OK Then Return
+                If infoForm.PatientDeleted Then
+                    RemovePatientFromNavigatorAfterDelete(cur)
+                    Return
+                End If
+                If infoForm.LastUpdatedPatient IsNot Nothing Then
+                    MergeUpdatedPatientIntoNavigator(infoForm.LastUpdatedPatient)
+                    HidePatientFlyoutSafe()
+                End If
+            End Using
+        Finally
+            ComboFlyoutSearchHelper.RaiseAfterMaintenanceModalDialog()
+        End Try
+    End Sub
+
+    Private Sub PopupPatient_Click(sender As Object, e As EventArgs) Handles PopupPatient.Click
+        OpenPopupPatientFlyout()
+    End Sub
+
+    Private Sub PopupPatient_ButtonClick(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles PopupPatient.ButtonClick
+        OpenPopupPatientFlyout()
     End Sub
     ''' <summary>Reloads <see cref="_currentPatient"/> and cached lists from DB so WhatsApp and other fields match saves from Appointments/Accounting/etc.</summary>
     Private Sub RebindCurrentPatientFromDatabaseBeforePopup()
@@ -1148,13 +1558,13 @@ Public Class Navigator3
             fresh.IsGrid = prev.IsGrid
             fresh.IsFull = prev.IsFull
             _currentPatient = fresh
-            If _allPatients IsNot Nothing Then
-                Dim idxAll As Integer = _allPatients.FindIndex(Function(p) p.PatientID = fresh.PatientID)
-                If idxAll >= 0 Then _allPatients(idxAll) = fresh
+            If _listState.AllPatients IsNot Nothing Then
+                Dim idxAll As Integer = _listState.AllPatients.FindIndex(Function(p) p.PatientID = fresh.PatientID)
+                If idxAll >= 0 Then _listState.AllPatients(idxAll) = fresh
             End If
-            If _filteredPatients IsNot Nothing Then
-                Dim idxF As Integer = _filteredPatients.FindIndex(Function(p) p.PatientID = fresh.PatientID)
-                If idxF >= 0 Then _filteredPatients(idxF) = fresh
+            If _listState.FilteredPatients IsNot Nothing Then
+                Dim idxF As Integer = _listState.FilteredPatients.FindIndex(Function(p) p.PatientID = fresh.PatientID)
+                If idxF >= 0 Then _listState.FilteredPatients(idxF) = fresh
             End If
             If _bindingPatients IsNot Nothing Then
                 For bi As Integer = 0 To _bindingPatients.Count - 1
@@ -1164,37 +1574,45 @@ Public Class Navigator3
                     End If
                 Next
             End If
-        Catch
+        Catch ex As Exception
+            NotifyNonFatal("Patient details", "بيانات المريض",
+                "The latest patient information could not be read from the database. The form may show older data.",
+                "تعذر قراءة أحدث بيانات المريض من قاعدة البيانات. قد تظهر بيانات قديمة في النموذج.",
+                ex, MessageBoxIcon.Warning)
         End Try
     End Sub
 
     ''' <summary>Fill popup form fields from _currentPatient (when user clicks PopupPatient to view/edit).</summary>
     Private Sub LoadCurrentPatientIntoPopup()
-        If _currentPatient Is Nothing Then Return
-        RebindCurrentPatientFromDatabaseBeforePopup()
-        PatientIDEdit.EditValue = _currentPatient.PatientID
-        PatientNameTextEdit.Text = _currentPatient.PatientName ' If(_currentPatient.PatientName, "")
-        SexTextBox.Text = If(_currentPatient.Sex, "")
-        AgeSpinEdit.EditValue = If(_currentPatient.Age.HasValue, CType(_currentPatient.Age.Value, Object), 0)
-        PhoneTextEdit.Text = If(_currentPatient.Phone, "")
-        ' Saved WhatsApp prefix + local / phone fallback (same as appointment editor)
-        Try
-            WhatsHelper.BindPatientWhatsPrefixAndLocal(cboPrefix, txtWhats, _currentPatient)
-            RefreshLblWhats()
-        Catch
-        End Try
+        'If _currentPatient Is Nothing Then Return
+        'RebindCurrentPatientFromDatabaseBeforePopup()
+        'PatientIDEdit.EditValue = _currentPatient.PatientID
+        'PatientNameTextEdit.Text = _currentPatient.PatientName ' If(_currentPatient.PatientName, "")
+        'SexTextBox.Text = If(_currentPatient.Sex, "")
+        'AgeSpinEdit.EditValue = If(_currentPatient.Age.HasValue, CType(_currentPatient.Age.Value, Object), 0)
+        'PhoneTextEdit.Text = If(_currentPatient.Phone, "")
+        '' Saved WhatsApp prefix + local / phone fallback (same as appointment editor)
+        'Try
+        '    WhatsHelper.BindPatientWhatsPrefixAndLocal(cboPrefix, txtWhats, _currentPatient)
+        '    RefreshLblWhats()
+        'Catch ex As Exception
+        '    NotifyNonFatal("WhatsApp", "واتساب",
+        '        "WhatsApp fields for this patient could not be filled automatically. You can still edit the phone number manually.",
+        '        "تعذر تعبئة حقول واتساب لهذا المريض تلقائياً. لا يزال بإمكانك تعديل رقم الهاتف يدوياً.",
+        '        ex, MessageBoxIcon.Information)
+        'End Try
 
-        AddressTextEdit.Text = If(_currentPatient.Address, "")
-        HealthTextBox.Text = If(_currentPatient.Health, "")
-        NotesTextEdit.Text = If(_currentPatient.Notes, "")
-        BirthYSpinEdit.EditValue = If(_currentPatient.BirthY.HasValue, CType(_currentPatient.BirthY.Value, Object), 0)
-        If lblPNum IsNot Nothing Then lblPNum.Text = If(_currentPatient.PatientNumber, "")
-        TreatCheckBox.Checked = _currentPatient.Treat.GetValueOrDefault(False)
-        ImplantCheckBox.Checked = _currentPatient.Implant.GetValueOrDefault(False)
-        MobileCheckBox.Checked = _currentPatient.Mobile.GetValueOrDefault(False)
-        OrthoCheckBox.Checked = _currentPatient.Ortho.GetValueOrDefault(False)
-        DiagCheck.Checked = _currentPatient.Diag.GetValueOrDefault(False)
-        StrucCheckBox.Checked = _currentPatient.Struc.GetValueOrDefault(False)
+        'AddressTextEdit.Text = If(_currentPatient.Address, "")
+        'HealthTextBox.Text = If(_currentPatient.Health, "")
+        'NotesTextEdit.Text = If(_currentPatient.Notes, "")
+        'BirthYSpinEdit.EditValue = If(_currentPatient.BirthY.HasValue, CType(_currentPatient.BirthY.Value, Object), 0)
+        'If lblPNum IsNot Nothing Then lblPNum.Text = If(_currentPatient.PatientNumber, "")
+        'TreatCheckBox.Checked = _currentPatient.Treat.GetValueOrDefault(False)
+        'ImplantCheckBox.Checked = _currentPatient.Implant.GetValueOrDefault(False)
+        'MobileCheckBox.Checked = _currentPatient.Mobile.GetValueOrDefault(False)
+        'OrthoCheckBox.Checked = _currentPatient.Ortho.GetValueOrDefault(False)
+        'DiagCheck.Checked = _currentPatient.Diag.GetValueOrDefault(False)
+        'StrucCheckBox.Checked = _currentPatient.Struc.GetValueOrDefault(False)
     End Sub
     Private Sub LabelAge_TextChanged(sender As Object, e As EventArgs) Handles LabelAge.TextChanged
         Dim Age As Integer
@@ -1253,8 +1671,11 @@ Public Class Navigator3
 #Region "LoadTreats"
     Private Sub btnAdultChart_CheckedChanged(sender As Object, e As EventArgs) Handles btnAdultChart.CheckedChanged
         ' Skip if this is an automatic change during initialization
-        If suppressToggleEvent OrElse PatientBS.Count = 0 Then Return
-        Dim currentPatient = CType(PatientBS.Current, Patient)
+        If suppressToggleEvent Then Return
+        If PatientBS.Count = 0 AndAlso _currentPatient Is Nothing Then Return
+        Dim currentPatient As Patient = TryCast(PatientBS.Current, Patient)
+        If currentPatient Is Nothing Then currentPatient = _currentPatient
+        If currentPatient Is Nothing Then Return
         ' Only enter manual mode when user explicitly clicks the button
         manualOverrideActive = True
         manualKidStatus = btnAdultChart.Checked
@@ -1288,7 +1709,7 @@ Public Class Navigator3
             btnResetKid.Visible = True
         Else
             ' In auto mode, use age-based selection
-            Kid = If(patient.Age() <= 11, True, False)
+            Kid = NavigatorAutoKidFromPatient(patient)
             Dim lblEn As String = If(Kid, "Kid", "Adult")
             Dim lblAr As String = If(Kid, "طفل", "بالغ")
             IsKidLabel.Text = If(Eng, lblEn, lblAr)
@@ -1323,6 +1744,82 @@ Public Class Navigator3
 
 #Region "PatientAddUpdateDeleteControls"
 
+    Private Sub MergeInsertedPatientIntoNavigator(newPatient As Patient)
+        _listState.AllPatients.Add(newPatient)
+        _listState.RebuildFilteredFromAll()
+        Dim matchesFilter = _listState.FilteredPatients.Exists(Function(p) p.PatientID = newPatient.PatientID)
+        If matchesFilter Then
+            _bindingPatients.Add(newPatient)
+            Dim newIndex As Integer = _bindingPatients.Count - 1
+            PatientBS.Position = newIndex
+        End If
+        If HasActiveSearchQuery() Then
+            Dim selectPatientIdAfterClear As Integer? = Nothing
+            If matchesFilter Then
+                selectPatientIdAfterClear = newPatient.PatientID
+            Else
+                Dim curKeep As Patient = TryCast(PatientBS.Current, Patient)
+                If curKeep IsNot Nothing AndAlso curKeep.PatientID > 0 Then selectPatientIdAfterClear = curKeep.PatientID
+            End If
+            ClearPatientSearchBox()
+            ApplyFilter(suppressPatientBroadcast:=True, selectPatientIdAfterRefresh:=selectPatientIdAfterClear)
+        End If
+        If matchesFilter Then _listState.ParkBindingEmptyUntilUserQuery = False
+        _popupOpeningForAdd = False
+        HidePatientFlyoutSafe()
+        UpdateNavigationControls()
+        FirePatientChangedForCurrent()
+    End Sub
+
+    Private Sub MergeUpdatedPatientIntoNavigator(updated As Patient)
+        Dim idxAll As Integer = _listState.AllPatients.FindIndex(Function(p) p.PatientID = updated.PatientID)
+        If idxAll >= 0 Then _listState.AllPatients(idxAll) = updated
+        _listState.RebuildFilteredFromAll()
+        Dim rawSearch = If(txtPatientName Is Nothing, "", txtPatientName.Text)
+        Dim suppressB = rawSearch.Trim().Length > 0
+        RefreshBindingListFromFiltered(rawSearch, suppressPatientBroadcast:=suppressB, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=updated.PatientID)
+        _currentPatient = updated
+        UpdateNavigationControls()
+        UpdateBoundControlsExceptName(updated)
+        UpdateKidStateOnly(updated)
+        PatientEventManager.RaisePatientChanged(updated, Kid, True)
+    End Sub
+
+    Private Sub RemovePatientFromNavigatorAfterDelete(toDelete As Patient)
+        Dim fallbackPatientId As Integer? = Nothing
+        Dim idxInBinding As Integer = -1
+        For i As Integer = 0 To _bindingPatients.Count - 1
+            If CType(_bindingPatients(i), Patient).PatientID = toDelete.PatientID Then
+                idxInBinding = i
+                Exit For
+            End If
+        Next
+
+        If idxInBinding > 0 Then
+            fallbackPatientId = _bindingPatients(idxInBinding - 1).PatientID
+        ElseIf idxInBinding >= 0 AndAlso idxInBinding < _bindingPatients.Count - 1 Then
+            fallbackPatientId = _bindingPatients(idxInBinding + 1).PatientID
+        End If
+
+        If _listState.AllPatients IsNot Nothing Then
+            Dim idxInAll As Integer = _listState.AllPatients.FindIndex(Function(p) p.PatientID = toDelete.PatientID)
+            If idxInAll >= 0 Then _listState.AllPatients.RemoveAt(idxInAll)
+        End If
+
+        If _listState.FilteredPatients IsNot Nothing Then
+            Dim idxInFiltered As Integer = _listState.FilteredPatients.FindIndex(Function(p) p.PatientID = toDelete.PatientID)
+            If idxInFiltered >= 0 Then _listState.FilteredPatients.RemoveAt(idxInFiltered)
+        End If
+
+        ClearPatientSearchBox()
+        RefreshBindingListFromFiltered(Nothing, suppressPatientBroadcast:=False, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=fallbackPatientId)
+        _currentPatient = If(PatientBS.Count > 0, TryCast(PatientBS.Current, Patient), Nothing)
+
+        HidePatientFlyoutSafe()
+        UpdateNavigationControls()
+        FirePatientChangedForCurrent()
+    End Sub
+
     Private Sub InsertPatient()
 
         Dim usr As Boolean = False
@@ -1334,65 +1831,65 @@ Public Class Navigator3
             MsgBox("You are adding a patient without a user logged in, Default will be used.")
         End If
         Select Case _Target
-            Case "Treat"
-                TreatCheckBox.Checked = True
-            Case "Implant"
-                ImplantCheckBox.Checked = True
-            Case "Mobile"
-                MobileCheckBox.Checked = True
-            Case "Ortho"
-                OrthoCheckBox.Checked = True
-            Case "Diag"
-                DiagCheck.Checked = True
+            'Case "Treat"
+            '    TreatCheckBox.Checked = True
+            'Case "Implant"
+            '    ImplantCheckBox.Checked = True
+            'Case "Mobile"
+            '    MobileCheckBox.Checked = True
+            'Case "Ortho"
+            '    OrthoCheckBox.Checked = True
+            'Case "Diag"
+            '    DiagCheck.Checked = True
         End Select
-        ' If WhatsApp is empty and phone starts with 05, default WhatsApp to phone
-        If txtWhats IsNot Nothing AndAlso String.IsNullOrWhiteSpace(txtWhats.Text) AndAlso
-           PhoneTextEdit IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(PhoneTextEdit.Text) AndAlso
-           PhoneTextEdit.Text.Trim().StartsWith("05") Then
-            txtWhats.Text = PhoneTextEdit.Text.Trim()
-        End If
+        '' If WhatsApp is empty and phone starts with 05, default WhatsApp to phone
+        'If txtWhats IsNot Nothing AndAlso String.IsNullOrWhiteSpace(txtWhats.Text) AndAlso
+        '   PhoneTextEdit IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(PhoneTextEdit.Text) AndAlso
+        '   PhoneTextEdit.Text.Trim().StartsWith("05") Then
+        '    txtWhats.Text = PhoneTextEdit.Text.Trim()
+        'End If
 
-        Dim prefixStored As String = WhatsHelper.GetPrefixTextForStorage(cboPrefix)
-        Dim localW As String = WhatsHelper.NormalizeLocalWhatsTenDigitsForStorage(If(txtWhats?.Text, "").ToString())
+        'Dim prefixStored As String = WhatsHelper.GetPrefixTextForStorage(cboPrefix)
+        'Dim localW As String = WhatsHelper.NormalizeLocalWhatsTenDigitsForStorage(If(txtWhats?.Text, "").ToString())
 
-        Dim clsPatient As New Patient With {
-            .PatientName = PatientNameTextEdit.Text,
-            .Sex = SexTextBox.Text,
-            .Age = If(IsNumeric(AgeSpinEdit.Value), CInt(AgeSpinEdit.Value), CType(Nothing, Integer?)),
-            .IsKid = If(IsNumeric(AgeSpinEdit.Value), CInt(AgeSpinEdit.Value) < 10, False),
-            .Phone = PhoneTextEdit.Text,
-            .WhatsAppPrefix = prefixStored,
-            .WhatsApp = localW,
-            .Address = AddressTextEdit.Text,
-            .Health = HealthTextBox.Text,
-            .Treat = TreatCheckBox.Checked,
-            .Implant = ImplantCheckBox.Checked,
-            .Mobile = MobileCheckBox.Checked,
-            .Ortho = OrthoCheckBox.Checked,
-            .Diag = DiagCheck.Checked,
-            .Struc = StrucCheckBox.Checked,
-            .Notes = NotesTextEdit.Text,
-            .BirthY = BirthYSpinEdit.Value,
-            .CreatedBy = If(usr, CurrentUser.UsID, 1),
-            .CreateDate = Now
-        }
-        If Not String.IsNullOrWhiteSpace(lblPNum.Text) Then clsPatient.PatientNumber = lblPNum.Text.Trim()
+        'Dim clsPatient As New Patient With {
+        '    .PatientName = PatientNameTextEdit.Text,
+        '    .Sex = SexTextBox.Text,
+        '    .Age = If(IsNumeric(AgeSpinEdit.Value), CInt(AgeSpinEdit.Value), CType(Nothing, Integer?)),
+        '    .IsKid = If(IsNumeric(AgeSpinEdit.Value), CInt(AgeSpinEdit.Value) < 10, False),
+        '    .Phone = PhoneTextEdit.Text,
+        '    .WhatsAppPrefix = prefixStored,
+        '    .WhatsApp = localW,
+        '    .Address = AddressTextEdit.Text,
+        '    .Health = HealthTextBox.Text,
+        '    .Treat = TreatCheckBox.Checked,
+        '    .Implant = ImplantCheckBox.Checked,
+        '    .Mobile = MobileCheckBox.Checked,
+        '    .Ortho = OrthoCheckBox.Checked,
+        '    .Diag = DiagCheck.Checked,
+        '    .Struc = StrucCheckBox.Checked,
+        '    .Notes = NotesTextEdit.Text,
+        '    .BirthY = BirthYSpinEdit.Value,
+        '    .CreatedBy = If(usr, CurrentUser.UsID, 1),
+        '    .CreateDate = Now
+        '}
+        'If Not String.IsNullOrWhiteSpace(lblPNum.Text) Then clsPatient.PatientNumber = lblPNum.Text.Trim()
         Dim sw As New Stopwatch()
-        sw.Start()
-        Dim committed As Integer = _patientData.InsertPatient(clsPatient)
-        sw.Stop()
+        'sw.Start()
+        'Dim committed As Integer = _patientData.InsertPatient(clsPatient)
+        'sw.Stop()
         LogToFile("📌 InsertPatient took: " & sw.Elapsed.TotalMilliseconds & " ms", Me)
-        If committed <= 0 Then
-            Select Case committed
-                Case -2
-                    MsgBox(If(Eng, "Patient with this name already exists.", "مريض بهذا الاسم موجود بالفعل."), MsgBoxStyle.Exclamation)
-                Case -3
-                    MsgBox(If(Eng, "Failed to generate patient number. Please try again.", "فشل في إنشاء رقم المريض. يرجى المحاولة مرة أخرى."), MsgBoxStyle.Exclamation)
-                Case Else
-                    MsgBox(If(Eng, "Failed to add patient.", "فشل في إضافة المريض."), MsgBoxStyle.Exclamation)
-            End Select
-            Return
-        End If
+        'If committed <= 0 Then
+        '    Select Case committed
+        '        Case -2
+        '            MsgBox(If(Eng, "Patient with this name already exists.", "مريض بهذا الاسم موجود بالفعل."), MsgBoxStyle.Exclamation)
+        '        Case -3
+        '            MsgBox(If(Eng, "Failed to generate patient number. Please try again.", "فشل في إنشاء رقم المريض. يرجى المحاولة مرة أخرى."), MsgBoxStyle.Exclamation)
+        '        Case Else
+        '            MsgBox(If(Eng, "Failed to add patient.", "فشل في إضافة المريض."), MsgBoxStyle.Exclamation)
+        '    End Select
+        '    Return
+        'End If
         ' InsertPatient returns commit status; get new ID from last inserted patient
         Dim newPatient As Patient = _patientData.Select_LastPatient()
         If newPatient Is Nothing Then
@@ -1404,115 +1901,102 @@ Public Class Navigator3
             MsgBox(If(Eng, "Patient was added but patient number is missing. Please contact support.", "تمت إضافة المريض لكن رقم الملف مفقود. يرجى التواصل مع الدعم."), MsgBoxStyle.Exclamation)
             Return
         End If
-        _allPatients.Add(newPatient)
-        Dim matchesFilter As Boolean = True
-        Select Case _Target
-            Case PatientFilterTreat : matchesFilter = newPatient.Treat.GetValueOrDefault(False)
-            Case PatientFilterOrtho : matchesFilter = newPatient.Ortho.GetValueOrDefault(False)
-            Case PatientFilterDiag : matchesFilter = newPatient.Diag.GetValueOrDefault(False)
-            Case PatientFilterMobile : matchesFilter = newPatient.Mobile.GetValueOrDefault(False)
-        End Select
-        If matchesFilter Then
-            _bindingPatients.Add(newPatient)
-            Dim newIndex As Integer = _bindingPatients.Count - 1
-            PatientBS.Position = newIndex
-        End If
-        FlyoutPatientInfo.HidePopup()
-        UpdateNavigationControls()
-        FirePatientChangedForCurrent()
+        MergeInsertedPatientIntoNavigator(newPatient)
     End Sub
 
-    Private Sub HealthTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HealthTextBox.TextChanged
-        If Eng Then
-            If Me.HealthTextBox.Text = "Healthy" Or Me.HealthTextBox.Text = "سليم" Then
-                Me.HealthTextBox.ForeColor = Color.Blue
-            Else
-                Me.HealthTextBox.ForeColor = Color.Red
-            End If
-        Else
-            If Me.HealthTextBox.Text = "Healthy" Or Me.HealthTextBox.Text = "سليم" Then
-                Me.HealthTextBox.ForeColor = Color.Blue
-            Else
-                Me.HealthTextBox.ForeColor = Color.Red
-            End If
-        End If
+    Private Sub HealthTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        'If Eng Then
+        '    If Me.HealthTextBox.Text = "Healthy" Or Me.HealthTextBox.Text = "سليم" Then
+        '        Me.HealthTextBox.ForeColor = Color.Blue
+        '    Else
+        '        Me.HealthTextBox.ForeColor = Color.Red
+        '    End If
+        'Else
+        '    If Me.HealthTextBox.Text = "Healthy" Or Me.HealthTextBox.Text = "سليم" Then
+        '        Me.HealthTextBox.ForeColor = Color.Blue
+        '    Else
+        '        Me.HealthTextBox.ForeColor = Color.Red
+        '    End If
+        'End If
     End Sub
-    Private Sub SexTextBox_TextChanged(sender As Object, e As EventArgs) Handles SexTextBox.TextChanged
-        Try
-            If Me.SexTextBox.Text = "ذكر" Or Me.SexTextBox.Text = "Male" Then
-                Me.PicBox.Image = My.Resources.Male
-            ElseIf Me.SexTextBox.Text = "أنثى" Or Me.SexTextBox.Text = "Female" Or Me.SexTextBox.Text = "انثى" Then
-                Me.PicBox.Image = My.Resources.Female
-            Else
-                Me.PicBox.Image = PicBox.InitialImage
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+    Private Sub SexTextBox_TextChanged(sender As Object, e As EventArgs)
+        'Try
+        '    If Me.SexTextBox.Text = "ذكر" Or Me.SexTextBox.Text = "Male" Then
+        '        Me.PicBox.Image = My.Resources.Male
+        '    ElseIf Me.SexTextBox.Text = "أنثى" Or Me.SexTextBox.Text = "Female" Or Me.SexTextBox.Text = "انثى" Then
+        '        Me.PicBox.Image = My.Resources.Female
+        '    Else
+        '        Me.PicBox.Image = PicBox.InitialImage
+        '    End If
+        'Catch ex As Exception
+        '    NotifyNonFatal("Patient", "المريض",
+        '        "Could not update the gender icon.",
+        '        "تعذر تحديث أيقونة الجنس.",
+        '        ex, MessageBoxIcon.Information)
+        'End Try
     End Sub
-    Private Sub AgeSpinEdit_EditValueChanged(sender As Object, e As EventArgs) Handles AgeSpinEdit.EditValueChanged
-        If AgeSpinEdit.EditValue = 0 Then Exit Sub
-        Dim x As Integer = CInt(AgeSpinEdit.EditValue)
-        If x >= 3 And x <= 10 Then
-            Kid = True
-        ElseIf x > 10 Then
-            Kid = False
-        End If
-        BirthYSpinEdit.EditValue = Now.Year - x
-        If _currentPatient IsNot Nothing Then _currentPatient.Age = x
-        If _currentPatient IsNot Nothing AndAlso _currentPatient.Age < 150 Then
-            Me.LabelAge.Text = If(Eng, _currentPatient.Age.ToString & " Yrs", _currentPatient.Age.ToString & "  سنة ")
-        Else
-            Me.LabelAge.Text = If(Eng, "Age Not Set", "العمر غير محدد")
-        End If
+    Private Sub AgeSpinEdit_EditValueChanged(sender As Object, e As EventArgs)
+        'Dim x As Integer = CInt(AgeSpinEdit.EditValue)
+        'If x >= 3 And x <= 10 Then
+        '    Kid = True
+        'ElseIf x > 10 Then
+        '    Kid = False
+        'End If
+        'BirthYSpinEdit.EditValue = Now.Year - x
+        'If _currentPatient IsNot Nothing Then _currentPatient.Age = x
+        'If _currentPatient IsNot Nothing AndAlso _currentPatient.Age < 150 Then
+        '    Me.LabelAge.Text = If(Eng, _currentPatient.Age.ToString & " Yrs", _currentPatient.Age.ToString & "  سنة ")
+        'Else
+        '    Me.LabelAge.Text = If(Eng, "Age Not Set", "العمر غير محدد")
+        'End If
     End Sub
-    Private Sub BirthYSpinEdit_EditValueChanged(sender As Object, e As EventArgs) Handles BirthYSpinEdit.EditValueChanged
-        If BirthYSpinEdit.EditValue = 0 Then Exit Sub
-        ' Temporarily disable the AgeSpinEdit event handler to avoid recursion
-        RemoveHandler AgeSpinEdit.EditValueChanged, AddressOf AgeSpinEdit_EditValueChanged
-        Dim x As Integer = CInt(BirthYSpinEdit.EditValue)
-        Dim y As Integer = Now.Year
-        x = y - x
-        If y - x >= 3 And y - x <= 10 Then
-            Kid = True
-        ElseIf y - x > 10 Then
-            Kid = False
-        End If
-        AgeSpinEdit.EditValue = x
-        If _currentPatient IsNot Nothing Then _currentPatient.Age = x
-        If _currentPatient IsNot Nothing AndAlso _currentPatient.Age < 150 Then
-            Me.LabelAge.Text = If(Eng, _currentPatient.Age.ToString & " Yrs", _currentPatient.Age.ToString & "  سنة ")
-        Else
-            Me.LabelAge.Text = If(Eng, "Age Not Set", "العمر غير محدد")
-        End If
-        ' Re-enable the AgeSpinEdit event handler
-        AddHandler AgeSpinEdit.EditValueChanged, AddressOf AgeSpinEdit_EditValueChanged
+    Private Sub BirthYSpinEdit_EditValueChanged(sender As Object, e As EventArgs)
+        'If BirthYSpinEdit.EditValue = 0 Then Exit Sub
+        '' Temporarily disable the AgeSpinEdit event handler to avoid recursion
+        'RemoveHandler AgeSpinEdit.EditValueChanged, AddressOf AgeSpinEdit_EditValueChanged
+        'Dim x As Integer = CInt(BirthYSpinEdit.EditValue)
+        'Dim y As Integer = Now.Year
+        'x = y - x
+        'If y - x >= 3 And y - x <= 10 Then
+        '    Kid = True
+        'ElseIf y - x > 10 Then
+        '    Kid = False
+        'End If
+        'AgeSpinEdit.EditValue = x
+        'If _currentPatient IsNot Nothing Then _currentPatient.Age = x
+        'If _currentPatient IsNot Nothing AndAlso _currentPatient.Age < 150 Then
+        '    Me.LabelAge.Text = If(Eng, _currentPatient.Age.ToString & " Yrs", _currentPatient.Age.ToString & "  سنة ")
+        'Else
+        '    Me.LabelAge.Text = If(Eng, "Age Not Set", "العمر غير محدد")
+        'End If
+        '' Re-enable the AgeSpinEdit event handler
+        'AddHandler AgeSpinEdit.EditValueChanged, AddressOf AgeSpinEdit_EditValueChanged
     End Sub
-    Private Sub PatientIDEdit_EditValueChanged(sender As Object, e As EventArgs) Handles PatientIDEdit.TextChanged
-        PatientID = CInt(PatientIDEdit.EditValue)
+    Private Sub PatientIDEdit_EditValueChanged(sender As Object, e As EventArgs)
+        'PatientID = CInt(PatientIDEdit.EditValue)
     End Sub
     Private Function CheckTxt() As Boolean
-        Dim errorMessages As New List(Of String)()
-        ' Check Patient Name
-        If String.IsNullOrWhiteSpace(PatientNameTextEdit.Text) Then
-            errorMessages.Add(If(Eng, "Patient name is required", "اسم المريض مطلوب"))
-            PatientNameTextEdit.Focus()
-            ' Check Age
-        ElseIf AgeSpinEdit.Value <= 0 Then
-            Dim message As String = If(AgeSpinEdit.Value = 0,
-                                If(Eng, "Age cannot be zero", "العمر لا يمكن أن يكون صفر"),
-                                If(Eng, "Age cannot be negative", "العمر لا يمكن أن يكون سالب"))
-            errorMessages.Add(message)
-            AgeSpinEdit.Focus()
-            ' Check Health
-            'ElseIf String.IsNullOrWhiteSpace(HealthTextBox.Text) Then
-            '    errorMessages.Add(If(Eng, "Health information is required", "المعلومات الصحية مطلوبة"))
-            '    HealthTextBox.Focus()
-            '    ' Check Address
-            'ElseIf String.IsNullOrWhiteSpace(AddressTextEdit.Text) Then
-            '    errorMessages.Add(If(Eng, "Address is required", "العنوان مطلوب"))
-            '    AddressTextEdit.Focus()
-        End If
+        'Dim errorMessages As New List(Of String)()
+        '' Check Patient Name
+        'If String.IsNullOrWhiteSpace(PatientNameTextEdit.Text) Then
+        '    errorMessages.Add(If(Eng, "Patient name is required", "اسم المريض مطلوب"))
+        '    PatientNameTextEdit.Focus()
+        '    ' Check Age
+        'ElseIf AgeSpinEdit.Value <= 0 Then
+        '    Dim message As String = If(AgeSpinEdit.Value = 0,
+        '                        If(Eng, "Age cannot be zero", "العمر لا يمكن أن يكون صفر"),
+        '                        If(Eng, "Age cannot be negative", "العمر لا يمكن أن يكون سالب"))
+        '    errorMessages.Add(message)
+        '    AgeSpinEdit.Focus()
+        '    ' Check Health
+        '    'ElseIf String.IsNullOrWhiteSpace(HealthTextBox.Text) Then
+        '    '    errorMessages.Add(If(Eng, "Health information is required", "المعلومات الصحية مطلوبة"))
+        '    '    HealthTextBox.Focus()
+        '    '    ' Check Address
+        '    'ElseIf String.IsNullOrWhiteSpace(AddressTextEdit.Text) Then
+        '    '    errorMessages.Add(If(Eng, "Address is required", "العنوان مطلوب"))
+        '    '    AddressTextEdit.Focus()
+        'End If
         ' Check Age
         'If Me.LabelAge.Text = If(Eng, "Age Not Set", "العمر غير محدد") Then
         '    errorMessages.Add(If(Eng, "Age is required", "العمر مطلوب"))
@@ -1523,119 +2007,97 @@ Public Class Navigator3
         '    errorMessages.Add(If(Eng, "Patient Number is required", "رقم المريض مطلوب"))
         '    lblPNum.Focus()
         'End If
-        ' Show error message if any validation failed
-        If errorMessages.Count > 0 Then
-            Dim messageTitle As String = If(Eng, "Validation Error", "خطأ في التحقق")
-            Dim fullMessage As String = String.Join(vbCrLf, errorMessages)
-            MessageBox.Show(fullMessage, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
-        End If
-        Return True
+        '' Show error message if any validation failed
+        'If errorMessages.Count > 0 Then
+        '    Dim messageTitle As String = If(Eng, "Validation Error", "خطأ في التحقق")
+        '    Dim fullMessage As String = String.Join(vbCrLf, errorMessages)
+        '    MessageBox.Show(fullMessage, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return False
+        'End If
+        'Return True
     End Function
-    Private Sub CboCity_CityValueChanged(sender As Object, e As CityCombo.CityIndexChangedEvent) Handles CboCity.CityValueChanged
-        If CboCity.CityID = -1 Then
-            AddressTextEdit.Text = ""
-        Else
-            AddressTextEdit.Text = CboCity.CityName
-        End If
+    Private Sub CboCity_CityValueChanged(sender As Object, e As CityCombo.CityIndexChangedEvent)
+        'If CboCity.CityID = -1 Then
+        '    AddressTextEdit.Text = ""
+        'Else
+        '    AddressTextEdit.Text = CboCity.CityName
+        'End If
     End Sub
-    Private Sub CboHealth_SelectedIndexChanged(sender As Object, e As HlthCombo.HealthIndexChangedEvent) Handles CboHealth.HealthValueChanged
-        If CboHealth.HID = -1 Then
-            HealthTextBox.Text = ""
-        Else
-            HealthTextBox.Text = CboHealth.HealthStat
-        End If
+    Private Sub CboHealth_SelectedIndexChanged(sender As Object, e As HlthCombo.HealthIndexChangedEvent)
+        'If CboHealth.HID = -1 Then
+        '    HealthTextBox.Text = ""
+        'Else
+        '    HealthTextBox.Text = CboHealth.HealthStat
+        'End If
     End Sub
     Property PatientUpdated As Boolean = False
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        If Not CheckTxt() Then Exit Sub
-        ' Add new patient when no current patient or PatientID is empty/zero
-        If _currentPatient Is Nothing OrElse String.IsNullOrWhiteSpace(PatientIDEdit.Text) OrElse CInt(Val(PatientIDEdit.Text)) <= 0 Then
-            InsertPatient()
-            FlyoutPatientInfo.HidePopup()
-            Return
-        End If
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs)
+        'If Not CheckTxt() Then Exit Sub
+        '' Add new patient when no current patient or PatientID is empty/zero
+        'If _currentPatient Is Nothing OrElse String.IsNullOrWhiteSpace(PatientIDEdit.Text) OrElse CInt(Val(PatientIDEdit.Text)) <= 0 Then
+        '    InsertPatient()
+        '    Return
+        'End If
     End Sub
 
-    Private Sub btnUpdatePatient_Click(sender As Object, e As EventArgs) Handles btnUpdatePatient.Click
-        Try
-            If Not CheckTxt() Then Exit Sub
-            '' Add new patient when no current patient or PatientID is empty/zero
-            'If _currentPatient Is Nothing OrElse String.IsNullOrWhiteSpace(PatientIDEdit.Text) OrElse CInt(Val(PatientIDEdit.Text)) <= 0 Then
-            '    InsertPatient()
-            '    Return
-            'End If
+    Private Sub btnUpdatePatient_Click(sender As Object, e As EventArgs)
+        'Try
+        '    If Not CheckTxt() Then Exit Sub
+        '' Add new patient when no current patient or PatientID is empty/zero
+        'If _currentPatient Is Nothing OrElse String.IsNullOrWhiteSpace(PatientIDEdit.Text) OrElse CInt(Val(PatientIDEdit.Text)) <= 0 Then
+        '    InsertPatient()
+        '    Return
+        'End If
 
-            Dim prefixStored As String = WhatsHelper.GetPrefixTextForStorage(cboPrefix)
-            Dim localW As String = WhatsHelper.NormalizeLocalWhatsTenDigitsForStorage(If(txtWhats?.Text, "").ToString())
+        '    Dim prefixStored As String = WhatsHelper.GetPrefixTextForStorage(cboPrefix)
+        '    Dim localW As String = WhatsHelper.NormalizeLocalWhatsTenDigitsForStorage(If(txtWhats?.Text, "").ToString())
 
-            Dim oldPatient As Patient = _currentPatient
-            Dim updated As New Patient With {
-            .PatientID = oldPatient.PatientID,
-            .Address = AddressTextEdit.Text,
-            .PatientNumber = lblPNum.Text,
-            .Age = AgeSpinEdit.Value,
-            .BirthY = BirthYSpinEdit.Value,
-            .Health = HealthTextBox.Text,
-            .Implant = ImplantCheckBox.Checked,
-            .Notes = NotesTextEdit.Text,
-            .Mobile = MobileCheckBox.Checked,
-            .Ortho = OrthoCheckBox.Checked,
-            .Sex = SexTextBox.Text,
-            .Diag = DiagCheck.Checked,
-            .Struc = StrucCheckBox.Checked,
-            .Treat = TreatCheckBox.Checked,
-            .PatientName = PatientNameTextEdit.Text,
-            .Phone = PhoneTextEdit.Text,
-            .WhatsAppPrefix = prefixStored,
-            .WhatsApp = localW,
-            .CreatedBy = oldPatient.CreatedBy,
-            .CreateDate = oldPatient.CreateDate
-        }
+        '    Dim oldPatient As Patient = _currentPatient
+        '    Dim updated As New Patient With {
+        '    .PatientID = oldPatient.PatientID,
+        '    .Address = AddressTextEdit.Text,
+        '    .PatientNumber = lblPNum.Text,
+        '    .Age = AgeSpinEdit.Value,
+        '    .BirthY = BirthYSpinEdit.Value,
+        '    .Health = HealthTextBox.Text,
+        '    .Implant = ImplantCheckBox.Checked,
+        '    .Notes = NotesTextEdit.Text,
+        '    .Mobile = MobileCheckBox.Checked,
+        '    .Ortho = OrthoCheckBox.Checked,
+        '    .Sex = SexTextBox.Text,
+        '    .Diag = DiagCheck.Checked,
+        '    .Struc = StrucCheckBox.Checked,
+        '    .Treat = TreatCheckBox.Checked,
+        '    .PatientName = PatientNameTextEdit.Text,
+        '    .Phone = PhoneTextEdit.Text,
+        '    .WhatsAppPrefix = prefixStored,
+        '    .WhatsApp = localW,
+        '    .CreatedBy = oldPatient.CreatedBy,
+        '    .CreateDate = oldPatient.CreateDate
+        '}
 
-            Me.Cursor = Cursors.WaitCursor
-            btnUpdatePatient.Enabled = False
-            Try
-                If _patientData.Update(oldPatient, updated) Then
-                    Dim idxAll As Integer = _allPatients.FindIndex(Function(p) p.PatientID = oldPatient.PatientID)
-                    If idxAll >= 0 Then _allPatients(idxAll) = updated
-                    Dim idxBind As Integer = -1
-                    For i As Integer = 0 To _bindingPatients.Count - 1
-                        If CType(_bindingPatients(i), Patient).PatientID = oldPatient.PatientID Then
-                            idxBind = i
-                            Exit For
-                        End If
-                    Next
-                    If idxBind >= 0 Then
-                        _bindingPatients(idxBind) = updated
-                        ' Force BindingSource to use the new reference so reopening the same patient shows updated values
-                        Dim savePos As Integer = PatientBS.Position
-                        If savePos = idxBind Then
-                            PatientBS.Position = -1
-                            PatientBS.Position = idxBind
-                        End If
-                    End If
-                    _currentPatient = updated
-                    FlyoutPatientInfo.HidePopup()
-                    UpdateNavigationControls()
-                    ' Refresh Kid/Adult and chart without writing patient name into txtPatientName (no list filter)
-                    UpdateBoundControlsExceptName(updated)
-                    UpdateKidStateOnly(updated)
-                    PatientEventManager.RaisePatientChanged(updated, Kid, True)
-                Else
-                    MsgBox(If(Eng, "Update operation failed. Please try again.", "فشل التحديث. يرجى المحاولة مرة أخرى."), MsgBoxStyle.Exclamation)
-                End If
-            Finally
-                Me.Cursor = Cursors.Default
-                btnUpdatePatient.Enabled = True
-                FlyoutPatientInfo.HidePopup()
-            End Try
-        Catch ex As Exception
-            MsgBox($"Error updating patient: {ex.Message}", MsgBoxStyle.Critical, "Error")
-        End Try
+        '    Me.Cursor = Cursors.WaitCursor
+        '    btnUpdatePatient.Enabled = False
+        '    Try
+        '        If _patientData.Update(oldPatient, updated) Then
+        '            MergeUpdatedPatientIntoNavigator(updated)
+        '            HidePatientFlyoutSafe()
+        '        Else
+        '            MsgBox(If(Eng, "Update operation failed. Please try again.", "فشل التحديث. يرجى المحاولة مرة أخرى."), MsgBoxStyle.Exclamation)
+        '        End If
+        '    Finally
+        '        Me.Cursor = Cursors.Default
+        '        btnUpdatePatient.Enabled = True
+        '    End Try
+        'Catch ex As Exception
+        '    NotifyNonFatal("Patient", "المريض",
+        '        "An error occurred while updating the patient.",
+        '        "حدث خطأ أثناء تحديث بيانات المريض.",
+        '        ex, MessageBoxIcon.Error)
+        'End Try
     End Sub
     Property PatientDeleted As Boolean = False
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDeletePatient.Click
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs)
         Try
             If _currentPatient Is Nothing Then Return
             Dim toDelete As Patient = _currentPatient
@@ -1654,75 +2116,44 @@ Public Class Navigator3
                 Return
             End If
 
-            Dim fallbackPatientId As Integer? = Nothing
-            Dim idxInBinding As Integer = -1
-            For i As Integer = 0 To _bindingPatients.Count - 1
-                If CType(_bindingPatients(i), Patient).PatientID = toDelete.PatientID Then
-                    idxInBinding = i
-                    Exit For
-                End If
-            Next
-
-            If idxInBinding > 0 Then
-                fallbackPatientId = _bindingPatients(idxInBinding - 1).PatientID
-            ElseIf idxInBinding >= 0 AndAlso idxInBinding < _bindingPatients.Count - 1 Then
-                fallbackPatientId = _bindingPatients(idxInBinding + 1).PatientID
-            End If
-
-            If _allPatients IsNot Nothing Then
-                Dim idxInAll As Integer = _allPatients.FindIndex(Function(p) p.PatientID = toDelete.PatientID)
-                If idxInAll >= 0 Then _allPatients.RemoveAt(idxInAll)
-            End If
-
-            If _filteredPatients IsNot Nothing Then
-                Dim idxInFiltered As Integer = _filteredPatients.FindIndex(Function(p) p.PatientID = toDelete.PatientID)
-                If idxInFiltered >= 0 Then _filteredPatients.RemoveAt(idxInFiltered)
-            End If
-
-            ClearPatientSearchBox()
-            RefreshBindingListFromFiltered(Nothing, suppressPatientBroadcast:=False, parkNoCurrentPatient:=False, selectPatientIdAfterRefresh:=fallbackPatientId)
-            _currentPatient = If(PatientBS.Count > 0, TryCast(PatientBS.Current, Patient), Nothing)
-
-            FlyoutPatientInfo.HidePopup()
-            UpdateNavigationControls()
-            FirePatientChangedForCurrent()
+            RemovePatientFromNavigatorAfterDelete(toDelete)
             MsgBox(If(Eng, $"Patient {toDelete.PatientName} has been deleted.", $"تم حذف المريض {toDelete.PatientName}."), MsgBoxStyle.Information)
         Catch ex As Exception
             MsgBox(If(Eng, $"Error deleting patient: {ex.Message}", $"خطأ في الحذف: {ex.Message}"))
         End Try
     End Sub
-    Private Sub SexTextBox_EditValueChanged(sender As Object, e As EventArgs) Handles SexTextBox.EditValueChanged
-        If String.IsNullOrEmpty(SexTextBox.Text) Then
-            RadioMale.Checked = True
-        ElseIf SexTextBox.Text = "Male" OrElse SexTextBox.Text = "ذكر" Then
-            RadioMale.Checked = True
-        ElseIf SexTextBox.Text = "Female" OrElse SexTextBox.Text = "أنثى" OrElse SexTextBox.Text = "انثى" Then
-            RadioFemale.Checked = True
-        End If
+    Private Sub SexTextBox_EditValueChanged(sender As Object, e As EventArgs)
+        'If String.IsNullOrEmpty(SexTextBox.Text) Then
+        '    RadioMale.Checked = True
+        'ElseIf SexTextBox.Text = "Male" OrElse SexTextBox.Text = "ذكر" Then
+        '    RadioMale.Checked = True
+        'ElseIf SexTextBox.Text = "Female" OrElse SexTextBox.Text = "أنثى" OrElse SexTextBox.Text = "انثى" Then
+        '    RadioFemale.Checked = True
+        'End If
     End Sub
-    Private Sub RadioMale_CheckedChanged(sender As Object, e As EventArgs) Handles RadioMale.CheckedChanged
-        Dim maleEng, maleAr As String
-        maleAr = "ذكر"
-        maleEng = "Male"
-        If RadioMale.Checked = True Then
-            If Eng Then
-                SexTextBox.Text = maleEng
-            Else
-                SexTextBox.Text = maleAr
-            End If
-        End If
+    Private Sub RadioMale_CheckedChanged(sender As Object, e As EventArgs)
+        'Dim maleEng, maleAr As String
+        'maleAr = "ذكر"
+        'maleEng = "Male"
+        'If RadioMale.Checked = True Then
+        '    If Eng Then
+        '        SexTextBox.Text = maleEng
+        '    Else
+        '        SexTextBox.Text = maleAr
+        '    End If
+        'End If
     End Sub
-    Private Sub RadioFemale_CheckedChanged(sender As Object, e As EventArgs) Handles RadioFemale.CheckedChanged
-        Dim femEng, femAr As String
-        femAr = "أنثى"
-        femEng = "Female"
-        If RadioFemale.Checked = True Then
-            If Eng Then
-                SexTextBox.Text = femEng
-            Else
-                SexTextBox.Text = femAr
-            End If
-        End If
+    Private Sub RadioFemale_CheckedChanged(sender As Object, e As EventArgs)
+        'Dim femEng, femAr As String
+        'femAr = "أنثى"
+        'femEng = "Female"
+        'If RadioFemale.Checked = True Then
+        '    If Eng Then
+        '        SexTextBox.Text = femEng
+        '    Else
+        '        SexTextBox.Text = femAr
+        '    End If
+        'End If
     End Sub
 
 #End Region
@@ -1781,51 +2212,51 @@ Public Class Navigator3
     ''' </summary>
     Private Function GetFullWhatsNumber() As String
         Dim number As String = ""
-        If txtWhats IsNot Nothing AndAlso txtWhats.Text IsNot Nothing Then
-            number = txtWhats.Text.ToString().Trim()
-        End If
-        Dim localDigits As String = New String(number.Where(Function(ch) Char.IsDigit(ch)).ToArray())
+        'If txtWhats IsNot Nothing AndAlso txtWhats.Text IsNot Nothing Then
+        '    number = txtWhats.Text.ToString().Trim()
+        'End If
+        'Dim localDigits As String = New String(number.Where(Function(ch) Char.IsDigit(ch)).ToArray())
 
-        ' Remove any leading zeros (we expect 0 + 9 digits in txtWhats; we only want the 9 digits part).
-        While localDigits.StartsWith("0"c) AndAlso localDigits.Length > 0
-            localDigits = localDigits.Substring(1)
-        End While
+        '' Remove any leading zeros (we expect 0 + 9 digits in txtWhats; we only want the 9 digits part).
+        'While localDigits.StartsWith("0"c) AndAlso localDigits.Length > 0
+        '    localDigits = localDigits.Substring(1)
+        'End While
 
-        ' Keep at most the last 9 digits as the local number (safety for overlong input).
-        If localDigits.Length > 9 Then
-            localDigits = localDigits.Substring(localDigits.Length - 9, 9)
-        End If
+        '' Keep at most the last 9 digits as the local number (safety for overlong input).
+        'If localDigits.Length > 9 Then
+        '    localDigits = localDigits.Substring(localDigits.Length - 9, 9)
+        'End If
 
-        If cboPrefix Is Nothing OrElse cboPrefix.EditValue Is Nothing Then
-            Return localDigits
-        End If
-        Dim rawPrefix As String = cboPrefix.EditValue.ToString()
-        Dim prefixDigits As String = New String(rawPrefix.Where(Function(ch) Char.IsDigit(ch)).ToArray())
-        If String.IsNullOrWhiteSpace(prefixDigits) Then Return localDigits
-        If localDigits.Length = 0 Then Return ""
-        Return prefixDigits & localDigits
+        'If cboPrefix Is Nothing OrElse cboPrefix.EditValue Is Nothing Then
+        '    Return localDigits
+        'End If
+        'Dim rawPrefix As String = cboPrefix.EditValue.ToString()
+        'Dim prefixDigits As String = New String(rawPrefix.Where(Function(ch) Char.IsDigit(ch)).ToArray())
+        'If String.IsNullOrWhiteSpace(prefixDigits) Then Return localDigits
+        'If localDigits.Length = 0 Then Return ""
+        'Return prefixDigits & localDigits
     End Function
     ''' <summary>Updates lblWhats with the full WhatsApp number (prefix + txtWhats). Call after load or when prefix/number changes.</summary>
     Private Sub RefreshLblWhats()
-        If lblWhats IsNot Nothing Then
-            lblWhats.Text = GetFullWhatsNumber()
-        End If
+        'If lblWhats IsNot Nothing Then
+        '    lblWhats.Text = GetFullWhatsNumber()
+        'End If
     End Sub
 
     ''' <summary>Fills cboPrefix with country name and calling code. Palestine (970) and Israel (972) are first.</summary>
     Private Sub FillCboPrefixOnce()
-        WhatsHelper.FillCboPrefixOnce(cboPrefix)
+        'WhatsHelper.FillCboPrefixOnce(cboPrefix)
     End Sub
 
-    Private Sub cboPrefix_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboPrefix.SelectedIndexChanged
+    Private Sub cboPrefix_SelectedIndexChanged(sender As Object, e As EventArgs)
         RefreshLblWhats()
     End Sub
 
-    Private Sub txtWhats_ValueChanged(sender As Object, e As EventArgs) Handles txtWhats.EditValueChanged
+    Private Sub txtWhats_ValueChanged(sender As Object, e As EventArgs)
         RefreshLblWhats()
     End Sub
 
-    Private Sub txtWhats_KeyDown(sender As Object, e As KeyEventArgs) Handles txtWhats.KeyDown
+    Private Sub txtWhats_KeyDown(sender As Object, e As KeyEventArgs)
         ' Allow control keys: backspace, delete, arrows, tab, home/end, etc.
         If e.KeyCode = Keys.Back OrElse
            e.KeyCode = Keys.Delete OrElse
@@ -1918,7 +2349,25 @@ Public Class Navigator3
     End Sub
     Private Sub Navigator3_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         If controlBoundsCache.IsEmpty Then Return
-        ResizeControlsProportionally()
+        If _resizeCoalesceTimer Is Nothing Then
+            _resizeCoalesceTimer = New System.Windows.Forms.Timer With {.Interval = ResizeCoalesceMs}
+            AddHandler _resizeCoalesceTimer.Tick, AddressOf OnResizeCoalesceTick
+        End If
+        _resizeCoalesceTimer.Stop()
+        _resizeCoalesceTimer.Start()
+    End Sub
+
+    Private Sub OnResizeCoalesceTick(sender As Object, e As EventArgs)
+        If _resizeCoalesceTimer IsNot Nothing Then _resizeCoalesceTimer.Stop()
+        If Me.IsDisposed OrElse Not Me.IsHandleCreated Then Return
+        Try
+            ResizeControlsProportionally()
+        Catch ex As Exception
+            NotifyNonFatal("Navigator layout", "تخطيط المتصفح",
+                "The patient header could not resize correctly. If controls overlap, resize the main window slightly or restart the program.",
+                "تعذر تغيير حجم رأس المريض بشكل صحيح. إذا تداخلت العناصر، غيّر حجم النافذة قليلاً أو أعد تشغيل البرنامج.",
+                ex, MessageBoxIcon.Warning)
+        End Try
     End Sub
 #End Region
 
@@ -1953,56 +2402,68 @@ Public Class Navigator3
 
 
 
-    ''' <summary>User came back to the search box (Tab, click, or programmatic) — select all so they can start fresh. Single pass, no timer.</summary>
+    ''' <summary>User came back to the search box by Tab or programmatic focus. Arm one SelectAll on first left click; move caret to end so typing does not eat the first character.</summary>
     Private Sub txtPatientName_FocusSelectAll(sender As Object, e As EventArgs) Handles txtPatientName.Enter
         If _ignoreSearchSelectAllOnce Then Return
-        ScheduleSelectAllPatientSearch()
+        _patientSearchSelectAllOnFirstLeftClick = True
+        MovePatientSearchCaretToEnd()
     End Sub
 
-    ''' <summary>DevExpress TextEdit often clears selection right after focus; do a single deferred SelectAll via BeginInvoke. Avoid a repeating timer — it fights keystrokes (each tick re-selects the text, so next keypress replaces the just-typed character).</summary>
-    Private Sub ScheduleSelectAllPatientSearch()
+    Private Sub txtPatientName_MouseClickFirstSelectAll(sender As Object, e As MouseEventArgs) Handles txtPatientName.MouseClick
+        If e.Button <> MouseButtons.Left Then Return
+        If _ignoreSearchSelectAllOnce Then Return
+        If txtPatientName Is Nothing OrElse txtPatientName.IsDisposed Then Return
+        If Not _patientSearchSelectAllOnFirstLeftClick Then Return
+        txtPatientName.SelectAll()
+        _patientSearchSelectAllOnFirstLeftClick = False
+    End Sub
+
+    Private Sub txtPatientName_DoubleClickSelectAll(sender As Object, e As EventArgs) Handles txtPatientName.DoubleClick
+        If _ignoreSearchSelectAllOnce Then Return
+        If txtPatientName Is Nothing OrElse txtPatientName.IsDisposed Then Return
+        txtPatientName.SelectAll()
+        _patientSearchSelectAllOnFirstLeftClick = False
+    End Sub
+
+    Private Sub MovePatientSearchCaretToEnd()
         If Me.IsDisposed OrElse Not Me.IsHandleCreated Then Return
         If txtPatientName Is Nothing OrElse txtPatientName.IsDisposed Then Return
         If Not txtPatientName.ContainsFocus Then Return
         If _ignoreSearchSelectAllOnce Then Return
-        BeginInvoke(New Action(
-            Sub()
-                Try
-                    If Me.IsDisposed OrElse Not Me.IsHandleCreated Then Return
-                    If txtPatientName Is Nothing OrElse txtPatientName.IsDisposed Then Return
-                    If Not txtPatientName.ContainsFocus Then Return
-                    If _ignoreSearchSelectAllOnce Then Return
-                    Dim t = If(txtPatientName.Text, "")
-                    txtPatientName.SelectionStart = 0
-                    txtPatientName.SelectionLength = t.Length
-                Catch
-                    Try
-                        txtPatientName.SelectAll()
-                    Catch
-                    End Try
-                End Try
-            End Sub))
+        Try
+            Dim t = If(txtPatientName.Text, "")
+            txtPatientName.SelectionStart = t.Length
+            txtPatientName.SelectionLength = 0
+        Catch ex As Exception
+            NotifyNonFatal("Search", "بحث",
+                "The search box caret could not be positioned.",
+                "تعذر وضع مؤشر البحث.",
+                ex, MessageBoxIcon.Information)
+        End Try
     End Sub
 
-    ' OnSearchSelectAllTimerTick removed: a repeating SelectAll timer fights live typing (each tick re-selects text,
-    ' so the next keypress replaces the just-typed character -> "one letter then no more"). SelectAll is now a
-    ' single BeginInvoke pass on Enter, gated by _ignoreSearchSelectAllOnce for suggestion commit/refocus paths.
+    ' OnSearchSelectAllTimerTick removed: any delayed SelectAll fights live typing in DevExpress TextEdit.
 
     Private Async Sub btnWhatsSend_Click(sender As Object, e As EventArgs) Handles btnWhatsSend.Click
         Try
-            If Not Await WhatsAppService.EnsureWhatsAppConnectedOrNotifyAsync(Me) Then Return
-            Using frm As New WhatsAppSender(_currentPatient)
-                frm.Icon = GetIcon()
-                frm.ShowDialog(Me)
-            End Using
+            Await SendWhatsForCurrentPatientAsync().ConfigureAwait(True)
         Catch ex As Exception
             MessageBox.Show(ex.Message, If(Eng, "Error", "خطأ"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-    Private Sub FlyoutPatientInfo_ButtonClick(sender As Object, e As DevExpress.Utils.FlyoutPanelButtonClickEventArgs) Handles FlyoutPatientInfo.ButtonClick
+    Private Async Function SendWhatsForCurrentPatientAsync() As Task
+        If Not Await WhatsAppService.EnsureWhatsAppConnectedOrNotifyAsync(Me).ConfigureAwait(True) Then Return
+        Using frm As New WhatsAppSender(_currentPatient)
+            frm.Icon = GetIcon()
+            frm.ShowDialog(Me)
+        End Using
+    End Function
+
+    Private Sub FlyoutPatientInfo_ButtonClick(sender As Object, e As DevExpress.Utils.FlyoutPanelButtonClickEventArgs)
         If e.Button.Caption = "Close" OrElse e.Button.Caption = "إغلاق" Then
-            FlyoutPatientInfo.HideBeakForm()
+            _popupOpeningForAdd = False
+            HidePatientFlyoutSafe()
         End If
     End Sub
 
@@ -2016,6 +2477,21 @@ Public Class Navigator3
 
 
 #End Region
+
+    ''' <summary>Application-wide pre-filter: dismiss suggestion popup when the user clicks outside it (navigator, workspace body, chrome).</summary>
+    Private NotInheritable Class PatientSuggestionHeaderClickFilter
+        Implements IMessageFilter
+        Private ReadOnly _nav As Navigator3
+
+        Public Sub New(nav As Navigator3)
+            _nav = nav
+        End Sub
+
+        Public Function PreFilterMessage(ByRef m As Message) As Boolean Implements IMessageFilter.PreFilterMessage
+            _nav.TryDismissPatientSuggestionsFromHeaderMouse(m)
+            Return False
+        End Function
+    End Class
 
 End Class
 

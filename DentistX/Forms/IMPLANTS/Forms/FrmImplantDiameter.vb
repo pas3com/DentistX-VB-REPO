@@ -259,6 +259,13 @@ Partial Public Class FrmImplantDiameter
             DiameterMMSpinEdit.Select()
             Return False
         End If
+        Dim mm = Convert.ToDecimal(DiameterMMSpinEdit.Value)
+        Dim excludeId As Integer? = If(EditMode, CInt(DiameterIDSpinEdit.Value), Nothing)
+        If clsImplantDiameterData.CountByDiameterMM(mm, excludeId) > 0 Then
+            MsgBox("This diameter value already exists. Duplicates are not allowed.", MsgBoxStyle.OkOnly, "Entry Error")
+            DiameterMMSpinEdit.Select()
+            Return False
+        End If
         Return True
     End Function
 

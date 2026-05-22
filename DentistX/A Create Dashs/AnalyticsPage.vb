@@ -417,14 +417,13 @@ Public Class AnalyticsPage
                                     CType(DoctorPerformanceBarChart.Diagram, XYDiagram)
 
                                 diagram.AxisX.Title.Text = If(Eng, "Performance", "الأداء")
-                                diagram.AxisX.Title.Visible = True
-                                diagram.AxisX.NumericOptions.Format = NumericFormat.Percent
-                                diagram.AxisX.NumericOptions.Precision = 0
+                                diagram.AxisX.Title.Visibility = True
+                                diagram.AxisX.Label.TextPattern = "{V:0%}"
                                 diagram.AxisX.WholeRange.MinValue = 0
                                 diagram.AxisX.WholeRange.MaxValue = 1
 
                                 diagram.AxisY.Title.Text = If(Eng, "Metric", "المؤشر")
-                                diagram.AxisY.Title.Visible = True
+                                diagram.AxisY.Title.Visibility = True
                                 diagram.AxisY.Label.Angle = 0
 
                                 diagramConfigured = True
@@ -520,11 +519,10 @@ Public Class AnalyticsPage
                         ' Configure axis
                         Dim diagram As XYDiagram = CType(chartPatientRetention.Diagram, XYDiagram)
                         diagram.AxisX.Title.Text = If(Eng, "Month", "الشهر")
-                        diagram.AxisX.Title.Visible = True
+                        diagram.AxisX.Title.Visibility = True
                         If diagram.SecondaryAxesY.Count > 0 Then
-                            diagram.SecondaryAxesY(0).Visible = True
-                            diagram.SecondaryAxesY(0).NumericOptions.Format = NumericFormat.Percent
-                            diagram.SecondaryAxesY(0).NumericOptions.Precision = 1
+                            diagram.SecondaryAxesY(0).Visibility = True
+                            diagram.SecondaryAxesY(0).Label.TextPattern = "{V:0.0%}"
                             diagram.SecondaryAxesY(0).WholeRange.MaxValue = 1
                             diagram.SecondaryAxesY(0).WholeRange.MinValue = 0
                         End If

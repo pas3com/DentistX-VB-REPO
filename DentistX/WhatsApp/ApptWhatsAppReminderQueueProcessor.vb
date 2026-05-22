@@ -14,7 +14,6 @@ Public NotInheritable Class ApptWhatsAppReminderQueueProcessor
         Dim rows = ApptTwoHourReminderQueueRepository.GetRowsWithDueReminders()
         If rows Is Nothing OrElse rows.Count = 0 Then Return
 
-        Dim waSend As New WhatsAppService()
         Dim refreshRepo As New AppointmentCRepository()
         Dim now = DateTime.Now
 
@@ -35,13 +34,13 @@ Public NotInheritable Class ApptWhatsAppReminderQueueProcessor
 
             If row.Status24h = ApptTwoHourReminderQueueRepository.StatusPending AndAlso
                 row.SendAt24h.HasValue AndAlso row.SendAt24h.Value <= now Then
-                Await SendLegAsync(refreshRepo, waSend, clinicId, row, dto, number, is24h:=True, result)
+                Await SendLegAsync(refreshRepo, clinicId, row, dto, number, is24h:=True, result)
             End If
 
             If row.Status2h = ApptTwoHourReminderQueueRepository.StatusPending AndAlso
                 row.SendAt2h.HasValue AndAlso row.SendAt2h.Value <= now AndAlso
                 refreshRepo.AppointmentExists(row.AppointmentId) Then
-                Await SendLegAsync(refreshRepo, waSend, clinicId, row, dto, number, is24h:=False, result)
+                Await SendLegAsync(refreshRepo, clinicId, row, dto, number, is24h:=False, result)
             End If
         Next
     End Function
@@ -61,10 +60,10 @@ Public NotInheritable Class ApptWhatsAppReminderQueueProcessor
         Return WhatsHelper.NormalizeWhatsDigits(s)
     End Function
 
-    Private Shared Async Function SendLegAsync(refreshRepo As AppointmentCRepository, waSend As WhatsAppService, clinicId As String, row As ApptTwoHourReminderQueueRow,
+    Private Shared Async Function SendLegAsync(refreshRepo As AppointmentCRepository, clinicId As String, row As ApptTwoHourReminderQueueRow,
                                               dto As AppointmentReminderDto, number As String, is24h As Boolean,
                                               result As ReminderRunResult) As Task
-        ' Prefer text stored at queue sync (includes RadioLang from save). Rebuild from dto only if preview missing (uses global Eng).
+        ' Prefer text stored at queue sync (includes RadioLang from save). Rebuild from dto only if preview missing (Arabic unless messageEnglish was supplied at sync).
         Dim body = If(is24h, If(row.MessagePreview24h, ""), If(row.MessagePreview2h, "")).Trim()
         If String.IsNullOrWhiteSpace(body) AndAlso dto IsNot Nothing Then
             body = If(is24h, AppointmentReminderService.BuildReminderMessageBody(dto), AppointmentTwoHourReminderService.BuildTwoHourReminderBody(dto)).Trim()
@@ -119,8 +118,22 @@ Public NotInheritable Class ApptWhatsAppReminderQueueProcessor
             .SentAfterLocalQueue = True
         }
 
+        If WhatsAppOutboundRepository.IsOutboundInfrastructureReady() Then
+            Dim clinicEnqueue = If(String.IsNullOrWhiteSpace(row.ClinicId), clinicId, row.ClinicId).Trim()
+            If String.IsNullOrWhiteSpace(clinicEnqueue) Then
+                If is24h Then ApptTwoHourReminderQueueRepository.TryFinalize24h(row.QueueId, ApptTwoHourReminderQueueRepository.StatusFailed, "No clinic Id for outbound.", Nothing)
+                Else ApptTwoHourReminderQueueRepository.TryFinalize2h(row.QueueId, ApptTwoHourReminderQueueRepository.StatusFailed, "No clinic Id for outbound.", Nothing)
+                Return
+            End If
+            If WhatsAppOutboundRepository.TryEnqueueAppointmentReminder(clinicEnqueue, row, dto, number, body, is24h) Then
+                WhatsAppOutboundDispatchService.RequestImmediateDispatch()
+            End If
+            Return
+        End If
+
         Try
             Dim minUtc = DateTime.UtcNow.AddSeconds(-15)
+            Dim waSend As New WhatsAppService()
             Await waSend.SendMessageAsync(clinicId, number, body, "", ctx)
             Dim logId = WhatsAppActivityLogRepository.TryGetLatestLogId(patId, category, minUtc)
             Dim logNullable As Long? = If(logId > 0, logId, Nothing)
@@ -152,21 +165,15 @@ Public NotInheritable Class ApptWhatsAppReminderQueueProcessor
         End Try
     End Function
 
-    ''' <summary>Process any due sends (after saving appointments this adds rows; connection still required to send).</summary>
+    ''' <summary>Process any due sends (after saving appointments this adds rows). Enqueues outbound without requiring WhatsApp connected; dispatcher flushes when online.</summary>
     Public Shared Async Function RunEnqueueAllAndProcessAsync() As Task(Of ReminderRunResult)
-      Dim result As New ReminderRunResult()
-      Dim rawClinicId As String = WhatsAppService.GetCurrentClinicId()
-      Dim connected = False
-      If Not String.IsNullOrWhiteSpace(rawClinicId) Then
-          Try
-              Dim wa As New WhatsAppService()
-              connected = Await wa.GetConnectionStatusAsync(rawClinicId)
-          Catch
-          End Try
-      End If
-      If connected Then
-          Await ProcessDueRemindersAsync(rawClinicId, result)
-      End If
-      Return result
+        Dim result As New ReminderRunResult()
+        Dim rawClinicId As String = WhatsAppService.GetCurrentClinicId()
+        Await ProcessDueRemindersAsync(rawClinicId, result)
+        Try
+            Await WhatsAppOutboundDispatchService.FlushOutstandingAsync(result, DateTime.UtcNow.AddSeconds(26), Nothing).ConfigureAwait(False)
+        Catch
+        End Try
+        Return result
     End Function
 End Class

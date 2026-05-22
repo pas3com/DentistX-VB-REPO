@@ -118,17 +118,44 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LblSendMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 15</value>
+  </data>
+  <data name="LblSendMessage.Text" xml:space="preserve">
+    <value>الرسالة</value>
+  </data>
   <data name="LblSendFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 15</value>
+    <value>68, 15</value>
+  </data>
+  <data name="LblSendFile.Text" xml:space="preserve">
+    <value>مرفق (اختياري)</value>
   </data>
   <data name="BtnSendMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 322</value>
+    <value>163, 322</value>
+  </data>
+  <data name="BtnSendMessage.Text" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
+  <data name="lblSendTo.Text" xml:space="preserve">
+    <value>إرسال رسالة واتساب عادية مع أو بدون مرفقات</value>
   </data>
   <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 87</value>
   </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>رقم واتساب</value>
+  </data>
   <data name="lblWhats.Location" type="System.Drawing.Point, System.Drawing">
     <value>353, 87</value>
+  </data>
+  <data name="lblWhats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="lblWhats.Text" xml:space="preserve">
+    <value>رقم الواتساب</value>
   </data>
   <data name="cboPrefix.Location" type="System.Drawing.Point, System.Drawing">
     <value>124, 83</value>
@@ -144,25 +171,7 @@
   <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="LblSendFile.Text" xml:space="preserve">
-    <value>مرفق (اختياري)</value>
-  </data>
-  <data name="LabelControl2.Text" xml:space="preserve">
-    <value>رقم واتساب</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>إرسال واتساب عادي</value>
-  </data>
-  <data name="LblSendMessage.Text" xml:space="preserve">
-    <value>الرسالة</value>
-  </data>
-  <data name="lblWhats.Text" xml:space="preserve">
-    <value>رقم الواتساب</value>
-  </data>
-  <data name="BtnSendMessage.Text" xml:space="preserve">
-    <value>إرسال</value>
-  </data>
-  <data name="lblSendTo.Text" xml:space="preserve">
-    <value>إرسال رسالة واتساب عادية مع أو بدون مرفقات</value>
   </data>
 </root>

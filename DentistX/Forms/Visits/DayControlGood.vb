@@ -86,6 +86,7 @@ Public Class DayControlGood
 
 #Region "Constructor"
     Public Sub New()
+        InitializeComponent()
         Me.BorderStyle = BorderStyles.Simple
         Me.Controls.Add(VisitPanel)
         DayNumLabel.Appearance.Font = New Font("Tahoma", 12, FontStyle.Bold)

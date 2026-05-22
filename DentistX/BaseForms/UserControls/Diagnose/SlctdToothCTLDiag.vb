@@ -913,7 +913,8 @@ Public Class SlctdToothCTLDiag
 
     '===========================================
     Public Sub LoadSnglTreat(patientId As Integer, toothNum As Byte)
-        ' Load patient data
+        If patientId <= 0 Then Return
+        If clsPatientData Is Nothing Then clsPatientData = New PatientDATA()
         clsPatient = New Patient With {.PatientID = patientId}
         clsPatient = clsPatientData.Select_Record(clsPatient)
 

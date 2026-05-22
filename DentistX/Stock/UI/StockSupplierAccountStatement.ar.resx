@@ -194,10 +194,10 @@
     <value>المورد</value>
   </data>
   <data name="_lblBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>409, 18</value>
+    <value>303, 18</value>
   </data>
   <data name="lblBalanceCaption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>438, 18</value>
+    <value>375, 18</value>
   </data>
   <data name="lblBalanceCaption.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 15</value>
@@ -206,10 +206,10 @@
     <value>الرصيد:</value>
   </data>
   <data name="_lblTotalPayments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 18</value>
+    <value>553, 18</value>
   </data>
   <data name="lblTotalPaymentsCaption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>595, 18</value>
+    <value>624, 18</value>
   </data>
   <data name="lblTotalPaymentsCaption.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 15</value>
@@ -218,10 +218,10 @@
     <value>إجمالي الدفعات:</value>
   </data>
   <data name="_lblTotalBuys.Location" type="System.Drawing.Point, System.Drawing">
-    <value>850, 18</value>
+    <value>836, 18</value>
   </data>
   <data name="lblTotalBuysCaption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>869, 18</value>
+    <value>898, 18</value>
   </data>
   <data name="lblTotalBuysCaption.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 15</value>

@@ -4,7 +4,7 @@ Public Module PayTypeLabels
     Public Const CashEn As String = "Cash"
     Public Const ChequeEn As String = "Cheque"
     Public Const InsuranceEn As String = "Insurance"
-    Public Const CreditCardEn As String = "Credit Card"
+    Public Const CreditCardEn As String = "Credit Card (VISA)"
     Public Const TransferEn As String = "Transfer"
     Public Const OtherEn As String = "Other"
 
@@ -26,7 +26,7 @@ Public Module PayTypeLabels
         If String.Equals(t, CashEn, StringComparison.OrdinalIgnoreCase) OrElse t = "نقدا" Then Return CashEn
         If String.Equals(t, ChequeEn, StringComparison.OrdinalIgnoreCase) OrElse t = "شيك" Then Return ChequeEn
         If String.Equals(t, InsuranceEn, StringComparison.OrdinalIgnoreCase) OrElse t = "تأمين" Then Return InsuranceEn
-        If String.Equals(t, CreditCardEn, StringComparison.OrdinalIgnoreCase) OrElse t = "بطاقة اعتماد" Then Return CreditCardEn
+        If String.Equals(t, CreditCardEn, StringComparison.OrdinalIgnoreCase) OrElse t = "بطاقة اعتماد (فيزا) " Then Return CreditCardEn
         If String.Equals(t, TransferEn, StringComparison.OrdinalIgnoreCase) OrElse t = "تحويل" Then Return TransferEn
         Return t
     End Function

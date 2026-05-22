@@ -150,7 +150,7 @@ Partial Public Class FrmMedScienceFamily
      ClearRecord()
      ShowToolStripItems("Add")
      ScincIDSpinEdit.Select
-     ScincIDSpinEdit.Text = clsDentistXData.getAutoID("New", "MedScienceFamily")
+     ScincIDSpinEdit.Text = DentistXDATA.getAutoID("New", "MedScienceFamily")
  End Sub
 
  Private Sub Edit()

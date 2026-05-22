@@ -1,4 +1,5 @@
 Imports System.Threading
+Imports System.Windows.Forms
 
 Public Class FormManager
     Private Shared _instance As FormManager
@@ -157,7 +158,14 @@ Public Class FormManager
 
         Try
             PatientEventManager.RaisePatientChanged(Nothing, False, False)
-        Catch
+        Catch ex As Exception
+            MessageBox.Show(
+                If(Eng,
+                   "The application could not notify open screens that the patient workspace was closed. Some views may show outdated information until you open a patient again." & vbCrLf & vbCrLf & ex.Message,
+                   "تعذر إخطار الشاشات المفتوحة بأن مساحة المريض أُغلقت. قد تظهر بعض الشاشات بيانات قديمة حتى تفتح مريضاً مرة أخرى." & vbCrLf & vbCrLf & ex.Message),
+                If(Eng, "Patient workspace", "مساحة المريض"),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning)
         End Try
     End Sub
 
@@ -215,6 +223,11 @@ Public Class FormManager
 
         Dim ws = GetOrCreateWorkspace(If(filterTarget, "Treat"), workspaceHost)
         If ws Is Nothing Then Return
+
+        ' Navigator3 hosts a FlyoutPanel + a form-level suggestion ListBox; leaving them up across module switches
+        ' correlates with production reports of Add / patient name edit appearing to do nothing (DX popup state, z-order).
+        Dim nav3 = TryCast(ws.HeaderControl, Navigator3)
+        If nav3 IsNot Nothing Then nav3.PrepareForEmbeddedBodySwitch()
 
         If filterTarget IsNot Nothing Then
             ws.FormType = filterTarget
@@ -316,6 +329,14 @@ Public Class FormManager
             If effectivePatient Is Nothing Then
                 ws.BeginInvoke(New MethodInvoker(Sub() SyncEmbeddedPatientWhenHeaderReady(ws, switchVer, 0)))
             End If
+        Catch ex As Exception
+            MessageBox.Show(
+                If(Eng,
+                   "The selected workspace screen could not be loaded. Your patient selection is unchanged; try again or choose another screen." & vbCrLf & vbCrLf & ex.Message,
+                   "تعذر تحميل الشاشة المحددة. لم يتغير المريض المحدد؛ أعد المحاولة أو اختر شاشة أخرى." & vbCrLf & vbCrLf & ex.Message),
+                If(Eng, "Workspace", "مساحة العمل"),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error)
         Finally
             If Not ws.IsDisposed AndAlso ws.BodyPanel IsNot Nothing AndAlso switchVer = _switchVersion Then
                 ws.BodyPanel.Visible = True

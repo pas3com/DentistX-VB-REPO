@@ -12,7 +12,7 @@ Partial Public Class ApptCard
     Private _measuredContentHeightInRoot As Integer
     ''' <summary>pnlRoot.ClientSize.Width after the last <see cref="LayoutAll"/> — skips redundant layout in week height fit when only <see cref="Height"/> must change.</summary>
     Private _layoutAllForClientWidth As Integer = -1
-    Private Const TimeGap As Integer = 4
+    Private Const TimeGap As Integer = 2
 
     Public Sub New()
         ' ResizeRedraw off: reduces full invalidates on width changes; layout in ApplyContentHeight/Resize still updates children.
@@ -27,12 +27,15 @@ Partial Public Class ApptCard
         doctorLbl.AutoEllipsis = False
         reasonLbl.AutoEllipsis = False
         notesLbl.AutoEllipsis = False
-        For Each c As Label In New Label() {startLbl, endLbl, patientnameLbl, doctorLbl, reasonLbl, notesLbl}
+        For Each c As Label In New Label() {startLbl, endLbl}
+            c.UseCompatibleTextRendering = False
+            c.Margin = Padding.Empty
+            c.Padding = New Padding(2, 0, 2, 0)
+            c.TextAlign = ContentAlignment.MiddleLeft
+        Next
+        For Each c As Label In New Label() {patientnameLbl, doctorLbl, reasonLbl, notesLbl}
             c.UseCompatibleTextRendering = False
         Next
-        ' Match ApptCardCtl time label padding
-        startLbl.Padding = New Padding(5, 1, 5, 1)
-        endLbl.Padding = New Padding(5, 1, 5, 1)
         AddHandler Resize, AddressOf ApptCard_Resize
         WireClickRelay(pnlRoot)
         WireClickRelay(Me)
@@ -94,6 +97,8 @@ Partial Public Class ApptCard
 
     Public Sub ReapplyAppearance()
         If _currentModel Is Nothing OrElse _currentModel.Appointment Is Nothing Then Return
+        startLbl.Text = ApptTheme.FormatAppointmentTime(_currentModel.Appointment.StartDateTime, _use24Hour)
+        endLbl.Text = ApptTheme.FormatAppointmentTime(_currentModel.Appointment.EndDateTime, _use24Hour)
         ApplyCardAppearance(If(_currentModel.Appearance, New ApptCardAppearance()))
         LayoutAll()
     End Sub
@@ -230,6 +235,15 @@ Partial Public Class ApptCard
             End If
         Next
         _measuredContentHeightInRoot = bottomMost + appearance.CardPadding.Bottom
+        If statusLbl.Visible Then
+            Dim dpiY As Single = 96.0F
+            Try
+                dpiY = CSng(DeviceDpi)
+            Catch
+            End Try
+            Dim minStrip = ApptCardStatusLabel.MeasureMinimumStripHeight(statusLbl.Text, statusLbl.Font, statusLbl.Width, dpiY)
+            _measuredContentHeightInRoot = Math.Max(_measuredContentHeightInRoot, minStrip)
+        End If
         If statusLbl.Visible AndAlso _measuredContentHeightInRoot > 0 Then
             statusLbl.Height = _measuredContentHeightInRoot
         End If
@@ -247,40 +261,54 @@ Partial Public Class ApptCard
             Return top
         End If
 
-        Dim startW = 0
-        Dim endW = 0
-        If startVis Then
-            startW = TextRenderer.MeasureText(If(startLbl.Text, ""), startLbl.Font).Width + startLbl.Padding.Horizontal + 4
-        End If
-        If endVis Then
-            endW = TextRenderer.MeasureText(If(endLbl.Text, ""), endLbl.Font).Width + endLbl.Padding.Horizontal + 4
-        End If
-        If startVis AndAlso endVis AndAlso startW + gap + endW > bodyWidth Then
-            startW = Math.Max(40, (bodyWidth - gap) \ 2)
-            endW = Math.Max(40, bodyWidth - gap - startW)
-        ElseIf startVis AndAlso Not endVis Then
-            startW = Math.Min(Math.Max(startW, 40), bodyWidth)
-        ElseIf endVis AndAlso Not startVis Then
-            endW = Math.Min(Math.Max(endW, 40), bodyWidth)
+        Dim avail = Math.Max(0, bodyWidth)
+        Dim startW = If(startVis, MeasureTimeLabelNaturalWidth(If(startLbl.Text, ""), startLbl.Font, startLbl.Padding), 0)
+        Dim endW = If(endVis, MeasureTimeLabelNaturalWidth(If(endLbl.Text, ""), endLbl.Font, endLbl.Padding), 0)
+
+        If startVis AndAlso endVis Then
+            Dim totalNeeded = startW + gap + endW
+            If totalNeeded > avail AndAlso totalNeeded > 0 Then
+                Dim scale = (avail - gap) / CDbl(startW + endW)
+                startW = Math.Max(1, CInt(Math.Floor(startW * scale)))
+                endW = Math.Max(1, avail - gap - startW)
+            End If
+        ElseIf startVis Then
+            startW = Math.Min(startW, avail)
+        ElseIf endVis Then
+            endW = Math.Min(endW, avail)
         End If
 
-        Dim startH = If(startVis, ApptTheme.MeasureTextHeight(If(startLbl.Text, ""), startLbl.Font, startW, 1), 0)
-        Dim endH = If(endVis, ApptTheme.MeasureTextHeight(If(endLbl.Text, ""), endLbl.Font, endW, 1), 0)
-        Dim rowH = Math.Max(startH, endH)
+        Dim rowH = Math.Max(
+            If(startVis, TimeLabelRowHeight(startLbl.Font), 0),
+            If(endVis, TimeLabelRowHeight(endLbl.Font), 0))
+
         If startVis Then
             startLbl.SetBounds(contentLeft, top, startW, rowH)
         Else
             startLbl.SetBounds(contentLeft, top, 0, 0)
         End If
+
         If endVis Then
             Dim endLeft = If(startVis, contentLeft + startW + gap, contentLeft)
-            Dim endAvail = bodyWidth - If(startVis, startW + gap, 0)
-            Dim useW = Math.Max(40, Math.Min(endW, endAvail))
-            endLbl.SetBounds(endLeft, top, useW, rowH)
+            endLbl.SetBounds(endLeft, top, endW, rowH)
         Else
             endLbl.SetBounds(contentLeft, top, 0, 0)
         End If
+
         Return top + rowH
+    End Function
+
+    Private Shared Function TimeLabelRowHeight(font As Font) As Integer
+        If font Is Nothing Then Return 18
+        Return Math.Max(18, CInt(Math.Ceiling(font.GetHeight())) + 2)
+    End Function
+
+    Private Shared Function MeasureTimeLabelNaturalWidth(text As String, font As Font, padding As Padding) As Integer
+        If String.IsNullOrWhiteSpace(text) OrElse font Is Nothing Then Return 0
+        Const flags As TextFormatFlags = TextFormatFlags.NoPadding Or TextFormatFlags.SingleLine Or TextFormatFlags.Left
+        Dim size = TextRenderer.MeasureText(text, font, New Size(Integer.MaxValue, Integer.MaxValue), flags)
+        ' Slight margin so GDI label paint on other DPI/fonts does not clip the AM/PM suffix.
+        Return CInt(Math.Ceiling(size.Width)) + padding.Horizontal + 4
     End Function
 
     Private Shared Function MeasureStatusColumnWidth(statusText As String, font As Font) As Integer

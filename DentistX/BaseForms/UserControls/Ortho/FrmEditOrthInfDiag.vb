@@ -1,4 +1,5 @@
 Imports System.Data.SqlClient
+Imports System.Linq
 Imports DevExpress.CodeParser
 
 Public Class FrmEditOrthInfDiag
@@ -121,6 +122,7 @@ Public Class FrmEditOrthInfDiag
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             Me.Validate()
+            FlushOrthoDiagCombosToBoundTextEdits()
             OrthoInfBindingSource.EndEdit()
             OrthoDiagBindingSource.EndEdit()
 
@@ -162,11 +164,11 @@ Public Class FrmEditOrthInfDiag
                         infCmd.Parameters.AddWithValue("@PatientID", updatedInf.PatientID)
                         infCmd.ExecuteNonQuery()
 
-                        ' Update OrthoDiag
-                        Dim diagCmd As New SqlCommand("UPDATE OrthoDiag SET CloseType=@CloseType, ClassI=@ClassI, Bite=@Bite WHERE OrthoID=@OrthoID AND PatientID=@PatientID", cn, tr)
-                        diagCmd.Parameters.AddWithValue("@CloseType", updatedDiag.CloseType)
-                        diagCmd.Parameters.AddWithValue("@ClassI", updatedDiag.ClassI)
-                        diagCmd.Parameters.AddWithValue("@Bite", updatedDiag.Bite)
+                        ' Update OrthoDiag — use @OrthoDiagClass1 (digit 1) for the value; @ClassI vs @Classl is ambiguous to some parsers/clients.
+                        Dim diagCmd As New SqlCommand("UPDATE OrthoDiag SET CloseType=@CloseType, [ClassI]=@OrthoDiagClass1, Bite=@Bite WHERE OrthoID=@OrthoID AND PatientID=@PatientID", cn, tr)
+                        diagCmd.Parameters.AddWithValue("@CloseType", If(updatedDiag.CloseType, CType(DBNull.Value, Object)))
+                        diagCmd.Parameters.AddWithValue("@OrthoDiagClass1", If(updatedDiag.ClassI, CType(DBNull.Value, Object)))
+                        diagCmd.Parameters.AddWithValue("@Bite", If(updatedDiag.Bite, CType(DBNull.Value, Object)))
                         diagCmd.Parameters.AddWithValue("@OrthoID", updatedDiag.OrthoID)
                         diagCmd.Parameters.AddWithValue("@PatientID", updatedDiag.PatientID)
                         diagCmd.ExecuteNonQuery()
@@ -235,6 +237,51 @@ Public Class FrmEditOrthInfDiag
 
 #Region "DiagGrp"
 
+    ''' <summary>Copies diagnosis combo selections into the three OrthoDiag-bound text edits (CloseType, ClassI, Bite).</summary>
+    Private Sub FlushOrthoDiagCombosToBoundTextEdits()
+        If ClosingCombo.SelectedIndex >= 0 Then
+            txtClosing.Text = ClosingCombo.Text
+        End If
+
+        If Clas3Combo.SelectedIndex >= 0 Then
+            Dim s As String = Label4.Text & "-" & Clas3Combo.Text
+            txtClas1.Text = s
+            txtClas3.Text = s
+            stclass = s
+        ElseIf Clas2Combo.SelectedIndex >= 0 Then
+            Dim s As String = Label3.Text & "-" & Clas2Combo.Text
+            If Clas2DetCombo.SelectedIndex >= 0 AndAlso Not String.IsNullOrWhiteSpace(Clas2DetCombo.Text) Then
+                s &= "-" & Clas2DetCombo.Text
+            End If
+            txtClas1.Text = s
+            txtClas2.Text = s
+            stclass = s
+        ElseIf Clas1Combo.SelectedIndex >= 0 Then
+            Dim s As String = Label2.Text & "-" & Clas1Combo.Text
+            txtClas1.Text = s
+            stclass = s
+        End If
+
+        RefreshBiteTextFromCombos()
+    End Sub
+
+    Private Sub RefreshBiteTextFromCombos()
+        If BiteCombo.SelectedIndex < 0 Then Return
+        Dim parts As New List(Of String) From {BiteCombo.Text}
+        Select Case BiteCombo.SelectedIndex
+            Case 0
+                If OpenBiteCombo.SelectedIndex >= 0 Then parts.Add(OpenBiteCombo.Text)
+                If OpenBiteDetCombo.Visible AndAlso OpenBiteDetCombo.SelectedIndex >= 0 AndAlso Not String.IsNullOrWhiteSpace(OpenBiteDetCombo.Text) Then
+                    parts.Add(OpenBiteDetCombo.Text)
+                End If
+            Case 1
+                If DeepBiteCombo.SelectedIndex >= 0 Then parts.Add(DeepBiteCombo.Text)
+            Case 2
+                If ReverseBiteCombo.SelectedIndex >= 0 Then parts.Add(ReverseBiteCombo.Text)
+        End Select
+        txtBite.Text = String.Join("-", parts.Where(Function(p) Not String.IsNullOrWhiteSpace(p)))
+    End Sub
+
     Private Sub ClosingCombo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClosingCombo.SelectedIndexChanged
 
         If Me.ClosingCombo.SelectedIndex = -1 Then
@@ -244,6 +291,7 @@ Public Class FrmEditOrthInfDiag
             Me.txtClosing.Text = Me.ClosingCombo.Text
         ElseIf Me.ClosingCombo.SelectedIndex = 1 Then
             DiagCntlsDes()
+            Me.txtClosing.Text = Me.ClosingCombo.Text
         End If
     End Sub
 
@@ -284,9 +332,11 @@ Public Class FrmEditOrthInfDiag
             Me.Clas1Combo.Enabled = False
             Me.Clas1Combo.SelectedIndex = -1
             Me.txtClas1.Enabled = False
-            Me.txtClas1.Text = ""
+            Dim baseCls As String = Me.Label3.Text & "-" & Me.Clas2Combo.Text
+            Me.txtClas1.Text = baseCls
             Me.txtClas2.Enabled = True
-            ' Me.txtClas2.Text = Me.Clas2Combo.Text
+            Me.txtClas2.Text = baseCls
+            stclass = baseCls
             Me.Clas3Combo.Enabled = False
             Clas3Combo.SelectedIndex = -1
             Me.txtClas3.Enabled = False
@@ -304,9 +354,11 @@ Public Class FrmEditOrthInfDiag
             Me.Clas1Combo.Enabled = False
             Me.Clas1Combo.SelectedIndex = -1
             Me.txtClas1.Enabled = False
-            Me.txtClas1.Text = ""
+            Dim baseCls As String = Me.Label3.Text & "-" & Me.Clas2Combo.Text
+            Me.txtClas1.Text = baseCls
             Me.txtClas2.Enabled = True
-            ' Me.txtClas2.Text = Me.Clas2Combo.Text
+            Me.txtClas2.Text = baseCls
+            stclass = baseCls
             Me.Clas3Combo.Enabled = False
             Clas3Combo.SelectedIndex = -1
             Me.txtClas3.Enabled = False
@@ -316,6 +368,8 @@ Public Class FrmEditOrthInfDiag
 
     Private Sub Clas2DetCombo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Clas2DetCombo.SelectedIndexChanged
         Me.txtClas2.Text = Me.Label3.Text & "-" & Me.Clas2Combo.Text & "-" & Me.Clas2DetCombo.Text
+        Me.txtClas1.Text = Me.txtClas2.Text
+        stclass = Me.txtClas2.Text
     End Sub
 
     Private Sub Clas3Combo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Clas3Combo.SelectedIndexChanged
@@ -328,14 +382,16 @@ Public Class FrmEditOrthInfDiag
             Me.Clas1Combo.Enabled = False
             Me.Clas1Combo.SelectedIndex = -1
             Me.txtClas1.Enabled = False
-            Me.txtClas1.Text = ""
             Me.txtClas3.Enabled = True
 
             Me.Clas2Combo.Enabled = False
             Clas2Combo.SelectedIndex = -1
             Me.txtClas2.Enabled = False
             Me.txtClas2.Text = ""
-            Me.txtClas3.Text = Me.Label4.Text & "-" & Me.Clas3Combo.Text
+            Dim cls3 As String = Me.Label4.Text & "-" & Me.Clas3Combo.Text
+            Me.txtClas3.Text = cls3
+            Me.txtClas1.Text = cls3
+            stclass = cls3
         ElseIf Me.Clas3Combo.SelectedIndex = 1 Then
 
             Me.Clas2DetCombo.Enabled = False
@@ -343,14 +399,16 @@ Public Class FrmEditOrthInfDiag
             Me.Clas1Combo.Enabled = False
             Me.Clas1Combo.SelectedIndex = -1
             Me.txtClas1.Enabled = False
-            Me.txtClas1.Text = ""
             Me.txtClas3.Enabled = True
 
             Me.Clas2Combo.Enabled = False
             Clas2Combo.SelectedIndex = -1
             Me.txtClas2.Enabled = False
             Me.txtClas2.Text = ""
-            Me.txtClas3.Text = Me.Label4.Text & "-" & Me.Clas3Combo.Text
+            Dim cls3 As String = Me.Label4.Text & "-" & Me.Clas3Combo.Text
+            Me.txtClas3.Text = cls3
+            Me.txtClas1.Text = cls3
+            stclass = cls3
         End If
     End Sub
 
@@ -358,18 +416,19 @@ Public Class FrmEditOrthInfDiag
         If Me.BiteCombo.SelectedIndex = 0 Then
             Me.OpenBiteCombo.BringToFront()
             Me.OpenBiteCombo.Visible = True
+            RefreshBiteTextFromCombos()
         ElseIf Me.BiteCombo.SelectedIndex = 1 Then
             Me.DeepBiteCombo.BringToFront()
             Me.DeepBiteCombo.Visible = True
             Me.OpenBiteCombo.Visible = False
             Me.OpenBiteDetCombo.Visible = False
-
+            RefreshBiteTextFromCombos()
         ElseIf Me.BiteCombo.SelectedIndex = 2 Then
             Me.ReverseBiteCombo.BringToFront()
             Me.ReverseBiteCombo.Visible = True
             Me.OpenBiteCombo.Visible = False
             Me.OpenBiteDetCombo.Visible = False
-            Me.txtBite.Text = Me.BiteCombo.Text & "-" & Me.OpenBiteCombo.Text
+            RefreshBiteTextFromCombos()
         Else
             Me.OpenBiteCombo.Visible = False
             Me.DeepBiteCombo.Visible = False
@@ -382,34 +441,30 @@ Public Class FrmEditOrthInfDiag
             Me.DeepBiteCombo.Visible = False
             Me.ReverseBiteCombo.Visible = False
             Me.OpenBiteDetCombo.Visible = False
-            Me.txtBite.Text = Me.BiteCombo.Text & "-" & Me.OpenBiteCombo.Text
         ElseIf Me.OpenBiteCombo.SelectedIndex = 1 Then
             Me.DeepBiteCombo.Visible = False
             Me.ReverseBiteCombo.Visible = False
             Me.OpenBiteDetCombo.Visible = False
-            Me.txtBite.Text = Me.BiteCombo.Text & "-" & Me.OpenBiteCombo.Text
         ElseIf Me.OpenBiteCombo.SelectedIndex = 2 Then
             Me.DeepBiteCombo.Visible = False
             Me.ReverseBiteCombo.Visible = False
             Me.OpenBiteDetCombo.Visible = True
-            Me.txtBite.Text = Me.BiteCombo.Text & "-" & Me.OpenBiteCombo.Text & "-" & Me.OpenBiteDetCombo.Text
         ElseIf Me.OpenBiteCombo.SelectedIndex = 3 Then
             Me.DeepBiteCombo.Visible = False
             Me.ReverseBiteCombo.Visible = False
             Me.OpenBiteDetCombo.Visible = True
-            Me.txtBite.Text = Me.BiteCombo.Text & "-" & Me.OpenBiteCombo.Text & "-" & Me.OpenBiteDetCombo.Text
         End If
+        RefreshBiteTextFromCombos()
     End Sub
 
     Private Sub OpenBiteDetCombo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenBiteDetCombo.SelectedIndexChanged
-        Me.txtBite.Text = Me.BiteCombo.Text & "-" & Me.OpenBiteCombo.Text & "-" & Me.OpenBiteDetCombo.Text
-
+        RefreshBiteTextFromCombos()
     End Sub
     Private Sub DeepBiteCombo_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DeepBiteCombo.SelectedIndexChanged
-        Me.txtBite.Text = Me.BiteCombo.Text & "-" & Me.DeepBiteCombo.Text
+        RefreshBiteTextFromCombos()
     End Sub
     Private Sub ReverseBiteCombo_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ReverseBiteCombo.SelectedIndexChanged
-        Me.txtBite.Text = Me.BiteCombo.Text & "-" & Me.ReverseBiteCombo.Text
+        RefreshBiteTextFromCombos()
     End Sub
 
     Public Sub DiagCntlsEn()

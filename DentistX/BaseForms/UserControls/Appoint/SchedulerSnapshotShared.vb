@@ -93,6 +93,89 @@ Friend NotInheritable Class SchedulerSnapshotShared
         End Try
     End Function
 
+
+    Friend Shared Function CaptureSnapshot1(arrowHost As Control, pnlBody As Control, view As SchedulerNew.ViewMode, gdiContext As WeekSched) As Bitmap
+        If pnlBody Is Nothing Then Return Nothing
+        Dim hintBk As List(Of KeyValuePair(Of Control, Boolean)) = Nothing
+        SnapshotHideArrowHints(arrowHost, hintBk)
+        Try
+            Select Case view
+                Case SchedulerNew.ViewMode.DayView
+                    If gdiContext IsNot Nothing Then
+                        Dim dayBmp = gdiContext.SnapshotGdi_DayViewBitmap()
+                        If dayBmp IsNot Nothing Then Return dayBmp
+                    End If
+                    Dim p = FindAutoscrollPanelDeep(pnlBody)
+                    If p IsNot Nothing Then
+                        Dim b = CaptureBodyAutoScrollFullBitmap(p)
+                        If b IsNot Nothing Then Return b
+                    End If
+                Case SchedulerNew.ViewMode.ThisWeekFull, SchedulerNew.ViewMode.ThisWeek
+                    Dim wk = FindDescendantApptWeekCtl(pnlBody)
+                    If wk IsNot Nothing Then
+                        Dim apptW = wk.CaptureStitchedWeekSnapshotBitmap()
+                        If apptW IsNot Nothing Then Return apptW
+                    End If
+                    Dim wf = TryFindWeekDayColumnsMainFlow(pnlBody)
+                    If wf IsNot Nothing Then
+                        Dim wBmp = CaptureWeekColumnsFullHeightBitmap(wf, pnlBody.ClientSize.Width)
+                        If wBmp IsNot Nothing Then Return wBmp
+                    End If
+                Case SchedulerNew.ViewMode.MonthlyWeek
+                    Dim mwf = TryFindMonthWeeksMainFlow(pnlBody)
+                    If mwf IsNot Nothing Then
+                        Dim mBmp = CaptureMonthWeeksFullHeightBitmap(mwf, pnlBody.ClientSize.Width)
+                        If mBmp IsNot Nothing Then Return mBmp
+                    End If
+                Case SchedulerNew.ViewMode.MonthView
+                    Dim mwf = TryFindMonthWeeksMainFlow(pnlBody)
+                    If mwf IsNot Nothing Then
+                        Dim mBmp = CaptureMonthWeeksFullHeightBitmap(mwf, pnlBody.ClientSize.Width)
+                        If mBmp IsNot Nothing Then Return mBmp
+                    End If
+                Case SchedulerNew.ViewMode.DaysTimeline
+                    Dim adlForSnap As ApptDayLine = Nothing
+                    If pnlBody IsNot Nothing AndAlso pnlBody.Controls.Count > 0 Then
+                        adlForSnap = TryCast(pnlBody.Controls(0), ApptDayLine)
+                        If adlForSnap IsNot Nothing Then adlForSnap.BeginSnapshotBitmapLayout()
+                    End If
+                    Try
+                        If pnlBody IsNot Nothing AndAlso pnlBody.Controls.Count > 0 Then
+                            Dim adl = TryCast(pnlBody.Controls(0), ApptDayLine)
+                            If adl IsNot Nothing Then
+                                Dim p0 = FindAutoscrollPanelDeep(adl)
+                                If p0 IsNot Nothing Then
+                                    Dim b0 = CaptureBodyAutoScrollFullBitmap(p0)
+                                    If b0 IsNot Nothing Then Return b0
+                                End If
+                            End If
+                        End If
+                        Dim tl = FindTimelineOrScrollBodyPanel(pnlBody)
+                        If tl Is Nothing Then tl = FindAutoscrollPanelDeep(pnlBody)
+                        If tl IsNot Nothing Then
+                            Dim tBmp = CaptureBodyAutoScrollFullBitmap(tl)
+                            If tBmp IsNot Nothing Then Return tBmp
+                        End If
+                    Finally
+                        If adlForSnap IsNot Nothing Then adlForSnap.EndSnapshotBitmapLayout()
+                    End Try
+                Case SchedulerNew.ViewMode.DoctorsDay
+                    If gdiContext IsNot Nothing Then
+                        Dim ddBmp = gdiContext.SnapshotGdi_DoctorsDayBitmap()
+                        If ddBmp IsNot Nothing Then Return ddBmp
+                    End If
+                    Dim p2 = FindAutoscrollPanelDeep(pnlBody)
+                    If p2 IsNot Nothing Then
+                        Dim b2 = CaptureBodyAutoScrollFullBitmap(p2)
+                        If b2 IsNot Nothing Then Return b2
+                    End If
+            End Select
+            Return CapturePnlBodyClientBitmap(pnlBody)
+        Finally
+            SnapshotRestoreArrowHints(hintBk)
+        End Try
+    End Function
+
 #Region "Arrow hints (SchedulerNew.SnapshotHideArrowHints on arrowHost)"
     Private Shared Sub SnapshotHideArrowHints(arrowHost As Control, ByRef backup As List(Of KeyValuePair(Of Control, Boolean)))
         backup = New List(Of KeyValuePair(Of Control, Boolean))()

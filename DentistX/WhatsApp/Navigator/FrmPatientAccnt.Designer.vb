@@ -48,6 +48,8 @@ Partial Class FrmPatientAccnt
         Me.cboPrefix = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.txtWhats = New DevExpress.XtraEditors.TextEdit()
         Me.chkFullDetail = New DevExpress.XtraEditors.CheckEdit()
+        Me.btnSelectAll = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnSelectNone = New DevExpress.XtraEditors.SimpleButton()
         Label1 = New System.Windows.Forms.Label()
         CType(Me.pnlFilters, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFilters.SuspendLayout()
@@ -318,6 +320,22 @@ Partial Class FrmPatientAccnt
         Me.chkFullDetail.Properties.DisplayValueUnchecked = resources.GetString("chkFullDetail.Properties.DisplayValueUnchecked")
         Me.chkFullDetail.Properties.GlyphVerticalAlignment = CType(resources.GetObject("chkFullDetail.Properties.GlyphVerticalAlignment"), DevExpress.Utils.VertAlignment)
         '
+        'btnSelectAll
+        '
+        resources.ApplyResources(Me.btnSelectAll, "btnSelectAll")
+        Me.btnSelectAll.Appearance.Font = CType(resources.GetObject("btnSelectAll.Appearance.Font"), System.Drawing.Font)
+        Me.btnSelectAll.Appearance.Options.UseFont = True
+        Me.btnSelectAll.ImageOptions.ImageKey = resources.GetString("btnSelectAll.ImageOptions.ImageKey")
+        Me.btnSelectAll.Name = "btnSelectAll"
+        '
+        'btnSelectNone
+        '
+        resources.ApplyResources(Me.btnSelectNone, "btnSelectNone")
+        Me.btnSelectNone.Appearance.Font = CType(resources.GetObject("btnSelectNone.Appearance.Font"), System.Drawing.Font)
+        Me.btnSelectNone.Appearance.Options.UseFont = True
+        Me.btnSelectNone.ImageOptions.ImageKey = resources.GetString("btnSelectNone.ImageOptions.ImageKey")
+        Me.btnSelectNone.Name = "btnSelectNone"
+        '
         'FrmPatientAccnt
         '
         resources.ApplyResources(Me, "$this")
@@ -329,7 +347,9 @@ Partial Class FrmPatientAccnt
         Me.Controls.Add(Me.cboPrefix)
         Me.Controls.Add(Label1)
         Me.Controls.Add(Me.txtWhats)
+        Me.Controls.Add(Me.btnSelectNone)
         Me.Controls.Add(Me.BtnSendAllAccnt)
+        Me.Controls.Add(Me.btnSelectAll)
         Me.Controls.Add(Me.BtnSendMessage)
         Me.Controls.Add(Me.gcAccnt)
         Me.Controls.Add(Me.pnlFilters)
@@ -383,4 +403,6 @@ Partial Class FrmPatientAccnt
     Friend WithEvents cboPrefix As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents txtWhats As DevExpress.XtraEditors.TextEdit
     Friend WithEvents chkFullDetail As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents btnSelectAll As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnSelectNone As DevExpress.XtraEditors.SimpleButton
 End Class

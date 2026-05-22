@@ -149,7 +149,6 @@ Public Class RxDetailFrm
         Try
             Dim wimg As Image = Nothing
             Dim s As String = ""
-            Dim useimg, usetxt As Boolean
             'Dim row As RxDetails.RxBodyRow
             'If Me.RxBodyBindingSource.Count > 0 Then
             '    row = CType(CType(Me.RxBodyBindingSource.Current, DataRowView).Row, DentistX.RxDetails.RxBodyRow)

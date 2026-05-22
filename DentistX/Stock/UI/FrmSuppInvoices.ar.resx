@@ -118,8 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>153, 9</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>لغة الرسالة</value>
+  </data>
+  <data name="RadioLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 5</value>
+  </data>
+  <data name="RadioLang.Properties.Items1" xml:space="preserve">
+    <value>عربي</value>
+  </data>
+  <data name="RadioLang.Properties.Items5" xml:space="preserve">
+    <value>انجليزي</value>
+  </data>
+  <data name="btnWhatsSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>55, 34</value>
+  </data>
   <data name="lblSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>835, 13</value>
+    <value>913, 11</value>
   </data>
   <data name="lblSupplier.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 17</value>
@@ -128,10 +149,10 @@
     <value>المورد:</value>
   </data>
   <data name="cmbSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>629, 10</value>
+    <value>707, 8</value>
   </data>
   <data name="chkAllSuppliers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 11</value>
+    <value>583, 9</value>
   </data>
   <data name="chkAllSuppliers.Properties.Caption" xml:space="preserve">
     <value>كل الموردين</value>
@@ -140,7 +161,7 @@
     <value>92, 21</value>
   </data>
   <data name="lblSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 13</value>
+    <value>479, 11</value>
   </data>
   <data name="lblSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 17</value>
@@ -149,10 +170,10 @@
     <value>بحث بالاسم:</value>
   </data>
   <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 10</value>
+    <value>260, 8</value>
   </data>
   <data name="lblDateFrom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>730, 47</value>
+    <value>910, 43</value>
   </data>
   <data name="lblDateFrom.Size" type="System.Drawing.Size, System.Drawing">
     <value>18, 17</value>
@@ -161,10 +182,10 @@
     <value>من:</value>
   </data>
   <data name="dtFrom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>609, 44</value>
+    <value>789, 40</value>
   </data>
   <data name="lblDateTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>576, 47</value>
+    <value>756, 43</value>
   </data>
   <data name="lblDateTo.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 17</value>
@@ -173,16 +194,28 @@
     <value>إلى:</value>
   </data>
   <data name="dtTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>450, 44</value>
+    <value>630, 40</value>
   </data>
   <data name="btnApplyFilters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 42</value>
+    <value>468, 38</value>
   </data>
   <data name="btnApplyFilters.Text" xml:space="preserve">
     <value>تطبيق</value>
   </data>
+  <data name="btnReport2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>126, 38</value>
+  </data>
+  <data name="btnReport2.Text" xml:space="preserve">
+    <value>تقرير 2</value>
+  </data>
+  <data name="btnReport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 38</value>
+  </data>
+  <data name="btnReport.Text" xml:space="preserve">
+    <value>تقرير</value>
+  </data>
   <data name="btnClearFilters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 42</value>
+    <value>385, 38</value>
   </data>
   <data name="btnClearFilters.Text" xml:space="preserve">
     <value>مسح</value>

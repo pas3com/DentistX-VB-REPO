@@ -210,7 +210,7 @@ Partial Class SlctdToothCTL
         resources.ApplyResources(Me.SlctdToothTab, "SlctdToothTab")
         Me.SlctdToothTab.Name = "SlctdToothTab"
         Me.SlctdToothTab.SelectedTabPage = Me.ToothShapePage
-        Me.SlctdToothTab.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.ToothShapePage, Me.ToothTrtsPage})
+        Me.SlctdToothTab.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.ToothTrtsPage, Me.ToothShapePage})
         '
         'ToothShapePage
         '

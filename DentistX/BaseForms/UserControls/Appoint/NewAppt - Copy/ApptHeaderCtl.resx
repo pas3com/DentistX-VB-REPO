@@ -1,0 +1,2168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnLabs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnLabs.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnLabs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 89</value>
+  </data>
+  <data name="btnLabs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 25</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnLabs.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnLabs.Text" xml:space="preserve">
+    <value>Labs</value>
+  </data>
+  <data name="&gt;&gt;btnLabs.Name" xml:space="preserve">
+    <value>btnLabs</value>
+  </data>
+  <data name="&gt;&gt;btnLabs.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnLabs.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;btnLabs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnWeekSnapshot.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnWeekSnapshot.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnWeekSnapshot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 50</value>
+  </data>
+  <data name="btnWeekSnapshot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 25</value>
+  </data>
+  <data name="btnWeekSnapshot.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btnWeekSnapshot.Name" xml:space="preserve">
+    <value>btnWeekSnapshot</value>
+  </data>
+  <data name="&gt;&gt;btnWeekSnapshot.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnWeekSnapshot.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;btnWeekSnapshot.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnLabelsColors.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnLabelsColors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>811, -2</value>
+  </data>
+  <data name="btnLabelsColors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 22</value>
+  </data>
+  <data name="btnLabelsColors.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnLabelsColors.Text" xml:space="preserve">
+    <value>Labels Colors</value>
+  </data>
+  <data name="&gt;&gt;btnLabelsColors.Name" xml:space="preserve">
+    <value>btnLabelsColors</value>
+  </data>
+  <data name="&gt;&gt;btnLabelsColors.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnLabelsColors.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;btnLabelsColors.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblStartTime.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="lblStartTime.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblStartTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>374, 1</value>
+  </data>
+  <data name="lblStartTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 17</value>
+  </data>
+  <data name="lblStartTime.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblStartTime.Text" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="lblStartTime.ToolTip" xml:space="preserve">
+    <value>Clinic Start Time</value>
+  </data>
+  <data name="&gt;&gt;lblStartTime.Name" xml:space="preserve">
+    <value>lblStartTime</value>
+  </data>
+  <data name="&gt;&gt;lblStartTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblStartTime.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;lblStartTime.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblEndTime.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblEndTime.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblEndTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>591, 1</value>
+  </data>
+  <data name="lblEndTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 17</value>
+  </data>
+  <data name="lblEndTime.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblEndTime.Text" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="lblEndTime.ToolTip" xml:space="preserve">
+    <value>Clinic End Time</value>
+  </data>
+  <data name="&gt;&gt;lblEndTime.Name" xml:space="preserve">
+    <value>lblEndTime</value>
+  </data>
+  <data name="&gt;&gt;lblEndTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblEndTime.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;lblEndTime.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblApptsCount.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblApptsCount.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblApptsCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>929, 2</value>
+  </data>
+  <data name="lblApptsCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 17</value>
+  </data>
+  <data name="lblApptsCount.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblApptsCount.Text" xml:space="preserve">
+    <value>Appts Count</value>
+  </data>
+  <data name="&gt;&gt;lblApptsCount.Name" xml:space="preserve">
+    <value>lblApptsCount</value>
+  </data>
+  <data name="&gt;&gt;lblApptsCount.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblApptsCount.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;lblApptsCount.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblCount.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1024, 3</value>
+  </data>
+  <data name="lblCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 15</value>
+  </data>
+  <data name="lblCount.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblCount.Text" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="&gt;&gt;lblCount.Name" xml:space="preserve">
+    <value>lblCount</value>
+  </data>
+  <data name="&gt;&gt;lblCount.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblCount.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;lblCount.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblOptions.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblOptions.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblOptions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lblOptions.LineColor" type="System.Drawing.Color, System.Drawing">
+    <value>Blue</value>
+  </data>
+  <data name="lblOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="lblOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 21</value>
+  </data>
+  <data name="lblOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblOptions.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="&gt;&gt;lblOptions.Name" xml:space="preserve">
+    <value>lblOptions</value>
+  </data>
+  <data name="&gt;&gt;lblOptions.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblOptions.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;lblOptions.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="endColor.EditValue" type="System.Drawing.Color, System.Drawing">
+    <value />
+  </data>
+  <data name="endColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>762, -1</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="endColor.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="endColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 22</value>
+  </data>
+  <data name="endColor.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;endColor.Name" xml:space="preserve">
+    <value>endColor</value>
+  </data>
+  <data name="&gt;&gt;endColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ColorEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;endColor.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;endColor.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="includeReasonCheck.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="includeReasonCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 1</value>
+  </data>
+  <data name="includeReasonCheck.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="includeReasonCheck.Properties.Caption" xml:space="preserve">
+    <value>Include Reason</value>
+  </data>
+  <data name="includeReasonCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 19</value>
+  </data>
+  <data name="includeReasonCheck.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;includeReasonCheck.Name" xml:space="preserve">
+    <value>includeReasonCheck</value>
+  </data>
+  <data name="&gt;&gt;includeReasonCheck.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;includeReasonCheck.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;includeReasonCheck.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="startColor.EditValue" type="System.Drawing.Color, System.Drawing">
+    <value />
+  </data>
+  <data name="startColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>546, -1</value>
+  </data>
+  <data name="startColor.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="startColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 22</value>
+  </data>
+  <data name="startColor.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;startColor.Name" xml:space="preserve">
+    <value>startColor</value>
+  </data>
+  <data name="&gt;&gt;startColor.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ColorEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;startColor.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;startColor.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="boldFontCheck.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="boldFontCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 1</value>
+  </data>
+  <data name="boldFontCheck.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="boldFontCheck.Properties.Caption" xml:space="preserve">
+    <value>Bold Font</value>
+  </data>
+  <data name="boldFontCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 19</value>
+  </data>
+  <data name="boldFontCheck.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;boldFontCheck.Name" xml:space="preserve">
+    <value>boldFontCheck</value>
+  </data>
+  <data name="&gt;&gt;boldFontCheck.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;boldFontCheck.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;boldFontCheck.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="sizeFontCheck.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="sizeFontCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 1</value>
+  </data>
+  <data name="sizeFontCheck.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="sizeFontCheck.Properties.Caption" xml:space="preserve">
+    <value>Font Size</value>
+  </data>
+  <data name="sizeFontCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 19</value>
+  </data>
+  <data name="sizeFontCheck.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;sizeFontCheck.Name" xml:space="preserve">
+    <value>sizeFontCheck</value>
+  </data>
+  <data name="&gt;&gt;sizeFontCheck.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;sizeFontCheck.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;sizeFontCheck.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="dtStartTime.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dtStartTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, -1</value>
+  </data>
+  <data name="dtStartTime.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="dtStartTime.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtStartTime.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtStartTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 22</value>
+  </data>
+  <data name="dtStartTime.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;dtStartTime.Name" xml:space="preserve">
+    <value>dtStartTime</value>
+  </data>
+  <data name="&gt;&gt;dtStartTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dtStartTime.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;dtStartTime.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="dtEndTime.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dtEndTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>673, -1</value>
+  </data>
+  <data name="dtEndTime.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="dtEndTime.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtEndTime.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtEndTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 22</value>
+  </data>
+  <data name="dtEndTime.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;dtEndTime.Name" xml:space="preserve">
+    <value>dtEndTime</value>
+  </data>
+  <data name="&gt;&gt;dtEndTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dtEndTime.Parent" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;dtEndTime.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="PanelOptions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="PanelOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 89</value>
+  </data>
+  <data name="PanelOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>985, 25</value>
+  </data>
+  <data name="PanelOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;PanelOptions.Name" xml:space="preserve">
+    <value>PanelOptions</value>
+  </data>
+  <data name="&gt;&gt;PanelOptions.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;PanelOptions.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;PanelOptions.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnAdd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnAdd.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 7</value>
+  </data>
+  <data name="btnAdd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 6, 2</value>
+  </data>
+  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 25</value>
+  </data>
+  <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Add +</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Name" xml:space="preserve">
+    <value>btnAdd</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnFilterDoctor0.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor0.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnFilterDoctor0.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btnFilterDoctor0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 34</value>
+  </data>
+  <data name="btnFilterDoctor0.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnFilterDoctor0.Text" xml:space="preserve">
+    <value>All Doctors</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor0.Name" xml:space="preserve">
+    <value>btnFilterDoctor0</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor0.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor0.Parent" xml:space="preserve">
+    <value>tblFilterDoctors</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor0.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlDoctorFilterScroll.AutoScroll" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="flpDoctorFilterButtons.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="flpDoctorFilterButtons.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
+    <value>6, 0</value>
+  </data>
+  <data name="flpDoctorFilterButtons.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="flpDoctorFilterButtons.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="btnFilterDoctor1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnFilterDoctor1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 1</value>
+  </data>
+  <data name="btnFilterDoctor1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 0</value>
+  </data>
+  <data name="btnFilterDoctor1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnFilterDoctor1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="btnFilterDoctor1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor1.Name" xml:space="preserve">
+    <value>btnFilterDoctor1</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor1.Parent" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnFilterDoctor2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnFilterDoctor2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 1</value>
+  </data>
+  <data name="btnFilterDoctor2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 0</value>
+  </data>
+  <data name="btnFilterDoctor2.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnFilterDoctor2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="btnFilterDoctor2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor2.Name" xml:space="preserve">
+    <value>btnFilterDoctor2</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor2.Parent" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnFilterDoctor3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor3.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnFilterDoctor3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 1</value>
+  </data>
+  <data name="btnFilterDoctor3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 0</value>
+  </data>
+  <data name="btnFilterDoctor3.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnFilterDoctor3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="btnFilterDoctor3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor3.Name" xml:space="preserve">
+    <value>btnFilterDoctor3</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor3.Parent" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnFilterDoctor4.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor4.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnFilterDoctor4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>285, 1</value>
+  </data>
+  <data name="btnFilterDoctor4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 0</value>
+  </data>
+  <data name="btnFilterDoctor4.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnFilterDoctor4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="btnFilterDoctor4.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor4.Name" xml:space="preserve">
+    <value>btnFilterDoctor4</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor4.Parent" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor4.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnFilterDoctor5.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor5.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnFilterDoctor5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>379, 1</value>
+  </data>
+  <data name="btnFilterDoctor5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 0</value>
+  </data>
+  <data name="btnFilterDoctor5.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnFilterDoctor5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="btnFilterDoctor5.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor5.Name" xml:space="preserve">
+    <value>btnFilterDoctor5</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor5.Parent" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor5.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnFilterDoctor6.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor6.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnFilterDoctor6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>473, 1</value>
+  </data>
+  <data name="btnFilterDoctor6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 0</value>
+  </data>
+  <data name="btnFilterDoctor6.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnFilterDoctor6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="btnFilterDoctor6.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor6.Name" xml:space="preserve">
+    <value>btnFilterDoctor6</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor6.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor6.Parent" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor6.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnFilterDoctor7.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor7.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnFilterDoctor7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>567, 1</value>
+  </data>
+  <data name="btnFilterDoctor7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 0</value>
+  </data>
+  <data name="btnFilterDoctor7.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnFilterDoctor7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="btnFilterDoctor7.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor7.Name" xml:space="preserve">
+    <value>btnFilterDoctor7</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor7.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor7.Parent" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor7.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnFilterDoctor8.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnFilterDoctor8.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnFilterDoctor8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>661, 1</value>
+  </data>
+  <data name="btnFilterDoctor8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 0</value>
+  </data>
+  <data name="btnFilterDoctor8.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnFilterDoctor8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="btnFilterDoctor8.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor8.Name" xml:space="preserve">
+    <value>btnFilterDoctor8</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor8.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor8.Parent" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;btnFilterDoctor8.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="flpDoctorFilterButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="flpDoctorFilterButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="flpDoctorFilterButtons.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="flpDoctorFilterButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 34</value>
+  </data>
+  <data name="flpDoctorFilterButtons.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="flpDoctorFilterButtons.WrapContents" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;flpDoctorFilterButtons.Name" xml:space="preserve">
+    <value>flpDoctorFilterButtons</value>
+  </data>
+  <data name="&gt;&gt;flpDoctorFilterButtons.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpDoctorFilterButtons.Parent" xml:space="preserve">
+    <value>pnlDoctorFilterScroll</value>
+  </data>
+  <data name="&gt;&gt;flpDoctorFilterButtons.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlDoctorFilterScroll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlDoctorFilterScroll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 3</value>
+  </data>
+  <data name="pnlDoctorFilterScroll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 34</value>
+  </data>
+  <data name="pnlDoctorFilterScroll.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlDoctorFilterScroll.Name" xml:space="preserve">
+    <value>pnlDoctorFilterScroll</value>
+  </data>
+  <data name="&gt;&gt;pnlDoctorFilterScroll.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraScrollableControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlDoctorFilterScroll.Parent" xml:space="preserve">
+    <value>tblFilterDoctors</value>
+  </data>
+  <data name="&gt;&gt;pnlDoctorFilterScroll.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tblFilterDoctors.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tblFilterDoctors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tblFilterDoctors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tblFilterDoctors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>886, 40</value>
+  </data>
+  <data name="tblFilterDoctors.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tblFilterDoctors.Name" xml:space="preserve">
+    <value>tblFilterDoctors</value>
+  </data>
+  <data name="&gt;&gt;tblFilterDoctors.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tblFilterDoctors.Parent" xml:space="preserve">
+    <value>pnlFilterDoctors</value>
+  </data>
+  <data name="&gt;&gt;tblFilterDoctors.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlFilterDoctors.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlFilterDoctors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 43</value>
+  </data>
+  <data name="pnlFilterDoctors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>886, 40</value>
+  </data>
+  <data name="pnlFilterDoctors.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterDoctors.Name" xml:space="preserve">
+    <value>pnlFilterDoctors</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterDoctors.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterDoctors.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterDoctors.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnAllReasons.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnAllReasons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnAllReasons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btnAllReasons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 28</value>
+  </data>
+  <data name="btnAllReasons.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnAllReasons.Text" xml:space="preserve">
+    <value>All Reasons</value>
+  </data>
+  <data name="&gt;&gt;btnAllReasons.Name" xml:space="preserve">
+    <value>btnAllReasons</value>
+  </data>
+  <data name="&gt;&gt;btnAllReasons.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAllReasons.Parent" xml:space="preserve">
+    <value>tblFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;btnAllReasons.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnPending.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnPending.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPending.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 3</value>
+  </data>
+  <data name="btnPending.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 28</value>
+  </data>
+  <data name="btnPending.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnPending.Text" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="&gt;&gt;btnPending.Name" xml:space="preserve">
+    <value>btnPending</value>
+  </data>
+  <data name="&gt;&gt;btnPending.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnPending.Parent" xml:space="preserve">
+    <value>tblFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;btnPending.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnRunning.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnRunning.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnRunning.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 3</value>
+  </data>
+  <data name="btnRunning.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 28</value>
+  </data>
+  <data name="btnRunning.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnRunning.Text" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="&gt;&gt;btnRunning.Name" xml:space="preserve">
+    <value>btnRunning</value>
+  </data>
+  <data name="&gt;&gt;btnRunning.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnRunning.Parent" xml:space="preserve">
+    <value>tblFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;btnRunning.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnCompleted.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnCompleted.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnCompleted.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 3</value>
+  </data>
+  <data name="btnCompleted.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 28</value>
+  </data>
+  <data name="btnCompleted.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnCompleted.Text" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="&gt;&gt;btnCompleted.Name" xml:space="preserve">
+    <value>btnCompleted</value>
+  </data>
+  <data name="&gt;&gt;btnCompleted.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnCompleted.Parent" xml:space="preserve">
+    <value>tblFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;btnCompleted.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnCanceled.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnCanceled.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnCanceled.Location" type="System.Drawing.Point, System.Drawing">
+    <value>396, 3</value>
+  </data>
+  <data name="btnCanceled.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 28</value>
+  </data>
+  <data name="btnCanceled.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnCanceled.Text" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="&gt;&gt;btnCanceled.Name" xml:space="preserve">
+    <value>btnCanceled</value>
+  </data>
+  <data name="&gt;&gt;btnCanceled.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnCanceled.Parent" xml:space="preserve">
+    <value>tblFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;btnCanceled.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnPostponed.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnPostponed.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPostponed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 3</value>
+  </data>
+  <data name="btnPostponed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 28</value>
+  </data>
+  <data name="btnPostponed.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnPostponed.Text" xml:space="preserve">
+    <value>Postponed</value>
+  </data>
+  <data name="&gt;&gt;btnPostponed.Name" xml:space="preserve">
+    <value>btnPostponed</value>
+  </data>
+  <data name="&gt;&gt;btnPostponed.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnPostponed.Parent" xml:space="preserve">
+    <value>tblFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;btnPostponed.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tblFilterReasons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tblFilterReasons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tblFilterReasons.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tblFilterReasons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>589, 34</value>
+  </data>
+  <data name="tblFilterReasons.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tblFilterReasons.Name" xml:space="preserve">
+    <value>tblFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;tblFilterReasons.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tblFilterReasons.Parent" xml:space="preserve">
+    <value>pnlFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;tblFilterReasons.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlFilterReasons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlFilterReasons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>597, 3</value>
+  </data>
+  <data name="pnlFilterReasons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>589, 34</value>
+  </data>
+  <data name="pnlFilterReasons.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterReasons.Name" xml:space="preserve">
+    <value>pnlFilterReasons</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterReasons.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterReasons.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterReasons.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnAllPatients.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnAllPatients.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnAllPatients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btnAllPatients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 28</value>
+  </data>
+  <data name="btnAllPatients.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnAllPatients.Text" xml:space="preserve">
+    <value>All Patients</value>
+  </data>
+  <data name="&gt;&gt;btnAllPatients.Name" xml:space="preserve">
+    <value>btnAllPatients</value>
+  </data>
+  <data name="&gt;&gt;btnAllPatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAllPatients.Parent" xml:space="preserve">
+    <value>tblFilterPatients</value>
+  </data>
+  <data name="&gt;&gt;btnAllPatients.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnThisPatient.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnThisPatient.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnThisPatient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 3</value>
+  </data>
+  <data name="btnThisPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 28</value>
+  </data>
+  <data name="btnThisPatient.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnThisPatient.Text" xml:space="preserve">
+    <value>This Patient</value>
+  </data>
+  <data name="&gt;&gt;btnThisPatient.Name" xml:space="preserve">
+    <value>btnThisPatient</value>
+  </data>
+  <data name="&gt;&gt;btnThisPatient.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnThisPatient.Parent" xml:space="preserve">
+    <value>tblFilterPatients</value>
+  </data>
+  <data name="&gt;&gt;btnThisPatient.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tblFilterPatients.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tblFilterPatients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tblFilterPatients.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tblFilterPatients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="tblFilterPatients.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tblFilterPatients.Name" xml:space="preserve">
+    <value>tblFilterPatients</value>
+  </data>
+  <data name="&gt;&gt;tblFilterPatients.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tblFilterPatients.Parent" xml:space="preserve">
+    <value>pnlFilterPatients</value>
+  </data>
+  <data name="&gt;&gt;tblFilterPatients.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlFilterPatients.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlFilterPatients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 3</value>
+  </data>
+  <data name="pnlFilterPatients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="pnlFilterPatients.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterPatients.Name" xml:space="preserve">
+    <value>pnlFilterPatients</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterPatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterPatients.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;pnlFilterPatients.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblPatients.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblPatients.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblPatients.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblPatients.LineColor" type="System.Drawing.Color, System.Drawing">
+    <value>Blue</value>
+  </data>
+  <data name="lblPatients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 3</value>
+  </data>
+  <data name="lblPatients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 34</value>
+  </data>
+  <data name="lblPatients.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblPatients.Text" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="&gt;&gt;lblPatients.Name" xml:space="preserve">
+    <value>lblPatients</value>
+  </data>
+  <data name="&gt;&gt;lblPatients.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPatients.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;lblPatients.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnNextView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnNextView.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnNextView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1192, 60</value>
+  </data>
+  <data name="btnNextView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 37</value>
+  </data>
+  <data name="btnNextView.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnNextView.Text" xml:space="preserve">
+    <value>Next View</value>
+  </data>
+  <data name="&gt;&gt;btnNextView.Name" xml:space="preserve">
+    <value>btnNextView</value>
+  </data>
+  <data name="&gt;&gt;btnNextView.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnNextView.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;btnNextView.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnPrevView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnPrevView.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnPrevView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 60</value>
+  </data>
+  <data name="btnPrevView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 37</value>
+  </data>
+  <data name="btnPrevView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnPrevView.Text" xml:space="preserve">
+    <value>Prev View</value>
+  </data>
+  <data name="&gt;&gt;btnPrevView.Name" xml:space="preserve">
+    <value>btnPrevView</value>
+  </data>
+  <data name="&gt;&gt;btnPrevView.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnPrevView.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;btnPrevView.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblDoc.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblDoc.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>Vertical</value>
+  </data>
+  <data name="lblDoc.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblDoc.LineColor" type="System.Drawing.Color, System.Drawing">
+    <value>Blue</value>
+  </data>
+  <data name="lblDoc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 43</value>
+  </data>
+  <data name="lblDoc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 40</value>
+  </data>
+  <data name="lblDoc.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblDoc.Text" xml:space="preserve">
+    <value>Doctors</value>
+  </data>
+  <data name="&gt;&gt;lblDoc.Name" xml:space="preserve">
+    <value>lblDoc</value>
+  </data>
+  <data name="&gt;&gt;lblDoc.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDoc.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;lblDoc.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblStatusFilter.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblStatusFilter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblStatusFilter.LineColor" type="System.Drawing.Color, System.Drawing">
+    <value>Blue</value>
+  </data>
+  <data name="lblStatusFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 3</value>
+  </data>
+  <data name="lblStatusFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 34</value>
+  </data>
+  <data name="lblStatusFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblStatusFilter.Text" xml:space="preserve">
+    <value>Status Filter</value>
+  </data>
+  <data name="&gt;&gt;lblStatusFilter.Name" xml:space="preserve">
+    <value>lblStatusFilter</value>
+  </data>
+  <data name="&gt;&gt;lblStatusFilter.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblStatusFilter.Parent" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;lblStatusFilter.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="filtersTable.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="filtersTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="filtersTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1288, 117</value>
+  </data>
+  <data name="filtersTable.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;filtersTable.Name" xml:space="preserve">
+    <value>filtersTable</value>
+  </data>
+  <data name="&gt;&gt;filtersTable.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;filtersTable.Parent" xml:space="preserve">
+    <value>grpFilters</value>
+  </data>
+  <data name="&gt;&gt;filtersTable.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpFilters.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="grpFilters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 42</value>
+  </data>
+  <data name="grpFilters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1292, 121</value>
+  </data>
+  <data name="grpFilters.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;grpFilters.Name" xml:space="preserve">
+    <value>grpFilters</value>
+  </data>
+  <data name="&gt;&gt;grpFilters.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpFilters.Parent" xml:space="preserve">
+    <value>legendPanel</value>
+  </data>
+  <data name="&gt;&gt;grpFilters.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblPatient.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="lblPatient.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblPatient.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblPatient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 30</value>
+  </data>
+  <data name="lblPatient.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblPatient.Text" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="&gt;&gt;lblPatient.Name" xml:space="preserve">
+    <value>lblPatient</value>
+  </data>
+  <data name="&gt;&gt;lblPatient.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPatient.Parent" xml:space="preserve">
+    <value>pnlHeaderLeft</value>
+  </data>
+  <data name="&gt;&gt;lblPatient.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlHeaderLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlHeaderLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="pnlHeaderLeft.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 4, 0</value>
+  </data>
+  <data name="pnlHeaderLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>302, 30</value>
+  </data>
+  <data name="pnlHeaderLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderLeft.Name" xml:space="preserve">
+    <value>pnlHeaderLeft</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderLeft.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderLeft.Parent" xml:space="preserve">
+    <value>headerTable</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderLeft.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlHeaderToolbarFlow.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="chkUse24.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="chkUse24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 4</value>
+  </data>
+  <data name="chkUse24.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 8, 2</value>
+  </data>
+  <data name="chkUse24.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkUse24.Properties.Caption" xml:space="preserve">
+    <value>Use 24 Hour</value>
+  </data>
+  <data name="chkUse24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 22</value>
+  </data>
+  <data name="chkUse24.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;chkUse24.Name" xml:space="preserve">
+    <value>chkUse24</value>
+  </data>
+  <data name="&gt;&gt;chkUse24.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkUse24.Parent" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;chkUse24.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LabelControl1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl1.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 4</value>
+  </data>
+  <data name="LabelControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 8, 2</value>
+  </data>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 22</value>
+  </data>
+  <data name="LabelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Name" xml:space="preserve">
+    <value>LabelControl1</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.Parent" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;LabelControl1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LabelControl2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="LabelControl2.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 4</value>
+  </data>
+  <data name="LabelControl2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 8, 2</value>
+  </data>
+  <data name="LabelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 22</value>
+  </data>
+  <data name="LabelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="LabelControl2.Text" xml:space="preserve">
+    <value>Go To Date</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Name" xml:space="preserve">
+    <value>LabelControl2</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.Parent" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;LabelControl2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gotoDate.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gotoDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 4</value>
+  </data>
+  <data name="gotoDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 2, 0, 2</value>
+  </data>
+  <data name="gotoDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="gotoDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="gotoDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="gotoDate.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;gotoDate.Name" xml:space="preserve">
+    <value>gotoDate</value>
+  </data>
+  <data name="&gt;&gt;gotoDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gotoDate.Parent" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;gotoDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnPrev.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnPrev.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnPrev.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 4</value>
+  </data>
+  <data name="btnPrev.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 6, 2</value>
+  </data>
+  <data name="btnPrev.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 22</value>
+  </data>
+  <data name="btnPrev.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnPrev.Text" xml:space="preserve">
+    <value>&lt;&lt; Previous</value>
+  </data>
+  <data name="&gt;&gt;btnPrev.Name" xml:space="preserve">
+    <value>btnPrev</value>
+  </data>
+  <data name="&gt;&gt;btnPrev.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnPrev.Parent" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;btnPrev.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cmbView.EditValue" xml:space="preserve">
+    <value>This Week Full</value>
+  </data>
+  <data name="cmbView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>435, 4</value>
+  </data>
+  <data name="cmbView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 6, 2</value>
+  </data>
+  <data name="cmbView.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="cmbView.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="cmbView.Properties.Items" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="cmbView.Properties.Items1" xml:space="preserve">
+    <value>This Week Full</value>
+  </data>
+  <data name="cmbView.Properties.Items2" xml:space="preserve">
+    <value>This Week</value>
+  </data>
+  <data name="cmbView.Properties.Items3" xml:space="preserve">
+    <value>Monthly Week</value>
+  </data>
+  <data name="cmbView.Properties.Items4" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="cmbView.Properties.Items5" xml:space="preserve">
+    <value>Days Timeline</value>
+  </data>
+  <data name="cmbView.Properties.Items6" xml:space="preserve">
+    <value>Doctors Day</value>
+  </data>
+  <data name="cmbView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="cmbView.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;cmbView.Name" xml:space="preserve">
+    <value>cmbView</value>
+  </data>
+  <data name="&gt;&gt;cmbView.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cmbView.Parent" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;cmbView.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnNext.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>576, 4</value>
+  </data>
+  <data name="btnNext.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 6, 2</value>
+  </data>
+  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 22</value>
+  </data>
+  <data name="btnNext.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnNext.Text" xml:space="preserve">
+    <value>Next &gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Name" xml:space="preserve">
+    <value>btnNext</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnToday.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnToday.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnToday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>640, 4</value>
+  </data>
+  <data name="btnToday.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 6, 2</value>
+  </data>
+  <data name="btnToday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 22</value>
+  </data>
+  <data name="btnToday.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnToday.Text" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="&gt;&gt;btnToday.Name" xml:space="preserve">
+    <value>btnToday</value>
+  </data>
+  <data name="&gt;&gt;btnToday.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnToday.Parent" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;btnToday.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="pnlHeaderToolbarFlow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlHeaderToolbarFlow.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="pnlHeaderToolbarFlow.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 2, 0, 2</value>
+  </data>
+  <data name="pnlHeaderToolbarFlow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>734, 30</value>
+  </data>
+  <data name="pnlHeaderToolbarFlow.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderToolbarFlow.Name" xml:space="preserve">
+    <value>pnlHeaderToolbarFlow</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderToolbarFlow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderToolbarFlow.Parent" xml:space="preserve">
+    <value>pnlHeaderCenter</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderToolbarFlow.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlHeaderCenter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlHeaderCenter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>311, 3</value>
+  </data>
+  <data name="pnlHeaderCenter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>734, 30</value>
+  </data>
+  <data name="pnlHeaderCenter.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderCenter.Name" xml:space="preserve">
+    <value>pnlHeaderCenter</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderCenter.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderCenter.Parent" xml:space="preserve">
+    <value>headerTable</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderCenter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblRange.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="lblRange.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblRange.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblRange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 0</value>
+  </data>
+  <data name="lblRange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 30</value>
+  </data>
+  <data name="lblRange.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblRange.Text" xml:space="preserve">
+    <value>Date Raneg</value>
+  </data>
+  <data name="&gt;&gt;lblRange.Name" xml:space="preserve">
+    <value>lblRange</value>
+  </data>
+  <data name="&gt;&gt;lblRange.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblRange.Parent" xml:space="preserve">
+    <value>pnlHeaderRight</value>
+  </data>
+  <data name="&gt;&gt;lblRange.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlHeaderRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlHeaderRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1051, 3</value>
+  </data>
+  <data name="pnlHeaderRight.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 0, 0</value>
+  </data>
+  <data name="pnlHeaderRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="pnlHeaderRight.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderRight.Name" xml:space="preserve">
+    <value>pnlHeaderRight</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderRight.Parent" xml:space="preserve">
+    <value>headerTable</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaderRight.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="headerTable.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="headerTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="headerTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1288, 36</value>
+  </data>
+  <data name="headerTable.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;headerTable.Name" xml:space="preserve">
+    <value>headerTable</value>
+  </data>
+  <data name="&gt;&gt;headerTable.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Layout.TablePanel, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;headerTable.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="&gt;&gt;headerTable.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="pnlButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="pnlButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1292, 40</value>
+  </data>
+  <data name="pnlButtons.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.Name" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.Parent" xml:space="preserve">
+    <value>legendPanel</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="legendPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="legendPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="legendPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1296, 165</value>
+  </data>
+  <data name="legendPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;legendPanel.Name" xml:space="preserve">
+    <value>legendPanel</value>
+  </data>
+  <data name="&gt;&gt;legendPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;legendPanel.Parent" xml:space="preserve">
+    <value>pnlHeader</value>
+  </data>
+  <data name="&gt;&gt;legendPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1300, 169</value>
+  </data>
+  <data name="pnlHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlHeader.Name" xml:space="preserve">
+    <value>pnlHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pnlHeader.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1300, 169</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ApptHeaderCtl</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraUserControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>

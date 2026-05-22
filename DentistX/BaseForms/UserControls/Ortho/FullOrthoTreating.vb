@@ -35,6 +35,8 @@ Public Class FullOrthoTreating
 
 
 #Region "Resize"
+    ' Single proportional layout for this panel and all descendants (OpenNewOrth1, OrthoTreating1, nested controls).
+    ' Hosted OpenNewOrthCTL / OrthoTreatingCTL must NOT implement their own ResizeControlsProportionally — that double-scales bounds.
     Private ReadOnly controlBoundsCache As New ConcurrentDictionary(Of Control, Rectangle)
     Private Const OriginalPanelWidth As Integer = 1200 ', 600
     Private Const OriginalPanelHeight As Integer = 600
@@ -67,6 +69,7 @@ Public Class FullOrthoTreating
 
     Private Sub FullOrthoTreating_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         StoreOriginalBounds(Me)
+        OrthoEmbeddedChrome.ApplyToRoot(Me)
         PatientAwareHelper.SubscribeToPatientChanges(Me, Me)
         'AddHandler lnkUseNewOrtho.HyperlinkClick, AddressOf lnkUseNewOrtho_Click
         ' Ensure classic header panel is always on top

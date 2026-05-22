@@ -57,6 +57,12 @@ Public Class AdultDiag
     'Implements IJawPatientBindable
     'Implements IJawControl
 
+    Private Sub ApplyFlatAdultDiagChrome()
+        Helpers.ResetControlBackground(Me)
+        Me.BackColor = BasePatientWorkspace.DiagModuleShellBack
+        JawPanel.Appearance.BackColor = BasePatientWorkspace.DiagModuleShellBack
+        JawPanel.Appearance.Options.UseBackColor = True
+    End Sub
 
     '0 (Not Started)
     '1 (In Progress)
@@ -68,12 +74,14 @@ Public Class AdultDiag
         Dim sw = StartTimer() 'New Stopwatch
         sw.Start()
         Me.DoubleBuffered = True
+        ApplyFlatAdultDiagChrome()
         'ApplyCtlGradientBackground(JawPanel,
         '                         Color.AliceBlue,
         '                         Color.Blue,
         '                         Drawing2D.LinearGradientMode.Horizontal, 128)
         StoreOriginalBounds(Me)
         InitializeDefaultTeethLayout()
+        WireFlyoutMaintenanceHook()
         'Application.DoEvents() ' Forces UI to render updates before proceeding
         'LogToFile("AdultDiag_New Time spent: " & sw.Elapsed.TotalSeconds.ToString("F2") & " seconds", Me)
 
@@ -87,6 +95,7 @@ Public Class AdultDiag
         Dim sw As New Stopwatch
         sw.Start()
         Me.DoubleBuffered = True
+        ApplyFlatAdultDiagChrome()
         ' Add any initialization after the InitializeComponent() call. 
         StoreOriginalBounds(Me)
         InitializeDefaultTeethLayout()
@@ -97,6 +106,7 @@ Public Class AdultDiag
         '                      128)
         'Application.DoEvents() ' Forces UI to render updates before proceeding
 
+        WireFlyoutMaintenanceHook()
         LoadPatientTreats(PatientID) ', hideDivider)
         sw.Stop()
         LogToFile("AdultDiag_NewByVal PatientID Time spent: " & sw.Elapsed.TotalSeconds.ToString("F2") & " seconds", Me)
@@ -363,7 +373,7 @@ Public Class AdultDiag
                 Dim svg As SvgImageBox = DirectCast(ct, SvgImageBox)
                 Dim name As String = svg.Name
                 svg.BeginUpdate()  ' <== if SvgImageBox supports it
-                DiagHelper.ProcessToothTreatments(svg, svgExternalList, patientTreats)
+                DiagHelper.ProcessToothTreatments(svg, svgExternalList, patientTreats, useHeavySvgGradientBackground:=False)
                 svg.EndUpdate()
             Next
         Catch ex As Exception
@@ -380,7 +390,7 @@ Public Class AdultDiag
         Me.Visible = False
         Dim treats = If(patientTreats, Enumerable.Empty(Of Patient_Diagnosis)())
         For Each svg As SvgImageBox In JawPanel.Controls.OfType(Of SvgImageBox)()
-            DiagHelper.ProcessToothTreatments(svg, svgExternalList, treats)
+            DiagHelper.ProcessToothTreatments(svg, svgExternalList, treats, useHeavySvgGradientBackground:=False)
         Next
         JawPanel.ResumeLayout()
         Me.Visible = True
@@ -731,6 +741,8 @@ Public Class AdultDiag
     Private PatientTreats As IEnumerable(Of Patient_Diagnosis)
     Dim clsToothTrtData As New Patient_DiagnosisDATA
     Public Sub LoadSnglTreat(patientId As Integer, toothNum As Byte)
+        If patientId <= 0 Then Return
+        If clsPatientData Is Nothing Then clsPatientData = New PatientDATA()
         ' Load patient data
         clsPatient = New Patient With {.PatientID = patientId}
         clsPatient = clsPatientData.Select_Record(clsPatient)
@@ -748,7 +760,7 @@ Public Class AdultDiag
 
     Public Sub LoadPatientSnglToothTreat(patientTreats As IEnumerable(Of Patient_Diagnosis))
 
-        DiagHelper.ProcessToothTreatments(zSvg, svgExternalList, patientTreats)
+        DiagHelper.ProcessToothTreatments(zSvg, svgExternalList, patientTreats, useHeavySvgGradientBackground:=False)
 
     End Sub
 
@@ -762,20 +774,42 @@ Public Class AdultDiag
 
 #Region "MouseActivity"
 
-    Private Sub JawPanel_MouseClick(sender As Object, e As MouseEventArgs) Handles JawPanel.MouseClick
-        If e.Button = MouseButtons.Right Then
-            ClearSvgSelection()
-            UnSelect()
-            slctdSVG = Nothing
-            DragSource = Nothing
-            TrtSourceHelper.ClearAddedTrtsListBound(AddedTrtsList, originalAddedTrtsTable)
-            JawTreatmentTreeHelper.LoadEmptyJawBackgroundTreatTree(TrtsTreeView, isKid, AllTrtNodes, fullTreeSnapshot, useDiagnosis:=True)
-            txtSrchTrt.ResetText()
+    Private _flyoutMaintenanceHookWired As Boolean
+
+    Private Sub WireFlyoutMaintenanceHook()
+        If _flyoutMaintenanceHookWired Then Return
+        _flyoutMaintenanceHookWired = True
+        AddHandler ComboFlyoutSearchHelper.BeforeMaintenanceModalDialog, AddressOf OnBeforeMaintenanceModalFromOtherControls
+        AddHandler ComboFlyoutSearchHelper.AfterMaintenanceModalDialog, AddressOf OnAfterMaintenanceModalFromOtherControls
+    End Sub
+
+    Private Sub OnBeforeMaintenanceModalFromOtherControls(sender As Object, e As EventArgs)
+        ComboFlyoutSearchHelper.HideFlyoutIfOpen(Flyout1)
+    End Sub
+
+    Private Sub OnAfterMaintenanceModalFromOtherControls(sender As Object, e As EventArgs)
+        ComboFlyoutSearchHelper.HideFlyoutIfOpen(Flyout1)
+        If Not Me.IsHandleCreated OrElse Me.IsDisposed Then Return
+        BeginInvoke(New MethodInvoker(AddressOf HealJawFlyoutDevExpressAfterShellModal))
+    End Sub
+
+    ''' <summary>DevExpress can leave peek/popup internals inconsistent after shell <c>ShowDialog</c>; sync next ShowPopup.</summary>
+    Private Sub HealJawFlyoutDevExpressAfterShellModal()
+        If Me.IsDisposed OrElse Flyout1 Is Nothing OrElse Flyout1.IsDisposed Then Return
+        Try
+            ComboFlyoutSearchHelper.HideFlyoutIfOpen(Flyout1)
             Flyout1.OwnerControl = Me
-            Flyout1.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-            Flyout1.Options.Location = New Point(JawPanel.Left + e.X, JawPanel.Top + e.Y)
-            Flyout1.ShowPopup()
-        ElseIf e.Button = MouseButtons.Left Then
+        Catch
+        End Try
+    End Sub
+
+    ''' <summary>Manual anchor in jaw host (<c>Me</c>) client coordinates; matches legacy <c>Flyout1.OwnerControl = Me</c>.</summary>
+    Private Sub PrepareJawFlyoutManualShow(manualPointInHostClient As Point)
+        ComboFlyoutSearchHelper.ConfigureManualAnchoredFlyoutOnOwner(Flyout1, Me, manualPointInHostClient, True)
+    End Sub
+
+    Private Sub JawPanel_MouseClick(sender As Object, e As MouseEventArgs) Handles JawPanel.MouseClick
+        If e.Button = MouseButtons.Left Then
             JawPanel.Focus()
         End If
     End Sub
@@ -829,6 +863,7 @@ Public Class AdultDiag
 
     ' MouseDown Event: Start the timer
     Private Sub SvgImageBox_MouseDown(sender As Object, e As MouseEventArgs)
+        If e.Button <> MouseButtons.Left Then Return
         slctdSVG = CType(sender, SvgImageBox)
         originalSize = slctdSVG.Size
         originalWidth = slctdSVG.Width
@@ -848,7 +883,6 @@ Public Class AdultDiag
         ' If the mouse was released before reaching the hold duration, do nothing
         If Not isZooming Then
             Console.WriteLine("Simple click detected, no zoom applied.")
-            Return
         Else
             ' Reset zoom only if the mouse was released before reaching the hold duration
             If (DateTime.Now - mouseDownTimeZoom).TotalMilliseconds < zoomHoldDuration Then
@@ -861,6 +895,11 @@ Public Class AdultDiag
 
     ' Timer Tick: Check if the mouse is held long enough to apply maximum zoom
     Private Sub zoomTimer_Tick(sender As Object, e As EventArgs) Handles zoomTimer.Tick
+        If PatientID <= 0 Then Return
+        If slctdSVG Is Nothing OrElse slctdSVG.IsDisposed Then
+            zoomTimer.Stop()
+            Return
+        End If
         If (DateTime.Now - mouseDownTimeZoom).TotalMilliseconds >= zoomHoldDuration Then
             zoomTimer.Stop() ' Stop the timer to prevent multiple triggers
             isZooming = True ' Mark that zoom logic is being executed
@@ -876,6 +915,8 @@ Public Class AdultDiag
     End Sub
 
     Private Sub ApplyZoomZ(svgImageBox As DevExpress.XtraEditors.SvgImageBox)
+        If PatientID <= 0 Then Return
+        If svgImageBox Is Nothing OrElse svgImageBox.IsDisposed Then Return
         '' Create a new SvgImageBox for zooming
         zSvg.Visible = False
         zSvg.SvgImage = svgImageBox.SvgImage ' Copy the SVG image
@@ -1037,33 +1078,81 @@ Public Class AdultDiag
 
     '========================================================
 
+    ''' <summary>Show treatment flyout on right release (MouseUp). Right-click logic lives here instead of MouseClick so rapid left/right chords still deliver reliably.</summary>
+    Private Sub ShowTreatmentFlyoutForSvgRightClick(svg As SvgImageBox)
+        If PatientID <= 0 Then Return
+        DragSource = svg
+        slctdSVG = svg
+        DragSource.BackColor = Color.PapayaWhip
+        Dim baseName As String = ""
+        If svg.Name.Contains("IN") Then
+            baseName = svg.Name.Substring(0, svg.Name.Length - 3)
+        Else
+            baseName = svg.Name.Substring(0, svg.Name.Length - 4)
+        End If
+        Dim numberPart As String = svg.Name.Substring(svg.Name.Length - 1)
+        Dim toothNum As Byte = Convert.ToByte(svg.Tag)
+        Dim toothName As String = $"{baseName}{numberPart}".ToUpper
+        Dim toothID As Int16 = ExtractDigit(svg.Name)
+        Dim targetCount As Integer = EnsureRightClickToothTracked(svg, toothNum)
+        SetAddedTrtsListDataSource(PatientID, toothID, GetToothFullName(toothName))
+        If targetCount <= 1 Then
+            SetTreeTreatsSingleTooth(toothID, toothNum)
+        Else
+            SetTrtsTreeMultiTeeth()
+        End If
+
+        ComboFlyoutSearchHelper.ConfigureLegacyToothFlyout(Flyout1, Me, JawPanel, svg, StringComparison.Ordinal)
+
+        BackClr = Me.BackColor
+        Flyout1.BringToFront()
+        Flyout1.ShowPopup()
+    End Sub
+
     ' MouseDown Event: Start the timer
     ' Common handler for MouseDown
     Private Sub CommonMouseDownHandler(sender As Object, e As MouseEventArgs)
-        'Dim clickedControl As Control = CType(sender, Control)
-        If e.Button = MouseButtons.Left Then
-            slctdSVG = CType(sender, SvgImageBox)
-            mouseDownTimeZoom = DateTime.Now
-            isZooming = False ' Reset zooming flag
-            zoomTimer.Start()
+        If e.Button <> MouseButtons.Left Then
+            zoomTimer.Stop()
+            isZooming = False
+            Return
         End If
+        slctdSVG = CType(sender, SvgImageBox)
+        mouseDownTimeZoom = DateTime.Now
+        isZooming = False ' Reset zooming flag
+        zoomTimer.Start()
     End Sub
 
-    ' Common handler for MouseUp
-    ' MouseUp Event: Stop the timer and reset zoom if not held long enough
+    ' Common handler for MouseUp — right-button flyout on release; left-button clears zoom timer state reliably every time.
     Private Sub CommonMouseUpHandler(sender As Object, e As MouseEventArgs)
-        'Dim clickedControl As Control = CType(sender, Control)
         Dim svg As SvgImageBox = CType(sender, SvgImageBox)
+
+        If e.Button = MouseButtons.Right Then
+            zoomTimer.Stop()
+            If isZooming AndAlso (DateTime.Now - mouseDownTimeZoom).TotalMilliseconds < zoomHoldDuration Then
+                Try
+                    ResetZoom(svg)
+                Catch
+                End Try
+            End If
+            isZooming = False
+            Try
+                ResetZoomZ()
+            Catch
+            End Try
+            JawPanel.Focus()
+            ShowTreatmentFlyoutForSvgRightClick(svg)
+            slctdSVG = Nothing
+            Return
+        End If
+
         zoomTimer.Stop()
 
-        ' If the mouse was released before reaching the hold duration, do nothing
         If Not isZooming Then
             Console.WriteLine("Simple click detected, no zoom applied.")
-            Return
         Else
-            ' Reset zoom only if the mouse was released before reaching the hold duration
             If (DateTime.Now - mouseDownTimeZoom).TotalMilliseconds < zoomHoldDuration Then
-                ResetZoom(svg) ' Optional: Reset zoom or perform another action
+                ResetZoom(svg)
             End If
         End If
 
@@ -1089,112 +1178,64 @@ Public Class AdultDiag
         Return If(selectedTeethList Is Nothing, 0, selectedTeethList.Count)
     End Function
 
-    ' Common handler for MouseClick
+    ' Common handler for MouseClick (left only — right is handled on MouseUp)
     Private Sub CommonMouseClickHandler(sender As Object, e As MouseEventArgs)
+        If e.Button <> MouseButtons.Left Then Return
         JawPanel.Focus()
-        If e.Button = MouseButtons.Right Then
+        Dim svg As SvgImageBox = CType(sender, SvgImageBox)
+        ToothNum = Convert.ToByte(svg.Tag)
 
-            ' Set the drag source
-            DragSource = DirectCast(sender, SvgImageBox)
-            Dim svg As SvgImageBox = CType(sender, SvgImageBox)
-            slctdSVG = CType(sender, SvgImageBox)
-            DragSource.BackColor = Color.PapayaWhip
-            ' Get the base name and tooth information
-            Dim baseName As String = ""
-            If svg.Name.Contains("IN") Then
-                baseName = svg.Name.Substring(0, svg.Name.Length - 3) ' Removes "Out", "Top", or similar
+        If Control.ModifierKeys = Keys.Control Then
+            ' Ctrl+Click handling for selection
+            If selectedTeethList.Contains(ToothNum) Then
+                ' Tooth already selected - deselect all views
+                DeselectAllViewsOfTooth(svg, ToothNum)
             Else
-                baseName = svg.Name.Substring(0, svg.Name.Length - 4) ' Removes "Out", "Top", or similar
-            End If
-            Dim numberPart As String = svg.Name.Substring(svg.Name.Length - 1)
-            ' Apply the treatment to the specific SvgImageBox
-            Dim toothNum As Byte = Convert.ToByte(svg.Tag)
-            Dim toothName As String = $"{baseName}{numberPart}".ToUpper
-            Dim loc As Point = svg.Location
-            Dim toothID As Int16 = 0
-            toothID = ExtractDigit(svg.Name)
-            Dim targetCount As Integer = EnsureRightClickToothTracked(svg, toothNum)
-            SetAddedTrtsListDataSource(PatientID, toothID, GetToothFullName(toothName))
-            If targetCount <= 1 Then
-                SetTreeTreatsSingleTooth(toothID, toothNum)
-            Else
-                SetTrtsTreeMultiTeeth()
-            End If
+                ' Select this view and deselect other views of same tooth
+                SelectSingleViewOfTooth(FindOutView(svg.Name), ToothNum)
+                ' selectedTeethList must always be unique
+                Debug.Assert(selectedTeethList.Distinct().Count = selectedTeethList.Count)
 
-            Flyout1.OwnerControl = Me
-            Flyout1.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-            If svg.Name.StartsWith("Ld") Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X - Flyout1.Width, loc.Y + svg.Height - Flyout1.Height)
-            ElseIf svg.Name.StartsWith("Rd") Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X + svg.Width, loc.Y + svg.Height - Flyout1.Height)
-            ElseIf svg.Name.StartsWith("Lu") Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X - Flyout1.Width, loc.Y)
-            ElseIf svg.Name.StartsWith("Ru") Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X + svg.Width, loc.Y)
+                ' LINQ version to find all selected SvgImageBox controls
+                Dim selectedSvgs = From c In JawPanel.Controls.OfType(Of SvgImageBox)()
+                                   Where c.Text = "Slct"
+                                   Select c
 
-            End If
-
-            BackClr = Me.BackColor
-
-            Flyout1.ShowPopup()
-
-            'Flyout1.ShowBeakForm()
-        ElseIf e.Button = MouseButtons.Left Then
-            Dim svg As SvgImageBox = CType(sender, SvgImageBox)
-            ToothNum = Convert.ToByte(svg.Tag)
-
-            If Control.ModifierKeys = Keys.Control Then
-                ' Ctrl+Click handling for selection
-                If selectedTeethList.Contains(ToothNum) Then
-                    ' Tooth already selected - deselect all views
-                    DeselectAllViewsOfTooth(svg, ToothNum)
-                Else
-                    ' Select this view and deselect other views of same tooth
-                    SelectSingleViewOfTooth(FindOutView(svg.Name), ToothNum)
-                    ' selectedTeethList must always be unique
-                    Debug.Assert(selectedTeethList.Distinct().Count = selectedTeethList.Count)
-
-                    ' LINQ version to find all selected SvgImageBox controls
-                    Dim selectedSvgs = From c In JawPanel.Controls.OfType(Of SvgImageBox)()
-                                       Where c.Text = "Slct"
-                                       Select c
-
-                    For Each sv In selectedSvgs
-                        If sv.Name.Contains("Top") Then
-                            Dim outView As SvgImageBox = FindOutView(sv.Name) ' FindOutView(CByte(sv.Tag))
-                            If outView IsNot Nothing Then
-                                SelectSvg(outView)
-                                'SelectSingleViewOfTooth(outView, CByte(outView.Tag))
-                            End If
-                        Else
-                            SelectSingleViewOfTooth(sv, CByte(sv.Tag))
+                For Each sv In selectedSvgs
+                    If sv.Name.Contains("Top") Then
+                        Dim outView As SvgImageBox = FindOutView(sv.Name) ' FindOutView(CByte(sv.Tag))
+                        If outView IsNot Nothing Then
+                            SelectSvg(outView)
+                            'SelectSingleViewOfTooth(outView, CByte(outView.Tag))
                         End If
-                    Next
-                End If
-            Else
-                selectedTeethList.Clear()
-
-                If svgExternalList.Count > 0 Then
-                    For Each sv In svgExternalList
-                        sv.BackColor = Color.Wheat
-                    Next
-                End If
-                ClearSvgSelection()
-                'grpSlctdTeeth.Visible = selectedTeethList.Count > 0
-                slctdSVG = CType(sender, SvgImageBox)
-                UnSelect()
-
-                svg.Text = "Slct"
-                svg.BringToFront()
-                If Not svgSelectedList.Contains(svg) OrElse Not svgExternalList.Contains(svg) Then
-                    'svg.BackColor = Color.FromArgb(230, 130, 202, 255)
-                    svg.BackColor = ColorTranslator.FromHtml("#D5FFFF")
-                End If
-
-                Selected = False
+                    Else
+                        SelectSingleViewOfTooth(sv, CByte(sv.Tag))
+                    End If
+                Next
             End If
-            BackClr = Me.BackColor
+        Else
+            selectedTeethList.Clear()
+
+            If svgExternalList.Count > 0 Then
+                For Each sv In svgExternalList
+                    sv.BackColor = Color.Wheat
+                Next
+            End If
+            ClearSvgSelection()
+            'grpSlctdTeeth.Visible = selectedTeethList.Count > 0
+            slctdSVG = CType(sender, SvgImageBox)
+            UnSelect()
+
+            svg.Text = "Slct"
+            svg.BringToFront()
+            If Not svgSelectedList.Contains(svg) OrElse Not svgExternalList.Contains(svg) Then
+                'svg.BackColor = Color.FromArgb(230, 130, 202, 255)
+                svg.BackColor = ColorTranslator.FromHtml("#D5FFFF")
+            End If
+
+            Selected = False
         End If
+        BackClr = Me.BackColor
     End Sub
 
     ' Common handler for MouseDoubleClick
@@ -1445,6 +1486,20 @@ Public Class AdultDiag
     End Sub
 
     Private Sub JawPanel_MouseUp(sender As Object, e As MouseEventArgs) Handles JawPanel.MouseUp
+        If e.Button = MouseButtons.Right AndAlso Not isSelecting Then
+            If PatientID <= 0 Then Return
+            JawPanel.Focus()
+            ClearSvgSelection()
+            UnSelect()
+            slctdSVG = Nothing
+            DragSource = Nothing
+            TrtSourceHelper.ClearAddedTrtsListBound(AddedTrtsList, originalAddedTrtsTable)
+            JawTreatmentTreeHelper.LoadEmptyJawBackgroundTreatTree(TrtsTreeView, isKid, AllTrtNodes, fullTreeSnapshot, useDiagnosis:=True)
+            txtSrchTrt.ResetText()
+            PrepareJawFlyoutManualShow(New Point(JawPanel.Left + e.X, JawPanel.Top + e.Y))
+            Flyout1.ShowPopup()
+            Return
+        End If
         If e.Button = MouseButtons.Left AndAlso isSelecting Then
             isSelecting = False
             SelectControlsInRectangle(selectionRect)
@@ -3574,6 +3629,14 @@ Public Class AdultDiag
     End Sub
 
     Private Sub AdultDiag_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        If _flyoutMaintenanceHookWired Then
+            Try
+                RemoveHandler ComboFlyoutSearchHelper.BeforeMaintenanceModalDialog, AddressOf OnBeforeMaintenanceModalFromOtherControls
+                RemoveHandler ComboFlyoutSearchHelper.AfterMaintenanceModalDialog, AddressOf OnAfterMaintenanceModalFromOtherControls
+            Catch
+            End Try
+            _flyoutMaintenanceHookWired = False
+        End If
         DetachJawHandlers()
         Try
             zoomTimer.Stop()

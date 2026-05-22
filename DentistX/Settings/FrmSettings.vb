@@ -160,10 +160,9 @@ Public Class FrmSettings
         AdultResourceMapping.Clear()
         KidResourceMapping.Clear()
 
-        Await Task.Run(Sub()
-                           Helpers.LoadAdultSvgResourcesAsync(AddressOf SetStatusText)
-                           Helpers.LoadKidSvgResourcesAsync(AddressOf SetStatusText)
-                       End Sub)
+        Await Task.WhenAll(
+            Helpers.LoadAdultSvgResourcesAsync(AddressOf SetStatusText),
+            Helpers.LoadKidSvgResourcesAsync(AddressOf SetStatusText))
         'Me.Close() ' or signal that splash is done
 
 

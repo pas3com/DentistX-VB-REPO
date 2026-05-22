@@ -124,15 +124,9 @@
   <data name="lblStatus.Location" type="System.Drawing.Point, System.Drawing">
     <value>210, 10</value>
   </data>
-  <data name="BtnSendMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 30</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="colExtra.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="colExtra.VisibleIndex" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -140,8 +134,14 @@
   <data name="&gt;&gt;pnlFilters.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="btnApplyFilter.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;RadioLang.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="gcAccnt.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -149,9 +149,6 @@
   </data>
   <data name="BtnSendAllAccnt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
-  </data>
-  <data name="RadioLang.Properties.Items3" type="System.Int16, mscorlib">
-    <value>0</value>
   </data>
   <data name="colDetail.Width" type="System.Int32, mscorlib">
     <value>250</value>
@@ -196,6 +193,12 @@
   <data name="btnApplyFilter.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 27</value>
   </data>
+  <data name="&gt;&gt;btnSelectAll.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlFilters.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
   <data name="lblFrom.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -215,23 +218,23 @@
   <data name="chkIncludeZeroTrts.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
     <value>Default</value>
   </data>
+  <data name="btnSelectAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 30</value>
+  </data>
   <data name="colDetail.VisibleIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="txtWhats.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;cboPrefix.Name" xml:space="preserve">
+    <value>cboPrefix</value>
   </data>
   <data name="lblStatus.Text" xml:space="preserve">
     <value>Status:</value>
   </data>
-  <data name="&gt;&gt;BtnSendAllAccnt.Name" xml:space="preserve">
-    <value>BtnSendAllAccnt</value>
-  </data>
-  <data name="&gt;&gt;BtnSendAllAccnt.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnSelectNone.Name" xml:space="preserve">
+    <value>btnSelectNone</value>
   </data>
   <data name="Label1.Text" xml:space="preserve">
     <value>WhatsApp :</value>
@@ -242,17 +245,23 @@
   <data name="cboStatus.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
+  <data name="cboPrefix.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="lblSendTo.Size" type="System.Drawing.Size, System.Drawing">
     <value>938, 45</value>
   </data>
-  <data name="&gt;&gt;colDate.Name" xml:space="preserve">
-    <value>colDate</value>
+  <data name="cboStatus.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
   </data>
-  <data name="colValue.VisibleIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;dtpFrom.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="LabelControl9.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 15</value>
+  </data>
+  <data name="gcAccnt.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="gcAccnt.Size" type="System.Drawing.Size, System.Drawing">
     <value>914, 372</value>
@@ -293,9 +302,6 @@
   <data name="btnApplyFilter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="&gt;&gt;lblStatus.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="colDate.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -305,8 +311,14 @@
   <data name="colType.Width" type="System.Int32, mscorlib">
     <value>90</value>
   </data>
+  <data name="btnApplyFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>806, 26</value>
+  </data>
   <data name="&gt;&gt;cboStatus.Parent" xml:space="preserve">
     <value>pnlFilters</value>
+  </data>
+  <data name="&gt;&gt;pnlFilters.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;chkFullDetail.Name" xml:space="preserve">
     <value>chkFullDetail</value>
@@ -316,6 +328,9 @@
   </data>
   <data name="LabelControl9.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
+  </data>
+  <data name="&gt;&gt;gcAccnt.Name" xml:space="preserve">
+    <value>gcAccnt</value>
   </data>
   <data name="colValue.Width" type="System.Int32, mscorlib">
     <value>90</value>
@@ -329,8 +344,8 @@
   <data name="&gt;&gt;BtnSendMessage.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;colType.Name" xml:space="preserve">
-    <value>colType</value>
+  <data name="RadioLang.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
   </data>
   <data name="RadioLang.Properties.Items2" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -350,6 +365,9 @@
   <data name="&gt;&gt;btnApplyFilter.Parent" xml:space="preserve">
     <value>pnlFilters</value>
   </data>
+  <data name="&gt;&gt;colSend.Name" xml:space="preserve">
+    <value>colSend</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
@@ -368,26 +386,26 @@
   <data name="gcAccnt.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="&gt;&gt;btnSelectNone.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;cboPrefix.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="colValue.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;colValue.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;btnApplyFilter.Name" xml:space="preserve">
+    <value>btnApplyFilter</value>
   </data>
   <data name="&gt;&gt;cboPrefix.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="btnSelectNone.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 30</value>
+  </data>
   <data name="pnlFilters.Size" type="System.Drawing.Size, System.Drawing">
     <value>938, 70</value>
   </data>
-  <data name="&gt;&gt;chkIncludeZeroTrts.Parent" xml:space="preserve">
-    <value>pnlFilters</value>
-  </data>
-  <data name="&gt;&gt;colSend.Name" xml:space="preserve">
-    <value>colSend</value>
+  <data name="pnlFilters.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="dtpFrom.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
@@ -399,7 +417,7 @@
     <value />
   </data>
   <data name="&gt;&gt;BtnSendMessage.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="cboPrefix.Location" type="System.Drawing.Point, System.Drawing">
     <value>125, 54</value>
@@ -407,14 +425,20 @@
   <data name="&gt;&gt;RadioLang.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="btnSelectNone.Text" xml:space="preserve">
+    <value>Unselect</value>
+  </data>
+  <data name="chkFullDetail.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
   <data name="btnApplyFilter.Text" xml:space="preserve">
     <value>Apply Filter</value>
   </data>
   <data name="gvAccnt.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="chkFullDetail.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="colExtra.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;txtWhats.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -422,8 +446,14 @@
   <data name="&gt;&gt;repoSend.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="colSend.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;lblStatus.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnSelectNone.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="lblTo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
@@ -431,8 +461,8 @@
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
-  <data name="&gt;&gt;lblTo.Parent" xml:space="preserve">
-    <value>pnlFilters</value>
+  <data name="dtpTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 30</value>
   </data>
   <data name="gcAccnt.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>0, 0</value>
@@ -440,11 +470,11 @@
   <data name="dtpTo.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 22</value>
   </data>
-  <data name="gcAccnt.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;repoSend.Name" xml:space="preserve">
+    <value>repoSend</value>
   </data>
-  <data name="&gt;&gt;cboPrefix.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="BtnSendMessage.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Patient Account WhatsApp</value>
@@ -458,8 +488,14 @@
   <data name="&gt;&gt;dtpFrom.Name" xml:space="preserve">
     <value>dtpFrom</value>
   </data>
-  <data name="colSend.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
+  <data name="btnSelectAll.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;colType.Name" xml:space="preserve">
+    <value>colType</value>
+  </data>
+  <data name="&gt;&gt;lblFrom.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="btnApplyFilter.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -488,8 +524,8 @@
   <data name="&gt;&gt;dtpTo.Name" xml:space="preserve">
     <value>dtpTo</value>
   </data>
-  <data name="&gt;&gt;lblWhats.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="lblSendTo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;chkFullDetail.Parent" xml:space="preserve">
     <value>$this</value>
@@ -497,8 +533,8 @@
   <data name="dtpTo.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;lblFrom.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="RadioLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 24</value>
   </data>
   <data name="lblWhats.Text" xml:space="preserve">
     <value>Whats Number</value>
@@ -506,39 +542,35 @@
   <data name="lblFrom.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="lblSendTo.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
-    <value>None</value>
+  <data name="&gt;&gt;BtnSendMessage.Name" xml:space="preserve">
+    <value>BtnSendMessage</value>
   </data>
   <data name="&gt;&gt;lblSendTo.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="cboStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="dtpFrom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 22</value>
   </data>
-  <data name="lblFrom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 15</value>
-  </data>
-  <data name="&gt;&gt;BtnSendMessage.Name" xml:space="preserve">
-    <value>BtnSendMessage</value>
-  </data>
-  <data name="chkIncludeZeroTrts.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="&gt;&gt;btnSelectNone.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;lblFrom.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="RadioLang.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="colValue.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lblWhats.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;colDate.Name" xml:space="preserve">
+    <value>colDate</value>
   </data>
   <data name="lblWhats.Location" type="System.Drawing.Point, System.Drawing">
     <value>338, 58</value>
   </data>
-  <data name="&gt;&gt;lblTo.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="BtnSendMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 541</value>
+  <data name="btnSelectAll.Text" xml:space="preserve">
+    <value>Select All</value>
   </data>
   <data name="gcAccnt.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -546,11 +578,11 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="dtpTo.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
+  <data name="BtnSendMessage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="gcAccnt.EmbeddedNavigator.ToolTip" xml:space="preserve">
-    <value />
+  <data name="dtpTo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;dtpTo.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -561,11 +593,11 @@
   <data name="dtpTo.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="lblTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 10</value>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RadioLang.Name" xml:space="preserve">
-    <value>RadioLang</value>
+  <data name="colType.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="colDate.VisibleIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -582,29 +614,41 @@
   <data name="BtnSendAllAccnt.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
+  <data name="lblTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 15</value>
+  </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 15</value>
   </data>
   <data name="dtpFrom.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
     <value>Combo</value>
   </data>
-  <data name="&gt;&gt;btnApplyFilter.Name" xml:space="preserve">
-    <value>btnApplyFilter</value>
+  <data name="btnSelectAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 541</value>
   </data>
   <data name="lblWhats.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="dtpFrom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 22</value>
+  <data name="BtnSendMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 30</value>
+  </data>
+  <data name="RadioLang.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="cboPrefix.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
     <value>Combo</value>
   </data>
+  <data name="gcAccnt.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
   <data name="colDetail.Caption" xml:space="preserve">
     <value>Detail</value>
   </data>
-  <data name="chkFullDetail.Properties.DisplayValueChecked" xml:space="preserve">
+  <data name="btnApplyFilter.ImageOptions.ImageKey" xml:space="preserve">
     <value />
+  </data>
+  <data name="&gt;&gt;btnSelectAll.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -612,11 +656,14 @@
   <data name="&gt;&gt;cboStatus.Name" xml:space="preserve">
     <value>cboStatus</value>
   </data>
-  <data name="&gt;&gt;LabelControl9.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;btnApplyFilter.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="colType.VisibleIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="txtWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 54</value>
+  </data>
+  <data name="BtnSendMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 541</value>
   </data>
   <data name="&gt;&gt;dtpTo.Parent" xml:space="preserve">
     <value>pnlFilters</value>
@@ -633,9 +680,6 @@
   <data name="BtnSendAllAccnt.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="RadioLang.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
   <data name="&gt;&gt;lblSendTo.Name" xml:space="preserve">
     <value>lblSendTo</value>
   </data>
@@ -651,26 +695,26 @@
   <data name="&gt;&gt;lblFrom.Name" xml:space="preserve">
     <value>lblFrom</value>
   </data>
-  <data name="&gt;&gt;chkFullDetail.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;BtnSendAllAccnt.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;lblStatus.Parent" xml:space="preserve">
     <value>pnlFilters</value>
   </data>
+  <data name="&gt;&gt;txtWhats.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 15</value>
+  <data name="dtpTo.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
   </data>
   <data name="chkIncludeZeroTrts.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="colDetail.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;repoSend.Name" xml:space="preserve">
-    <value>repoSend</value>
+  <data name="btnSelectNone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 541</value>
   </data>
   <data name="txtWhats.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 22</value>
@@ -681,14 +725,15 @@
   <data name="&gt;&gt;lblFrom.Parent" xml:space="preserve">
     <value>pnlFilters</value>
   </data>
-  <data name="BtnSendMessage.Text" xml:space="preserve">
-    <value>Send Selected Account</value>
+  <data name="btnSelectAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
+  <data name="pnlFilters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 87</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="gcAccnt.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
     <value>Center</value>
-  </data>
-  <data name="&gt;&gt;dtpFrom.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="chkIncludeZeroTrts.Properties.DisplayValueChecked" xml:space="preserve">
     <value />
@@ -696,14 +741,11 @@
   <data name="repoSend.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;LabelControl9.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;lblTo.Name" xml:space="preserve">
     <value>lblTo</value>
   </data>
   <data name="BtnSendAllAccnt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 541</value>
+    <value>524, 541</value>
   </data>
   <data name="gcAccnt.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
     <value>Default</value>
@@ -714,17 +756,20 @@
   <data name="RadioLang.Properties.Items5" xml:space="preserve">
     <value>English</value>
   </data>
-  <data name="BtnSendMessage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="LabelControl9.Text" xml:space="preserve">
+    <value>Send Whats In</value>
   </data>
-  <data name="&gt;&gt;BtnSendAllAccnt.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;RadioLang.Name" xml:space="preserve">
+    <value>RadioLang</value>
+  </data>
+  <data name="&gt;&gt;LabelControl9.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lblWhats.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 15</value>
   </data>
   <data name="&gt;&gt;lblSendTo.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="chkIncludeZeroTrts.Properties.Caption" xml:space="preserve">
     <value>Include zero-value treats</value>
@@ -735,17 +780,20 @@
   <data name="&gt;&gt;gcAccnt.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;lblTo.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnSelectAll.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="gcAccnt.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
     <value>None</value>
   </data>
-  <data name="btnApplyFilter.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="&gt;&gt;colDetail.Name" xml:space="preserve">
+    <value>colDetail</value>
   </data>
   <data name="chkFullDetail.Properties.DisplayValueUnchecked" xml:space="preserve">
     <value />
-  </data>
-  <data name="RadioLang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 24</value>
   </data>
   <data name="colDetail.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -753,41 +801,38 @@
   <data name="chkIncludeZeroTrts.Location" type="System.Drawing.Point, System.Drawing">
     <value>430, 30</value>
   </data>
-  <data name="LabelControl9.Text" xml:space="preserve">
-    <value>Send Whats In</value>
+  <data name="lblSendTo.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
   </data>
-  <data name="colSend.VisibleIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;lblStatus.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 58</value>
+  <data name="colValue.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
-  <data name="dtpTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 30</value>
+  <data name="gcAccnt.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;cboPrefix.Name" xml:space="preserve">
-    <value>cboPrefix</value>
+  <data name="btnSelectAll.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
   <data name="txtWhats.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="lblSendTo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
+  <data name="&gt;&gt;lblWhats.Name" xml:space="preserve">
+    <value>lblWhats</value>
   </data>
   <data name="&gt;&gt;colDate.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="pnlFilters.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;txtWhats.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlFilters.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="BtnSendMessage.ImageOptions.ImageKey" xml:space="preserve">
+  <data name="colDetail.ImageOptions.ImageKey" xml:space="preserve">
     <value />
+  </data>
+  <data name="lblTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 10</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 58</value>
   </data>
   <data name="&gt;&gt;btnApplyFilter.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -804,8 +849,8 @@
   <data name="&gt;&gt;colExtra.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="btnApplyFilter.ImageOptions.ImageKey" xml:space="preserve">
-    <value />
+  <data name="chkIncludeZeroTrts.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="gcAccnt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -819,8 +864,11 @@
   <data name="chkFullDetail.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 9.75pt, style=Bold</value>
   </data>
-  <data name="txtWhats.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 54</value>
+  <data name="&gt;&gt;chkIncludeZeroTrts.Parent" xml:space="preserve">
+    <value>pnlFilters</value>
+  </data>
+  <data name="lblFrom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 15</value>
   </data>
   <data name="&gt;&gt;colDetail.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -834,6 +882,9 @@
   <data name="colSend.Width" type="System.Int32, mscorlib">
     <value>60</value>
   </data>
+  <data name="btnSelectAll.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -844,10 +895,10 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;gcAccnt.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;pnlFilters.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;cboPrefix.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="colSend.Caption" xml:space="preserve">
     <value>Send</value>
@@ -855,17 +906,14 @@
   <data name="&gt;&gt;colType.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;btnApplyFilter.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="lblStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 15</value>
   </data>
   <data name="chkFullDetail.Location" type="System.Drawing.Point, System.Drawing">
     <value>767, 56</value>
   </data>
-  <data name="cboStatus.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
+  <data name="&gt;&gt;BtnSendAllAccnt.Name" xml:space="preserve">
+    <value>BtnSendAllAccnt</value>
   </data>
   <data name="lblSendTo.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -876,29 +924,41 @@
   <data name="lblTo.Text" xml:space="preserve">
     <value>To:</value>
   </data>
-  <data name="&gt;&gt;lblWhats.Name" xml:space="preserve">
-    <value>lblWhats</value>
-  </data>
   <data name="pnlFilters.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="pnlFilters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 87</value>
+  <data name="RadioLang.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSelectNone.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="gcAccnt.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="&gt;&gt;colValue.Name" xml:space="preserve">
-    <value>colValue</value>
+  <data name="&gt;&gt;colValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnSelectNone.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="colExtra.ImageOptions.ImageKey" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="colSend.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;dtpFrom.Parent" xml:space="preserve">
     <value>pnlFilters</value>
+  </data>
+  <data name="&gt;&gt;btnSelectNone.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="LabelControl9.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
   </data>
   <data name="chkIncludeZeroTrts.Properties.DisplayValueGrayed" xml:space="preserve">
     <value />
@@ -906,35 +966,41 @@
   <data name="BtnSendAllAccnt.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 30</value>
   </data>
-  <data name="&gt;&gt;colDetail.Name" xml:space="preserve">
-    <value>colDetail</value>
+  <data name="&gt;&gt;btnSelectAll.Name" xml:space="preserve">
+    <value>btnSelectAll</value>
   </data>
-  <data name="&gt;&gt;gcAccnt.Name" xml:space="preserve">
-    <value>gcAccnt</value>
+  <data name="BtnSendMessage.Text" xml:space="preserve">
+    <value>Send Selected Account</value>
   </data>
-  <data name="LabelControl9.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="cboStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="lblWhats.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;chkFullDetail.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="dtpTo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
+  <data name="&gt;&gt;colValue.Name" xml:space="preserve">
+    <value>colValue</value>
   </data>
-  <data name="gcAccnt.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Tile</value>
+  <data name="txtWhats.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="chkFullDetail.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
   </data>
   <data name="gcAccnt.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
     <value />
   </data>
-  <data name="cboPrefix.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="btnSelectNone.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
   </data>
-  <data name="btnApplyFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>806, 26</value>
+  <data name="&gt;&gt;BtnSendAllAccnt.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lblStatus.Name" xml:space="preserve">
     <value>lblStatus</value>
+  </data>
+  <data name="&gt;&gt;lblTo.Parent" xml:space="preserve">
+    <value>pnlFilters</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

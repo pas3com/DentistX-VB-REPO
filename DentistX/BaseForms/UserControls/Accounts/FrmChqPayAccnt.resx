@@ -245,9 +245,6 @@
   <data name="PayValue.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
-  <data name="PayValue.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="PayValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>299, 50</value>
   </data>

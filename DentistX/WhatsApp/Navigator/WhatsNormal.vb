@@ -1,5 +1,9 @@
 Imports System.ComponentModel
+Imports System.IO
+Imports System.Linq
+Imports System.Threading.Tasks
 Imports DentistX
+Imports DevExpress.XtraEditors
 
 Public Class WhatsNormal
 
@@ -48,6 +52,24 @@ Public Class WhatsNormal
             Dim headerText As String = If(Eng, baseTextEn, baseTextAr) & namePart
             lblSendTo.Text = headerText
         End If
+
+        AttachWhatsOutboundPendingButton()
+    End Sub
+
+    Private Sub AttachWhatsOutboundPendingButton()
+        Dim btn As New SimpleButton With {.Text = If(Eng, "Pending (local)…", "معلّقة محليًا…")}
+        btn.Size = BtnSendMessage.Size
+        btn.Font = BtnSendMessage.Font
+        Dim p = BtnSendMessage.Location
+        btn.Location = New System.Drawing.Point(Math.Max(8, p.X - btn.Width - 10), p.Y)
+        AddHandler btn.Click, Sub(s, ea)
+                                   Dim cid = WhatsAppService.GetCurrentClinicId()
+                                   If String.IsNullOrWhiteSpace(cid) Then cid = ClinicId
+                                   Using f As New FrmWhatsOutboundPending(cid)
+                                       f.ShowDialog(Me)
+                                   End Using
+                               End Sub
+        Controls.Add(btn)
     End Sub
 
     ''' <summary>
@@ -119,7 +141,10 @@ Public Class WhatsNormal
         End If
         BtnSendMessage.Enabled = False
         Try
-            If Not Await WhatsAppService.EnsureWhatsAppConnectedOrNotifyAsync(Me) Then
+            Dim clinicIdUse = WhatsAppService.GetCurrentClinicId()
+            If String.IsNullOrWhiteSpace(clinicIdUse) Then clinicIdUse = ClinicId
+
+            If Not Await WhatsAppService.EnsureWhatsAppConnectedOrNotifyAsync(Me).ConfigureAwait(True) Then
                 BtnSendMessage.Enabled = True
                 Return
             End If
@@ -131,30 +156,73 @@ Public Class WhatsNormal
                 .SourceHint = NameOf(WhatsNormal),
                 .RevealMessageCenter = True
             }
-            ' If no attachments selected, send a single text message; otherwise send one message per file.
+
             If files.Length = 0 Then
-                Await _service.SendMessageAsync(ClinicId, number, message, "", ctx)
-                MessageBox.Show(
-                    If(Eng, "The message has been queued.", "تم وضع الرسالة في الطابور."),
-                    If(Eng, "Send", "إرسال"),
-                    MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim resp = Await _service.SendMessageAsync(clinicIdUse, number, message, "", ctx).ConfigureAwait(True)
+                Dim intr As WhatsAppOutboundSendInterpretation = Nothing
+                If WhatsAppService.TryInterpretOutboundSendResponse(resp, intr) AndAlso intr.HadLocalOutboxSemantics Then
+                    If Not String.IsNullOrWhiteSpace(intr.TerminalPriorStatus) Then
+                        MessageBox.Show(
+                            If(Eng,
+                               "This outbound send was skipped because an identical logical send already completed in the database.",
+                               "تم تخطي الإرسال لأنه سبق وأن اكتمل نفس المعرف المنطقي في الطابُر المحلي."),
+                            If(Eng, "Send", "إرسال"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show(
+                            If(Eng,
+                               "Queued locally. It sends in the background when WhatsApp connects. Use Pending (local) to cancel before send.",
+                               "تم الطابَر محليًا. سيُرسَل في الخلفية عند الاتصال. استخدم زر المعقّبة المحلي لإلغاء الإرسال قبل التنفيذ."),
+                            If(Eng, "Send", "إرسال"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                Else
+                    MessageBox.Show(
+                        If(Eng, "The message has been queued.", "تم وضع الرسالة في الطابور."),
+                        If(Eng, "Send", "إرسال"),
+                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
             Else
+                Dim sawLocal As Boolean = False
+                Dim sawDedup As Boolean = False
                 For Each f In files
-                    Await _service.SendMessageAsync(ClinicId, number, message, f, ctx)
+                    Dim resp = Await _service.SendMessageAsync(clinicIdUse, number, message, f, ctx).ConfigureAwait(True)
+                    Dim intr As WhatsAppOutboundSendInterpretation = Nothing
+                    If WhatsAppService.TryInterpretOutboundSendResponse(resp, intr) AndAlso intr.HadLocalOutboxSemantics Then
+                        sawLocal = True
+                        If Not String.IsNullOrWhiteSpace(intr.TerminalPriorStatus) Then sawDedup = True
+                    End If
                 Next
 
-                ' Build summary message with total count and file names/extensions
-                Dim count As Integer = files.Length
-                Dim lines As New System.Text.StringBuilder()
-                lines.AppendLine(String.Format(
-                    If(Eng, "The message has been queued with {0} attachment(s):", "تم وضع الرسالة في الطابور مع {0} مرفق(ات):"),
-                    count))
-                For Each f In files
-                    Dim name As String = IO.Path.GetFileName(f)
-                    Dim ext As String = IO.Path.GetExtension(f)
-                    lines.AppendLine(String.Format("- {0} ({1})", name, If(String.IsNullOrWhiteSpace(ext), If(Eng, "No extension", "بدون امتداد"), ext)))
-                Next
-                MessageBox.Show(lines.ToString(), If(Eng, "Send", "إرسال"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If sawDedup Then
+                    MessageBox.Show(
+                        If(Eng,
+                           "One or more attachments were skipped: an identical logical send already completed in the database.",
+                           "تم تخطّي مرفق أو أكثر لأن نفس المعرف المنطقي اكتمل مسبقًا في الطابُر المحلي."),
+                        If(Eng, "Send", "إرسال"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ElseIf sawLocal Then
+                    Dim count As Integer = files.Length
+                    Dim lines As New System.Text.StringBuilder()
+                    lines.AppendLine(String.Format(
+                        If(Eng, "{0} local queue item(s):", "تم الطابَر {0} عنصرًا محليًا:"),
+                        count))
+                    For Each f In files
+                        Dim nameOnly As String = IO.Path.GetFileName(f)
+                        Dim extOnly As String = IO.Path.GetExtension(f)
+                        lines.AppendLine(String.Format("- {0} ({1})", nameOnly, If(String.IsNullOrWhiteSpace(extOnly), If(Eng, "No extension", "بدون امتداد"), extOnly)))
+                    Next
+                    MessageBox.Show(lines.ToString(), If(Eng, "Send", "إرسال"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    Dim count As Integer = files.Length
+                    Dim lines As New System.Text.StringBuilder()
+                    lines.AppendLine(String.Format(
+                        If(Eng, "The message has been queued with {0} attachment(s):", "تم وضع الرسالة في الطابور مع {0} مرفق(ات):"),
+                        count))
+                    For Each f In files
+                        Dim name As String = IO.Path.GetFileName(f)
+                        Dim ext As String = IO.Path.GetExtension(f)
+                        lines.AppendLine(String.Format("- {0} ({1})", name, If(String.IsNullOrWhiteSpace(ext), If(Eng, "No extension", "بدون امتداد"), ext)))
+                    Next
+                    MessageBox.Show(lines.ToString(), If(Eng, "Send", "إرسال"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
             End If
             TxtSendMessage.Text = ""
             TxtSendFile.Text = ""

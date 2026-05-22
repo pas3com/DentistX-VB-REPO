@@ -137,7 +137,7 @@ Module GridHelper2
         Dim currentLevel As Integer = toothTrt.LVL
 
         ' Check if treat is a normal one after high level one
-        If (existingMaxLevel > 4 AndAlso currentLevel < 4) Then
+        If (existingMaxLevel > 4 AndAlso currentLevel < 4) AndAlso Not TrtSourceHelper.AllowLowLevelTreatOnChartDespiteHighMaxLevel(toothTrt.PatientID, toothTrt.ToothNum, toothTrt.Treat, False) Then
             MessageBox.Show("You Can't Add a Normal Treat On High Level Treat....")
             Return False
         End If

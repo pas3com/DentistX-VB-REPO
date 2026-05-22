@@ -14,6 +14,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TwainLib", "TwainLib\TwainL
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupDentistX64", "SetupDentistX64\SetupDentistX64.vdproj", "{EACCF70B-05F6-5796-BAEB-EDA02F52EA6B}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DentistXLicense", "DentistXLicense\DentistXLicense.vbproj", "{16A12C4E-30D6-43B1-A4BB-B8525D040451}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,14 @@ Global
 		{EACCF70B-05F6-5796-BAEB-EDA02F52EA6B}.Debug|x64.ActiveCfg = Debug
 		{EACCF70B-05F6-5796-BAEB-EDA02F52EA6B}.Release|Any CPU.ActiveCfg = Release
 		{EACCF70B-05F6-5796-BAEB-EDA02F52EA6B}.Release|x64.ActiveCfg = Release
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Debug|x64.ActiveCfg = Debug|x64
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Debug|x64.Build.0 = Debug|x64
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Release|x64.ActiveCfg = Release|x64
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

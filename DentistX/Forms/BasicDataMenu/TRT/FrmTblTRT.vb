@@ -107,7 +107,7 @@ Partial Public Class FrmTblTRTS
 
     Private Sub EnableRecord(ByVal YesNo As Boolean)
 
-        TrtTextEdit.Enabled = YesNo
+        TrtTextEdit.Enabled = False ' YesNo
         TrtValueSpinEdit.Enabled = YesNo
     End Sub
 

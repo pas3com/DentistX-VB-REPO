@@ -148,7 +148,7 @@ Partial Public Class FrmBracets
      ClearRecord()
      ShowToolStripItems("Add")
      BracetIDSpinEdit.Select
-     BracetIDSpinEdit.Text = clsDentistXData.getAutoID("New", "Bracets")
+     BracetIDSpinEdit.Text = DentistXDATA.getAutoID("New", "Bracets")
  End Sub
 
  Private Sub Edit()

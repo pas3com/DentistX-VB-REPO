@@ -1,12 +1,15 @@
 Imports System.Reflection
+Imports System.Windows.Forms
 Imports DevExpress.XtraEditors
+Imports DevExpress.LookAndFeel
+
 Public Class DiagUserControl
     Inherits XtraUserControl
     Implements IPatientAwareUserControl
 
     Friend WithEvents mainPanel As New Panel With {
         .Dock = DockStyle.Fill,
-        .BackColor = Color.Transparent
+        .BackColor = BasePatientWorkspace.DiagModuleShellBack
     }
     Private frmPanel As Panel
     Private rightPanel As Panel
@@ -47,14 +50,8 @@ Public Class DiagUserControl
         SetStyle(ControlStyles.AllPaintingInWmPaint Or
                  ControlStyles.UserPaint Or
                  ControlStyles.DoubleBuffer, True)
-        'ApplyGradientWithGlass(Me, My.Settings.C2, My.Settings.C1,
-        '              Drawing2D.LinearGradientMode.BackwardDiagonal,
-        '              glassStyle:=GlassStyle.Simple)
-
-        ApplyCtlGradientBackground(Me,
-                             Color.AliceBlue,
-                              Color.Blue,
-                              Drawing2D.LinearGradientMode.ForwardDiagonal, 128)
+        Helpers.ResetControlBackground(Me)
+        Me.BackColor = BasePatientWorkspace.DiagModuleShellBack
         UpdateStyles()
         Me.Controls.Add(mainPanel)
         Me.Controls.SetChildIndex(mainPanel, 0)
@@ -67,32 +64,43 @@ Public Class DiagUserControl
         SetStyle(ControlStyles.AllPaintingInWmPaint Or
                  ControlStyles.UserPaint Or
                  ControlStyles.DoubleBuffer, True)
-        'ApplyGradientWithGlass(Me, Color.AliceBlue, Color.Blue,
-        '              Drawing2D.LinearGradientMode.Vertical,
-        '              glassStyle:=GlassStyle.Aero)
+        Helpers.ResetControlBackground(Me)
+        Me.BackColor = BasePatientWorkspace.DiagModuleShellBack
         UpdateStyles()
         Me.Controls.Add(mainPanel)
         Me.Controls.SetChildIndex(mainPanel, 0)
         CreateTreatsLayout()
     End Sub
+    Private Shared Sub EnableControlDoubleBuffered(ctl As Control)
+        If ctl Is Nothing Then Return
+        Dim pi = GetType(Control).GetProperty("DoubleBuffered", BindingFlags.Instance Or BindingFlags.NonPublic)
+        If pi IsNot Nothing AndAlso pi.CanWrite Then pi.SetValue(ctl, True, Nothing)
+    End Sub
+
     Private Sub CreateTreatsLayout()
+        Dim shell = BasePatientWorkspace.DiagModuleShellBack
+        mainPanel.BackColor = shell
         mainPanel.Controls.Clear()
         Dim leftWidth As Integer = Math.Max(200, mainPanel.Width - 120)
         splitContainer = New SplitContainer With {
             .Dock = DockStyle.Fill,
             .Orientation = Orientation.Vertical,
-            .SplitterDistance = leftWidth
+            .SplitterDistance = leftWidth,
+            .BackColor = shell
         }
+        EnableControlDoubleBuffered(splitContainer)
         ' Set fixed width for right panel
         splitContainer.Panel2MinSize = 120
         splitContainer.FixedPanel = FixedPanel.Panel2
+        splitContainer.Panel1.BackColor = shell
+        splitContainer.Panel2.BackColor = shell
         frmPanel = New Panel With {
             .Dock = DockStyle.Fill,
-            .BackColor = Color.Transparent
+            .BackColor = shell
         }
         rightPanel = New Panel With {
             .Dock = DockStyle.Fill,
-            .BackColor = Color.Transparent
+            .BackColor = shell
         }
         splitContainer.Panel1.Controls.Add(frmPanel)
         splitContainer.Panel2.Controls.Add(rightPanel)
@@ -112,11 +120,8 @@ Public Class DiagUserControl
         tableLayout.RowStyles.Add(New RowStyle(SizeType.Percent, 30))   ' Options - unchanged
 
         tableLayout.BorderStyle = BorderStyle.Fixed3D
+        tableLayout.BackColor = BasePatientWorkspace.DiagModuleShellBack
 
-        ApplyCtlGradientBackground(tableLayout,
-                             Color.AliceBlue,
-                              Color.Blue,
-                              Drawing2D.LinearGradientMode.ForwardDiagonal, 128)
         ' Initialize controls
         InitializeRightPanelControls()
 
@@ -132,6 +137,7 @@ Public Class DiagUserControl
 
         ' Add table layout to right panel
         rightPanel.Controls.Add(tableLayout)
+        TintRightPanelDiagShell()
 
         SetupFonts()
 
@@ -165,6 +171,60 @@ Public Class DiagUserControl
         'SetupEventHandlers()
         'UnSelect()
         'selectFULL()
+    End Sub
+    Private Sub TintRightPanelDiagShell()
+        If rightPanel Is Nothing Then Return
+        ApplyDiagTintRecursive(rightPanel, BasePatientWorkspace.DiagModuleShellBack)
+    End Sub
+
+    ''' <summary>Fills nested groups, labels, checkboxes, SVGs under the diag right stack with Diag chrome (skins often ignore Appearance without Flat LF).</summary>
+    Private Shared Sub ApplyDiagTintRecursive(root As Control, c As Color)
+        If root Is Nothing Then Return
+        Dim grp = TryCast(root, GroupControl)
+        If grp IsNot Nothing Then ApplyDiagShellToGroup(grp, c)
+        Dim tlp = TryCast(root, TableLayoutPanel)
+        If tlp IsNot Nothing Then tlp.BackColor = c
+        Dim svg = TryCast(root, SvgImageBox)
+        If svg IsNot Nothing Then svg.BackColor = c
+
+        Dim lbl = TryCast(root, LabelControl)
+        If lbl IsNot Nothing Then
+            lbl.LookAndFeel.UseDefaultLookAndFeel = False
+            lbl.LookAndFeel.Style = LookAndFeelStyle.Flat
+            lbl.Appearance.BackColor = c
+            lbl.Appearance.Options.UseBackColor = True
+        End If
+
+        Dim chk = TryCast(root, CheckEdit)
+        If chk IsNot Nothing Then
+            chk.LookAndFeel.UseDefaultLookAndFeel = False
+            chk.LookAndFeel.Style = LookAndFeelStyle.Flat
+            chk.Properties.Appearance.BackColor = c
+            chk.Properties.Appearance.Options.UseBackColor = True
+        End If
+
+        For Each child As Control In root.Controls
+            ApplyDiagTintRecursive(child, c)
+        Next
+    End Sub
+
+    Private Shared Sub ApplyDiagShellToGroup(gc As GroupControl, c As Color)
+        If gc Is Nothing Then Return
+        gc.LookAndFeel.UseDefaultLookAndFeel = False
+        gc.LookAndFeel.Style = LookAndFeelStyle.Flat
+        gc.Appearance.BackColor = c
+        gc.Appearance.Options.UseBackColor = True
+        gc.AppearanceCaption.BackColor = c
+        gc.AppearanceCaption.Options.UseBackColor = True
+    End Sub
+
+    ''' <summary>Back-to-chart buttons are created dynamically; tint them without clearing active-state highlighting on primary actions.</summary>
+    Private Shared Sub ApplyDiagShellToBackChartButton(btn As SimpleButton, c As Color)
+        If btn Is Nothing Then Return
+        btn.LookAndFeel.UseDefaultLookAndFeel = False
+        btn.LookAndFeel.Style = LookAndFeelStyle.Flat
+        btn.Appearance.BackColor = c
+        btn.Appearance.Options.UseBackColor = True
     End Sub
     Private Sub SetupFonts()
         ' Set fonts for controls
@@ -269,6 +329,8 @@ Public Class DiagUserControl
         HealthLbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         HealthLbl.Dock = DockStyle.Fill
         HealthLbl.Text = If(Eng, "Health information will appear here", "المعلومات الصحية")
+        HealthLbl.LookAndFeel.UseDefaultLookAndFeel = False
+        HealthLbl.LookAndFeel.Style = LookAndFeelStyle.Flat
         GrpHealth.Controls.Add(HealthLbl)
 
         ' GroupControl1 - Increase height to accommodate new button
@@ -751,6 +813,7 @@ Public Class DiagUserControl
         AddHandler btnBack.Click, AddressOf ReturnToJawView
         GroupControl1.Controls.Add(btnBack)
         GroupControl1.Controls.SetChildIndex(btnBack, 0) ' Add at top
+        ApplyDiagShellToBackChartButton(btnBack, BasePatientWorkspace.DiagModuleShellBack)
     End Sub
     Private Sub ReturnToJawViewOld(sender As Object, e As EventArgs)
         ' Remove the back button first
@@ -962,6 +1025,7 @@ Public Class DiagUserControl
         AddHandler btnBack.Click, AddressOf ReturnToJawView
         GroupControl1.Controls.Add(btnBack)
         GroupControl1.Controls.SetChildIndex(btnBack, 0) ' Add at top
+        ApplyDiagShellToBackChartButton(btnBack, BasePatientWorkspace.DiagModuleShellBack)
     End Sub
     Private Sub ClearExistingBackButton()
         ' Find and remove any existing back button

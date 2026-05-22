@@ -20,12 +20,13 @@ Public Class ApptHostCtl
     Private Shared Function GetGuiResources(hProcess As IntPtr, uiFlags As Integer) As Integer
     End Function
 
-    ''' <summary>Absolute header band height — same pattern as <see cref="SchedulerNew"/> <c>tlpMain</c> row 0 (152px).</summary>
-    Private Const MainHeaderRowPixels As Single = 169.0F
-    Private Const BodyEdgeHintWidth As Integer = 46
-    Private Const BodyEdgeHintHeight As Integer = 90
-    Private Const BodyEdgeHintHostPadding As Integer = 6
-    Private Const BodyEdgeHintBandWidth As Single = BodyEdgeHintWidth + (BodyEdgeHintHostPadding * 2)
+    ''' <summary>Chrome row height when <see cref="ApptHeaderCtl"/> filter strip (<c>grpFilters</c>) is visible (toolbar + filters).</summary>
+    Private Const HeaderBandRowPxExpanded As Single = 85.0F
+    ''' <summary>Chrome row height when filters are hidden — toolbar (<c>pnlButtons</c> / <c>headerTable</c>) plus panel chrome only.</summary>
+    Private Const HeaderBandRowPxCollapsed As Single = 60.0F
+    Private Const BodyChromePad As Integer = 6
+    Private Const BodyChromeColumnWidth As Single = 0.0F
+    Private Shared ReadOnly ScheduleContextMenuFont As New Font("Calibri", 10.0F, FontStyle.Bold)
 
     Public Enum ViewMode
         DayView
@@ -44,8 +45,7 @@ Public Class ApptHostCtl
     Private ReadOnly _header As ApptHeaderCtl
     Private _bodyHost As PanelControl
     Private _bodyViewHost As PanelControl
-    Private _bodyPrevHintHost As PanelControl
-    Private _bodyNextHintHost As PanelControl
+    Private _bodyChromeHost As PanelControl
     Private _provider As ApptDataProvider
     Private _currentView As XtraUserControl
     Private _currentData As ApptDataBundle
@@ -60,23 +60,30 @@ Public Class ApptHostCtl
 
     Private _btnBodyExpand As SimpleButton
     Private _btnBodyQuickAdd As SimpleButton
-    Private _bodyWorkspaceMaximized As Boolean
+    Private _bodyWorkspaceMaximized As Boolean = True
     Private _layoutRowsCaptured As Boolean
     Private _layoutRow0Style As TablePanelEntityStyle
     Private _layoutRow0Height As Single
     Private _layoutRow1Style As TablePanelEntityStyle
     Private _layoutRow1Height As Single
 
-    Private _bodyPrevHint As ArrowLable
-    Private _bodyNextHint As ArrowLable
-    Private _pendingScrollAppt As AppointmentC
+    Private _scheduleContextMenu As ContextMenuStrip
+    Private _scheduleContextWiredControls As HashSet(Of Control)
+    Private _scheduleContextViewRoot As Control
+    Private _menuExpandCollapse As ToolStripMenuItem
+    Private _menuToggleFilters As ToolStripMenuItem
+    Private _menuPrevPeriod As ToolStripMenuItem
+    Private _menuNextPeriod As ToolStripMenuItem
+    Private _menuPrevAppt As ToolStripMenuItem
+    Private _menuNextAppt As ToolStripMenuItem
+    Private _menuAddAppt As ToolStripMenuItem
     Private _edgeNavPrevAnchor As DateTime?
     Private _edgeNavNextAnchor As DateTime?
     Private _edgeNavPrevScrollAppt As AppointmentC
     Private _edgeNavNextScrollAppt As AppointmentC
-    Private _bodyEdgeHostEventsWired As Boolean
-    ''' <summary>True after PREV/NEXT <see cref="ArrowLable"/> are parented inside the body workspace instead of the root host.</summary>
-    Private _bodyEdgeHintsInBody As Boolean
+    Private _pendingScrollAppt As AppointmentC
+    ''' <summary>Short window where <see cref="LoadAndRender"/> is skipped so stray refreshes don't re-run BindData while MAX day dialog expands/reparents.</summary>
+    Private _deferModularBindDataUtc As DateTime
 
     Public Sub New()
         _state = New ApptState()
@@ -85,6 +92,12 @@ Public Class ApptHostCtl
         _state.ApptCardPatientNameColor = My.Settings.ApptModuleCardPatientNameColor
         _state.ApptCardReasonColor = My.Settings.ApptModuleCardReasonColor
         _state.ApptCardNotesColor = My.Settings.ApptModuleCardNotesColor
+        Try
+            Dim ordDr = My.Settings.ApptModuleOrderByDoctorId
+            _state.OrderByDoctorId = If(ordDr > 0, CType(ordDr, Integer?), Nothing)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptHostCtl.New.OrderByDoctorId", showUser:=False)
+        End Try
         ApplyWorkingHoursFromUserSettings()
         _interactionHub = New ApptInteractionHub()
         _viewFactory = New ApptViewFactory()
@@ -95,7 +108,7 @@ Public Class ApptHostCtl
         Controls.Add(_layout)
         WireHostEvents()
         EnsureBodyWorkspaceExpandButton()
-        EnsureBodyEdgeHints()
+        EnsureScheduleContextMenu()
     End Sub
 
     Public Sub New(repo As AppointmentCRepository)
@@ -105,6 +118,12 @@ Public Class ApptHostCtl
         _state.ApptCardPatientNameColor = My.Settings.ApptModuleCardPatientNameColor
         _state.ApptCardReasonColor = My.Settings.ApptModuleCardReasonColor
         _state.ApptCardNotesColor = My.Settings.ApptModuleCardNotesColor
+        Try
+            Dim ordDr = My.Settings.ApptModuleOrderByDoctorId
+            _state.OrderByDoctorId = If(ordDr > 0, CType(ordDr, Integer?), Nothing)
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptHostCtl.New.OrderByDoctorId", showUser:=False)
+        End Try
         ApplyWorkingHoursFromUserSettings()
         _interactionHub = New ApptInteractionHub()
         _viewFactory = New ApptViewFactory()
@@ -115,7 +134,7 @@ Public Class ApptHostCtl
         Controls.Add(_layout)
         WireHostEvents()
         EnsureBodyWorkspaceExpandButton()
-        EnsureBodyEdgeHints()
+        EnsureScheduleContextMenu()
     End Sub
 
     ''' <summary>Initializes <see cref="ApptState"/>'s work range from the same user settings as <see cref="SchedulerNew"/>.</summary>
@@ -143,7 +162,7 @@ Public Class ApptHostCtl
         End Get
         Set(value As Boolean)
             _state.ShowPatientLabels = value
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -153,7 +172,7 @@ Public Class ApptHostCtl
         End Get
         Set(value As TimeSpan)
             _state.WorkStartTime = value
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -163,7 +182,7 @@ Public Class ApptHostCtl
         End Get
         Set(value As TimeSpan)
             _state.WorkEndTime = value
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -173,7 +192,7 @@ Public Class ApptHostCtl
         End Get
         Set(value As Boolean)
             _state.Use24HourFormat = value
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -183,7 +202,7 @@ Public Class ApptHostCtl
         End Get
         Set(value As Integer?)
             _state.PatientFilterId = value
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -193,7 +212,7 @@ Public Class ApptHostCtl
         End Get
         Set(value As Integer?)
             _state.DoctorFilterId = value
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -203,7 +222,7 @@ Public Class ApptHostCtl
         End Get
         Set(value As String)
             _state.VisibleReason = value
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -213,7 +232,7 @@ Public Class ApptHostCtl
         End Get
         Set(value As String)
             _state.VisibleStatus = value
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -244,7 +263,7 @@ Public Class ApptHostCtl
             If _state.WorkEndTime <= _state.WorkStartTime Then
                 _state.WorkEndTime = _state.WorkStartTime.Add(TimeSpan.FromHours(1))
             End If
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -255,13 +274,13 @@ Public Class ApptHostCtl
         Set(value As Integer)
             Dim safeEnd = Math.Max(StartHour + 1, Math.Min(24, value))
             _state.WorkEndTime = TimeSpan.FromHours(safeEnd)
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
     Public WriteOnly Property ValueFromParent As Integer
         Set(value As Integer)
-            LoadAndRender()
+            LoadAndRenderForced()
         End Set
     End Property
 
@@ -293,17 +312,20 @@ Public Class ApptHostCtl
         layout.Appearance.Options.UseBackColor = True
 
         layout.Columns.Add(New TablePanelColumn(TablePanelEntityStyle.Relative, 50.0F))
-        layout.Rows.Add(New TablePanelRow(TablePanelEntityStyle.Absolute, MainHeaderRowPixels))
+        layout.Rows.Add(New TablePanelRow(TablePanelEntityStyle.Absolute, ResolveHeaderBandRowHeightPx()))
         layout.Rows.Add(New TablePanelRow(TablePanelEntityStyle.Relative, 100.0F))
 
         _bodyHost = New PanelControl() With {.Dock = DockStyle.Fill, .BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder}
         _bodyHost.Appearance.BackColor = Color.Transparent
         _bodyHost.Appearance.Options.UseBackColor = True
-        _bodyViewHost = New PanelControl() With {.Dock = DockStyle.Fill, .BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder}
+        _bodyViewHost = New PanelControl() With {
+            .Dock = DockStyle.Fill,
+            .BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder,
+            .TabStop = True
+        }
         _bodyViewHost.Appearance.BackColor = Color.Transparent
         _bodyViewHost.Appearance.Options.UseBackColor = True
-        _bodyPrevHintHost = CreateBodyEdgeHintHost("bodyPrevHintHost")
-        _bodyNextHintHost = CreateBodyEdgeHintHost("bodyNextHintHost")
+        _bodyChromeHost = CreateBodyChromeHost("bodyChromeHost")
         Dim bodyLayout = New TablePanel With {
             .Dock = DockStyle.Fill,
             .Name = "apptHostBodyTable",
@@ -312,19 +334,15 @@ Public Class ApptHostCtl
         }
         bodyLayout.Appearance.BackColor = Color.Transparent
         bodyLayout.Appearance.Options.UseBackColor = True
-        bodyLayout.Columns.Add(New TablePanelColumn(TablePanelEntityStyle.Absolute, BodyEdgeHintBandWidth))
         bodyLayout.Columns.Add(New TablePanelColumn(TablePanelEntityStyle.Relative, 100.0F))
-        bodyLayout.Columns.Add(New TablePanelColumn(TablePanelEntityStyle.Absolute, BodyEdgeHintBandWidth))
+        bodyLayout.Columns.Add(New TablePanelColumn(TablePanelEntityStyle.Absolute, BodyChromeColumnWidth))
         bodyLayout.Rows.Add(New TablePanelRow(TablePanelEntityStyle.Relative, 100.0F))
-        bodyLayout.Controls.Add(_bodyPrevHintHost)
         bodyLayout.Controls.Add(_bodyViewHost)
-        bodyLayout.Controls.Add(_bodyNextHintHost)
-        bodyLayout.SetColumn(_bodyPrevHintHost, 0)
-        bodyLayout.SetRow(_bodyPrevHintHost, 0)
-        bodyLayout.SetColumn(_bodyViewHost, 1)
+        bodyLayout.Controls.Add(_bodyChromeHost)
+        bodyLayout.SetColumn(_bodyViewHost, 0)
         bodyLayout.SetRow(_bodyViewHost, 0)
-        bodyLayout.SetColumn(_bodyNextHintHost, 2)
-        bodyLayout.SetRow(_bodyNextHintHost, 0)
+        bodyLayout.SetColumn(_bodyChromeHost, 1)
+        bodyLayout.SetRow(_bodyChromeHost, 0)
         _bodyHost.Controls.Add(bodyLayout)
 
         _header.Dock = DockStyle.Fill
@@ -339,7 +357,7 @@ Public Class ApptHostCtl
         Return layout
     End Function
 
-    Private Shared Function CreateBodyEdgeHintHost(name As String) As PanelControl
+    Private Shared Function CreateBodyChromeHost(name As String) As PanelControl
         Dim host = New PanelControl With {
             .Name = name,
             .Dock = DockStyle.Fill,
@@ -351,10 +369,13 @@ Public Class ApptHostCtl
     End Function
 
     Private Sub WireHostEvents()
-        AddHandler Load, Sub() LoadAndRender()
+        AddHandler Load, Sub()
+                             ApplyDefaultBodyWorkspaceExpandedState()
+                             LoadAndRender()
+                         End Sub
 
         AddHandler _interactionHub.AppointmentClicked, Sub(ap) RaiseEvent AppointmentClicked(ap)
-        AddHandler _interactionHub.AppointmentDoubleClicked, Sub(ap) RaiseEvent AppointmentDoubleClicked(ap)
+        AddHandler _interactionHub.AppointmentDoubleClicked, AddressOf OnInteractionHubAppointmentDoubleClicked
         AddHandler _interactionHub.EmptyDateInvoked, AddressOf OnEmptyDateInvokedFromHub
         AddHandler _interactionHub.AppointmentStatusChangeRequested, AddressOf OnAppointmentStatusChangeFromHub
         AddHandler _interactionHub.WeekColumnAppointmentDrop, AddressOf OnWeekColumnAppointmentDrop
@@ -362,6 +383,8 @@ Public Class ApptHostCtl
 
         AddHandler _header.PrevRequested, AddressOf NavigatePrevious
         AddHandler _header.NextRequested, AddressOf NavigateNext
+        AddHandler _header.PrevApptRequested, AddressOf NavigateToPreviousAppointmentEdge
+        AddHandler _header.NextApptRequested, AddressOf NavigateToNextAppointmentEdge
         AddHandler _header.TodayRequested, Sub() UpdateState(Sub() _state.CurrentDate = Date.Today)
         AddHandler _header.AddRequested, AddressOf CreateAppointmentFromHeader
         AddHandler _header.WeekSnapshotRequested, AddressOf OnWeekSnapshotRequested
@@ -369,6 +392,19 @@ Public Class ApptHostCtl
         AddHandler _header.ViewChanged, AddressOf OnHeaderViewChanged
         AddHandler _header.Use24Changed, Sub(value) UpdateState(Sub() _state.Use24HourFormat = value)
         AddHandler _header.DoctorFilterChanged, Sub(value) UpdateState(Sub() _state.DoctorFilterId = value)
+        AddHandler _header.OrderByDoctorChanged,
+            Sub(value As Integer?)
+                UpdateState(
+                    Sub()
+                        _state.OrderByDoctorId = value
+                        Try
+                            My.Settings.ApptModuleOrderByDoctorId = If(value.HasValue, value.Value, 0)
+                            My.Settings.Save()
+                        Catch ex As Exception
+                            ApptErrorHelper.Report(ex, "ApptHostCtl.OrderByDoctor.SaveSettings", showUser:=False)
+                        End Try
+                    End Sub)
+            End Sub
         AddHandler _header.StatusFilterChanged, Sub(value) UpdateState(Sub() _state.VisibleStatus = value)
         AddHandler _header.AllPatientsRequested,
             Sub()
@@ -416,6 +452,37 @@ Public Class ApptHostCtl
         AddHandler _header.ApptCardLabelColorsChanged, AddressOf OnApptCardLabelColorsChanged
         AddHandler _header.PrevViewRequested, AddressOf NavigateViewBack
         AddHandler _header.NextViewRequested, AddressOf NavigateViewForward
+        AddHandler _header.FilterStripVisibilityChanged, AddressOf OnHeaderFilterStripVisibilityChanged
+    End Sub
+
+    Private Function ResolveHeaderBandRowHeightPx() As Single
+        If _header Is Nothing Then Return HeaderBandRowPxExpanded
+        If _header.FiltersStripVisible Then Return HeaderBandRowPxExpanded
+        Return HeaderBandRowPxCollapsed
+    End Function
+
+    Private Sub OnHeaderFilterStripVisibilityChanged(filtersVisible As Boolean)
+        SyncHostHeaderBandHeight()
+    End Sub
+
+    ''' <summary>Reserves row 0 for header chrome — expanded when filters are on, shrunk when off so row 1 (schedule) absorbs the slack.</summary>
+    Private Sub SyncHostHeaderBandHeight()
+        If _layout Is Nothing OrElse _layout.Rows.Count < 1 Then Return
+        If _bodyWorkspaceMaximized Then Return
+        Dim h = ResolveHeaderBandRowHeightPx()
+        SuspendLayout()
+        _layout.SuspendLayout()
+        Try
+            _layout.Rows(0).Style = TablePanelEntityStyle.Absolute
+            _layout.Rows(0).Height = h
+            If _layoutRowsCaptured Then _layoutRow0Height = h
+        Finally
+            _layout.ResumeLayout(False)
+            ResumeLayout(False)
+        End Try
+        _layout.PerformLayout()
+        If _header IsNot Nothing Then _header.PerformLayout()
+        LayoutBodyWorkspaceExpandButton()
     End Sub
 
     Private Shared Function CurrentProcessUserHandleCount() As Integer
@@ -480,7 +547,7 @@ Public Class ApptHostCtl
         Finally
             _suppressRefresh = False
         End Try
-        LoadAndRender()
+        LoadAndRenderForced()
     End Sub
 
     ''' <summary>Mirrors <see cref="SchedulerNew.UpdateAppointmentCtatus"/> for modular cards (full refresh after save).</summary>
@@ -509,7 +576,7 @@ Public Class ApptHostCtl
                     If(Eng, "Success", "نجاح"),
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information)
-                LoadAndRender()
+                LoadAndRenderForced()
             End If
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
@@ -532,7 +599,7 @@ Public Class ApptHostCtl
                 If(Eng, "Success", "نجاح"),
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information)
-            LoadAndRender()
+            LoadAndRenderForced()
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
                                    "ApptHostCtl.OnAppointmentStatusChangeFromHub",
@@ -574,7 +641,7 @@ Public Class ApptHostCtl
         Finally
             _suppressViewNavRecording = False
         End Try
-        LoadAndRender()
+        LoadAndRenderForced()
     End Sub
 
     Private Sub SyncViewNavButtonsVisibility()
@@ -661,21 +728,30 @@ Public Class ApptHostCtl
         AddHandler _btnBodyExpand.Click, AddressOf BodyExpandButton_Click
         _btnBodyQuickAdd = New SimpleButton With {
             .Name = "btnBodyQuickAdd",
-            .Size = New Size(52, 26),
+            .Size = New Size(26, 26),
             .Cursor = Cursors.Hand,
             .TabStop = False,
-            .Visible = False
+            .Visible = False,
+            .Text = String.Empty
         }
-        _btnBodyQuickAdd.Appearance.Font = New Font("Calibri", 10.0F, FontStyle.Bold)
-        _btnBodyQuickAdd.Appearance.Options.UseFont = True
-        _btnBodyQuickAdd.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        _btnBodyQuickAdd.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        _btnBodyQuickAdd.ImageOptions.Image = Global.DentistX.My.Resources.Resources.add_16x16
+        _btnBodyQuickAdd.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter
         AddHandler _btnBodyQuickAdd.Click, AddressOf BodyQuickAddButton_Click
-        AddHandler _bodyHost.SizeChanged, AddressOf BodyHost_ChangedForExpandBtnLayout
-        AddHandler _bodyHost.LocationChanged, AddressOf BodyHost_ChangedForExpandBtnLayout
-        If _bodyViewHost IsNot Nothing Then AddHandler _bodyViewHost.SizeChanged, AddressOf BodyHost_ChangedForExpandBtnLayout
-        Controls.Add(_btnBodyExpand)
-        Controls.Add(_btnBodyQuickAdd)
+        If _bodyChromeHost IsNot Nothing Then
+            _bodyChromeHost.Controls.Add(_btnBodyExpand)
+            _bodyChromeHost.Controls.Add(_btnBodyQuickAdd)
+            AddHandler _bodyChromeHost.SizeChanged, AddressOf OnBodyChromeLayoutChanged
+            AddHandler _bodyChromeHost.MouseDown, AddressOf ScheduleSurface_MouseDown
+            AddHandler _bodyChromeHost.MouseUp, AddressOf ScheduleSurface_MouseUp
+        Else
+            Controls.Add(_btnBodyExpand)
+            Controls.Add(_btnBodyQuickAdd)
+        End If
+        If _bodyHost IsNot Nothing Then
+            AddHandler _bodyHost.SizeChanged, AddressOf OnBodyChromeLayoutChanged
+            AddHandler _bodyHost.LocationChanged, AddressOf OnBodyChromeLayoutChanged
+        End If
+        If _bodyViewHost IsNot Nothing Then AddHandler _bodyViewHost.SizeChanged, AddressOf OnBodyChromeLayoutChanged
         SyncBodyExpandButtonVisual()
         LayoutBodyWorkspaceExpandButton()
     End Sub
@@ -686,36 +762,26 @@ Public Class ApptHostCtl
 
     Private Sub SyncBodyQuickAddButtonVisual()
         If _btnBodyQuickAdd Is Nothing Then Return
-        _btnBodyQuickAdd.Text = If(Eng, "Add", "إضافة")
         _btnBodyQuickAdd.ToolTip = If(Eng, "Add appointment (same as toolbar)", "إضافة موعد (كزر شريط الأدوات)")
-        _btnBodyQuickAdd.Visible = _bodyWorkspaceMaximized
+        _btnBodyQuickAdd.Visible = False
     End Sub
 
-    Private Sub BodyHost_ChangedForExpandBtnLayout(sender As Object, e As EventArgs)
+    Private Sub OnBodyChromeLayoutChanged(sender As Object, e As EventArgs)
         LayoutBodyWorkspaceExpandButton()
     End Sub
 
-    ''' <summary>Top-right overlay on the body host; parented to the host control so <c>_bodyHost.Controls.Clear()</c> never removes it. Quick-add sits left of expand when expanded.</summary>
+    Private Const BodyColumnChromePad As Integer = 3
+    Private Const BodyColumnChromeGap As Integer = 4
+
     Private Sub LayoutBodyWorkspaceExpandButton()
-        If _btnBodyExpand Is Nothing OrElse _bodyHost Is Nothing Then Return
-        Const pad As Integer = 3
-        Const gap As Integer = 4
-        Dim targetHost = If(_bodyViewHost, _bodyHost)
-        Dim clientY = pad
-        Dim expandClientX = targetHost.ClientSize.Width - _btnBodyExpand.Width - pad
-        Dim ptExpand = PointToClient(targetHost.PointToScreen(New Point(expandClientX, clientY)))
-        _btnBodyExpand.Location = ptExpand
-        _btnBodyExpand.BringToFront()
-        If _btnBodyQuickAdd IsNot Nothing Then
-            Dim quickClientX = expandClientX - gap - _btnBodyQuickAdd.Width
-            Dim ptQuick = PointToClient(targetHost.PointToScreen(New Point(quickClientX, clientY)))
-            _btnBodyQuickAdd.Location = ptQuick
-            _btnBodyQuickAdd.BringToFront()
-        End If
+        If _btnBodyExpand Is Nothing OrElse _bodyChromeHost Is Nothing Then Return
+        _btnBodyExpand.Visible = False
+        If _btnBodyQuickAdd IsNot Nothing Then _btnBodyQuickAdd.Visible = False
     End Sub
 
     Private Sub SyncBodyExpandButtonVisual()
         If _btnBodyExpand Is Nothing Then Return
+        _btnBodyExpand.Visible = False
         If _bodyWorkspaceMaximized Then
             _btnBodyExpand.Text = "▼"
             _btnBodyExpand.ToolTip = If(Eng, "Restore header", "استعادة الرأس والفلاتر")
@@ -761,11 +827,27 @@ Public Class ApptHostCtl
     End Sub
 
     Private Sub BodyExpandButton_Click(sender As Object, e As EventArgs)
+        ToggleBodyWorkspaceExpanded()
+    End Sub
+
+    Private Sub ToggleBodyWorkspaceExpanded()
         _bodyWorkspaceMaximized = Not _bodyWorkspaceMaximized
         SyncBodyExpandButtonVisual()
         ApplyBodyWorkspaceMaximizedState()
-        LoadAndRender()
+        LoadAndRenderForced()
         LayoutBodyWorkspaceExpandButton()
+    End Sub
+
+    ''' <summary>Appointment module always opens with the schedule body expanded (not persisted).</summary>
+    Private Sub ApplyDefaultBodyWorkspaceExpandedState()
+        Try
+            _bodyWorkspaceMaximized = True
+            SyncBodyExpandButtonVisual()
+            ApplyBodyWorkspaceMaximizedState()
+            LayoutBodyWorkspaceExpandButton()
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, "ApptHostCtl.ApplyDefaultBodyWorkspaceExpandedState", showUser:=False)
+        End Try
     End Sub
 
     Public Sub EnsureBodyWorkspaceExpanded()
@@ -773,7 +855,6 @@ Public Class ApptHostCtl
         _bodyWorkspaceMaximized = True
         SyncBodyExpandButtonVisual()
         ApplyBodyWorkspaceMaximizedState()
-        LoadAndRender()
         LayoutBodyWorkspaceExpandButton()
     End Sub
 
@@ -782,7 +863,6 @@ Public Class ApptHostCtl
         _bodyWorkspaceMaximized = False
         SyncBodyExpandButtonVisual()
         ApplyBodyWorkspaceMaximizedState()
-        LoadAndRender()
         LayoutBodyWorkspaceExpandButton()
     End Sub
 
@@ -794,219 +874,129 @@ Public Class ApptHostCtl
 
     Protected Overrides Sub OnLayout(levent As LayoutEventArgs)
         MyBase.OnLayout(levent)
-        PositionBodyEdgeHints()
         LayoutBodyWorkspaceExpandButton()
     End Sub
 
-    ''' <summary><see cref="SchedulerNew.InvalidatePnlBodyEdgeHintsAfterClear"/> — avoid using disposed hint controls.</summary>
-    Private Sub InvalidateBodyEdgeHintsIfDisposed()
-        If _bodyPrevHint IsNot Nothing AndAlso _bodyPrevHint.IsDisposed Then _bodyPrevHint = Nothing
-        If _bodyNextHint IsNot Nothing AndAlso _bodyNextHint.IsDisposed Then _bodyNextHint = Nothing
+    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
+        If ShouldBlockHostScheduleArrowKeys() Then Return MyBase.ProcessCmdKey(msg, keyData)
+
+        Select Case keyData
+            Case Keys.F11, Keys.Control Or Keys.Shift Or Keys.E
+                ToggleBodyWorkspaceExpanded()
+                Return True
+            Case Keys.Up, Keys.Down
+                ToggleBodyWorkspaceExpanded()
+                Return True
+            Case Keys.Left
+                If _edgeNavPrevAnchor.HasValue Then
+                    NavigateToPreviousAppointmentEdge()
+                    Return True
+                End If
+            Case Keys.Right
+                If _edgeNavNextAnchor.HasValue Then
+                    NavigateToNextAppointmentEdge()
+                    Return True
+                End If
+        End Select
+
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
+
+    Private Function ShouldBlockHostScheduleArrowKeys() As Boolean
+        Dim focused = ResolveFocusedControl()
+        If focused Is Nothing OrElse Not IsDescendantOfHost(focused) Then Return True
+        Return IsHeaderTextEditingControl(focused)
+    End Function
+
+    Private Function ResolveFocusedControl() As Control
+        Dim form = FindForm()
+        If form IsNot Nothing AndAlso form.ActiveControl IsNot Nothing Then Return form.ActiveControl
+        If ContainsFocus Then Return Me
+        Return Nothing
+    End Function
+
+    Private Function IsDescendantOfHost(control As Control) As Boolean
+        Dim walk = control
+        While walk IsNot Nothing
+            If walk Is Me Then Return True
+            walk = walk.Parent
+        End While
+        Return False
+    End Function
+
+    Private Function IsHeaderTextEditingControl(control As Control) As Boolean
+        If control Is Nothing OrElse _header Is Nothing Then Return False
+        If Not IsDescendantOfHeader(control) Then Return False
+        If TypeOf control Is TextBoxBase Then Return True
+        Dim edit = TryCast(control, BaseEdit)
+        If edit Is Nothing Then Return False
+        If TypeOf edit Is CheckEdit Then Return False
+        If edit.IsEditorActive Then Return True
+        Dim combo = TryCast(edit, ComboBoxEdit)
+        If combo IsNot Nothing AndAlso combo.IsPopupOpen Then Return True
+        Dim dateEdit = TryCast(edit, DateEdit)
+        If dateEdit IsNot Nothing AndAlso dateEdit.IsPopupOpen Then Return True
+        Return TypeOf edit Is TextEdit OrElse TypeOf edit Is DateEdit OrElse TypeOf edit Is TimeEdit OrElse
+               TypeOf edit Is ComboBoxEdit OrElse TypeOf edit Is MemoEdit OrElse TypeOf edit Is ColorEdit OrElse
+               TypeOf edit Is SpinEdit
+    End Function
+
+    Private Function IsDescendantOfHeader(control As Control) As Boolean
+        Dim walk = control
+        While walk IsNot Nothing
+            If walk Is _header Then Return True
+            walk = walk.Parent
+        End While
+        Return False
+    End Function
+
+    Private Sub TryFocusScheduleBodySurface()
+        If _bodyViewHost Is Nothing OrElse _bodyViewHost.IsDisposed OrElse Not _bodyViewHost.Enabled OrElse Not _bodyViewHost.CanFocus Then Return
+        _bodyViewHost.Focus()
     End Sub
 
-    Private Sub EnsureBodyEdgeHints()
-        InvalidateBodyEdgeHintsIfDisposed()
-        If _bodyPrevHint Is Nothing Then
-            _bodyPrevHint = New ArrowLable With {
-                .AutoSize = False,
-                .Width = BodyEdgeHintWidth,
-                .Height = BodyEdgeHintHeight,
-                .TextAlign = ContentAlignment.MiddleCenter,
-                .Text = If(Eng, "PREV", "السابق"),
-                .Visible = False,
-                .Cursor = Cursors.Hand,
-                .ShowLeftTriangle = True,
-                .ShowRightTriangle = False,
-                .TextDirection = ArrowLable.ArrowTextDirection.BottomToTop,
-                .GlassBaseColor = Color.FromArgb(70, 160, 255),
-                .GlassAccentColor = Color.FromArgb(140, 80, 220),
-                .TriangleColor = Color.FromArgb(230, 255, 140, 120),
-                .ForeColor = Color.White
-            }
-            AddHandler _bodyPrevHint.Click, Sub() BodyEdgePrev_Click()
-        End If
-        If _bodyNextHint Is Nothing Then
-            _bodyNextHint = New ArrowLable With {
-                .AutoSize = False,
-                .Width = BodyEdgeHintWidth,
-                .Height = BodyEdgeHintHeight,
-                .TextAlign = ContentAlignment.MiddleCenter,
-                .Text = If(Eng, "NEXT", "التالي"),
-                .Visible = False,
-                .Cursor = Cursors.Hand,
-                .ShowLeftTriangle = False,
-                .ShowRightTriangle = True,
-                .TextDirection = ArrowLable.ArrowTextDirection.TopToBottom,
-                .GlassBaseColor = Color.FromArgb(70, 160, 255),
-                .GlassAccentColor = Color.FromArgb(140, 80, 220),
-                .TriangleColor = Color.FromArgb(230, 255, 140, 120),
-                .ForeColor = Color.White
-            }
-            AddHandler _bodyNextHint.Click, Sub() BodyEdgeNext_Click()
-        End If
-        ' Reserve fixed left/right bands for the global PREV/NEXT hints so the active view never sits underneath them.
-        If _bodyPrevHintHost IsNot Nothing AndAlso _bodyNextHintHost IsNot Nothing Then
-            If _bodyPrevHint IsNot Nothing AndAlso _bodyPrevHint.Parent IsNot Nothing AndAlso Not Object.ReferenceEquals(_bodyPrevHint.Parent, _bodyPrevHintHost) Then
-                _bodyPrevHint.Parent.Controls.Remove(_bodyPrevHint)
-            End If
-            If _bodyNextHint IsNot Nothing AndAlso _bodyNextHint.Parent IsNot Nothing AndAlso Not Object.ReferenceEquals(_bodyNextHint.Parent, _bodyNextHintHost) Then
-                _bodyNextHint.Parent.Controls.Remove(_bodyNextHint)
-            End If
-            If _bodyPrevHint IsNot Nothing AndAlso _bodyPrevHint.Parent Is Nothing Then
-                _bodyPrevHintHost.Controls.Add(_bodyPrevHint)
-            End If
-            If _bodyNextHint IsNot Nothing AndAlso _bodyNextHint.Parent Is Nothing Then
-                _bodyNextHintHost.Controls.Add(_bodyNextHint)
-            End If
-            _bodyEdgeHintsInBody = True
-        ElseIf _bodyHost IsNot Nothing Then
-            If _bodyPrevHint IsNot Nothing AndAlso _bodyPrevHint.Parent IsNot Nothing AndAlso Not Object.ReferenceEquals(_bodyPrevHint.Parent, _bodyHost) Then
-                _bodyPrevHint.Parent.Controls.Remove(_bodyPrevHint)
-            End If
-            If _bodyNextHint IsNot Nothing AndAlso _bodyNextHint.Parent IsNot Nothing AndAlso Not Object.ReferenceEquals(_bodyNextHint.Parent, _bodyHost) Then
-                _bodyNextHint.Parent.Controls.Remove(_bodyNextHint)
-            End If
-            If _bodyPrevHint IsNot Nothing AndAlso _bodyPrevHint.Parent Is Nothing Then
-                _bodyHost.Controls.Add(_bodyPrevHint)
-            End If
-            If _bodyNextHint IsNot Nothing AndAlso _bodyNextHint.Parent Is Nothing Then
-                _bodyHost.Controls.Add(_bodyNextHint)
-            End If
-            _bodyEdgeHintsInBody = True
-        Else
-            If _bodyPrevHint IsNot Nothing AndAlso _bodyPrevHint.Parent Is Nothing Then
-                Controls.Add(_bodyPrevHint)
-            End If
-            If _bodyNextHint IsNot Nothing AndAlso _bodyNextHint.Parent Is Nothing Then
-                Controls.Add(_bodyNextHint)
-            End If
-        End If
-        If _bodyPrevHint IsNot Nothing Then _bodyPrevHint.BringToFront()
-        If _bodyNextHint IsNot Nothing Then _bodyNextHint.BringToFront()
-        If _bodyHost IsNot Nothing AndAlso Not _bodyEdgeHostEventsWired Then
-            AddHandler _bodyHost.SizeChanged, AddressOf BodyHost_ChangedForEdgeHints
-            If _bodyPrevHintHost IsNot Nothing Then AddHandler _bodyPrevHintHost.SizeChanged, AddressOf BodyHost_ChangedForEdgeHints
-            If _bodyNextHintHost IsNot Nothing Then AddHandler _bodyNextHintHost.SizeChanged, AddressOf BodyHost_ChangedForEdgeHints
-            _bodyEdgeHostEventsWired = True
-        End If
-        PositionBodyEdgeHints()
-    End Sub
-
-    Private Sub BodyHost_ChangedForEdgeHints(sender As Object, e As EventArgs)
-        PositionBodyEdgeHints()
-    End Sub
-
-    ''' <summary>PREV/NEXT on the body’s left/right (children of <see cref="_bodyHost"/>; same idea as <see cref="SchedulerNew.PositionWeekEdgeHints"/>).</summary>
-    Private Sub PositionBodyEdgeHints()
-        If _bodyPrevHint Is Nothing OrElse _bodyNextHint Is Nothing OrElse _bodyHost Is Nothing Then Return
-        If _bodyHost.ClientSize.Width < 1 OrElse _bodyHost.ClientSize.Height < 1 Then Return
-        If _bodyPrevHintHost IsNot Nothing AndAlso _bodyNextHintHost IsNot Nothing AndAlso
-           _bodyPrevHint.Parent Is _bodyPrevHintHost AndAlso _bodyNextHint.Parent Is _bodyNextHintHost Then
-            Dim prevX = Math.Max(0, (_bodyPrevHintHost.ClientSize.Width - _bodyPrevHint.Width) \ 2)
-            Dim prevY = Math.Max(0, (_bodyPrevHintHost.ClientSize.Height - _bodyPrevHint.Height) \ 2)
-            Dim nextX = Math.Max(0, (_bodyNextHintHost.ClientSize.Width - _bodyNextHint.Width) \ 2)
-            Dim nextY = Math.Max(0, (_bodyNextHintHost.ClientSize.Height - _bodyNextHint.Height) \ 2)
-            _bodyPrevHint.Location = New Point(prevX, prevY)
-            _bodyNextHint.Location = New Point(nextX, nextY)
-        ElseIf _bodyEdgeHintsInBody AndAlso _bodyPrevHint.Parent Is _bodyHost AndAlso _bodyNextHint.Parent Is _bodyHost Then
-            Dim midY = Math.Max(0, (_bodyHost.ClientSize.Height - _bodyPrevHint.Height) \ 2)
-            _bodyPrevHint.Location = New Point(0, midY)
-            _bodyNextHint.Location = New Point(Math.Max(0, _bodyHost.ClientSize.Width - _bodyNextHint.Width), midY)
-        Else
-            Dim midY = Math.Max(0, (_bodyHost.ClientSize.Height - _bodyPrevHint.Height) \ 2)
-            Dim ptL = PointToClient(_bodyHost.PointToScreen(New Point(0, midY)))
-            Dim ptR = PointToClient(_bodyHost.PointToScreen(New Point(_bodyHost.ClientSize.Width - _bodyNextHint.Width, midY)))
-            _bodyPrevHint.Location = ptL
-            _bodyNextHint.Location = ptR
-        End If
-        _bodyPrevHint.BringToFront()
-        _bodyNextHint.BringToFront()
-    End Sub
-
-    Private Sub ApplyBodyEdgeHintVisualThemeDay()
-        If _bodyPrevHint Is Nothing OrElse _bodyNextHint Is Nothing Then Return
-        _bodyPrevHint.GlassBaseColor = Color.FromArgb(70, 160, 255)
-        _bodyPrevHint.GlassAccentColor = Color.FromArgb(140, 80, 220)
-        _bodyPrevHint.TriangleColor = Color.FromArgb(230, 255, 140, 120)
-        _bodyNextHint.GlassBaseColor = Color.FromArgb(70, 160, 255)
-        _bodyNextHint.GlassAccentColor = Color.FromArgb(140, 80, 220)
-        _bodyNextHint.TriangleColor = Color.FromArgb(230, 255, 140, 120)
-    End Sub
-
-    Private Sub ApplyBodyEdgeHintVisualThemeWeek()
-        If _bodyPrevHint Is Nothing OrElse _bodyNextHint Is Nothing Then Return
-        _bodyPrevHint.GlassBaseColor = Color.FromArgb(80, 210, 180)
-        _bodyPrevHint.GlassAccentColor = Color.FromArgb(120, 90, 230)
-        _bodyPrevHint.TriangleColor = Color.FromArgb(235, 255, 200, 90)
-        _bodyNextHint.GlassBaseColor = Color.FromArgb(80, 210, 180)
-        _bodyNextHint.GlassAccentColor = Color.FromArgb(120, 90, 230)
-        _bodyNextHint.TriangleColor = Color.FromArgb(235, 255, 200, 90)
-    End Sub
-
-    Private Sub ApplyBodyEdgeHintVisualThemeMonth()
-        If _bodyPrevHint Is Nothing OrElse _bodyNextHint Is Nothing Then Return
-        _bodyPrevHint.GlassBaseColor = Color.FromArgb(255, 150, 80)
-        _bodyPrevHint.GlassAccentColor = Color.FromArgb(255, 90, 160)
-        _bodyPrevHint.TriangleColor = Color.FromArgb(230, 120, 200, 255)
-        _bodyNextHint.GlassBaseColor = Color.FromArgb(255, 150, 80)
-        _bodyNextHint.GlassAccentColor = Color.FromArgb(255, 90, 160)
-        _bodyNextHint.TriangleColor = Color.FromArgb(230, 120, 200, 255)
-    End Sub
-
-    Private Sub BodyEdgePrev_Click()
+    Private Sub NavigateToPreviousAppointmentEdge()
         If Not _edgeNavPrevAnchor.HasValue Then Return
         _pendingScrollAppt = _edgeNavPrevScrollAppt
         Dim d = _edgeNavPrevAnchor.Value
         UpdateState(Sub() _state.CurrentDate = d.Date)
     End Sub
 
-    Private Sub BodyEdgeNext_Click()
+    Private Sub NavigateToNextAppointmentEdge()
         If Not _edgeNavNextAnchor.HasValue Then Return
         _pendingScrollAppt = _edgeNavNextScrollAppt
         Dim d = _edgeNavNextAnchor.Value
         UpdateState(Sub() _state.CurrentDate = d.Date)
     End Sub
 
-    ''' <summary>Mirrors <see cref="SchedulerNew"/> day / week / month / timeline edge hints using the loaded appointment list.</summary>
-    Private Sub UpdateBodyEdgeHints()
-        EnsureBodyEdgeHints()
-        If _bodyPrevHint Is Nothing OrElse _bodyNextHint Is Nothing Then Return
-
-        _bodyPrevHint.Visible = False
-        _bodyNextHint.Visible = False
+    ''' <summary>Computes filtered PREV/NEXT appointment targets for header buttons and the schedule context menu.</summary>
+    Private Sub UpdateApptEdgeNavigation()
         _edgeNavPrevAnchor = Nothing
         _edgeNavNextAnchor = Nothing
         _edgeNavPrevScrollAppt = Nothing
         _edgeNavNextScrollAppt = Nothing
 
-        _bodyPrevHint.Text = If(Eng, "PREV", "السابق")
-        _bodyNextHint.Text = If(Eng, "NEXT", "التالي")
-
         Dim appts = _edgeHintAppointments
         If appts Is Nothing OrElse appts.Count = 0 Then
-            PositionBodyEdgeHints()
+            _header.UpdateApptNavButtonVisibility(False, False)
             Return
         End If
 
         Select Case _state.CurrentView
             Case ApptViewMode.DayView, ApptViewMode.DoctorsDay
-                ApplyBodyEdgeHintVisualThemeDay()
                 Dim cur = _state.CurrentDate.Date
                 Dim prevDate = appts.Select(Function(a) a.AppDate.Date).Where(Function(d) d < cur).OrderByDescending(Function(d) d).FirstOrDefault()
                 Dim nextDate = appts.Select(Function(a) a.AppDate.Date).Where(Function(d) d > cur).OrderBy(Function(d) d).FirstOrDefault()
                 If prevDate <> Date.MinValue Then
                     _edgeNavPrevAnchor = prevDate.Date
                     _edgeNavPrevScrollAppt = appts.Where(Function(a) a.AppDate.Date = prevDate).OrderBy(Function(a) a.StartDateTime).FirstOrDefault()
-                    _bodyPrevHint.Visible = True
                 End If
                 If nextDate <> Date.MinValue Then
                     _edgeNavNextAnchor = nextDate.Date
                     _edgeNavNextScrollAppt = appts.Where(Function(a) a.AppDate.Date = nextDate).OrderBy(Function(a) a.StartDateTime).FirstOrDefault()
-                    _bodyNextHint.Visible = True
                 End If
 
             Case ApptViewMode.ThisWeek, ApptViewMode.ThisWeekFull, ApptViewMode.DaysTimeline
-                ApplyBodyEdgeHintVisualThemeWeek()
                 Dim daysInWeek = If(_state.CurrentView = ApptViewMode.ThisWeek, 6, 7)
                 Dim currentStart = GetWeekStartSaturday(_state.CurrentDate)
                 Dim endExclusive = currentStart.AddDays(daysInWeek)
@@ -1017,22 +1007,17 @@ Public Class ApptHostCtl
                     Dim wk = GetWeekStartSaturday(prevD)
                     _edgeNavPrevAnchor = wk
                     _edgeNavPrevScrollAppt = appts.Where(Function(a) a.StartDateTime.Date >= wk AndAlso a.StartDateTime.Date < wk.AddDays(daysInWeek)).OrderBy(Function(a) a.StartDateTime).FirstOrDefault()
-                    _bodyPrevHint.Visible = True
                 End If
                 If nextD <> Date.MinValue Then
                     Dim wkN = GetWeekStartSaturday(nextD)
-                    ' 6-day week shows Sat..Thu; the first "outside" day is Fri (start+6), still the same GetWeekStartSaturday.
-                    ' Without this, the NEXT target equals current week and the strip appears stuck. Jump to the following block (next Sat+7 like header Nav).
                     If _state.CurrentView = ApptViewMode.ThisWeek AndAlso daysInWeek = 6 AndAlso wkN = currentStart Then
                         wkN = currentStart.AddDays(7)
                     End If
                     _edgeNavNextAnchor = wkN
                     _edgeNavNextScrollAppt = appts.Where(Function(a) a.StartDateTime.Date >= wkN AndAlso a.StartDateTime.Date < wkN.AddDays(daysInWeek)).OrderBy(Function(a) a.StartDateTime).FirstOrDefault()
-                    _bodyNextHint.Visible = True
                 End If
 
             Case ApptViewMode.MonthlyWeek
-                ApplyBodyEdgeHintVisualThemeWeek()
                 Dim vr = GetViewRange(_state)
                 Dim rangeStart = vr.StartDate.Date
                 Dim rangeEndEx = rangeStart.AddDays(7)
@@ -1041,33 +1026,160 @@ Public Class ApptHostCtl
                 Dim nextW = hintDaysW.Where(Function(d) d >= rangeEndEx).OrderBy(Function(d) d).FirstOrDefault()
                 If prevW <> Date.MinValue Then
                     _edgeNavPrevAnchor = GetWeekStartSunday(prevW)
-                    _bodyPrevHint.Visible = True
                 End If
                 If nextW <> Date.MinValue Then
                     _edgeNavNextAnchor = GetWeekStartSunday(nextW)
-                    _bodyNextHint.Visible = True
                 End If
 
             Case ApptViewMode.MonthView
-                ApplyBodyEdgeHintVisualThemeMonth()
                 Dim startOfMonth = New DateTime(_state.CurrentDate.Year, _state.CurrentDate.Month, 1)
                 Dim endExclusiveM = startOfMonth.AddMonths(1)
                 Dim prevM = appts.Select(Function(a) a.AppDate.Date).Where(Function(d) d < startOfMonth).OrderByDescending(Function(d) d).FirstOrDefault()
                 Dim nextM = appts.Select(Function(a) a.AppDate.Date).Where(Function(d) d >= endExclusiveM).OrderBy(Function(d) d).FirstOrDefault()
                 If prevM <> Date.MinValue Then
                     _edgeNavPrevAnchor = New DateTime(prevM.Year, prevM.Month, 1)
-                    _bodyPrevHint.Visible = True
                 End If
                 If nextM <> Date.MinValue Then
                     _edgeNavNextAnchor = New DateTime(nextM.Year, nextM.Month, 1)
-                    _bodyNextHint.Visible = True
                 End If
         End Select
 
-        PositionBodyEdgeHints()
-        _bodyPrevHint.BringToFront()
-        _bodyNextHint.BringToFront()
+        _header.UpdateApptNavButtonVisibility(_edgeNavPrevAnchor.HasValue, _edgeNavNextAnchor.HasValue)
     End Sub
+
+    Private Sub EnsureScheduleContextMenu()
+        If _scheduleContextMenu IsNot Nothing Then Return
+        _scheduleContextWiredControls = New HashSet(Of Control)()
+        _scheduleContextMenu = New ContextMenuStrip() With {.Font = ScheduleContextMenuFont}
+        AddHandler _scheduleContextMenu.Opening, AddressOf ScheduleContextMenu_Opening
+
+        _menuExpandCollapse = New ToolStripMenuItem() With {.Font = ScheduleContextMenuFont}
+        AddHandler _menuExpandCollapse.Click, Sub() ToggleBodyWorkspaceExpanded()
+        _menuToggleFilters = New ToolStripMenuItem() With {.Font = ScheduleContextMenuFont}
+        AddHandler _menuToggleFilters.Click, Sub() _header.ToggleFilterStrip()
+        _menuPrevPeriod = New ToolStripMenuItem() With {.Font = ScheduleContextMenuFont}
+        AddHandler _menuPrevPeriod.Click, Sub() NavigatePrevious()
+        _menuNextPeriod = New ToolStripMenuItem() With {.Font = ScheduleContextMenuFont}
+        AddHandler _menuNextPeriod.Click, Sub() NavigateNext()
+        _menuPrevAppt = New ToolStripMenuItem() With {.Font = ScheduleContextMenuFont}
+        AddHandler _menuPrevAppt.Click, Sub() NavigateToPreviousAppointmentEdge()
+        _menuNextAppt = New ToolStripMenuItem() With {.Font = ScheduleContextMenuFont}
+        AddHandler _menuNextAppt.Click, Sub() NavigateToNextAppointmentEdge()
+        _menuAddAppt = New ToolStripMenuItem() With {.Font = ScheduleContextMenuFont}
+        AddHandler _menuAddAppt.Click, Sub() CreateAppointmentFromHeader()
+
+        _scheduleContextMenu.Items.AddRange(New ToolStripItem() {
+            _menuExpandCollapse,
+            _menuToggleFilters,
+            New ToolStripSeparator(),
+            _menuPrevPeriod,
+            _menuNextPeriod,
+            _menuPrevAppt,
+            _menuNextAppt,
+            New ToolStripSeparator(),
+            _menuAddAppt
+        })
+    End Sub
+
+    Private Sub ScheduleContextMenu_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs)
+        If _menuExpandCollapse Is Nothing Then Return
+        _menuExpandCollapse.Text = If(_bodyWorkspaceMaximized,
+            If(Eng, "Restore schedule header", "استعادة رأس الجدول"),
+            If(Eng, "Expand schedule", "توسيع الجدول"))
+        _menuExpandCollapse.ShortcutKeyDisplayString = "F11"
+        _menuToggleFilters.Text = If(_header.FiltersStripVisible,
+            If(Eng, "Hide filters", "إخفاء التصفية"),
+            If(Eng, "Show filters", "إظهار التصفية"))
+        _menuPrevPeriod.Text = If(Eng, "Previous period", "الفترة السابقة")
+        _menuPrevPeriod.ShortcutKeyDisplayString = "Ctrl+←"
+        _menuNextPeriod.Text = If(Eng, "Next period", "الفترة التالية")
+        _menuNextPeriod.ShortcutKeyDisplayString = "Ctrl+→"
+        _menuPrevAppt.Text = If(Eng, "Previous appointment", "الموعد السابق")
+        _menuPrevAppt.ShortcutKeyDisplayString = "Alt+←"
+        _menuPrevAppt.Enabled = _edgeNavPrevAnchor.HasValue
+        _menuNextAppt.Text = If(Eng, "Next appointment", "الموعد التالي")
+        _menuNextAppt.ShortcutKeyDisplayString = "Alt+→"
+        _menuNextAppt.Enabled = _edgeNavNextAnchor.HasValue
+        _menuAddAppt.Text = If(Eng, "Add appointment", "إضافة موعد")
+    End Sub
+
+    Private Sub WireScheduleContextMenuForView(view As Control)
+        EnsureScheduleContextMenu()
+        If view Is Nothing Then Return
+        UnwireScheduleContextMenuFromView(_scheduleContextViewRoot)
+        _scheduleContextViewRoot = view
+        WireScheduleContextMenuControlTree(view)
+        AddHandler view.ControlAdded, AddressOf ScheduleView_ControlAdded
+        AddHandler view.ControlRemoved, AddressOf ScheduleView_ControlRemoved
+    End Sub
+
+    Private Sub UnwireScheduleContextMenuFromView(view As Control)
+        If view Is Nothing OrElse _scheduleContextWiredControls Is Nothing Then Return
+        RemoveHandler view.ControlAdded, AddressOf ScheduleView_ControlAdded
+        RemoveHandler view.ControlRemoved, AddressOf ScheduleView_ControlRemoved
+        UnwireScheduleContextMenuControlTree(view)
+    End Sub
+
+    Private Sub WireScheduleContextMenuControlTree(root As Control)
+        If root Is Nothing OrElse IsAppointmentContextMenuControl(root) Then Return
+        If Not _scheduleContextWiredControls.Contains(root) Then
+            AddHandler root.MouseDown, AddressOf ScheduleSurface_MouseDown
+            AddHandler root.MouseUp, AddressOf ScheduleSurface_MouseUp
+            _scheduleContextWiredControls.Add(root)
+        End If
+        For Each child As Control In root.Controls
+            WireScheduleContextMenuControlTree(child)
+        Next
+    End Sub
+
+    Private Sub UnwireScheduleContextMenuControlTree(root As Control)
+        If root Is Nothing OrElse _scheduleContextWiredControls Is Nothing Then Return
+        If _scheduleContextWiredControls.Contains(root) Then
+            RemoveHandler root.MouseDown, AddressOf ScheduleSurface_MouseDown
+            RemoveHandler root.MouseUp, AddressOf ScheduleSurface_MouseUp
+            _scheduleContextWiredControls.Remove(root)
+        End If
+        For Each child As Control In root.Controls
+            UnwireScheduleContextMenuControlTree(child)
+        Next
+    End Sub
+
+    Private Sub ScheduleView_ControlAdded(sender As Object, e As ControlEventArgs)
+        WireScheduleContextMenuControlTree(e.Control)
+    End Sub
+
+    Private Sub ScheduleView_ControlRemoved(sender As Object, e As ControlEventArgs)
+        UnwireScheduleContextMenuControlTree(e.Control)
+    End Sub
+
+    Private Sub ScheduleSurface_MouseDown(sender As Object, e As MouseEventArgs)
+        If e.Button <> MouseButtons.Left Then Return
+        Dim control = TryCast(sender, Control)
+        If control Is Nothing OrElse IsAppointmentContextMenuControl(control) Then Return
+        TryFocusScheduleBodySurface()
+    End Sub
+
+    Private Sub ScheduleSurface_MouseUp(sender As Object, e As MouseEventArgs)
+        If e.Button <> MouseButtons.Right Then Return
+        Dim control = TryCast(sender, Control)
+        If control Is Nothing OrElse IsAppointmentContextMenuControl(control) Then Return
+        EnsureScheduleContextMenu()
+        _scheduleContextMenu.Show(control, e.Location)
+    End Sub
+
+    Private Shared Function IsAppointmentContextMenuControl(control As Control) As Boolean
+        Dim current = control
+        While current IsNot Nothing
+            Dim typeName = current.GetType().Name
+            If String.Equals(typeName, "ApptCard", StringComparison.Ordinal) OrElse
+               String.Equals(typeName, "HtmlCard", StringComparison.Ordinal) OrElse
+               String.Equals(typeName, "ApptCardCtl", StringComparison.Ordinal) Then
+                Return True
+            End If
+            current = current.Parent
+        End While
+        Return False
+    End Function
 
     Private Sub CreateAppointmentFromHeader()
         CreateAppointmentAt(_state.CurrentDate.Date.Add(_state.WorkStartTime))
@@ -1093,17 +1205,52 @@ Public Class ApptHostCtl
             .WhatsIncludeNotes = True
         }
 
-        Using editor As New AppointCEditorForm(appointment, True)
+        CloseModularDayOverlaysBeforeModal()
+        ' setAppt:=True — editor does not INSERT; host AddAppointment performs single persist (all views: day/week/month/…).
+        Using editor As New AppointCEditorForm(appointment, isNew:=True, setAppt:=True)
             If editor.ShowDialog(FindForm()) = DialogResult.OK Then
-                AddAppointment(editor.AppointmentC)
+                AddAppointment(editor.AppointmentC, editor.ReminderMessageEnglish)
             End If
         End Using
+    End Sub
+
+    ''' <summary>Dim panels and centered MAX hosts sit above modal stacking unless closed; closes them before <see cref="AppointCEditorForm"/> ShowDialog.</summary>
+    Private Sub CloseModularDayOverlaysBeforeModal()
+        Dim wk = TryCast(_currentView, ApptWeekCtl)
+        If wk IsNot Nothing Then wk.RequestCloseWeekDrawer()
+        Dim mo = TryCast(_currentView, ApptMonthCtl)
+        If mo IsNot Nothing Then mo.RequestCloseDayDrawer()
+    End Sub
+
+    Private Sub OnInteractionHubAppointmentDoubleClicked(ap As AppointmentC)
+        RaiseEvent AppointmentDoubleClicked(ap)
+        If ap Is Nothing Then Return
+        BeginInvoke(New MethodInvoker(Sub()
+            Try
+                CloseModularDayOverlaysBeforeModal()
+                Dim owner = FindForm()
+                Using frm As New AppointCEditorForm(ap, isNew:=False, setAppt:=True)
+                    frm.apptDate.EditValue = ap.AppDate
+                    If frm.ShowDialog(owner) = DialogResult.OK Then
+                        UpdateAppointment(frm.AppointmentC, frm.ReminderMessageEnglish)
+                    End If
+                End Using
+            Catch ex As Exception
+                ApptErrorHelper.Report(ex,
+                                       "ApptHostCtl.OnInteractionHubAppointmentDoubleClicked",
+                                       showUser:=True,
+                                       owner:=FindForm(),
+                                       englishMessage:="Could not open the appointment editor.",
+                                       arabicMessage:="تعذر فتح محرر الموعد.")
+            End Try
+        End Sub))
     End Sub
 
     Private Sub EnsureActiveView()
         Dim target = CType(_state.CurrentView, ApptViewMode)
         Dim expectedType = _viewFactory.Create(target).GetType()
         If _currentView IsNot Nothing AndAlso _currentView.GetType() Is expectedType Then
+            _currentView.TabStop = True
             Return
         End If
 
@@ -1118,6 +1265,7 @@ Public Class ApptHostCtl
 
         _currentView = _viewFactory.Create(target)
         _currentView.Dock = DockStyle.Fill
+        _currentView.TabStop = True
         Dim modularView = TryCast(_currentView, IApptViewCtl)
         If modularView IsNot Nothing Then
             modularView.InteractionHub = _interactionHub
@@ -1130,6 +1278,7 @@ Public Class ApptHostCtl
         Finally
             viewHost.ResumeLayout(True)
         End Try
+        WireScheduleContextMenuForView(_currentView)
     End Sub
 
     Public Sub SetFilters(patientId As Integer?, DrID As Integer?, reason As String, start As DateTime, [end] As DateTime)
@@ -1147,7 +1296,7 @@ Public Class ApptHostCtl
                                    englishMessage:="Could not apply the appointment filters.",
                                    arabicMessage:="تعذر تطبيق فلاتر المواعيد.")
         Finally
-            LoadAndRender()
+            LoadAndRenderForced()
         End Try
     End Sub
 
@@ -1171,12 +1320,51 @@ Public Class ApptHostCtl
                                    arabicMessage:="تعذر تغيير عرض المواعيد.")
         Finally
             _suppressViewNavRecording = False
-            LoadAndRender()
+            LoadAndRenderForced()
         End Try
+    End Sub
+
+    ''' <summary>Arms a short suppression so incidental <see cref="LoadAndRender"/> calls won't run <see cref="IApptViewCtl.BindData"/> while centered MAX opens (that was closing the dialog).</summary>
+    Friend Sub NotifyDayFocusDialogArm(Optional deferBindRefreshMs As Integer = 920)
+        Dim until = DateTime.UtcNow.AddMilliseconds(Math.Max(200, deferBindRefreshMs))
+        If until > _deferModularBindDataUtc Then _deferModularBindDataUtc = until
+    End Sub
+
+    Friend Sub NotifyDayFocusDialogDismissedArm()
+        _deferModularBindDataUtc = DateTime.MinValue
     End Sub
 
     Public Sub LoadAndRender()
         If _suppressRefresh OrElse _provider Is Nothing Then Return
+        If DateTime.UtcNow < _deferModularBindDataUtc Then Return
+        ExecuteLoadAndRenderCore()
+    End Sub
+
+    ''' <summary>Bypasses the short deferral used during MAX open; use for user-driven or data-changing refreshes.</summary>
+    Public Sub LoadAndRenderForced()
+        _deferModularBindDataUtc = DateTime.MinValue
+        If _suppressRefresh OrElse _provider Is Nothing Then Return
+        ExecuteLoadAndRenderCore()
+    End Sub
+
+    Private Function CreateModularApptViewRequest(stateSnapshot As ApptState, scrollPending As AppointmentC) As ApptViewRequest
+        Return New ApptViewRequest With {
+            .State = stateSnapshot,
+            .Data = _currentData,
+            .AppointmentAppearanceSelector = AppointmentAppearanceSelector,
+            .PendingScrollAppointment = scrollPending,
+            .DragHoldTimeMs = DragHoldTimeMs,
+            .NavigateDatePrevious = Sub() NavigatePrevious(),
+            .NavigateDateNext = Sub() NavigateNext(),
+            .NavigateAppointmentPrevious = Sub() NavigateToPreviousAppointmentEdge(),
+            .NavigateAppointmentNext = Sub() NavigateToNextAppointmentEdge(),
+            .ToggleBodyWorkspaceExpand = AddressOf ToggleBodyWorkspaceExpanded,
+            .QuickAddAppointment = AddressOf CreateAppointmentFromHeader,
+            .IsBodyWorkspaceExpanded = _bodyWorkspaceMaximized
+        }
+    End Function
+
+    Private Sub ExecuteLoadAndRenderCore()
 
         Try
             If _state.PatientOnlyMode Then
@@ -1193,18 +1381,13 @@ Public Class ApptHostCtl
 
             Dim modularView = TryCast(_currentView, IApptViewCtl)
             If modularView IsNot Nothing Then
-                modularView.BindData(New ApptViewRequest With {
-                    .State = stateSnapshot.Clone(),
-                    .Data = _currentData,
-                    .AppointmentAppearanceSelector = AppointmentAppearanceSelector,
-                    .PendingScrollAppointment = scrollPending,
-                    .DragHoldTimeMs = DragHoldTimeMs
-                })
+                modularView.BindData(CreateModularApptViewRequest(stateSnapshot.Clone(), scrollPending))
             End If
 
             _header.ApplyState(stateSnapshot.Clone(), _currentData, BuildPatientCaption(), CurrentPatient IsNot Nothing)
             SyncViewNavButtonsVisibility()
-            UpdateBodyEdgeHints()
+            UpdateApptEdgeNavigation()
+            If _currentView IsNot Nothing Then WireScheduleContextMenuForView(_currentView)
             If _btnBodyExpand IsNot Nothing Then
                 SyncBodyExpandButtonVisual()
                 LayoutBodyWorkspaceExpandButton()
@@ -1231,7 +1414,7 @@ Public Class ApptHostCtl
                                    englishMessage:="Could not add the appointment.",
                                    arabicMessage:="تعذر إضافة الموعد.")
         Finally
-            LoadAndRender()
+            LoadAndRenderForced()
         End Try
     End Sub
 
@@ -1247,7 +1430,7 @@ Public Class ApptHostCtl
                                    englishMessage:="Could not update the appointment.",
                                    arabicMessage:="تعذر تحديث الموعد.")
         Finally
-            LoadAndRender()
+            LoadAndRenderForced()
         End Try
     End Sub
 
@@ -1264,7 +1447,7 @@ Public Class ApptHostCtl
                                    englishMessage:="Could not delete the appointment.",
                                    arabicMessage:="تعذر حذف الموعد.")
         Finally
-            LoadAndRender()
+            LoadAndRenderForced()
         End Try
     End Sub
 
@@ -1294,12 +1477,12 @@ Public Class ApptHostCtl
 
             _state.CurrentView = ApptViewMode.ThisWeekFull
             _state.CurrentDate = GetWeekStartSaturday(anchorDate.Date).AddDays(weekOffset * 7)
-            LoadAndRender()
+            LoadAndRenderForced()
             Application.DoEvents()
             weekCaptionOut = BuildRangeCaption(_state, _currentData)
             Dim bmp As Bitmap = Nothing
             If alsoWritePng Then
-                bmp = SchedulerSnapshotShared.CaptureSnapshot(If(_bodyEdgeHintsInBody, _bodyHost, CType(Me, Control)), _bodyHost, CType(_state.CurrentView, SchedulerNew.ViewMode), Nothing)
+                bmp = SchedulerSnapshotShared.CaptureSnapshot(_bodyHost, _bodyHost, CType(_state.CurrentView, SchedulerNew.ViewMode), Nothing)
             End If
             If alsoWriteHtml AndAlso Not String.IsNullOrWhiteSpace(htmlExportDir) Then
                 Try
@@ -1352,7 +1535,7 @@ Public Class ApptHostCtl
             _state.FilterStartDate = savedState.FilterStartDate
             _state.FilterEndDate = savedState.FilterEndDate
             _state.PatientOnlyMode = savedState.PatientOnlyMode
-            LoadAndRender()
+            LoadAndRenderForced()
         End Try
     End Function
 
@@ -1390,7 +1573,7 @@ Public Class ApptHostCtl
             Application.DoEvents()
             ApptErrorHelper.SafeRefresh(_bodyHost, "ApptHostCtl.OnWeekSnapshotRequested.RefreshBodyHost")
             Application.DoEvents()
-            bmp = SchedulerSnapshotShared.CaptureSnapshot(If(_bodyEdgeHintsInBody, _bodyHost, CType(Me, Control)), _bodyHost, CType(_state.CurrentView, SchedulerNew.ViewMode), Nothing)
+            bmp = SchedulerSnapshotShared.CaptureSnapshot(_bodyHost, _bodyHost, CType(_state.CurrentView, SchedulerNew.ViewMode), Nothing)
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
                                    "ApptHostCtl.OnWeekSnapshotRequested.Capture",
@@ -1399,7 +1582,7 @@ Public Class ApptHostCtl
                                    englishMessage:="Could not capture the current schedule view.",
                                    arabicMessage:="تعذر التقاط عرض الجدول الحالي.")
         Finally
-            LoadAndRender()
+            LoadAndRenderForced()
         End Try
 
         If bmp Is Nothing Then
@@ -1478,7 +1661,7 @@ Public Class ApptHostCtl
                                    englishMessage:="Could not load patient appointment data.",
                                    arabicMessage:="تعذر تحميل بيانات مواعيد المريض.")
         Finally
-            LoadAndRender()
+            LoadAndRenderForced()
         End Try
     End Sub
 
@@ -1486,7 +1669,7 @@ Public Class ApptHostCtl
         Try
             If appt Is Nothing Then Return
             If _provider.TryUpdateAppointmentTimes(appt, newStart, newEnd) Then
-                LoadAndRender()
+                LoadAndRenderForced()
             End If
         Catch ex As Exception
             ApptErrorHelper.Report(ex,
@@ -1503,6 +1686,7 @@ Public Class ApptHostCtl
             LogResourceSnapshot("before-dispose")
 
             Try
+                RemoveHandler _interactionHub.AppointmentDoubleClicked, AddressOf OnInteractionHubAppointmentDoubleClicked
                 RemoveHandler _interactionHub.EmptyDateInvoked, AddressOf OnEmptyDateInvokedFromHub
                 RemoveHandler _interactionHub.AppointmentStatusChangeRequested, AddressOf OnAppointmentStatusChangeFromHub
                 RemoveHandler _interactionHub.WeekColumnAppointmentDrop, AddressOf OnWeekColumnAppointmentDrop
@@ -1514,6 +1698,8 @@ Public Class ApptHostCtl
             Try
                 RemoveHandler _header.PrevRequested, AddressOf NavigatePrevious
                 RemoveHandler _header.NextRequested, AddressOf NavigateNext
+                RemoveHandler _header.PrevApptRequested, AddressOf NavigateToPreviousAppointmentEdge
+                RemoveHandler _header.NextApptRequested, AddressOf NavigateToNextAppointmentEdge
                 RemoveHandler _header.AddRequested, AddressOf CreateAppointmentFromHeader
                 RemoveHandler _header.WeekSnapshotRequested, AddressOf OnWeekSnapshotRequested
                 RemoveHandler _header.ViewChanged, AddressOf OnHeaderViewChanged
@@ -1521,6 +1707,7 @@ Public Class ApptHostCtl
                 RemoveHandler _header.ApptCardLabelColorsChanged, AddressOf OnApptCardLabelColorsChanged
                 RemoveHandler _header.PrevViewRequested, AddressOf NavigateViewBack
                 RemoveHandler _header.NextViewRequested, AddressOf NavigateViewForward
+                RemoveHandler _header.FilterStripVisibilityChanged, AddressOf OnHeaderFilterStripVisibilityChanged
             Catch ex As Exception
                 ApptErrorHelper.Report(ex, "ApptHostCtl.Dispose.HeaderHandlers", showUser:=False)
             End Try
@@ -1529,13 +1716,18 @@ Public Class ApptHostCtl
                 If _btnBodyExpand IsNot Nothing Then RemoveHandler _btnBodyExpand.Click, AddressOf BodyExpandButton_Click
                 If _btnBodyQuickAdd IsNot Nothing Then RemoveHandler _btnBodyQuickAdd.Click, AddressOf BodyQuickAddButton_Click
                 If _bodyHost IsNot Nothing Then
-                    RemoveHandler _bodyHost.SizeChanged, AddressOf BodyHost_ChangedForExpandBtnLayout
-                    RemoveHandler _bodyHost.LocationChanged, AddressOf BodyHost_ChangedForExpandBtnLayout
-                    RemoveHandler _bodyHost.SizeChanged, AddressOf BodyHost_ChangedForEdgeHints
+                    RemoveHandler _bodyHost.SizeChanged, AddressOf OnBodyChromeLayoutChanged
+                    RemoveHandler _bodyHost.LocationChanged, AddressOf OnBodyChromeLayoutChanged
                 End If
-                If _bodyViewHost IsNot Nothing Then RemoveHandler _bodyViewHost.SizeChanged, AddressOf BodyHost_ChangedForExpandBtnLayout
-                If _bodyPrevHintHost IsNot Nothing Then RemoveHandler _bodyPrevHintHost.SizeChanged, AddressOf BodyHost_ChangedForEdgeHints
-                If _bodyNextHintHost IsNot Nothing Then RemoveHandler _bodyNextHintHost.SizeChanged, AddressOf BodyHost_ChangedForEdgeHints
+                If _bodyViewHost IsNot Nothing Then RemoveHandler _bodyViewHost.SizeChanged, AddressOf OnBodyChromeLayoutChanged
+                If _bodyChromeHost IsNot Nothing Then RemoveHandler _bodyChromeHost.SizeChanged, AddressOf OnBodyChromeLayoutChanged
+                UnwireScheduleContextMenuFromView(_scheduleContextViewRoot)
+                _scheduleContextViewRoot = Nothing
+                If _scheduleContextMenu IsNot Nothing Then
+                    RemoveHandler _scheduleContextMenu.Opening, AddressOf ScheduleContextMenu_Opening
+                    _scheduleContextMenu.Dispose()
+                    _scheduleContextMenu = Nothing
+                End If
             Catch ex As Exception
                 ApptErrorHelper.Report(ex, "ApptHostCtl.Dispose.BodyHandlers", showUser:=False)
             End Try
@@ -1556,8 +1748,7 @@ Public Class ApptHostCtl
             Try
                 If _bodyHost IsNot Nothing Then DisposeChildControls(_bodyHost)
                 If _bodyViewHost IsNot Nothing Then DisposeChildControls(_bodyViewHost)
-                If _bodyPrevHintHost IsNot Nothing Then DisposeChildControls(_bodyPrevHintHost)
-                If _bodyNextHintHost IsNot Nothing Then DisposeChildControls(_bodyNextHintHost)
+                If _bodyChromeHost IsNot Nothing Then DisposeChildControls(_bodyChromeHost)
             Catch ex As Exception
                 ApptErrorHelper.Report(ex, "ApptHostCtl.Dispose.ClearChildHosts", showUser:=False)
             End Try

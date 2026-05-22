@@ -129,6 +129,13 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
             ToList()
     End Function
 
+    ''' <summary>Maps <see cref="ApptState.OrderByDoctorId"/> to the ordering helper (<c>Nothing</c> when unset).</summary>
+    Private Shared Function PreferOrderDoctorId(st As ApptState) As Integer?
+        If st Is Nothing Then Return Nothing
+        If Not st.OrderByDoctorId.HasValue OrElse st.OrderByDoctorId.Value <= 0 Then Return Nothing
+        Return st.OrderByDoctorId.Value
+    End Function
+
     Private Shared Sub GetViewDateWindow(st As ApptState, ByRef startD As Date, ByRef endD As Date)
         Select Case st.CurrentView
             Case ApptViewMode.DayView, ApptViewMode.DoctorsDay
@@ -159,7 +166,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
         Dim endHour = Math.Min(24, Math.Max(startHour + 1, CInt(Math.Ceiling(st.WorkEndTime.TotalHours))))
         Dim totalTimeMinutes = Math.Max(30, (endHour - startHour) * 60)
         Dim dlW = ApptDayLine.DayLabelWidth
-        ''' <summary>Time axis width in HTML: same floor as live <see cref="ApptDayLine"/> (<see cref="ApptDayLine.MinTimelinePixelsPerHour"/> × visible hours); horizontal scroll when needed.</summary>
+        ' Time axis width in HTML: same floor as live ApptDayLine minimum pixels-per-hour across visible hours; horizontal scroll when needed.
         Dim timelineRailMinPx = CInt(Math.Ceiling((CDbl(totalTimeMinutes) / 60.0R) * ApptDayLine.MinTimelinePixelsPerHour))
         timelineRailMinPx = Math.Max(120, timelineRailMinPx)
         Const laneRowStepPx As Integer = 96
@@ -192,7 +199,8 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
         Dim z As Integer = 1
         For dayIndex = 0 To 6
             Dim d = weekStart.AddDays(dayIndex)
-            Dim dayAppts = ApptTheme.OrderAppointmentsForDisplay(apps.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = d.Date), request.Data, linkedDoctorAtEnd)
+            Dim dayRaw = apps.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = d.Date)
+            Dim dayAppts = ApptTheme.OrderAppointmentsForWeekDayGroupsAndSolos(dayRaw, request.Data, PreferOrderDoctorId(st))
 
             Dim stackRows As New List(Of List(Of AppointmentC))()
             For Each ap In dayAppts
@@ -254,7 +262,8 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
         Dim n = If(sixDay, 6, 7)
         For i = 0 To n - 1
             Dim d = weekStart.AddDays(i)
-            Dim dayList = ApptTheme.OrderAppointmentsForDisplay(apps.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = d), request.Data, linkedDoctorAtEnd)
+            Dim dayRaw = apps.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = d)
+            Dim dayList = ApptTheme.OrderAppointmentsForWeekDayGroupsAndSolos(dayRaw, request.Data, PreferOrderDoctorId(st))
             Dim cnt = dayList.Count
             Dim apSfx = If(Eng, If(cnt = 1, "Appt", "Appts"), If(cnt = 1, "موعد", "مواعيد"))
             Dim c As New WeekSnapshotHtmlColumn With {
@@ -296,7 +305,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
         Dim byDr = apps.GroupBy(Function(a) a.DrID).ToDictionary(Function(g) g.Key, Function(g) g)
         Dim drIds = If(st.DoctorFilterId.HasValue AndAlso st.DoctorFilterId.Value > 0,
             New List(Of Integer) From {st.DoctorFilterId.Value},
-            ApptTheme.OrderDoctorColumnIdsForDisplay(apps.Select(Function(a) a.DrID), request.Data, linkedDoctorAtEnd))
+            ApptTheme.OrderDoctorColumnIdsForDisplay(apps.Select(Function(a) a.DrID), request.Data, linkedDoctorAtEnd, PreferOrderDoctorId(st)))
         drIds = drIds.Where(Function(id) byDr.ContainsKey(id)).ToList()
 
         Dim tl As New WeekSnapshotHtmlDayTimeline With {
@@ -324,7 +333,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
             Dim col As New WeekSnapshotHtmlDayColumn With {.DoctorName = dName}
             Dim laneEnds As New List(Of DateTime)()
             Dim z As Integer = 1
-            For Each ap In ApptTheme.OrderAppointmentsForDisplay(grp, request.Data, linkedDoctorAtEnd)
+            For Each ap In ApptTheme.OrderAppointmentsForDisplay(grp, request.Data, linkedDoctorAtEnd, PreferOrderDoctorId(st))
                 Dim startT = If(ap.StartDateTime < workStartDay, workStartDay, ap.StartDateTime)
                 Dim endT = If(ap.EndDateTime > workEndDay, workEndDay, ap.EndDateTime)
                 If endT <= startT Then endT = startT.AddMinutes(1)
@@ -371,7 +380,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
         Dim byDr = apps.GroupBy(Function(a) a.DrID).ToDictionary(Function(g) g.Key, Function(g) g)
         Dim drIds = If(st.DoctorFilterId.HasValue AndAlso st.DoctorFilterId.Value > 0,
             New List(Of Integer) From {st.DoctorFilterId.Value},
-            ApptTheme.OrderDoctorColumnIdsForDisplay(apps.Select(Function(a) a.DrID), request.Data, linkedDoctorAtEnd))
+            ApptTheme.OrderDoctorColumnIdsForDisplay(apps.Select(Function(a) a.DrID), request.Data, linkedDoctorAtEnd, PreferOrderDoctorId(st)))
         drIds = drIds.Where(Function(id) byDr.ContainsKey(id)).ToList()
         If drIds.Count = 0 Then Return
         For Each drId In drIds
@@ -385,7 +394,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
                 .DateLineForeColor = HeaderDateLineFore,
                 .IsToday = (dayD = Date.Today)
             }
-            For Each ap In ApptTheme.OrderAppointmentsForDisplay(grp, request.Data, linkedDoctorAtEnd)
+            For Each ap In ApptTheme.OrderAppointmentsForDisplay(grp, request.Data, linkedDoctorAtEnd, PreferOrderDoctorId(st))
                 c.Appointments.Add(ToHtmlApptRow(CreateCardVm(ap, request), st.Use24HourFormat))
             Next
             ctx.Columns.Add(c)
@@ -395,7 +404,8 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
     Private Shared Sub AddCalendarDayColumns(ctx As WeekSnapshotHtmlContext, st As ApptState, request As ApptViewRequest, apps As List(Of AppointmentC), firstDay As Date, nDays As Integer, linkedDoctorAtEnd As Boolean)
         For i = 0 To nDays - 1
             Dim d = firstDay.AddDays(i)
-            Dim dayList = ApptTheme.OrderAppointmentsForDisplay(apps.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = d), request.Data, linkedDoctorAtEnd)
+            Dim dayRaw = apps.Where(Function(a) ApptTheme.GetAppointmentCalendarDay(a) = d)
+            Dim dayList = ApptTheme.OrderAppointmentsForWeekDayGroupsAndSolos(dayRaw, request.Data, PreferOrderDoctorId(st))
             Dim cnt = dayList.Count
             Dim apSfx = If(Eng, If(cnt = 1, "Appt", "Appts"), If(cnt = 1, "موعد", "مواعيد"))
             Dim c As New WeekSnapshotHtmlColumn With {
@@ -418,7 +428,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
         Dim byDay = apps.GroupBy(Function(a) ApptTheme.GetAppointmentCalendarDay(a)).OrderBy(Function(g) g.Key).ToList()
         For Each g In byDay
             Dim d = g.Key
-            Dim list = ApptTheme.OrderAppointmentsForDisplay(g, request.Data, linkedDoctorAtEnd)
+            Dim list = ApptTheme.OrderAppointmentsForDisplay(g, request.Data, linkedDoctorAtEnd, PreferOrderDoctorId(st))
             Dim cnt = list.Count
             Dim apSfx = If(Eng, If(cnt = 1, "Appt", "Appts"), If(cnt = 1, "موعد", "مواعيد"))
             Dim c As New WeekSnapshotHtmlColumn With {

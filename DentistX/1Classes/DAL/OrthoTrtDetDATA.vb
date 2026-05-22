@@ -24,17 +24,29 @@ Imports Dapper
 
 		Public Function Select_Record(ByVal clsOrthoTrtDet As OrthoTrtDet) As OrthoTrtDet
 			Using conn As New SqlConnection(ConnectionString)
-			Dim sql As String = "Select * FROM OrthoTrtDet WHERE DetID = @DetID And PatientID = @PatientID And OrthoID = @OrthoID  ORDER BY [WorkDate] DESC"
-			Return conn.QuerySingleOrDefault(Of OrthoTrtDet)(sql, New With {.DetID = clsOrthoTrtDet.DetID, .PatientID = clsOrthoTrtDet.PatientID, .OrthoID = clsOrthoTrtDet.OrthoID})
+			Dim sql As String = "SELECT * FROM OrthoTrtDet WHERE DetID = @DetID AND PatientID = @PatientID ORDER BY [WorkDate] DESC"
+			Return conn.QuerySingleOrDefault(Of OrthoTrtDet)(sql, New With {.DetID = clsOrthoTrtDet.DetID, .PatientID = clsOrthoTrtDet.PatientID})
 		End Using
+		End Function
+
+		Private Shared Function EffectiveOrthoIdForDet(patientId As Integer, orthoId As Integer) As Integer
+			If orthoId > 0 Then Return orthoId
+			Return OrthoInfDATA.ResolveDefaultOrthoIdForPatient(patientId)
+		End Function
+
+		Private Shared Function EffectiveOrthoIdForDetUpdate(oldD As OrthoTrtDet, newD As OrthoTrtDet) As Integer
+			If newD.OrthoID > 0 Then Return newD.OrthoID
+			If oldD IsNot Nothing AndAlso oldD.OrthoID > 0 Then Return oldD.OrthoID
+			Return OrthoInfDATA.ResolveDefaultOrthoIdForPatient(newD.PatientID)
 		End Function
 
 		Public Function Add(ByVal clsOrthoTrtDet As OrthoTrtDet) As Boolean
 			Dim RowsAffected As Integer=0
+			Dim orthoId As Integer = EffectiveOrthoIdForDet(clsOrthoTrtDet.PatientID, clsOrthoTrtDet.OrthoID)
 			Using conn As New SqlConnection(ConnectionString)
 			Dim sql As String = "INSERT INTO OrthoTrtDet (PatientID, OrthoID, DiagID, WorkDate, WireMeasure, WireType, WireImg, WireNotes) 
 								VALUES (@PatientID, @OrthoID, @DiagID, @WorkDate, @WireMeasure, @WireType, @WireImg, @WireNotes)"
-			RowsAffected = conn.Execute(sql, New With {.PatientID = clsOrthoTrtDet.PatientID, .OrthoID = clsOrthoTrtDet.OrthoID, .DiagID = clsOrthoTrtDet.DiagID, .WorkDate = clsOrthoTrtDet.WorkDate,
+			RowsAffected = conn.Execute(sql, New With {.PatientID = clsOrthoTrtDet.PatientID, .OrthoID = orthoId, .DiagID = clsOrthoTrtDet.DiagID, .WorkDate = clsOrthoTrtDet.WorkDate,
 										.WireMeasure = clsOrthoTrtDet.WireMeasure, .WireType = clsOrthoTrtDet.WireType,
 										.WireImg = clsOrthoTrtDet.WireImg, .WireNotes = clsOrthoTrtDet.WireNotes})
 			Return RowsAffected > 0
@@ -43,9 +55,10 @@ Imports Dapper
 
 		Public Function Update(oldOrthoTrtDet As OrthoTrtDet, newOrthoTrtDet As OrthoTrtDet) As Boolean
 			Using conn As New SqlConnection(ConnectionString)
+			Dim newOrthoId As Integer = EffectiveOrthoIdForDetUpdate(oldOrthoTrtDet, newOrthoTrtDet)
 			Dim parameters = New With {
 					.NewPatientID = newOrthoTrtDet.PatientID, .OldPatientID = oldOrthoTrtDet.PatientID,
-					.NewOrthoID = newOrthoTrtDet.OrthoID, .OldOrthoID = oldOrthoTrtDet.OrthoID,
+					.NewOrthoID = newOrthoId, .OldOrthoID = oldOrthoTrtDet.OrthoID,
 					.NewDiagID = newOrthoTrtDet.DiagID, .OldDiagID = oldOrthoTrtDet.DiagID, .OldDetID = oldOrthoTrtDet.DetID,
 					.NewWorkDate = newOrthoTrtDet.WorkDate, .OldWorkDate = oldOrthoTrtDet.WorkDate,
 					.NewWireMeasure = newOrthoTrtDet.WireMeasure, .OldWireMeasure = oldOrthoTrtDet.WireMeasure,
@@ -56,7 +69,7 @@ Imports Dapper
 			Dim affectedRows As Integer = conn.Execute("UPDATE [OrthoTrtDet] SET [PatientID] = @NewPatientID, [OrthoID] = @NewOrthoID, [DiagID] = @NewDiagID, [WorkDate] = @NewWorkDate,
 													[WireMeasure] = @NewWireMeasure, [WireType] = @NewWireType, [WireImg] = @NewWireImg,
 													[WireNotes] = @NewWireNotes 
-													WHERE [DetID] = @OldDetID AND [OrthoID] = @OldOrthoID AND [PatientID] = @OldPatientID", parameters)
+													WHERE [DetID] = @OldDetID AND [PatientID] = @OldPatientID AND ISNULL([OrthoID], 0) = ISNULL(@OldOrthoID, 0)", parameters)
 			Return affectedRows > 0
 			End Using
 		End Function
@@ -64,7 +77,7 @@ Imports Dapper
 		Public Function Delete(ByVal clsOrthoTrtDet As OrthoTrtDet) As Boolean
 			Dim deleteStatement As String =
 			"DELETE FROM [OrthoTrtDet] 
-			WHERE DetID = @DetID AND OrthoID = @OrthoID AND PatientID = @PatientID"
+			WHERE DetID = @DetID AND PatientID = @PatientID AND ISNULL(OrthoID, 0) = ISNULL(@OrthoID, 0)"
 			Using connection As SqlConnection = DentistXDATA.GetConnection()
 				connection.Open()
 				Dim affectedRows As Integer = connection.Execute(deleteStatement, New With {.DetID = clsOrthoTrtDet.DetID, .OrthoID = clsOrthoTrtDet.OrthoID, .PatientID = clsOrthoTrtDet.PatientID})

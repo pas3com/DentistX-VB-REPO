@@ -21,7 +21,7 @@ Public Class NewAccounting
     Private ReadOnly _whatsBinder As PatientWhatsControlsBinder
     ''' <summary>Normalized English PayType values to show in GridViewPays (Cash tab = always Cash).</summary>
     Private _mainPaysPayTypeFilter As HashSet(Of String)
-    ''' <summary>Normalized English PayType values for AllPaysView (driven by tab + pay-type combo).</summary>
+    ''' <summary>Normalized English PayType values for AllPaysView; Nothing = show all pay types (always after filters apply).</summary>
     Private _allPaysViewPayTypeFilter As HashSet(Of String)
     ''' <summary>Normalized English PayType values for ChqsGridView; Nothing = show all.</summary>
     Private _chqsPaysPayTypeFilter As HashSet(Of String)
@@ -411,17 +411,18 @@ Public Class NewAccounting
     End Sub
 
     Private Sub RadioFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RadioFilter.SelectedIndexChanged
-        Select Case RadioFilter.SelectedIndex
-            Case 0
-                LoadDataRelation(CurrentPatient.PatientID, 0)
-            Case 1
-                LoadDataRelation(CurrentPatient.PatientID, 1)
-            Case 2
-                LoadDataRelation(CurrentPatient.PatientID, 2)
-            Case 3
-                LoadDataRelation(CurrentPatient.PatientID, 3)
-        End Select
+        If CurrentPatient Is Nothing Then Return
+        LoadDataRelation(CurrentPatient.PatientID, MapRadioFilterIndexToTreatmentFilter(RadioFilter.SelectedIndex))
     End Sub
+
+    ''' <summary>Radio order: All (0), Tooth (1), Ortho (2) — matches <see cref="LoadDataRelation"/> filter indices 0, 1, 3.</summary>
+    Private Shared Function MapRadioFilterIndexToTreatmentFilter(radioSelectedIndex As Integer) As Integer
+        Select Case radioSelectedIndex
+            Case 1 : Return 1
+            Case 2 : Return 3
+            Case Else : Return 0
+        End Select
+    End Function
 
     Public Sub LoadDataRelation(ByVal patientID As Integer, Optional index As Integer = 0)
         Try
@@ -579,7 +580,7 @@ Public Class NewAccounting
         End Try
     End Sub
     Public Sub LoadSubDataDapper(ByVal patientID As Integer)
-        Dim filterIndex = If(RadioFilter IsNot Nothing, RadioFilter.SelectedIndex, 0)
+        Dim filterIndex = If(RadioFilter IsNot Nothing, MapRadioFilterIndexToTreatmentFilter(RadioFilter.SelectedIndex), 0)
         LoadDataRelation(patientID, filterIndex)
 
         Dim currentTreatment As Patient_Trts = GetSelectedTreatment()
@@ -1630,8 +1631,107 @@ Public Class NewAccounting
         _attachedListToolTip.SetToolTip(attachedFilesList, newText)
     End Sub
 
+    Private Function GetSelectedScannedFilePath() As String
+        If scannedFilesList Is Nothing OrElse _scannedFilePaths Is Nothing Then Return ""
+        Dim idx = scannedFilesList.SelectedIndex
+        If idx < 0 OrElse idx >= _scannedFilePaths.Count Then Return ""
+        Return _scannedFilePaths(idx)
+    End Function
 
+    Private Function GetSelectedAttachedFilePath() As String
+        If attachedFilesList Is Nothing OrElse _attachedFilePaths Is Nothing Then Return ""
+        Dim idx = attachedFilesList.SelectedIndex
+        If idx < 0 OrElse idx >= _attachedFilePaths.Count Then Return ""
+        Return _attachedFilePaths(idx)
+    End Function
 
+    ''' <summary>Maximized viewer for a single image file (Esc closes).</summary>
+    Private Sub ShowLargeImageFromPath(fullPath As String)
+        If String.IsNullOrWhiteSpace(fullPath) OrElse Not File.Exists(fullPath) Then Return
+        If Not IsChequeImageFile(fullPath) Then Return
+        Dim owner = TryCast(Me.FindForm(), IWin32Window)
+        Dim title = IO.Path.GetFileName(fullPath) & " — " & If(Eng, "Esc to close", "Esc للإغلاق")
+        Dim imgCopy As Image = Nothing
+        Try
+            Using src As Image = Image.FromFile(fullPath)
+                imgCopy = New Bitmap(src)
+            End Using
+        Catch
+            Return
+        End Try
+        Using zoom As New Form()
+            zoom.Text = title
+            zoom.WindowState = FormWindowState.Maximized
+            zoom.StartPosition = FormStartPosition.CenterParent
+            zoom.ShowInTaskbar = False
+            zoom.KeyPreview = True
+            Dim pic As New PictureBox With {
+                .Dock = DockStyle.Fill,
+                .SizeMode = PictureBoxSizeMode.Zoom,
+                .Image = imgCopy
+            }
+            imgCopy = Nothing
+            AddHandler zoom.KeyDown, Sub(s As Object, ev As KeyEventArgs)
+                                         If ev.KeyCode = Keys.Escape Then zoom.Close()
+                                     End Sub
+            AddHandler zoom.FormClosed, Sub(s As Object, ev As FormClosedEventArgs)
+                                            If pic.Image IsNot Nothing Then
+                                                pic.Image.Dispose()
+                                                pic.Image = Nothing
+                                            End If
+                                        End Sub
+            zoom.Controls.Add(pic)
+            If owner IsNot Nothing Then zoom.ShowDialog(owner) Else zoom.ShowDialog()
+        End Using
+    End Sub
+
+    Private Sub TryOpenFileWithDefaultApplication(fullPath As String)
+        If String.IsNullOrWhiteSpace(fullPath) OrElse Not File.Exists(fullPath) Then Return
+        Try
+            Process.Start(New ProcessStartInfo(fullPath) With {.UseShellExecute = True})
+        Catch ex As Exception
+            Dim msgEn = "Could not open file: " & ex.Message
+            Dim msgAr = "تعذر فتح الملف: " & ex.Message
+            MessageBox.Show(If(Eng, msgEn, msgAr), If(Eng, "Open file", "فتح ملف"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+    Private Sub scanPreview_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles scanPreview.MouseDoubleClick
+        If GridTabControl Is Nothing OrElse GridTabControl.SelectedTabPage IsNot ScannedPage Then Return
+        ShowLargeImageFromPath(GetSelectedScannedFilePath())
+    End Sub
+
+    Private Sub attachPreview_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles attachPreview.MouseDoubleClick
+        If GridTabControl Is Nothing OrElse GridTabControl.SelectedTabPage IsNot AttachedPage Then Return
+        Dim path = GetSelectedAttachedFilePath()
+        If String.IsNullOrEmpty(path) OrElse Not File.Exists(path) Then Return
+        If IsChequeImageFile(path) Then
+            ShowLargeImageFromPath(path)
+        Else
+            TryOpenFileWithDefaultApplication(path)
+        End If
+    End Sub
+
+    Private Sub scannedFilesList_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles scannedFilesList.MouseDoubleClick
+        If GridTabControl Is Nothing OrElse GridTabControl.SelectedTabPage IsNot ScannedPage Then Return
+        If scannedFilesList Is Nothing OrElse _scannedFilePaths Is Nothing Then Return
+        Dim idx = scannedFilesList.IndexFromPoint(e.Location)
+        If idx < 0 OrElse idx >= _scannedFilePaths.Count Then Return
+        ShowLargeImageFromPath(_scannedFilePaths(idx))
+    End Sub
+
+    Private Sub attachedFilesList_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles attachedFilesList.MouseDoubleClick
+        If GridTabControl Is Nothing OrElse GridTabControl.SelectedTabPage IsNot AttachedPage Then Return
+        If attachedFilesList Is Nothing OrElse _attachedFilePaths Is Nothing Then Return
+        Dim idx = attachedFilesList.IndexFromPoint(e.Location)
+        If idx < 0 OrElse idx >= _attachedFilePaths.Count Then Return
+        Dim path = _attachedFilePaths(idx)
+        If IsChequeImageFile(path) Then
+            ShowLargeImageFromPath(path)
+        Else
+            TryOpenFileWithDefaultApplication(path)
+        End If
+    End Sub
 
     Private Function GetSelectedTreatment() As Patient_Trts
         Dim currentTreatment As Patient_Trts = TryCast(Patient_TrtsBindingSource.Current, Patient_Trts)
@@ -1642,8 +1742,47 @@ Public Class NewAccounting
         Return Nothing
     End Function
 
+    ''' <summary>Payment row under focus depends on tab + pay-type combo (All vs Cash vs Cheque grids).</summary>
+    Private Function GetFocusedPaymentFromActivePayGrids() As Patient_Pays
+        If GridTabControl Is Nothing Then Return Nothing
+        Dim page = GridTabControl.SelectedTabPage
+        If page Is AllPaysPage Then
+            If AllPaysView IsNot Nothing AndAlso AllPaysView.FocusedRowHandle >= 0 Then
+                Return TryCast(AllPaysView.GetRow(AllPaysView.FocusedRowHandle), Patient_Pays)
+            End If
+        ElseIf page Is CashGridPage Then
+            If GridViewPays IsNot Nothing AndAlso GridViewPays.FocusedRowHandle >= 0 Then
+                Return TryCast(GridViewPays.GetRow(GridViewPays.FocusedRowHandle), Patient_Pays)
+            End If
+        ElseIf page Is ChqGridPage Then
+            If ChqsGridView IsNot Nothing AndAlso ChqsGridView.FocusedRowHandle >= 0 Then
+                Return TryCast(ChqsGridView.GetRow(ChqsGridView.FocusedRowHandle), Patient_Pays)
+            End If
+        End If
+        Return Nothing
+    End Function
+
+    ''' <summary>Need an active patient row and a valid global patient id (payments use <see cref="PasswordSecurity.PatientID"/>).</summary>
+    Private Function EnsurePatientSelectedForAccounting(forPayment As Boolean) As Boolean
+        If CurrentPatient IsNot Nothing AndAlso CurrentPatient.PatientID > 0 AndAlso PatientID > 0 Then Return True
+        Dim msgEn As String
+        Dim msgAr As String
+        If forPayment Then
+            msgEn = "Please select a patient first. Open a patient from the list or navigator, then add a payment to their account."
+            msgAr = "يرجى اختيار مريضاً أولاً. افتح ملف المريض من القائمة أو المستكشف، ثم أضف دفعة لحسابه."
+        Else
+            msgEn = "Please select a patient first. Open a patient from the list or navigator, then add a treatment."
+            msgAr = "يرجى اختيار مريضاً أولاً. افتح ملف المريض من القائمة أو المستكشف، ثم أضف علاجاً."
+        End If
+        Dim titleEn = If(forPayment, "Add payment", "Add treatment")
+        Dim titleAr = If(forPayment, "إضافة دفعة", "إضافة علاج")
+        MessageBox.Show(If(Eng, msgEn, msgAr), If(Eng, titleEn, titleAr), MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Return False
+    End Function
+
     Private Sub btAddPay_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddPay.Click
         Try
+            If Not EnsurePatientSelectedForAccounting(forPayment:=True) Then Return
             ' When Cash is selected, open FrmAddPayAccnt; when Cheque/Insurance/Other, open FrmChqPayAccnt
             Dim currentTreatment As Patient_Trts = GetSelectedTreatment()
             Dim addTrtId As Integer = If(currentTreatment IsNot Nothing, currentTreatment.TrtID, 0)
@@ -1692,8 +1831,8 @@ Public Class NewAccounting
             Me.Validate()
             Me.Patient_PaysBindingSource.EndEdit()
 
-            Dim pay As Patient_Pays = Nothing
-            If GridViewPays IsNot Nothing AndAlso GridViewPays.FocusedRowHandle >= 0 Then
+            Dim pay As Patient_Pays = GetFocusedPaymentFromActivePayGrids()
+            If pay Is Nothing AndAlso GridViewPays IsNot Nothing AndAlso GridViewPays.FocusedRowHandle >= 0 Then
                 pay = TryCast(GridViewPays.GetRow(GridViewPays.FocusedRowHandle), Patient_Pays)
             End If
             If pay Is Nothing Then
@@ -1746,33 +1885,18 @@ Public Class NewAccounting
         ApplyPaymentTabAndFilters()
     End Sub
 
-    ''' <summary>Cheque grid = cheques only; All tab = filtered by combo; Cash tab = cash only (ignores combo).</summary>
+    ''' <summary>Cheque grid = cheques only; All Payments grid = always every pay type; Cash tab = cash only.</summary>
     Private Sub ApplyPaymentTabAndFilters()
         If GridTabControl Is Nothing OrElse cboPayType Is Nothing Then Return
         If GridViewPays Is Nothing OrElse AllPaysView Is Nothing OrElse ChqsGridView Is Nothing Then Return
 
         SetColumnViewPayTypeFilter(ChqsGridView, PayTypeLabels.ChequeEn, "شيك")
 
+        ' All Payments tab shows every PayType regardless of combo (combo only picks tab + add dialog).
+        SetColumnViewPayTypeFilter(AllPaysView)
+
         Dim page = GridTabControl.SelectedTabPage
         If page Is AllPaysPage Then
-            If cboPayType.SelectedIndex <= 0 Then
-                SetColumnViewPayTypeFilter(AllPaysView)
-            Else
-                Select Case cboPayType.SelectedIndex
-                    Case 1
-                        SetColumnViewPayTypeFilter(AllPaysView, PayTypeLabels.CashEn, "نقدا")
-                    Case 2
-                        SetColumnViewPayTypeFilter(AllPaysView, PayTypeLabels.ChequeEn, "شيك")
-                    Case 3
-                        SetColumnViewPayTypeFilter(AllPaysView, PayTypeLabels.InsuranceEn, "تأمين")
-                    Case 4
-                        SetColumnViewPayTypeFilter(AllPaysView, PayTypeLabels.CreditCardEn, "بطاقة اعتماد")
-                    Case 5
-                        SetColumnViewPayTypeFilter(AllPaysView, PayTypeLabels.TransferEn, "تحويل")
-                    Case Else
-                        SetColumnViewPayTypeFilter(AllPaysView)
-                End Select
-            End If
             SetColumnViewPayTypeFilter(GridViewPays, PayTypeLabels.CashEn, "نقدا")
         ElseIf page Is CashGridPage Then
             SetColumnViewPayTypeFilter(GridViewPays, PayTypeLabels.CashEn, "نقدا")
@@ -2595,10 +2719,7 @@ Public Class NewAccounting
     End Sub
 
     Private Sub btnAddTreat_Click(sender As Object, e As EventArgs) Handles btnAddTreat.Click
-        If CurrentPatient Is Nothing OrElse CurrentPatient.PatientID <= 0 Then
-            MsgBox(If(Eng, "Please select a patient first.", "الرجاء اختيار مريض أولاً."))
-            Return
-        End If
+        If Not EnsurePatientSelectedForAccounting(forPayment:=False) Then Return
         Dim F As New FrmAddTrtAccnt()
         F.SetWhatsFromHost(cboPrefix, txtWhats)
         F.LoadForAdd(CurrentPatient.PatientID)
@@ -2703,17 +2824,19 @@ Public Class NewAccounting
     ''' <summary>Delegates to WhatsHelper.BuildAccountingWhatsAppMessage (shared with Navigator Whats and background services).</summary>
     Private Function BuildAccountingWhatsAppMessage(Optional excludeZeroValueTreatments As Boolean = False, Optional fullBody As Boolean = False) As String
         If CurrentPatient Is Nothing OrElse Patient_TrtsBindingSource Is Nothing Then Return ""
-        Dim trts = Patient_TrtsBindingSource.Cast(Of Object)().OfType(Of Patient_Trts)().ToList()
-        If excludeZeroValueTreatments Then trts = trts.Where(Function(t) t.TrtValue > 0).ToList()
-        Dim pays = WhatsHelper.CollectDedupedOrderedPaysFromTreatments(trts)
+        Dim allTrts = Patient_TrtsBindingSource.Cast(Of Object)().OfType(Of Patient_Trts)().ToList()
+        Dim displayTrts = allTrts
+        If excludeZeroValueTreatments Then displayTrts = displayTrts.Where(Function(t) t.TrtValue > 0).ToList()
+        Dim pays = WhatsHelper.CollectDedupedOrderedPaysFromTreatments(allTrts)
         Return WhatsHelper.BuildAccountingWhatsAppMessage(
             CurrentPatient.PatientName,
-            trts,
+            displayTrts,
             pays,
             excludeZeroValueTreatments:=False,
             useArabic:=Not useEng,
             fullBody,
-            CurrentPatient.Sex)
+            CurrentPatient.Sex,
+            allTreatmentsForTotals:=allTrts)
     End Function
 
     Dim useEng As Boolean = False

@@ -14,7 +14,7 @@ Imports DevExpress.XtraEditors
 Public Class KidUpperJaw
     Implements IJawControl
 
-Public Event ToothDoubleClick As EventHandler(Of ToothDoubleClickEvent) Implements IToothClickable.ToothDoubleClick
+    Public Event ToothDoubleClick As EventHandler(Of ToothDoubleClickEvent) Implements IToothClickable.ToothDoubleClick
 
     Private Sub IPatientAwareUserControl_LoadPatientData(patientId As Integer) Implements IPatientAwareUserControl.LoadPatientData
         Me.Hide()
@@ -71,7 +71,7 @@ Public Event ToothDoubleClick As EventHandler(Of ToothDoubleClickEvent) Implemen
     End Sub
 
     'Private hideDivider As Boolean = True
-Public Sub HideShowDiv(hideDiv As Boolean) Implements IJawControl.HideShowDiv
+    Public Sub HideShowDiv(hideDiv As Boolean) Implements IJawControl.HideShowDiv
         vertSep.Visible = Not hideDiv
         horSep.Visible = Not hideDiv
     End Sub
@@ -189,7 +189,7 @@ Public Sub HideShowDiv(hideDiv As Boolean) Implements IJawControl.HideShowDiv
             ' If PatientID > 0 Then LoadTreat(value) ' Call method to load data based on the passed PatientID
         End Set
     End Property
-Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
+    Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
     '=================================================================
     '===========================================================================================
 
@@ -727,7 +727,8 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
     Private PatientTreats As IEnumerable(Of Patient_ToothTrt)
     Dim clsToothTrtData As New Patient_ToothTrtDATA
     Public Sub LoadSnglTreat(patientId As Integer, toothNum As Byte)
-        ' Load patient data
+        If patientId <= 0 Then Return
+        If clsPatientData Is Nothing Then clsPatientData = New PatientDATA()
         clsPatient = New Patient With {.PatientID = patientId}
         clsPatient = clsPatientData.Select_Record(clsPatient)
 
@@ -765,9 +766,8 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
             TrtSourceHelper.ClearAddedTrtsListBound(AddedTrtsList, originalAddedTrtsTable)
             JawTreatmentTreeHelper.LoadEmptyJawBackgroundTreatTree(TrtsTreeView, isKid, AllTrtNodes, fullTreeSnapshot, useDiagnosis:=False)
             txtSrchTrt.ResetText()
-            Flyout1.OwnerControl = Me
-            Flyout1.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-            Flyout1.Options.Location = New Point(JawPanel.Left + e.X, JawPanel.Top + e.Y)
+            If PatientID <= 0 Then Return
+            ComboFlyoutSearchHelper.ConfigureManualAnchoredFlyoutOnOwner(Flyout1, Me, New Point(JawPanel.Left + e.X, JawPanel.Top + e.Y), True)
             Flyout1.ShowPopup()
         ElseIf e.Button = MouseButtons.Left Then
             JawPanel.Focus()
@@ -854,6 +854,11 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
 
     ' Timer Tick: Check if the mouse is held long enough to apply maximum zoom
     Private Sub zoomTimer_Tick(sender As Object, e As EventArgs) Handles zoomTimer.Tick
+        If PatientID <= 0 Then Return
+        If slctdSVG Is Nothing OrElse slctdSVG.IsDisposed Then
+            zoomTimer.Stop()
+            Return
+        End If
         If (DateTime.Now - mouseDownTimeZoom).TotalMilliseconds >= zoomHoldDuration Then
             zoomTimer.Stop() ' Stop the timer to prevent multiple triggers
             isZooming = True ' Mark that zoom logic is being executed
@@ -869,6 +874,8 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
     End Sub
 
     Private Sub ApplyZoomZ(svgImageBox As DevExpress.XtraEditors.SvgImageBox)
+        If PatientID <= 0 Then Return
+        If svgImageBox Is Nothing OrElse svgImageBox.IsDisposed Then Return
         '' Create a new SvgImageBox for zooming
         zSvg.Visible = False
         zSvg.SvgImage = svgImageBox.SvgImage ' Copy the SVG image
@@ -1180,6 +1187,7 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
     Private Sub CommonMouseClickHandler(sender As Object, e As MouseEventArgs)
         JawPanel.Focus()
         If e.Button = MouseButtons.Right Then
+            If PatientID <= 0 Then Return
 
             ' Set the drag source
             DragSource = DirectCast(sender, SvgImageBox)
@@ -1197,9 +1205,7 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
             ' Apply the treatment to the specific SvgImageBox
             Dim toothNum As Byte = Convert.ToByte(svg.Tag)
             Dim toothName As String = $"{baseName}{numberPart}".ToUpper
-            Dim loc As Point = svg.Location
-            Dim toothID As Int16 = 0
-            toothID = ExtractDigit(svg.Name)
+            Dim toothID As Int16 = ExtractDigit(svg.Name)
             Dim targetCount As Integer = EnsureRightClickToothTracked(svg, toothNum)
             SetAddedTrtsListDataSource(PatientID, toothID, GetToothFullName(toothName, TreatsUserControl.AlternateQuadrantLabelsEnabled))
             If targetCount <= 1 Then
@@ -1208,21 +1214,10 @@ Public Property IsMobile As Boolean = False Implements IJawControl.IsMobile
                 SetTrtsTreeMultiTeeth()
             End If
 
-            Flyout1.OwnerControl = Me
-            Flyout1.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-            If svg.Name.StartsWith("Ld") Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X - Flyout1.Width, loc.Y + svg.Height - Flyout1.Height)
-            ElseIf svg.Name.StartsWith("Rd") Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X + svg.Width, loc.Y + svg.Height - Flyout1.Height)
-            ElseIf svg.Name.StartsWith("Lu") Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X - Flyout1.Width, loc.Y)
-            ElseIf svg.Name.StartsWith("Ru") Then
-                Flyout1.Options.Location = New System.Drawing.Point(loc.X + svg.Width, loc.Y)
-
-            End If
+            ComboFlyoutSearchHelper.ConfigureLegacyToothFlyout(Flyout1, Me, JawPanel, svg, StringComparison.OrdinalIgnoreCase)
 
             BackClr = Me.BackColor
-
+            Flyout1.BringToFront()
             Flyout1.ShowPopup()
 
             'Flyout1.ShowBeakForm()

@@ -5,8 +5,6 @@ Imports DevExpress.XtraEditors.Controls
 Imports FellowOakDicom
 Imports FellowOakDicom.Imaging
 Imports FellowOakDicom.Imaging.NativeCodec
-Imports FellowOakDicom.Imaging.WinForms
-Imports FellowOakDicom.Imaging.WinForms
 Public Class DicomViewerFrm
 
 

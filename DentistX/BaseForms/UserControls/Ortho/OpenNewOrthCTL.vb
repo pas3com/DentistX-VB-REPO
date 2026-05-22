@@ -1,4 +1,3 @@
-Imports System.Collections.Concurrent
 Imports System.Data.SqlClient
 Imports Dapper
 
@@ -7,40 +6,8 @@ Imports Dapper
 
 Public Class OpenNewOrthCTL
 
-
-
-
-
-#Region "Resize"
-    Private ReadOnly controlBoundsCache As New ConcurrentDictionary(Of Control, Rectangle)
-    Private Const OriginalPanelWidth As Integer = 697 ', 600
-    Private Const OriginalPanelHeight As Integer = 600
-    Private ReadOnly originalPanelSize As New Size(OriginalPanelWidth, OriginalPanelHeight)
-    Private originaMelSize As Size
-    Private Sub StoreOriginalBounds(container As Control)
-        For Each ctrl As Control In container.Controls
-            controlBoundsCache.TryAdd(ctrl, ctrl.Bounds)
-            If ctrl.HasChildren Then StoreOriginalBounds(ctrl)
-        Next
-    End Sub
-    Private Sub ResizeControlsProportionally()
-        If controlBoundsCache.IsEmpty Then Return
-        Dim widthRatio = CSng(Me.Width) / OriginalPanelWidth
-        Dim heightRatio = CSng(Me.Height) / OriginalPanelHeight
-        For Each kvp In controlBoundsCache
-            kvp.Key.SetBounds(
-                CInt(kvp.Value.X * widthRatio),
-                CInt(kvp.Value.Y * heightRatio),
-                CInt(kvp.Value.Width * widthRatio),
-                CInt(kvp.Value.Height * heightRatio))
-        Next
-    End Sub
-    Private Sub NewOrth_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-        If controlBoundsCache.IsEmpty Then Return
-        ResizeControlsProportionally()
-    End Sub
-#End Region
-
+    ' Layout / resize: only FullOrthoTreating.ResizeControlsProportionally should scale this tree.
+    ' Scaling here as well doubled every child SetBounds and broke alignment when maximized.
 
     Dim stBite, stclass As String
     Dim CellStr As String = ""
@@ -52,7 +19,6 @@ Public Class OpenNewOrthCTL
     Private Sub NewOrth_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Try
-            StoreOriginalBounds(Me)
             If PatientID > 0 Then
                 LoadData(PatientID)
             End If
@@ -64,7 +30,7 @@ Public Class OpenNewOrthCTL
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
+        OrthoEmbeddedChrome.ApplyToRoot(Me)
     End Sub
 
 

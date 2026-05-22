@@ -150,7 +150,7 @@ Partial Public Class FrmImplantType
      ClearRecord()
      ShowToolStripItems("Add")
      TypeIDSpinEdit.Select
-     TypeIDSpinEdit.Text = clsDentistXData.getAutoID("New", "ImplantType")
+     TypeIDSpinEdit.Text = DentistXDATA.getAutoID("New", "ImplantType")
  End Sub
 
  Private Sub Edit()
@@ -198,7 +198,7 @@ Partial Public Class FrmImplantType
  Private Sub SetData(ByVal clsImplantType As ImplantType)
      With clsImplantType
         .TypeID = System.Convert.ToInt32(TypeIDSpinEdit.Value)
-        .TypeName = System.Convert.ToString(TypeNameTextEdit.Text)
+        .TypeName = System.Convert.ToString(TypeNameTextEdit.Text).Trim()
         .IsSlim = System.Convert.ToBoolean(IsSlimCheckEdit.Checked)
      End With
  End Sub
@@ -258,6 +258,13 @@ Partial Public Class FrmImplantType
         End If
         If TypeNameTextEdit.Text = "" Then
             MsgBox("TypeName is required.", MsgBoxStyle.OkOnly, "Entry Error")
+            TypeNameTextEdit.Select()
+            Return False
+        End If
+        Dim typeNm = Convert.ToString(TypeNameTextEdit.Text).Trim()
+        Dim excludeId As Integer? = If(EditMode, CInt(TypeIDSpinEdit.Value), Nothing)
+        If clsImplantTypeData.CountByTypeName(typeNm, excludeId) > 0 Then
+            MsgBox("This implant type name already exists. Duplicate names are not allowed.", MsgBoxStyle.OkOnly, "Entry Error")
             TypeNameTextEdit.Select()
             Return False
         End If

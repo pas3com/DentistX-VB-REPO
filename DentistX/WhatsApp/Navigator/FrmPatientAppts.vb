@@ -76,6 +76,11 @@ Public Class FrmPatientAppts
 
         gcAppts.DataSource = _apptRows
 
+        If RadioLang IsNot Nothing Then
+            RadioLang.SelectedIndex = 0
+            useEng = False
+        End If
+
         LoadDoctors()
         LoadStatuses()
         LoadAppointments()

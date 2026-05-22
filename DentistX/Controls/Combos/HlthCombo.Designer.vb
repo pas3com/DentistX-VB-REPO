@@ -80,7 +80,7 @@ Partial Class HlthCombo
         Me.Flyout1.Location = New System.Drawing.Point(0, 24)
         Me.Flyout1.Name = "Flyout1"
         Me.Flyout1.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-        Me.Flyout1.Options.CloseOnOuterClick = True
+        Me.Flyout1.Options.CloseOnOuterClick = False
         Me.Flyout1.OwnerControl = Me.PanelControl2
         Me.Flyout1.Size = New System.Drawing.Size(150, 26)
         Me.Flyout1.TabIndex = 1

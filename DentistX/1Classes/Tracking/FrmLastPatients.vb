@@ -55,6 +55,7 @@ Public Class FrmLastPatients
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Return New List(Of PatientRecentActivity)()
     End Function
 
 

@@ -286,8 +286,27 @@ Module Helpers
         ' Apply to control
         Ctl.BackgroundImage = gradientImage
         Ctl.BackgroundImageLayout = ImageLayout.Stretch
-        Ctl.BackColor = Color.Transparent
+        ' TextBoxBase rejects Transparent and any translucent BackColor (A < 255) — ArgumentException.
+        Try
+            If TypeOf Ctl Is TextBoxBase Then
+                Ctl.BackColor = OpaqueBlendOnWindow(transparentStart)
+            Else
+                Ctl.BackColor = Color.Transparent
+            End If
+        Catch
+            Ctl.BackColor = SystemColors.Window
+        End Try
     End Sub
+
+    ''' <summary>Maps a translucent color to a solid Window-based fill so classic TextBox can accept BackColor.</summary>
+    Private Function OpaqueBlendOnWindow(top As Color) As Color
+        Dim bg = SystemColors.Window
+        Dim a = top.A / 255.0F
+        Dim r = CByte(Math.Min(255.0R, Math.Round(bg.R * (1.0F - a) + top.R * a)))
+        Dim g = CByte(Math.Min(255.0R, Math.Round(bg.G * (1.0F - a) + top.G * a)))
+        Dim b = CByte(Math.Min(255.0R, Math.Round(bg.B * (1.0F - a) + top.B * a)))
+        Return Color.FromArgb(255, r, g, b)
+    End Function
 
     Public Sub ResetControlBackground(Ctl As Control)
         ' Remove the gradient image

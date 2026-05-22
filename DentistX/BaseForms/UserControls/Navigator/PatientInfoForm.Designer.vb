@@ -30,8 +30,12 @@ Partial Class PatientInfoForm
         Dim NotesLabel As System.Windows.Forms.Label
         Dim BirthYLabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
         Me.PatientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.grpPatientInfo = New DevExpress.XtraEditors.GroupControl()
+        Me.lblWhats = New DevExpress.XtraEditors.LabelControl()
+        Me.cboPrefix = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.txtWhats = New DevExpress.XtraEditors.TextEdit()
         Me.WhatsAppTextEdit = New DevExpress.XtraEditors.TextEdit()
         Me.DiagCheck = New System.Windows.Forms.CheckBox()
         Me.RadioFemale = New System.Windows.Forms.RadioButton()
@@ -68,9 +72,12 @@ Partial Class PatientInfoForm
         NotesLabel = New System.Windows.Forms.Label()
         BirthYLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
         CType(Me.PatientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpPatientInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpPatientInfo.SuspendLayout()
+        CType(Me.cboPrefix.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtWhats.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WhatsAppTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PatientNameTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PatientIDEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,12 +136,22 @@ Partial Class PatientInfoForm
         resources.ApplyResources(Label1, "Label1")
         Label1.Name = "Label1"
         '
+        'Label2
+        '
+        resources.ApplyResources(Label2, "Label2")
+        Label2.Name = "Label2"
+        '
         'grpPatientInfo
         '
+        resources.ApplyResources(Me.grpPatientInfo, "grpPatientInfo")
         Me.grpPatientInfo.Appearance.Font = CType(resources.GetObject("grpPatientInfo.Appearance.Font"), System.Drawing.Font)
         Me.grpPatientInfo.Appearance.Options.UseFont = True
         Me.grpPatientInfo.AppearanceCaption.Font = CType(resources.GetObject("grpPatientInfo.AppearanceCaption.Font"), System.Drawing.Font)
         Me.grpPatientInfo.AppearanceCaption.Options.UseFont = True
+        Me.grpPatientInfo.Controls.Add(Me.lblWhats)
+        Me.grpPatientInfo.Controls.Add(Me.cboPrefix)
+        Me.grpPatientInfo.Controls.Add(Label2)
+        Me.grpPatientInfo.Controls.Add(Me.txtWhats)
         Me.grpPatientInfo.Controls.Add(Label1)
         Me.grpPatientInfo.Controls.Add(Me.WhatsAppTextEdit)
         Me.grpPatientInfo.Controls.Add(Me.DiagCheck)
@@ -171,8 +188,30 @@ Partial Class PatientInfoForm
         Me.grpPatientInfo.Controls.Add(Me.NotesTextEdit)
         Me.grpPatientInfo.Controls.Add(BirthYLabel)
         Me.grpPatientInfo.Controls.Add(Me.BirthYSpinEdit)
-        resources.ApplyResources(Me.grpPatientInfo, "grpPatientInfo")
         Me.grpPatientInfo.Name = "grpPatientInfo"
+        '
+        'lblWhats
+        '
+        resources.ApplyResources(Me.lblWhats, "lblWhats")
+        Me.lblWhats.Appearance.Font = CType(resources.GetObject("lblWhats.Appearance.Font"), System.Drawing.Font)
+        Me.lblWhats.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.lblWhats.Appearance.Options.UseFont = True
+        Me.lblWhats.Appearance.Options.UseForeColor = True
+        Me.lblWhats.Name = "lblWhats"
+        '
+        'cboPrefix
+        '
+        resources.ApplyResources(Me.cboPrefix, "cboPrefix")
+        Me.cboPrefix.Name = "cboPrefix"
+        Me.cboPrefix.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("cboPrefix.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
+        '
+        'txtWhats
+        '
+        resources.ApplyResources(Me.txtWhats, "txtWhats")
+        Me.txtWhats.Name = "txtWhats"
+        Me.txtWhats.Properties.Appearance.Font = CType(resources.GetObject("txtWhats.Properties.Appearance.Font"), System.Drawing.Font)
+        Me.txtWhats.Properties.Appearance.Options.UseFont = True
+        Me.txtWhats.Properties.MaxLength = 10
         '
         'WhatsAppTextEdit
         '
@@ -207,63 +246,71 @@ Partial Class PatientInfoForm
         '
         'CboCity
         '
-        Me.CboCity.CityID = 0
-        Me.CboCity.CityName = Nothing
         resources.ApplyResources(Me.CboCity, "CboCity")
+        Me.CboCity.BtnAddVisible = True
+        Me.CboCity.BtnSearchVisible = True
+        Me.CboCity.CityID = 2
+        Me.CboCity.CityName = "قلقيلية"
+        Me.CboCity.Filter = ""
         Me.CboCity.Name = "CboCity"
         '
         'CboHealth
         '
-        Me.CboHealth.HealthStat = Nothing
-        Me.CboHealth.HID = 0
         resources.ApplyResources(Me.CboHealth, "CboHealth")
+        Me.CboHealth.BtnAddVisible = True
+        Me.CboHealth.BtnSearchVisible = True
+        Me.CboHealth.Filter = ""
+        Me.CboHealth.HealthStat = "سليم"
+        Me.CboHealth.HID = 1
         Me.CboHealth.Name = "CboHealth"
         '
         'LabelAge
         '
+        resources.ApplyResources(Me.LabelAge, "LabelAge")
         Me.LabelAge.Appearance.Font = CType(resources.GetObject("LabelAge.Appearance.Font"), System.Drawing.Font)
         Me.LabelAge.Appearance.Options.UseFont = True
         Me.LabelAge.Appearance.Options.UseTextOptions = True
         Me.LabelAge.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.LabelAge.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        resources.ApplyResources(Me.LabelAge, "LabelAge")
         Me.LabelAge.Name = "LabelAge"
         '
         'LabelBal
         '
+        resources.ApplyResources(Me.LabelBal, "LabelBal")
         Me.LabelBal.Appearance.Font = CType(resources.GetObject("LabelBal.Appearance.Font"), System.Drawing.Font)
         Me.LabelBal.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelBal, "LabelBal")
         Me.LabelBal.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "Balance", True))
         Me.LabelBal.Name = "LabelBal"
         '
         'btnDelete
         '
+        resources.ApplyResources(Me.btnDelete, "btnDelete")
         Me.btnDelete.Appearance.Font = CType(resources.GetObject("btnDelete.Appearance.Font"), System.Drawing.Font)
         Me.btnDelete.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnDelete, "btnDelete")
+        Me.btnDelete.ImageOptions.ImageKey = resources.GetString("btnDelete.ImageOptions.ImageKey")
         Me.btnDelete.Name = "btnDelete"
         '
         'btnEditPat
         '
+        resources.ApplyResources(Me.btnEditPat, "btnEditPat")
         Me.btnEditPat.Appearance.Font = CType(resources.GetObject("btnEditPat.Appearance.Font"), System.Drawing.Font)
         Me.btnEditPat.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.btnEditPat, "btnEditPat")
+        Me.btnEditPat.ImageOptions.ImageKey = resources.GetString("btnEditPat.ImageOptions.ImageKey")
         Me.btnEditPat.Name = "btnEditPat"
         '
         'PatientNameTextEdit
         '
+        resources.ApplyResources(Me.PatientNameTextEdit, "PatientNameTextEdit")
         Me.PatientNameTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "PatientName", True))
         Me.PatientNameTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.PatientBindingSource, "PatientName", True))
-        resources.ApplyResources(Me.PatientNameTextEdit, "PatientNameTextEdit")
         Me.PatientNameTextEdit.Name = "PatientNameTextEdit"
         Me.PatientNameTextEdit.Properties.Appearance.Font = CType(resources.GetObject("PatientNameTextEdit.Properties.Appearance.Font"), System.Drawing.Font)
         Me.PatientNameTextEdit.Properties.Appearance.Options.UseFont = True
         '
         'PatientIDEdit
         '
-        Me.PatientIDEdit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "PatientID", True))
         resources.ApplyResources(Me.PatientIDEdit, "PatientIDEdit")
+        Me.PatientIDEdit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "PatientID", True))
         Me.PatientIDEdit.Name = "PatientIDEdit"
         Me.PatientIDEdit.Properties.Appearance.Font = CType(resources.GetObject("PatientIDEdit.Properties.Appearance.Font"), System.Drawing.Font)
         Me.PatientIDEdit.Properties.Appearance.Options.UseFont = True
@@ -276,9 +323,9 @@ Partial Class PatientInfoForm
         '
         'SexTextBox
         '
+        resources.ApplyResources(Me.SexTextBox, "SexTextBox")
         Me.SexTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "Sex", True))
         Me.SexTextBox.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.PatientBindingSource, "Sex", True))
-        resources.ApplyResources(Me.SexTextBox, "SexTextBox")
         Me.SexTextBox.Name = "SexTextBox"
         Me.SexTextBox.Properties.Appearance.Font = CType(resources.GetObject("SexTextBox.Properties.Appearance.Font"), System.Drawing.Font)
         Me.SexTextBox.Properties.Appearance.Options.UseFont = True
@@ -295,42 +342,42 @@ Partial Class PatientInfoForm
         '
         'PhoneTextEdit
         '
+        resources.ApplyResources(Me.PhoneTextEdit, "PhoneTextEdit")
         Me.PhoneTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "Phone", True))
         Me.PhoneTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.PatientBindingSource, "Phone", True))
-        resources.ApplyResources(Me.PhoneTextEdit, "PhoneTextEdit")
         Me.PhoneTextEdit.Name = "PhoneTextEdit"
         Me.PhoneTextEdit.Properties.Appearance.Font = CType(resources.GetObject("PhoneTextEdit.Properties.Appearance.Font"), System.Drawing.Font)
         Me.PhoneTextEdit.Properties.Appearance.Options.UseFont = True
         '
         'lblPNum
         '
+        resources.ApplyResources(Me.lblPNum, "lblPNum")
         Me.lblPNum.Appearance.Font = CType(resources.GetObject("lblPNum.Appearance.Font"), System.Drawing.Font)
         Me.lblPNum.Appearance.Options.UseFont = True
         Me.lblPNum.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "PatientNumber", True))
-        resources.ApplyResources(Me.lblPNum, "lblPNum")
         Me.lblPNum.Name = "lblPNum"
         '
         'LabelControl1
         '
+        resources.ApplyResources(Me.LabelControl1, "LabelControl1")
         Me.LabelControl1.Appearance.Font = CType(resources.GetObject("LabelControl1.Appearance.Font"), System.Drawing.Font)
         Me.LabelControl1.Appearance.Options.UseFont = True
-        resources.ApplyResources(Me.LabelControl1, "LabelControl1")
         Me.LabelControl1.Name = "LabelControl1"
         '
         'AddressTextEdit
         '
+        resources.ApplyResources(Me.AddressTextEdit, "AddressTextEdit")
         Me.AddressTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "Address", True))
         Me.AddressTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.PatientBindingSource, "Address", True))
-        resources.ApplyResources(Me.AddressTextEdit, "AddressTextEdit")
         Me.AddressTextEdit.Name = "AddressTextEdit"
         Me.AddressTextEdit.Properties.Appearance.Font = CType(resources.GetObject("AddressTextEdit.Properties.Appearance.Font"), System.Drawing.Font)
         Me.AddressTextEdit.Properties.Appearance.Options.UseFont = True
         '
         'HealthTextBox
         '
+        resources.ApplyResources(Me.HealthTextBox, "HealthTextBox")
         Me.HealthTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "Health", True))
         Me.HealthTextBox.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.PatientBindingSource, "Health", True))
-        resources.ApplyResources(Me.HealthTextBox, "HealthTextBox")
         Me.HealthTextBox.Name = "HealthTextBox"
         Me.HealthTextBox.Properties.Appearance.Font = CType(resources.GetObject("HealthTextBox.Properties.Appearance.Font"), System.Drawing.Font)
         Me.HealthTextBox.Properties.Appearance.Options.UseFont = True
@@ -372,17 +419,17 @@ Partial Class PatientInfoForm
         '
         'NotesTextEdit
         '
+        resources.ApplyResources(Me.NotesTextEdit, "NotesTextEdit")
         Me.NotesTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PatientBindingSource, "Notes", True))
         Me.NotesTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.PatientBindingSource, "Notes", True))
-        resources.ApplyResources(Me.NotesTextEdit, "NotesTextEdit")
         Me.NotesTextEdit.Name = "NotesTextEdit"
         Me.NotesTextEdit.Properties.Appearance.Font = CType(resources.GetObject("NotesTextEdit.Properties.Appearance.Font"), System.Drawing.Font)
         Me.NotesTextEdit.Properties.Appearance.Options.UseFont = True
         '
         'BirthYSpinEdit
         '
-        Me.BirthYSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.PatientBindingSource, "BirthY", True))
         resources.ApplyResources(Me.BirthYSpinEdit, "BirthYSpinEdit")
+        Me.BirthYSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.PatientBindingSource, "BirthY", True))
         Me.BirthYSpinEdit.Name = "BirthYSpinEdit"
         Me.BirthYSpinEdit.Properties.Appearance.Font = CType(resources.GetObject("BirthYSpinEdit.Properties.Appearance.Font"), System.Drawing.Font)
         Me.BirthYSpinEdit.Properties.Appearance.Options.UseFont = True
@@ -402,6 +449,8 @@ Partial Class PatientInfoForm
         CType(Me.grpPatientInfo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpPatientInfo.ResumeLayout(False)
         Me.grpPatientInfo.PerformLayout()
+        CType(Me.cboPrefix.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtWhats.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WhatsAppTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PatientNameTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PatientIDEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -446,4 +495,7 @@ Partial Class PatientInfoForm
     Friend WithEvents lblPNum As DevExpress.XtraEditors.LabelControl
     Friend WithEvents DiagCheck As CheckBox
     Friend WithEvents WhatsAppTextEdit As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents lblWhats As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cboPrefix As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents txtWhats As DevExpress.XtraEditors.TextEdit
 End Class

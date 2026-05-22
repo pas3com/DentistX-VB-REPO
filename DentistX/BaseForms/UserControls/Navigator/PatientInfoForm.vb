@@ -1,5 +1,7 @@
 Imports System.Threading.Tasks
 Imports System.Data.SqlClient
+Imports System.Linq
+Imports System.Windows.Forms
 Imports Dapper
 Imports DevExpress.Utils.Extensions
 Imports DevExpress.XtraEditors
@@ -29,6 +31,10 @@ Public Class PatientInfoForm
     Private Sub PatientInfoForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'btnDelete.Enabled = Perms.CanDo("Patients.Delete")
         'btnEditPat.Enabled = Perms.CanDo("Patients.Edit")
+        If WhatsAppTextEdit IsNot Nothing Then WhatsAppTextEdit.Visible = False
+        If CurrentPatient IsNot Nothing Then
+            SyncWhatsControlsFromCurrentPatient()
+        End If
     End Sub
 
 
@@ -103,6 +109,7 @@ Public Class PatientInfoForm
                     Me.LabelAge.Text = If(Eng, "Age Not Set", "العمر غير محدد")
                 End If
                 PatientBindingSource.DataSource = CurrentPatient
+                SyncWhatsControlsFromCurrentPatient()
                 Return CurrentPatient
             Else
                 PatientBindingSource.DataSource = Nothing ' Clear if no data found
@@ -274,6 +281,12 @@ Public Class PatientInfoForm
 
     Property PatientUpdated As Boolean = False
 
+    ''' <summary>After successful save when <see cref="DialogResult"/> is <see cref="DialogResult.OK"/> and <see cref="PatientDeleted"/> is false.</summary>
+    Public Property LastUpdatedPatient As Patient
+
+    ''' <summary>After successful delete when <see cref="PatientDeleted"/> is true.</summary>
+    Public Property LastDeletedPatientId As Integer?
+
     Private Async Sub btnEditPat_Click(sender As Object, e As EventArgs) Handles btnEditPat.Click
         Try
             If PatientIDEdit.Text.Length = 0 Then Exit Sub
@@ -281,6 +294,28 @@ Public Class PatientInfoForm
 
             Dim oldPatient = CurrentPatient
 
+            If txtWhats IsNot Nothing AndAlso String.IsNullOrWhiteSpace(txtWhats.Text) AndAlso
+               PhoneTextEdit IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(PhoneTextEdit.Text) AndAlso
+               PhoneTextEdit.Text.Trim().StartsWith("05") Then
+                txtWhats.Text = PhoneTextEdit.Text.Trim()
+            End If
+
+            Dim prefixStored As String = WhatsHelper.GetPrefixTextForStorage(cboPrefix)
+            Dim fullDigits As String = New String(GetFullWhatsNumber().Where(Function(ch) Char.IsDigit(ch)).ToArray())
+            Dim prefixDigits As String = ""
+            If cboPrefix IsNot Nothing AndAlso cboPrefix.EditValue IsNot Nothing Then
+                prefixDigits = New String(cboPrefix.EditValue.ToString().Where(Function(ch) Char.IsDigit(ch)).ToArray())
+            End If
+            If Not String.IsNullOrWhiteSpace(fullDigits) Then
+                Dim whatsErr As String = ValidateWhatsAppNumber(fullDigits, prefixDigits)
+                If whatsErr <> "" Then
+                    MessageBox.Show(whatsErr, If(Eng, "WhatsApp", "واتساب"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    If txtWhats IsNot Nothing Then txtWhats.Focus()
+                    Return
+                End If
+            End If
+
+            Dim localW As String = WhatsHelper.NormalizeLocalWhatsTenDigitsForStorage(If(txtWhats?.Text, "").ToString())
             Dim updated As New Patient With {
             .PatientID = oldPatient.PatientID,
             .Address = AddressTextEdit.Text,
@@ -298,7 +333,10 @@ Public Class PatientInfoForm
             .Treat = TreatCheckBox.Checked,
             .PatientName = PatientNameTextEdit.Text,
             .Phone = PhoneTextEdit.Text,
-            .WhatsApp = WhatsAppTextEdit.Text
+            .WhatsAppPrefix = prefixStored,
+            .WhatsApp = localW,
+            .CreatedBy = oldPatient.CreatedBy,
+            .CreateDate = oldPatient.CreateDate
         }
 
             Me.Cursor = Cursors.WaitCursor
@@ -313,6 +351,10 @@ Public Class PatientInfoForm
                 End If
                 If updateResult Then
                     PatientUpdated = True
+                    updated.IsKid = Kid
+                    updated.IsGrid = oldPatient.IsGrid
+                    updated.IsFull = oldPatient.IsFull
+                    LastUpdatedPatient = updated
                     Me.DialogResult = DialogResult.OK
                     Me.Close()
                 Else
@@ -460,6 +502,7 @@ Public Class PatientInfoForm
                 End Try
                 If deleteResult Then
                     PatientDeleted = True
+                    LastDeletedPatientId = CurrentPatient.PatientID
                     MsgBox(If(Eng, $"Patient {CurrentPatient.PatientName} has been deleted.", $"تم حذف المريض {CurrentPatient.PatientName}."), MsgBoxStyle.Information)
                     Me.DialogResult = DialogResult.OK
                     Me.Close()
@@ -510,6 +553,107 @@ Public Class PatientInfoForm
             End If
         End If
     End Sub
+
+#Region "Whats"
+    Private Sub SyncWhatsControlsFromCurrentPatient()
+        If CurrentPatient Is Nothing Then Return
+        Try
+            WhatsHelper.FillCboPrefixOnce(cboPrefix)
+            WhatsHelper.BindPatientWhatsPrefixAndLocal(cboPrefix, txtWhats, CurrentPatient)
+            RefreshLblWhats()
+        Catch ex As Exception
+            MsgBox(If(Eng, "Could not load WhatsApp fields: " & ex.Message, "تعذر تحميل حقول واتساب: " & ex.Message))
+        End Try
+    End Sub
+
+    Private Function GetFullWhatsNumber() As String
+        Dim number As String = ""
+        If txtWhats IsNot Nothing AndAlso txtWhats.Text IsNot Nothing Then
+            number = txtWhats.Text.ToString().Trim()
+        End If
+        Dim localDigits As String = New String(number.Where(Function(ch) Char.IsDigit(ch)).ToArray())
+
+        While localDigits.StartsWith("0"c) AndAlso localDigits.Length > 0
+            localDigits = localDigits.Substring(1)
+        End While
+
+        If localDigits.Length > 9 Then
+            localDigits = localDigits.Substring(localDigits.Length - 9, 9)
+        End If
+
+        If cboPrefix Is Nothing OrElse cboPrefix.EditValue Is Nothing Then
+            Return localDigits
+        End If
+        Dim rawPrefix As String = cboPrefix.EditValue.ToString()
+        Dim prefixDigits As String = New String(rawPrefix.Where(Function(ch) Char.IsDigit(ch)).ToArray())
+        If String.IsNullOrWhiteSpace(prefixDigits) Then Return localDigits
+        If localDigits.Length = 0 Then Return ""
+        Return prefixDigits & localDigits
+    End Function
+
+    Private Sub RefreshLblWhats()
+        If lblWhats IsNot Nothing Then
+            lblWhats.Text = GetFullWhatsNumber()
+        End If
+    End Sub
+
+    Private Sub cboPrefix_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboPrefix.SelectedIndexChanged
+        RefreshLblWhats()
+    End Sub
+
+    Private Sub txtWhats_ValueChanged(sender As Object, e As EventArgs) Handles txtWhats.EditValueChanged
+        RefreshLblWhats()
+    End Sub
+
+    Private Sub txtWhats_KeyDown(sender As Object, e As KeyEventArgs) Handles txtWhats.KeyDown
+        If e.KeyCode = Keys.Back OrElse
+           e.KeyCode = Keys.Delete OrElse
+           e.KeyCode = Keys.Left OrElse
+           e.KeyCode = Keys.Right OrElse
+           e.KeyCode = Keys.Up OrElse
+           e.KeyCode = Keys.Down OrElse
+           e.KeyCode = Keys.Tab OrElse
+           e.KeyCode = Keys.Home OrElse
+           e.KeyCode = Keys.End Then
+            Return
+        End If
+
+        Dim isTopRowDigit As Boolean = (e.KeyCode >= Keys.D0 AndAlso e.KeyCode <= Keys.D9)
+        Dim isNumPadDigit As Boolean = (e.KeyCode >= Keys.NumPad0 AndAlso e.KeyCode <= Keys.NumPad9)
+
+        If (isTopRowDigit OrElse isNumPadDigit) AndAlso (Not e.Shift) Then
+            Return
+        End If
+
+        e.SuppressKeyPress = True
+        e.Handled = True
+    End Sub
+
+    Private Function ValidateWhatsAppNumber(fullNumberDigits As String, prefixDigits As String) As String
+        If String.IsNullOrWhiteSpace(fullNumberDigits) Then
+            Return If(Eng, "Enter WhatsApp/phone number (digits only).", "أدخل رقم واتساب/الجوال (أرقام فقط).")
+        End If
+        If fullNumberDigits.Any(Function(c) Not Char.IsDigit(c)) Then
+            Return If(Eng, "Number must contain only digits (no spaces, dashes or plus sign).", "يجب أن يحتوي الرقم على أرقام فقط (بدون مسافات أو شرطات أو +).")
+        End If
+
+        If String.IsNullOrWhiteSpace(prefixDigits) Then
+            If fullNumberDigits.Length < 10 OrElse fullNumberDigits.Length > 15 Then
+                Return If(Eng, "Number must be 10–15 digits (e.g. 970599123456 for Palestine).", "يجب أن يكون الرقم 10–15 رقمًا (مثلاً 970599123456 لفلسطين).")
+            End If
+            Return ""
+        End If
+
+        Dim prefixLen As Integer = prefixDigits.Length
+        Dim expectedLen As Integer = prefixLen + 9
+        If fullNumberDigits.Length <> expectedLen Then
+            Dim msgEn As String = $"Invalid length. For prefix +{prefixDigits} use {prefixLen} (prefix) + 9 digits (number without leading 0) = {expectedLen} digits total. Current: {fullNumberDigits.Length}."
+            Dim msgAr As String = $"طول غير صحيح. لرمز +{prefixDigits} استخدم {prefixLen} (الرمز) + 9 أرقام (الرقم بدون صفر في البداية) = {expectedLen} رقمًا. الحالي: {fullNumberDigits.Length}."
+            Return If(Eng, msgEn, msgAr)
+        End If
+        Return ""
+    End Function
+#End Region
 
 #End Region
 

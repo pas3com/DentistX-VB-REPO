@@ -35,6 +35,7 @@ Public Class ApptDayLine
     Private _request As ApptViewRequest
     Private _scrollHost As Panel
     Private _content As Panel
+    Private ReadOnly _scheduleHeader As New ApptScheduleViewHeaderStrip() With {.Dock = DockStyle.Top}
     Private _toolTip As ToolTip
     Private _lastScrollInnerW As Integer = -1
     Private ReadOnly _resizeRenderTimer As New Timer With {.Interval = 90}
@@ -79,6 +80,8 @@ Public Class ApptDayLine
         }
         ApptTheme.SetControlDoubleBuffered(_scrollHost)
         Controls.Add(_scrollHost)
+        _scrollHost.Dock = DockStyle.Fill
+        Controls.Add(_scheduleHeader)
         AddHandler _scrollHost.Resize, AddressOf ScrollHost_Resize
         AddHandler _holdTimer.Tick, AddressOf HoldTimer_Tick
         AddHandler _resizeRenderTimer.Tick, AddressOf ResizeRenderTimer_Tick
@@ -110,6 +113,7 @@ Public Class ApptDayLine
             _toolTip = New ToolTip With {.AutoPopDelay = 8000, .InitialDelay = 300}
             _lastScrollInnerW = -1
             _resizeRenderTimer.Stop()
+            _scheduleHeader.Apply(request)
             RenderTimeline()
             If request IsNot Nothing Then TryScrollToAppointment(request.PendingScrollAppointment)
         Catch ex As Exception
@@ -465,9 +469,8 @@ Public Class ApptDayLine
 
             For dayIndex = 0 To 6
                 Dim day = weekStart.AddDays(dayIndex)
-                Dim dayAppts = ApptTheme.OrderAppointmentsForDisplay(
-                    If(data.Appointments, New List(Of AppointmentC)()).Where(Function(a) MatchesScheduleDay(a, day)),
-                    data, linkedDoctorAtEnd:=True)
+                Dim dayRaw = If(data.Appointments, New List(Of AppointmentC)()).Where(Function(a) MatchesScheduleDay(a, day))
+                Dim dayAppts = ApptTheme.OrderAppointmentsForWeekDayGroupsAndSolos(dayRaw, data, orderFirstDoctorId:=state.OrderByDoctorId)
 
                 Dim stackRows As New List(Of List(Of AppointmentC))()
                 For Each ap In dayAppts
@@ -525,7 +528,7 @@ Public Class ApptDayLine
 
                 Dim isToday = (day.Date = DateTime.Today)
                 Dim lblDay As New Label With {
-                    .Text = day.ToString("ddd") & "  " & day.ToString("dd MMM"),
+                    .Text = ApptTheme.FormatSchedulerStyleDayColumnTitle(day),
                     .Left = 0,
                     .Top = currentTop,
                     .Width = DayLabelWidth,

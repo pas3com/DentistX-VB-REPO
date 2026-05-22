@@ -63,7 +63,7 @@ Public Class SlctdToothCTL
                 TreatHelper.ProcessToothTreatments(svg, svgExternalList, displayTreats, isMobileChart)
             End If
         Next
-
+        SlctdToothTab.SelectedTabPage = ToothTrtsPage ' Ensure tooth treatments tab is selected when loading treatments
         PanelSvgs.ResumeLayout()
         Me.Visible = True
         LogTime(NameOf(LoadTeethTreats), Me.Name, sw)
@@ -913,8 +913,9 @@ Public Class SlctdToothCTL
 
     '===========================================
     Public Sub LoadSnglTreat(patientId As Integer, toothNum As Byte)
+        If patientId <= 0 Then Return
         Me.PatientID = patientId
-        ' Load patient data
+        If clsPatientData Is Nothing Then clsPatientData = New PatientDATA()
         clsPatient = New Patient With {.PatientID = patientId}
         clsPatient = clsPatientData.Select_Record(clsPatient)
 

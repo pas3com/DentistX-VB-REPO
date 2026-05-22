@@ -415,7 +415,7 @@ Partial Class NewAccounting
         Me.RadioFilter.Properties.Appearance.Options.UseBackColor = True
         Me.RadioFilter.Properties.Appearance.Options.UseFont = True
         Me.RadioFilter.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.RadioFilter.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(resources.GetObject("RadioFilter.Properties.Items"), Object), resources.GetString("RadioFilter.Properties.Items1"), CType(resources.GetObject("RadioFilter.Properties.Items2"), Boolean), CType(resources.GetObject("RadioFilter.Properties.Items3"), Object)), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(resources.GetObject("RadioFilter.Properties.Items4"), Object), resources.GetString("RadioFilter.Properties.Items5")), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(resources.GetObject("RadioFilter.Properties.Items6"), Object), resources.GetString("RadioFilter.Properties.Items7")), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(resources.GetObject("RadioFilter.Properties.Items8"), Object), resources.GetString("RadioFilter.Properties.Items9"))})
+        Me.RadioFilter.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(resources.GetObject("RadioFilter.Properties.Items"), Object), resources.GetString("RadioFilter.Properties.Items1"), CType(resources.GetObject("RadioFilter.Properties.Items2"), Boolean), CType(resources.GetObject("RadioFilter.Properties.Items3"), Object)), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(resources.GetObject("RadioFilter.Properties.Items4"), Object), resources.GetString("RadioFilter.Properties.Items5")), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(resources.GetObject("RadioFilter.Properties.Items6"), Object), resources.GetString("RadioFilter.Properties.Items7"))})
         '
         'Patient_TrtsGridControl
         '
@@ -751,6 +751,8 @@ Partial Class NewAccounting
         Me.cboPayType.Name = "cboPayType"
         Me.cboPayType.Properties.Appearance.Font = CType(resources.GetObject("cboPayType.Properties.Appearance.Font"), System.Drawing.Font)
         Me.cboPayType.Properties.Appearance.Options.UseFont = True
+        Me.cboPayType.Properties.AppearanceDropDown.Font = CType(resources.GetObject("cboPayType.Properties.AppearanceDropDown.Font"), System.Drawing.Font)
+        Me.cboPayType.Properties.AppearanceDropDown.Options.UseFont = True
         Me.cboPayType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("cboPayType.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
         Me.cboPayType.Properties.Items.AddRange(New Object() {resources.GetString("cboPayType.Properties.Items"), resources.GetString("cboPayType.Properties.Items1"), resources.GetString("cboPayType.Properties.Items2"), resources.GetString("cboPayType.Properties.Items3"), resources.GetString("cboPayType.Properties.Items4"), resources.GetString("cboPayType.Properties.Items5")})
         '

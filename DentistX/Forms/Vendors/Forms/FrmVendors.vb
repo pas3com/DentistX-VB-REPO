@@ -143,7 +143,7 @@ Partial Public Class FrmVendors
         ShowToolStripItems("Add")
 
         VendNameTextEdit.Select()
-        VendIDSpinEdit.Value = clsDentistXData.getAutoID("New", "Vendors")
+        VendIDSpinEdit.Value = DentistXDATA.getAutoID("New", "Vendors")
 
         Me.Cursor = System.Windows.Forms.Cursors.Default
     End Sub

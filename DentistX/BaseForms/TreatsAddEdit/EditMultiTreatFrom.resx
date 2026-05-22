@@ -1,0 +1,1173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="grpHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1059, 54</value>
+  </data>
+  <data name="pnlChangesScroll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>532, 533</value>
+  </data>
+  <data name="txtPatientName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 17</value>
+  </data>
+  <data name="btnSelectNone.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtExtClinic.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ceFinished.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="ceIsExternal.Properties.Caption" xml:space="preserve">
+    <value>External</value>
+  </data>
+  <data name="&gt;&gt;ceIsExternal.Name" xml:space="preserve">
+    <value>ceIsExternal</value>
+  </data>
+  <data name="&gt;&gt;pnlChangesScroll.Parent" xml:space="preserve">
+    <value>grpChanges</value>
+  </data>
+  <data name="&gt;&gt;pnlSelectButtons.Name" xml:space="preserve">
+    <value>pnlSelectButtons</value>
+  </data>
+  <data name="ceIsExternal.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dtTreatEnd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 84</value>
+  </data>
+  <data name="&gt;&gt;grpChanges.Name" xml:space="preserve">
+    <value>grpChanges</value>
+  </data>
+  <data name="txtTrtNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 375</value>
+  </data>
+  <data name="&gt;&gt;clstTreats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckedListBoxControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkApplyPayValue.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="chkApplyTrtNotes.Properties.Caption" xml:space="preserve">
+    <value>Treat notes</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="dtTreatDate.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPlan.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtPayValue.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;chkApplyIsExternal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnSelectAll.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="grpChanges.Text" xml:space="preserve">
+    <value>Bulk changes</value>
+  </data>
+  <data name="dtTreatDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 22</value>
+  </data>
+  <data name="chkApplyTrtNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="btnSelectAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 6</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pnlButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ceIsExternal.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;dtTreatEnd.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="txtTrtPlan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 60</value>
+  </data>
+  <data name="chkApplyPayValue.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTreatmentType.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 30</value>
+  </data>
+  <data name="&gt;&gt;grpHeader.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dtTreatDate.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="ceIsExternal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 19</value>
+  </data>
+  <data name="chkApplyFinished.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="grpChanges.Location" type="System.Drawing.Point, System.Drawing">
+    <value>523, 54</value>
+  </data>
+  <data name="chkApplyTreatDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 9</value>
+  </data>
+  <data name="&gt;&gt;dtTreatDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="clstTreats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="btnSelectNone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 6</value>
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="chkApplyTrtValue.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;txtPayValue.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;cboTreatmentType.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;grpTreats.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="grpChanges.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTreatmentType.Name" xml:space="preserve">
+    <value>chkApplyTreatmentType</value>
+  </data>
+  <data name="&gt;&gt;btnSelectNone.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkApplyTrtDetails.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyTreatmentType.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkApplyTrtDetails.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblPatientCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtPatientName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>720, 24</value>
+  </data>
+  <data name="dtTreatDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 6</value>
+  </data>
+  <data name="&gt;&gt;chkApplyFinished.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPatientCaption.Name" xml:space="preserve">
+    <value>lblPatientCaption</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTreatDate.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="cboTreatmentType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 45</value>
+  </data>
+  <data name="chkApplyTrtValue.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;cboTreatmentType.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="btnSelectAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 25</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTreatmentType.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Name" xml:space="preserve">
+    <value>txtPatientName</value>
+  </data>
+  <data name="chkApplyTreatDate.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnCancel.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pnlChangesScroll.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dtTreatEnd.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="chkApplyTrtValue.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="chkApplyPayValue.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 30</value>
+  </data>
+  <data name="chkApplyTrtNotes.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyTrtPlan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="&gt;&gt;lblPatientCaption.Parent" xml:space="preserve">
+    <value>grpHeader</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPlan.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="chkApplyTrtDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="pnlSelectButtons.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtTrtValue.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1059, 659</value>
+  </data>
+  <data name="btnSelectNone.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblPatientCaption.Text" xml:space="preserve">
+    <value>Patient:</value>
+  </data>
+  <data name="txtPatientName.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11pt, style=Bold</value>
+  </data>
+  <data name="chkApplyIsExternal.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlSelectButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 517</value>
+  </data>
+  <data name="&gt;&gt;dtTreatDate.Name" xml:space="preserve">
+    <value>dtTreatDate</value>
+  </data>
+  <data name="&gt;&gt;pnlSelectButtons.Parent" xml:space="preserve">
+    <value>grpTreats</value>
+  </data>
+  <data name="&gt;&gt;txtExtClinic.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="chkApplyTrtPlan.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSelectAll.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkApplyTrtNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="clstTreats.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTreatDate.Name" xml:space="preserve">
+    <value>chkApplyTreatDate</value>
+  </data>
+  <data name="btnSelectNone.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ceIsExternal.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="chkApplyPayValue.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtPayValue.Name" xml:space="preserve">
+    <value>txtPayValue</value>
+  </data>
+  <data name="&gt;&gt;cboTreatmentType.Name" xml:space="preserve">
+    <value>cboTreatmentType</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtValue.Name" xml:space="preserve">
+    <value>chkApplyTrtValue</value>
+  </data>
+  <data name="&gt;&gt;dtTreatEnd.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkApplyIsExternal.Name" xml:space="preserve">
+    <value>chkApplyIsExternal</value>
+  </data>
+  <data name="ceFinished.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkApplyTreatmentType.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="txtPatientName.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v25.1">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;chkApplyFinished.Name" xml:space="preserve">
+    <value>chkApplyFinished</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="chkApplyTrtValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 163</value>
+  </data>
+  <data name="&gt;&gt;txtExtClinic.Name" xml:space="preserve">
+    <value>txtExtClinic</value>
+  </data>
+  <data name="&gt;&gt;txtTrtDetails.Name" xml:space="preserve">
+    <value>txtTrtDetails</value>
+  </data>
+  <data name="&gt;&gt;txtTrtNotes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chkApplyFinished.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="chkApplyTrtDetails.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ceIsExternal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 124</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtValue.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="txtTrtPlan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 238</value>
+  </data>
+  <data name="grpTreats.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtExtClinic.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblPatientCaption.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11pt, style=Bold</value>
+  </data>
+  <data name="chkApplyFinished.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;grpHeader.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="grpHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="chkApplyTrtPlan.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSave.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyTrtValue.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkApplyTrtValue.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtPatientName.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtTrtNotes.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;dtTreatEnd.Name" xml:space="preserve">
+    <value>dtTreatEnd</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtPlan.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtTrtDetails.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkApplyPayValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtTrtDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 306</value>
+  </data>
+  <data name="&gt;&gt;clstTreats.Name" xml:space="preserve">
+    <value>clstTreats</value>
+  </data>
+  <data name="ceFinished.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyFinished.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyTreatmentType.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="chkApplyTrtPlan.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txtExtClinic.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="chkApplyIsExternal.Properties.Caption" xml:space="preserve">
+    <value>External clinic</value>
+  </data>
+  <data name="txtExtClinic.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="chkApplyTrtPlan.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="dtTreatDate.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="chkApplyPayValue.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="chkApplyIsExternal.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;lblPatientCaption.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkApplyTrtPlan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 240</value>
+  </data>
+  <data name="chkApplyTrtDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 309</value>
+  </data>
+  <data name="chkApplyTrtNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="chkApplyTrtValue.Properties.Caption" xml:space="preserve">
+    <value>Treat value</value>
+  </data>
+  <data name="grpTreats.Text" xml:space="preserve">
+    <value>Treatments to update</value>
+  </data>
+  <data name="txtTrtValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 22</value>
+  </data>
+  <data name="ceIsExternal.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>735, 9</value>
+  </data>
+  <data name="chkApplyTrtPlan.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ceIsExternal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtPayValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 199</value>
+  </data>
+  <data name="chkApplyTreatDate.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="ceFinished.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;grpHeader.Name" xml:space="preserve">
+    <value>grpHeader</value>
+  </data>
+  <data name="&gt;&gt;chkApplyFinished.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="&gt;&gt;txtPayValue.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="&gt;&gt;btnSelectNone.Parent" xml:space="preserve">
+    <value>pnlSelectButtons</value>
+  </data>
+  <data name="chkApplyTrtNotes.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtTrtNotes.Name" xml:space="preserve">
+    <value>txtTrtNotes</value>
+  </data>
+  <data name="&gt;&gt;grpTreats.Name" xml:space="preserve">
+    <value>grpTreats</value>
+  </data>
+  <data name="&gt;&gt;dtTreatEnd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkApplyIsExternal.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="&gt;&gt;grpTreats.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnSelectNone.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 25</value>
+  </data>
+  <data name="chkApplyTreatDate.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyTreatmentType.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="chkApplyTreatmentType.Properties.Caption" xml:space="preserve">
+    <value>Treatment type</value>
+  </data>
+  <data name="chkApplyPayValue.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ceFinished.Properties.Caption" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="grpTreats.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtPatientName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pnlChangesScroll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtExtClinic.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 122</value>
+  </data>
+  <data name="ceFinished.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 86</value>
+  </data>
+  <data name="ceIsExternal.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="pnlButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1059, 48</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.Name" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="grpChanges.Size" type="System.Drawing.Size, System.Drawing">
+    <value>536, 557</value>
+  </data>
+  <data name="grpHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;txtTrtValue.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtPlan.Name" xml:space="preserve">
+    <value>chkApplyTrtPlan</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTreatDate.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="ceFinished.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="chkApplyTreatmentType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 47</value>
+  </data>
+  <data name="grpChanges.AppearanceCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ceFinished.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSave.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtTrtDetails.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="chkApplyFinished.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkApplyTrtPlan.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btnSelectNone.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlSelectButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>519, 38</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTreatmentType.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="&gt;&gt;ceFinished.Name" xml:space="preserve">
+    <value>ceFinished</value>
+  </data>
+  <data name="txtTrtDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 60</value>
+  </data>
+  <data name="cboTreatmentType.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;chkApplyPayValue.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="dtTreatEnd.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;grpChanges.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblPatientCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 19</value>
+  </data>
+  <data name="chkApplyPayValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="btnSelectAll.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtPayValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="pnlButtons.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Parent" xml:space="preserve">
+    <value>grpHeader</value>
+  </data>
+  <data name="pnlButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 611</value>
+  </data>
+  <data name="btnSelectAll.Text" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="chkApplyTreatmentType.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyTreatDate.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>EditMultiTreatFrom</value>
+  </data>
+  <data name="grpHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkApplyTreatmentType.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;txtTrtValue.Name" xml:space="preserve">
+    <value>txtTrtValue</value>
+  </data>
+  <data name="chkApplyTrtDetails.Properties.Caption" xml:space="preserve">
+    <value>Treat details</value>
+  </data>
+  <data name="&gt;&gt;ceFinished.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtDetails.Name" xml:space="preserve">
+    <value>chkApplyTrtDetails</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="chkApplyTrtValue.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtExtClinic.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="chkApplyTrtDetails.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyIsExternal.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkApplyFinished.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtTrtDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="txtTrtPlan.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkApplyTreatmentType.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtNotes.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="grpTreats.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="cboTreatmentType.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="dtTreatEnd.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ceIsExternal.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPlan.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="chkApplyIsExternal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="chkApplyIsExternal.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="ceFinished.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 19</value>
+  </data>
+  <data name="&gt;&gt;btnSelectNone.Name" xml:space="preserve">
+    <value>btnSelectNone</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="&gt;&gt;clstTreats.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ceIsExternal.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dtTreatDate.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>615, 9</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtNotes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chkApplyTreatDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="btnSelectNone.Text" xml:space="preserve">
+    <value>Select None</value>
+  </data>
+  <data name="chkApplyTrtNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 377</value>
+  </data>
+  <data name="clstTreats.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;cboTreatmentType.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="lblPatientCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 18</value>
+  </data>
+  <data name="&gt;&gt;grpChanges.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="chkApplyFinished.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtValue.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;pnlChangesScroll.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlSelectButtons.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkApplyPayValue.Name" xml:space="preserve">
+    <value>chkApplyPayValue</value>
+  </data>
+  <data name="txtTrtValue.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtTrtValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 161</value>
+  </data>
+  <data name="clstTreats.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txtPayValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 22</value>
+  </data>
+  <data name="&gt;&gt;txtTrtValue.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="clstTreats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>519, 495</value>
+  </data>
+  <data name="chkApplyTreatDate.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="grpTreats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>523, 557</value>
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlChangesScroll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 22</value>
+  </data>
+  <data name="&gt;&gt;lblPatientCaption.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chkApplyIsExternal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 124</value>
+  </data>
+  <data name="chkApplyPayValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 201</value>
+  </data>
+  <data name="chkApplyTrtDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="chkApplyTreatmentType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="&gt;&gt;txtTrtValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chkApplyIsExternal.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="dtTreatEnd.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="txtTrtNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 60</value>
+  </data>
+  <data name="&gt;&gt;btnSelectAll.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ceIsExternal.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkApplyTrtDetails.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkApplyTrtDetails.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="txtTrtDetails.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="dtTreatEnd.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtTrtPlan.Name" xml:space="preserve">
+    <value>txtTrtPlan</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="&gt;&gt;btnSelectAll.Parent" xml:space="preserve">
+    <value>pnlSelectButtons</value>
+  </data>
+  <data name="&gt;&gt;pnlSelectButtons.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chkApplyTrtNotes.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;clstTreats.Parent" xml:space="preserve">
+    <value>grpTreats</value>
+  </data>
+  <data name="&gt;&gt;grpHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="txtTrtNotes.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkApplyFinished.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnSelectAll.Name" xml:space="preserve">
+    <value>btnSelectAll</value>
+  </data>
+  <data name="dtTreatDate.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnSelectAll.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="dtTreatEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="cboTreatmentType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 22</value>
+  </data>
+  <data name="&gt;&gt;grpTreats.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="pnlChangesScroll.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTreatDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkApplyTrtNotes.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyTreatDate.Properties.Caption" xml:space="preserve">
+    <value>Treat date</value>
+  </data>
+  <data name="txtPayValue.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="chkApplyIsExternal.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtPlan.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="chkApplyTrtDetails.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="grpChanges.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="chkApplyFinished.Properties.Caption" xml:space="preserve">
+    <value>Finished + end date</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtValue.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ceFinished.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>860, 659</value>
+  </data>
+  <data name="chkApplyTrtPlan.Properties.Caption" xml:space="preserve">
+    <value>Treat plan</value>
+  </data>
+  <data name="grpTreats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="chkApplyIsExternal.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chkApplyTrtPlan.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dtTreatDate.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="&gt;&gt;pnlChangesScroll.Name" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="ceFinished.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="chkApplyPayValue.Properties.Caption" xml:space="preserve">
+    <value>First payment</value>
+  </data>
+  <data name="txtTrtPlan.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;chkApplyTrtDetails.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="chkApplyFinished.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 86</value>
+  </data>
+  <data name="&gt;&gt;txtTrtNotes.Parent" xml:space="preserve">
+    <value>pnlChangesScroll</value>
+  </data>
+  <data name="&gt;&gt;txtTrtDetails.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlSelectButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="chkApplyTrtNotes.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;chkApplyTrtNotes.Name" xml:space="preserve">
+    <value>chkApplyTrtNotes</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Edit Multiple Treatments</value>
+  </data>
+  <data name="chkApplyTreatDate.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkApplyPayValue.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;grpChanges.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="btnCancel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="chkApplyTrtValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="txtTrtNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="dtTreatDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

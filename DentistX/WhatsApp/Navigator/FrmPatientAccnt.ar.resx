@@ -226,6 +226,12 @@
   <data name="chkFullDetail.Properties.Caption" xml:space="preserve">
     <value>كامل التفاصيل</value>
   </data>
+  <data name="btnSelectAll.Text" xml:space="preserve">
+    <value>تحديد الكل</value>
+  </data>
+  <data name="btnSelectNone.Text" xml:space="preserve">
+    <value>إلغاء التحديد</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>

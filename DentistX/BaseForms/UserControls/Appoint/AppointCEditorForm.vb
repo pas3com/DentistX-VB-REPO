@@ -246,9 +246,13 @@ Public Class AppointCEditorForm
 
 
     Private Async Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ' 1. Validate
-        Dim pId As Integer = PatientCombo1.GetPatientID(PatientCombo1.CboPatient.Text)
-        Dim drId As Integer = DoctorsCombo1.GetDrID(DoctorsCombo1.CboDoctors.Text)
+        ' 1. Validate — prefer combo-bound IDs (exact row) over name lookup (duplicate names in DB).
+        Dim pId As Integer = If(PatientCombo1 IsNot Nothing AndAlso PatientCombo1.PatientID > 0,
+                                PatientCombo1.PatientID,
+                                If(PatientCombo1 IsNot Nothing, PatientCombo1.GetPatientID(If(PatientCombo1.CboPatient IsNot Nothing, PatientCombo1.CboPatient.Text, "")), -1))
+        Dim drId As Integer = If(DoctorsCombo1 IsNot Nothing AndAlso DoctorsCombo1.DrID > 0,
+                                 DoctorsCombo1.DrID,
+                                 If(DoctorsCombo1 IsNot Nothing, DoctorsCombo1.GetDrID(If(DoctorsCombo1.CboDoctors IsNot Nothing, DoctorsCombo1.CboDoctors.Text, "")), -1))
         If pId < 1 Then MessageBox.Show(If(Eng, "Patient is required.", "المريض مطلوب."), If(Eng, "Validation", "التحقق"), MessageBoxButtons.OK, MessageBoxIcon.Warning) : Return
         If drId < 1 Then MessageBox.Show(If(Eng, "Doctor is required.", "الطبيب مطلوب."), If(Eng, "Validation", "التحقق"), MessageBoxButtons.OK, MessageBoxIcon.Warning) : Return
         If dtpEnd.EditValue <= dtpStart.EditValue Then MessageBox.Show(If(Eng, "End time must be after start time.", "يجب أن يكون وقت الانتهاء بعد وقت البدء."), If(Eng, "Validation", "التحقق"), MessageBoxButtons.OK, MessageBoxIcon.Warning) : Return
@@ -295,12 +299,12 @@ Public Class AppointCEditorForm
         ' 3. Save appointment
         Dim saveSucceeded As Boolean = False
         Try
-            If _isNew AndAlso Not _setAppt Then
+            If _setAppt Then
+                ' Host persists after ShowDialog (Insert for new, Update for edit) — avoids double save.
+                Me.Appointment = AppointmentC
+            ElseIf _isNew Then
                 Dim newApptId = repo.Insert(AppointmentC, useEng)
                 AppointmentC.AppointmentID = newApptId
-            ElseIf _isNew AndAlso _setAppt Then
-                ' Scheduler will persist; just pass Appointment back
-                Me.Appointment = AppointmentC
             Else
                 repo.Update(AppointmentC, useEng)
             End If
@@ -311,7 +315,7 @@ Public Class AppointCEditorForm
             saveSucceeded = False
         End Try
 
-        If Not saveSucceeded AndAlso Not (_isNew AndAlso _setAppt) Then
+        If Not saveSucceeded AndAlso Not _setAppt Then
             ' If we failed to persist here, do not send WhatsApp or update patient table
             Me.DialogResult = DialogResult.None
             Return
@@ -319,7 +323,7 @@ Public Class AppointCEditorForm
 
         ' 3b. Same as PatientVisitsCtl after save: dbo.ApptTwoHourWhatsAppQueue from chkWhats + 24h/2h (Insert/Update already syncs with defaults; re-apply user choices).
         Dim appointmentIdForQueue = AppointmentC.AppointmentID
-        Dim wroteAppointmentToDbHere = saveSucceeded AndAlso Not (_isNew AndAlso _setAppt)
+        Dim wroteAppointmentToDbHere = saveSucceeded AndAlso Not _setAppt
         If wroteAppointmentToDbHere AndAlso appointmentIdForQueue > 0 Then
             Dim wantScheduledReminders = chkWhats IsNot Nothing AndAlso chkWhats.Checked AndAlso
                 chk24H IsNot Nothing AndAlso chk2H IsNot Nothing AndAlso
@@ -334,7 +338,7 @@ Public Class AppointCEditorForm
         Me.DialogResult = DialogResult.OK
 
         ' 4. After OK: WhatsApp / patient phone fields when chkWhats applies.
-        ' When _setAppt=True (e.g. SchedulerFull Add), this form does not INSERT; the host saves after ShowDialog.
+        ' When _setAppt=True the host saves after ShowDialog (Insert or Update); editor skips repo write here.
         ' Users still expect WhatsApp when they tick chkWhats, so use saveSucceeded — not only "insert/update inside this form".
         Dim wePersistedHere As Boolean = saveSucceeded
         Dim sendWhats As Boolean = chkWhats IsNot Nothing AndAlso chkWhats.Checked
@@ -494,10 +498,11 @@ Public Class AppointCEditorForm
                                                              includeReason:=inclReason, includeNotes:=inclNotes)
     End Function
 
+    ''' <summary>Reminder WhatsApp language defaults to Arabic; user can switch to English on RadioLang before save.</summary>
     Private Sub ApplyReminderLanguageRadioFromAppointment()
         If RadioLang Is Nothing Then Return
-        'RadioLang.SelectedIndex = If(Eng, 1, 0)
-        'useEng = eng
+        RadioLang.SelectedIndex = 0
+        useEng = False
     End Sub
 
     Private Sub RadioLang_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RadioLang.SelectedIndexChanged

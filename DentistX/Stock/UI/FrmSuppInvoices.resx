@@ -117,588 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblSupplier.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 12</value>
-  </data>
-  <data name="lblSupplier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 15</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblSupplier.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblSupplier.Text" xml:space="preserve">
-    <value>Supplier:</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.Name" xml:space="preserve">
-    <value>lblSupplier</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;lblSupplier.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cmbSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 10</value>
-  </data>
-  <data name="cmbSupplier.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="cmbSupplier.Properties.NullText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbSupplier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
-  </data>
-  <data name="cmbSupplier.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cmbSupplier.Name" xml:space="preserve">
-    <value>cmbSupplier</value>
-  </data>
-  <data name="&gt;&gt;cmbSupplier.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LookUpEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;cmbSupplier.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;cmbSupplier.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="chkAllSuppliers.EditValue" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkAllSuppliers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 10</value>
-  </data>
-  <data name="chkAllSuppliers.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="chkAllSuppliers.Properties.Caption" xml:space="preserve">
-    <value>All suppliers</value>
-  </data>
-  <data name="chkAllSuppliers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 19</value>
-  </data>
-  <data name="chkAllSuppliers.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;chkAllSuppliers.Name" xml:space="preserve">
-    <value>chkAllSuppliers</value>
-  </data>
-  <data name="&gt;&gt;chkAllSuppliers.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;chkAllSuppliers.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;chkAllSuppliers.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblSearch.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 12</value>
-  </data>
-  <data name="lblSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 15</value>
-  </data>
-  <data name="lblSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="lblSearch.Text" xml:space="preserve">
-    <value>Search by name:</value>
-  </data>
-  <data name="&gt;&gt;lblSearch.Name" xml:space="preserve">
-    <value>lblSearch</value>
-  </data>
-  <data name="&gt;&gt;lblSearch.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblSearch.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;lblSearch.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>500, 10</value>
-  </data>
-  <data name="txtSearch.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="txtSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
-  </data>
-  <data name="txtSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Name" xml:space="preserve">
-    <value>txtSearch</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lblDateFrom.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblDateFrom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 46</value>
-  </data>
-  <data name="lblDateFrom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 15</value>
-  </data>
-  <data name="lblDateFrom.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lblDateFrom.Text" xml:space="preserve">
-    <value>From:</value>
-  </data>
-  <data name="&gt;&gt;lblDateFrom.Name" xml:space="preserve">
-    <value>lblDateFrom</value>
-  </data>
-  <data name="&gt;&gt;lblDateFrom.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblDateFrom.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;lblDateFrom.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="dtFrom.EditValue" type="System.DateTime, mscorlib">
-    <value>2026-03-18</value>
-  </data>
-  <data name="dtFrom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 44</value>
-  </data>
-  <data name="dtFrom.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="dtFrom.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
-  </data>
-  <data name="dtFrom.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
-  </data>
-  <data name="dtFrom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
-  </data>
   <data name="dtFrom.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="&gt;&gt;dtFrom.Name" xml:space="preserve">
-    <value>dtFrom</value>
-  </data>
-  <data name="&gt;&gt;dtFrom.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;dtFrom.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;dtFrom.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="lblDateTo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblDateTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>220, 46</value>
-  </data>
-  <data name="lblDateTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 15</value>
-  </data>
-  <data name="lblDateTo.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lblDateTo.Text" xml:space="preserve">
-    <value>To:</value>
-  </data>
-  <data name="&gt;&gt;lblDateTo.Name" xml:space="preserve">
-    <value>lblDateTo</value>
-  </data>
-  <data name="&gt;&gt;lblDateTo.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblDateTo.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;lblDateTo.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="dtTo.EditValue" type="System.DateTime, mscorlib">
-    <value>2026-03-18</value>
-  </data>
-  <data name="dtTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 44</value>
-  </data>
-  <data name="dtTo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="dtTo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
-  </data>
-  <data name="dtTo.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
-    <value>Combo</value>
-  </data>
-  <data name="dtTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
-  </data>
-  <data name="dtTo.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;dtTo.Name" xml:space="preserve">
-    <value>dtTo</value>
-  </data>
-  <data name="&gt;&gt;dtTo.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;dtTo.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;dtTo.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="btnApplyFilters.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="btnApplyFilters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>420, 42</value>
-  </data>
-  <data name="btnApplyFilters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 26</value>
-  </data>
-  <data name="btnApplyFilters.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="btnApplyFilters.Text" xml:space="preserve">
-    <value>Apply</value>
-  </data>
-  <data name="&gt;&gt;btnApplyFilters.Name" xml:space="preserve">
-    <value>btnApplyFilters</value>
-  </data>
-  <data name="&gt;&gt;btnApplyFilters.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnApplyFilters.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;btnApplyFilters.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="btnReport2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="btnReport2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>841, 42</value>
-  </data>
-  <data name="btnReport2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 26</value>
-  </data>
-  <data name="btnReport2.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="btnReport2.Text" xml:space="preserve">
-    <value>Report2</value>
-  </data>
-  <data name="&gt;&gt;btnReport2.Name" xml:space="preserve">
-    <value>btnReport2</value>
-  </data>
-  <data name="&gt;&gt;btnReport2.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnReport2.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;btnReport2.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="btnReport.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="btnReport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>751, 42</value>
-  </data>
-  <data name="btnReport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 26</value>
-  </data>
-  <data name="btnReport.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="btnReport.Text" xml:space="preserve">
-    <value>Report</value>
-  </data>
-  <data name="&gt;&gt;btnReport.Name" xml:space="preserve">
-    <value>btnReport</value>
-  </data>
-  <data name="&gt;&gt;btnReport.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnReport.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;btnReport.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="btnClearFilters.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="btnClearFilters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 42</value>
-  </data>
-  <data name="btnClearFilters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 26</value>
-  </data>
-  <data name="btnClearFilters.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="btnClearFilters.Text" xml:space="preserve">
-    <value>Clear</value>
-  </data>
-  <data name="&gt;&gt;btnClearFilters.Name" xml:space="preserve">
-    <value>btnClearFilters</value>
-  </data>
-  <data name="&gt;&gt;btnClearFilters.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnClearFilters.Parent" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;btnClearFilters.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panelFilters.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panelFilters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelFilters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>984, 80</value>
-  </data>
-  <data name="panelFilters.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelFilters.Name" xml:space="preserve">
-    <value>panelFilters</value>
-  </data>
-  <data name="&gt;&gt;panelFilters.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;panelFilters.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelFilters.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 80</value>
-  </data>
-  <data name="grdDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="grdDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 211</value>
-  </data>
-  <data name="viewDetails.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="viewDetails.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="grdDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 242</value>
-  </data>
-  <data name="grdDetails.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;grdDetails.Name" xml:space="preserve">
-    <value>grdDetails</value>
-  </data>
-  <data name="&gt;&gt;grdDetails.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;grdDetails.Parent" xml:space="preserve">
-    <value>tabInvoices</value>
-  </data>
-  <data name="&gt;&gt;grdDetails.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblHdrInvoice.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblHdrInvoice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 12</value>
-  </data>
-  <data name="lblHdrInvoice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 15</value>
-  </data>
-  <data name="lblHdrInvoice.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblHdrInvoice.Text" xml:space="preserve">
-    <value>Invoice: -</value>
-  </data>
-  <data name="&gt;&gt;lblHdrInvoice.Name" xml:space="preserve">
-    <value>lblHdrInvoice</value>
-  </data>
-  <data name="&gt;&gt;lblHdrInvoice.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblHdrInvoice.Parent" xml:space="preserve">
-    <value>panelHeader</value>
-  </data>
-  <data name="&gt;&gt;lblHdrInvoice.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblHdrSupplier.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblHdrSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 12</value>
-  </data>
-  <data name="lblHdrSupplier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 15</value>
-  </data>
-  <data name="lblHdrSupplier.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lblHdrSupplier.Text" xml:space="preserve">
-    <value>Supplier: -</value>
-  </data>
-  <data name="&gt;&gt;lblHdrSupplier.Name" xml:space="preserve">
-    <value>lblHdrSupplier</value>
-  </data>
-  <data name="&gt;&gt;lblHdrSupplier.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblHdrSupplier.Parent" xml:space="preserve">
-    <value>panelHeader</value>
-  </data>
-  <data name="&gt;&gt;lblHdrSupplier.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblHdrDate.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblHdrDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 12</value>
-  </data>
-  <data name="lblHdrDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 15</value>
-  </data>
-  <data name="lblHdrDate.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblHdrDate.Text" xml:space="preserve">
-    <value>Date: -</value>
-  </data>
-  <data name="&gt;&gt;lblHdrDate.Name" xml:space="preserve">
-    <value>lblHdrDate</value>
-  </data>
-  <data name="&gt;&gt;lblHdrDate.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblHdrDate.Parent" xml:space="preserve">
-    <value>panelHeader</value>
-  </data>
-  <data name="&gt;&gt;lblHdrDate.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblHdrTotal.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblHdrTotal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>580, 12</value>
-  </data>
-  <data name="lblHdrTotal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 15</value>
-  </data>
-  <data name="lblHdrTotal.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="lblHdrTotal.Text" xml:space="preserve">
-    <value>Total: -</value>
-  </data>
-  <data name="&gt;&gt;lblHdrTotal.Name" xml:space="preserve">
-    <value>lblHdrTotal</value>
-  </data>
-  <data name="&gt;&gt;lblHdrTotal.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblHdrTotal.Parent" xml:space="preserve">
-    <value>panelHeader</value>
-  </data>
-  <data name="&gt;&gt;lblHdrTotal.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="panelHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panelHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 171</value>
-  </data>
-  <data name="panelHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 40</value>
-  </data>
-  <data name="panelHeader.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelHeader.Name" xml:space="preserve">
-    <value>panelHeader</value>
-  </data>
-  <data name="&gt;&gt;panelHeader.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;panelHeader.Parent" xml:space="preserve">
-    <value>tabInvoices</value>
-  </data>
-  <data name="&gt;&gt;panelHeader.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="grdHeaders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="grdHeaders.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 32</value>
-  </data>
-  <data name="viewHeaders.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="viewHeaders.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="grdHeaders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 139</value>
-  </data>
-  <data name="grdHeaders.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;grdHeaders.Name" xml:space="preserve">
-    <value>grdHeaders</value>
-  </data>
-  <data name="&gt;&gt;grdHeaders.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;grdHeaders.Parent" xml:space="preserve">
     <value>tabInvoices</value>
@@ -706,178 +127,996 @@
   <data name="&gt;&gt;grdHeaders.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="lblHdrListTitle.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="lblHdrListTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 8</value>
-  </data>
-  <data name="lblHdrListTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 15</value>
-  </data>
-  <data name="lblHdrListTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblHdrListTitle.Text" xml:space="preserve">
-    <value>Invoices for current filter</value>
-  </data>
-  <data name="&gt;&gt;lblHdrListTitle.Name" xml:space="preserve">
-    <value>lblHdrListTitle</value>
-  </data>
-  <data name="&gt;&gt;lblHdrListTitle.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblHdrListTitle.Parent" xml:space="preserve">
-    <value>pnlHeaders</value>
-  </data>
-  <data name="&gt;&gt;lblHdrListTitle.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pnlHeaders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="pnlHeaders.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="pnlHeaders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 32</value>
-  </data>
-  <data name="pnlHeaders.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pnlHeaders.Name" xml:space="preserve">
-    <value>pnlHeaders</value>
-  </data>
-  <data name="&gt;&gt;pnlHeaders.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;pnlHeaders.Parent" xml:space="preserve">
-    <value>tabInvoices</value>
-  </data>
-  <data name="&gt;&gt;pnlHeaders.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabInvoices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 453</value>
-  </data>
-  <data name="tabInvoices.Text" xml:space="preserve">
-    <value>Invoices</value>
-  </data>
-  <data name="&gt;&gt;tabInvoices.Name" xml:space="preserve">
-    <value>tabInvoices</value>
-  </data>
-  <data name="&gt;&gt;tabInvoices.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;tabInvoices.Parent" xml:space="preserve">
-    <value>tabMain</value>
-  </data>
-  <data name="&gt;&gt;tabInvoices.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>984, 481</value>
-  </data>
-  <data name="tabMain.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="grdSummary.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="grdSummary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="viewSummary.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="viewSummary.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10pt, style=Bold</value>
-  </data>
-  <data name="grdSummary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 453</value>
-  </data>
-  <data name="grdSummary.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;grdSummary.Name" xml:space="preserve">
-    <value>grdSummary</value>
-  </data>
-  <data name="&gt;&gt;grdSummary.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;grdSummary.Parent" xml:space="preserve">
-    <value>tabSummary</value>
-  </data>
-  <data name="&gt;&gt;grdSummary.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabSummary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 453</value>
-  </data>
-  <data name="tabSummary.Text" xml:space="preserve">
-    <value>Supplier Summary</value>
-  </data>
-  <data name="&gt;&gt;tabSummary.Name" xml:space="preserve">
-    <value>tabSummary</value>
-  </data>
-  <data name="&gt;&gt;tabSummary.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;tabSummary.Parent" xml:space="preserve">
-    <value>tabMain</value>
-  </data>
-  <data name="&gt;&gt;tabSummary.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tabMain.Name" xml:space="preserve">
-    <value>tabMain</value>
-  </data>
-  <data name="&gt;&gt;tabMain.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;tabMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;tabMain.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>984, 561</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Supplier Invoices</value>
-  </data>
-  <data name="&gt;&gt;viewDetails.Name" xml:space="preserve">
-    <value>viewDetails</value>
-  </data>
-  <data name="&gt;&gt;viewDetails.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;viewHeaders.Name" xml:space="preserve">
     <value>viewHeaders</value>
   </data>
+  <data name="&gt;&gt;dtTo.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblHdrInvoice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 15</value>
+  </data>
+  <data name="&gt;&gt;panelFilters.Name" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="btnApplyFilters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="&gt;&gt;tabMain.Name" xml:space="preserve">
+    <value>tabMain</value>
+  </data>
+  <data name="grdSummary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Name" xml:space="preserve">
+    <value>txtSearch</value>
+  </data>
+  <data name="grdDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="chkAllSuppliers.Properties.DisplayValueUnchecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pnlHeaders.Name" xml:space="preserve">
+    <value>pnlHeaders</value>
+  </data>
+  <data name="&gt;&gt;btnApplyFilters.Name" xml:space="preserve">
+    <value>btnApplyFilters</value>
+  </data>
+  <data name="&gt;&gt;dtFrom.Name" xml:space="preserve">
+    <value>dtFrom</value>
+  </data>
+  <data name="&gt;&gt;tabInvoices.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblDateTo.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblHdrListTitle.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="lblHdrInvoice.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="pnlHeaders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 32</value>
+  </data>
+  <data name="lblSupplier.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="txtSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnReport.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="dtTo.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="&gt;&gt;viewHeaders.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;viewSummary.Name" xml:space="preserve">
-    <value>viewSummary</value>
+  <data name="&gt;&gt;tabMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnWhatsSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>909, 36</value>
+  </data>
+  <data name="lblHdrSupplier.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="dtFrom.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;grdDetails.Name" xml:space="preserve">
+    <value>grdDetails</value>
+  </data>
+  <data name="&gt;&gt;cmbSupplier.Name" xml:space="preserve">
+    <value>cmbSupplier</value>
+  </data>
+  <data name="lblHdrSupplier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 15</value>
+  </data>
+  <data name="&gt;&gt;lblSearch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHdrTotal.Parent" xml:space="preserve">
+    <value>panelHeader</value>
+  </data>
+  <data name="&gt;&gt;lblHdrSupplier.Name" xml:space="preserve">
+    <value>lblHdrSupplier</value>
+  </data>
+  <data name="&gt;&gt;tabSummary.Parent" xml:space="preserve">
+    <value>tabMain</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="RadioLang.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="grdSummary.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnApplyFilters.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="lblHdrInvoice.Text" xml:space="preserve">
+    <value>Invoice: -</value>
+  </data>
+  <data name="btnClearFilters.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;cmbSupplier.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LookUpEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;viewDetails.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chkAllSuppliers.Properties.DisplayValueGrayed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tabSummary.Name" xml:space="preserve">
+    <value>tabSummary</value>
+  </data>
+  <data name="&gt;&gt;grdSummary.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHdrSupplier.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;viewSummary.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;btnReport.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="&gt;&gt;lblHdrTotal.Name" xml:space="preserve">
+    <value>lblHdrTotal</value>
+  </data>
+  <data name="&gt;&gt;panelFilters.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tabSummary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 453</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v25.1" name="DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="dtFrom.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;tabMain.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="panelHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblDateTo.Text" xml:space="preserve">
+    <value>To:</value>
+  </data>
+  <data name="&gt;&gt;grdHeaders.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tabSummary.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="&gt;&gt;lblHdrDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblHdrInvoice.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="&gt;&gt;viewSummary.Name" xml:space="preserve">
+    <value>viewSummary</value>
+  </data>
+  <data name="grdHeaders.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>984, 561</value>
+  </data>
+  <data name="&gt;&gt;btnClearFilters.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tabMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 80</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;dtTo.Name" xml:space="preserve">
+    <value>dtTo</value>
+  </data>
+  <data name="tabSummary.Text" xml:space="preserve">
+    <value>Supplier Summary</value>
+  </data>
+  <data name="lblHdrSupplier.Text" xml:space="preserve">
+    <value>Supplier: -</value>
+  </data>
+  <data name="btnWhatsSend.ImageOptions.ImageKey" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="lblHdrDate.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="dtFrom.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v25.1" name="DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="grdSummary.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;lblHdrDate.Parent" xml:space="preserve">
+    <value>panelHeader</value>
+  </data>
+  <data name="dtFrom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 44</value>
+  </data>
+  <data name="btnReport.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="chkAllSuppliers.Properties.GlyphVerticalAlignment" type="DevExpress.Utils.VertAlignment, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;lblHdrSupplier.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dtFrom.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="dtFrom.EditValue" type="System.DateTime, mscorlib">
+    <value>2026-03-18</value>
+  </data>
+  <data name="&gt;&gt;tabInvoices.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnReport2.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;grdSummary.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;grdHeaders.Name" xml:space="preserve">
+    <value>grdHeaders</value>
+  </data>
+  <data name="&gt;&gt;lblDateFrom.Name" xml:space="preserve">
+    <value>lblDateFrom</value>
+  </data>
+  <data name="txtSearch.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="tabMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>984, 481</value>
+  </data>
+  <data name="&gt;&gt;btnApplyFilters.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tabSummary.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHdrListTitle.Parent" xml:space="preserve">
+    <value>pnlHeaders</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="lblDateFrom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 15</value>
+  </data>
+  <data name="btnApplyFilters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 42</value>
+  </data>
+  <data name="&gt;&gt;lblSearch.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="tabMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnReport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>705, 40</value>
+  </data>
+  <data name="grdSummary.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;lblHdrDate.Name" xml:space="preserve">
+    <value>lblHdrDate</value>
+  </data>
+  <data name="&gt;&gt;chkAllSuppliers.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="&gt;&gt;lblHdrTotal.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblSupplier.Text" xml:space="preserve">
+    <value>Supplier:</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dtFrom.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="cmbSupplier.Properties.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;lblSupplier.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="btnReport2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>795, 40</value>
+  </data>
+  <data name="btnReport2.Text" xml:space="preserve">
+    <value>Report2</value>
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnReport.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="lblDateTo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="grdHeaders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;dtTo.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btnClearFilters.Text" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="btnReport2.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblSupplier.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblSearch.Name" xml:space="preserve">
+    <value>lblSearch</value>
+  </data>
+  <data name="lblHdrTotal.Text" xml:space="preserve">
+    <value>Total: -</value>
+  </data>
+  <data name="LabelControl3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="panelHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 40</value>
+  </data>
+  <data name="&gt;&gt;panelFilters.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="cmbSupplier.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;viewDetails.Name" xml:space="preserve">
+    <value>viewDetails</value>
+  </data>
+  <data name="chkAllSuppliers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>290, 10</value>
+  </data>
+  <data name="lblSupplier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 15</value>
+  </data>
+  <data name="dtTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="pnlHeaders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;grdDetails.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="RadioLang.Properties.Items3" type="System.Int16, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="dtTo.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;cmbSupplier.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="&gt;&gt;lblDateTo.Name" xml:space="preserve">
+    <value>lblDateTo</value>
+  </data>
+  <data name="&gt;&gt;grdDetails.Parent" xml:space="preserve">
+    <value>tabInvoices</value>
+  </data>
+  <data name="lblSearch.Text" xml:space="preserve">
+    <value>Search by name:</value>
+  </data>
+  <data name="lblSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblDateFrom.Text" xml:space="preserve">
+    <value>From:</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Name" xml:space="preserve">
+    <value>RadioLang</value>
+  </data>
+  <data name="tabMain.AppearancePage.Header.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;grdSummary.Name" xml:space="preserve">
+    <value>grdSummary</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHdrSupplier.Parent" xml:space="preserve">
+    <value>panelHeader</value>
+  </data>
+  <data name="tabInvoices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 453</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="panelFilters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="dtTo.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="dtTo.EditValue" type="System.DateTime, mscorlib">
+    <value>2026-03-18</value>
+  </data>
+  <data name="lblHdrSupplier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 12</value>
+  </data>
+  <data name="&gt;&gt;tabInvoices.Parent" xml:space="preserve">
+    <value>tabMain</value>
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnReport2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="RadioLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>812, 9</value>
+  </data>
+  <data name="&gt;&gt;lblSupplier.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="dtTo.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v25.1">
+    <value>Combo</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsSend.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaders.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsSend.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>727, 13</value>
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="viewHeaders.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblHdrInvoice.Name" xml:space="preserve">
+    <value>lblHdrInvoice</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;btnWhatsSend.Name" xml:space="preserve">
+    <value>btnWhatsSend</value>
+  </data>
+  <data name="lblHdrTotal.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="pnlHeaders.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblHdrInvoice.Parent" xml:space="preserve">
+    <value>panelHeader</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDateFrom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 46</value>
+  </data>
+  <data name="lblHdrTotal.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnReport2.Name" xml:space="preserve">
+    <value>btnReport2</value>
+  </data>
+  <data name="tabMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="btnReport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;lblHdrListTitle.Name" xml:space="preserve">
+    <value>lblHdrListTitle</value>
+  </data>
+  <data name="&gt;&gt;LabelControl3.Name" xml:space="preserve">
+    <value>LabelControl3</value>
+  </data>
+  <data name="lblHdrInvoice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 12</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelFilters.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dtFrom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="&gt;&gt;dtTo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHdrListTitle.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;grdDetails.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>Send Whats In</value>
+  </data>
+  <data name="&gt;&gt;btnClearFilters.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="btnClearFilters.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="btnApplyFilters.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lblHdrListTitle.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dtTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 44</value>
+  </data>
+  <data name="grdDetails.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="btnReport2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="RadioLang.Properties.Items1" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="lblDateFrom.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnWhatsSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>500, 10</value>
+  </data>
+  <data name="RadioLang.Properties.Items5" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="RadioLang.Properties.Items4" type="System.Int16, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblSearch.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmSuppInvoices</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <data name="RadioLang.Properties.Items2" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cmbSupplier.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnReport2.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;lblSupplier.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblHdrDate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="grdSummary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 453</value>
+  </data>
+  <data name="chkAllSuppliers.Properties.Caption" xml:space="preserve">
+    <value>All suppliers</value>
+  </data>
+  <data name="chkAllSuppliers.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 15</value>
+  </data>
+  <data name="pnlHeaders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblHdrDate.Text" xml:space="preserve">
+    <value>Date: -</value>
+  </data>
+  <data name="lblHdrDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 12</value>
+  </data>
+  <data name="lblHdrListTitle.Text" xml:space="preserve">
+    <value>Invoices for current filter</value>
+  </data>
+  <data name="&gt;&gt;btnApplyFilters.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="grdHeaders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 32</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblDateFrom.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;panelHeader.Name" xml:space="preserve">
+    <value>panelHeader</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="grdDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblHdrListTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 8</value>
+  </data>
+  <data name="&gt;&gt;btnReport2.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="btnApplyFilters.Text" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="lblSupplier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 12</value>
+  </data>
+  <data name="panelHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;cmbSupplier.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblHdrTotal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>580, 12</value>
+  </data>
+  <data name="chkAllSuppliers.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;dtFrom.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="viewSummary.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="viewHeaders.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;tabInvoices.Name" xml:space="preserve">
+    <value>tabInvoices</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDateFrom.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="viewSummary.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="cmbSupplier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 10</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v25.1">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;btnReport.Name" xml:space="preserve">
+    <value>btnReport</value>
+  </data>
+  <data name="&gt;&gt;panelHeader.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblDateTo.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="&gt;&gt;chkAllSuppliers.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="cmbSupplier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Supplier Invoices</value>
+  </data>
+  <data name="LabelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnWhatsSend.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;panelHeader.Parent" xml:space="preserve">
+    <value>tabInvoices</value>
+  </data>
+  <data name="lblHdrListTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnClearFilters.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 15</value>
+  </data>
+  <data name="btnReport2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnClearFilters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="&gt;&gt;lblDateFrom.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="lblHdrDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 15</value>
+  </data>
+  <data name="&gt;&gt;chkAllSuppliers.Name" xml:space="preserve">
+    <value>chkAllSuppliers</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="panelHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 171</value>
+  </data>
+  <data name="&gt;&gt;panelHeader.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDateFrom.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="tabInvoices.Text" xml:space="preserve">
+    <value>Invoices</value>
+  </data>
+  <data name="grdSummary.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="viewDetails.Appearance.HeaderPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnReport.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnReport.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="lblHdrListTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 15</value>
+  </data>
+  <data name="grdDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 242</value>
+  </data>
+  <data name="&gt;&gt;RadioLang.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="&gt;&gt;lblHdrTotal.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="chkAllSuppliers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 19</value>
+  </data>
+  <data name="btnApplyFilters.ImageOptions.ImageKey" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pnlHeaders.Parent" xml:space="preserve">
+    <value>tabInvoices</value>
+  </data>
+  <data name="&gt;&gt;btnClearFilters.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="panelFilters.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnApplyFilters.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="RadioLang.Properties.Items" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="btnReport.Text" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="panelFilters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>984, 80</value>
+  </data>
+  <data name="lblSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 12</value>
+  </data>
+  <data name="&gt;&gt;btnWhatsSend.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblDateTo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="RadioLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 24</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="grdDetails.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v25.1">
+    <value>Center</value>
+  </data>
+  <data name="grdHeaders.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="chkAllSuppliers.Properties.DisplayValueChecked" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHdrTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 15</value>
+  </data>
+  <data name="panelFilters.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="grdDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 211</value>
+  </data>
+  <data name="&gt;&gt;grdSummary.Parent" xml:space="preserve">
+    <value>tabSummary</value>
+  </data>
+  <data name="&gt;&gt;pnlHeaders.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;chkAllSuppliers.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblHdrDate.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="chkAllSuppliers.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblSearch.Parent" xml:space="preserve">
+    <value>panelFilters</value>
+  </data>
+  <data name="grdHeaders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 139</value>
+  </data>
+  <data name="&gt;&gt;lblHdrInvoice.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="lblHdrSupplier.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;lblHdrInvoice.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblDateTo.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblSupplier.Name" xml:space="preserve">
+    <value>lblSupplier</value>
+  </data>
+  <data name="btnClearFilters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 42</value>
+  </data>
+  <data name="viewDetails.Appearance.Row.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10pt, style=Bold</value>
+  </data>
+  <data name="lblDateTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>220, 46</value>
+  </data>
+  <data name="&gt;&gt;btnClearFilters.Name" xml:space="preserve">
+    <value>btnClearFilters</value>
+  </data>
+  <data name="RadioLang.Properties.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblDateTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 15</value>
+  </data>
+  <data name="grdSummary.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v25.1">
+    <value>None</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

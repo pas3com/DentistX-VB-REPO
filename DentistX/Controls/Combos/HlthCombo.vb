@@ -214,8 +214,13 @@ Public Class HlthCombo
     End Sub
 
     Private Sub BtnAddHealth_Click(sender As Object, e As EventArgs) Handles BtnAddHealth.Click
-        Frm_Health.Icon = MainView3.Icon
-        Frm_Health.ShowDialog()
+        ComboFlyoutSearchHelper.RaiseBeforeMaintenanceModalDialog()
+        ComboFlyoutSearchHelper.HideFlyoutIfOpen(Flyout1)
+        Dim owner = ComboFlyoutSearchHelper.TryGetApplicationShellForm()
+        Using frm As New Frm_Health()
+            If owner IsNot Nothing AndAlso owner.Icon IsNot Nothing Then frm.Icon = owner.Icon
+            frm.ShowDialog(owner)
+        End Using
         BindHealth()
     End Sub
 

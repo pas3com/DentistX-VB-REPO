@@ -28,13 +28,7 @@ Public Class AccountingWhatsAppService
         Dim clinicId As String = WhatsAppService.GetCurrentClinicId()
         If String.IsNullOrWhiteSpace(clinicId) Then Return False
 
-        Dim connected = False
-        Try
-            Dim waService As New WhatsAppService()
-            connected = Await waService.GetConnectionStatusAsync(clinicId)
-        Catch
-        End Try
-        If Not connected Then Return False
+        If Not Await WhatsAppService.TrySilentWhatsReconnectBackgroundAsync(clinicId).ConfigureAwait(False) Then Return False
 
         If String.IsNullOrWhiteSpace(patientPhone) Then Return False
 

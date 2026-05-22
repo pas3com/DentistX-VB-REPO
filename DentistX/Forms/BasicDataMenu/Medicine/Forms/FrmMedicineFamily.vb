@@ -150,7 +150,7 @@ Partial Public Class FrmMedicineFamily
      ClearRecord()
      ShowToolStripItems("Add")
      SubCatIDSpinEdit.Select
-     SubCatIDSpinEdit.Text = clsDentistXData.getAutoID("New", "MedicineFamily")
+     SubCatIDSpinEdit.Text = DentistXDATA.getAutoID("New", "MedicineFamily")
  End Sub
 
  Private Sub Edit()

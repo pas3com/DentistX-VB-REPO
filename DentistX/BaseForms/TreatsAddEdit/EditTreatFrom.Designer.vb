@@ -471,8 +471,10 @@ Partial Class EditTreatFrom
         Me.txtTrtPrice.Properties.Appearance.ForeColor = System.Drawing.Color.Red
         Me.txtTrtPrice.Properties.Appearance.Options.UseFont = True
         Me.txtTrtPrice.Properties.Appearance.Options.UseForeColor = True
-        Me.txtTrtPrice.Properties.DisplayFormat.FormatString = "N0"
+        Me.txtTrtPrice.Properties.DisplayFormat.FormatString = "N"
         Me.txtTrtPrice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.txtTrtPrice.Properties.EditFormat.FormatString = "N"
+        Me.txtTrtPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.txtTrtPrice.Properties.NullText = resources.GetString("txtTrtPrice.Properties.NullText")
         Me.txtTrtPrice.Properties.NullValuePrompt = resources.GetString("txtTrtPrice.Properties.NullValuePrompt")
         Me.txtTrtPrice.Properties.TextPadding = New System.Windows.Forms.Padding(5, 0, 0, 0)

@@ -4,7 +4,7 @@ Imports System.Globalization
 Imports System.Windows.Forms
 
 ''' <summary>
-''' WinForms loads localized strings from .resx during <see cref="Control.InitializeComponent"/> using the
+''' WinForms loads localized strings from .resx during <c>InitializeComponent</c> using the
 ''' culture <i>at that moment</i>. Changing <see cref="Globalization.CultureInfo.CurrentUICulture"/> later does not
 ''' re-bind those properties, and code that uses <c>If(Eng, …)</c> only updates when that code runs again.
 ''' This module re-applies resources to open forms and delegates to feature-specific refresh methods.

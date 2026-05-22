@@ -8243,11 +8243,9 @@ Public Class SchedulerNew2
         AddHandler btnAdd.Click,
         Sub()
             Dim newAppt As New AppointmentC
-            Dim editor As New AppointCEditorForm(newAppt, True)
+            Dim editor As New AppointCEditorForm(newAppt, isNew:=True, setAppt:=True)
             If editor.ShowDialog() = DialogResult.OK Then
-                _AppointmentC.Add(newAppt)
-                InvalidateFullAppointmentCache()
-                LoadAndRender()
+                AddAppointment(editor.AppointmentC, editor.ReminderMessageEnglish)
                 frm.Close()
             End If
         End Sub
@@ -8706,11 +8704,9 @@ Public Class SchedulerNew2
         AddHandler btnAdd.Click,
             Sub()
                 Dim newAppt As New AppointmentC
-                Dim editor As New AppointCEditorForm(newAppt, True)
+                Dim editor As New AppointCEditorForm(newAppt, isNew:=True, setAppt:=True)
                 If editor.ShowDialog() = DialogResult.OK Then
-                    _AppointmentC.Add(newAppt)
-                    InvalidateFullAppointmentCache()
-                    LoadAndRender()
+                    AddAppointment(editor.AppointmentC, editor.ReminderMessageEnglish)
                     frm.Close()
                 End If
             End Sub
@@ -8922,11 +8918,9 @@ Public Class SchedulerNew2
         AddHandler btnAdd.Click,
         Sub()
             Dim newAppt As New AppointmentC
-            Dim editor As New AppointCEditorForm(newAppt, True)
+            Dim editor As New AppointCEditorForm(newAppt, isNew:=True, setAppt:=True)
             If editor.ShowDialog() = DialogResult.OK Then
-                _AppointmentC.Add(newAppt)
-                InvalidateFullAppointmentCache()
-                LoadAndRender()
+                AddAppointment(editor.AppointmentC, editor.ReminderMessageEnglish)
                 frm.Close()
             End If
         End Sub
@@ -9058,20 +9052,19 @@ Public Class SchedulerNew2
 
 #Region "═══ 15. CRUD OPERATIONS ═══"
     Private Sub OpenAppointmentEditor(appt As AppointmentC, Optional isNew As Boolean = False)
-        Using frm As New AppointCEditorForm(appt, isNew)
+        Using frm As New AppointCEditorForm(appt, isNew, setAppt:=True)
             frm.apptDate.EditValue = appt.AppDate
 
-            ' Show dialog; if user clicks OK, persist and refresh
             If frm.ShowDialog() = DialogResult.OK Then
                 Try
-                    ' assume repository Update handles full update
-                    UpdateAppointment(frm.AppointmentC, frm.ReminderMessageEnglish)
-                    LoadAndRender()
+                    If isNew Then
+                        AddAppointment(frm.AppointmentC, frm.ReminderMessageEnglish)
+                    Else
+                        UpdateAppointment(frm.AppointmentC, frm.ReminderMessageEnglish)
+                    End If
                 Catch ex As Exception
                     MessageBox.Show("Failed to save appointment: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
-            Else
-                ' Optionally do nothing
             End If
         End Using
     End Sub

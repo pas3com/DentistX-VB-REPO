@@ -161,7 +161,7 @@ Partial Public Class Frm_TblCities
         ShowToolStripItems("Add")
 
         CityNameTextEdit.Select()
-        CityIDSpinEdit.Value = clsDentistXData.getAutoID("New", "TblCities")
+        CityIDSpinEdit.Value = DentistXDATA.getAutoID("New", "TblCities")
 
         Me.Cursor = System.Windows.Forms.Cursors.Default
     End Sub

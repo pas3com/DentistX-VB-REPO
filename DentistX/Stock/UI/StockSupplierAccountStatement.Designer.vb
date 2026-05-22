@@ -97,44 +97,27 @@ Partial Class StockSupplierAccountStatement
         'split
         '
         resources.ApplyResources(Me.split, "split")
-        Me.split.CaptionImageOptions.ImageKey = resources.GetString("split.CaptionImageOptions.ImageKey")
         Me.split.Name = "split"
         '
         'split.Panel1
         '
-        resources.ApplyResources(Me.split.Panel1, "split.Panel1")
         Me.split.Panel1.Controls.Add(Me._gridInvoices)
         '
         'split.Panel2
         '
-        resources.ApplyResources(Me.split.Panel2, "split.Panel2")
         Me.split.Panel2.Controls.Add(Me._gridPayments)
         Me.split.SplitterPosition = 650
         '
         '_gridInvoices
         '
         resources.ApplyResources(Me._gridInvoices, "_gridInvoices")
-        Me._gridInvoices.EmbeddedNavigator.AccessibleDescription = resources.GetString("_gridInvoices.EmbeddedNavigator.AccessibleDescription")
-        Me._gridInvoices.EmbeddedNavigator.AccessibleName = resources.GetString("_gridInvoices.EmbeddedNavigator.AccessibleName")
-        Me._gridInvoices.EmbeddedNavigator.AllowHtmlTextInToolTip = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.AllowHtmlTextInToolTip"), DevExpress.Utils.DefaultBoolean)
-        Me._gridInvoices.EmbeddedNavigator.Anchor = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.Anchor"), System.Windows.Forms.AnchorStyles)
-        Me._gridInvoices.EmbeddedNavigator.AutoSize = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.AutoSize"), Boolean)
-        Me._gridInvoices.EmbeddedNavigator.BackgroundImage = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.BackgroundImage"), System.Drawing.Image)
-        Me._gridInvoices.EmbeddedNavigator.BackgroundImageLayout = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.BackgroundImageLayout"), System.Windows.Forms.ImageLayout)
-        Me._gridInvoices.EmbeddedNavigator.ImeMode = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.ImeMode"), System.Windows.Forms.ImeMode)
         Me._gridInvoices.EmbeddedNavigator.Margin = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.Margin"), System.Windows.Forms.Padding)
-        Me._gridInvoices.EmbeddedNavigator.MaximumSize = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.MaximumSize"), System.Drawing.Size)
-        Me._gridInvoices.EmbeddedNavigator.TextLocation = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.TextLocation"), DevExpress.XtraEditors.NavigatorButtonsTextLocation)
-        Me._gridInvoices.EmbeddedNavigator.ToolTip = resources.GetString("_gridInvoices.EmbeddedNavigator.ToolTip")
-        Me._gridInvoices.EmbeddedNavigator.ToolTipIconType = CType(resources.GetObject("_gridInvoices.EmbeddedNavigator.ToolTipIconType"), DevExpress.Utils.ToolTipIconType)
-        Me._gridInvoices.EmbeddedNavigator.ToolTipTitle = resources.GetString("_gridInvoices.EmbeddedNavigator.ToolTipTitle")
         Me._gridInvoices.MainView = Me._viewInvoices
         Me._gridInvoices.Name = "_gridInvoices"
         Me._gridInvoices.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me._viewInvoices})
         '
         '_viewInvoices
         '
-        resources.ApplyResources(Me._viewInvoices, "_viewInvoices")
         Me._viewInvoices.Appearance.HeaderPanel.Font = CType(resources.GetObject("_viewInvoices.Appearance.HeaderPanel.Font"), System.Drawing.Font)
         Me._viewInvoices.Appearance.HeaderPanel.Options.UseFont = True
         Me._viewInvoices.Appearance.Row.Font = CType(resources.GetObject("_viewInvoices.Appearance.Row.Font"), System.Drawing.Font)
@@ -148,27 +131,13 @@ Partial Class StockSupplierAccountStatement
         '_gridPayments
         '
         resources.ApplyResources(Me._gridPayments, "_gridPayments")
-        Me._gridPayments.EmbeddedNavigator.AccessibleDescription = resources.GetString("_gridPayments.EmbeddedNavigator.AccessibleDescription")
-        Me._gridPayments.EmbeddedNavigator.AccessibleName = resources.GetString("_gridPayments.EmbeddedNavigator.AccessibleName")
-        Me._gridPayments.EmbeddedNavigator.AllowHtmlTextInToolTip = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.AllowHtmlTextInToolTip"), DevExpress.Utils.DefaultBoolean)
-        Me._gridPayments.EmbeddedNavigator.Anchor = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.Anchor"), System.Windows.Forms.AnchorStyles)
-        Me._gridPayments.EmbeddedNavigator.AutoSize = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.AutoSize"), Boolean)
-        Me._gridPayments.EmbeddedNavigator.BackgroundImage = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.BackgroundImage"), System.Drawing.Image)
-        Me._gridPayments.EmbeddedNavigator.BackgroundImageLayout = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.BackgroundImageLayout"), System.Windows.Forms.ImageLayout)
-        Me._gridPayments.EmbeddedNavigator.ImeMode = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.ImeMode"), System.Windows.Forms.ImeMode)
         Me._gridPayments.EmbeddedNavigator.Margin = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.Margin"), System.Windows.Forms.Padding)
-        Me._gridPayments.EmbeddedNavigator.MaximumSize = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.MaximumSize"), System.Drawing.Size)
-        Me._gridPayments.EmbeddedNavigator.TextLocation = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.TextLocation"), DevExpress.XtraEditors.NavigatorButtonsTextLocation)
-        Me._gridPayments.EmbeddedNavigator.ToolTip = resources.GetString("_gridPayments.EmbeddedNavigator.ToolTip")
-        Me._gridPayments.EmbeddedNavigator.ToolTipIconType = CType(resources.GetObject("_gridPayments.EmbeddedNavigator.ToolTipIconType"), DevExpress.Utils.ToolTipIconType)
-        Me._gridPayments.EmbeddedNavigator.ToolTipTitle = resources.GetString("_gridPayments.EmbeddedNavigator.ToolTipTitle")
         Me._gridPayments.MainView = Me._viewPayments
         Me._gridPayments.Name = "_gridPayments"
         Me._gridPayments.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me._viewPayments})
         '
         '_viewPayments
         '
-        resources.ApplyResources(Me._viewPayments, "_viewPayments")
         Me._viewPayments.Appearance.HeaderPanel.Font = CType(resources.GetObject("_viewPayments.Appearance.HeaderPanel.Font"), System.Drawing.Font)
         Me._viewPayments.Appearance.HeaderPanel.Options.UseFont = True
         Me._viewPayments.Appearance.Row.Font = CType(resources.GetObject("_viewPayments.Appearance.Row.Font"), System.Drawing.Font)
@@ -181,7 +150,6 @@ Partial Class StockSupplierAccountStatement
         '
         'filterPanel
         '
-        resources.ApplyResources(Me.filterPanel, "filterPanel")
         Me.filterPanel.Controls.Add(Me._btnRefresh)
         Me.filterPanel.Controls.Add(Me._txtSearch)
         Me.filterPanel.Controls.Add(Me.lblSearch)
@@ -193,14 +161,14 @@ Partial Class StockSupplierAccountStatement
         Me.filterPanel.Controls.Add(Me.lblFrom)
         Me.filterPanel.Controls.Add(Me._cmbSupplier)
         Me.filterPanel.Controls.Add(Me.lblSupplier)
+        resources.ApplyResources(Me.filterPanel, "filterPanel")
         Me.filterPanel.Name = "filterPanel"
         '
         '_btnRefresh
         '
-        resources.ApplyResources(Me._btnRefresh, "_btnRefresh")
         Me._btnRefresh.Appearance.Font = CType(resources.GetObject("_btnRefresh.Appearance.Font"), System.Drawing.Font)
         Me._btnRefresh.Appearance.Options.UseFont = True
-        Me._btnRefresh.ImageOptions.ImageKey = resources.GetString("_btnRefresh.ImageOptions.ImageKey")
+        resources.ApplyResources(Me._btnRefresh, "_btnRefresh")
         Me._btnRefresh.Name = "_btnRefresh"
         '
         '_txtSearch
@@ -212,9 +180,9 @@ Partial Class StockSupplierAccountStatement
         '
         'lblSearch
         '
-        resources.ApplyResources(Me.lblSearch, "lblSearch")
         Me.lblSearch.Appearance.Font = CType(resources.GetObject("lblSearch.Appearance.Font"), System.Drawing.Font)
         Me.lblSearch.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblSearch, "lblSearch")
         Me.lblSearch.Name = "lblSearch"
         '
         '_cmbView
@@ -228,9 +196,9 @@ Partial Class StockSupplierAccountStatement
         '
         'lblView
         '
-        resources.ApplyResources(Me.lblView, "lblView")
         Me.lblView.Appearance.Font = CType(resources.GetObject("lblView.Appearance.Font"), System.Drawing.Font)
         Me.lblView.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblView, "lblView")
         Me.lblView.Name = "lblView"
         '
         '_dateTo
@@ -244,9 +212,9 @@ Partial Class StockSupplierAccountStatement
         '
         'lblTo
         '
-        resources.ApplyResources(Me.lblTo, "lblTo")
         Me.lblTo.Appearance.Font = CType(resources.GetObject("lblTo.Appearance.Font"), System.Drawing.Font)
         Me.lblTo.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblTo, "lblTo")
         Me.lblTo.Name = "lblTo"
         '
         '_dateFrom
@@ -260,9 +228,9 @@ Partial Class StockSupplierAccountStatement
         '
         'lblFrom
         '
-        resources.ApplyResources(Me.lblFrom, "lblFrom")
         Me.lblFrom.Appearance.Font = CType(resources.GetObject("lblFrom.Appearance.Font"), System.Drawing.Font)
         Me.lblFrom.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblFrom, "lblFrom")
         Me.lblFrom.Name = "lblFrom"
         '
         '_cmbSupplier
@@ -275,62 +243,68 @@ Partial Class StockSupplierAccountStatement
         '
         'lblSupplier
         '
-        resources.ApplyResources(Me.lblSupplier, "lblSupplier")
         Me.lblSupplier.Appearance.Font = CType(resources.GetObject("lblSupplier.Appearance.Font"), System.Drawing.Font)
         Me.lblSupplier.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblSupplier, "lblSupplier")
         Me.lblSupplier.Name = "lblSupplier"
         '
         'summaryPanel
         '
-        resources.ApplyResources(Me.summaryPanel, "summaryPanel")
         Me.summaryPanel.Controls.Add(Me._lblBalance)
         Me.summaryPanel.Controls.Add(Me.lblBalanceCaption)
         Me.summaryPanel.Controls.Add(Me._lblTotalPayments)
         Me.summaryPanel.Controls.Add(Me.lblTotalPaymentsCaption)
         Me.summaryPanel.Controls.Add(Me._lblTotalBuys)
         Me.summaryPanel.Controls.Add(Me.lblTotalBuysCaption)
+        resources.ApplyResources(Me.summaryPanel, "summaryPanel")
         Me.summaryPanel.Name = "summaryPanel"
         '
         '_lblBalance
         '
-        resources.ApplyResources(Me._lblBalance, "_lblBalance")
         Me._lblBalance.Appearance.Font = CType(resources.GetObject("_lblBalance.Appearance.Font"), System.Drawing.Font)
+        Me._lblBalance.Appearance.ForeColor = System.Drawing.Color.Red
         Me._lblBalance.Appearance.Options.UseFont = True
+        Me._lblBalance.Appearance.Options.UseForeColor = True
+        resources.ApplyResources(Me._lblBalance, "_lblBalance")
         Me._lblBalance.Name = "_lblBalance"
         '
         'lblBalanceCaption
         '
-        resources.ApplyResources(Me.lblBalanceCaption, "lblBalanceCaption")
         Me.lblBalanceCaption.Appearance.Font = CType(resources.GetObject("lblBalanceCaption.Appearance.Font"), System.Drawing.Font)
         Me.lblBalanceCaption.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblBalanceCaption, "lblBalanceCaption")
         Me.lblBalanceCaption.Name = "lblBalanceCaption"
         '
         '_lblTotalPayments
         '
-        resources.ApplyResources(Me._lblTotalPayments, "_lblTotalPayments")
         Me._lblTotalPayments.Appearance.Font = CType(resources.GetObject("_lblTotalPayments.Appearance.Font"), System.Drawing.Font)
+        Me._lblTotalPayments.Appearance.ForeColor = System.Drawing.Color.Green
         Me._lblTotalPayments.Appearance.Options.UseFont = True
+        Me._lblTotalPayments.Appearance.Options.UseForeColor = True
+        resources.ApplyResources(Me._lblTotalPayments, "_lblTotalPayments")
         Me._lblTotalPayments.Name = "_lblTotalPayments"
         '
         'lblTotalPaymentsCaption
         '
-        resources.ApplyResources(Me.lblTotalPaymentsCaption, "lblTotalPaymentsCaption")
         Me.lblTotalPaymentsCaption.Appearance.Font = CType(resources.GetObject("lblTotalPaymentsCaption.Appearance.Font"), System.Drawing.Font)
         Me.lblTotalPaymentsCaption.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblTotalPaymentsCaption, "lblTotalPaymentsCaption")
         Me.lblTotalPaymentsCaption.Name = "lblTotalPaymentsCaption"
         '
         '_lblTotalBuys
         '
-        resources.ApplyResources(Me._lblTotalBuys, "_lblTotalBuys")
         Me._lblTotalBuys.Appearance.Font = CType(resources.GetObject("_lblTotalBuys.Appearance.Font"), System.Drawing.Font)
+        Me._lblTotalBuys.Appearance.ForeColor = System.Drawing.Color.Blue
         Me._lblTotalBuys.Appearance.Options.UseFont = True
+        Me._lblTotalBuys.Appearance.Options.UseForeColor = True
+        resources.ApplyResources(Me._lblTotalBuys, "_lblTotalBuys")
         Me._lblTotalBuys.Name = "_lblTotalBuys"
         '
         'lblTotalBuysCaption
         '
-        resources.ApplyResources(Me.lblTotalBuysCaption, "lblTotalBuysCaption")
         Me.lblTotalBuysCaption.Appearance.Font = CType(resources.GetObject("lblTotalBuysCaption.Appearance.Font"), System.Drawing.Font)
         Me.lblTotalBuysCaption.Appearance.Options.UseFont = True
+        resources.ApplyResources(Me.lblTotalBuysCaption, "lblTotalBuysCaption")
         Me.lblTotalBuysCaption.Name = "lblTotalBuysCaption"
         '
         'StockSupplierAccountStatement

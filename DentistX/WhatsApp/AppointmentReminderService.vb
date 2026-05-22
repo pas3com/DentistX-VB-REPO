@@ -21,17 +21,11 @@ Public Class AppointmentReminderService
         Dim rawClinicId As String = WhatsAppService.GetCurrentClinicId()
         Dim clinicIdForQueue As String = If(String.IsNullOrWhiteSpace(rawClinicId), "", rawClinicId)
 
-        Dim connected = False
-        If Not String.IsNullOrWhiteSpace(rawClinicId) Then
-            Try
-                Dim waService As New WhatsAppService()
-                connected = Await waService.GetConnectionStatusAsync(rawClinicId)
-            Catch
-            End Try
-        End If
-        If connected Then
-            Await ApptWhatsAppReminderQueueProcessor.ProcessDueRemindersAsync(rawClinicId, result)
-        End If
+        Await ApptWhatsAppReminderQueueProcessor.ProcessDueRemindersAsync(clinicIdForQueue, result).ConfigureAwait(False)
+        Try
+            Await WhatsAppOutboundDispatchService.FlushOutstandingAsync(result, DateTime.UtcNow.AddSeconds(26), Nothing).ConfigureAwait(False)
+        Catch
+        End Try
         Return result
     End Function
 
@@ -39,10 +33,10 @@ Public Class AppointmentReminderService
     Public Shared Sub Enqueue24HourCandidates(clinicId As String)
     End Sub
 
-    ''' <summary>Body text for ~24h automatic reminder. <paramref name="messageEnglish"/> when set (e.g. editor RadioLang at sync time); otherwise global <see cref="Eng"/>.</summary>
+    ''' <summary>Body text for ~24h automatic reminder. <paramref name="messageEnglish"/> when set (e.g. editor RadioLang at sync time); otherwise Arabic until the user picks English.</summary>
     Public Shared Function BuildReminderMessageBody(appt As AppointmentReminderDto, Optional messageEnglish As Boolean? = Nothing) As String
         If appt Is Nothing Then Return ""
-        Dim useE = If(messageEnglish.HasValue, messageEnglish.Value, Eng)
+        Dim useE = If(messageEnglish.HasValue, messageEnglish.Value, False)
         Return WhatsHelper.BuildAppointmentWhatsAppMessage(
             If(appt.PatientName, ""),
             If(appt.DrName, ""),
@@ -82,13 +76,7 @@ Public Class AppointmentReminderService
         Dim clinicId As String = WhatsAppService.GetCurrentClinicId()
         If String.IsNullOrWhiteSpace(clinicId) Then Return False
 
-        Dim connected = False
-        Try
-            Dim waService As New WhatsAppService()
-            connected = Await waService.GetConnectionStatusAsync(clinicId)
-        Catch
-        End Try
-        If Not connected Then Return False
+        If Not Await WhatsAppService.TrySilentWhatsReconnectBackgroundAsync(clinicId).ConfigureAwait(False) Then Return False
 
         Dim number As String
         If Not String.IsNullOrWhiteSpace(patientPhoneDigitsOverride) Then
@@ -112,9 +100,23 @@ Public Class AppointmentReminderService
                 .Category = WhatsAppMessageCategories.AppointmentReminder,
                 .PatientId = appt.PatientID,
                 .SourceHint = NameOf(AppointmentReminderService),
-                .DisplayName = appt.PatientName
+                .DisplayName = appt.PatientName,
+                .AppointmentId = appt.AppointmentID,
+                .AppointmentStartUtc = appt.StartDateTime,
+                .IdempotencyKey = WhatsAppOutboundRepository.BuildManual24hReminderIdempotencyKey(appt.AppointmentID, appt.StartDateTime)
             }
-            Await waService2.SendMessageAsync(clinicId, number, msg, "", ctx)
+            Dim resp = Await waService2.SendMessageAsync(clinicId, number, msg, "", ctx)
+            Dim intr As WhatsAppOutboundSendInterpretation = Nothing
+            If WhatsAppService.TryInterpretOutboundSendResponse(resp, intr) Then
+                If Not String.IsNullOrWhiteSpace(intr.TerminalPriorStatus) Then
+                    If Not String.Equals(intr.TerminalPriorStatus, WhatsAppOutboundStatuses.Sent, StringComparison.OrdinalIgnoreCase) Then
+                        Return False
+                    End If
+                    MarkReminderSent(appt.AppointmentID)
+                    Return True
+                End If
+                Return True
+            End If
             MarkReminderSent(appt.AppointmentID)
             Return True
         Catch

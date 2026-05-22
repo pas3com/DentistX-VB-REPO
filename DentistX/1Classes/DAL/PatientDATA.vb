@@ -421,6 +421,7 @@ Public Class PatientDATA
     End Function
 
     Public Function GetPatient_Notes(ByVal clsPatient As Patient) As IEnumerable(Of Patient_Notes)
+        If clsPatient Is Nothing Then Return New List(Of Patient_Notes)()
         Using conn As New SqlConnection(ConnectionString)
             conn.Open()
             Dim query As String = "SELECT * FROM [Patient_Notes] WHERE [PatientID] = @PatientID"

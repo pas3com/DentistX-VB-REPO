@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="PatientNameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>572, 34</value>
+    <value>564, 34</value>
   </data>
   <data name="PatientNameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 15</value>
@@ -128,7 +128,7 @@
     <value>الإسم</value>
   </data>
   <data name="SexLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 67</value>
+    <value>559, 67</value>
   </data>
   <data name="SexLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 15</value>
@@ -137,7 +137,7 @@
     <value>الجنس</value>
   </data>
   <data name="AgeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 89</value>
+    <value>115, 89</value>
   </data>
   <data name="AgeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 15</value>
@@ -146,7 +146,7 @@
     <value>العمر</value>
   </data>
   <data name="PhoneLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>573, 101</value>
+    <value>565, 101</value>
   </data>
   <data name="PhoneLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 15</value>
@@ -155,7 +155,7 @@
     <value>هاتف</value>
   </data>
   <data name="AddressLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 158</value>
+    <value>561, 184</value>
   </data>
   <data name="AddressLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 15</value>
@@ -164,7 +164,7 @@
     <value>العنوان</value>
   </data>
   <data name="HealthLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>535, 218</value>
+    <value>527, 244</value>
   </data>
   <data name="HealthLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 15</value>
@@ -173,7 +173,7 @@
     <value>الحالة الصحية</value>
   </data>
   <data name="NotesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>556, 253</value>
+    <value>548, 279</value>
   </data>
   <data name="NotesLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 15</value>
@@ -182,7 +182,7 @@
     <value>ملاحظات</value>
   </data>
   <data name="BirthYLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 126</value>
+    <value>115, 126</value>
   </data>
   <data name="BirthYLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 15</value>
@@ -191,7 +191,7 @@
     <value>سنة الميلاد</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>353, 100</value>
+    <value>343, 100</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 15</value>
@@ -199,11 +199,29 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>واتسآب</value>
   </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>557, 131</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 15</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>واتسآب</value>
+  </data>
+  <data name="lblWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>222, 130</value>
+  </data>
+  <data name="cboPrefix.Location" type="System.Drawing.Point, System.Drawing">
+    <value>427, 127</value>
+  </data>
+  <data name="txtWhats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 127</value>
+  </data>
   <data name="WhatsAppTextEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>227, 97</value>
+    <value>217, 97</value>
   </data>
   <data name="DiagCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>325, 287</value>
+    <value>315, 329</value>
   </data>
   <data name="DiagCheck.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 19</value>
@@ -212,7 +230,7 @@
     <value>تشخيص</value>
   </data>
   <data name="RadioFemale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>418, 67</value>
+    <value>408, 67</value>
   </data>
   <data name="RadioFemale.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 19</value>
@@ -221,7 +239,7 @@
     <value>أنثى</value>
   </data>
   <data name="RadioMale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 67</value>
+    <value>481, 67</value>
   </data>
   <data name="RadioMale.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 19</value>
@@ -230,52 +248,55 @@
     <value>ذكر</value>
   </data>
   <data name="CboCity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>383, 129</value>
+    <value>373, 155</value>
   </data>
   <data name="CboHealth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>383, 189</value>
+    <value>373, 215</value>
   </data>
   <data name="LabelAge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 245</value>
+    <value>19, 245</value>
   </data>
   <data name="LabelBal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 153</value>
+    <value>19, 153</value>
+  </data>
+  <data name="LabelBal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 23</value>
   </data>
   <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 323</value>
+    <value>209, 365</value>
   </data>
   <data name="btnDelete.Text" xml:space="preserve">
     <value>حذف</value>
   </data>
   <data name="btnEditPat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 323</value>
+    <value>317, 365</value>
   </data>
   <data name="btnEditPat.Text" xml:space="preserve">
     <value>حفظ</value>
   </data>
   <data name="PatientNameTextEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 30</value>
+    <value>240, 30</value>
   </data>
   <data name="PatientIDEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 30</value>
+    <value>51, 30</value>
   </data>
   <data name="PicBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 148</value>
+    <value>115, 148</value>
   </data>
   <data name="SexTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 61</value>
+    <value>240, 61</value>
   </data>
   <data name="AgeSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 85</value>
+    <value>51, 85</value>
   </data>
   <data name="PhoneTextEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 97</value>
+    <value>403, 97</value>
   </data>
   <data name="lblPNum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 58</value>
+    <value>48, 58</value>
   </data>
   <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 34</value>
+    <value>115, 34</value>
   </data>
   <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 15</value>
@@ -284,13 +305,13 @@
     <value>رقم المريض</value>
   </data>
   <data name="AddressTextEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 154</value>
+    <value>240, 180</value>
   </data>
   <data name="HealthTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 213</value>
+    <value>240, 239</value>
   </data>
   <data name="TreatCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>472, 287</value>
+    <value>462, 329</value>
   </data>
   <data name="TreatCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 19</value>
@@ -299,7 +320,7 @@
     <value>علاجات</value>
   </data>
   <data name="ImplantCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 287</value>
+    <value>80, 329</value>
   </data>
   <data name="ImplantCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 19</value>
@@ -307,12 +328,8 @@
   <data name="ImplantCheckBox.Text" xml:space="preserve">
     <value>زراعة</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ImplantCheckBox.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="MobileCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>215, 287</value>
+    <value>205, 329</value>
   </data>
   <data name="MobileCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 19</value>
@@ -320,11 +337,8 @@
   <data name="MobileCheckBox.Text" xml:space="preserve">
     <value>ت . متحركة</value>
   </data>
-  <data name="MobileCheckBox.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="OrthoCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>409, 287</value>
+    <value>399, 329</value>
   </data>
   <data name="OrthoCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 19</value>
@@ -333,7 +347,7 @@
     <value>تقويم</value>
   </data>
   <data name="StrucCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 287</value>
+    <value>134, 329</value>
   </data>
   <data name="StrucCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 19</value>
@@ -341,14 +355,11 @@
   <data name="StrucCheckBox.Text" xml:space="preserve">
     <value>ت . ثابتة</value>
   </data>
-  <data name="StrucCheckBox.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="NotesTextEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 248</value>
+    <value>240, 274</value>
   </data>
   <data name="BirthYSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 122</value>
+    <value>51, 122</value>
   </data>
   <data name="grpPatientInfo.Text" xml:space="preserve">
     <value>بيانات المريض</value>
@@ -357,6 +368,7 @@
   <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>

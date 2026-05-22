@@ -11,6 +11,8 @@ Public NotInheritable Class WhatsAppMessageCategories
     Public Const PatientVisits As String = "PatientVisits"
     Public Const AppointmentEditor As String = "AppointmentEditor"
     Public Const StockExpense As String = "StockExpense"
+    ''' <summary>Manual supplier notification from purchase / supplier invoice screen.</summary>
+    Public Const StockSupplierInvoice As String = "StockSupplierInvoice"
     ''' <summary>Navigator patient appointment compose; historical DB value kept as <c>Appointment</c>.</summary>
     Public Const NavigatorAppointment As String = "Appointment"
     Public Const PatientAccount As String = "PatientAccount"

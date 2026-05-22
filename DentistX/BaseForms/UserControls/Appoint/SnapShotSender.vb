@@ -42,7 +42,6 @@ Partial Public Class SnapShotSender
         SetupSourceTypeCombo()
         SetupRecipientLookUp()
         AddHandler viewJobs.CustomUnboundColumnData, AddressOf ViewJobs_CustomUnboundColumnData
-        AddHandler viewJobs.CustomColumnDisplayText, AddressOf ViewJobs_CustomColumnDisplayText
         AddHandler viewJobs.FocusedRowChanged, AddressOf ViewJobs_FocusedRowChanged
         AddHandler viewLog.CustomColumnDisplayText, AddressOf ViewLog_CustomColumnDisplayText
         AddHandler viewRecipients.CellValueChanged, AddressOf ViewRecipients_CellValueChanged
@@ -54,6 +53,10 @@ Partial Public Class SnapShotSender
         timeSend.Properties.DisplayFormat.FormatString = "hh:mm tt"
         timeSend.Properties.EditFormat.FormatType = FormatType.DateTime
         timeSend.Properties.EditFormat.FormatString = "hh:mm tt"
+        timeSend2.Properties.DisplayFormat.FormatType = FormatType.DateTime
+        timeSend2.Properties.DisplayFormat.FormatString = "hh:mm tt"
+        timeSend2.Properties.EditFormat.FormatType = FormatType.DateTime
+        timeSend2.Properties.EditFormat.FormatString = "hh:mm tt"
     End Sub
 
     Private Shared Function FormatTimeSpan12Hour(ts As TimeSpan) As String
@@ -67,12 +70,6 @@ Partial Public Class SnapShotSender
     Private Shared Function FormatLogDateTime12Hour(dt As DateTime) As String
         Return dt.ToString("dd/MM/yyyy hh:mm tt", CultureInfo.CurrentCulture)
     End Function
-
-    Private Sub ViewJobs_CustomColumnDisplayText(sender As Object, e As CustomColumnDisplayTextEventArgs)
-        If e.Column Is colJobTime AndAlso e.Value IsNot Nothing AndAlso TypeOf e.Value Is TimeSpan Then
-            e.DisplayText = FormatTimeSpan12Hour(DirectCast(e.Value, TimeSpan))
-        End If
-    End Sub
 
     Private Sub ViewLog_CustomColumnDisplayText(sender As Object, e As CustomColumnDisplayTextEventArgs)
         If e.Value Is Nothing OrElse IsDBNull(e.Value) Then Return
@@ -104,7 +101,9 @@ Partial Public Class SnapShotSender
             btnTestSend.Text = "Test send now"
             btnSaveJob.Text = "Save job"
             chkJobEnabled.Properties.Caption = "Enabled"
-            lblSendTime.Text = "Send time (local)"
+            lblSendTime.Text = "First send (local)"
+            lblSendTime2.Text = "Second send (local)"
+            chkSecondSend.Properties.Caption = "Enable second daily send"
             lblDays.Text = "Days of week"
             lblCaption.Text = "WhatsApp caption"
             lblJobNotes.Text = "Notes"
@@ -124,7 +123,9 @@ Partial Public Class SnapShotSender
             btnTestSend.Text = ArString(loc, "btnTestSend.Text", "إرسال تجريبي الآن")
             btnSaveJob.Text = ArString(loc, "btnSaveJob.Text", "حفظ المهمة")
             chkJobEnabled.Properties.Caption = ArString(loc, "chkJobEnabled.Properties.Caption", "مفعّل")
-            lblSendTime.Text = ArString(loc, "lblSendTime.Text", "وقت الإرسال (محلي)")
+            lblSendTime.Text = ArString(loc, "lblSendTime.Text", "أول وقت إرسال (محلي)")
+            lblSendTime2.Text = ArString(loc, "lblSendTime2.Text", "ثاني وقت إرسال (محلي)")
+            chkSecondSend.Properties.Caption = ArString(loc, "chkSecondSend.Properties.Caption", "تفعيل إرسال ثانٍ يومياً")
             lblDays.Text = ArString(loc, "lblDays.Text", "أيام الأسبوع")
             lblCaption.Text = ArString(loc, "lblCaption.Text", "عنوان الرسالة")
             lblJobNotes.Text = ArString(loc, "lblJobNotes.Text", "ملاحظات")
@@ -179,7 +180,7 @@ Partial Public Class SnapShotSender
         If Eng Then
             colJobId.Caption = "Job #"
             colJobEnabled.Caption = "On"
-            colJobTime.Caption = "Time"
+            colJobTime.Caption = "Send times"
             colJobDays.Caption = "Days"
             colJobRecipCount.Caption = "#Recip."
             colJobCaption.Caption = "Caption"
@@ -194,12 +195,13 @@ Partial Public Class SnapShotSender
             colStarted.Caption = "Started"
             colCompleted.Caption = "Completed"
             colLogRecip.Caption = "Recip.#"
+            colSendSlot.Caption = "Slot"
             colErr.Caption = "Error"
             colMedia.Caption = "File"
         Else
             colJobId.Caption = ArString(loc, "colJobId.Caption", "رقم")
             colJobEnabled.Caption = ArString(loc, "colJobEnabled.Caption", "تشغيل")
-            colJobTime.Caption = ArString(loc, "colJobTime.Caption", "الوقت")
+            colJobTime.Caption = ArString(loc, "colJobTime.Caption", "أوقات الإرسال")
             colJobDays.Caption = ArString(loc, "colJobDays.Caption", "أيام")
             colJobRecipCount.Caption = ArString(loc, "colJobRecipCount.Caption", "عدد")
             colJobCaption.Caption = ArString(loc, "colJobCaption.Caption", "عنوان")
@@ -214,6 +216,7 @@ Partial Public Class SnapShotSender
             colStarted.Caption = ArString(loc, "colStarted.Caption", "البداية")
             colCompleted.Caption = ArString(loc, "colCompleted.Caption", "النهاية")
             colLogRecip.Caption = ArString(loc, "colLogRecip.Caption", "مستلم")
+            colSendSlot.Caption = ArString(loc, "colSendSlot.Caption", "مرّة")
             colErr.Caption = ArString(loc, "colErr.Caption", "خطأ")
             colMedia.Caption = ArString(loc, "colMedia.Caption", "ملف")
         End If
@@ -294,12 +297,22 @@ Partial Public Class SnapShotSender
         lookUpSource.Properties.DataSource = list.OrderBy(Function(x) x.Name).ToList()
     End Sub
 
+    Private Shared Function FormatJobTimesForGrid(job As SchedulerSnapshotAutoSendJobRow) As String
+        Dim s = FormatTimeSpan12Hour(job.SendTimeLocal)
+        Dim t2 = job.SendTimeLocal2
+        If t2.HasValue Then s &= " / " & FormatTimeSpan12Hour(t2.Value)
+        Return s
+    End Function
+
     Private Sub ViewJobs_CustomUnboundColumnData(sender As Object, e As CustomColumnDataEventArgs)
         If e.Column Is colJobDays AndAlso e.IsGetData Then
             Dim row = TryCast(e.Row, SchedulerSnapshotAutoSendJobRow)
             If row IsNot Nothing Then
                 e.Value = SchedulerSnapshotAutoSendRepository.FormatDaysMask(row.DaysOfWeekMask, Eng)
             End If
+        ElseIf e.Column Is colJobTime AndAlso e.IsGetData Then
+            Dim rowT = TryCast(e.Row, SchedulerSnapshotAutoSendJobRow)
+            If rowT IsNot Nothing Then e.Value = FormatJobTimesForGrid(rowT)
         End If
     End Sub
 
@@ -330,7 +343,11 @@ Partial Public Class SnapShotSender
                 vbCrLf & vbCrLf & "Run DatabaseScripts/SchedulerSnapshotAutoSend_AddSendContentMode.sql on this database.",
                 If(ex.Number = 207 AndAlso ex.Message.IndexOf("WeekOffset", StringComparison.OrdinalIgnoreCase) >= 0,
                     vbCrLf & vbCrLf & "Run DatabaseScripts/SchedulerSnapshotAutoSend_AddWeekOffset.sql to align the job table (drops legacy WeekOffset).",
-                    "")))
+                    If(ex.Number = 207 AndAlso ex.Message.IndexOf("ExcludeFromDedupe", StringComparison.OrdinalIgnoreCase) >= 0,
+                        vbCrLf & vbCrLf & "Run DatabaseScripts/SchedulerSnapshotAutoSend_AddExcludeFromDedupe.sql on this database.",
+                        If(ex.Number = 207 AndAlso (ex.Message.IndexOf("SendTimeLocal2", StringComparison.OrdinalIgnoreCase) >= 0 OrElse ex.Message.IndexOf("SendSlot", StringComparison.OrdinalIgnoreCase) >= 0),
+                            vbCrLf & vbCrLf & "Run DatabaseScripts/SchedulerSnapshotAutoSend_AddSecondSendTime.sql on this database.",
+                            "")))))
         MessageBox.Show(ex.Message & hint, "Database", MessageBoxButtons.OK, MessageBoxIcon.Warning)
     End Sub
 
@@ -354,6 +371,9 @@ Partial Public Class SnapShotSender
         Try
             chkJobEnabled.Checked = False
             timeSend.EditValue = Date.Today.AddHours(8)
+            chkSecondSend.Checked = False
+            timeSend2.EditValue = Date.Today.AddHours(17)
+            timeSend2.Enabled = False
             For Each c In _dayChecks
                 c.Checked = False
             Next
@@ -383,6 +403,14 @@ Partial Public Class SnapShotSender
                 rgSendContent.EditValue = CByte(b)
             Else
                 rgSendContent.EditValue = CByte(0)
+            End If
+            Dim t2 = job.SendTimeLocal2
+            chkSecondSend.Checked = t2.HasValue
+            timeSend2.Enabled = t2.HasValue
+            If t2.HasValue Then
+                timeSend2.EditValue = Date.Today.Add(t2.Value)
+            Else
+                timeSend2.EditValue = Date.Today.AddHours(17)
             End If
         Finally
             _loadingJob = False
@@ -449,6 +477,7 @@ Partial Public Class SnapShotSender
             Dim row As New SchedulerSnapshotAutoSendJobRow With {
                 .IsEnabled = True,
                 .SendTimeLocal = New TimeSpan(8, 0, 0),
+                .SendTimeLocal2 = Nothing,
                 .DaysOfWeekMask = 31,
                 .MessageCaption = If(Eng, "Schedule snapshot", "لقطة الجدول"),
                 .Notes = Nothing,
@@ -493,12 +522,28 @@ Partial Public Class SnapShotSender
             Return
         End Try
         If row Is Nothing Then Return
+
+        Dim activeRecipients = SchedulerSnapshotAutoSendRepository.GetRecipients(_currentJobId).Where(Function(r) r.IsActive).ToList()
+        If activeRecipients.Count = 0 Then
+            MessageBox.Show(
+                If(Eng, "Enable at least one recipient or add a recipient with a valid WhatsApp number.", "فعّل مستلماً واحداً على الأقل أو أضف مستلماً برقم واتساب صالح."),
+                Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
         Try
-            Dim confirmedInQueue = Await SchedulerSnapshotAutoSendService.RunJobAsync(row, DateTime.Now.Date, forceRun:=True).ConfigureAwait(True)
+            Dim confirmedInQueue = Await SchedulerSnapshotAutoSendService.RunJobAsync(
+                row, DateTime.Now.Date, forceRun:=True, sendSlot:=SchedulerSnapshotAutoSendService.ResolveTestSendSlotForJob(row)).ConfigureAwait(True)
             If confirmedInQueue Then
                 MessageBox.Show(
                     If(Eng, "Snapshot test messages are confirmed in the WhatsApp queue.", "تم تأكيد وجود رسائل اختبار اللقطة في طابور واتساب."),
                     Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show(
+                    If(Eng,
+                        "Test send finished, but delivery could not be confirmed (capture/WhatsApp error, or queue IDs did not appear in time). Check the Send history tab. Diagnostics file: Attachments\Logs\SchedulerSnapshotAutoSendDiag_YYYYMMDD.log",
+                        "انتهى الإرسال التجريبي، لكن لم يُؤكد التسليم (خطأ في الالتقاط أو واتساب، أو لم تظهر معرفات الطابور في الوقت المناسب). راجع تبويب سجل الإرسال. ملف التشخيص: Attachments\Logs\SchedulerSnapshotAutoSendDiag_YYYYMMDD.log"),
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -516,26 +561,97 @@ Partial Public Class SnapShotSender
         RefreshJobsGridSafe()
     End Sub
 
+    Private Sub chkSecondSend_CheckedChanged(sender As Object, e As EventArgs) Handles chkSecondSend.CheckedChanged
+        If _loadingJob Then Return
+        timeSend2.Enabled = chkSecondSend.Checked
+    End Sub
+
     Private Sub btnSaveJob_Click(sender As Object, e As EventArgs) Handles btnSaveJob.Click
         If _currentJobId <= 0 Then Return
         Try
-            Dim ts = GetTimeFromEditor()
+            Dim ts1 = GetTimeFromEditor()
+            Dim ts2nullable As TimeSpan? = Nothing
+            If chkSecondSend.Checked Then
+                Dim ts2 = GetTimeFromEditor2()
+                If ts1.Hours = ts2.Hours AndAlso ts1.Minutes = ts2.Minutes Then
+                    MessageBox.Show(
+                        If(Eng, "First and second send times must differ (different clock minute).", "يجب أن يختلف أول وقت إرسال عن الثاني (دقيقة مختلفة على الأقل)."),
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
+                ts2nullable = ts2
+            End If
+            Dim mask = ComputeDaysMask()
+            Dim modeB = GetEditorSendContentModeByte()
             Dim row As New SchedulerSnapshotAutoSendJobRow With {
                 .JobId = _currentJobId,
                 .IsEnabled = chkJobEnabled.Checked,
-                .SendTimeLocal = ts,
-                .DaysOfWeekMask = ComputeDaysMask(),
+                .SendTimeLocal = ts1,
+                .SendTimeLocal2 = ts2nullable,
+                .DaysOfWeekMask = mask,
                 .MessageCaption = NullIfEmpty(memoCaption.Text),
                 .Notes = NullIfEmpty(txtJobNotes.Text),
-                .SendContentMode = GetEditorSendContentModeByte()
+                .SendContentMode = modeB
             }
             SchedulerSnapshotAutoSendRepository.UpdateJob(row)
             RefreshJobsGridSafe()
             FocusJobRow(_currentJobId)
+            Dim modeName = DescribeSendContentMode(modeB)
+            Dim daysTxt = SchedulerSnapshotAutoSendRepository.FormatDaysMask(mask, Eng)
+            Dim timesTxt = If(ts2nullable.HasValue,
+                FormatTimeSpan12Hour(ts1) & If(Eng, " and ", " و") & FormatTimeSpan12Hour(ts2nullable.Value),
+                FormatTimeSpan12Hour(ts1))
+            Dim slotNote = If(ts2nullable.HasValue,
+                If(Eng, "Two automatic sends per selected day (each slot deduped separately).", "إرسالان تلقائيان في كل يوم مختار (منع التكرار لكل وقت على حدة)."),
+                If(Eng, "One automatic send per selected day.", "إرسال تلقائي واحد في كل يوم مختار."))
+            MessageBox.Show(
+                If(Eng,
+                    "Job saved." & vbCrLf & vbCrLf &
+                    "Job #" & _currentJobId.ToString(CultureInfo.InvariantCulture) &
+                    ": " & If(chkJobEnabled.Checked, "Enabled", "Disabled") &
+                    vbCrLf & "Send times: " & timesTxt &
+                    vbCrLf & "Days: " & daysTxt &
+                    vbCrLf & "Send as: " & modeName &
+                    vbCrLf & slotNote,
+                    "تم الحفظ." & vbCrLf & vbCrLf &
+                    "المهمة #" & _currentJobId.ToString(CultureInfo.InvariantCulture) &
+                    ": " & If(chkJobEnabled.Checked, "مفعّلة", "معطّلة") &
+                    vbCrLf & "أوقات الإرسال: " & timesTxt &
+                    vbCrLf & "الأيام: " & daysTxt &
+                    vbCrLf & "الإرسال: " & modeName &
+                    vbCrLf & slotNote),
+                Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As SqlException
+            ShowDbError(ex)
         Catch ex As Exception
             MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    Private Function GetTimeFromEditor2() As TimeSpan
+        Dim dtObj = timeSend2.EditValue
+        If TypeOf dtObj Is DateTime Then
+            Return DirectCast(dtObj, DateTime).TimeOfDay
+        End If
+        If TypeOf dtObj Is TimeSpan Then
+            Return DirectCast(dtObj, TimeSpan)
+        End If
+        If TypeOf dtObj Is TimeOnly Then
+            Return DirectCast(dtObj, TimeOnly).ToTimeSpan()
+        End If
+        Return New TimeSpan(17, 0, 0)
+    End Function
+
+    Private Function DescribeSendContentMode(modeB As Byte) As String
+        Select Case modeB
+            Case 1
+                Return If(Eng, "HTML only", "HTML فقط")
+            Case 2
+                Return If(Eng, "Image and HTML", "صورة وHTML")
+            Case Else
+                Return If(Eng, "Image (PNG) only", "صورة PNG فقط")
+        End Select
+    End Function
 
     Private Function GetTimeFromEditor() As TimeSpan
         Dim dtObj = timeSend.EditValue

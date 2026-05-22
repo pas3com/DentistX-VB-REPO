@@ -258,6 +258,13 @@ Partial Public Class FrmImplantLength
             LengthMMSpinEdit.Select()
             Return False
         End If
+        Dim mm = Convert.ToDecimal(LengthMMSpinEdit.Value)
+        Dim excludeId As Integer? = If(EditMode, CInt(LengthIDSpinEdit.Value), Nothing)
+        If clsImplantLengthData.CountByLengthMM(mm, excludeId) > 0 Then
+            MsgBox("This length value already exists. Duplicates are not allowed.", MsgBoxStyle.OkOnly, "Entry Error")
+            LengthMMSpinEdit.Select()
+            Return False
+        End If
         Return True
     End Function
 

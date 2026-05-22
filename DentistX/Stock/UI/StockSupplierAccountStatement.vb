@@ -4,8 +4,6 @@ Imports System.Threading.Tasks
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid
 Imports DevExpress.XtraGrid.Views.Grid
-Imports Stock.DAL
-Imports Stock.Models
 
 Public Class StockSupplierAccountStatement
     Inherits XtraForm

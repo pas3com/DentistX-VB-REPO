@@ -118,168 +118,53 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnLabelsColors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, -3</value>
-  </data>
-  <data name="btnLabelsColors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 22</value>
-  </data>
-  <data name="lblStartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>640, 0</value>
-  </data>
-  <data name="lblStartTime.Text" xml:space="preserve">
-    <value>بداية الدوام</value>
-  </data>
-  <data name="lblEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>417, 0</value>
-  </data>
-  <data name="lblEndTime.Text" xml:space="preserve">
-    <value>نهاية الدوام</value>
-  </data>
-  <data name="lblApptsCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 0</value>
-  </data>
-  <data name="lblApptsCount.Text" xml:space="preserve">
-    <value>عدد المواعيد</value>
-  </data>
-  <data name="lblCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 1</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblOptions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="lblOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>976, 2</value>
-  </data>
-  <data name="lblOptions.Text" xml:space="preserve">
-    <value>خيارات</value>
-  </data>
-  <data name="endColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, -3</value>
-  </data>
-  <data name="includeReasonCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>875, -1</value>
-  </data>
-  <data name="includeReasonCheck.Properties.Caption" xml:space="preserve">
-    <value>تضمين السبب</value>
-  </data>
-  <data name="includeReasonCheck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 19</value>
-  </data>
-  <data name="startColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, -3</value>
-  </data>
-  <data name="boldFontCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>803, -1</value>
-  </data>
-  <data name="boldFontCheck.Properties.Caption" xml:space="preserve">
-    <value>خط غامق</value>
-  </data>
-  <data name="boldFontCheck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 19</value>
-  </data>
-  <data name="sizeFontCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>722, -1</value>
-  </data>
-  <data name="sizeFontCheck.Properties.Caption" xml:space="preserve">
-    <value>حجم الخط</value>
-  </data>
-  <data name="sizeFontCheck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 19</value>
-  </data>
-  <data name="dtStartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>545, -3</value>
-  </data>
-  <data name="dtEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, -3</value>
-  </data>
-  <data name="PanelOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 79</value>
-  </data>
-  <data name="btnFilterDoctor0.Location" type="System.Drawing.Point, System.Drawing">
-    <value>862, 3</value>
-  </data>
-  <data name="btnFilterDoctor1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>661, 0</value>
-  </data>
-  <data name="btnFilterDoctor2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 0</value>
-  </data>
-  <data name="btnFilterDoctor3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 0</value>
-  </data>
-  <data name="btnFilterDoctor4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>379, 0</value>
-  </data>
-  <data name="btnFilterDoctor5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>285, 0</value>
-  </data>
-  <data name="btnFilterDoctor6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 0</value>
-  </data>
-  <data name="btnFilterDoctor7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 0</value>
-  </data>
-  <data name="btnFilterDoctor8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="pnlDoctorFilterScroll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="pnlFilterDoctors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 38</value>
-  </data>
-  <data name="btnAllReasons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 3</value>
-  </data>
-  <data name="btnPending.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 3</value>
-  </data>
-  <data name="btnRunning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 3</value>
-  </data>
-  <data name="btnCompleted.Location" type="System.Drawing.Point, System.Drawing">
-    <value>215, 3</value>
-  </data>
-  <data name="btnCanceled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>109, 3</value>
-  </data>
-  <data name="btnPostponed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="pnlFilterReasons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 3</value>
-  </data>
-  <data name="btnAllPatients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 3</value>
-  </data>
-  <data name="btnThisPatient.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 3</value>
-  </data>
-  <data name="pnlFilterPatients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>855, 3</value>
+  <data name="btnNextView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 123</value>
   </data>
   <data name="lblPatients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1077, 3</value>
+    <value>1003, 3</value>
   </data>
   <data name="lblPatients.Text" xml:space="preserve">
     <value>المرضى</value>
   </data>
-  <data name="btnNextView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 50</value>
+  <data name="btnAllPatients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>903, 128</value>
+  </data>
+  <data name="btnThisPatient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>803, 124</value>
+  </data>
+  <data name="btnMoreScheduleOpts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1073, 128</value>
   </data>
   <data name="btnPrevView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1184, 50</value>
+    <value>1203, 123</value>
+  </data>
+  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 129</value>
+  </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>إضافة موعد +</value>
+  </data>
+  <data name="btnWeekSnapshot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 129</value>
+  </data>
+  <data name="btnLabs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 129</value>
+  </data>
+  <data name="cmbStatusFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 4</value>
+  </data>
+  <data name="cmbDoctorFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 131</value>
   </data>
   <data name="lblDoc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1077, 38</value>
+    <value>733, 3</value>
   </data>
   <data name="lblDoc.Text" xml:space="preserve">
     <value>الأطباء</value>
   </data>
   <data name="lblStatusFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 3</value>
+    <value>425, 3</value>
   </data>
   <data name="lblStatusFilter.Text" xml:space="preserve">
     <value>تصفية الحالة</value>
@@ -288,28 +173,37 @@
     <value>اسم المريض</value>
   </data>
   <data name="pnlHeaderLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1056, 3</value>
+    <value>1031, 3</value>
+  </data>
+  <data name="btnOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>728, 3</value>
   </data>
   <data name="chkUse24.Location" type="System.Drawing.Point, System.Drawing">
-    <value>704, 4</value>
+    <value>622, 4</value>
   </data>
   <data name="chkUse24.Properties.Caption" xml:space="preserve">
     <value>استخدم نظام 24 ساعة</value>
   </data>
   <data name="chkUse24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 19</value>
+    <value>103, 22</value>
   </data>
-  <data name="btnWeekSnapshot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>610, 5</value>
+  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>539, 4</value>
   </data>
-  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 4</value>
+  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 17</value>
   </data>
-  <data name="btnAdd.Text" xml:space="preserve">
-    <value>إضافة موعد +</value>
+  <data name="LabelControl1.Text" xml:space="preserve">
+    <value>إذهب الى تاريخ</value>
+  </data>
+  <data name="LabelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>462, 4</value>
+  </data>
+  <data name="gotoDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>348, 4</value>
   </data>
   <data name="btnPrev.Location" type="System.Drawing.Point, System.Drawing">
-    <value>448, 4</value>
+    <value>278, 4</value>
   </data>
   <data name="btnPrev.Text" xml:space="preserve">
     <value> &lt;&lt; السابق </value>
@@ -318,7 +212,7 @@
     <value>اسبوعي 7 أيام</value>
   </data>
   <data name="cmbView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 4</value>
+    <value>137, 4</value>
   </data>
   <data name="cmbView.Properties.Items" xml:space="preserve">
     <value>يومي</value>
@@ -342,32 +236,24 @@
     <value>يومي حسب الطبيب</value>
   </data>
   <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>243, 4</value>
+    <value>73, 4</value>
   </data>
   <data name="btnNext.Text" xml:space="preserve">
     <value>التالي &gt;&gt;</value>
   </data>
   <data name="btnToday.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 4</value>
+    <value>6, 4</value>
   </data>
   <data name="btnToday.Text" xml:space="preserve">
     <value>اليوم</value>
   </data>
-  <data name="LabelControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 4</value>
-  </data>
-  <data name="LabelControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 17</value>
-  </data>
-  <data name="LabelControl1.Text" xml:space="preserve">
-    <value>إذهب الى تاريخ</value>
-  </data>
-  <data name="gotoDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>701, 33</value>
+  <data name="pnlHeaderToolbarFlow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>803, 30</value>
   </data>
   <data name="pnlHeaderCenter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>243, 3</value>
+    <value>235, 3</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblRange.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
@@ -379,6 +265,162 @@
   </data>
   <data name="pnlHeaderRight.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
+  </data>
+  <data name="cmbFirstDoctor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>227, 78</value>
+  </data>
+  <data name="color_Notes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 219</value>
+  </data>
+  <data name="color_Reason.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 181</value>
+  </data>
+  <data name="color_Patient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 143</value>
+  </data>
+  <data name="btnLabelsColors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 242</value>
+  </data>
+  <data name="lbl_Notes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 219</value>
+  </data>
+  <data name="lbl_Notes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 21</value>
+  </data>
+  <data name="lbl_Notes.Text" xml:space="preserve">
+    <value>الملاحظة</value>
+  </data>
+  <data name="lbl_Reason.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 179</value>
+  </data>
+  <data name="lbl_Reason.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 21</value>
+  </data>
+  <data name="lbl_Reason.Text" xml:space="preserve">
+    <value>السبب</value>
+  </data>
+  <data name="lbl_Patient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 142</value>
+  </data>
+  <data name="lbl_Patient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 21</value>
+  </data>
+  <data name="lbl_Patient.Text" xml:space="preserve">
+    <value>اسم المريض</value>
+  </data>
+  <data name="LabelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 112</value>
+  </data>
+  <data name="LabelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 21</value>
+  </data>
+  <data name="LabelControl5.Text" xml:space="preserve">
+    <value>دوام العيادة</value>
+  </data>
+  <data name="LabelControl5.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 47</value>
+  </data>
+  <data name="LabelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 21</value>
+  </data>
+  <data name="LabelControl4.Text" xml:space="preserve">
+    <value>خيارات الخط</value>
+  </data>
+  <data name="LabelControl4.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LabelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 78</value>
+  </data>
+  <data name="LabelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 21</value>
+  </data>
+  <data name="LabelControl6.Text" xml:space="preserve">
+    <value>ترتيب الموعد حسب الطبيب</value>
+  </data>
+  <data name="LabelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 15</value>
+  </data>
+  <data name="LabelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 21</value>
+  </data>
+  <data name="LabelControl3.Text" xml:space="preserve">
+    <value>خيارات الموعد</value>
+  </data>
+  <data name="LabelControl3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblStartTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 112</value>
+  </data>
+  <data name="lblStartTime.Text" xml:space="preserve">
+    <value>بداية الدوام</value>
+  </data>
+  <data name="lblEndTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 112</value>
+  </data>
+  <data name="lblEndTime.Text" xml:space="preserve">
+    <value>نهاية الدوام</value>
+  </data>
+  <data name="lblApptsCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 16</value>
+  </data>
+  <data name="lblApptsCount.Text" xml:space="preserve">
+    <value>عدد المواعيد</value>
+  </data>
+  <data name="lblCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 17</value>
+  </data>
+  <data name="lblOptions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lblOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>611, 2</value>
+  </data>
+  <data name="lblOptions.Text" xml:space="preserve">
+    <value>خيارات</value>
+  </data>
+  <data name="endColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 109</value>
+  </data>
+  <data name="includeReasonCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>356, 18</value>
+  </data>
+  <data name="includeReasonCheck.Properties.Caption" xml:space="preserve">
+    <value>تضمين السبب</value>
+  </data>
+  <data name="includeReasonCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 19</value>
+  </data>
+  <data name="startColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 109</value>
+  </data>
+  <data name="boldFontCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 49</value>
+  </data>
+  <data name="boldFontCheck.Properties.Caption" xml:space="preserve">
+    <value>خط غامق</value>
+  </data>
+  <data name="boldFontCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 19</value>
+  </data>
+  <data name="sizeFontCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>368, 50</value>
+  </data>
+  <data name="sizeFontCheck.Properties.Caption" xml:space="preserve">
+    <value>حجم الخط</value>
+  </data>
+  <data name="sizeFontCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 19</value>
+  </data>
+  <data name="dtStartTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 109</value>
+  </data>
+  <data name="dtEndTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 109</value>
   </data>
   <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>

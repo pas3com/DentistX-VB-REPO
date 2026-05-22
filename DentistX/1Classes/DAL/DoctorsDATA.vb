@@ -74,6 +74,18 @@ Public Class DoctorsDATA
         End Using
     End Function
 
+    Public Function CountAppointmentCForDoctor(drId As Integer) As Integer
+        Using conn As New SqlConnection(ConnectionString)
+            Return conn.ExecuteScalar(Of Integer)("SELECT COUNT(*) FROM AppointmentC WHERE DrID = @DrID", New With {.DrID = drId})
+        End Using
+    End Function
+
+    Public Function CountUsersLinkedToDoctor(drId As Integer) As Integer
+        Using conn As New SqlConnection(ConnectionString)
+            Return conn.ExecuteScalar(Of Integer)("SELECT COUNT(*) FROM USERS WHERE DrID = @DrID", New With {.DrID = drId})
+        End Using
+    End Function
+
     Public Function Delete(ByVal clsDoctors As Doctors) As Boolean
         Dim deleteStatement As String =
         "DELETE FROM [Doctors] 

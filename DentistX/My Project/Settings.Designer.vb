@@ -422,6 +422,30 @@ Namespace My
                 Me("ApptModuleCardNotesColor") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property ApptModuleOrderByDoctorId() As Integer
+            Get
+                Return CType(Me("ApptModuleOrderByDoctorId"),Integer)
+            End Get
+            Set
+                Me("ApptModuleOrderByDoctorId") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property ApptModuleBodyWorkspaceExpanded() As Boolean
+            Get
+                Return CType(Me("ApptModuleBodyWorkspaceExpanded"),Boolean)
+            End Get
+            Set
+                Me("ApptModuleBodyWorkspaceExpanded") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

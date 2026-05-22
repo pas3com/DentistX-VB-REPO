@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DentistXLicense", "DentistXLicense.vbproj", "{16A12C4E-30D6-43B1-A4BB-B8525D040451}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A12C4E-30D6-43B1-A4BB-B8525D040451}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9412F548-AA05-4272-B9D3-C27FD8A7A993}
+	EndGlobalSection
+EndGlobal
