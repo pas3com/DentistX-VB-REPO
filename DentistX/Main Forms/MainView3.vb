@@ -2887,7 +2887,11 @@ Public Class MainView3
     End Sub
 
     Private Sub BtnMsgCenterOutboundArchive_Click(sender As Object, e As EventArgs)
-        FrmWhatsAppOutboundArchive.ShowArchive(Me)
+        Using f As New WhatsAppForm()
+            f.OpenOnArchiveTab = True
+            If Icon IsNot Nothing Then f.Icon = Icon
+            f.ShowDialog(Me)
+        End Using
     End Sub
 
     Private Sub MsgCenterToolbarPanel_SizeChanged(sender As Object, e As EventArgs)

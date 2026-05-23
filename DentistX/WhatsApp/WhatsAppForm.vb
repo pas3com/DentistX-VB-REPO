@@ -48,6 +48,9 @@ Public Class WhatsAppForm
         End Set
     End Property
 
+    ''' <summary>When True, the form switches to the server archive tab once Load completes (after ClinicId is resolved).</summary>
+    Public Property OpenOnArchiveTab As Boolean
+
     Public Sub New()
         InitializeComponent()
         _service = New WhatsAppService()
@@ -581,6 +584,9 @@ Public Class WhatsAppForm
             End Try
         End If
         If TabControl.SelectedTabPage Is TabQueue AndAlso Not String.IsNullOrWhiteSpace(ClinicId) Then _queueRefreshTimer.Start()
+        If OpenOnArchiveTab AndAlso _tabArchive IsNot Nothing AndAlso TabControl IsNot Nothing Then
+            TabControl.SelectedTabPage = _tabArchive
+        End If
     End Sub
 
     Private Sub UpdateStatusLabel(text As String)

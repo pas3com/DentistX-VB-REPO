@@ -2109,7 +2109,7 @@ Public Class AdultUpperDiag
         TrtSourceHelper.FilterAddedTrtsListBox(AddedTrtsList, originalAddedTrtsTable, searchText)
     End Sub
 
-    Private Sub txtSrchTrt_TextChanged(sender As Object, e As EventArgs) 
+    Private Sub txtSrchTrt_TextChanged(sender As Object, e As EventArgs) Handles txtSrchTrt.TextChanged
         Dim searchText As String = txtSrchTrt.Text.Trim().ToLower()
         'Dim searchText As String = txtSrchTrt.Text.Trim()
         ApplyTreeFilter(searchText)
