@@ -25,6 +25,8 @@ Public Class ApptScheduleViewHeaderStrip
     Private ReadOnly _lblCaption As New Label With {
         .AutoEllipsis = False,
         .AutoSize = False,
+        .UseMnemonic = False,
+        .UseCompatibleTextRendering = False,
         .TextAlign = ContentAlignment.MiddleCenter,
         .ForeColor = Color.FromArgb(32, 42, 58),
         .BackColor = Color.Transparent
@@ -173,17 +175,43 @@ Public Class ApptScheduleViewHeaderStrip
         Dim labelX As Integer
         Dim lblY As Integer = inner.Y + 2
         Dim lblH As Integer = Math.Max(1, inner.Height - 4)
-        Dim captionFlags = TextFormatFlags.WordBreak Or TextFormatFlags.TextBoxControl Or TextFormatFlags.HorizontalCenter
+        Dim wrapFlags = TextFormatFlags.WordBreak Or TextFormatFlags.TextBoxControl Or
+                        TextFormatFlags.HorizontalCenter Or TextFormatFlags.NoPrefix
+        Dim singleLineFlags = TextFormatFlags.SingleLine Or TextFormatFlags.NoPrefix
 
         If ShowCaption AndAlso Not String.IsNullOrEmpty(_lblCaption.Text) Then
-            Dim maxLabelW = midW - 2 * clusterW
-            If maxLabelW < 20 Then maxLabelW = Math.Max(20, midW \ 2)
-            Dim lineH = TextRenderer.MeasureText("Ay", _lblCaption.Font, New Size(maxLabelW, Integer.MaxValue), captionFlags).Height
+            ' Hard floor: leave room for two nav buttons + a small margin on each side; never reserve NavGapPx if it would starve the caption.
+            Const sideMargin As Integer = 12
+            Dim minButtonsW = 2 * pw + innerGap
+            Dim absoluteMaxLabelW = Math.Max(40, midW - 2 * minButtonsW - 2 * sideMargin)
+
+            ' Preferred max keeps the original NavGapPx breathing room when the strip is wide enough.
+            Dim preferredMaxLabelW = midW - 2 * clusterW
+            If preferredMaxLabelW < 40 Then preferredMaxLabelW = absoluteMaxLabelW
+
+            Dim lineH = TextRenderer.MeasureText("Ay", _lblCaption.Font, Size.Empty, singleLineFlags).Height
+            If lineH <= 0 Then lineH = _lblCaption.Font.Height
             Dim maxCaptionH = Math.Max(lineH, lineH * CaptionMaxLines)
-            Dim sz = TextRenderer.MeasureText(_lblCaption.Text, _lblCaption.Font,
-                New Size(maxLabelW, maxCaptionH), captionFlags)
-            labelW = Math.Min(maxLabelW, Math.Max(1, sz.Width))
-            lblH = Math.Min(maxCaptionH, Math.Max(lineH, sz.Height))
+
+            Dim singleSz = TextRenderer.MeasureText(_lblCaption.Text, _lblCaption.Font,
+                New Size(Integer.MaxValue, Integer.MaxValue), singleLineFlags)
+
+            If singleSz.Width <= preferredMaxLabelW Then
+                ' Fits on one line with the original gap.
+                labelW = Math.Max(1, singleSz.Width)
+                lblH = lineH
+            ElseIf singleSz.Width <= absoluteMaxLabelW Then
+                ' Fits on one line if we sacrifice NavGapPx.
+                labelW = Math.Max(1, singleSz.Width)
+                lblH = lineH
+            Else
+                ' Needs wrap: use full available width so word boundaries can break cleanly.
+                Dim wrapSz = TextRenderer.MeasureText(_lblCaption.Text, _lblCaption.Font,
+                    New Size(absoluteMaxLabelW, maxCaptionH), wrapFlags)
+                labelW = absoluteMaxLabelW
+                lblH = Math.Min(maxCaptionH, Math.Max(lineH, wrapSz.Height))
+            End If
+
             lblY = inner.Y + Math.Max(0, (inner.Height - lblH) \ 2)
             labelX = midLeft + (midW - labelW) \ 2
         Else
