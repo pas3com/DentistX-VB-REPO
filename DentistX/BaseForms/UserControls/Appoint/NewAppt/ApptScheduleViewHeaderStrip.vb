@@ -14,13 +14,16 @@ Public Class ApptScheduleViewHeaderStrip
     Private Const NavGapPx As Integer = 650
     Private Const ActionBtnW As Integer = 50 ' 34
     Private Const ActionBtnH As Integer = 28
+    ''' <summary>Default strip height — fits up to <see cref="CaptionMaxLines"/> caption lines (embedded workspace is narrower than modal scheduler).</summary>
+    Private Const DefaultStripHeightPx As Integer = 54
+    Private Const CaptionMaxLines As Integer = 2
     ''' <summary>Gap between period nav and appointment-edge nav (same side of caption).</summary>
     Private Const ApptNavInnerGapPx As Integer = 4
 
     Private Shared _cachedApptNavArrowLeft As Image
 
     Private ReadOnly _lblCaption As New Label With {
-        .AutoEllipsis = True,
+        .AutoEllipsis = False,
         .AutoSize = False,
         .TextAlign = ContentAlignment.MiddleCenter,
         .ForeColor = Color.FromArgb(32, 42, 58),
@@ -47,7 +50,8 @@ Public Class ApptScheduleViewHeaderStrip
     Private _bound As ApptViewRequest
 
     Public Sub New()
-        Height = 38
+        Height = DefaultStripHeightPx
+        MinimumSize = New Size(0, DefaultStripHeightPx)
         BackColor = Color.FromArgb(248, 250, 252)
         Padding = New Padding(8, 2, 8, 2)
 
@@ -165,19 +169,22 @@ Public Class ApptScheduleViewHeaderStrip
         Dim innerGap = ApptNavInnerGapPx
         Dim clusterW = gap + pw + innerGap + pw
         Dim btnY = inner.Y + (inner.Height - ActionBtnH) \ 2
-        Dim lblY = inner.Y + 2
-        Dim lblH = Math.Max(1, inner.Height - 4)
-
         Dim labelW As Integer = 0
         Dim labelX As Integer
+        Dim lblY As Integer = inner.Y + 2
+        Dim lblH As Integer = Math.Max(1, inner.Height - 4)
+        Dim captionFlags = TextFormatFlags.WordBreak Or TextFormatFlags.TextBoxControl Or TextFormatFlags.HorizontalCenter
 
         If ShowCaption AndAlso Not String.IsNullOrEmpty(_lblCaption.Text) Then
             Dim maxLabelW = midW - 2 * clusterW
             If maxLabelW < 20 Then maxLabelW = Math.Max(20, midW \ 2)
+            Dim lineH = TextRenderer.MeasureText("Ay", _lblCaption.Font, New Size(maxLabelW, Integer.MaxValue), captionFlags).Height
+            Dim maxCaptionH = Math.Max(lineH, lineH * CaptionMaxLines)
             Dim sz = TextRenderer.MeasureText(_lblCaption.Text, _lblCaption.Font,
-                New Size(maxLabelW, lblH),
-                TextFormatFlags.SingleLine Or TextFormatFlags.TextBoxControl Or TextFormatFlags.EndEllipsis)
+                New Size(maxLabelW, maxCaptionH), captionFlags)
             labelW = Math.Min(maxLabelW, Math.Max(1, sz.Width))
+            lblH = Math.Min(maxCaptionH, Math.Max(lineH, sz.Height))
+            lblY = inner.Y + Math.Max(0, (inner.Height - lblH) \ 2)
             labelX = midLeft + (midW - labelW) \ 2
         Else
             labelX = midLeft + midW \ 2
@@ -335,8 +342,14 @@ Public Class ApptScheduleViewHeaderStrip
 
     ''' <summary>Doctors day (and similar): set the center caption after <see cref="Apply"/> without using the built-in range formatter.</summary>
     Public Sub SetCaptionTextOneLine(text As String)
+        SetCaptionText(text)
+    End Sub
+
+    ''' <summary>Center caption (wraps up to two lines inside the strip).</summary>
+    Public Sub SetCaptionText(text As String)
         _lblCaption.Text = If(text, "")
         _lblCaption.Visible = ShowCaption AndAlso Not String.IsNullOrEmpty(_lblCaption.Text)
+        Height = DefaultStripHeightPx
         PerformLayout()
     End Sub
 End Class

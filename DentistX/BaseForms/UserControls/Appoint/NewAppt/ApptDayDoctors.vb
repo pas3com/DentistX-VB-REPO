@@ -35,7 +35,7 @@ Public Class ApptDayDoctors
     Private Const DoctorHeaderPx As Integer = 30
     Private Const SnapMinutes As Integer = 15
     ''' <summary>Single header row: checkbox + schedule strip (same height as band).</summary>
-    Private Const CombinedDoctorsHeaderHeightPx As Integer = 52
+    Private Const CombinedDoctorsHeaderHeightPx As Integer = 58
 
     ''' <summary>Vertical scale: pixels per minute (~1.85 → ~55px per 30 minutes).</summary>
     Private ReadOnly _pxPerMinute As Single = 1.85F

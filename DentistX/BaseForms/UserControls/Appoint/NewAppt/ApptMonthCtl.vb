@@ -204,7 +204,7 @@ Public Class ApptMonthCtl
         If _scheduleHeader.Parent IsNot _monthRoot Then
             _monthRoot.Controls.Add(_scheduleHeader, 0, 0)
         End If
-        Dim hdrH = CSng(Math.Max(38, _scheduleHeader.Height))
+        Dim hdrH = CSng(Math.Max(54, _scheduleHeader.Height))
         If _monthRoot.RowStyles.Count > 0 Then
             _monthRoot.RowStyles(0) = New RowStyle(SizeType.Absolute, hdrH)
         End If
