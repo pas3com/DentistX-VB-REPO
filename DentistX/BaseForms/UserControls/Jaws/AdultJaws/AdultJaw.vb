@@ -919,8 +919,8 @@ Public Class AdultJaw
             End If
 
             ' Show panel after data is loaded
+            PositionFlyoutPanel(svg)
             If Not FlyMenu.Visible Then
-                PositionFlyoutPanel(svg)
                 BackClr = Me.BackColor
                 FlyMenu.Visible = True
                 PrepareFlyoutPanelForShow()
@@ -3325,6 +3325,7 @@ Public Class AdultJaw
             .IsPaid = (grpRadioSetAs.SelectedIndex <> 0)
         }
 
+            EnsureCompoundLayerFills(toothTRT)
             Return toothTRT
         Catch
             Return Nothing
@@ -3397,6 +3398,7 @@ Public Class AdultJaw
             .ToothTrtID = 0
         }
 
+            EnsureCompoundLayerFills(toothTRT)
             Return toothTRT
         Catch ex As Exception
             ' optional: log or MsgBox(ex.Message)

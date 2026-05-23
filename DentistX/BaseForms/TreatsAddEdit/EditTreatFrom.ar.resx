@@ -330,7 +330,7 @@
     <value>الالوان و معلومات إضافية </value>
   </data>
   <data name="btnApply.Text" xml:space="preserve">
-    <value>تطبيق</value>
+    <value>تعيين لون جديد</value>
   </data>
   <data name="capOpacity.Location" type="System.Drawing.Point, System.Drawing">
     <value>29, 138</value>

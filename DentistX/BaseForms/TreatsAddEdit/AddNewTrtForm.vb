@@ -60,8 +60,7 @@ Public Class AddNewTrtForm
         txtToothNum.Text = clsToothTrt(0).ToothNum
         txtToothName.Text = GetToothFullName(clsToothTrt(0).ToothName)
         clrBorderColor.Color = ColorTranslator.FromHtml(clsToothTrt(0).BorderColor)
-        CapFillPick.Color = ColorTranslator.FromHtml(clsToothTrt(0).CapFill)
-        RootFillPick.Color = ColorTranslator.FromHtml(clsToothTrt(0).RootFill)
+        BindSpecialCapRootPickers(clsToothTrt(0))
         tbThick.Value = 0
         txtTreat.Text = clsToothTrt(0).Treat
         clrFillColor.Color = GetCustomTrtColor(txtTreat.Text) 'ColorTranslator.FromHtml(clsToothTrt(0).FillColor)
@@ -114,8 +113,7 @@ Public Class AddNewTrtForm
         txtToothName.Text = GetToothFullName(clsToothTrt.ToothName)
         clrFillColor.Color = GetCustomTrtColor(clsToothTrt.Treat) ' ColorTranslator.FromHtml(clsToothTrt.FillColor)
         clrBorderColor.Color = ColorTranslator.FromHtml(clsToothTrt.BorderColor)
-        CapFillPick.Color = ColorTranslator.FromHtml(clsToothTrt.CapFill)
-        RootFillPick.Color = ColorTranslator.FromHtml(clsToothTrt.RootFill)
+        BindSpecialCapRootPickers(clsToothTrt)
         tbThick.Value = 0
         txtTreat.Text = clsToothTrt.Treat
         _propName = clsToothTrt.PropertyName
@@ -636,6 +634,8 @@ Public Class AddNewTrtForm
         trtClas.BorderColor = hexBrdrWithAlpha ' ColorTranslator.ToHtml(clrBorderColor.Color)
         trtClas.BorderThickness = CByte(tbThick.Value)
         trtClas.FillColor = hexFillWithAlpha ' ColorTranslator.ToHtml(clrFillColor.Color) '
+        trtClas.CapFill = hexCapFillWithAlpha
+        trtClas.RootFill = hexRootWithAlpha
         _toothTrt.IsPaid = paid
         _toothTrt.IsExternal = external
         trtClas.PatientID = PatientID
@@ -1600,56 +1600,53 @@ Public Class AddNewTrtForm
         RootFillPick.Color = GetDefaultRootColor(txtTreat.Text)
     End Sub
 
+    Private Sub BindSpecialCapRootPickers(ByVal row As Patient_ToothTrt)
+        If row Is Nothing OrElse Not specialTrts.Contains(row.Treat.ToUpper()) Then Return
+        EnsureCompoundLayerFills(row, capOpacity.Value)
+        Dim parsed As Color
+        If TryParseTreatColorHex(row.CapFill, parsed) Then
+            CapFillPick.Color = parsed
+        Else
+            CapFillPick.Color = GetCustomCapColor(row.Treat)
+        End If
+        If TryParseTreatColorHex(row.RootFill, parsed) Then
+            RootFillPick.Color = parsed
+        Else
+            RootFillPick.Color = GetCustomRootColor(row.Treat)
+        End If
+    End Sub
+
     Private Sub btnSetCapRootCustmClr_Click(sender As Object, e As EventArgs) Handles btnSetCapRootCustmClr.Click
-        Dim Trt As String = txtTreat.Text.ToUpper()
-        Select Case Trt
-            Case "INDIRECT PULP CAPPING"
-                Trt = "INDIRECTCAP"
-            Case "DIRECT PULP CAPPING"
-                ' In TblTRTS the code is stored as DIRECCAP (see Untitled data dump)
-                Trt = "DIRECCAP"
-            Case "PULPOTOMY"
-                Trt = "PULPCAP"
-        End Select
-        Dim clsTblTrtDATA As New TblTRTSDATA
-        Dim CheckTrtID As String = "SELECT  [TrtID]  FROM [dbo].[TblTRTS] WHERE Trt = @Trt"
-        Dim Treat As String = txtTreat.Text
-        Dim TrtID As Integer
-        Using conn As New SqlConnection(ConnectionString)
-            conn.Open()
-            ' Check if any record exists with this treatment
-            TrtID = conn.ExecuteScalar(Of Integer?)(CheckTrtID, New With {.Trt = Trt}) '.HasValue
-        End Using
-        If IsValidHexColor(ColorToHex(CapFillPick.Color, capOpacity.Value)) AndAlso IsValidHexColor(ColorToHex(RootFillPick.Color, capOpacity.Value)) Then
-            If clsTblTrtDATA.UpdateTrtClr(TrtID, ColorToHex(CapFillPick.Color, capOpacity.Value), ColorToHex(RootFillPick.Color, capOpacity.Value), capRootThick.Value) Then
-                ' Also update the current in-memory treatment(s) so drawing reflects immediately
-                Dim newCapHex = ColorToHex(CapFillPick.Color, capOpacity.Value)
-                Dim newRootHex = ColorToHex(RootFillPick.Color, capOpacity.Value)
-                ' Single-tooth context
-                If selectedToothTrtList Is Nothing OrElse selectedToothTrtList.Count = 0 Then
-                    If _toothTrt IsNot Nothing Then
-                        _toothTrt.CapFill = newCapHex
-                        _toothTrt.RootFill = newRootHex
-                    End If
-                Else
-                    ' Multi-tooth context: update all selected treatments with the same Treat text
-                    For Each trt1 As Patient_ToothTrt In selectedToothTrtList
-                        If String.Equals(trt1.Treat, txtTreat.Text, StringComparison.OrdinalIgnoreCase) Then
-                            trt1.CapFill = newCapHex
-                            trt1.RootFill = newRootHex
-                        End If
-                    Next
+        If Not IsCompoundPulpTreat(txtTreat.Text) Then Exit Sub
+
+        Dim capHex As String = ColorToHex(CapFillPick.Color, capOpacity.Value)
+        Dim rootHex As String = ColorToHex(RootFillPick.Color, capOpacity.Value)
+        If Not (IsValidHexColor(capHex) AndAlso IsValidHexColor(rootHex)) Then Exit Sub
+
+        If SaveCompoundLayerColorsToTblTrts(txtTreat.Text, capHex, rootHex) Then
+            ' Mirror to current in-memory patient treatment(s) so the chart reflects immediately on save
+            If selectedToothTrtList Is Nothing OrElse selectedToothTrtList.Count = 0 Then
+                If _toothTrt IsNot Nothing Then
+                    _toothTrt.CapFill = capHex
+                    _toothTrt.RootFill = rootHex
                 End If
-                Dim msgEng As String = $" Colors Updated In Treats Table"
-                Dim msgAr As String = $" تم تحديث الألوان في جدول العلاجات"
-                Dim msg As String = If(Eng, msgEng, msgAr)
-                MsgBox(msg)
             Else
-                Dim msgEng1 As String = $" Colors Not Updated In Treats Table"
-                Dim msgAr1 As String = $"لم يتم تحديث الألوان في جدول العلاجات"
-                Dim msg1 As String = If(Eng, msgEng1, msgAr1)
-                MsgBox(msg1)
+                For Each trt1 As Patient_ToothTrt In selectedToothTrtList
+                    If String.Equals(trt1.Treat, txtTreat.Text, StringComparison.OrdinalIgnoreCase) Then
+                        trt1.CapFill = capHex
+                        trt1.RootFill = rootHex
+                    End If
+                Next
             End If
+            Dim msgEng As String = $" Colors Updated In Treats Table"
+            Dim msgAr As String = $" تم تحديث الألوان في جدول العلاجات"
+            Dim msg As String = If(Eng, msgEng, msgAr)
+            MsgBox(msg)
+        Else
+            Dim msgEng1 As String = $" Colors Not Updated In Treats Table"
+            Dim msgAr1 As String = $"لم يتم تحديث الألوان في جدول العلاجات"
+            Dim msg1 As String = If(Eng, msgEng1, msgAr1)
+            MsgBox(msg1)
         End If
     End Sub
     Private Sub txtPrice_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTrtPrice.KeyPress, txtPayValue.KeyPress
@@ -1734,6 +1731,9 @@ Public Class AddNewTrtForm
         currentTooth = CType(TrtBS.Current, Patient_ToothTrt)
         clrFillColor.Color = ColorTranslator.FromHtml(currentTooth.FillColor)
         clrBorderColor.Color = ColorTranslator.FromHtml(currentTooth.BorderColor)
+        If specialTrts.Contains(currentTooth.Treat.ToUpper()) Then
+            BindSpecialCapRootPickers(currentTooth)
+        End If
         SyncImplantPopupFromTreat(If(currentTooth.Treat, ""))
     End Sub
 

@@ -784,32 +784,17 @@ Public Class AdultDiag
     End Sub
 
     Private Sub OnBeforeMaintenanceModalFromOtherControls(sender As Object, e As EventArgs)
-        ComboFlyoutSearchHelper.HideFlyoutIfOpen(Flyout1)
+        If FlyMenu IsNot Nothing AndAlso FlyMenu.Visible Then FlyMenu.Visible = False
     End Sub
 
     Private Sub OnAfterMaintenanceModalFromOtherControls(sender As Object, e As EventArgs)
-        ComboFlyoutSearchHelper.HideFlyoutIfOpen(Flyout1)
+        If FlyMenu IsNot Nothing AndAlso FlyMenu.Visible Then FlyMenu.Visible = False
         If Not Me.IsHandleCreated OrElse Me.IsDisposed Then Return
-        BeginInvoke(New MethodInvoker(AddressOf HealJawFlyoutDevExpressAfterShellModal))
-    End Sub
-
-    ''' <summary>DevExpress can leave peek/popup internals inconsistent after shell <c>ShowDialog</c>; sync next ShowPopup.</summary>
-    Private Sub HealJawFlyoutDevExpressAfterShellModal()
-        If Me.IsDisposed OrElse Flyout1 Is Nothing OrElse Flyout1.IsDisposed Then Return
-        Try
-            ComboFlyoutSearchHelper.HideFlyoutIfOpen(Flyout1)
-            Flyout1.OwnerControl = Me
-        Catch
-        End Try
-    End Sub
-
-    ''' <summary>Manual anchor in jaw host (<c>Me</c>) client coordinates; matches legacy <c>Flyout1.OwnerControl = Me</c>.</summary>
-    Private Sub PrepareJawFlyoutManualShow(manualPointInHostClient As Point)
-        ComboFlyoutSearchHelper.ConfigureManualAnchoredFlyoutOnOwner(Flyout1, Me, manualPointInHostClient, True)
     End Sub
 
     Private Sub JawPanel_MouseClick(sender As Object, e As MouseEventArgs) Handles JawPanel.MouseClick
         If e.Button = MouseButtons.Left Then
+            JawFlyMenuRuntime.TryHideOnOutsideClick(FlyMenu, txtSrchTrt, Control.MousePosition)
             JawPanel.Focus()
         End If
     End Sub
@@ -1102,11 +1087,12 @@ Public Class AdultDiag
             SetTrtsTreeMultiTeeth()
         End If
 
-        ComboFlyoutSearchHelper.ConfigureLegacyToothFlyout(Flyout1, Me, JawPanel, svg, StringComparison.Ordinal)
-
         BackClr = Me.BackColor
-        Flyout1.BringToFront()
-        Flyout1.ShowPopup()
+        JawFlyMenuRuntime.PositionFlyMenuForTooth(FlyMenu, svg, StringComparison.Ordinal)
+        If Not FlyMenu.Visible Then
+            FlyMenu.Visible = True
+            PrepareFlyoutPanelForShow()
+        End If
     End Sub
 
     ' MouseDown Event: Start the timer
@@ -1181,6 +1167,10 @@ Public Class AdultDiag
     ' Common handler for MouseClick (left only — right is handled on MouseUp)
     Private Sub CommonMouseClickHandler(sender As Object, e As MouseEventArgs)
         If e.Button <> MouseButtons.Left Then Return
+        If FlyMenu.Visible Then
+            FlyMenu.Visible = False
+            txtSrchTrt.ResetText()
+        End If
         JawPanel.Focus()
         Dim svg As SvgImageBox = CType(sender, SvgImageBox)
         ToothNum = Convert.ToByte(svg.Tag)
@@ -1460,7 +1450,9 @@ Public Class AdultDiag
     End Sub
     Private Sub UpdateEditButtonVisibility()
         showEditTrtBtn = selectedTeethList.Count = 0
-        ' Add your code to show/hide edit button here
+        JawFlyMenuRuntime.RefreshFlyMenuEditVisibility(FlyMenu, btnDelTrts, btnEditTrts,
+                                                      hasMultiSelectedTeeth:=selectedTeethList.Count > 0,
+                                                      showEditTrtBtn:=showEditTrtBtn)
     End Sub
 #End Region
 
@@ -1496,8 +1488,9 @@ Public Class AdultDiag
             TrtSourceHelper.ClearAddedTrtsListBound(AddedTrtsList, originalAddedTrtsTable)
             JawTreatmentTreeHelper.LoadEmptyJawBackgroundTreatTree(TrtsTreeView, isKid, AllTrtNodes, fullTreeSnapshot, useDiagnosis:=True)
             txtSrchTrt.ResetText()
-            PrepareJawFlyoutManualShow(New Point(JawPanel.Left + e.X, JawPanel.Top + e.Y))
-            Flyout1.ShowPopup()
+            JawFlyMenuRuntime.PositionFlyMenuAtPoint(FlyMenu, JawPanel, New Point(e.X, e.Y))
+            FlyMenu.Visible = True
+            PrepareFlyoutPanelForShow()
             Return
         End If
         If e.Button = MouseButtons.Left AndAlso isSelecting Then
@@ -2357,7 +2350,7 @@ Public Class AdultDiag
         TrtSourceHelper.FilterAddedTrtsListBox(AddedTrtsList, originalAddedTrtsTable, searchText)
     End Sub
 
-    Private Sub txtSrchTrt_TextChanged(sender As Object, e As EventArgs) Handles txtSrchTrt.TextChanged
+    Private Sub txtSrchTrt_TextChanged(sender As Object, e As EventArgs) 
         Dim searchText As String = txtSrchTrt.Text.Trim().ToLower()
         'Dim searchText As String = txtSrchTrt.Text.Trim()
         ApplyTreeFilter(searchText)
@@ -2586,7 +2579,7 @@ Public Class AdultDiag
 
         ' Show Add form for single or multiple
         'CLOSE flyout1
-        Flyout1.HidePopup()
+        If FlyMenu.Visible Then FlyMenu.Visible = False
         Dim result As DialogResult
         If toothTrtList.Count = 1 Then
             Using addTrt As New AddNewDiagForm(toothTrtList(0), clsPatient)
@@ -2611,7 +2604,7 @@ Public Class AdultDiag
         DragSource = Nothing
     End Sub
 
-    Private Sub AddedTrtsList_KeyDown(sender As Object, e As KeyEventArgs) Handles AddedTrtsList.KeyDown
+    Private Sub AddedTrtsList_KeyDown(sender As Object, e As KeyEventArgs) Handles AddedTrtsList.KeyDown 
         If e.KeyCode = Keys.Enter Then
             ' Ensure an item is selected
             If AddedTrtsList.SelectedItem Is Nothing Then
@@ -2633,7 +2626,7 @@ Public Class AdultDiag
                 Dim toothTrt As New Patient_Diagnosis With {.DiagID = DiagID, .PatientID = PatientID, .ToothNum = CByte(slctdSVG.Tag)}
                 toothTrt = trtData.Select_RecordByDiagIDByTNum(toothTrt)
                 'CLOSE flyout1
-                Flyout1.HidePopup()
+                If FlyMenu.Visible Then FlyMenu.Visible = False
                 Dim result As DialogResult
                 Using editTrt As New EditDiagFrom(toothTrt, clsPatient)
                     result = editTrt.ShowDialog(Me)
@@ -2663,7 +2656,7 @@ Public Class AdultDiag
             End If
         End If
     End Sub
-    Private Sub AddedTrtsList_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles AddedTrtsList.MouseDoubleClick
+    Private Sub AddedTrtsList_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles AddedTrtsList.MouseDoubleClick 
         ' Ensure an item is selected
         If AddedTrtsList.SelectedItem Is Nothing Then
             MessageBox.Show("Please select an item from the list.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -2679,7 +2672,7 @@ Public Class AdultDiag
             Dim toothTrt As New Patient_Diagnosis With {.DiagID = DiagID, .PatientID = PatientID, .ToothNum = CByte(slctdSVG.Tag)}
             toothTrt = trtData.Select_RecordByDiagIDByTNum(toothTrt)
             'CLOSE flyout1
-            Flyout1.HidePopup()
+            If FlyMenu.Visible Then FlyMenu.Visible = False
             Dim result As DialogResult
             Using editTrt As New EditDiagFrom(toothTrt, clsPatient)
                 result = editTrt.ShowDialog(Me)
@@ -2709,7 +2702,7 @@ Public Class AdultDiag
         End If
 
     End Sub
-    Private Sub TreeView_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TrtsTreeView.NodeMouseDoubleClick
+    Private Sub TreeView_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TrtsTreeView.NodeMouseDoubleClick 
         ' Basic validation
         If e.Node Is Nothing OrElse e.Node.Parent Is Nothing OrElse e.Node.Nodes.Count > 0 OrElse e.Node.Tag Is Nothing OrElse DragSource Is Nothing Then Exit Sub
 
@@ -2726,7 +2719,7 @@ Public Class AdultDiag
             If toothTRT IsNot Nothing Then toothTrtList.Add(toothTRT)
         Next
         'CLOSE flyout1
-        Flyout1.HidePopup()
+        If FlyMenu.Visible Then FlyMenu.Visible = False
 
         'use SaveDiag in SaveDiagDiag module to save the treatment
         'Dim savDiag As New SaveDiag
@@ -2773,7 +2766,7 @@ Public Class AdultDiag
         DragSource = Nothing
         grpRadioSetAs.SelectedIndex = 0
     End Sub
-    Private Sub TrtsTreeView_KeyDown(sender As Object, e As KeyEventArgs) Handles TrtsTreeView.KeyDown
+    Private Sub TrtsTreeView_KeyDown(sender As Object, e As KeyEventArgs) Handles TrtsTreeView.KeyDown 
         If e.KeyCode <> Keys.Enter Then Return
 
         Dim selectedNode As TreeNode = TrtsTreeView.SelectedNode
@@ -2808,7 +2801,7 @@ Public Class AdultDiag
             Return
         End If
         'CLOSE flyout1
-        Flyout1.HidePopup()
+        If FlyMenu.Visible Then FlyMenu.Visible = False
         ' Show the Add form (single vs multi overload)
         Dim result As DialogResult
         If toothTrtList.Count = 1 Then
@@ -2857,7 +2850,7 @@ Public Class AdultDiag
     Private ParentGroup As String = ""
     Private TrtColor As String = ""
 
-    Private Sub TrtsTreeView_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TrtsTreeView.AfterSelect
+    Private Sub TrtsTreeView_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TrtsTreeView.AfterSelect 
 
 
         If e.Node.BackColor <> Color.Green Then Return
@@ -2899,14 +2892,14 @@ Public Class AdultDiag
         Public Property TrtLoc As String '
     End Class
     'TrtsTreeView
-    Private Sub TrtsTreeView_MouseDown(sender As Object, e As MouseEventArgs) Handles TrtsTreeView.MouseDown
+    Private Sub TrtsTreeView_MouseDown(sender As Object, e As MouseEventArgs) Handles TrtsTreeView.MouseDown 
         ' Record the initial position and time of the mouse down
         If e.Button = MouseButtons.Left Then
             mouseDownLocation = e.Location
             mouseDownTime = DateTime.Now
         End If
     End Sub
-    Private Sub TrtsTreeView_MouseMove(sender As Object, e As MouseEventArgs) Handles TrtsTreeView.MouseMove
+    Private Sub TrtsTreeView_MouseMove(sender As Object, e As MouseEventArgs) Handles TrtsTreeView.MouseMove 
         ' Ensure the mouse down location and time are tracked globally
         If mouseDownLocation = Point.Empty Then Exit Sub
 
@@ -3091,7 +3084,7 @@ Public Class AdultDiag
 
 #Region "Loading"
 
-    Private Sub grpRadioSetAs_SelectedIndexChanged(sender As Object, e As EventArgs) Handles grpRadioSetAs.SelectedIndexChanged
+    Private Sub grpRadioSetAs_SelectedIndexChanged(sender As Object, e As EventArgs) 
         If grpRadioSetAs.SelectedIndex = 0 Then
             txtExtClinic.Visible = False
         Else
@@ -3157,6 +3150,7 @@ Public Class AdultDiag
         If Me.Size <> originalPanelSize Then
             ResizeControls()
         End If
+        WireFlyMenuOutsideClickFilter()
         'sw.Stop()
         'LogToFile("AdultDiag_Load Time spent: " & sw.Elapsed.TotalSeconds.ToString("F2") & " seconds", Me)
         LogTime(NameOf(AdultDiag_Load), Me.Name, sw)
@@ -3334,144 +3328,195 @@ Public Class AdultDiag
 
 
 #Region "FlyOutEvents"
-    Private Sub Flyout1_Showing(sender As Object, e As FlyoutPanelEventArgs) Handles Flyout1.Showing
-        Flyout1.OptionsButtonPanel.Buttons.Item(2).Properties.Appearance.ForeColor = Color.Red
-        If selectedTeethList.Count > 0 Then
-            Flyout1.OptionsButtonPanel.Buttons.Item(2).Properties.Caption = If(Eng, "Delete All Treats On Selected Teeth", "حذف كل العلاجات على الأسنان المحددة")
-        Else
-            Flyout1.OptionsButtonPanel.Buttons.Item(2).Properties.Caption = If(Eng, "Delete All Treats On Selected Tooth", "حذف كل العلاجات على السن المحدد")
+
+    Private _flyMenuOutsideClickFilter As IMessageFilter
+    Private _flyMenuOutsideClickFilterWired As Boolean
+
+    Private Sub WireFlyMenuOutsideClickFilter()
+        If _flyMenuOutsideClickFilterWired Then Return
+        _flyMenuOutsideClickFilterWired = True
+        _flyMenuOutsideClickFilter = New FlyMenuOutsideClickFilter(Me)
+        Application.AddMessageFilter(_flyMenuOutsideClickFilter)
+    End Sub
+
+    Private Sub UnwireFlyMenuOutsideClickFilter()
+        If Not _flyMenuOutsideClickFilterWired Then Return
+        _flyMenuOutsideClickFilterWired = False
+        If _flyMenuOutsideClickFilter IsNot Nothing Then
+            Application.RemoveMessageFilter(_flyMenuOutsideClickFilter)
+            _flyMenuOutsideClickFilter = Nothing
         End If
-        Flyout1.OptionsButtonPanel.Buttons.Item(1).Properties.Visible = showEditTrtBtn
-        'grpSlctdTeeth.Visible = Not showEditTrtBtn
+    End Sub
+
+    Friend Sub TryHideFlyMenuFromApplicationMouse(ByRef m As Message)
+        Const WM_LBUTTONDOWN As Integer = &H201
+        If m.Msg <> WM_LBUTTONDOWN Then Return
+        If IsDisposed OrElse Not IsHandleCreated Then Return
+        If Not FlyMenu.Visible Then Return
+        JawFlyMenuRuntime.TryHideOnOutsideClick(FlyMenu, txtSrchTrt, Control.MousePosition)
+    End Sub
+
+    Private NotInheritable Class FlyMenuOutsideClickFilter
+        Implements IMessageFilter
+        Private ReadOnly _jaw As AdultDiag
+
+        Public Sub New(jaw As AdultDiag)
+            _jaw = jaw
+        End Sub
+
+        Public Function PreFilterMessage(ByRef m As Message) As Boolean Implements IMessageFilter.PreFilterMessage
+            _jaw.TryHideFlyMenuFromApplicationMouse(m)
+            Return False
+        End Function
+    End Class
+
+    ''' <summary>Bring FlyMenu up to a known state (caption colors, edit-button visibility, tree docked) just before showing it; mirrors <c>AdultJaw.PrepareFlyoutPanelForShow</c>.</summary>
+    Private Sub PrepareFlyoutPanelForShow()
+        JawFlyMenuRuntime.PrepareFlyMenuPresentation(FlyMenu, btnDelTrts, btnEditTrts, btnEditMultiTrts,
+                                                    hasMultiSelectedTeeth:=selectedTeethList.Count > 0,
+                                                    showEditTrtBtn:=showEditTrtBtn,
+                                                    trtsTreeView:=TrtsTreeView,
+                                                    hideEditMulti:=True)
+    End Sub
+
+    Private Sub btnTrtView_Click(sender As Object, e As EventArgs) Handles btnTrtView.Click
+        AddedTrtsList.Visible = False
         TrtsTreeView.Dock = DockStyle.Fill
         TrtsTreeView.Visible = True
         TrtsTreeView.BringToFront()
+        If slctdSVG IsNot Nothing Then
+            Dim x As Int16 = ExtractDigit(slctdSVG.Name)
+            SetTreeTreatsSingleTooth(x, CByte(slctdSVG.Tag))
+        End If
     End Sub
 
-    Private Sub Flyout1_ButtonChecked(sender As Object, e As FlyoutPanelButtonCheckedEventArgs) Handles Flyout1.ButtonChecked
-        Select Case e.Button.GroupIndex
-            Case 1
+    Private Sub btnEditTrts_Click(sender As Object, e As EventArgs) Handles btnEditTrts.Click
+        TrtsTreeView.Visible = False
+        AddedTrtsList.Dock = DockStyle.Fill
+        AddedTrtsList.Visible = True
+        AddedTrtsList.BringToFront()
 
-                TrtsTreeView.Visible = False
-                AddedTrtsList.Dock = DockStyle.Fill
-                AddedTrtsList.Visible = True
-                AddedTrtsList.BringToFront()
+        If slctdSVG Is Nothing Then Return
 
-                ' Extract the base name (e.g., "LdOut1" -> "Ld1")
-                Dim baseName As String = slctdSVG.Name.Substring(0, slctdSVG.Name.Length - 4) ' Removes "Out", "Top", or similar
-                Dim numberPart As String = slctdSVG.Name.Substring(slctdSVG.Name.Length - 1)
+        Dim baseName As String = slctdSVG.Name.Substring(0, slctdSVG.Name.Length - 4)
+        Dim numberPart As String = slctdSVG.Name.Substring(slctdSVG.Name.Length - 1)
+        Dim toothNum As Byte = Convert.ToByte(slctdSVG.Tag)
+        Dim toothName As String = $"{baseName}{numberPart}".ToUpper
+        If Not IsMobile Then
+            SetAddedTrtsListDataSource(PatientID, toothNum, GetToothFullName(toothName))
+        Else
+            SetAddedMobsListDataSource(PatientID, toothNum, GetToothFullName(toothName))
+        End If
+    End Sub
 
-                ' Apply the treatment to the specific SvgImageBox
-
-                Dim toothNum As Byte = Convert.ToByte(slctdSVG.Tag)
-                Dim toothName As String = $"{baseName}{numberPart}".ToUpper
-                If Not IsMobile Then
-                    SetAddedTrtsListDataSource(PatientID, toothNum, GetToothFullName(toothName))
-                Else
-                    SetAddedMobsListDataSource(PatientID, toothNum, GetToothFullName(toothName))
+    ''' <summary>Patient resolution: workspace patient → DiagUserControl host → FormManager fallback, then open <see cref="DelDiagForm"/> for the single/multi/whole-mouth target list.</summary>
+    Private Sub btnDelTrts_Click(sender As Object, e As EventArgs) Handles btnDelTrts.Click
+        Dim patientToUse As Patient = If(CurrentPatient, clsPatient)
+        If patientToUse Is Nothing Then
+            Dim c As Control = Me
+            While c IsNot Nothing
+                Dim diagUC As DiagUserControl = TryCast(c, DiagUserControl)
+                If diagUC IsNot Nothing Then
+                    patientToUse = diagUC.CurrentPatient
+                    Exit While
                 End If
-
-        End Select
-
-    End Sub
-    Private Sub Flyout1_ButtonClick(ByVal sender As Object, ByVal e As DevExpress.Utils.FlyoutPanelButtonClickEventArgs) Handles Flyout1.ButtonClick
-        For i As Integer = 0 To Flyout1.OptionsButtonPanel.Buttons.Count - 1
-            Dim button As DevExpress.Utils.PeekFormButton = Flyout1.OptionsButtonPanel.Buttons(i)
-
-            If button.Tag = e.Button.Tag.ToString() Then
-                ' Set the clicked button to CheckButton style and mark it as checked
-                button.Style = DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton
-                button.Checked = True
-            Else
-                ' Set all other buttons to PushButton style and uncheck them
-                button.Style = DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton
-                button.Checked = False
+                c = c.Parent
+            End While
+        End If
+        If patientToUse Is Nothing AndAlso FormManager.Instance.IsBasePatientFormOpen Then
+            patientToUse = FormManager.Instance.GetCurrentPatient()
+        End If
+        If patientToUse Is Nothing Then
+            MessageBox.Show(If(Eng, "Please select a patient first.", "يرجى اختيار مريض أولاً."), If(Eng, "Patient required", "مطلوب مريض"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+        If selectedTeethList.Count > 1 Then
+            Dim del As New DelDiagForm(patientToUse, selectedTeethList)
+            If del.ShowDialog(Me) = DialogResult.OK Then
+                LoadPatientTreats(patientToUse.PatientID)
             End If
-        Next
-        'Dim tag As String = e.Button.Tag.ToString()
-        Select Case e.Button.GroupIndex
-            Case 0
-                AddedTrtsList.Visible = False
-                TrtsTreeView.Dock = DockStyle.Fill
-                TrtsTreeView.Visible = True
-                TrtsTreeView.BringToFront()
-                Dim x As Int16 = 0
-                x = ExtractDigit(slctdSVG.Name)
-                'SetTrtsListDataSource(x)
-                SetTreeTreatsSingleTooth(x, CByte(slctdSVG.Tag))
-                e.Button.Style = DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton
-                e.Button.Checked = True
-            Case 1
-                If showEditTrtBtn Then
-                    TrtsTreeView.Visible = False
-                    AddedTrtsList.Dock = DockStyle.Fill
-                    AddedTrtsList.Visible = True
-                    AddedTrtsList.BringToFront()
-
-                    ' Extract the base name (e.g., "LdOut1" -> "Ld1")
-                    Dim baseName As String = slctdSVG.Name.Substring(0, slctdSVG.Name.Length - 4) ' Removes "Out", "Top", or similar
-                    Dim numberPart As String = slctdSVG.Name.Substring(slctdSVG.Name.Length - 1)
-
-                    ' Apply the treatment to the specific SvgImageBox
-
-                    Dim toothNum As Byte = Convert.ToByte(slctdSVG.Tag)
-                    Dim toothName As String = $"{baseName}{numberPart}".ToUpper
-                    'SetAddedTrtsListDataSource(PatientID, toothNum, GetToothFullName(toothName))
-                    If Not IsMobile Then
-                        SetAddedTrtsListDataSource(PatientID, toothNum, GetToothFullName(toothName))
-                    Else
-                        SetAddedMobsListDataSource(PatientID, toothNum, GetToothFullName(toothName))
-                    End If
-                End If
-            Case 2
-                ' Resolve patient for delete: on production CurrentPatient can be Nothing when jaw is hosted in DiagUserControl
-                Dim patientToUse As Patient = If(CurrentPatient, clsPatient)
-                If patientToUse Is Nothing Then
-                    Dim c As Control = Me
-                    While c IsNot Nothing
-                        Dim diag As DiagUserControl = TryCast(c, DiagUserControl)
-                        If diag IsNot Nothing Then
-                            patientToUse = diag.CurrentPatient
-                            Exit While
-                        End If
-                        c = c.Parent
-                    End While
-                End If
-                If patientToUse Is Nothing AndAlso FormManager.Instance.IsBasePatientFormOpen Then
-                    patientToUse = FormManager.Instance.GetCurrentPatient()
-                End If
-                If patientToUse Is Nothing Then
-                    MessageBox.Show(If(Eng, "Please select a patient first.", "يرجى اختيار مريض أولاً."), If(Eng, "Patient required", "مطلوب مريض"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Return
-                End If
-                If selectedTeethList.Count > 1 Then
-                    Dim del As New DelDiagForm(patientToUse, selectedTeethList)
-                    If del.ShowDialog(Me) = DialogResult.OK Then
-                        LoadPatientTreats(patientToUse.PatientID)
-                    End If
-                Else
-                    Dim toothNum As Byte = Convert.ToByte(slctdSVG.Tag)
-                    Dim toothList As New List(Of Byte)
-                    toothList.Add(toothNum)
-                    Dim del As New DelDiagForm(patientToUse, toothList)
-                    If del.ShowDialog(Me) = DialogResult.OK Then
-                        LoadPatientTreats(patientToUse.PatientID)
-                        toothList.Clear()
-                    End If
-                End If
-        End Select
-
+        ElseIf slctdSVG Is Nothing Then
+            Dim toothList As New List(Of Byte)
+            If selectedTeethList.Count = 1 Then
+                toothList.Add(selectedTeethList(0))
+            Else
+                toothList.Add(0)
+            End If
+            Dim del As New DelDiagForm(patientToUse, toothList)
+            If del.ShowDialog(Me) = DialogResult.OK Then
+                LoadPatientTreats(patientToUse.PatientID)
+            End If
+        Else
+            Dim toothNum As Byte = Convert.ToByte(slctdSVG.Tag)
+            Dim toothList As New List(Of Byte)
+            toothList.Add(toothNum)
+            Dim del As New DelDiagForm(patientToUse, toothList)
+            If del.ShowDialog(Me) = DialogResult.OK Then
+                LoadPatientTreats(patientToUse.PatientID)
+                toothList.Clear()
+            End If
+        End If
     End Sub
 
-    Private Sub Flyout1_Hiding(sender As Object, e As FlyoutPanelEventArgs) Handles Flyout1.Hiding
-        For i As Integer = 0 To Flyout1.OptionsButtonPanel.Buttons.Count - 1
-            Dim button As DevExpress.Utils.PeekFormButton = Flyout1.OptionsButtonPanel.Buttons(i)
-            ' Set Edit Treats button to PushButton style and uncheck them
-            button.Style = DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton
-            button.Checked = False
-        Next
-        txtSrchTrt.ResetText()
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        FlyMenu.Visible = False
     End Sub
+
+    ''' <summary>Same patient + tooth-list resolution as <see cref="btnDelTrts_Click"/>, then opens <see cref="EditMultiTreatFrom"/>. Hidden on Diag jaws via <c>hideEditMulti:=True</c>, kept here so the Handles binding still resolves.</summary>
+    Private Sub btnEditMultiTrts_Click(sender As Object, e As EventArgs) Handles btnEditMultiTrts.Click
+        Dim patientToUse As Patient = ResolvePatientForBulkEdit()
+        If patientToUse Is Nothing Then
+            MessageBox.Show(If(Eng, "Please select a patient first.", "يرجى اختيار مريض أولاً."),
+                            If(Eng, "Patient required", "مطلوب مريض"),
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim toothList As List(Of Byte) = BuildBulkEditToothList()
+
+        If FlyMenu.Visible Then FlyMenu.Visible = False
+
+        Using bulk As New EditMultiTreatFrom(patientToUse, toothList)
+            If bulk.ShowDialog(Me) = DialogResult.OK AndAlso bulk.Saved Then
+                LoadPatientTreats(patientToUse.PatientID)
+                Me.Focus()
+            End If
+        End Using
+    End Sub
+
+    Private Function ResolvePatientForBulkEdit() As Patient
+        Dim patientToUse As Patient = If(CurrentPatient, clsPatient)
+        If patientToUse Is Nothing Then
+            Dim c As Control = Me
+            While c IsNot Nothing
+                Dim diagUC As DiagUserControl = TryCast(c, DiagUserControl)
+                If diagUC IsNot Nothing Then
+                    patientToUse = diagUC.CurrentPatient
+                    Exit While
+                End If
+                c = c.Parent
+            End While
+        End If
+        If patientToUse Is Nothing AndAlso FormManager.Instance.IsBasePatientFormOpen Then
+            patientToUse = FormManager.Instance.GetCurrentPatient()
+        End If
+        Return patientToUse
+    End Function
+
+    Private Function BuildBulkEditToothList() As List(Of Byte)
+        If selectedTeethList IsNot Nothing AndAlso selectedTeethList.Count > 1 Then
+            Return New List(Of Byte)(selectedTeethList)
+        End If
+        Dim toothList As New List(Of Byte)
+        If slctdSVG IsNot Nothing Then
+            toothList.Add(Convert.ToByte(slctdSVG.Tag))
+        ElseIf selectedTeethList IsNot Nothing AndAlso selectedTeethList.Count = 1 Then
+            toothList.Add(selectedTeethList(0))
+        Else
+            toothList.Add(0)
+        End If
+        Return toothList
+    End Function
 
 #End Region
 
@@ -3629,6 +3674,7 @@ Public Class AdultDiag
     End Sub
 
     Private Sub AdultDiag_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        UnwireFlyMenuOutsideClickFilter()
         If _flyoutMaintenanceHookWired Then
             Try
                 RemoveHandler ComboFlyoutSearchHelper.BeforeMaintenanceModalDialog, AddressOf OnBeforeMaintenanceModalFromOtherControls

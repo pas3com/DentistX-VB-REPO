@@ -173,7 +173,7 @@ Module TreatHelper
             ' ------------------------------------------------------
             ' OUT VIEW LOGIC
             ' ------------------------------------------------------
-            If isOutView1 Then
+            If isOutView1 OrElse isInView1 Then
                 'For Each t In treatments
                 '    If t.TreatNotes IsNot Nothing AndAlso Not String.IsNullOrEmpty(t.TreatNotes) Then
                 '        Dim notes = FindSvgItemById(col2, "EXCLAMATION_MARK")
@@ -200,37 +200,37 @@ Module TreatHelper
 
                         Select Case t.Treat
                             Case "INDIRECT PULP CAPPING"
-                                Dim capFill = FindSvgItemById(col2, "INDIRECT_PULP_CAPPING1")
-                                Dim rootFill = FindSvgItemById(col2, "INDIRECT_PULP_CAPPING2")
+                                Dim capFill = FindSvgItemById(col2, "INDIRECTCAP")
+                                Dim rootFill = FindSvgItemById(col2, "INDIRECTROOT")
                                 If capFill IsNot Nothing Then
-                                    capFill.Appearance.Normal.FillColor = ColorTranslator.FromHtml(t.CapFill)
+                                    capFill.Appearance.Normal.FillColor = ResolveCompoundLayerColor(t.CapFill, t.Treat, True)
                                 End If
                                 If rootFill IsNot Nothing Then
-                                    rootFill.Appearance.Normal.FillColor = ColorTranslator.FromHtml(t.RootFill)
+                                    rootFill.Appearance.Normal.FillColor = ResolveCompoundLayerColor(t.RootFill, t.Treat, False)
                                 End If
                                 el.Appearance.Normal.BorderColor = ColorTranslator.FromHtml(t.BorderColor)
                                 el.Appearance.Normal.BorderThickness = t.BorderThickness
                                 el.Visible = True
                             Case "DIRECT PULP CAPPING"
-                                Dim capFill = FindSvgItemById(col2, "DIRECT_PULP_CAPPING1")
-                                Dim rootFill = FindSvgItemById(col2, "DIRECT_PULP_CAPPING2")
+                                Dim capFill = FindSvgItemById(col2, "DIRECTCAP")
+                                Dim rootFill = FindSvgItemById(col2, "DIRECTROOT")
                                 If capFill IsNot Nothing Then
-                                    capFill.Appearance.Normal.FillColor = ColorTranslator.FromHtml(t.CapFill)
+                                    capFill.Appearance.Normal.FillColor = ResolveCompoundLayerColor(t.CapFill, t.Treat, True)
                                 End If
                                 If rootFill IsNot Nothing Then
-                                    rootFill.Appearance.Normal.FillColor = ColorTranslator.FromHtml(t.RootFill)
+                                    rootFill.Appearance.Normal.FillColor = ResolveCompoundLayerColor(t.RootFill, t.Treat, False)
                                 End If
                                 el.Appearance.Normal.BorderColor = ColorTranslator.FromHtml(t.BorderColor)
                                 el.Appearance.Normal.BorderThickness = t.BorderThickness
                                 el.Visible = True
                             Case "PULPOTOMY"
-                                Dim capFill = FindSvgItemById(col2, "PULPOTOMY1")
-                                Dim rootFill = FindSvgItemById(col2, "PULPOTOMY2")
+                                Dim capFill = FindSvgItemById(col2, "PULPCAP")
+                                Dim rootFill = FindSvgItemById(col2, "PULPROOT")
                                 If capFill IsNot Nothing Then
-                                    capFill.Appearance.Normal.FillColor = ColorTranslator.FromHtml(t.CapFill)
+                                    capFill.Appearance.Normal.FillColor = ResolveCompoundLayerColor(t.CapFill, t.Treat, True)
                                 End If
                                 If rootFill IsNot Nothing Then
-                                    rootFill.Appearance.Normal.FillColor = ColorTranslator.FromHtml(t.RootFill)
+                                    rootFill.Appearance.Normal.FillColor = ResolveCompoundLayerColor(t.RootFill, t.Treat, False)
                                 End If
                                 el.Appearance.Normal.BorderColor = ColorTranslator.FromHtml(t.BorderColor)
                                 el.Appearance.Normal.BorderThickness = t.BorderThickness

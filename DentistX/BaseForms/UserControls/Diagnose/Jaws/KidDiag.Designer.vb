@@ -20,11 +20,8 @@ Partial Class KidDiag
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ButtonImageOptions1 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions2 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
-        Dim ButtonImageOptions3 As DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions = New DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions()
         Me.JawPanel = New DevExpress.XtraEditors.SidePanel()
-        Me.Flyout1 = New DevExpress.Utils.FlyoutPanel()
+        Me.FlyMenu = New DevExpress.XtraEditors.PanelControl()
         Me.TrtsPanel = New DevExpress.XtraEditors.SidePanel()
         Me.TrtsTreeView = New System.Windows.Forms.TreeView()
         Me.AddedTrtsList = New DevExpress.XtraEditors.ListBoxControl()
@@ -126,9 +123,16 @@ Partial Class KidDiag
         Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.ButtonsPane = New DevExpress.XtraEditors.PanelControl()
+        Me.btnQuickSrch = New DevExpress.XtraEditors.ToggleSwitch()
+        Me.btnClose = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnDelTrts = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnEditMultiTrts = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnEditTrts = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnTrtView = New DevExpress.XtraEditors.SimpleButton()
         Me.JawPanel.SuspendLayout()
-        CType(Me.Flyout1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Flyout1.SuspendLayout()
+        CType(Me.FlyMenu, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlyMenu.SuspendLayout()
         Me.TrtsPanel.SuspendLayout()
         CType(Me.AddedTrtsList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpSlctdTeeth, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -199,12 +203,17 @@ Partial Class KidDiag
         CType(Me.LUTOPK5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RUOUTK5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LDTOPK4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ButtonsPane, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ButtonsPane.SuspendLayout()
+        Me.SrchPanel.SuspendLayout()
+        CType(Me.btnQuickSrch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSrchTrt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'JawPanel
         '
         Me.CtlTip.SetAllowHtmlText(Me.JawPanel, DevExpress.Utils.DefaultBoolean.[Default])
-        Me.JawPanel.Controls.Add(Me.Flyout1)
+        Me.JawPanel.Controls.Add(Me.FlyMenu)
         Me.JawPanel.Controls.Add(Me.zSvg)
         Me.JawPanel.Controls.Add(Me.LabelControl29)
         Me.JawPanel.Controls.Add(Me.LabelControl30)
@@ -302,34 +311,6 @@ Partial Class KidDiag
         Me.JawPanel.TabIndex = 8
         Me.JawPanel.Text = "SidePanel2"
         '
-        'Flyout1
-        '
-        Me.Flyout1.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Flyout1.Appearance.Options.UseFont = True
-        Me.Flyout1.Controls.Add(Me.TrtsPanel)
-        Me.Flyout1.Controls.Add(Me.SrchPanel)
-        Me.Flyout1.Location = New System.Drawing.Point(356, 123)
-        Me.Flyout1.Name = "Flyout1"
-        Me.Flyout1.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Manual
-        Me.Flyout1.Options.CloseOnOuterClick = True
-        Me.Flyout1.Options.Location = New System.Drawing.Point(7, 210)
-        Me.Flyout1.OptionsButtonPanel.AppearanceButton.Normal.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Flyout1.OptionsButtonPanel.AppearanceButton.Normal.ForeColor = System.Drawing.Color.Blue
-        Me.Flyout1.OptionsButtonPanel.AppearanceButton.Normal.Options.UseFont = True
-        Me.Flyout1.OptionsButtonPanel.AppearanceButton.Normal.Options.UseForeColor = True
-        Me.Flyout1.OptionsButtonPanel.AppearanceButton.Pressed.Font = New System.Drawing.Font("Tahoma", 8.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.Flyout1.OptionsButtonPanel.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.White
-        Me.Flyout1.OptionsButtonPanel.AppearanceButton.Pressed.Options.UseFont = True
-        Me.Flyout1.OptionsButtonPanel.AppearanceButton.Pressed.Options.UseForeColor = True
-        Me.Flyout1.OptionsButtonPanel.ButtonPanelContentAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.Flyout1.OptionsButtonPanel.ButtonPanelHeight = 35
-        Me.Flyout1.OptionsButtonPanel.ButtonPanelLocation = DevExpress.Utils.FlyoutPanelButtonPanelLocation.Top
-        Me.Flyout1.OptionsButtonPanel.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.Utils.PeekFormButton("Tree View Treats", True, ButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "Tree View", 0, True, Nothing, True, False, True, "Tree View", 0, True), New DevExpress.Utils.PeekFormButton("Edit Treats", True, ButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "Edit Treats", 1, True, Nothing, True, False, True, "EditTreats", 1, False), New DevExpress.Utils.PeekFormButton("Delete", True, ButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "Delete Treats", 2, True, Nothing, True, False, True, "DeleteTreats", 2, False)})
-        Me.Flyout1.OptionsButtonPanel.ShowButtonPanel = True
-        Me.Flyout1.Padding = New System.Windows.Forms.Padding(0, 35, 0, 0)
-        Me.Flyout1.Size = New System.Drawing.Size(389, 425)
-        Me.Flyout1.TabIndex = 155
-        '
         'TrtsPanel
         '
         Me.CtlTip.SetAllowHtmlText(Me.TrtsPanel, DevExpress.Utils.DefaultBoolean.[Default])
@@ -337,9 +318,9 @@ Partial Class KidDiag
         Me.TrtsPanel.Controls.Add(Me.AddedTrtsList)
         Me.TrtsPanel.Controls.Add(Me.grpSlctdTeeth)
         Me.TrtsPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TrtsPanel.Location = New System.Drawing.Point(0, 63)
+        Me.TrtsPanel.Location = New System.Drawing.Point(2, 63)
         Me.TrtsPanel.Name = "TrtsPanel"
-        Me.TrtsPanel.Size = New System.Drawing.Size(389, 362)
+        Me.TrtsPanel.Size = New System.Drawing.Size(397, 360)
         Me.TrtsPanel.TabIndex = 3
         Me.TrtsPanel.Text = "SidePanel2"
         '
@@ -472,24 +453,41 @@ Partial Class KidDiag
         'SrchPanel
         '
         Me.CtlTip.SetAllowHtmlText(Me.SrchPanel, DevExpress.Utils.DefaultBoolean.[Default])
+        Me.SrchPanel.Controls.Add(Me.btnQuickSrch)
         Me.SrchPanel.Controls.Add(Me.txtSrchTrt)
-        Me.SrchPanel.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SrchPanel.Location = New System.Drawing.Point(0, 35)
+        Me.SrchPanel.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.SrchPanel.Location = New System.Drawing.Point(2, 31)
         Me.SrchPanel.Name = "SrchPanel"
-        Me.SrchPanel.Size = New System.Drawing.Size(389, 28)
-        Me.SrchPanel.TabIndex = 2
+        Me.SrchPanel.Size = New System.Drawing.Size(393, 28)
+        Me.SrchPanel.TabIndex = 3
         Me.SrchPanel.Text = "SidePanel1"
+        '
+        'btnQuickSrch
+        '
+        Me.btnQuickSrch.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnQuickSrch.EnterMoveNextControl = True
+        Me.btnQuickSrch.Location = New System.Drawing.Point(236, 1)
+        Me.btnQuickSrch.Name = "btnQuickSrch"
+        Me.btnQuickSrch.Properties.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btnQuickSrch.Properties.Appearance.Options.UseFont = True
+        Me.btnQuickSrch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
+        Me.btnQuickSrch.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.btnQuickSrch.Properties.GlyphVerticalAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.btnQuickSrch.Properties.NullText = "Search Mode"
+        Me.btnQuickSrch.Properties.OffText = "Normal Add"
+        Me.btnQuickSrch.Properties.OnText = "Quick Add"
+        Me.btnQuickSrch.Size = New System.Drawing.Size(157, 27)
+        Me.btnQuickSrch.TabIndex = 1
         '
         'txtSrchTrt
         '
-        Me.txtSrchTrt.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtSrchTrt.Location = New System.Drawing.Point(0, 0)
+        Me.txtSrchTrt.Location = New System.Drawing.Point(0, 1)
         Me.txtSrchTrt.Name = "txtSrchTrt"
-        Me.txtSrchTrt.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.txtSrchTrt.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.txtSrchTrt.Properties.Appearance.Options.UseBackColor = True
         Me.txtSrchTrt.Properties.Appearance.Options.UseFont = True
-        Me.txtSrchTrt.Size = New System.Drawing.Size(389, 22)
+        Me.txtSrchTrt.Properties.AutoHeight = False
+        Me.txtSrchTrt.Properties.NullValuePrompt = "Search Treatments..."
+        Me.txtSrchTrt.Size = New System.Drawing.Size(226, 27)
         Me.txtSrchTrt.TabIndex = 0
         '
         'vertSep
@@ -1719,6 +1717,84 @@ Partial Class KidDiag
         Me.LabelControl3.TabIndex = 84
         Me.LabelControl3.Text = "72"
         '
+        'FlyMenu
+        '
+        Me.CtlTip.SetAllowHtmlText(Me.FlyMenu, DevExpress.Utils.DefaultBoolean.[Default])
+        Me.FlyMenu.Controls.Add(Me.TrtsPanel)
+        Me.FlyMenu.Controls.Add(Me.ButtonsPane)
+        Me.FlyMenu.Location = New System.Drawing.Point(350, 123)
+        Me.FlyMenu.Name = "FlyMenu"
+        Me.FlyMenu.Size = New System.Drawing.Size(401, 425)
+        Me.FlyMenu.TabIndex = 155
+        Me.FlyMenu.Visible = False
+        '
+        'ButtonsPane
+        '
+        Me.CtlTip.SetAllowHtmlText(Me.ButtonsPane, DevExpress.Utils.DefaultBoolean.[Default])
+        Me.ButtonsPane.Controls.Add(Me.SrchPanel)
+        Me.ButtonsPane.Controls.Add(Me.btnClose)
+        Me.ButtonsPane.Controls.Add(Me.btnDelTrts)
+        Me.ButtonsPane.Controls.Add(Me.btnEditMultiTrts)
+        Me.ButtonsPane.Controls.Add(Me.btnEditTrts)
+        Me.ButtonsPane.Controls.Add(Me.btnTrtView)
+        Me.ButtonsPane.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ButtonsPane.Location = New System.Drawing.Point(2, 2)
+        Me.ButtonsPane.Name = "ButtonsPane"
+        Me.ButtonsPane.Size = New System.Drawing.Size(397, 61)
+        Me.ButtonsPane.TabIndex = 0
+        '
+        'btnClose
+        '
+        Me.btnClose.Appearance.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnClose.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Appearance.Options.UseFont = True
+        Me.btnClose.Appearance.Options.UseForeColor = True
+        Me.btnClose.Location = New System.Drawing.Point(367, 4)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(27, 23)
+        Me.btnClose.TabIndex = 1
+        Me.btnClose.Text = "X"
+        '
+        'btnDelTrts
+        '
+        Me.btnDelTrts.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btnDelTrts.Appearance.Options.UseFont = True
+        Me.btnDelTrts.Location = New System.Drawing.Point(274, 4)
+        Me.btnDelTrts.Name = "btnDelTrts"
+        Me.btnDelTrts.Size = New System.Drawing.Size(89, 23)
+        Me.btnDelTrts.TabIndex = 1
+        Me.btnDelTrts.Text = "Delete Treats"
+        '
+        'btnEditMultiTrts
+        '
+        Me.btnEditMultiTrts.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btnEditMultiTrts.Appearance.Options.UseFont = True
+        Me.btnEditMultiTrts.Location = New System.Drawing.Point(166, 4)
+        Me.btnEditMultiTrts.Name = "btnEditMultiTrts"
+        Me.btnEditMultiTrts.Size = New System.Drawing.Size(102, 23)
+        Me.btnEditMultiTrts.TabIndex = 1
+        Me.btnEditMultiTrts.Text = "Edit Multi Treats"
+        '
+        'btnEditTrts
+        '
+        Me.btnEditTrts.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btnEditTrts.Appearance.Options.UseFont = True
+        Me.btnEditTrts.Location = New System.Drawing.Point(85, 4)
+        Me.btnEditTrts.Name = "btnEditTrts"
+        Me.btnEditTrts.Size = New System.Drawing.Size(75, 23)
+        Me.btnEditTrts.TabIndex = 1
+        Me.btnEditTrts.Text = "Edit Treats"
+        '
+        'btnTrtView
+        '
+        Me.btnTrtView.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btnTrtView.Appearance.Options.UseFont = True
+        Me.btnTrtView.Location = New System.Drawing.Point(5, 4)
+        Me.btnTrtView.Name = "btnTrtView"
+        Me.btnTrtView.Size = New System.Drawing.Size(75, 23)
+        Me.btnTrtView.TabIndex = 1
+        Me.btnTrtView.Text = "Treat View"
+        '
         'KidDiag
         '
         Me.CtlTip.SetAllowHtmlText(Me, DevExpress.Utils.DefaultBoolean.[Default])
@@ -1729,8 +1805,8 @@ Partial Class KidDiag
         Me.Size = New System.Drawing.Size(1100, 670)
         Me.JawPanel.ResumeLayout(False)
         Me.JawPanel.PerformLayout()
-        CType(Me.Flyout1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Flyout1.ResumeLayout(False)
+        CType(Me.FlyMenu, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlyMenu.ResumeLayout(False)
         Me.TrtsPanel.ResumeLayout(False)
         CType(Me.AddedTrtsList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpSlctdTeeth, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1802,6 +1878,10 @@ Partial Class KidDiag
         CType(Me.LUTOPK5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RUOUTK5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LDTOPK4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ButtonsPane, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ButtonsPane.ResumeLayout(False)
+        Me.SrchPanel.ResumeLayout(False)
+        CType(Me.btnQuickSrch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1895,7 +1975,7 @@ Partial Class KidDiag
     Friend WithEvents zSvg As DevExpress.XtraEditors.SvgImageBox
     Friend WithEvents LabelControl29 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl30 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents Flyout1 As DevExpress.Utils.FlyoutPanel
+    Friend WithEvents FlyMenu As DevExpress.XtraEditors.PanelControl
     Friend WithEvents TrtsPanel As DevExpress.XtraEditors.SidePanel
     Friend WithEvents TrtsTreeView As TreeView
     Friend WithEvents AddedTrtsList As DevExpress.XtraEditors.ListBoxControl
@@ -1908,4 +1988,11 @@ Partial Class KidDiag
     Friend WithEvents SrchPanel As DevExpress.XtraEditors.SidePanel
     Friend WithEvents txtSrchTrt As DevExpress.XtraEditors.TextEdit
     Friend WithEvents CtlTip As DevExpress.Utils.DefaultToolTipController
+    Friend WithEvents ButtonsPane As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents btnQuickSrch As DevExpress.XtraEditors.ToggleSwitch
+    Friend WithEvents btnClose As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnDelTrts As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnEditMultiTrts As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnEditTrts As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnTrtView As DevExpress.XtraEditors.SimpleButton
 End Class

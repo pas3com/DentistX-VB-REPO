@@ -770,6 +770,125 @@ Module Helpers
         End Using
     End Function
 
+#Region "Compound pulp treat layer colors"
+
+    Private ReadOnly CompoundPulpTreats As String() = {
+        "INDIRECT PULP CAPPING",
+        "DIRECT PULP CAPPING",
+        "PULPOTOMY"
+    }
+
+    Public Function IsCompoundPulpTreat(ByVal parentTreat As String) As Boolean
+        Return Not String.IsNullOrWhiteSpace(parentTreat) AndAlso
+               CompoundPulpTreats.Contains(parentTreat.Trim().ToUpperInvariant())
+    End Function
+
+    Public Function TryGetCompoundLayerCodes(ByVal parentTreat As String, ByRef capCode As String, ByRef rootCode As String) As Boolean
+        capCode = ""
+        rootCode = ""
+        If String.IsNullOrWhiteSpace(parentTreat) Then Return False
+        Select Case parentTreat.Trim().ToUpperInvariant()
+            Case "INDIRECT PULP CAPPING"
+                capCode = "INDIRECTCAP"
+                rootCode = "INDIRECTROOT"
+            Case "DIRECT PULP CAPPING"
+                capCode = "DIRECTCAP"
+                rootCode = "DIRECTROOT"
+            Case "PULPOTOMY"
+                capCode = "PULPCAP"
+                rootCode = "PULPROOT"
+            Case Else
+                Return False
+        End Select
+        Return True
+    End Function
+
+    Private Function GetTblTrtColorByLayerCode(ByVal layerCode As String) As Color
+        If String.IsNullOrWhiteSpace(layerCode) Then Return Color.Empty
+        Dim connectionString As String = DentistXDATA.GetConnection.ConnectionString
+        Dim query As String = "SELECT dbo.TblTRTS.TrtColor FROM dbo.TblTRTS WHERE dbo.TblTRTS.Trt = @Trt"
+        Using connection As New SqlClient.SqlConnection(connectionString)
+            connection.Open()
+            Using command As New SqlClient.SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Trt", layerCode)
+                Dim result = command.ExecuteScalar()
+                If result IsNot Nothing AndAlso Not String.IsNullOrEmpty(result.ToString()) Then
+                    Return ColorTranslator.FromHtml(result.ToString())
+                End If
+            End Using
+        End Using
+        Return Color.Empty
+    End Function
+
+    ''' <summary>Custom cap fill from TblTRTS.TrtColor on the *CAP layer row.</summary>
+    Public Function GetCustomCapColor(ByVal parentTreat As String) As Color
+        Dim capCode As String = ""
+        Dim rootCode As String = ""
+        If Not TryGetCompoundLayerCodes(parentTreat, capCode, rootCode) Then Return Color.Empty
+        Return GetTblTrtColorByLayerCode(capCode)
+    End Function
+
+    ''' <summary>Custom root fill from TblTRTS.TrtColor on the *ROOT layer row.</summary>
+    Public Function GetCustomRootColor(ByVal parentTreat As String) As Color
+        Dim capCode As String = ""
+        Dim rootCode As String = ""
+        If Not TryGetCompoundLayerCodes(parentTreat, capCode, rootCode) Then Return Color.Empty
+        Return GetTblTrtColorByLayerCode(rootCode)
+    End Function
+
+    Public Function TryParseTreatColorHex(ByVal hex As String, ByRef color As Color) As Boolean
+        color = Color.Empty
+        If String.IsNullOrWhiteSpace(hex) Then Return False
+        Try
+            color = ColorTranslator.FromHtml(hex.Trim())
+            Return True
+        Catch
+            Return False
+        End Try
+    End Function
+
+    ''' <summary>Patient hex when valid; otherwise catalog TrtColor for the cap or root layer.</summary>
+    Public Function ResolveCompoundLayerColor(ByVal storedHex As String, ByVal parentTreat As String, ByVal isCap As Boolean) As Color
+        Dim parsed As Color
+        If TryParseTreatColorHex(storedHex, parsed) Then Return parsed
+        Return If(isCap, GetCustomCapColor(parentTreat), GetCustomRootColor(parentTreat))
+    End Function
+
+    Public Function ColorToTreatHex(ByVal clr As Color, ByVal alphaValue As Integer) As String
+        Dim alpha As Byte = CByte(Math.Max(0, Math.Min(255, alphaValue)))
+        Return String.Format("#{0:X2}{1:X2}{2:X2}{3:X2}", alpha, clr.R, clr.G, clr.B)
+    End Function
+
+    ''' <summary>Fills CapFill/RootFill on the row when missing so chart and forms have layer colors.</summary>
+    Public Sub EnsureCompoundLayerFills(ByVal row As Patient_ToothTrt, Optional ByVal defaultAlpha As Integer = 128)
+        If row Is Nothing OrElse Not IsCompoundPulpTreat(row.Treat) Then Return
+        Dim capClr = ResolveCompoundLayerColor(row.CapFill, row.Treat, True)
+        Dim rootClr = ResolveCompoundLayerColor(row.RootFill, row.Treat, False)
+        If capClr <> Color.Empty Then row.CapFill = ColorToTreatHex(capClr, defaultAlpha)
+        If rootClr <> Color.Empty Then row.RootFill = ColorToTreatHex(rootClr, defaultAlpha)
+    End Sub
+
+    ''' <summary>Persists cap/root picks to TrtColor on both TblTRTS layer rows (never DefFillColor).</summary>
+    Public Function SaveCompoundLayerColorsToTblTrts(ByVal parentTreat As String, ByVal capHex As String, ByVal rootHex As String) As Boolean
+        Dim capCode As String = ""
+        Dim rootCode As String = ""
+        If Not TryGetCompoundLayerCodes(parentTreat, capCode, rootCode) Then Return False
+        Dim clsTblTrtDATA As New TblTRTSDATA
+        Dim checkTrtId As String = "SELECT [TrtID] FROM [dbo].[TblTRTS] WHERE Trt = @Trt"
+        Dim capTrtID As Integer = 0
+        Dim rootTrtID As Integer = 0
+        Using conn As New SqlConnection(DentistXDATA.GetConnection.ConnectionString)
+            conn.Open()
+            capTrtID = conn.ExecuteScalar(Of Integer?)(checkTrtId, New With {.Trt = capCode}).GetValueOrDefault()
+            rootTrtID = conn.ExecuteScalar(Of Integer?)(checkTrtId, New With {.Trt = rootCode}).GetValueOrDefault()
+        End Using
+        Dim capSaved As Boolean = (capTrtID > 0) AndAlso clsTblTrtDATA.UpdateTrtColorOnly(capTrtID, capHex)
+        Dim rootSaved As Boolean = (rootTrtID > 0) AndAlso clsTblTrtDATA.UpdateTrtColorOnly(rootTrtID, rootHex)
+        Return capSaved AndAlso rootSaved
+    End Function
+
+#End Region
+
     Public Function GetCutomTrtColorByProp(ByVal Prop As String) As Color
         Dim connectionString As String = DentistXDATA.GetConnection.ConnectionString
         Dim treat As String = ""

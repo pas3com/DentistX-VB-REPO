@@ -281,6 +281,28 @@ Public Class TblTRTSDATA
         End Try
     End Function
 
+    ''' <summary>
+    ''' Updates ONLY TrtColor for the given TrtID. Used for compound-treat inner layer rows
+    ''' (INDIRECTCAP/INDIRECTROOT, DIRECTCAP/DIRECTROOT, PULPCAP/PULPROOT) where we must
+    ''' never touch DefFillColor, TrtBrdrClr, or TrtBrdrThick.
+    ''' </summary>
+    Public Function UpdateTrtColorOnly(ByVal TrtID As Integer, ByVal NewTrtColor As String) As Boolean
+        Try
+            Using conn As New SqlConnection(ConnectionString)
+                conn.Open()
+                Dim sql = "UPDATE [TblTRTS] SET [TrtColor] = @NewTrtColor WHERE TrtID = @TrtID"
+                Dim affectedRows As Integer = conn.Execute(sql,
+                            New With {
+                                .TrtID = TrtID,
+                                .NewTrtColor = NewTrtColor
+                            })
+                Return affectedRows > 0
+            End Using
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
     Public Function UpdateDefTrtClr(ByVal TrtID As Integer,
                                        ByVal NewTrtColor As String,
                                        ByVal NewTrtBrdrClr As String,
