@@ -1831,6 +1831,7 @@
     <Compile Include="BaseForms\UserControls\Appoint\AppointForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BaseForms\UserControls\Appoint\AppointDateFormat.vb" />
     <Compile Include="BaseForms\UserControls\Appoint\AppointmentC.vb" />
     <Compile Include="BaseForms\UserControls\Appoint\AppointmentCRepository.vb" />
     <Compile Include="BaseForms\Helpers\DateEditHelper.vb" />

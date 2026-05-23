@@ -45,9 +45,7 @@ Public Class ApptDayDoctors
     Private _canvas As DayDoctorsTimelineCanvas
     Private _headerBand As Panel
     Private _nowTimer As Timer
-    ''' <summary>Painted in <see cref="HeaderBand_Paint"/> — weekday + comma, localized.</summary>
-    Private _headerWeekdayLead As String
-    ''' <summary>Painted at 14pt bold — numeric date (dd MMM yyyy).</summary>
+    ''' <summary>Weekday + numeric date (dddd dd/MM/yyyy) in the current UI language. Painted via <see cref="ApptScheduleViewHeaderStrip"/>.</summary>
     Private _headerDateCore As String
     ''' <summary>Painted at 10pt bold — · count · working hours.</summary>
     Private _headerMetaTail As String
@@ -454,7 +452,6 @@ Public Class ApptDayDoctors
         Try
             DisposeChildControls(_canvas)
             If _request Is Nothing OrElse _request.State Is Nothing OrElse _request.Data Is Nothing Then
-                _headerWeekdayLead = ""
                 _headerDateCore = ""
                 _headerMetaTail = ""
                 _dayColumnDoctorIds = Nothing
@@ -481,10 +478,9 @@ Public Class ApptDayDoctors
             Dim meta = If(Eng,
                 $"{count} appointment{If(count <> 1, "s", "")} · {FormatWorkHoursSubtitle(state)}",
                 $"{count} موعد · {FormatWorkHoursSubtitle(state)}")
-            _headerWeekdayLead = day.ToString("dddd") & ", "
-            _headerDateCore = day.ToString("dd MMM yyyy")
+            _headerDateCore = AppointDateFormat.FormatDate(day)
             _headerMetaTail = " · " & meta
-            _scheduleChrome.SetCaptionTextOneLine(_headerWeekdayLead & _headerDateCore & _headerMetaTail)
+            _scheduleChrome.SetCaptionTextOneLine(_headerDateCore & _headerMetaTail)
             _scheduleChrome.RightToLeft = If(_headerRtl, RightToLeft.Yes, RightToLeft.No)
             _headerBand.Invalidate()
 

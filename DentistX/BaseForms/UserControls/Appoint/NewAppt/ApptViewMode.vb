@@ -626,22 +626,22 @@ Public Module ApptTheme
 
     ''' <summary>Week range string; same pattern as the header range label (<see cref="ApptHeaderCtl"/>).</summary>
     Public Function FormatCaptionWeekRange(startDate As Date, endDate As Date) As String
-        Return $"{startDate:dd MMM} - {endDate:dd MMM yyyy}"
+        Return AppointDateFormat.FormatDateRange(startDate, endDate)
     End Function
 
     ''' <summary>Month line for range caption (<c>lblRange</c> month view).</summary>
     Public Function FormatCaptionMonthTitle(monthStart As Date) As String
-        Return monthStart.ToString("MMMM yyyy")
+        Return AppointDateFormat.FormatMonthYear(monthStart)
     End Function
 
     ''' <summary>Full day line for range caption (day view).</summary>
     Public Function FormatCaptionDayFull(d As Date) As String
-        Return d.ToString("dddd, dd MMM yyyy")
+        Return AppointDateFormat.FormatDayDate(d)
     End Function
 
-    ''' <summary>Date segment of a day column header — same pattern as <see cref="SchedulerNew"/> week / month-week day boxes (<c>ddd dd MMM</c>).</summary>
+    ''' <summary>Date segment of a day column header — same pattern as <see cref="SchedulerNew"/> week / month-week day boxes.</summary>
     Public Function FormatSchedulerStyleDayColumnTitle(day As Date) As String
-        Return day.ToString("ddd dd MMM")
+        Return AppointDateFormat.FormatDayShortDate(day)
     End Function
 
     ''' <summary>Parenthesized appointment count — matches <see cref="SchedulerNew"/> localized week column / month-week labels.</summary>
@@ -651,9 +651,9 @@ Public Module ApptTheme
             $"({apptCount} موعد{If(apptCount > 10 OrElse apptCount = 0, "", "اً")})")
     End Function
 
-    ''' <summary>Single-line day box header: <c>ddd dd MMM · (N appts)</c> — same as classic <see cref="SchedulerNew"/> day column labels.</summary>
+    ''' <summary>Single-line day box header — same as classic <see cref="SchedulerNew"/> day column labels.</summary>
     Public Function FormatSchedulerStyleDayColumnHeaderOneLine(day As Date, apptCount As Integer) As String
-        Return $"{day:ddd dd MMM} · " & FormatSchedulerStyleDayColumnApptCountParens(apptCount)
+        Return $"{AppointDateFormat.FormatDayShortDate(day)} · " & FormatSchedulerStyleDayColumnApptCountParens(apptCount)
     End Function
 
     ''' <summary>Same filter dimensions as <see cref="ApptDataProvider.Load"/> / <c>AppointmentCRepository.GetFiltered</c> (patient, doctor, reason contains, status equals).</summary>
@@ -724,8 +724,10 @@ Public Module ApptTheme
             Case ApptViewMode.DayView, ApptViewMode.DoctorsDay
                 Return FormatCaptionDayFull(state.CurrentDate)
             Case ApptViewMode.MonthlyWeek
-                Dim firstDay = state.CurrentDate.Date.AddDays(-CInt(state.CurrentDate.DayOfWeek))
-                Return FormatCaptionWeekRange(firstDay, firstDay.AddDays(6))
+                'Dim firstDay = state.CurrentDate.Date.AddDays(-CInt(state.CurrentDate.DayOfWeek))
+                'Return FormatCaptionWeekRange(firstDay, firstDay.AddDays(6))
+                Dim monthStart = New DateTime(state.CurrentDate.Year, state.CurrentDate.Month, 1)
+                Return FormatCaptionMonthTitle(monthStart)
             Case Else
                 Dim monthStart = New DateTime(state.CurrentDate.Year, state.CurrentDate.Month, 1)
                 Return FormatCaptionMonthTitle(monthStart)

@@ -216,7 +216,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
             Next
 
             Dim drow As New WeekSnapshotHtmlWeekHDayRow With {
-                .DayLabel = d.ToString("ddd", CultureInfo.CurrentCulture) & "  " & d.ToString("dd MMM", CultureInfo.CurrentCulture),
+                .DayLabel = AppointDateFormat.FormatDayShortDate(d),
                 .IsToday = (d.Date = DateTime.Today)
             }
 
@@ -267,8 +267,8 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
             Dim cnt = dayList.Count
             Dim apSfx = If(Eng, If(cnt = 1, "Appt", "Appts"), If(cnt = 1, "موعد", "مواعيد"))
             Dim c As New WeekSnapshotHtmlColumn With {
-                .DayTitle = d.ToString("dddd", CultureInfo.CurrentCulture),
-                .DateLine = $"{d:dd MMM yyyy}.({cnt} {apSfx})",
+                .DayTitle = AppointDateFormat.FormatWeekdayOnly(d),
+                .DateLine = $"{AppointDateFormat.FormatDate(d)}.({cnt} {apSfx})",
                 .HeaderBackColor = If(d.Date = Date.Today, TodayHeaderTint, DayHeaderTints(i Mod DayHeaderTints.Length)),
                 .HeaderTitleForeColor = HeaderTitleFore,
                 .DateLineForeColor = HeaderDateLineFore,
@@ -409,7 +409,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
             Dim cnt = dayList.Count
             Dim apSfx = If(Eng, If(cnt = 1, "Appt", "Appts"), If(cnt = 1, "موعد", "مواعيد"))
             Dim c As New WeekSnapshotHtmlColumn With {
-                .DayTitle = d.ToString("ddd", CultureInfo.CurrentCulture) & " " & d.ToString("dd MMM", CultureInfo.CurrentCulture),
+                .DayTitle = AppointDateFormat.FormatDayShortDate(d),
                 .DateLine = $"({cnt} {apSfx})",
                 .HeaderBackColor = If(d.Date = Date.Today, TodayHeaderTint, DayHeaderTints(i Mod DayHeaderTints.Length)),
                 .HeaderTitleForeColor = HeaderTitleFore,
@@ -432,7 +432,7 @@ Friend NotInheritable Class ApptSnapshotHtmlBuilder
             Dim cnt = list.Count
             Dim apSfx = If(Eng, If(cnt = 1, "Appt", "Appts"), If(cnt = 1, "موعد", "مواعيد"))
             Dim c As New WeekSnapshotHtmlColumn With {
-                .DayTitle = d.ToString("dddd, dd MMM yyyy", CultureInfo.CurrentCulture),
+                .DayTitle = AppointDateFormat.FormatDayDate(d),
                 .DateLine = $"({cnt} {apSfx})",
                 .HeaderBackColor = If(d = Date.Today, TodayHeaderTint, DayHeaderTints(CInt(d.DayOfWeek) Mod DayHeaderTints.Length)),
                 .HeaderTitleForeColor = HeaderTitleFore,

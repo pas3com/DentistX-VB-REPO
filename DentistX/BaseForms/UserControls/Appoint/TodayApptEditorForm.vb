@@ -103,7 +103,7 @@ Public Class TodayApptEditorForm
                        Let dName = _repo.GetDoctorName(appt.DrID)
                        Select New AppointmentView With {
                            .AppID = appt.AppointmentID,
-                           .ApptDate = appt.AppDate.ToShortDateString(),
+                           .ApptDate = AppointDateFormat.FormatDate(appt.AppDate),
                            .FromTo = $"{appt.StartDateTime:HH:mm} - {appt.EndDateTime:HH:mm}",
                            .PatientName = pName,
                            .DoctorName = dName,

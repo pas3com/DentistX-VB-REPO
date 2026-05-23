@@ -332,12 +332,12 @@ Partial Class PatientVisitsCtl
         Me.apptDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("apptDate.Properties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
         Me.apptDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(CType(resources.GetObject("apptDate.Properties.CalendarTimeProperties.Buttons"), DevExpress.XtraEditors.Controls.ButtonPredefines))})
         Me.apptDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent
-        Me.apptDate.Properties.DisplayFormat.FormatString = "dddd, dd/MM/yyyy"
+        Me.apptDate.Properties.DisplayFormat.FormatString = "dddd dd/MM/yyyy"
         Me.apptDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.apptDate.Properties.EditFormat.FormatString = "dddd, dd/MM/yyyy"
+        Me.apptDate.Properties.EditFormat.FormatString = "dddd dd/MM/yyyy"
         Me.apptDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.apptDate.Properties.FirstDayOfWeek = System.DayOfWeek.Saturday
-        Me.apptDate.Properties.MaskSettings.Set("mask", "dddd, dd/MM/yyyy")
+        Me.apptDate.Properties.MaskSettings.Set("mask", "dddd dd/MM/yyyy")
         Me.apptDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.[False]
         '
         'dtpEnd

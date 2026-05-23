@@ -180,11 +180,9 @@ Public Class MainView3
         If Eng Then
             RadioEn.Checked = True
             RadioAr.Checked = False
-            ChangeDate("en")
         Else
             RadioAr.Checked = True
             RadioEn.Checked = False
-            ChangeDate("en")
         End If
     End Sub
     '====for lang input
@@ -203,23 +201,6 @@ Public Class MainView3
     Private Const KLF_SUBSTITUTE_OK As UInteger = &H2
 
     '==========================================
-
-    Private Sub ChangeDate(ByVal DateLangCulture As String)
-
-        Dim DTFormat As DateTimeFormatInfo
-        DateLangCulture = DateLangCulture.ToLower()
-
-        DTFormat = New System.Globalization.CultureInfo("ar-JO", False).DateTimeFormat
-
-        DTFormat.Calendar = New System.Globalization.GregorianCalendar()
-        '' We format the date structure to whatever we want - LAITH - 11/13/2005 1:05:39 PM -
-        DTFormat.ShortDatePattern = "yyyy/MM/dd"
-
-        'Thread.CurrentThread.CurrentUICulture = New CultureInfo("en-US")
-        'Thread.CurrentThread.CurrentCulture = New CultureInfo("en-US")
-
-
-    End Sub
 
     Private Sub ToggleSwch_CheckedChanged(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles ToggleSwch.CheckedChanged
         If _suppressToggleSwchProgrammatic Then Return

@@ -90,8 +90,6 @@ Public Class Splash1
             RadioAr.Checked = culture.TwoLetterISOLanguageName = "ar"
             Eng = False
 
-            ChangeDate("ar")
-
         ElseIf lang = "en" Then
             RadioEn.Checked = True
             RadioEn.Checked = culture.TwoLetterISOLanguageName = "en"
@@ -100,18 +98,6 @@ Public Class Splash1
             Eng = True
         End If
 
-
-    End Sub
-    Private Sub ChangeDate(ByVal DateLangCulture As String)
-
-        Dim DTFormat As DateTimeFormatInfo
-        DateLangCulture = DateLangCulture.ToLower()
-
-        DTFormat = New System.Globalization.CultureInfo(DateLangCulture, False).DateTimeFormat
-
-        DTFormat.Calendar = New System.Globalization.GregorianCalendar()
-        '' We format the date structure to whatever we want - LAITH - 11/13/2005 1:05:39 PM -
-        DTFormat.ShortDatePattern = "yyyy/MM/dd"
 
     End Sub
     Private Sub cultureManager_UICultureChanged(ByVal newCulture As CultureInfo) Handles CultureMngr.UICultureChanged

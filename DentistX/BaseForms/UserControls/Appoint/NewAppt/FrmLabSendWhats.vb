@@ -309,7 +309,7 @@ Partial Public Class FrmLabSendWhats
         If receiveDateValue.HasValue Then
             Dim culture = CultureInfo.GetCultureInfo(If(UseMessageEnglish, "en-US", "ar"))
             lines.Add(If(UseMessageEnglish, "Day: ", "اليوم: ") & receiveDateValue.Value.ToString("dddd", culture))
-            lines.Add(If(UseMessageEnglish, "Date: ", "التاريخ: ") & receiveDateValue.Value.ToString("dd/MM/yyyy"))
+            lines.Add(If(UseMessageEnglish, "Date: ", "التاريخ: ") & AppointDateFormat.FormatDate(receiveDateValue.Value))
         End If
 
         If Not String.IsNullOrWhiteSpace(noteText) Then

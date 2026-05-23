@@ -18,7 +18,7 @@ Public Class AppointForm
     Private displayList As New List(Of AppointmentView)
 
     Private Sub AppointForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblToday.Text = Date.Today.ToLongDateString() & $"  {Date.Today: dd/MM/yyyy}"
+        lblToday.Text = AppointDateFormat.FormatDayDate(Date.Today)
         ' Style the grid
         StyleGridView()
 
@@ -41,7 +41,7 @@ Public Class AppointForm
                        Let dName = _repo.GetDoctorName(appt.DrID)
                        Select New AppointmentView With {
                            .AppID = appt.AppointmentID,
-                           .ApptDate = appt.AppDate.ToShortDateString(),
+                           .ApptDate = AppointDateFormat.FormatDate(appt.AppDate),
                            .FromTo = $"{appt.StartDateTime:HH:mm} - {appt.EndDateTime:HH:mm}",
                            .PatientName = pName,
                            .DoctorName = dName,

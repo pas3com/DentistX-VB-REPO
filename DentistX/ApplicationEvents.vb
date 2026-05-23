@@ -608,8 +608,8 @@ Namespace My
 
             If String.Equals(lang, "en", StringComparison.OrdinalIgnoreCase) Then
                 Eng = True
-                Dim uiCulture As New CultureInfo("en")
-                Dim regionalCulture = CultureInfo.CreateSpecificCulture("en-US")
+                Dim regionalCulture = SettingsRuntimeApply.CreateEnglishRegionalCultureGregorian()
+                Dim uiCulture As New CultureInfo("en", useUserOverride:=False)
                 Thread.CurrentThread.CurrentUICulture = uiCulture
                 Thread.CurrentThread.CurrentCulture = regionalCulture
                 CultureInfo.DefaultThreadCurrentCulture = regionalCulture

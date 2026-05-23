@@ -2269,35 +2269,33 @@ Public Class SchedulerNew2
             ' 🔹 Update lblCount to match displayed appts for current view (day/week/month/timeline)
             Select Case _view
                 Case ViewMode.DayView
-                    lblRange.Text = _currentDate.ToString("dddd, dd MMM yyyy")
+                    lblRange.Text = AppointDateFormat.FormatDayDate(_currentDate)
                 Case ViewMode.ThisWeekFull
                     Dim currentDayOfWeek As Integer = CInt(_currentDate.DayOfWeek)
                     Dim daysToSaturday As Integer = (currentDayOfWeek - 6 + 7) Mod 7
                     Dim weekStart As DateTime = _currentDate.Date.AddDays(-daysToSaturday)
                     Dim weekEnd As DateTime = weekStart.AddDays(6)
-                    lblRange.Text = $"{weekStart:dd MMM} - {weekEnd:dd MMM yyyy}" ' Sat to Fri (7 days)
+                    lblRange.Text = AppointDateFormat.FormatDateRange(weekStart, weekEnd) ' Sat to Fri (7 days)
                 Case ViewMode.ThisWeek
                     Dim currentDayOfWeek6 As Integer = CInt(_currentDate.DayOfWeek)
                     Dim daysToSaturday6 As Integer = (currentDayOfWeek6 - 6 + 7) Mod 7
                     Dim weekStart6 As DateTime = _currentDate.Date.AddDays(-daysToSaturday6)
                     Dim weekEnd6 As DateTime = weekStart6.AddDays(5)
-                    lblRange.Text = $"{weekStart6:dd MMM} - {weekEnd6:dd MMM yyyy}" ' Sat to Thu (6 days)
+                    lblRange.Text = AppointDateFormat.FormatDateRange(weekStart6, weekEnd6) ' Sat to Thu (6 days)
                 Case ViewMode.MonthlyWeek
-                    Dim startOfWeek = _currentDate.Date.AddDays(-CInt(_currentDate.DayOfWeek))
-                    Dim endOfWeek = startOfWeek.AddDays(6)
-                    lblRange.Text = $"{startOfWeek:dd MMM} - {endOfWeek:dd MMM yyyy}"
+                    lblRange.Text = AppointDateFormat.FormatMonthYear(_currentDate)
                 Case ViewMode.MonthView
                     Dim monthStart = New DateTime(_currentDate.Year, _currentDate.Month, 1)
                     Dim monthEnd = monthStart.AddMonths(1).AddDays(-1)
-                    lblRange.Text = _currentDate.ToString("MMMM yyyy")
+                    lblRange.Text = AppointDateFormat.FormatMonthYear(_currentDate)
                 Case ViewMode.DaysTimeline
                     Dim tlDow As Integer = CInt(_currentDate.DayOfWeek)
                     Dim tlDaysToSat As Integer = (tlDow - 6 + 7) Mod 7
                     Dim tlStart As DateTime = _currentDate.Date.AddDays(-tlDaysToSat)
                     Dim tlEnd As DateTime = tlStart.AddDays(6)
-                    lblRange.Text = $"{tlStart:dd MMM} - {tlEnd:dd MMM yyyy}"
+                    lblRange.Text = AppointDateFormat.FormatDateRange(tlStart, tlEnd)
                 Case ViewMode.DoctorsDay
-                    lblRange.Text = _currentDate.ToString("dddd, dd MMM yyyy")
+                    lblRange.Text = AppointDateFormat.FormatDayDate(_currentDate)
             End Select
             UpdateLblCountDisplay()
 
@@ -3484,7 +3482,7 @@ Public Class SchedulerNew2
                         Using pBar As New Pen(Color.FromArgb(195, 205, 220), 1.0F)
                             g.DrawLine(pBar, 0, titleBarH, pnlSlotsWidth, titleBarH)
                         End Using
-                        Dim emptyTitleText = If(Eng, "Doctors · ", "أطباء · ") & day.ToString("dddd, dd MMM yyyy")
+                        Dim emptyTitleText = If(Eng, "Doctors · ", "أطباء · ") & AppointDateFormat.FormatDayDate(day)
                         Using tBrush As New SolidBrush(Color.FromArgb(48, 58, 82))
                             g.DrawString(emptyTitleText, titleFont, tBrush, New PointF(16, 12))
                         End Using
@@ -3670,7 +3668,7 @@ Public Class SchedulerNew2
                     Using pBar As New Pen(Color.FromArgb(195, 205, 220), 1.0F)
                         g.DrawLine(pBar, 0, titleBarH, pnlSlotsWidth, titleBarH)
                     End Using
-                    Dim titleText = If(Eng, "Doctors · ", "أطباء · ") & day.ToString("dddd, dd MMM yyyy")
+                    Dim titleText = If(Eng, "Doctors · ", "أطباء · ") & AppointDateFormat.FormatDayDate(day)
                     Using tBrush As New SolidBrush(Color.FromArgb(48, 58, 82))
                         g.DrawString(titleText, titleFont, tBrush, New PointF(16, 12))
                     End Using
@@ -5560,7 +5558,7 @@ Public Class SchedulerNew2
             ' ─── Day label (left column) ───
             Dim isToday As Boolean = (day.Date = DateTime.Today)
             Dim lblDay As New Label With {
-                .Text = day.ToString("ddd") & "  " & day.ToString("dd MMM"),
+                .Text = AppointDateFormat.FormatDayShortDate(day),
                 .Left = 0,
                 .Top = currentTop,
                 .Width = dayLabelWidth,
@@ -6197,8 +6195,8 @@ Public Class SchedulerNew2
 
             ' Create week header (tight height to text)
             Dim weekHeaderText = If(Eng,
-                                $"Current Week: {weekStart:dd MMM yyyy} to {weekStart.AddDays(6):dd MMM yyyy}",
-                                $"الأسبوع الحالي: {weekStart:dd MMM yyyy} إلى {weekStart.AddDays(6):dd MMM yyyy}")
+                                $"Current Week: {AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(6))}",
+                                $"الأسبوع الحالي: {AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(6))}")
             Dim weekHeaderFont As New Font("Calibri", 12, FontStyle.Bold)
             Dim weekFlowPadH As Integer = mainFlow.Padding.Left + mainFlow.Padding.Right + 4
             Dim weekHeaderW = SchedulerBodyInnerFlowWidth(weekFlowPadH)
@@ -6264,7 +6262,7 @@ Public Class SchedulerNew2
                                             }
 
                 ' Day header — single line, tight height
-                Dim dayHeaderText = $"{currentDay:ddd dd MMM} · " &
+                Dim dayHeaderText = $"{AppointDateFormat.FormatDayShortDate(currentDay)} · " &
                                             If(Eng, $"({dayAppts.Count} appt{If(dayAppts.Count <> 1, "s", "")})",
                                                $"({dayAppts.Count} موعد{If(dayAppts.Count > 10 Or dayAppts.Count = 0, "", "اً")})")
                 Dim dayHeaderFont As Font = If(currentDay.Date = today,
@@ -6296,7 +6294,7 @@ Public Class SchedulerNew2
                                                         .AllowDrop = True
                                                         }
                 AddHandler doctorsFlow.Click, Sub(sender, e)
-                                                  lblRange.Text = $"{weekStart:dd MMM} - {weekStart.AddDays(6):dd MMM yyyy}"
+                                                  lblRange.Text = AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(6))
                                                   UpdateLblCountDisplay()
                                               End Sub
                 ' Drag and Drop Events for Empty Day Area
@@ -6725,8 +6723,8 @@ Public Class SchedulerNew2
             Dim weekAppts = _AppointmentC.Where(Function(a) a.StartDateTime.Date >= weekStart AndAlso a.StartDateTime.Date < weekStart.AddDays(6)).ToList()
 
             ' Create week header (tight height to text)
-            Dim weekHeaderText6 = If(Eng, $"Current Week: {weekStart:dd MMM yyyy} to {weekStart.AddDays(5):dd MMM yyyy}",
-                           $"الأسبوع الحالي: {weekStart:dd MMM yyyy} إلى {weekStart.AddDays(5):dd MMM yyyy}")
+            Dim weekHeaderText6 = If(Eng, $"Current Week: {AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(5))}",
+                           $"الأسبوع الحالي: {AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(5))}")
             Dim weekHeaderFont6 As New Font("Segoe UI", 12, FontStyle.Bold)
             Dim weekFlowPadH6 As Integer = mainFlow.Padding.Left + mainFlow.Padding.Right + 4
             Dim weekHeaderW6 = SchedulerBodyInnerFlowWidth(weekFlowPadH6)
@@ -6791,7 +6789,7 @@ Public Class SchedulerNew2
         }
 
                 ' Day header — single line, tight height
-                Dim dayHeaderText6 = $"{currentDay:ddd dd MMM} · " &
+                Dim dayHeaderText6 = $"{AppointDateFormat.FormatDayShortDate(currentDay)} · " &
             If(Eng, $"({dayAppts.Count} appt{If(dayAppts.Count <> 1, "s", "")})",
                     $"({dayAppts.Count} موعد{If(dayAppts.Count > 10 Or dayAppts.Count = 0, "", "اً")})")
                 Dim dayHeaderFont6 As Font = If(currentDay.Date = today,
@@ -6826,7 +6824,7 @@ Public Class SchedulerNew2
             .AllowDrop = True
         }
                 AddHandler doctorsFlow.Click, Sub(sender, e)
-                                                  lblRange.Text = $"{weekStart:dd MMM} - {weekStart.AddDays(5):dd MMM yyyy}"
+                                                  lblRange.Text = AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(5))
                                                   UpdateLblCountDisplay()
                                               End Sub
                 ' Drag and Drop Events for Empty Day Area
@@ -7403,8 +7401,8 @@ Public Class SchedulerNew2
 
             Dim grpWeek As New DevExpress.XtraEditors.GroupControl With {
             .Text = If(Eng,
-                        $"{weekStart:ddd dd MMM} – {weekLastDay:ddd dd MMM yyyy}   |   Total AppointmentC: {weekAppts.Count}",
-                        $"من {weekStart:dd MMM} إلى {weekLastDay:dd MMM yyyy}   |   إجمالي المواعيد: {weekAppts.Count}"),
+                        $"{AppointDateFormat.FormatDateRange(weekStart, weekLastDay)}   |   Total AppointmentC: {weekAppts.Count}",
+                        $"من {AppointDateFormat.FormatDateRange(weekStart, weekLastDay)}   |   إجمالي المواعيد: {weekAppts.Count}"),
             .Width = grpWeekContentW,
             .Height = targetGrpOuterH,
             .Padding = New Padding(6),
@@ -7412,7 +7410,7 @@ Public Class SchedulerNew2
             Dim AppearanceCaption = New DevExpress.Utils.AppearanceObject With {.Font = New Font("Segoe UI", 10, FontStyle.Bold)}
             grpWeek.AppearanceCaption.Assign(AppearanceCaption)
             AddHandler grpWeek.Click, Sub(sender, e)
-                                          lblRange.Text = $"{weekStart:dd MMM} - {weekLastDay:dd MMM yyyy}"
+                                          lblRange.Text = AppointDateFormat.FormatDateRange(weekStart, weekLastDay)
                                           UpdateLblCountDisplay()
                                       End Sub
             ' Caption + list tint for this week (do not read AppearanceCaption before parenting — often Black until skin applies)
@@ -7457,7 +7455,7 @@ Public Class SchedulerNew2
             }
 
                 ' day header label — one line (date · count)
-                Dim dayLine = $"{day:ddd dd MMM} · " &
+                Dim dayLine = $"{AppointDateFormat.FormatDayShortDate(day)} · " &
                             If(Eng,
                                $"({dayAppts.Count} appt{If(dayAppts.Count <> 1, "s", "")})",
                                $"({dayAppts.Count} موعد{If(dayAppts.Count > 10 Or dayAppts.Count = 0, "", "اً")})")
@@ -7914,13 +7912,13 @@ Public Class SchedulerNew2
             End Function
 
         If appts.Count = 0 Then
-            MessageBox.Show(If(Eng, $"No AppointmentC on {day:ddd, dd MMM yyyy}.", $"لا توجد مواعيد في {day:ddd, dd MMM yyyy}."),
+            MessageBox.Show(If(Eng, $"No AppointmentC on {AppointDateFormat.FormatDayShortDate(day)}.", $"لا توجد مواعيد في {AppointDateFormat.FormatDayShortDate(day)}."),
                         If(Eng, "Info", "معلومات"), MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
 
         Dim frm As New Form With {
-        .Text = If(Eng, $"AppointmentC on {day:dddd, dd MMM yyyy}", $"المواعيد في {day:dddd, dd MMM yyyy}"),
+        .Text = If(Eng, $"AppointmentC on {AppointDateFormat.FormatDayDate(day)}", $"المواعيد في {AppointDateFormat.FormatDayDate(day)}"),
         .Size = New Size(680, 680),
         .StartPosition = FormStartPosition.CenterScreen,
         .BackColor = Color.White
@@ -8282,13 +8280,13 @@ Public Class SchedulerNew2
             End Function
 
         If appts.Count = 0 Then
-            MessageBox.Show(If(Eng, $"No AppointmentC on {day:ddd, dd MMM yyyy}.", $"لا توجد مواعيد في {day:ddd, dd MMM yyyy}."),
+            MessageBox.Show(If(Eng, $"No AppointmentC on {AppointDateFormat.FormatDayShortDate(day)}.", $"لا توجد مواعيد في {AppointDateFormat.FormatDayShortDate(day)}."),
                             If(Eng, "Info", "معلومات"), MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
 
         Dim frm As New Form With {
-        .Text = If(Eng, $"AppointmentC on {day:dddd, dd MMM yyyy}", $"المواعيد في {day:dddd, dd MMM yyyy}"),
+        .Text = If(Eng, $"AppointmentC on {AppointDateFormat.FormatDayDate(day)}", $"المواعيد في {AppointDateFormat.FormatDayDate(day)}"),
         .Size = New Size(680, 680),
         .StartPosition = FormStartPosition.CenterScreen,
         .BackColor = Color.White
@@ -8749,15 +8747,15 @@ Public Class SchedulerNew2
             _AppointmentC.Where(Function(a) a.AppDate.Date = day.Date), getDoctorName)
         If appts.Count = 0 Then
             MessageBox.Show(If(Eng,
-                            $"No AppointmentC on {day:ddd, dd MMM yyyy}.",
-                            $"لا توجد مواعيد في {day:ddd, dd MMM yyyy}."),
+                            $"No AppointmentC on {AppointDateFormat.FormatDayShortDate(day)}.",
+                            $"لا توجد مواعيد في {AppointDateFormat.FormatDayShortDate(day)}."),
                             If(Eng, "Info", "معلومات"),
     MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
 
         Dim frm As New Form With {
-        .Text = If(Eng, $"AppointmentC on {day:dddd, dd MMM yyyy}", $"المواعيد في {day:dddd, dd MMM yyyy}"),
+        .Text = If(Eng, $"AppointmentC on {AppointDateFormat.FormatDayDate(day)}", $"المواعيد في {AppointDateFormat.FormatDayDate(day)}"),
         .Size = New Size(730, 500),
         .StartPosition = FormStartPosition.CenterScreen,
         .BackColor = Color.FromArgb(227, 239, 255)
@@ -9359,7 +9357,7 @@ Public Class SchedulerNew2
         Dim weekHeaderH62 As Integer = 40
         ' Create week header
         Dim weekHeader As New Label With {
-        .Text = $"Current Week: {weekStart:dd MMM yyyy} to {weekStart.AddDays(5):dd MMM yyyy}",
+        .Text = $"Current Week: {AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(5))}",
         .Width = weekHeaderW62,
         .Height = weekHeaderH62,
         .Font = New Font("Segoe UI", 12, FontStyle.Bold),
@@ -9414,7 +9412,7 @@ Public Class SchedulerNew2
 
             ' Day header
             Dim lblDay As New Label With {
-            .Text = $"{currentDay:ddd dd MMM}" & vbCrLf & $"({dayAppts.Count} appt{If(dayAppts.Count <> 1, "s", "")})",
+            .Text = $"{AppointDateFormat.FormatDayShortDate(currentDay)}" & vbCrLf & $"({dayAppts.Count} appt{If(dayAppts.Count <> 1, "s", "")})",
             .Size = New Size(dayColumn.Width, 50),
             .Location = New Point(2, 2),
             .TextAlign = ContentAlignment.MiddleCenter,
@@ -9645,7 +9643,7 @@ Public Class SchedulerNew2
 
         ' Create a new form to display the day view for the specific doctor
         Dim dayViewForm As New DevExpress.XtraEditors.XtraForm With {
-        .Text = $"Day View - Dr. {_repo.GetDoctorName(doctorId)} - {day:dd MMM yyyy}",
+        .Text = $"Day View - Dr. {_repo.GetDoctorName(doctorId)} - {AppointDateFormat.FormatDate(day)}",
         .Size = New Size(1200, 600),
         .StartPosition = FormStartPosition.CenterParent,
         .AllowFormSkin = True, ' Colorful background 

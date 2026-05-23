@@ -439,7 +439,7 @@ Public Class PatientVisitsCtl
         Return (From appt In appointments
                 Select New AppointmentView With {
                     .AppID = appt.AppointmentID,
-                    .ApptDate = appt.AppDate.ToShortDateString(),
+                    .ApptDate = AppointDateFormat.FormatDate(appt.AppDate),
                     .FromTo = $"{appt.StartDateTime:HH:mm} - {appt.EndDateTime:HH:mm}",
                     .PatientName = CachedPatientName(appt.PatientID),
                     .DoctorName = CachedDoctorName(appt.DrID),

@@ -2643,35 +2643,35 @@ Public Class WeekSched
             ' 🔹 Update lblCount to match displayed appts for current view (day/week/month/timeline)
             Select Case _view
                 'Case ViewMode.DayView
-                '    lblRange.Text = _currentDate.ToString("dddd, dd MMM yyyy")
+                '    lblRange.Text = AppointDateFormat.FormatDayDate(_currentDate)
                 Case ViewMode.ThisWeekFull
                     Dim currentDayOfWeek As Integer = CInt(_currentDate.DayOfWeek)
                     Dim daysToSaturday As Integer = (currentDayOfWeek - 6 + 7) Mod 7
                     Dim weekStart As DateTime = _currentDate.Date.AddDays(-daysToSaturday)
                     Dim weekEnd As DateTime = weekStart.AddDays(6)
-                    lblRange.Text = $"{weekStart:dd MMM} - {weekEnd:dd MMM yyyy}" ' Sat to Fri (7 days)
+                    lblRange.Text = AppointDateFormat.FormatDateRange(weekStart, weekEnd) ' Sat to Fri (7 days)
                     'Case ViewMode.ThisWeek
                     '    Dim currentDayOfWeek6 As Integer = CInt(_currentDate.DayOfWeek)
                     '    Dim daysToSaturday6 As Integer = (currentDayOfWeek6 - 6 + 7) Mod 7
                     '    Dim weekStart6 As DateTime = _currentDate.Date.AddDays(-daysToSaturday6)
                     '    Dim weekEnd6 As DateTime = weekStart6.AddDays(5)
-                    '    lblRange.Text = $"{weekStart6:dd MMM} - {weekEnd6:dd MMM yyyy}" ' Sat to Thu (6 days)
+                    '    lblRange.Text = AppointDateFormat.FormatDateRange(weekStart6, weekEnd6) ' Sat to Thu (6 days)
                     'Case ViewMode.MonthlyWeek
                     '    Dim startOfWeek = _currentDate.Date.AddDays(-CInt(_currentDate.DayOfWeek))
                     '    Dim endOfWeek = startOfWeek.AddDays(6)
-                    '    lblRange.Text = $"{startOfWeek:dd MMM} - {endOfWeek:dd MMM yyyy}"
+                    '    lblRange.Text = AppointDateFormat.FormatDateRange(startOfWeek, endOfWeek)
                     'Case ViewMode.MonthView
                     '    Dim monthStart = New DateTime(_currentDate.Year, _currentDate.Month, 1)
                     '    Dim monthEnd = monthStart.AddMonths(1).AddDays(-1)
-                    '    lblRange.Text = _currentDate.ToString("MMMM yyyy")
+                    '    lblRange.Text = AppointDateFormat.FormatMonthYear(_currentDate)
                     'Case ViewMode.DaysTimeline
                     '    Dim tlDow As Integer = CInt(_currentDate.DayOfWeek)
                     '    Dim tlDaysToSat As Integer = (tlDow - 6 + 7) Mod 7
                     '    Dim tlStart As DateTime = _currentDate.Date.AddDays(-tlDaysToSat)
                     '    Dim tlEnd As DateTime = tlStart.AddDays(6)
-                    '    lblRange.Text = $"{tlStart:dd MMM} - {tlEnd:dd MMM yyyy}"
+                    '    lblRange.Text = AppointDateFormat.FormatDateRange(tlStart, tlEnd)
                     'Case ViewMode.DoctorsDay
-                    '    lblRange.Text = _currentDate.ToString("dddd, dd MMM yyyy")
+                    '    lblRange.Text = AppointDateFormat.FormatDayDate(_currentDate)
             End Select
             UpdateLblCountDisplay()
 
@@ -3362,8 +3362,8 @@ Public Class WeekSched
 
         ' Create week header (tight height to text)
         Dim weekHeaderText = If(Eng,
-                                $"Current Week: {weekStart:dd MMM yyyy} to {weekStart.AddDays(6):dd MMM yyyy}",
-                                $"الأسبوع الحالي: {weekStart:dd MMM yyyy} إلى {weekStart.AddDays(6):dd MMM yyyy}")
+                                $"Current Week: {AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(6))}",
+                                $"الأسبوع الحالي: {AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(6))}")
         Dim weekHeaderFont As New Font("Calibri", 12, FontStyle.Bold)
         Dim weekFlowPadH As Integer = mainFlow.Padding.Left + mainFlow.Padding.Right + 4
         Dim weekHeaderW = SchedulerBodyInnerFlowWidth(weekFlowPadH)
@@ -3429,7 +3429,7 @@ Public Class WeekSched
                                             }
 
             ' Day header — single line, tight height
-            Dim dayHeaderText = $"{currentDay:ddd dd MMM} · " &
+            Dim dayHeaderText = $"{AppointDateFormat.FormatDayShortDate(currentDay)} · " &
                                             If(Eng, $"({dayAppts.Count} appt{If(dayAppts.Count <> 1, "s", "")})",
                                                $"({dayAppts.Count} موعد{If(dayAppts.Count > 10 Or dayAppts.Count = 0, "", "اً")})")
             Dim dayHeaderFont As Font = If(currentDay.Date = today,
@@ -3461,7 +3461,7 @@ Public Class WeekSched
                                                         .AllowDrop = True
                                                         }
             AddHandler doctorsFlow.Click, Sub(sender, e)
-                                              lblRange.Text = $"{weekStart:dd MMM} - {weekStart.AddDays(6):dd MMM yyyy}"
+                                              lblRange.Text = AppointDateFormat.FormatDateRange(weekStart, weekStart.AddDays(6))
                                               UpdateLblCountDisplay()
                                           End Sub
             ' Drag and Drop Events for Empty Day Area
@@ -4255,8 +4255,8 @@ Public Class WeekSched
 
         Dim dlg As New DevExpress.XtraEditors.XtraForm With {
             .Text = If(Eng,
-                $"Day — {_repo.GetDoctorName(doctorId)} — {day:dd MMM yyyy}",
-                $"يوم — {_repo.GetDoctorName(doctorId)} — {day:dd MMM yyyy}"),
+                $"Day — {_repo.GetDoctorName(doctorId)} — {AppointDateFormat.FormatDate(day)}",
+                $"يوم — {_repo.GetDoctorName(doctorId)} — {AppointDateFormat.FormatDate(day)}"),
             .Size = New Size(640, 480),
             .StartPosition = FormStartPosition.CenterParent,
             .FormBorderStyle = FormBorderStyle.SizableToolWindow}

@@ -191,8 +191,8 @@ Public Class FrmLabWhatsHistory
 
         txtPatient.Text = row.PatientName
         txtSubject.Text = row.SubjectText
-        txtMsgDate.Text = row.MsgDate.ToString("dd/MM/yyyy HH:mm")
-        txtReceiveDate.Text = If(row.ReceiveDate.HasValue, row.ReceiveDate.Value.ToString("dd/MM/yyyy"), "")
+        txtMsgDate.Text = AppointDateFormat.FormatDateTime(row.MsgDate)
+        txtReceiveDate.Text = If(row.ReceiveDate.HasValue, AppointDateFormat.FormatDate(row.ReceiveDate.Value), "")
         memoNote.Text = row.Note
         memoMessageBody.Text = row.MessageBody
         txtClinicLab.Visible = True

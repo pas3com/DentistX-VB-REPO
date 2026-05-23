@@ -45,9 +45,15 @@ Friend Module SettingsRuntimeApply
     ''' <see cref="CultureInfo.CreateSpecificCulture"/>(<c>ar-JO</c>) can follow Windows calendar overrides (Hijri);
     ''' neutral <c>ar</c> as <see cref="CultureInfo.CurrentCulture"/> uses Um Al Qura — avoid both for consistent Gregorian dates.
     ''' </summary>
+    Friend Function CreateEnglishRegionalCultureGregorian() As CultureInfo
+        Dim c = New CultureInfo("en-US", useUserOverride:=False)
+        AppointDateFormat.ApplyToCulture(c)
+        Return c
+    End Function
+
     Friend Function CreateArabicRegionalCultureGregorian() As CultureInfo
         Dim c = New CultureInfo("ar-JO", useUserOverride:=False)
-        c.DateTimeFormat.Calendar = New GregorianCalendar()
+        AppointDateFormat.ApplyToCulture(c)
         Return c
     End Function
 
@@ -61,8 +67,8 @@ Friend Module SettingsRuntimeApply
         Dim regionalCulture As CultureInfo
         If String.Equals(lang, "en", StringComparison.OrdinalIgnoreCase) Then
             Eng = True
-            uiCulture = New CultureInfo("en")
-            regionalCulture = CultureInfo.CreateSpecificCulture("en-US")
+            uiCulture = New CultureInfo("en", useUserOverride:=False)
+            regionalCulture = CreateEnglishRegionalCultureGregorian()
         Else
             Eng = False
             regionalCulture = CreateArabicRegionalCultureGregorian()

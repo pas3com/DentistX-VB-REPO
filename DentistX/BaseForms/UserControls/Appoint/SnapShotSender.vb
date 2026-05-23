@@ -64,11 +64,11 @@ Partial Public Class SnapShotSender
     End Function
 
     Private Shared Function FormatLogDateOnly(d As Date) As String
-        Return d.ToString("dd/MM/yyyy", CultureInfo.CurrentCulture)
+        Return AppointDateFormat.FormatDate(d)
     End Function
 
     Private Shared Function FormatLogDateTime12Hour(dt As DateTime) As String
-        Return dt.ToString("dd/MM/yyyy hh:mm tt", CultureInfo.CurrentCulture)
+        Return AppointDateFormat.FormatDateTimeWithAmPm(dt)
     End Function
 
     Private Sub ViewLog_CustomColumnDisplayText(sender As Object, e As CustomColumnDisplayTextEventArgs)
