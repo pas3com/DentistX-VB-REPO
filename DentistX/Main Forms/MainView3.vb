@@ -536,7 +536,8 @@ Public Class MainView3
         'idleManager.Start()
 
         'btnSettings.Enabled = Perms.CanDo("Admins.ALl")
-        NewSplash.ShowDialog(Me)
+        NewSplash.StartPosition = FormStartPosition.CenterScreen
+        NewSplash.ShowDialog(ResolveStartupModalOwner())
         'Splash1.ShowDialog(Me)
         ' Shell stays hidden (Opacity 0 from ctor) until RevealMainShellAfterAuth. Defer DB/login until after Load returns anyway — showing
         ' FrmChooseConn / FrmLogin with owner Me from inside Load still triggers DevExpress v25.1 FluentDesignFormCheckSkinCaptionPainter NRE
@@ -854,6 +855,66 @@ Public Class MainView3
             ApptErrorHelper.Report(ex, $"MainView3.TryStartMainTimer.{timerName}", showUser:=False)
         End Try
     End Sub
+    ''' <summary>
+    ''' Do not use <see cref="FluentDesignForm"/> as a modal owner while the shell is hidden (Opacity 0) — DevExpress v25.1
+    ''' <c>CheckSkinCaptionPainter</c> can throw <see cref="NullReferenceException"/> (see crash logs 20260506+).
+    ''' </summary>
+    Private Function ResolveStartupModalOwner() As IWin32Window
+        Try
+            If IsDisposed OrElse Not IsHandleCreated Then Return Nothing
+            If Opacity < 0.99R Then Return Nothing
+            Return Me
+        Catch
+            Return Nothing
+        End Try
+    End Function
+
+    Private Shared Function IsFluentDesignSkinCaptionPainterCrash(ex As Exception) As Boolean
+        Dim cur = ex
+        While cur IsNot Nothing
+            If TypeOf cur Is NullReferenceException Then
+                Dim st = cur.StackTrace
+                If st IsNot Nothing AndAlso st.IndexOf("CheckSkinCaptionPainter", StringComparison.OrdinalIgnoreCase) >= 0 Then
+                    Return True
+                End If
+            End If
+            cur = cur.InnerException
+        End While
+        Return False
+    End Function
+
+    Private Function ShowModalDialogSafe(form As Form, context As String) As DialogResult
+        If form Is Nothing Then Return DialogResult.Cancel
+        form.StartPosition = FormStartPosition.CenterScreen
+        Dim owner = ResolveStartupModalOwner()
+        Try
+            Return form.ShowDialog(owner)
+        Catch ex As Exception When IsFluentDesignSkinCaptionPainterCrash(ex)
+            ApptErrorHelper.Report(ex, $"{context}.ShowDialog(owner)", showUser:=False)
+            Try
+                Return form.ShowDialog(Nothing)
+            Catch ex2 As Exception
+                ApptErrorHelper.Report(ex2, $"{context}.ShowDialog(noOwner)", showUser:=False)
+                MessageBox.Show(
+                    If(Eng,
+                       "The connection window could not be opened because of a display issue. Please restart DentistX and try again." & vbCrLf & vbCrLf & ex2.Message,
+                       "تعذر فتح نافذة الاتصال بسبب مشكلة في العرض. أعد تشغيل DentistX وحاول مرة أخرى." & vbCrLf & vbCrLf & ex2.Message),
+                    If(Eng, "DentistX", "DentistX"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return DialogResult.Cancel
+            End Try
+        Catch ex As Exception
+            ApptErrorHelper.Report(ex, $"{context}.ShowDialog", showUser:=False)
+            MessageBox.Show(
+                If(Eng,
+                   "The connection window could not be opened." & vbCrLf & vbCrLf & ex.Message,
+                   "تعذر فتح نافذة الاتصال." & vbCrLf & vbCrLf & ex.Message),
+                If(Eng, "DentistX", "DentistX"),
+                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return DialogResult.Cancel
+        End Try
+    End Function
+
     Private Sub EnsureDatabaseConnection()
         While True
             Try
@@ -868,15 +929,16 @@ Public Class MainView3
                     ShowLoginForm()
                     Exit While
                 Else
-                    Throw New Exception("Database connection test failed")
+                    Throw New Exception(If(Eng, "Database connection test failed.", "فشل اختبار الاتصال بقاعدة البيانات."))
                 End If
 
             Catch ex As Exception
-                Dim result = MessageBox.Show($"Cannot connect to database: {ex.Message}" &
-                                       Environment.NewLine &
-                                       "Would you like to configure database connection?",
-                                       "Database Connection Error",
-                                       MessageBoxButtons.YesNo, MessageBoxIcon.Error)
+                Dim result = MessageBox.Show(
+                    If(Eng,
+                       $"Cannot connect to the database.{Environment.NewLine}{Environment.NewLine}{ex.Message}{Environment.NewLine}{Environment.NewLine}Would you like to configure the database connection?",
+                       $"تعذر الاتصال بقاعدة البيانات.{Environment.NewLine}{Environment.NewLine}{ex.Message}{Environment.NewLine}{Environment.NewLine}هل تريد إعداد الاتصال بقاعدة البيانات؟"),
+                    If(Eng, "Database connection", "اتصال قاعدة البيانات"),
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Error)
 
                 If result = DialogResult.Yes Then
                     ShowConnectionConfigurationForm()
@@ -900,15 +962,18 @@ Public Class MainView3
     Private Sub ShowConnectionConfigurationForm()
         Using configForm As New FrmChooseConn()
             configForm.Icon = AppIcon
-            If configForm.ShowDialog(Me) <> DialogResult.OK Then
-                MsgBox("User canceled connection configuration")
+            If ShowModalDialogSafe(configForm, NameOf(ShowConnectionConfigurationForm)) <> DialogResult.OK Then
+                MessageBox.Show(
+                    If(Eng, "Connection setup was canceled. DentistX will close.", "تم إلغاء إعداد الاتصال. سيتم إغلاق البرنامج."),
+                    If(Eng, "DentistX", "DentistX"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()
             End If
         End Using
     End Sub
     Private Sub ShowLoginForm()
         FrmLogin.Icon = AppIcon
-        Dim result = FrmLogin.ShowDialog(Me)
+        Dim result = ShowModalDialogSafe(FrmLogin, NameOf(ShowLoginForm))
 
         If result = DialogResult.OK Then
             ApplyFormAccessShell()
